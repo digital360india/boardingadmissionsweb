@@ -1,8 +1,13 @@
+import Navbar from '@/components/frontend/Navbar'
+import WhoWeAre from '@/components/frontend/WhoWeAre'
 import React from 'react'
 
 const HomePage = () => {
   return (
-    <div>HomePage</div>
+    <div>
+      <Navbar/>
+      <WhoWeAre/>
+    </div>
   )
 }
 
