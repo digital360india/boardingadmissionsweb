@@ -1,6 +1,6 @@
 
 import { Poppins, Jost, Barlow, Space_Grotesk } from '@next/font/google';
-import '../styles/globals.css';
+import '../app/globals.css'
 
 const poppins = Poppins({
   weight: ['400', '500'],
