@@ -3,8 +3,10 @@
 @tailwind utilities;
 
 
-body {
-  font-family: 'Poppins', sans-serif;
+
+
+.poppins{
+    font-family: var(--font-poppins);
 }
 
 .h1 {

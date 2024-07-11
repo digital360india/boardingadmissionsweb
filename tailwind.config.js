@@ -40,12 +40,7 @@ module.exports = {
         neutral06: "#CCCCCC",
         neutral06: "#E6E6E6",
       },
-      fontFamily: {
-        poppins: ['Poppins', 'sans-serif'],
-        jost: ['Jost', 'sans-serif'],
-        barlow: ['Barlow', 'sans-serif'],
-        spaceGrotesk: ['Space Grotesk', 'sans-serif'],
-      },
+
       fontSize: {
         '56px': '56px',
         '18px': '18px',
