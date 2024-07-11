@@ -1,8 +1,8 @@
 import React from 'react'
-
+import '@/app/globals.css'
 const HomePage = () => {
   return (
-    <div>HomePage</div>
+    <div className='font-spaceGrotesk text-56px '>HomePage</div>
   )
 }
 
