@@ -9,6 +9,10 @@ module.exports = {
     extend: {
       backgroundImage: {
         gradient: "linear-gradient(to right, #C9184A, #FFB5A7)",
+        gradient01: "linear-gradient(to right, #075D70, #A1C5CD)",
+        gradient02: "linear-gradient(to right, #075D70, #FEFEFE)",
+        gradient03: "linear-gradient(to bottom, #075D70 100%, #CACBCB 100%)",
+        bordergradient1: "linear-gradient(to right, rgba(7, 93, 112, 0.19), rgba(13, 178, 214, 0.1))",
       },
       colors: {
         background01: "#F4FCFC",
@@ -27,8 +31,7 @@ module.exports = {
         errorState01: "#4BB53A",
         errorState02: "#ADD1A7",
         errorState03: "#BFD1BC",
-        gradient01: "linear-gradient(to right, #075D70, #0DB2D6)",
-        gradient02: "linear-gradient(to right, #075D70, #FEFEFE)",
+        
         neutral01: "#1E1E1E",
         neutral02: "#333333",
         neutral03: "#666666",
