@@ -23,7 +23,7 @@ export default function Navbar() {
 
   return (
     <div>
-      <div className="flex   font-sans text-xl bg-transparent absolute top-0 py-4 w-full h-[14.5vh] font-sans text-xl z-20 backdrop-blur-lg backdrop-brightness-50 backdrop-contrast-75 backdrop-grayscale-20 backdrop-saturate-150 backdrop-opacity-10">
+      <div className="flex   font-sans text-xl bg-transparent absolute top-0 py-4 w-full h-[14.5vh]  z-20 backdrop-blur-lg backdrop-brightness-50 backdrop-contrast-75 backdrop-grayscale-20 backdrop-saturate-150 backdrop-opacity-10">
         <div className="flex py-4 md:py-0  w-[100vw] items-center  justify-between px-2 md:px-0 md:justify-around    space-x-8 text-white hover:text-gray-300">
           <div className="hamburger ps-6  order-1  cursor-pointer md:hidden">
             <div className="line h-0.5 w-6 bg-black my-1"></div>

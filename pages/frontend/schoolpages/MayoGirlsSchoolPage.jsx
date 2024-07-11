@@ -1,9 +1,7 @@
 import React from 'react'
 
-const MayoGirlsSchoolPage = () => {
+export const MayoGirlsSchoolPage = () => {
   return (
     <div>MayoGirlsSchoolPage</div>
   )
 }
-
-export default MayoGirlsSchoolPage

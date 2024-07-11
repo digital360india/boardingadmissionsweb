@@ -5,8 +5,8 @@ import '@/app/globals.css'
 const HomePage = () => {
   return (
     <div>
-      <Navbar/>
-      <WhoWeAre/>
+      {/* <Navbar/> */}
+      {/* <WhoWeAre/> */}
     </div>
   )
 }
