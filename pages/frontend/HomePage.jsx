@@ -6,6 +6,7 @@ import TrustedByStudent from '@/components/frontend/TrustedByStudent'
 import WhoWeAre from '@/components/frontend/WhoWeAre'
 import React from 'react'
 import '@/app/globals.css'
+import Stories from '@/components/frontend/Stories'
 const HomePage = () => {
   return (
     <div>
@@ -15,6 +16,7 @@ const HomePage = () => {
       <CoursesWeOffer/>
       <OurTeam/>
       <FeaturedBlog/>
+      <Stories/>
     </div>
   )
 }
