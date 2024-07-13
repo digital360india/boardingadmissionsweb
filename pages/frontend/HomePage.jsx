@@ -3,10 +3,14 @@ import WhoWeAre from '@/components/frontend/WhoWeAre'
 import React from 'react'
 import '@/app/globals.css'
 const HomePage = () => {
+
+
+
   return (
     <div>
-      <Navbar/>
-      <WhoWeAre/>
+
+      {/* <Navbar/>
+      <WhoWeAre/> */}
     </div>
   )
 }
