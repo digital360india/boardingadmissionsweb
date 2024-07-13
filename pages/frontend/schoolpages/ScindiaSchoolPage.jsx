@@ -44,26 +44,22 @@ function ScindiaSchoolPage() {
             </div>
             <div className='flex text-center gap-3'>
               <h2 className='text-[#075D70] '>5.0</h2>
-
               <div>
                 {
                   [1, 2, 3, 4, 5].map((num) => (
-                    <button>
+                    <button key={num}>
                       <span className='text-yellow-600'>
                         &#9733;
                       </span>
                     </button>
                   ))
-
                 }
               </div>
-
-
               <h2 className='text-[#075D70] '>Google reviews</h2>
             </div>
 
             <div className=' flex sm:w-[50%] gap-3 mb-2 sm:mb-0'>
-                <h3 className='px-1 py-1 rounded-md bg-[#6198A3] bg-opacity-[12%] text-black '>Private School</h3>
+              <h3 className='px-1 py-1 rounded-md bg-[#6198A3] bg-opacity-[12%] text-black '>Private School</h3>
               <h3 className='px-1 py-1 rounded-md bg-[#6198A3] bg-opacity-[12%] text-black '>Estd.- 1995</h3>
             </div>
           </div>
@@ -101,7 +97,7 @@ function ScindiaSchoolPage() {
         <div className='space-y-4 w-[90vw]  mt-10 '>
           <div className=''><h1 className='text-[#075D70] font-semibold  text-[2rem] '>About School</h1></div>
           <div >
-            <p className='leading-6 w-[88vw] text-[1.15rem]'>Scindia Girls' School, Gwalior, is a prestigious boarding school renowned for its commitment to empowering young women through education. Situated in the historic city of Gwalior, the school is a harmonious blend of rich cultural heritage and progressive educational methodologies. They offer a rigorous academic program complemented by a diverse array of extracurricular activities, ensuring a well-rounded development for each student. Their focus extends beyond academic excellence, emphasizing the cultivation of leadership, creativity, and ethical values. Scindia Girls' School boasts state-of-the-art facilities, a dedicated faculty, and a nurturing boarding environment that together create an ideal setting for our students to thrive and evolve into confident, capable individuals ready to make a positive impact in the world.</p>
+            <p className='leading-6 w-[88vw] text-[1.15rem]'>Scindia Girls&apos; School, Gwalior, is a prestigious boarding school renowned for its commitment to empowering young women through education. Situated in the historic city of Gwalior, the school is a harmonious blend of rich cultural heritage and progressive educational methodologies. They offer a rigorous academic program complemented by a diverse array of extracurricular activities, ensuring a well-rounded development for each student. Their focus extends beyond academic excellence, emphasizing the cultivation of leadership, creativity, and ethical values. Scindia Girls&apos; School boasts state-of-the-art facilities, a dedicated faculty, and a nurturing boarding environment that together create an ideal setting for our students to thrive and evolve into confident, capable individuals ready to make a positive impact in the world.</p>
           </div>
         </div>
 
@@ -109,13 +105,13 @@ function ScindiaSchoolPage() {
           <div><h1 className='text-[#075D70] font-semibold text-[2rem]'>Admission Procedure</h1></div>
           <div>
             <ul className="list-disc pl-4 space-y-4 text-[1.15rem]">
-              <li><span  className='font-medium'> Choose the Exam:</span> Decide between the Common Aptitude Analysis (CAA) and Scindia School Aptitude Analysis (SAA), both covering Mathematics, English, and Hindi.</li>
-              <li> <span  className='font-medium'>Exam Centers: </span>Exams are conducted in Kolkata, Mumbai, New Delhi, Lucknow, and Gwalior.</li>
-              <li><span  className='font-medium'>Exam Schedules:</span> CAA is held every third Saturday of November. SAA is in January/February, with Gwalior center registrations open until January 27. On-the-spot SAA registrations are available.</li>
-              <li><span  className='font-medium'> Aadhar Card Submission:</span> Mandatory for all Indian states except J & K, Assam, Meghalaya.</li>
-              <li><span  className='font-medium'>Eligibility for Admission:</span> Candidates for classes VI, VII, and VIII should be under the age-appropriate maximum age as of January 1 of the admission year. Classes IX and XI may admit exceptionally meritorious students if vacancies are available.</li>
-              <li><span  className='font-medium'>Interactive Session: </span>Shortlisted students will be invited to the school for an interactive session including games, sports, and faculty interaction.</li>
-              <li><span  className='font-medium'>Download Syllabus: </span>Available on the school's website after registration.</li>
+              <li><span className='font-medium'> Choose the Exam:</span> Decide between the Common Aptitude Analysis (CAA) and Scindia School Aptitude Analysis (SAA), both covering Mathematics, English, and Hindi.</li>
+              <li> <span className='font-medium'>Exam Centers: </span>Exams are conducted in Kolkata, Mumbai, New Delhi, Lucknow, and Gwalior.</li>
+              <li><span className='font-medium'>Exam Schedules:</span> CAA is held every third Saturday of November. SAA is in January/February, with Gwalior center registrations open until January 27. On-the-spot SAA registrations are available.</li>
+              <li><span className='font-medium'> Aadhar Card Submission:</span> Mandatory for all Indian states except J & K, Assam, Meghalaya.</li>
+              <li><span className='font-medium'>Eligibility for Admission:</span> Candidates for classes VI, VII, and VIII should be under the age-appropriate maximum age as of January 1 of the admission year. Classes IX and XI may admit exceptionally meritorious students if vacancies are available.</li>
+              <li><span className='font-medium'>Interactive Session: </span>Shortlisted students will be invited to the school for an interactive session including games, sports, and faculty interaction.</li>
+              <li><span className='font-medium'>Download Syllabus: </span>Available on the school&apos;s website after registration.</li>
             </ul>
           </div>
         </div>
