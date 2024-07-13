@@ -1,43 +1,16 @@
 "use client";
 import Image from "next/image";
 import React, { useState } from "react";
+import Faqdata from "@/utils/frontend/FaqData.js"
+
 const Faq = () => {
   const [activeQuestion, setActiveQuestion] = useState(false);
   const handleToggle = (id) => {
     setActiveQuestion(activeQuestion === id ? null : id);
   };
-  const Faqdata= [
-    {
-        id:1,
-        question: "dfd kfjfk f dfkj df ",
-        answer: "Our platform offers expert guidance, application tracking, and continuous support to help you navigate the college admissions process efficiently.",
-    },
-    {
-        id:2,
-        question: " technology benefit me?",
-        answer: "u find the best college match, saving you time and reducing stress in the decision-making process.",
-    },
-    {
-        id:3,
-        question: " application process?",
-        answer: " We assist with essay writing, interview preparation, scholarship searches, and financial aid applications.",
-    },
-    {
-        id:4,
-        question: " specific career goals?",
-        answer: " our platform provides recommendations that align with your aspirations.",
-    },
-    {
-        id:5,
-        question: "How can I get started ?",
-        answer: "You can then access our expert counseling services and track your applications through our user-friendly platform.",
-    },
-    {
-        id:6,
-        question: "financial aid?",
-        answer: " ensuring you have access to resources that can help fund your education.",
-    },
-];
+
+
+
   return (
     <>
       <div className="md:flex md:justify-center md:items-center ">
