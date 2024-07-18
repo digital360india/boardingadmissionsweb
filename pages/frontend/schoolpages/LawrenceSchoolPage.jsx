@@ -17,7 +17,7 @@ const star = [
 
 
 
-function ScindiaSchoolPage() {
+function LawrenceSchoolPage() {
   return (
     <div className='h-auto w-[100%]'>
 
@@ -25,7 +25,7 @@ function ScindiaSchoolPage() {
         <div className='h-auto w-[100%]'>
 
           <Image
-            src="/images/SchoolBanner/scindia.svg"
+            src="/images/SchoolBanner/Lawrenceframe.svg"
             alt="Descriptive text for screen readers"
             className="w-full "
             width={2}
@@ -37,7 +37,7 @@ function ScindiaSchoolPage() {
         <div className='w-[13vw] '>
           <Image
 
-            src="/images/SchoolBanner/scindialogo.svg"
+            src="/images/SchoolBanner/Lawrencelogo.svg"
             className='absolute inset-0 left-[5%] top-[68%] w-[13vw] '
             width={2}
             height={2}
@@ -53,7 +53,7 @@ function ScindiaSchoolPage() {
         <div className='relative h-[28vh]  sm:h-[24vh] md:h-[22vh]   w-full  border-b-2  sm:flex sm:justify-between'>
           <div className='w-full flex flex-col  gap-5'>
             <div className=''>
-              <h1 className='text-[#075D70]  text-[2rem] font-bold'>Scindia School, Gwalior,   Madhya Pradesh</h1>
+              <h1 className='text-[#075D70]  text-[2rem] font-bold'>Lawrence School, Sanawar, Himanchal Pradesh</h1>
             </div>
             <div className='flex text-center gap-3'>
               <h2 className='text-[#075D70] '>4.2</h2>
@@ -117,7 +117,7 @@ function ScindiaSchoolPage() {
         <div className='space-y-4 w-[90vw]  mt-10 '>
           <div className=''><h1 className='text-[#075D70] font-semibold  text-[2rem] '>About School</h1></div>
           <div >
-            <p className='leading-6 w-[88vw] text-[1.15rem]'>Scindia Girls&apos; School, Gwalior, is a prestigious boarding school renowned for its commitment to empowering young women through education. Situated in the historic city of Gwalior, the school is a harmonious blend of rich cultural heritage and progressive educational methodologies. They offer a rigorous academic program complemented by a diverse array of extracurricular activities, ensuring a well-rounded development for each student. Their focus extends beyond academic excellence, emphasizing the cultivation of leadership, creativity, and ethical values. Scindia Girls&apos; School boasts state-of-the-art facilities, a dedicated faculty, and a nurturing boarding environment that together create an ideal setting for our students to thrive and evolve into confident, capable individuals ready to make a positive impact in the world.</p>
+            <p className='leading-6 w-[88vw] text-[1.15rem]'>Lawrence School, Sanawar, Himanchal Pradesh, is a prestigious boarding school renowned for its commitment to empowering young women through education. Situated in the historic city of Gwalior, the school is a harmonious blend of rich cultural heritage and progressive educational methodologies. They offer a rigorous academic program complemented by a diverse array of extracurricular activities, ensuring a well-rounded development for each student. Their focus extends beyond academic excellence, emphasizing the cultivation of leadership, creativity, and ethical values. Scindia Girls&apos; School boasts state-of-the-art facilities, a dedicated faculty, and a nurturing boarding environment that together create an ideal setting for our students to thrive and evolve into confident, capable individuals ready to make a positive impact in the world.</p>
           </div>
         </div>
 
@@ -154,4 +154,4 @@ function ScindiaSchoolPage() {
   )
 }
 
-export default ScindiaSchoolPage
+export default LawrenceSchoolPage

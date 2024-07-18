@@ -17,7 +17,7 @@ const star = [
 
 
 
-function ScindiaSchoolPage() {
+function WoodStockPage() {
   return (
     <div className='h-auto w-[100%]'>
 
@@ -25,7 +25,7 @@ function ScindiaSchoolPage() {
         <div className='h-auto w-[100%]'>
 
           <Image
-            src="/images/SchoolBanner/scindia.svg"
+            src="/images/SchoolBanner/woodstockframe.svg"
             alt="Descriptive text for screen readers"
             className="w-full "
             width={2}
@@ -37,7 +37,7 @@ function ScindiaSchoolPage() {
         <div className='w-[13vw] '>
           <Image
 
-            src="/images/SchoolBanner/scindialogo.svg"
+            src="/images/SchoolBanner/woodstocklogo.svg"
             className='absolute inset-0 left-[5%] top-[68%] w-[13vw] '
             width={2}
             height={2}
@@ -154,4 +154,4 @@ function ScindiaSchoolPage() {
   )
 }
 
-export default ScindiaSchoolPage
+export default WoodStockPage
