@@ -7,11 +7,13 @@ import WhoWeAre from '@/components/frontend/WhoWeAre'
 import React from 'react'
 import '@/app/globals.css'
 import Stories from '@/components/frontend/Stories'
+import ScrollAnimation from '@/components/frontend/ScrollAnimation'
 const HomePage = () => {
   return (
     <div>
       <Navbar/>
       <WhoWeAre/>
+      <ScrollAnimation/>
       <TrustedByStudent/>
       <CoursesWeOffer/>
       <OurTeam/>
