@@ -1,0 +1,170 @@
+"use client"
+import React, { useState } from 'react';
+import Image from 'next/image'; // Assuming you are using Next.js for image optimization
+
+const items = [
+  {
+    imageSrc: '/images/blog.svg', // Replace with your image source
+    title: 'Lorem ipsum dolor sit amet consectetur. Nunc.',
+    description: 'Lorem ipsum dolor sit amet consectetur. Sem scelerisque amet felis pretium at.',
+  },
+  {
+    imageSrc: '/images/blog.svg', // Replace with your image source
+    title: 'Lorem ipsum dolor sit amet consectetur. Nunc.',
+    description: 'Lorem ipsum dolor sit amet consectetur. Sem scelerisque amet felis pretium at.',
+  },
+  {
+    imageSrc: '/images/blog.svg', // Replace with your image source
+    title: 'Lorem ipsum dolor sit amet consectetur. Nunc.',
+    description: 'Lorem ipsum dolor sit amet consectetur. Sem scelerisque amet felis pretium at.',
+  },
+  {
+    imageSrc: '/images/blog.svg', // Replace with your image source
+    title: 'Lorem ipsum dolor sit amet consectetur. Nunc.',
+    description: 'Lorem ipsum dolor sit amet consectetur. Sem scelerisque amet felis pretium at.',
+  },
+  {
+    imageSrc: '/images/blog.svg', // Replace with your image source
+    title: 'Lorem ipsum dolor sit amet consectetur. Nunc.',
+    description: 'Lorem ipsum dolor sit amet consectetur. Sem scelerisque amet felis pretium at.',
+  },
+  {
+    imageSrc: '/images/blog.svg', // Replace with your image source
+    title: 'Lorem ipsum dolor sit amet consectetur. Nunc.',
+    description: 'Lorem ipsum dolor sit amet consectetur. Sem scelerisque amet felis pretium at.',
+  },
+  {
+    imageSrc: '/images/blog.svg', // Replace with your image source
+    title: 'Lorem ipsum dolor sit amet consectetur. Nunc.',
+    description: 'Lorem ipsum dolor sit amet consectetur. Sem scelerisque amet felis pretium at.',
+  },
+  {
+    imageSrc: '/images/blog.svg', // Replace with your image source
+    title: 'Lorem ipsum dolor sit amet consectetur. Nunc.',
+    description: 'Lorem ipsum dolor sit amet consectetur. Sem scelerisque amet felis pretium at.',
+  },
+  {
+    imageSrc: '/images/blog.svg', // Replace with your image source
+    title: 'Lorem ipsum dolor sit amet consectetur. Nunc.',
+    description: 'Lorem ipsum dolor sit amet consectetur. Sem scelerisque amet felis pretium at.',
+  },
+  {
+    imageSrc: '/images/blog.svg', // Replace with your image source
+    title: 'Lorem ipsum dolor sit amet consectetur. Nunc.',
+    description: 'Lorem ipsum dolor sit amet consectetur. Sem scelerisque amet felis pretium at.',
+  },
+  {
+    imageSrc: '/images/blog.svg', // Replace with your image source
+    title: 'Lorem ipsum dolor sit amet consectetur. Nunc.',
+    description: 'Lorem ipsum dolor sit amet consectetur. Sem scelerisque amet felis pretium at.',
+  },
+  {
+    imageSrc: '/images/blog.svg', // Replace with your image source
+    title: 'Lorem ipsum dolor sit amet consectetur. Nunc.',
+    description: 'Lorem ipsum dolor sit amet consectetur. Sem scelerisque amet felis pretium at.',
+  },
+  {
+    imageSrc: '/images/blog.svg', // Replace with your image source
+    title: 'Lorem ipsum dolor sit amet consectetur. Nunc.',
+    description: 'Lorem ipsum dolor sit amet consectetur. Sem scelerisque amet felis pretium at.',
+  },
+  {
+    imageSrc: '/images/blog.svg', // Replace with your image source
+    title: 'Lorem ipsum dolor sit amet consectetur. Nunc.',
+    description: 'Lorem ipsum dolor sit amet consectetur. Sem scelerisque amet felis pretium at.',
+  },
+  {
+    imageSrc: '/images/blog.svg', // Replace with your image source
+    title: 'Lorem ipsum dolor sit amet consectetur. Nunc.',
+    description: 'Lorem ipsum dolor sit amet consectetur. Sem scelerisque amet felis pretium at.',
+  },
+];
+
+export default function BlogsCards() {
+
+  const [currentPage, setCurrentPage] = useState(1);
+  const itemsPerPage = 9;
+
+  // Calculate the total number of pages
+  const totalPages = Math.ceil(items.length / itemsPerPage);
+
+  // Get the items for the current page
+  const currentItems = items.slice((currentPage - 1) * itemsPerPage, currentPage * itemsPerPage);
+
+  // Function to handle page change
+  const goToPage = (pageNumber) => {
+    setCurrentPage(pageNumber);
+  };
+
+  // Function to render page numbers
+  const renderPageNumbers = () => {
+    const pageNumbers = [];
+    for (let i = 1; i <= totalPages; i++) {
+      pageNumbers.push(
+        <button
+          key={i}
+          onClick={() => goToPage(i)}
+          className={`px-4 py-2 rounded-lg mr-2 ${
+            currentPage === i ? 'bg-primary02 text-white' : 'bg-gray-200'
+          }`}
+        >
+          {i}
+        </button>
+      );
+    }
+    return pageNumbers;
+  };
+
+  return (
+    <div>
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-8 px-[99px]">
+        {currentItems.map((item, index) => (
+          <div key={index} className="bg-white rounded-lg shadow-md">
+            <div className="mb-4">
+              <Image
+                src={item.imageSrc}
+                width={3}
+                height={244}
+                alt="Image"
+                className="rounded-lg w-full"
+              />
+            </div>
+            <div className='p-6'>
+              <div>
+                <p className="text-xl font-medium">{item.title}</p>
+              </div>
+              <div>
+                <p className="text-base font-normal">{item.description}</p>
+              </div>
+              <div className="text-lg text-primary02 mt-4">
+                <button className="bg-primary02 text-white px-4 py-2 rounded-lg">READ MORE</button>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+
+      <div className="flex justify-center mt-8">
+        <button
+          onClick={() => goToPage(currentPage - 1)}
+          className={`px-4 py-2 rounded-lg mr-2 ${
+            currentPage === 1 ? 'bg-gray-200 cursor-not-allowed' : 'bg-primary02 text-white'
+          }`}
+          disabled={currentPage === 1}
+        >
+          Previous
+        </button>
+        {renderPageNumbers()}
+        <button
+          onClick={() => goToPage(currentPage + 1)}
+          className={`px-4 py-2 rounded-lg mr-2 ${
+            currentPage === totalPages ? 'bg-gray-200 cursor-not-allowed' : 'bg-primary02 text-white'
+          }`}
+          disabled={currentPage === totalPages}
+        >
+          Next
+        </button>
+      </div>
+    </div>
+  );
+}
