@@ -8,8 +8,12 @@ import React from 'react'
 import '@/app/globals.css'
 import Stories from '@/components/frontend/Stories'
 const HomePage = () => {
+
+
+
   return (
     <div>
+
       <Navbar/>
       <WhoWeAre/>
       <TrustedByStudent/>
@@ -17,6 +21,7 @@ const HomePage = () => {
       <OurTeam/>
       <FeaturedBlog/>
       <Stories/>
+
     </div>
   )
 }
