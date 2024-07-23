@@ -116,8 +116,8 @@ export default function BlogsCards() {
   };
 
   return (
-    <div>
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-8 px-[99px]">
+    <div className='px-[99px]'>
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-8 ">
         {currentItems.map((item, index) => (
           <div key={index} className="bg-white rounded-lg shadow-md">
             <div className="mb-4">
@@ -144,25 +144,37 @@ export default function BlogsCards() {
         ))}
       </div>
 
-      <div className="flex justify-center mt-8">
+      <div className="flex justify-end mt-8 space-x-10 ">
         <button
           onClick={() => goToPage(currentPage - 1)}
           className={`px-4 py-2 rounded-lg mr-2 ${
-            currentPage === 1 ? 'bg-gray-200 cursor-not-allowed' : 'bg-primary02 text-white'
+            currentPage === 1 ? 'cursor-not-allowed' : ' text-black'
           }`}
           disabled={currentPage === 1}
         >
-          Previous
+           <Image
+                width={1}
+                height={1}
+                    src="/images/leftbutton.svg"
+                    alt="/"
+                    className="object-cover w-full h-full "
+                  />
         </button>
         {renderPageNumbers()}
         <button
           onClick={() => goToPage(currentPage + 1)}
           className={`px-4 py-2 rounded-lg mr-2 ${
-            currentPage === totalPages ? 'bg-gray-200 cursor-not-allowed' : 'bg-primary02 text-white'
+            currentPage === totalPages ? 'cursor-not-allowed' : ' text-white'
           }`}
           disabled={currentPage === totalPages}
         >
-          Next
+           <Image
+                width={1}
+                height={1}
+                    src="/images/rightbutton.svg"
+                    alt="/"
+                    className="object-cover w-full h-full "
+                  />
         </button>
       </div>
     </div>

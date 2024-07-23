@@ -1,6 +1,8 @@
 import { Barlow, Inter, Jost, Space_Grotesk } from "next/font/google";
 import "./globals.css";
 import { Poppins } from "next/font/google";
+import Navbar from "@/components/frontend/Navbar";
+import Footer from "@/components/frontend/Footer";
 const inter = Inter({ subsets: ["latin"] });
 const poppins = Poppins({
   subsets: ["latin"],
@@ -15,7 +17,9 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
+      <Navbar/>
       <body className={`${poppins.variable}`}>{children}</body>{" "}
+      <Footer/>
     </html>
   );
 }
