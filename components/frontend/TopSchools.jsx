@@ -95,7 +95,7 @@ export default function TopSchools() {
       </div>
       <div className="flex justify-center gap-8 flex-wrap mx-auto ">
         {school.map((member, index) => (
-          <div key={index} className="flex-shrink-0 w-[350px] rounded-md h-[350px] border border-[#075D70]">
+          <div key={index} className="flex-shrink-0 w-[330px] rounded-md h-[350px] border border-[#075D70]">
             <div className="flex justify-center mt-[8%] mb-[5%]">
               <Image
                 src={member.imageSrc}

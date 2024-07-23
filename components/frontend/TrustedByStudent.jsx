@@ -47,11 +47,11 @@ export default function TrustedByStudent() {
             height={2}
           />
           </div>
-          <div className="absolute inset-0 -top-[144%] left-[26%]">
+          <div className="absolute inset-0 -top-[129%] left-[26%]">
             <Image
               src="/images/student.svg"
               alt=""
-              className="w-[506px] h-[468px]"
+              className="w-[480px] h-[440px]"
               width={2}
               height={2}
             />

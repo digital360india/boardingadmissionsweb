@@ -53,7 +53,8 @@ export default function BlogsCarousel() {
   }, [currentIndex]);
 
   return (
-    <div className="h-[700px] flex justify-center items-center">
+    <div>
+    <div className="h-[700px] flex justify-center items-center px-[100px]">
       <div className="relative w-[1240px] rounded-lg mx-auto overflow-hidden" style={{ boxShadow: '0 4px 10px rgba(0, 0, 0, 0.8)' }}>
         <div className="flex items-center justify-between w-full h-[500px] bg-white shadow-lg rounded-lg">
           <div className="w-1/2 h-full flex items-center font-normal pl-8">
@@ -97,9 +98,12 @@ export default function BlogsCarousel() {
           </div>
         </div>
       </div>
+      </div>
+      <div>
+     
       <button
         onClick={handlePrev}
-        className="absolute top-1/2 left-0 px-4 py-2 transform -translate-y-1/2 rounded-full"
+        className="absolute top-[60%] left-0 px-4 py-2 transform -translate-y-1/2 rounded-full"
       >
          <Image
                 width={1}
@@ -111,7 +115,7 @@ export default function BlogsCarousel() {
       </button>
       <button
         onClick={handleNext}
-        className="absolute top-1/2 right-0 p-2  px-4  transform -translate-y-1/2 rounded-full"
+        className="absolute top-[60%] right-0 p-2  px-4  transform -translate-y-1/2 rounded-full"
       >
        <Image
                 width={1}
@@ -121,6 +125,8 @@ export default function BlogsCarousel() {
                     className="object-cover w-full h-full "
                   />
       </button>
+    </div>
+    
     </div>
   );
 }

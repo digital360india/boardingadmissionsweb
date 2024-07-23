@@ -122,6 +122,63 @@ const cardData = [
       },
     ],
   },
+  {
+    id: 5,
+    imageSrc: "/icons/card5.svg",
+    title: "CUSTOMIZED COURSES",
+    description:
+      "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dolor, illum.",
+    features: [
+      {
+        title: "One-on-One Classes",
+        description:
+          "Experience personalized learning with Boarding Admissions' one-on-one classes, empowering students for boarding school entrance exams and beyond.",
+      },
+      {
+        title: "Learning Material",
+        description:
+          "At Boarding Admissions, our interactive learning resources ensure thorough preparation and a solid educational foundation for academic excellence.",
+      },
+      {
+        title: "Flexible Schedule",
+        description:
+          "Our customized courses offer flexible scheduling for stress-free learning and optimal preparation.",
+      },
+      {
+        title: "Regular Feedback",
+        description:
+          "Join Boarding Admissions for personalized, interactive feedback, guiding your child to academic excellence and keeping you engaged in their progress.",
+      },
+    ],
+  },  {
+    id: 5,
+    imageSrc: "/icons/card5.svg",
+    title: "CUSTOMIZED COURSES",
+    description:
+      "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dolor, illum.",
+    features: [
+      {
+        title: "One-on-One Classes",
+        description:
+          "Experience personalized learning with Boarding Admissions' one-on-one classes, empowering students for boarding school entrance exams and beyond.",
+      },
+      {
+        title: "Learning Material",
+        description:
+          "At Boarding Admissions, our interactive learning resources ensure thorough preparation and a solid educational foundation for academic excellence.",
+      },
+      {
+        title: "Flexible Schedule",
+        description:
+          "Our customized courses offer flexible scheduling for stress-free learning and optimal preparation.",
+      },
+      {
+        title: "Regular Feedback",
+        description:
+          "Join Boarding Admissions for personalized, interactive feedback, guiding your child to academic excellence and keeping you engaged in their progress.",
+      },
+    ],
+  },
 ];
 
 export default function CourseCarousel() {
@@ -145,42 +202,37 @@ export default function CourseCarousel() {
   };
 
   return (
-    <div className="w-full bg-primary02 pt-14 pb-20 h-[1008px]">
-      <Carousel responsive={responsive}>
-        {cardData.map((card) => (
-          <div
-            key={card.id}
-            className="w-[26vw] h-[810px] mt-10 bg-[#FFFFFF] rounded-[9px] relative"
-          >
-            <Image src={card.imageSrc} width={392} height={250} alt="card" />
-            <h1 className="text-primary02 text-24px font-semibold text-center pt-8">
-              {card.title}
-            </h1>
-            <p className="font-normal text-16px pt-4 text-center px-8">
-              {card.description}
-            </p>
+    <div className="w-full bg-primary02 pt-14 pb-20 h-[950px]">
+    <Carousel responsive={responsive} itemClass="px-4">
+      {cardData.map((card) => (
+        <div
+          key={card.id}
+          className="w-full h-full bg-[#FFFFFF] rounded-[9px] relative flex flex-col items-center "
+        >
+          <Image src={card.imageSrc} width={600} height={250} alt="card" />
+          <h1 className="text-primary02 text-24px font-semibold text-center pt-8">
+            {card.title}
+          </h1>
+          <p className="font-normal text-[100%] pt-4 text-center px-4">
+            {card.description}
+          </p>
+          <div className="flex-grow">
             {card.features.map((feature, index) => (
               <React.Fragment key={index}>
-                {typeof feature === "string" ? (
-                  <p className="pt-8 pb-4 text-center text-primary02 font-light">
-                    {feature}
-                  </p>
-                ) : (
-                  <p className="pt-8 pb-4 text-center text-primary02 font-light">
-                    {feature.title}
-                  </p>
-                )}
-                <hr className="mx-10" />
+                <p className="pt-8 pb-4 border-b w-[250px] border-primary02 text-center text-primary02 font-light">
+                  {typeof feature === "string" ? feature : feature.title}
+                </p>
               </React.Fragment>
             ))}
-            <div className="flex justify-center items-center pt-4 pb-8">
-              <div className="w-[138px] h-[40px] bg-gradient01 border-custom flex justify-center items-center">
-                <button className="text-white">Enroll Now</button>
-              </div>
+          </div>
+          <div className="flex justify-center items-center pt-4 pb-8 mt-auto">
+            <div className="w-[138px] h-[40px] bg-gradient01 rounded-md border-custom flex justify-center items-center">
+              <button className="text-white">Enroll Now</button>
             </div>
           </div>
-        ))}
-      </Carousel>
-    </div>
+        </div>
+      ))}
+    </Carousel>
+  </div>
   );
 }
