@@ -104,8 +104,8 @@ export default function BlogsCards() {
         <button
           key={i}
           onClick={() => goToPage(i)}
-          className={`px-4 py-2 rounded-lg mr-2 ${
-            currentPage === i ? 'bg-primary02 text-white' : 'bg-gray-200'
+          className={`px-2  rounded-lg ${
+            currentPage === i ? ' ' : ''
           }`}
         >
           {i}
@@ -134,7 +134,7 @@ export default function BlogsCards() {
                 <p className="text-xl font-medium">{item.title}</p>
               </div>
               <div>
-                <p className="text-base font-normal">{item.description}</p>
+                <p className="text-base  ">{item.description}</p>
               </div>
               <div className="text-lg text-primary02 mt-4">
                 <button className="bg-primary02 text-white px-4 py-2 rounded-lg">READ MORE</button>
@@ -144,7 +144,7 @@ export default function BlogsCards() {
         ))}
       </div>
 
-      <div className="flex justify-end mt-8 space-x-10 ">
+      <div className="flex justify-end mt-8 space-x-8 py-20 ">
         <button
           onClick={() => goToPage(currentPage - 1)}
           className={`px-4 py-2 rounded-lg mr-2 ${
@@ -157,7 +157,7 @@ export default function BlogsCards() {
                 height={1}
                     src="/images/leftbutton.svg"
                     alt="/"
-                    className="object-cover w-full h-full "
+                    className=" w-full h-full "
                   />
         </button>
         {renderPageNumbers()}
@@ -173,7 +173,7 @@ export default function BlogsCards() {
                 height={1}
                     src="/images/rightbutton.svg"
                     alt="/"
-                    className="object-cover w-full h-full "
+                    className=" w-full h-full "
                   />
         </button>
       </div>

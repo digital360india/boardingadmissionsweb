@@ -42,7 +42,7 @@ export default function TrustedByStudent() {
           <Image
             src="/images/frame.svg"
             alt="Calendar"
-            className="w-[1240px] h-[191px]"
+            className="w-full h-[191px]"
             width={2}
             height={2}
           />

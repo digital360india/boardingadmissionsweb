@@ -16,15 +16,15 @@ export default function AboutHero() {
       <div>
         <div>
             <p className='font-medium text-[#FCA311] text-32px'>About</p>
-            <p className='text-24px font-normal text-[#EDDCD2] py-[20px]'>10+ teachers</p>
+            <p className='text-24px   text-[#EDDCD2] py-[20px]'>10+ teachers</p>
         </div>
         <div>
             <p className='font-medium text-[#FCA311] text-32px'>Expertise</p>
-            <p className='text-24px font-normal text-[#EDDCD2] py-[20px]'>6+ Courses</p>
+            <p className='text-24px   text-[#EDDCD2] py-[20px]'>6+ Courses</p>
         </div>
         <div>
         <p className='font-medium text-[#FCA311] text-32px'>Experience</p>
-        <p className='text-24px font-normal text-[#EDDCD2] py-[20px]'>Since 2022</p>
+        <p className='text-24px   text-[#EDDCD2] py-[20px]'>Since 2022</p>
         </div>
       </div>
       <div className='w-[310px] h-[459px] text-white'>

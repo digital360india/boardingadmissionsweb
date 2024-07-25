@@ -6,7 +6,7 @@ export default function CoursesWeOffer() {
   return (
     <div className='bg-[#075D70] px-[100px] pt-[60px]'>
         <div>
-      <p className='text-24px text-white font-normal'>COURSES WE OFFER</p></div>
+      <p className='text-24px text-white  '>COURSES WE OFFER</p></div>
       <div className='text-[48px] text-white font-medium w-[848px]'>Enroll Now for Tailored Preparation and Guaranteed Success</div>
       <CourseCarouel/>
     </div>

@@ -89,7 +89,7 @@ export default function TopSchools() {
     <div>
          <div className="mx-[100px] pb-[100px]">
       <div>
-        <p className="text-primary02 py-[60px] text-[48px] font-semibold text-center">
+        <p className="text-primary02 py-[50px] text-[48px] font-semibold text-center">
           Top Schools We have Cracked
         </p>
       </div>

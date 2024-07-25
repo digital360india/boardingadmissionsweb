@@ -26,7 +26,7 @@ export default function OurTeam() {
   ];
 
   return (
-    <div className="px-[100px] flex justify-center h-[120vh] pt-16">
+    <div className="px-[100px] flex justify-center h-full py-16">
       <div>
         <div className="text-24px text-primary03 text-center">OUR TEAM</div>
         <div className="text-[48px] font-medium text-center pb-12">Lorem ipsum dolor sit consetur.</div>
