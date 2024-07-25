@@ -202,7 +202,7 @@ export default function CourseCarousel() {
   };
 
   return (
-    <div className="w-full bg-primary02 pt-14 pb-20 h-[950px]">
+    <div className="w-full bg-primary02 pt-14 pb-28 h-full">
     <Carousel responsive={responsive} itemClass="px-4">
       {cardData.map((card) => (
         <div
@@ -213,7 +213,7 @@ export default function CourseCarousel() {
           <h1 className="text-primary02 text-24px font-semibold text-center pt-8">
             {card.title}
           </h1>
-          <p className="font-normal text-[100%] pt-4 text-center px-4">
+          <p className="text-[100%] pt-4 text-center px-4">
             {card.description}
           </p>
           <div className="flex-grow">

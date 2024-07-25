@@ -14,12 +14,12 @@ const Faq = () => {
 
   return (
     <>
-      <div className="md:flex md:justify-center md:items-center ">
-        <div className="flex flex-col justify-center md:ml-0  lg:ml-0 pt-16 h-auto w-full bg-[#F4FCFD] ">
+      <div className="md:flex md:justify-center md:items-center pb-12 bg-[#F4FCFD]">
+        <div className="flex flex-col justify-center md:ml-0  lg:ml-0 pt-10 h-auto w-full  ">
           <div className="flex justify-center  items-center">
            <h1 className="text-black text-[25px]">FAQs</h1>
           </div>
-          <div className="mt-5 text-center">
+          <div className="mt-3 text-center">
             <h1 className="text-[24px] md:text-[40px] font-bold text-black">
               Have Questions?
             </h1>

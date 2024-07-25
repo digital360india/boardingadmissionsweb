@@ -57,7 +57,7 @@ export default function BlogsCarousel() {
     <div className="h-[700px] flex justify-center items-center px-[100px]">
       <div className="relative w-[1240px] rounded-lg mx-auto overflow-hidden" style={{ boxShadow: '0 4px 10px rgba(0, 0, 0, 0.8)' }}>
         <div className="flex items-center justify-between w-full h-[500px] bg-white shadow-lg rounded-lg">
-          <div className="w-1/2 h-full flex items-center font-normal pl-8">
+          <div className="w-1/2 h-full flex items-center   pl-8">
           <div>
             <h2 className=" text-[#808080] pb-4 text-18px ">
               {carouselItems[currentIndex].blog}

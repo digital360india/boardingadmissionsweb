@@ -70,7 +70,7 @@ export default function FeaturedBlog() {
     <div className="bg-[#F3F3F3]">
       <div className="">
         <div className=" px-[100px]">
-          <p className="text-24px">FEATURED BLOGS</p>
+          <p className="text-24px pt-10">FEATURED BLOGS</p>
           <p className="text-[48px] w-[50%] font-medium">
             Lorem ipsum dolor sit amet consectetur.
           </p>

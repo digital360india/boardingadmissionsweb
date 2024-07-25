@@ -6,7 +6,7 @@ export default function AboutForm() {
       <div className='w-[80%] h-[86%]  mx-auto bg-[#F4FCFC80] border-8 rounded-md border-white' style={{ boxShadow: '0 0 6px 0 rgba(0, 0, 0, 0.32)' }}
       >
         <p className='text-primary02 text-[48px] font-semibold text-center py-8'>Leave Your Question Here</p>
-        <p className='text-24px font-normal text-center pb-6'>We aim to respond within 24 hours.</p>
+        <p className='text-24px   text-center pb-6'>We aim to respond within 24 hours.</p>
 
 <div>
     <div className='flex justify-center gap-8 py-10'>

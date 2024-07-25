@@ -3,7 +3,7 @@ import React from "react";
 
 export default function WhoWeAre() {
   return (
-    <div className="flex w-full px-[100px] h-[600px]">
+    <div className="flex w-full px-[100px] h-[600px] bg-[#F4FCFC]">
       <div className="w-1/2 flex items-center">
         <Image
           src="/images/reactangle.svg"
