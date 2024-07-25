@@ -156,14 +156,14 @@ const OurCoursesCards = () => {
         </h1>
       </div>
 
-      <div className="flex flex-wrap justify-between px-16 space-x-1">
+      <div className="flex flex-wrap justify-between px-12 space-x-1">
         {/* First Row */}
         {cardData.slice(0, 3).map((card) => (
           <div
             key={card.id}
-            className="w-[24.5rem] mt-10 bg-[#FFFFFF] rounded-[9px] relative"
+            className="w-[28vw] mt-10 bg-[#FFFFFF] rounded-[9px] relative"
           >
-            <Image src={card.imageSrc} width={392} height={250} alt="card" />
+            <Image src={card.imageSrc} width={1} height={250} alt="card"  className="w-full"/>
             <h1 className="text-primary02 text-[1.5rem] font-semibold text-center pt-8">
               {card.title}
             </h1>
@@ -219,9 +219,9 @@ const OurCoursesCards = () => {
           {cardData.slice(3).map((card) => (
             <div
               key={card.id}
-              className="bg-[#FFFFFF] rounded-[9px] w-[24.5rem] mt-10 mx-2 relative"
+              className="bg-[#FFFFFF] rounded-[9px] w-[28vw] mt-10 mx-2 relative"
             >
-              <Image src={card.imageSrc} width={392} height={250} alt="card" />
+              <Image src={card.imageSrc} width={1} height={250} alt="card" className="w-full" />
               <h1 className="text-primary02 text-[1.5rem] font-semibold text-center pt-8">
                 {card.title}
               </h1>

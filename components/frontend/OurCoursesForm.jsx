@@ -28,7 +28,7 @@ const OurCoursesForm = () => {
   return (
     <>
       <div>
-        <div className="bg-white mb-20">
+        <div className="bg-white mb-20 flex justify-center items-center">
           <div className="mt-12 mx-12 border-4 border-[#FFFFFF]  shadow-md w-[77.5rem] bg-[#F4FCFC80] ">
             <div className="pt-7">
               <h1 className="font-semibold text-[3rem] text-primary02 text-center">
@@ -108,6 +108,8 @@ const OurCoursesForm = () => {
 };
 
 export default OurCoursesForm;
+
+
 
 // "use client"
 // import { useState } from 'react';

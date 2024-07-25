@@ -13,8 +13,8 @@ const OurCoursesBenefits = () => {
             </h1>
           </div>
 
-          <div className="mt-12 px-16 flex justify-between items-stretch font-poppins w-full">
-            <div className="w-[18rem] flex flex-col items-center h-full">
+          <div className="mt-12 px-20 space-x-10 flex justify-between items-stretch font-poppins w-full">
+            <div className="w-[18rem] flex flex-col items-center h-full ">
               <Image
                 src="/icons/course1.svg"
                 width={48}

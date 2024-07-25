@@ -1,12 +1,10 @@
-import OurCourses from '@/pages/frontend/OurCourses'
-
+import EnrollNow from '@/pages/frontend/EnrollNow'
 import React from 'react'
 
 const page = () => {
   return (
     <>
-      <OurCourses />
-   
+        <EnrollNow />
     </>
   )
 }
