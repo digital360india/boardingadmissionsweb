@@ -41,7 +41,7 @@ const EnrollNowAbout = () => {
               </div>
               <div>
                 <h1 className="text-[#7A8B94] text-[0.7rem]">Live classes</h1>
-                <h1 className="text-[#3C4852] text-[0.82rem] font-bold">60</h1>
+                <h1 className="text-[#3C4852] text-[0.82rem] font-bold">60+</h1>
               </div>
             </div>
             <div className="flex gap-3">

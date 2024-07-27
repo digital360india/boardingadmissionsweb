@@ -7,8 +7,8 @@ const OurCoursesBenefits = () => {
     <>
       <div>
         <div className="bg-[#F3F3F3] w-full pb-16">
-          <div className="pt-16">
-            <h1 className="text-center text-[#075D70]  text-[3rem] font-semibold font-poppins">
+          <div className="p-8 md:pt-16">
+            <h1 className="md:text-center text-[#075D70]  text-[2rem] md:text-[3rem] font-semibold leading-none">
               Benefits of Our Courses
             </h1>
           </div>
