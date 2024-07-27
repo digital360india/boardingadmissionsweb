@@ -1,7 +1,6 @@
 "use client";
 import React, { useState } from "react";
 import Image from "next/image";
-import Link from "next/link";
 
 export const cardData = [
   {
@@ -37,9 +36,43 @@ export const cardData = [
     batch: "(For Full Batch)",
     discountInfo: " Discount of 55% applied",
   },
+  {
+    id: 4,
+    imageSrc: "/icons/card3.svg",
+    title: "FOUNDATION COURSE",
+    description:
+      "Lorem ipsum dolor sit amet consectetur. Vestibulum ut quam pulvinar ultrices vitae magna. Ut. Lorem ipsum dolor sit amet consectetur. Vestibulum ut",
+    price1: "$45,000",
+    price2: "$75,000",
+    batch: "(For Full Batch)",
+    discountInfo: " Discount of 55% applied",
+  },
+  {
+    id: 5,
+    imageSrc: "/icons/card3.svg",
+    title: "FOUNDATION COURSE",
+    description:
+      "Lorem ipsum dolor sit amet consectetur. Vestibulum ut quam pulvinar ultrices vitae magna. Ut. Lorem ipsum dolor sit amet consectetur. Vestibulum ut",
+    price1: "$45,000",
+    price2: "$75,000",
+    batch: "(For Full Batch)",
+    discountInfo: " Discount of 55% applied",
+  },
+  {
+    id: 6,
+    imageSrc: "/icons/card3.svg",
+    title: "FOUNDATION COURSE",
+    description:
+      "Lorem ipsum dolor sit amet consectetur. Vestibulum ut quam pulvinar ultrices vitae magna. Ut. Lorem ipsum dolor sit amet consectetur. Vestibulum ut",
+    price1: "$45,000",
+    price2: "$75,000",
+    batch: "(For Full Batch)",
+    discountInfo: " Discount of 55% applied",
+  },
+  
 ];
 
-const EnrollNowCoursesWeOffer = () => {
+const EnrollNowAllCoursesWeOffer = () => {
   const [discountStates, setDiscountStates] = useState(
     cardData.reduce((acc, card) => {
       acc[card.id] = true;
@@ -56,17 +89,15 @@ const EnrollNowCoursesWeOffer = () => {
 
   return (
     <>
-      <div className="bg-primary02 w-full p-14">
-        <div className="flex justify-between px-2">
-          <h1 className="text-[3rem] text-white">Courses we Offer</h1>
-          
-          <Link href='/Enrollnowcourse'>
-          <u className="text-white pt-[2.5rem]">View all</u></Link>
+      <div className=" w-full mt-[7rem]">
+        <div className=" px-16">
+          <h1 className="text-[3rem] text-primary02 font-bold">Courses we Offer</h1>
+          <h1 className="text-[#3C4852] pt-[0.4rem] text-[1.13rem]">6 courses availiable</h1>
         </div>
 
-        <div className="flex flex-wrap justify-center gap-10 pt-10">
+        <div className="flex flex-wrap justify-center gap-10 p-12">
           {cardData.map((card) => (
-            <div key={card.id} className="w-[28vw] bg-[#FFFFFF] rounded-[9px] pb-4">
+            <div key={card.id} className="w-[28vw] bg-[#FFFFFF] border border-[#01010120] rounded-[9px] pb-4 drop-shadow-lg">
               <Image src={card.imageSrc} width={1} height={228} alt="card" className="w-full" />
               <h1 className="text-primary02 text-[1.5rem] font-semibold text-center mt-3">
                 {card.title}
@@ -136,4 +167,4 @@ const EnrollNowCoursesWeOffer = () => {
   );
 };
 
-export default EnrollNowCoursesWeOffer;
+export default EnrollNowAllCoursesWeOffer;

@@ -28,8 +28,8 @@ const OurCoursesForm = () => {
   return (
     <>
       <div>
-        <div className="bg-white mb-20">
-          <div className="mt-12 mx-12 border-4 border-[#FFFFFF]  shadow-md w-[77.5rem] bg-[#F4FCFC80] ">
+        <div className="bg-white mb-20 flex justify-center items-center" >
+          <div className="mt-12 mx-12 border-4 border-[#FFFFFF]  rounded-lg w-[77.5rem] bg-[#F4FCFC80] " style={{ boxShadow: '0 0 6px 0 rgba(0, 0, 0, 0.32)' }}>
             <div className="pt-7">
               <h1 className="font-semibold text-[3rem] text-primary02 text-center">
                 Leave Your Question Here
@@ -46,7 +46,7 @@ const OurCoursesForm = () => {
                     type="text"
                     name="firstName"
                     placeholder="First Name*"
-                    className="border border-[#E7E7E7] p-2 rounded-lg w-[572px] h-[56px] text-[#667085] text-[12px]"
+                    className="border border-[#E7E7E7] p-4 rounded-lg w-[572px] h-[56px] text-[#667085] text-[1rem]"
                     onChange={handleChange}
                     required
                   />
@@ -54,7 +54,7 @@ const OurCoursesForm = () => {
                     type="text"
                     name="lastName"
                     placeholder="Last Name*"
-                    className="border border-[#E7E7E7] p-2 rounded-lg w-[572px] h-[56px] text-[#667085] text-[12px]"
+                    className="border border-[#E7E7E7] p-4 rounded-lg w-[572px] h-[56px] text-[#667085] text-[1rem]"
                     onChange={handleChange}
                     required
                   />
@@ -62,7 +62,7 @@ const OurCoursesForm = () => {
                     type="email"
                     name="email"
                     placeholder="Email*"
-                    className="border border-[#E7E7E7] p-2 rounded-lg w-[572px] h-[56px] text-[#667085] text-[12px]"
+                    className="border border-[#E7E7E7] p-4 rounded-lg w-[572px] h-[56px] text-[#667085] text-[1rem]"
                     onChange={handleChange}
                     required
                   />
@@ -70,7 +70,7 @@ const OurCoursesForm = () => {
                     type="tel"
                     name="phoneNumber"
                     placeholder="Phone Number*"
-                    className="border border-[#E7E7E7] p-2 rounded-lg w-[572px] h-[56px] text-[#667085] text-[12px]"
+                    className="border border-[#E7E7E7] p-4 rounded-lg w-[572px] h-[56px] text-[#667085] text-[1rem]"
                     onChange={handleChange}
                     required
                   />
@@ -80,7 +80,7 @@ const OurCoursesForm = () => {
                     name="message"
                     placeholder="Message"
                     rows="5"
-                    className="w-full  h-[182px] border border-[#E7E7E7] p-2 rounded-lg mb-4 text-[#667085] text-[12px] resize-none"
+                    className="w-full  h-[182px] border border-[#E7E7E7] p-4 rounded-lg mb-4 text-[#667085] text-[1rem] resize-none"
                     onChange={handleChange}
                   ></textarea>
                 </div>
@@ -146,7 +146,7 @@ export default OurCoursesForm;
 //             type="text"
 //             name="firstName"
 //             placeholder="First Name*"
-//             className="border border-gray-300 p-2 rounded"
+//             className="border border-gray-300 p-4 rounded"
 //             onChange={handleChange}
 //             required
 //           />
@@ -154,7 +154,7 @@ export default OurCoursesForm;
 //             type="text"
 //             name="lastName"
 //             placeholder="Last Name*"
-//             className="border border-gray-300 p-2 rounded"
+//             className="border border-gray-300 p-4 rounded"
 //             onChange={handleChange}
 //             required
 //           />
@@ -162,7 +162,7 @@ export default OurCoursesForm;
 //             type="email"
 //             name="email"
 //             placeholder="Email*"
-//             className="border border-gray-300 p-2 rounded"
+//             className="border border-gray-300 p-4 rounded"
 //             onChange={handleChange}
 //             required
 //           />
@@ -170,7 +170,7 @@ export default OurCoursesForm;
 //             type="tel"
 //             name="phoneNumber"
 //             placeholder="Phone Number*"
-//             className="border border-gray-300 p-2 rounded"
+//             className="border border-gray-300 p-4 rounded"
 //             onChange={handleChange}
 //             required
 //           />
@@ -179,7 +179,7 @@ export default OurCoursesForm;
 //           name="message"
 //           placeholder="Message"
 //           rows="5"
-//           className="w-full border border-gray-300 p-2 rounded mb-4"
+//           className="w-full border border-gray-300 p-4 rounded mb-4"
 //           onChange={handleChange}
 //         ></textarea>
 //         <div className="text-right">
