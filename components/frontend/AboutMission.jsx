@@ -1,56 +1,58 @@
 import React from "react";
 
 export default function AboutMission() {
-  const borderGradientStyle = {
-    border: "2px solid",
-    borderColor: "transparent",
-    backgroundImage: "linear-gradient(to top, #FCA311, #075D70)",
-    padding: "30px",
-    width: "391px",
-    height: "400px",
-  };
-
   return (
-    <div className="h-[500px] w-full px-[100px] mt-[120px] ">
-      <div className="flex justify-evenly space-x-8">
-        <div className="border-2 border-solid border-[#FCA311] w-[391px] h-[400px] px-[30px] ">
-          <div className="text-32px font-medium underline text-primary02 text-center py-[30px]">
-            Our Mission
-          </div>
-          <div className="text-18px  ">
-            Id pellentesque arcu fermentum euismod neque turpis amet amet. Id in
-            sit aliquet vel neque adipiscing. Cursus nisi scelerisque orci
-            vivamus est in. Hac quam magna.Id pellentesque arcu fermentum
-            euismod neque turpis amet amet. Id in sit aliquet vel neque
-            adipiscing.{" "}
+<div className="mx-6 md:mx-[4rem] mt-[3rem] md:mt-[5rem]">
+          <div className="flex overflow-x-auto hide-scrollbar justify-between items-center mt-5 md:mt-10 mb-10">
+            <div className="flex gap-3 flex-shrink-0 ">
+              <div className="bg-gradient-to-b from-[#FCA311] to-[#568DA9] rounded-lg w-[13.438rem] h-[16.4rem] md:w-[24.875rem] md:h-[22.813rem] p-[3px]">
+                <div className="h-[16rem] md:h-[22.375rem]   bg-white rounded-lg ">
+                  <u className="text-[#075D70]">
+                    <h1 className="text-primary02 font-bold text-[1.125rem] md:text-[2rem] text-center pt-[1rem] md:pt-[2rem]">
+                    Our Mission
+                    </h1>
+                  </u>
+                 
+                  <p className="text-[0.88rem] md:text-[1.10rem] text-[#000000] p-[1rem] md:p-[1.75rem]">
+                    This level of testing focuses on evaluating how well young
+                    children adjust to being away from home, how well they
+                    interact with others, & how comfortable they are in
+                    unfamiliar settings.
+                  </p>
+                </div>
+              </div>
+              <div className="bg-gradient-to-b from-[#FCA311] to-[#568DA9] rounded-lg w-[13.438rem] h-[16.4rem] md:w-[24.875rem] md:h-[22.813rem] p-[3px]">
+                <div className="h-[16rem] md:h-[22.375rem]   bg-white rounded-lg ">
+                  <u className="text-[#075D70]">
+                    <h1 className="text-primary02 font-bold text-[1.125rem] md:text-[2rem] text-center pt-[1rem] md:pt-[2rem]">
+                    Our Vision
+                    </h1>
+                  </u>
+                 
+                  <p className="text-[0.88rem] md:text-[1.10rem] text-[#000000] p-[1rem] md:p-[1.75rem]">
+                    Assesses preteens for emotional development, emotional
+                    maturity, and coping strategies for social and academic
+                    pressures.
+                  </p>
+                </div>
+              </div>
+              <div className="bg-gradient-to-b from-[#FCA311] to-[#568DA9] rounded-lg w-[13.438rem] h-[16.4rem] md:w-[24.875rem] md:h-[22.813rem] p-[3px]">
+                <div className="h-[16rem] md:h-[22.375rem]   bg-white rounded-lg ">
+                  <u className="text-[#075D70]">
+                    <h1 className="text-primary02 font-bold text-[1.125rem] md:text-[2rem] text-center pt-[1rem] md:pt-[2rem]">
+                    Our Values
+                    </h1>
+                  </u>
+                
+                  <p className="text-[0.88rem] md:text-[1.10rem] text-[#000000] p-[1rem] md:p-[1.75rem]">
+                    Examines students&apos; self-discipline, complex social
+                    dynamics, and preparedness for future academic objectives in
+                    addition to their readiness for harder academic challenges.
+                  </p>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
-        <div className="border-2 border-solid border-[#FCA311] w-[391px] h-[400px] px-[30px] ">
-          <div className="text-32px font-medium underline text-primary02 text-center py-[30px]">
-            Our Mission
-          </div>
-          <div className="text-18px  ">
-            Id pellentesque arcu fermentum euismod neque turpis amet amet. Id in
-            sit aliquet vel neque adipiscing. Cursus nisi scelerisque orci
-            vivamus est in. Hac quam magna.Id pellentesque arcu fermentum
-            euismod neque turpis amet amet. Id in sit aliquet vel neque
-            adipiscing.{" "}
-          </div>
-        </div>
-
-        <div className="border-2 border-solid border-[#FCA311] w-[391px] h-[400px] px-[30px] ">
-          <div className="text-32px font-medium underline text-primary02 text-center py-[30px]">
-            Our Mission
-          </div>
-          <div className="text-18px  ">
-            Id pellentesque arcu fermentum euismod neque turpis amet amet. Id in
-            sit aliquet vel neque adipiscing. Cursus nisi scelerisque orci
-            vivamus est in. Hac quam magna.Id pellentesque arcu fermentum
-            euismod neque turpis amet amet. Id in sit aliquet vel neque
-            adipiscing.{" "}
-          </div>
-        </div>
-      </div>
-    </div>
   );
 }

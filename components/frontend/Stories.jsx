@@ -87,10 +87,10 @@ export default function Stories() {
   return (
     <div className="bg-[#FAF9FF]">
     <div className="">
-      <div className=" px-[100px] pt-[3%]">
+      <div className=" xl:px-[100px] md::px-[40px] px-[28px] pt-[3%]">
         <p className="text-32px font-semibold">Stories that inspire</p>
       </div>
-      <div className="w-full pt-14 pb-20 px-[100px] relative">
+      <div className="w-full md:pt-14 pt-8 pb-20 xl:px-[100px] lg:px-[40px] px-[20px] relative">
         <Carousel
           responsive={responsive}
           arrows={false}
@@ -98,8 +98,8 @@ export default function Stories() {
           itemClass="carousel-item-padding-40-px"
         >
           {team.map((member, index) => (
-            <div key={index} className="rounded-lg bg-[#FEFEFE] mx-10 w-[323px] h-[236px]  mx-auto">
-              <div className="flex justify-center w-[291px] h-[141px] px-4 py-4">
+            <div key={index} className="rounded-lg bg-[#FEFEFE] w-[323px] h-[236px]  mx-auto">
+              <div className="flex justify-center md:w-[291px] w-[320px] h-[141px] px-4 py-4">
                <p>{member.story}</p>
               </div>
               <div className="px-4 mt-8 flex space-x-6">
@@ -124,7 +124,8 @@ export default function Stories() {
             </div>
           ))}
         </Carousel>
-        <div className="absolute top-[50%] left-16 transform -translate-y-1/2">
+        <div className="md:block hidden">
+        <div className="absolute top-[50%] lg:left-8 left-0 transform -translate-y-1/2">
           <button
             onClick={handlePrev}
             className=" bg-white text-white p-2 rounded-full"
@@ -137,7 +138,7 @@ export default function Stories() {
                 />
           </button>
         </div>
-        <div className="absolute top-[50%] right-16 transform -translate-y-1/2">
+        <div className="absolute top-[50%] lg:right-8 right-0 transform -translate-y-1/2">
           <button
             onClick={handleNext}
             className=" text-white p-2 rounded-full"
@@ -149,6 +150,7 @@ export default function Stories() {
                   alt="card"
                 />
           </button>
+        </div>
         </div>
       </div>
     </div>

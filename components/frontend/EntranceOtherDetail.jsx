@@ -54,15 +54,15 @@ export default function EntranceOtherDetail() {
   return (
     <div
       style={{ boxShadow: "0 1px 8px 0 rgba(0, 0, 0, 0.08)" }}
-      className="p-8 rounded-lg bg-[#FFFFFF] my-14"
+      className="md:p-8 p-5 rounded-lg bg-[#FFFFFF] my-14"
     >
-      <div className="font-semibold text-32px pb-4">Other Details:</div>
+      <div className="font-semibold md:text-32px text-18px pb-4">Other Details:</div>
 
       <div>
       {list.map((item, index) => (
-        <div key={index} className="flex items-center py-4 space-x-6 border-b border-[]">
+        <div key={index} className="flex md:py-4 py-2 space-x-6 border-b">
           <div className="">{item.id}</div>
-          <div className="w-[38vw]">{item.data}</div>
+          <div className="lg:w-[38vw] w-full">{item.data}</div>
         </div>
           ))}
       </div>
