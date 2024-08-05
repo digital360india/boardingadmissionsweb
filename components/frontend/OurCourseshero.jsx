@@ -5,7 +5,7 @@ import boardingHero from '@/public/icons/boardinghero.svg';
 const OurCourses = () => {
   return (
     <div 
-      className="w-full h-[480px] bg-no-repeat bg-cover bg-center relative" 
+      className="w-full h-[480px] bg-no-repeat bg-cover bg-center relative mt-20 lg:mt-28" 
       style={{ backgroundImage: `url(${boardingHero.src})` }}
     >
       <div className='w-[19rem] md:w-[470px] px-8 md:px-16   absolute  bottom-20  text-white  '>

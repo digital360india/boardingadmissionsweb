@@ -6,72 +6,72 @@ const OurCoursesBenefits = () => {
   return (
     <>
       <div>
-        <div className="bg-[#F3F3F3] w-full pb-16">
+        <div className="bg-[#F3F3F3] w-full md:pb-16">
           <div className="p-8 md:pt-16">
             <h1 className="md:text-center text-[#075D70]  text-[2rem] md:text-[3rem] font-semibold leading-none">
               Benefits of Our Courses
             </h1>
           </div>
-
-          <div className="mt-12 px-16 flex justify-between items-stretch font-poppins w-full">
-            <div className="w-[18rem] flex flex-col items-center h-full">
-              <Image
-                src="/icons/course1.svg"
-                width={48}
-                height={48}
-                alt="course1"
-              />
-              <h1 className="pt-5 text-center text-[#075D70] text-[30px] font-poppins">
-                Lorem, ipsum dolor.
-              </h1>
-              <p className="pt-5 text-[15px] text-center font-poppins">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex,
-                voluptatum!
-              </p>
-            </div>
-            <div className="w-[18rem] flex flex-col items-center h-full">
-              <Image
-                src="/icons/course2.svg"
-                width={48}
-                height={48}
-                alt="course2"
-              />
-              <h1 className="pt-5 text-center text-[#075D70] text-[30px] font-poppins">
-                Lorem, ipsum dolor.
-              </h1>
-              <p className="pt-5 text-[15px] text-center font-poppins">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex,
-                voluptatum!
-              </p>
-            </div>
-            <div className="w-[18rem] flex flex-col items-center h-full">
+   
+          <div className="p-4  md:mt-12 md:px-16 flex flex-wrap justify-center  md:justify-between   w-full">
+            <div className=" w-[9rem]  md:w-[18rem] flex flex-col items-center h-[15rem] lg:h-full">
               <Image
                 src="/icons/course3.svg"
                 width={48}
                 height={48}
                 alt="course3"
               />
-              <h1 className="pt-5 text-center text-[#075D70] text-[30px] font-poppins">
-                Lorem, ipsum dolor.
+              <h1 className="pt-3 md:pt-5 text-center text-[#075D70] text-[1.1rem] md:text-[30px] font-poppins">
+                Lorem, ipsum
               </h1>
-              <p className="pt-5 text-[15px] text-center font-poppins">
+              <p className="pt-3 md:pt-5 text-[0.75rem] md:text-[15px] text-center font-poppins">
                 Lorem ipsum, dolor sit amet consectetur adipisicing elit. Est
                 consectetur mollitia distinctio iste ullam fugit reiciendis
               </p>
             </div>
-            <div className="w-[18rem] flex flex-col items-center h-full">
+            <div className=" w-[9rem] md:w-[18rem] flex flex-col items-center h-[15rem] lg:h-full">
               <Image
-                src="/icons/course4.svg"
+                src="/icons/course3.svg"
                 width={48}
                 height={48}
-                alt="course4"
+                alt="course3"
               />
-              <h1 className="pt-5 text-center text-[#075D70] text-[30px] font-poppins">
-                Lorem, ipsum dolor.
+              <h1 className="pt-3 md:pt-5 text-center text-[#075D70] text-[1.1rem] md:text-[30px] font-poppins">
+                Lorem, ipsum
               </h1>
-              <p className="pt-5 text-[15px] text-center font-poppins">
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Beatae
-                voluptate expedita
+              <p className="pt-3 md:pt-5 text-[0.75rem] md:text-[15px] text-center font-poppins">
+                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Est
+                consectetur mollitia distinctio iste ullam fugit reiciendis
+              </p>
+            </div>
+            <div className=" w-[9rem] md:w-[18rem] flex flex-col items-center h-[15rem] lg:h-full">
+              <Image
+                src="/icons/course3.svg"
+                width={48}
+                height={48}
+                alt="course3"
+              />
+              <h1 className="pt-3 md:pt-5 text-center text-[#075D70] text-[1.1rem] md:text-[30px] font-poppins">
+                Lorem, ipsum
+              </h1>
+              <p className="pt-3 md:pt-5 text-[0.75rem] md:text-[15px] text-center font-poppins">
+                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Est
+                consectetur mollitia distinctio iste ullam fugit reiciendis
+              </p>
+            </div>
+            <div className=" w-[9rem] md:w-[18rem] flex flex-col items-center h-[15rem] lg:h-full">
+              <Image
+                src="/icons/course3.svg"
+                width={48}
+                height={48}
+                alt="course3"
+              />
+              <h1 className="pt-3 md:pt-5 text-center text-[#075D70] text-[1.1rem] md:text-[30px] font-poppins">
+                Lorem, ipsum
+              </h1>
+              <p className="pt-3 md:pt-5 text-[0.75rem] md:text-[15px] text-center font-poppins">
+                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Est
+                consectetur mollitia distinctio iste ullam fugit reiciendis
               </p>
             </div>
           </div>
