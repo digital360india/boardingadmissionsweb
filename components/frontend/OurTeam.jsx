@@ -1,5 +1,6 @@
 import Image from "next/image";
 import React from "react";
+import "./ScrollbarHide.css"; // Import the custom scrollbar CSS
 
 export default function OurTeam() {
   const team = [
@@ -25,17 +26,17 @@ export default function OurTeam() {
     },
   ];
 
-  return (
-    <div className="px-[100px] flex justify-center h-full py-16">
-      <div>
-        <div className="text-24px text-primary03 text-center">OUR TEAM</div>
-        <div className="text-[48px] font-medium text-center pb-12">Lorem ipsum dolor sit consetur.</div>
+  return ( 
+    <div className="xl:px-[100px] lg:px-[40px] px-[24px] flex justify-center h-full lg:py-16 py-12 ">
+      <div className="">
+        <div className="lg:text-24px text-16px text-primary03 lg:text-center ">OUR TEAM</div>
+        <div className="lg:text-[48px] text-[32px] font-medium lg:text-center pb-12">Lorem ipsum dolor sit consetur.</div>
 
-        <div className="flex gap-5 ">
+        <div className="flex gap-5  overflow-x-auto hide-scrollbar">
           {team.map((member, index) => (
-            <div key={index} className="bg-[#075D70] rounded-lg">
+            <div key={index} className="bg-[#075D70] rounded-lg flex-shrink-0">
               <div>
-                <Image src={member.imageSrc} width={295} height={400} alt={member.name} />
+                <Image src={member.imageSrc} width={1} height={1} className="lg:object-none object-cover lg:w-[295px] w-[270px] lg:h-[400px] h-[260px]" alt={member.name} />
               </div>
               <div className="py-3 text-white text-center">
               <div>
@@ -48,6 +49,7 @@ export default function OurTeam() {
             </div>
           ))}
         </div>
+
       </div>
     </div>
   );

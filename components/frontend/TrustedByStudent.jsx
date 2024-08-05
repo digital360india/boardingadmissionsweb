@@ -1,13 +1,15 @@
 import Image from "next/image";
 import React from "react";
+import TrustedBy2 from "./TrustedBy2";
 
 export default function TrustedByStudent() {
   return (
-    <div className="relative px-[100px] bg-background01 h-[760px]">
+    <div>
+    <div className="lg:block hidden relative xl:px-[100px] lg:px-[40px] bg-background01 h-[760px]">
       <div className="flex">
         <div className="w-1/2 flex items-center">
           <div>
-            <p className="text-[60px] font-semibold text-primary02 pb-4">
+            <p className="xl:text-[60px] lg:text-[48px]  font-semibold text-primary02 pb-4">
               Trusted By Students
             </p>
             <p className="text-24px w-[419px] h-[108px]">
@@ -23,7 +25,7 @@ export default function TrustedByStudent() {
         </div>
         <div className="w-1/2  flex justify-end items-center">
           <div>
-            <div className="h-[339px]"></div>
+            <div className="xl:h-[339px] lg:h-[400px]"></div>
             <div className="">
               <p className="w-[397px] h-[135px] font-normal">
                 “Lorem ipsum dolor sit amet consectetur. Pellentesque fringilla
@@ -37,27 +39,33 @@ export default function TrustedByStudent() {
         </div>
       </div>
       <div className="absolute inset-0">
-            <div className="relative inset-0 top-[567px]">
+            <div className="relative inset-0 xl:top-[567px] lg:top-[586px]">
                 <div className="flex justify-center ">
           <Image
             src="/images/frame.svg"
             alt="Calendar"
-            className="w-full h-[191px]"
+            className="w-full h-[191px] object-fill"
             width={2}
             height={2}
           />
           </div>
-          <div className="absolute inset-0 -top-[129%] left-[26%]">
+          <div className="absolute inset-0 xl:-top-[129%] lg:-top-[91%] xl:left-[26%] lg:left-[16%]">
             <Image
               src="/images/student.svg"
               alt=""
-              className="w-[480px] h-[440px]"
+              className="w-[480px] xl:h-[440px] lg:h-[350px]"
               width={2}
               height={2}
             />
           </div>
           </div>
       </div>
+    </div>
+
+<div className="lg:hidden block">
+<TrustedBy2/>
+</div>
+
     </div>
   );
 }

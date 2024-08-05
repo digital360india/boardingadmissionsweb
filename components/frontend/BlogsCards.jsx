@@ -116,35 +116,35 @@ export default function BlogsCards() {
   };
 
   return (
-    <div className='px-[99px]'>
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-8 ">
+    <div className='xl:px-[99px] lg:px-[40px] md:px-[30px] px-[24px]'>
+      <div className="grid grid-cols-2 md:grid-cols-3 gap-8 ">
         {currentItems.map((item, index) => (
           <div key={index} className="bg-white rounded-lg shadow-md">
-            <div className="mb-4">
+            <div className="lg:mb-4 mb-2">
               <Image
                 src={item.imageSrc}
                 width={3}
                 height={244}
                 alt="Image"
-                className="rounded-lg w-full"
+                className="rounded-t-lg w-full"
               />
             </div>
-            <div className='p-6'>
+            <div className='lg:p-6 p-3'>
               <div>
-                <p className="text-xl font-medium">{item.title}</p>
+                <p className="lg:text-xl lg:font-medium text-[16px]">{item.title}</p>
               </div>
               <div>
-                <p className="text-base  ">{item.description}</p>
+                <p className="text-base lg:block hidden ">{item.description}</p>
               </div>
-              <div className="text-lg text-primary02 mt-4">
-                <button className="bg-primary02 text-white px-4 py-2 rounded-lg">READ MORE</button>
+              <div className="lg:text-lg pb-2 text-primary02 mt-4">
+                <button className="text-primary02 rounded-lg">READ MORE</button>
               </div>
             </div>
           </div>
         ))}
       </div>
 
-      <div className="flex justify-end mt-8 space-x-8 py-20 ">
+      <div className="flex md:justify-end mx-auto md:mt-8 mt-3 md:space-x-8 space-x-10 md:py-20 py-8">
         <button
           onClick={() => goToPage(currentPage - 1)}
           className={`px-4 py-2 rounded-lg mr-2 ${

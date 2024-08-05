@@ -202,7 +202,7 @@ export default function CourseCarousel() {
   };
 
   return (
-    <div className="w-full bg-primary02 pt-14 pb-28 h-full">
+    <div className="w-full bg-primary02 lg:pt-14 pt-8 lg:pb-28 pb-16 h-full">
     <Carousel responsive={responsive} itemClass="px-4">
       {cardData.map((card) => (
         <div
@@ -210,16 +210,16 @@ export default function CourseCarousel() {
           className="w-full h-full bg-[#FFFFFF] rounded-[9px] relative flex flex-col items-center "
         >
           <Image src={card.imageSrc} width={600} height={250} alt="card" />
-          <h1 className="text-primary02 text-24px font-semibold text-center pt-8">
+          <h1 className="text-primary02 text-24px font-semibold text-center lg:pt-8 pt-3">
             {card.title}
           </h1>
-          <p className="text-[100%] pt-4 text-center px-4">
+          <p className="text-[100%] lg:pt-4 pt-2 text-center px-4">
             {card.description}
           </p>
           <div className="flex-grow">
             {card.features.map((feature, index) => (
               <React.Fragment key={index}>
-                <p className="pt-8 pb-4 border-b w-[250px] border-primary02 text-center text-primary02 font-light">
+                <p className="lg:pt-8 pt-3 pb-4 border-b w-[250px] border-primary02 text-center text-primary02 font-light">
                   {typeof feature === "string" ? feature : feature.title}
                 </p>
               </React.Fragment>

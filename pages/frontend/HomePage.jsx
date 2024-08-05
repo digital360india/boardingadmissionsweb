@@ -13,7 +13,7 @@ const HomePage = () => {
 
   return (
     <div>
-      <HeroCarousel/>
+      {/* <HeroCarousel/> */}
       <WhoWeAre/>
       <TrustedByStudent/>
       <CoursesWeOffer/>

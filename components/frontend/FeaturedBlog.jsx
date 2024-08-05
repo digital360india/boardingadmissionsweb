@@ -8,27 +8,32 @@ const team = [
   {
     name: "Lorem ipsum dolor sit amet consectetur. Nunc.",
     imageSrc: "/images/blog.svg",
-    designation: "Lorem ipsum dolor sit amet consectetur. Sem scelerisque amet felis pretium at.",
+    designation:
+      "Lorem ipsum dolor sit amet consectetur. Sem scelerisque amet felis pretium at.",
   },
   {
     name: "Lorem ipsum dolor sit amet consectetur. Nunc.",
     imageSrc: "/images/blog.svg",
-    designation: "Lorem ipsum dolor sit amet consectetur. Sem scelerisque amet felis pretium at.",
+    designation:
+      "Lorem ipsum dolor sit amet consectetur. Sem scelerisque amet felis pretium at.",
   },
   {
     name: "Lorem ipsum dolor sit amet consectetur. Nunc.",
     imageSrc: "/images/blog.svg",
-    designation: "Lorem ipsum dolor sit amet consectetur. Sem scelerisque amet felis pretium at.",
+    designation:
+      "Lorem ipsum dolor sit amet consectetur. Sem scelerisque amet felis pretium at.",
   },
   {
     name: "Lorem ipsum dolor sit amet consectetur. Nunc.",
     imageSrc: "/images/blog.svg",
-    designation: "Lorem ipsum dolor sit amet consectetur. Sem scelerisque amet felis pretium at.",
+    designation:
+      "Lorem ipsum dolor sit amet consectetur. Sem scelerisque amet felis pretium at.",
   },
   {
     name: "Lorem ipsum dolor sit amet consectetur. Nunc.",
     imageSrc: "/images/blog.svg",
-    designation: "Lorem ipsum dolor sit amet consectetur. Sem scelerisque amet felis pretium at.",
+    designation:
+      "Lorem ipsum dolor sit amet consectetur. Sem scelerisque amet felis pretium at.",
   },
 ];
 
@@ -69,13 +74,15 @@ export default function FeaturedBlog() {
   return (
     <div className="bg-[#F3F3F3]">
       <div className="">
-        <div className=" px-[100px]">
-          <p className="text-24px pt-10">FEATURED BLOGS</p>
-          <p className="text-[48px] w-[50%] font-medium">
+        <div className=" xl:px-[100px] lg:px-[40px] px-[24px]">
+          <p className="lg:text-24px text-[16px] text-[#5C616E] pt-10">
+            FEATURED BLOGS
+          </p>
+          <p className="lg:text-[48px] text-24px lg:w-[50%] font-medium ">
             Lorem ipsum dolor sit amet consectetur.
           </p>
         </div>
-        <div className="w-full pt-14 pb-20 px-[100px] relative">
+        <div className="w-full pt-14 pb-20 xl:px-[100px] lg:px-[40px]  relative">
           <Carousel
             responsive={responsive}
             arrows={false}
@@ -101,13 +108,15 @@ export default function FeaturedBlog() {
                   <div>
                     <p className="text-18px ">{member.designation}</p>
                   </div>
-                  <div className="py-4 text-[#075D70]"><button>Read more</button></div>
+                  <div className="py-4 text-[#075D70]">
+                    <button>Read more</button>
+                  </div>
                 </div>
-               
               </div>
             ))}
           </Carousel>
-          <div className="absolute top-[50%] left-4 transform -translate-y-1/2">
+          <div className="lg:block hidden">
+            <div className="absolute top-[50%] left-2 transform -translate-y-1/2">
             <button
               onClick={handlePrev}
               className=" bg-white text-white p-2 rounded-full"
@@ -120,7 +129,7 @@ export default function FeaturedBlog() {
                   />
             </button>
           </div>
-          <div className="absolute top-[50%] right-4 transform -translate-y-1/2">
+          <div className="absolute top-[50%] right-2 transform -translate-y-1/2">
             <button
               onClick={handleNext}
               className=" text-white p-2 rounded-full"
@@ -132,6 +141,7 @@ export default function FeaturedBlog() {
                     alt="card"
                   />
             </button>
+          </div>
           </div>
         </div>
       </div>
