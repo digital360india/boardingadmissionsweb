@@ -5,7 +5,7 @@ import Ace from "@/public/icons/Ace.svg";
 const ServicesHero = () => {
   return (
     <>
-      <div className="md:mx-20">
+      <div className="md:mx-20 mt-[25%] md:mt-[10%]">
         <h1 className="text-[2rem] md:text-[3.5rem] text-[#075D70] text-center pb-8 font-bold">
           ACE INTERVIEW EXAM
         </h1>

@@ -217,7 +217,7 @@ const CustomizedCoursesPage = () => {
           <hr className="mt-5 md:mt-12" />
 
           {/* laptop */}
-          <div className="hidden lg:block border border-primary02 rounded-3xl mt-[1.25rem] mx-[2rem]">
+          <div className="hidden lg:block border border-primary02 rounded-3xl mt-[1.25rem] mx-[2rem] mb-14">
             <div className="w-full h-[13.125rem] gap-[2rem] flex justify-center items-center ">
               <div className="text-[2.5rem] text-primary02">
                 Ready for top boarding schools? <br /> Start your journey now!

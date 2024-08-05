@@ -129,9 +129,15 @@ const HoverContent = ({ content, style }) => {
       style={style}
     >
       <p className="text-white text-[12px]">{content}</p>
-             <div className=" relative  top-5 flex justify-center items-center">
-         <Image src="/icons/downarrow.svg" width={25} height={25} alt="arrow" className="" />
-       </div>
+      <div className=" relative  top-5 flex justify-center items-center">
+        <Image
+          src="/icons/downarrow.svg"
+          width={25}
+          height={25}
+          alt="arrow"
+          className=""
+        />
+      </div>
     </div>
   );
 };
@@ -149,22 +155,28 @@ const OurCoursesCards = () => {
 
   return (
     <div className="w-full bg-primary02 pt-14 pb-20">
-      <div className="font-poppins px-16">
-        <p className="text-[#FFFFFF]">100% QUALITY COURSES</p>
-        <h1 className="h1 text-[#FFFFFF] font-medium w-[50%]">
+      <div className="px-10 md:px-16">
+        <p className="text-[#FFFFFF] ">100% QUALITY COURSES</p>
+        <h1 className="text-[2rem] md:text-[3rem] text-[#FFFFFF] font-medium md:w-[50%]">
           Lorem ipsum, dolor sit amet consectetur.
         </h1>
       </div>
 
-      <div className="flex flex-wrap justify-between px-16 space-x-1">
+      <div className="flex flex-wrap justify-between px-6 md:px-16 space-x-1">
         {/* First Row */}
         {cardData.slice(0, 3).map((card) => (
           <div
             key={card.id}
             className="w-[24.5rem] mt-10 bg-[#FFFFFF] rounded-[9px] relative"
           >
-            <Image src={card.imageSrc} width={1} height={250} alt="card"  className="w-full"/>
-            <h1 className="text-primary02 text-[1.5rem] font-semibold text-center pt-8">
+            <Image
+              src={card.imageSrc}
+              width={1}
+              height={250}
+              alt="card"
+              className="w-full"
+            />
+            <h1 className="text-primary02 text-[1.15rem] md:text-[1.5rem] font-bold md:font-semibold text-center pt-8">
               {card.title}
             </h1>
             {hoveredContent.cardId === card.id && (
@@ -173,7 +185,7 @@ const OurCoursesCards = () => {
                 style={{ top: hoveredContent.top }}
               />
             )}
-            <p className="font-medium text-[1rem] pt-4 text-center px-8">
+            <p className="font-medium text-[0.87rem] md:text-[1rem] pt-4 text-center px-8">
               {card.description}
             </p>
 
@@ -215,14 +227,20 @@ const OurCoursesCards = () => {
         ))}
 
         {/* Second Row - Centered */}
-        <div className="flex justify-center space-x-5 w-full mt-10">
+        <div className="flex flex-wrap justify-center  md:space-x-5 w-full  md:mt-10">
           {cardData.slice(3).map((card) => (
             <div
               key={card.id}
-              className="bg-[#FFFFFF] rounded-[9px] w-[24.5rem] mt-10 mx-2 relative"
+              className="bg-[#FFFFFF] rounded-[12px] w-[24.5rem] mt-10  relative"
             >
-              <Image src={card.imageSrc} width={1} height={250} alt="card" className="w-full"/>
-              <h1 className="text-primary02 text-[1.5rem] font-semibold text-center pt-8">
+              <Image
+                src={card.imageSrc}
+                width={1}
+                height={250}
+                alt="card"
+                className="w-full"
+              />
+              <h1 className="text-primary02 text-[1.15rem] md:text-[1.5rem] font-bold md:font-semibold text-center pt-8">
                 {card.title}
               </h1>
               {hoveredContent.cardId === card.id && (
@@ -231,7 +249,7 @@ const OurCoursesCards = () => {
                   style={{ top: hoveredContent.top }}
                 />
               )}
-              <p className="font-medium text-[1rem] pt-4 text-center px-8">
+              <p className="font-medium text-[0.87rem] md:text-[1rem] pt-4 text-center px-8">
                 {card.description}
               </p>
 
