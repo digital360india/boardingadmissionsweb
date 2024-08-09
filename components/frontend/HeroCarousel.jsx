@@ -26,7 +26,7 @@ const cardData = [
     description: 'Description for course 2',
     features: ['Feature 1', 'Feature 2', 'Feature 3'],
   },
-  // Add more image card data as needed
+
 ];
 
 export default function HeroCarousel() {
@@ -154,7 +154,7 @@ export default function HeroCarousel() {
                 </div>
                 <div className="flex justify-center items-center pt-4 pb-8 mt-auto">
                   <div className="w-[138px] h-[40px] bg-gradient01 rounded-md border-custom flex justify-center items-center">
-                    <button className="text-white">Enroll Now</button>
+                    <button className="text-white">Enroll Now please</button>
                   </div>
                 </div>
               </div>
