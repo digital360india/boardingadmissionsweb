@@ -8,7 +8,7 @@ const cardData = [
   {
     id: 1,
     type: 'video',
-    videoSrc: '/',
+    videoSrc: 'https://firebasestorage.googleapis.com/v0/b/boardingadmissions-f3ba3.appspot.com/o/carousel%2FIMG_5183.MP4?alt=media&token=1ffc7bc7-8b31-4a40-8fd8-7aa3bb34500c',
   },
   {
     id: 2,
