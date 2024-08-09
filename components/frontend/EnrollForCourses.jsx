@@ -45,7 +45,7 @@ const EnrollForCourses = () => {
     <>
 
     {/* {close && (    */}
-         <div className="p-6  md:p-20">
+         <div className="p-6  md:p-20">   
 
 
         <div className="mt-10 w-full bg-primary02 rounded-xl py-4 pb-20">
