@@ -143,7 +143,7 @@ export default function HeroCarousel() {
                 <p className="  text-[100%] pt-4 text-center px-4">
                   {card.description}
                 </p>
-                <div className="flex-grow">
+                <div className="flex-grow">  
                   {card.features.map((feature, index) => (
                     <React.Fragment key={index}>
                       <p className="pt-8 pb-4 border-b w-[250px] border-primary02 text-center text-primary02 font-light">
