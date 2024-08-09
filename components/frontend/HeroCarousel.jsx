@@ -5,7 +5,7 @@ import 'react-multi-carousel/lib/styles.css';
 import Image from 'next/image';
 
 const cardData = [
-  {
+  {  
     id: 1,
     type: 'video',
     videoSrc: 'https://firebasestorage.googleapis.com/v0/b/boardingadmissions-f3ba3.appspot.com/o/carousel%2FIMG_5183.MP4?alt=media&token=1ffc7bc7-8b31-4a40-8fd8-7aa3bb34500c',
@@ -26,7 +26,7 @@ const cardData = [
     description: 'Description for course 2',
     features: ['Feature 1', 'Feature 2', 'Feature 3'],
   },
-  // Add more image card data as needed
+
 ];
 
 export default function HeroCarousel() {
@@ -143,7 +143,7 @@ export default function HeroCarousel() {
                 <p className="  text-[100%] pt-4 text-center px-4">
                   {card.description}
                 </p>
-                <div className="flex-grow">
+                <div className="flex-grow">  
                   {card.features.map((feature, index) => (
                     <React.Fragment key={index}>
                       <p className="pt-8 pb-4 border-b w-[250px] border-primary02 text-center text-primary02 font-light">
@@ -154,7 +154,7 @@ export default function HeroCarousel() {
                 </div>
                 <div className="flex justify-center items-center pt-4 pb-8 mt-auto">
                   <div className="w-[138px] h-[40px] bg-gradient01 rounded-md border-custom flex justify-center items-center">
-                    <button className="text-white">Enroll Now</button>
+                    <button className="text-white">Enroll Now please</button>
                   </div>
                 </div>
               </div>
