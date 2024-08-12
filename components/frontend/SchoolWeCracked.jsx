@@ -1,48 +1,51 @@
 import Image from "next/image";
 import React from "react";
 import "./ScrollbarHide.css"; // Import the custom scrollbar CSS
+import Link from "next/link";
 
 export default function SchoolWeCracked() {
   const school = [
     {
       school: "Bishop Cotton School",
-      imageSrc: "/images/school.svg",
-      location: "(Shimla)",
+      imageSrc: "/images/schoolimages/Bishop_Cotton_School(Bangaluru).svg",
+      location: "(Bangaluru)",
+      routes: "/schoolpages/BishopKarnatakaPage"
     },
     {
-      school: "Bishop Cotton School",
-      imageSrc: "/images/school.svg",
-      location: "(Shimla)",
+      school: "CJM Waverly",
+      imageSrc: "/images/schoolimages/CJM_Waverly.svg",
+      location: "(Mussoorie)",
+      routes: "/schoolpages/CJMwaverlyPage"
     },
     {
-      school: "Bishop Cotton School",
-      imageSrc: "/images/school.svg",
-      location: "(Shimla)",
+      school: "Lawrence School",
+      imageSrc: "/images/schoolimages/Lawrence_School.svg",
+      location: "(Solan)",
+      routes: "/schoolpages/LawrenceSchoolPage"
     },
     {
-      school: "Bishop Cotton School",
-      imageSrc: "/images/school.svg",
-      location: "(Shimla)",
+      school: "Mayo Boys College",
+      imageSrc: "/images/schoolimages/Mayo_Boys_College.svg",
+      location: "(Ajmer)",
+      routes: "/schoolpages/MayoBoysPage"
     },
     {
-      school: "Bishop Cotton School",
-      imageSrc: "/images/school.svg",
-      location: "(Shimla)",
+      school: "Scindia School",
+      imageSrc: "/images/schoolimages/Scindia_School.svg",
+      location: "(Gwalior)",
+      routes: "/schoolpages/ScindiaSchoolPage"
     },
     {
-      school: "Bishop Cotton School",
-      imageSrc: "/images/school.svg",
-      location: "(Shimla)",
+      school: "Sherwood College",
+      imageSrc: "/images/schoolimages/Sherwood_College.svg",
+      location: "(Nainital)",
+      routes: "/schoolpages/SherWoodCollegePage"
     },
     {
-      school: "Bishop Cotton School",
-      imageSrc: "/images/school.svg",
-      location: "(Shimla)",
-    },
-    {
-      school: "Bishop Cotton School",
-      imageSrc: "/images/school.svg",
-      location: "(Shimla)",
+      school: "St.George College",
+      imageSrc: "/images/schoolimages/St.George_College.svg",
+      location: "(Mussoorie)",
+      routes: "/schoolpages/StGeorgeCollegePage"
     },
   ];
 
@@ -56,7 +59,7 @@ export default function SchoolWeCracked() {
       <div className="flex space-x-6 overflow-x-auto hide-scrollbar">
         {school.map((member, index) => (
           <div key={index} className="flex-shrink-0 lg:w-[350px] w-[220px] rounded-md lg:h-[350px] h-[220px] lg:border-2 border-4 border-[#075D70]">
-            <div className="flex justify-center lg:mt-[8%] mt-[6%] lg:mb-[5%] mb-[3%]">
+    <Link href={member.routes}>        <div className="flex justify-center lg:mt-[8%] mt-[6%] lg:mb-[5%] mb-[3%]">
               <Image
                 src={member.imageSrc}
                 className="lg:w-full lg:h-[200px] w-full h-[122px] "
@@ -64,7 +67,7 @@ export default function SchoolWeCracked() {
                 height={1}
                 alt={member.school}
               />
-            </div>
+            </div></Link>
             <div className="text-center text-primary02 lg:text-24px text-18px font-medium">
               <p>{member.school}</p>
               <p>{member.location}</p>
