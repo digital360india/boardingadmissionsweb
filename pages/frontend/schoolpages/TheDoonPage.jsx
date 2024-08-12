@@ -160,12 +160,12 @@ function TheDoonPage() {
                 <span className="font-medium">Interview and Assessment:</span>{" "}
                 In addition to the entrance examination, shortlisted candidates
                 are required to attend an interview and assessment process. This
-                stage evaluates the applicant's overall personality, including
+                stage evaluates the applicant&apos;s overall personality, including
                 their interests, talents, and potential to contribute to the
-                school's community. The interview is conducted by a panel of
-                educators and senior staff members who assess the candidate's
-                suitability for the school's environment. The assessment process
-                is holistic, taking into account the candidate's academic
+                school&apos;s community. The interview is conducted by a panel of
+                educators and senior staff members who assess the candidate&apos;s
+                suitability for the school&apos;s environment. The assessment process
+                is holistic, taking into account the candidate&apos;s academic
                 performance, extracurricular achievements, and personal
                 qualities.
               </li>
