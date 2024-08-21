@@ -3,12 +3,14 @@ import React from "react";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 import Image from "next/image";
+import Link from "next/link";
 
 const cardData = [
   {
     id: 1,
     imageSrc: "/icons/card1.svg",
     title: "ACE ENTRANCE EXAM",
+    route: "/services/Aceinterviewexam",
     description:
       "Unlock Your Boarding School Dream and Ace the Entrance Exam with Confidence",
     features: [
@@ -38,6 +40,7 @@ const cardData = [
     id: 2,
     imageSrc: "/icons/card2.svg",
     title: "FOUNDATION COURSES",
+    route: "/services/Foundationcourses",
     description: "Build a Strong Academic Base to thrive in every subject",
     features: [
       "4th Grade - 6th Grade",
@@ -50,6 +53,7 @@ const cardData = [
     id: 3,
     imageSrc: "/icons/card3.svg",
     title: "SOFT SKILL MASTERY",
+    route: "/services/Softskillmastery",
     description: "Pathway to Personal Excellence or Skills Mastery",
     features: [
       {
@@ -78,6 +82,8 @@ const cardData = [
     id: 4,
     imageSrc: "/icons/card4.svg",
     title: "BOARDING COMPATIBILITY TEST",
+    route: "/services/Boardingcompatibilitytest",
+
     description:
       "Find Your Ideal Boarding School Fit with Our Boarding Compatibility Test",
     features: [
@@ -97,6 +103,7 @@ const cardData = [
     id: 5,
     imageSrc: "/icons/card5.svg",
     title: "CUSTOMIZED COURSES",
+    route: "/services/Customizedcourses",
     description:
       "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dolor, illum.",
     features: [
@@ -122,63 +129,64 @@ const cardData = [
       },
     ],
   },
-  {
-    id: 5,
-    imageSrc: "/icons/card5.svg",
-    title: "CUSTOMIZED COURSES",
-    description:
-      "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dolor, illum.",
-    features: [
-      {
-        title: "One-on-One Classes",
-        description:
-          "Experience personalized learning with Boarding Admissions' one-on-one classes, empowering students for boarding school entrance exams and beyond.",
-      },
-      {
-        title: "Learning Material",
-        description:
-          "At Boarding Admissions, our interactive learning resources ensure thorough preparation and a solid educational foundation for academic excellence.",
-      },
-      {
-        title: "Flexible Schedule",
-        description:
-          "Our customized courses offer flexible scheduling for stress-free learning and optimal preparation.",
-      },
-      {
-        title: "Regular Feedback",
-        description:
-          "Join Boarding Admissions for personalized, interactive feedback, guiding your child to academic excellence and keeping you engaged in their progress.",
-      },
-    ],
-  },  {
-    id: 5,
-    imageSrc: "/icons/card5.svg",
-    title: "CUSTOMIZED COURSES",
-    description:
-      "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dolor, illum.",
-    features: [
-      {
-        title: "One-on-One Classes",
-        description:
-          "Experience personalized learning with Boarding Admissions' one-on-one classes, empowering students for boarding school entrance exams and beyond.",
-      },
-      {
-        title: "Learning Material",
-        description:
-          "At Boarding Admissions, our interactive learning resources ensure thorough preparation and a solid educational foundation for academic excellence.",
-      },
-      {
-        title: "Flexible Schedule",
-        description:
-          "Our customized courses offer flexible scheduling for stress-free learning and optimal preparation.",
-      },
-      {
-        title: "Regular Feedback",
-        description:
-          "Join Boarding Admissions for personalized, interactive feedback, guiding your child to academic excellence and keeping you engaged in their progress.",
-      },
-    ],
-  },
+  // {
+  //   id: 5,
+  //   imageSrc: "/icons/card5.svg",
+  //   title: "CUSTOMIZED COURSES",
+  //   description:
+  //     "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dolor, illum.",
+  //   features: [
+  //     {
+  //       title: "One-on-One Classes",
+  //       description:
+  //         "Experience personalized learning with Boarding Admissions' one-on-one classes, empowering students for boarding school entrance exams and beyond.",
+  //     },
+  //     {
+  //       title: "Learning Material",
+  //       description:
+  //         "At Boarding Admissions, our interactive learning resources ensure thorough preparation and a solid educational foundation for academic excellence.",
+  //     },
+  //     {
+  //       title: "Flexible Schedule",
+  //       description:
+  //         "Our customized courses offer flexible scheduling for stress-free learning and optimal preparation.",
+  //     },
+  //     {
+  //       title: "Regular Feedback",
+  //       description:
+  //         "Join Boarding Admissions for personalized, interactive feedback, guiding your child to academic excellence and keeping you engaged in their progress.",
+  //     },
+  //   ],
+  // },  
+  // {
+  //   id: 5,
+  //   imageSrc: "/icons/card5.svg",
+  //   title: "CUSTOMIZED COURSES",
+  //   description:
+  //     "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dolor, illum.",
+  //   features: [
+  //     {
+  //       title: "One-on-One Classes",
+  //       description:
+  //         "Experience personalized learning with Boarding Admissions' one-on-one classes, empowering students for boarding school entrance exams and beyond.",
+  //     },
+  //     {
+  //       title: "Learning Material",
+  //       description:
+  //         "At Boarding Admissions, our interactive learning resources ensure thorough preparation and a solid educational foundation for academic excellence.",
+  //     },
+  //     {
+  //       title: "Flexible Schedule",
+  //       description:
+  //         "Our customized courses offer flexible scheduling for stress-free learning and optimal preparation.",
+  //     },
+  //     {
+  //       title: "Regular Feedback",
+  //       description:
+  //         "Join Boarding Admissions for personalized, interactive feedback, guiding your child to academic excellence and keeping you engaged in their progress.",
+  //     },
+  //   ],
+  // },
 ];
 
 export default function CourseCarousel() {
@@ -226,9 +234,11 @@ export default function CourseCarousel() {
             ))}
           </div>
           <div className="flex justify-center items-center pt-4 pb-8 mt-auto">
+            <Link href={card.route}>
             <div className="w-[138px] h-[40px] bg-gradient01 rounded-md border-custom flex justify-center items-center">
               <button className="text-white">Enroll Now</button>
             </div>
+            </Link>
           </div>
         </div>
       ))}

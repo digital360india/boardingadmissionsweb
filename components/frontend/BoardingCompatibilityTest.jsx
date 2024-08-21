@@ -7,7 +7,7 @@ const BoardingCompatibilityTest = () => {
   return (
     <>
       <div
-        className="w-full h-[480px] bg-no-repeat bg-cover bg-center relative"
+        className="w-full h-[480px] bg-no-repeat bg-cover bg-center relative md:mt-24"
         style={{ backgroundImage: `url(${boardingHero.src})` }}
       >
         <div className="md:w-[31.25rem] px-6 md:px-16   absolute  bottom-20 text-white  ">
