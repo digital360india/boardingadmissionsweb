@@ -69,7 +69,7 @@ const Page = () => {
               type="email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
-              required
+              required  
             />
           </label>
           <label>
