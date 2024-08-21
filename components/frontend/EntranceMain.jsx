@@ -252,7 +252,6 @@ export default function EntranceMain() {
           </div>
 
 {/* mobile section */}
-
           <div className="lg:block hidden">
             <div
               className=" w-full"

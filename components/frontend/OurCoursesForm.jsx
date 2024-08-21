@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
+import AboutForm from "./AboutForm";
 
 const OurCoursesForm = () => {
   const [formData, setFormData] = useState({
@@ -27,7 +28,7 @@ const OurCoursesForm = () => {
 
   return (
     <>
-      <div>
+      <div className="md:hidden block">
         <div className="bg-white p-4 md:mb-20 flex justify-center items-center" >
           <div 
           // className={`mt-10 md:mt-12  md:mx-12 md:border-4 border-[#FFFFFF]  rounded-lg w-[19rem] md:w-[77.5rem] bg-[#F4FCFC80]`}  style={{ boxShadow: '0 0 6px 0 rgba(0, 0, 0, 0.32)' }}
@@ -105,6 +106,9 @@ const OurCoursesForm = () => {
             </div>
           </div>
         </div>
+      </div>
+      <div className="hidden md:block">
+        <AboutForm/>
       </div>
     </>
   );
