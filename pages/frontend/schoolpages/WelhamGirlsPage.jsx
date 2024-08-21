@@ -56,7 +56,7 @@ function WelhamGirlsPage() {
                 {
                   [1, 2, 3, 4, 5].map((num) => (
                     <button key={num}>
-                      <span className='text-yellow-600'>
+                      <span className= text-yellow-600 >
                         &#9733;
                       </span>
                     </button>
@@ -112,7 +112,7 @@ function WelhamGirlsPage() {
           </div>
           <div>
             <p className="leading-6 w-[88vw] text-[1.15rem]">
-              Established to empower young women, Welham Girls' School has
+              Established to empower young women, Welham Girls  School has
               become synonymous with holistic education. The school offers
               classes from VI to XII, consistently producing students who excel
               in academics and beyond. Located in the tranquil foothills of the
@@ -250,7 +250,7 @@ function WelhamGirlsPage() {
                   <ul className="list-disc pl-4 space-y-4">
                     <li>
                       <span className="font-medium">Initial Application:</span>{" "}
-                      Visit the Welham Girls' School website and click on Online
+                      Visit the Welham Girls  School website and click on Online
                       Application Process under the Admission tab. Complete the
                       required details accurately.
                     </li>
@@ -374,7 +374,7 @@ function WelhamGirlsPage() {
               Preference for Admission
             </p>
             <p className="my-4 pl-2 leading-6 w-[88vw] text-[1.15rem]">
-              Welham Girls' School gives preference to:
+              Welham Girls  School gives preference to:
             </p>
           </div>
 
@@ -456,7 +456,7 @@ function WelhamGirlsPage() {
             Eligibility Criteria
           </p>
           <p className="mb-6 ml-4 leading-6 w-[88vw] text-[1.15rem]">
-            Eligibility for Welham Girls Admissions depends on the student's age
+            Eligibility for Welham Girls Admissions depends on the student s age
             and academic performance
           </p>
 
@@ -518,7 +518,7 @@ function WelhamGirlsPage() {
             Fee Structure
           </p>
           <p className="mb-6 ml-4 leading-6 w-[88vw] text-[1.15rem]">
-            The fee structure for Welham Girls' School is as follows:
+            The fee structure for Welham Girls  School is as follows:
           </p>
 
           <table className="w-full border-collapse border border-gray-300 ml-4">
@@ -608,12 +608,12 @@ function WelhamGirlsPage() {
         <div className="space-y-4 w-[90vw]  my-10 ">
           <div className="">
             <p className="text-[#075D70] font-semibold  text-[2rem] ">
-            Why Choose Welham Girls' School?
+            Why Choose Welham Girls  School?
             </p>
           </div>
           <div >
             <p className="leading-6 w-[88vw] text-[1.15rem]">
-            Welham Girls' School offers a balanced education emphasizing academic excellence, leadership, and moral values. The school&apos;s strong alumni network and commitment to holistic development make it a top choice for parents considering Welham Girls Admissions.
+            Welham Girls  School offers a balanced education emphasizing academic excellence, leadership, and moral values. The school&apos;s strong alumni network and commitment to holistic development make it a top choice for parents considering Welham Girls Admissions.
             </p>
           </div>
         </div>

@@ -56,7 +56,7 @@ function MayoGirlsPage() {
                 {
                   [1, 2, 3, 4, 5].map((num) => (
                     <button key={num}>
-                      <span className='text-yellow-600'>
+                      <span className= text-yellow-600 >
                         &#9733;
                       </span>
                     </button>
@@ -112,7 +112,7 @@ function MayoGirlsPage() {
           </div>
           <div>
             <p className="leading-6 w-[88vw] text-[1.15rem]">
-              Mayo College Girls' School, established in 1987 in Ajmer,
+              Mayo College Girls  School, established in 1987 in Ajmer,
               Rajasthan, is renowned for providing a balanced education rooted
               in Indian values and modern practices. As the sister school of
               Mayo College, it emphasizes the holistic development of girls in
@@ -153,7 +153,7 @@ function MayoGirlsPage() {
             <p className="leading-6 w-[88vw] text-[1.15rem]">
               Mayo Girls Admissions are competitive, focusing on a Common
               Aptitude Analysis (CAA) for English, Hindi, and Mathematics.
-              Here's a breakdown:
+              Here a breakdown:
             </p>
           </div>
           <div>
@@ -525,7 +525,7 @@ function MayoGirlsPage() {
             Syllabus and Academics
           </h1>
           <p className="leading-6 text-[1.15rem]">
-            Mayo College Girls' School follows the CBSE curriculum, offering a
+            Mayo College Girls  School follows the CBSE curriculum, offering a
             well-rounded education.
           </p>
         </div>
@@ -563,7 +563,7 @@ function MayoGirlsPage() {
             Extracurricular Activities
           </h2>
           <p className="leading-6 text-[1.15rem]">
-            Mayo Girls' School offers a wide range of extracurricular
+            Mayo Girls  School offers a wide range of extracurricular
             activities, including sports, arts, and drama, essential for
             holistic development.
           </p>

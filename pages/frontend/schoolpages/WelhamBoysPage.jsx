@@ -56,7 +56,7 @@ function WelhamBoysPage() {
                 {
                   [1, 2, 3, 4, 5].map((num) => (
                     <button key={num}>
-                      <span className='text-yellow-600'>
+                      <span className= text-yellow-600 >
                         &#9733;
                       </span>
                     </button>
@@ -112,7 +112,7 @@ function WelhamBoysPage() {
           </div>
           <div>
             <p className="leading-6 w-[88vw] text-[1.15rem]">
-              Welham Boys' School, a prestigious institution in Dehradun, is
+              Welham Boys  School, a prestigious institution in Dehradun, is
               dedicated to nurturing boys into well-rounded individuals.
               Affiliated with the CBSE, it offers a curriculum aligned with
               national standards. The school embraces a diverse community,
@@ -133,7 +133,7 @@ function WelhamBoysPage() {
           <div>
             <p className="leading-6 w-[88vw] text-[1.15rem]">
               Welham Boys Admissions are competitive, designed to select
-              students who can thrive in the school's dynamic environment. The
+              students who can thrive in the school s dynamic environment. The
               primary entry points are in Classes IV, VI, and XI.
             </p>
           </div>
@@ -146,7 +146,7 @@ function WelhamBoysPage() {
             <ul className="list-disc pl-4 space-y-4 text-[1.15rem]">
               <li>
                 <span className="font-medium"> Open Admission Policy:</span>{" "}
-                Welham Boys' School invites students from all communities,
+                Welham Boys  School invites students from all communities,
                 fostering diversity.
               </li>
               <li>
@@ -156,7 +156,7 @@ function WelhamBoysPage() {
               </li>
               <li>
                 <span className="font-medium">Mandatory Registration:</span> A
-                non-refundable registration fee is required, though it doesn't
+                non-refundable registration fee is required, though it doesn&apos;t
                 guarantee admission.
               </li>
               <div>
@@ -404,7 +404,7 @@ function WelhamBoysPage() {
         </div>
         <div>
               <p className="leading-6 w-[88vw] text-[1.15rem]">
-              Welham Boys' School offers a comprehensive fee structure that covers tuition, boarding, and extracurricular activities.
+              Welham Boys  School offers a comprehensive fee structure that covers tuition, boarding, and extracurricular activities.
 
               </p>
             </div>

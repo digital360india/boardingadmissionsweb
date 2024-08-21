@@ -56,7 +56,7 @@ function TheDoonPage() {
                 {
                   [1, 2, 3, 4, 5].map((num) => (
                     <button key={num}>
-                      <span className='text-yellow-600'>
+                      <span className=&apos;text-yellow-600&apos;>
                         &#9733;
                       </span>
                     </button>
@@ -113,7 +113,7 @@ function TheDoonPage() {
           <div>
             <p className="leading-6 w-[88vw] text-[1.15rem]">
               Founded in 1935, The Doon School is known for its academic
-              excellence and focus on holistic education. The school's mission
+              excellence and focus on holistic education. The school&apos;s mission
               is to groom boys who excel in academics, sports, music, and
               cultural activities, while also demonstrating leadership,
               teamwork, and social responsibility.
@@ -397,7 +397,7 @@ function TheDoonPage() {
             <ul className="list-disc pl-4 space-y-4 text-[1.15rem]">
               <li>
                 <span className="font-medium">Annual Fees:</span>The fee
-                structure covers various aspects of a student's education,
+                structure covers various aspects of a student&apos;s education,
                 including tuition and boarding.
               </li>
               <div className="">
