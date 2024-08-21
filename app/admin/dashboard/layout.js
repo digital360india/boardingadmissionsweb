@@ -12,11 +12,9 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <div className="lg:flex">
         <div className="w-1/5 hidden lg:block ">
-          <SideNavBar />
         </div>
         <div className="lg:flex flex-col lg:w-4/5">
           <div className="h-16 ">
-            <TopNavBar />
           </div>
 
           <main className="min-h-screen ">
