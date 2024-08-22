@@ -1,8 +1,8 @@
-import React, { useState } from 'react';
-import { db } from '@/firebase/firebase';
-import { doc, deleteDoc, updateDoc } from 'firebase/firestore';
+import React, { useState } from "react";
+import { db } from "@/firebase/firebase";
+import { doc, deleteDoc, updateDoc } from "firebase/firestore";
 
-const CoursePackagesList = ({ coursePackages, onDelete }) => {
+const TestPackagesList = ({ testPackages, onDelete }) => {
   const [editingPackage, setEditingPackage] = useState(null);
   const [editFormData, setEditFormData] = useState({
     packageName: "",
@@ -22,7 +22,7 @@ const CoursePackagesList = ({ coursePackages, onDelete }) => {
 
   const handleEdit = async (packageId) => {
     try {
-      const packageRef = doc(db, "coursePackages", packageId);
+      const packageRef = doc(db, "testPackages", packageId);
       await updateDoc(packageRef, {
         ...editFormData,
         price: parseFloat(editFormData.price),
@@ -31,7 +31,7 @@ const CoursePackagesList = ({ coursePackages, onDelete }) => {
         startingDate: new Date(editFormData.startingDate).toISOString(),
       });
       setEditingPackage(null);
-      alert("Course package updated successfully!");
+      alert("Test package updated successfully!");
     } catch (err) {
       console.error("Error updating course package:", err);
       alert("Failed to update course package.");
@@ -40,8 +40,8 @@ const CoursePackagesList = ({ coursePackages, onDelete }) => {
 
   const handleDelete = async (packageId) => {
     try {
-      await deleteDoc(doc(db, "coursePackages", packageId));
-      alert("Course package deleted successfully!");
+      await deleteDoc(doc(db, "testPackages", packageId));
+      alert("Test package deleted successfully!");
       onDelete(packageId); // Notify parent component
     } catch (err) {
       console.error("Error deleting course package:", err);
@@ -51,16 +51,18 @@ const CoursePackagesList = ({ coursePackages, onDelete }) => {
 
   return (
     <div>
-      <h2 className="text-2xl font-bold mb-4">Course Packages</h2>
-      {coursePackages.length > 0 ? (
+      <h2 className="text-2xl font-bold mb-4">Test Packages</h2>
+      {testPackages.length > 0 ? (
         <ul>
-          {coursePackages.map((pkg) => (
+          {testPackages.map((pkg) => (
             <li key={pkg.id} className="mb-4 border-b pb-4">
               <h3 className="text-xl font-semibold">{pkg.packageName}</h3>
               <p>Price: ${pkg.price}</p>
               <p>Discounted Price: ${pkg.discountedPrice}</p>
               <p>Students Enrolled: {pkg.studentsEnrolled}</p>
-              <p>Starting Date: {new Date(pkg.startingDate).toLocaleDateString()}</p>
+              <p>
+                Starting Date: {new Date(pkg.startingDate).toLocaleDateString()}
+              </p>
               <button
                 onClick={() => {
                   setEditingPackage(pkg.id);
@@ -69,7 +71,9 @@ const CoursePackagesList = ({ coursePackages, onDelete }) => {
                     price: pkg.price,
                     discountedPrice: pkg.discountedPrice,
                     studentsEnrolled: pkg.studentsEnrolled,
-                    startingDate: new Date(pkg.startingDate).toISOString().split('T')[0],
+                    startingDate: new Date(pkg.startingDate)
+                      .toISOString()
+                      .split("T")[0],
                   });
                 }}
                 className="bg-yellow-500 text-white px-4 py-2 rounded-md hover:bg-yellow-600 mr-2"
@@ -92,7 +96,9 @@ const CoursePackagesList = ({ coursePackages, onDelete }) => {
                     }}
                   >
                     <div className="mb-4">
-                      <label className="block text-gray-700">Package Name:</label>
+                      <label className="block text-gray-700">
+                        Package Name:
+                      </label>
                       <input
                         type="text"
                         name="packageName"
@@ -115,7 +121,9 @@ const CoursePackagesList = ({ coursePackages, onDelete }) => {
                       />
                     </div>
                     <div className="mb-4">
-                      <label className="block text-gray-700">Discounted Price:</label>
+                      <label className="block text-gray-700">
+                        Discounted Price:
+                      </label>
                       <input
                         type="number"
                         step="0.01"
@@ -127,7 +135,9 @@ const CoursePackagesList = ({ coursePackages, onDelete }) => {
                       />
                     </div>
                     <div className="mb-4">
-                      <label className="block text-gray-700">Number of Students Enrolled:</label>
+                      <label className="block text-gray-700">
+                        Number of Students Enrolled:
+                      </label>
                       <input
                         type="number"
                         name="studentsEnrolled"
@@ -138,7 +148,9 @@ const CoursePackagesList = ({ coursePackages, onDelete }) => {
                       />
                     </div>
                     <div className="mb-4">
-                      <label className="block text-gray-700">Starting Date:</label>
+                      <label className="block text-gray-700">
+                        Starting Date:
+                      </label>
                       <input
                         type="date"
                         name="startingDate"
@@ -174,4 +186,4 @@ const CoursePackagesList = ({ coursePackages, onDelete }) => {
   );
 };
 
-export default CoursePackagesList;
+export default TestPackagesList;

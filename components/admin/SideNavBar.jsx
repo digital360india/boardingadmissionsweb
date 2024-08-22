@@ -26,7 +26,7 @@ export const SideNavBar = () => {
           </div>
         </Link>
         <div className="flex flex-col space-y-6 ml-5 ">
-          <Link href="/dashboard">
+          <Link href="/admin/dashboard">
             <div className="flex items-center px-4 py-2 hover:text-lightpink hover:bg-slate">
               <FiHome className="mr-2" />
               <span>Home</span>
@@ -50,7 +50,19 @@ export const SideNavBar = () => {
               <span>Courses Packages</span>
             </div>
           </Link>
-
+          
+          <Link href="/admin/dashboard/testpackages">
+            <div className="flex items-center px-4 py-2 hover:text-white hover:bg-slate">
+              <FaEdit className="mr-2" />
+              <span>Test Packages</span>
+            </div>
+          </Link>
+          <Link href="/admin/dashboard/tests">
+            <div className="flex items-center px-4 py-2 hover:text-white hover:bg-slate">
+              <FaEdit className="mr-2" />
+              <span>Tests</span>
+            </div>
+          </Link>
           <div
             onClick={handleLogout}
             className="flex items-center px-4 py-2 cursor-pointer hover:text-white hover:bg-slate"

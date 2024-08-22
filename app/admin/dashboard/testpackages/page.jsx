@@ -2,11 +2,11 @@
 import React, { useState, useEffect } from "react";
 import { db } from "@/firebase/firebase";
 import { collection, getDocs, addDoc } from "firebase/firestore";
-import CoursePackagesList from "@/components/admin/AllCoursePackages";
+import TestPackagesList from "@/components/admin/AllTestPackages";
 
 const Page = () => {
-  const [courses, setCourses] = useState([]);
-  const [coursePackages, setCoursePackages] = useState([]);
+  const [tests, settests] = useState([]);
+  const [testPackages, settestPackages] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
   const [formData, setFormData] = useState({
@@ -16,32 +16,32 @@ const Page = () => {
     studentsEnrolled: "",
     startingDate: "",
   });
-  const [selectedCourses, setSelectedCourses] = useState([]);
+  const [selectedtests, setSelectedtests] = useState([]);
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   useEffect(() => {
-    const fetchCourses = async () => {
+    const fetchtests = async () => {
       try {
-        const querySnapshot = await getDocs(collection(db, "courses"));
+        const querySnapshot = await getDocs(collection(db, "tests"));
         const courseList = querySnapshot.docs.map((doc) => ({
           id: doc.id,
           ...doc.data(),
         }));
-        setCourses(courseList);
+        settests(courseList);
       } catch (err) {
-        setError("Failed to fetch courses. Please try again.");
-        console.error("Error fetching courses:", err);
+        setError("Failed to fetch tests. Please try again.");
+        console.error("Error fetching tests:", err);
       }
     };
 
-    const fetchCoursePackages = async () => {
+    const fetchtestPackages = async () => {
       try {
-        const querySnapshot = await getDocs(collection(db, "coursePackages"));
+        const querySnapshot = await getDocs(collection(db, "testPackages"));
         const packageList = querySnapshot.docs.map((doc) => ({
           id: doc.id,
           ...doc.data(),
         }));
-        setCoursePackages(packageList);
+        settestPackages(packageList);
       } catch (err) {
         setError("Failed to fetch course packages. Please try again.");
         console.error("Error fetching course packages:", err);
@@ -50,8 +50,8 @@ const Page = () => {
       }
     };
 
-    fetchCourses();
-    fetchCoursePackages();
+    fetchtests();
+    fetchtestPackages();
   }, []);
 
   const handleInputChange = (e) => {
@@ -62,33 +62,32 @@ const Page = () => {
     });
   };
 
-  const handleCourseSelection = (e, courseId) => {
+  const handletestselection = (e, courseId) => {
     if (e.target.checked) {
-      setSelectedCourses([...selectedCourses, courseId]);
+      setSelectedtests([...selectedtests, courseId]);
     } else {
-      setSelectedCourses(selectedCourses.filter((id) => id !== courseId));
+      setSelectedtests(selectedtests.filter((id) => id !== courseId));
     }
   };
 
   const handlePackageCreation = async (e) => {
     e.preventDefault();
     try {
-      await addDoc(collection(db, "coursePackages"), {
+      await addDoc(collection(db, "testPackages"), {
         ...formData,
         price: parseFloat(formData.price),
         discountedPrice: parseFloat(formData.discountedPrice),
         studentsEnrolled: parseInt(formData.studentsEnrolled, 10),
         startingDate: new Date(formData.startingDate).toISOString(),
         dateOfCreation: new Date().toISOString(),
-        courses: selectedCourses,
+        tests: selectedtests,
       });
-      // Refresh the list of course packages
-      const querySnapshot = await getDocs(collection(db, "coursePackages"));
+      const querySnapshot = await getDocs(collection(db, "testPackages"));
       const packageList = querySnapshot.docs.map((doc) => ({
         id: doc.id,
         ...doc.data(),
       }));
-      setCoursePackages(packageList);
+      settestPackages(packageList);
 
       setFormData({
         packageName: "",
@@ -97,21 +96,21 @@ const Page = () => {
         studentsEnrolled: "",
         startingDate: "",
       });
-      setSelectedCourses([]);
+      setSelectedtests([]);
       setIsModalOpen(false);
-      alert("Course package created successfully!");
+      alert("Test package created successfully!");
     } catch (err) {
-      console.error("Error creating course package:", err);
-      setError("Failed to create course package. Please try again.");
+      console.error("Error creating Test package:", err);
+      setError("Failed to create Test package. Please try again.");
     }
   };
 
   const handleDelete = async (packageId) => {
     try {
-      await getDocs(collection(db, "coursePackages"));
-      setCoursePackages((prevPackages) => prevPackages.filter(pkg => pkg.id !== packageId));
+      await getDocs(collection(db, "testPackages"));
+      settestPackages((prevPackages) => prevPackages.filter(pkg => pkg.id !== packageId));
     } catch (err) {
-      console.error("Error updating course packages:", err);
+      console.error("Error updating Test packages:", err);
     }
   };
 
@@ -120,8 +119,8 @@ const Page = () => {
       <button
         onClick={() => setIsModalOpen(true)}
         className="bg-blue-500 text-white px-4 py-2 rounded-md shadow-md hover:bg-blue-600 transition"
-      >
-        Create Course Package
+      > 
+        Create Test Package
       </button>
 
       {isModalOpen && (
@@ -133,7 +132,7 @@ const Page = () => {
             >
               &times;
             </button>
-            <h2 className="text-xl font-bold mb-4">Create Course Package</h2>
+            <h2 className="text-xl font-bold mb-4">Create Test Package</h2>
             <form onSubmit={handlePackageCreation}>
               <div className="mb-4">
                 <label className="block text-gray-700">Package Name:</label>
@@ -193,22 +192,22 @@ const Page = () => {
                 />
               </div>
               <div className="mb-4 h-32 overflow-y-scroll">
-                <h3 className="text-lg font-semibold mb-2">Select Courses:</h3>
+                <h3 className="text-lg font-semibold mb-2">Select tests:</h3>
                 {loading ? (
-                  <p>Loading courses...</p>
+                  <p>Loading tests...</p>
                 ) : error ? (
                   <p className="text-red-500">{error}</p>
                 ) : (
                   <div className="space-y-2">
-                    {courses.map((course) => (
+                    {tests.map((course) => (
                       <label key={course.id} className="flex items-center">
                         <input
                           type="checkbox"
                           value={course.id}
-                          onChange={(e) => handleCourseSelection(e, course.id)}
+                          onChange={(e) => handletestselection(e, course.id)}
                           className="mr-2"
                         />
-                        {course.courseName}
+                        {course.testTitle}
                       </label>
                     ))}
                   </div>
@@ -234,7 +233,7 @@ const Page = () => {
         </div>
       )}
       
-      <CoursePackagesList coursePackages={coursePackages} onDelete={handleDelete} />
+      <TestPackagesList testPackages={testPackages} onDelete={handleDelete} />
     </div>
   );
 };
