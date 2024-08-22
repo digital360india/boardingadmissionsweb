@@ -1,21 +1,28 @@
 "use client";
-import React, { useLayoutEffect, useRef, useEffect } from "react";
-import dynamic from "next/dynamic";
+import React, { useLayoutEffect, useRef, useState } from "react";
 import { gsap } from "gsap";
+import dynamic from 'next/dynamic';
 import '@/components/frontend/ScrollAnimation.css';
 
-// Dynamically import ScrollTrigger, disable SSR
-const ScrollTrigger = dynamic(() => import("gsap/ScrollTrigger"), { ssr: false });
-
 export default function ScrollAnimation() {
+  const [scrollTriggerLoaded, setScrollTriggerLoaded] = useState(false);
   const boxRef = useRef(null);
   const mainRef = useRef(null);
 
-  useEffect(() => {
-    // Ensure GSAP is only used in the browser
-    if (typeof window !== "undefined") {
-      gsap.registerPlugin(ScrollTrigger);
+  useLayoutEffect(() => {
+    let ScrollTrigger;
 
+    const loadScrollTrigger = async () => {
+      if (typeof window !== "undefined") {
+        ScrollTrigger = (await import("gsap/ScrollTrigger")).default;
+        gsap.registerPlugin(ScrollTrigger);
+        setScrollTriggerLoaded(true);
+      }
+    };
+
+    loadScrollTrigger();
+
+    if (scrollTriggerLoaded) {
       const animation = gsap.to(mainRef.current, {
         rotation: -120,
         duration: 1,
@@ -25,16 +32,15 @@ export default function ScrollAnimation() {
           end: 'bottom top',
           scrub: 1.5,
           pin: true,
-        },
+        }
       });
 
       return () => {
-        if (animation.scrollTrigger) animation.scrollTrigger.kill();
+        animation.scrollTrigger?.kill();
         animation.kill();
       };
     }
-  }, []);
-
+  }, [scrollTriggerLoaded]);
 
   return (
     <>
