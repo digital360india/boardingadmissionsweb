@@ -21,7 +21,7 @@ module.exports = {
         background01: "#F4FCFC",
         background02: "#FEFEFE",
         background03: "#F6F4F1",
-        background04: "#264e87",
+        background04: "#284c80",
         primary01: "#7791A1",
         primary02: "#075D70",
         primary03: "#5C616E",
