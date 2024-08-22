@@ -7,6 +7,7 @@ import React from 'react'
 import '@/app/globals.css'
 import Stories from '@/components/frontend/Stories'
 import HeroCarousel from '@/components/frontend/HeroCarousel'
+import ScrollAnimation from '@/components/frontend/ScrollAnimation'
 const HomePage = () => {
 
 
@@ -18,6 +19,7 @@ const HomePage = () => {
       <TrustedByStudent/>
       <CoursesWeOffer/>
       <OurTeam/>
+      <ScrollAnimation/>
       <FeaturedBlog/>
       <Stories/>
 

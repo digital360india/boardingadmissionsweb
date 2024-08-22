@@ -1,7 +1,7 @@
 "use client"
 import React, { useState, useEffect } from 'react';
 import { db } from '@/firebase/firebase'; // Adjust the import according to your setup
-import { collection, getDocs } from 'firebase/firestore';
+import { collection, getDocs, where } from 'firebase/firestore';
 
 const UserDetailDialog = ({ user, onClose }) => {
   if (!user) return null;
@@ -42,7 +42,7 @@ const UsersPage = () => {
   useEffect(() => {
     const fetchUsers = async () => {
       try {
-        const querySnapshot = await getDocs(collection(db, 'users'));
+        const querySnapshot = await getDocs(collection(db, 'users' ));
         const userList = querySnapshot.docs.map(doc => ({
           id: doc.id,
           ...doc.data(),

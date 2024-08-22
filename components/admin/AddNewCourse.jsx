@@ -1,20 +1,20 @@
-"use client"
-import React, { useState } from 'react';
-import { db } from '@/firebase/firebase';
-import { addDoc, collection } from 'firebase/firestore';
+"use client";
+import React, { useState } from "react";
+import { db } from "@/firebase/firebase";
+import { addDoc, collection } from "firebase/firestore";
 
 const AddCourseDialog = ({ isOpen, onClose }) => {
   const [formData, setFormData] = useState({
-    courseName: '',
-    heroImage: '',
-    thumbnailImage: '',
-    mobileViewImage: '',
-    description: '',
-    schools: '',
+    courseName: "",
+    heroImage: "",
+    thumbnailImage: "",
+    mobileViewImage: "",
+    description: "",
+    schools: "",
   });
-  const [error, setError] = useState('');
-  const [success, setSuccess] = useState('');
-  const [loading, setLoading] = useState(false); // State to manage loading
+  const [error, setError] = useState("");
+  const [success, setSuccess] = useState("");
+  const [loading, setLoading] = useState(false);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -26,12 +26,19 @@ const AddCourseDialog = ({ isOpen, onClose }) => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const { courseName, heroImage, thumbnailImage, mobileViewImage, description, schools } = formData;
+    const {
+      courseName,
+      heroImage,
+      thumbnailImage,
+      mobileViewImage,
+      description,
+      schools,
+    } = formData;
 
-    setLoading(true); // Start loading
+    setLoading(true);
 
     try {
-      await addDoc(collection(db, 'courses'), {
+      await addDoc(collection(db, "courses"), {
         courseName,
         heroImage,
         thumbnailImage,
@@ -40,18 +47,18 @@ const AddCourseDialog = ({ isOpen, onClose }) => {
         schools,
         createdAt: new Date(),
       });
-      setSuccess('Course added successfully!');
+      setSuccess("Course added successfully!");
       setFormData({
-        courseName: '',
-        heroImage: '',
-        thumbnailImage: '',
-        mobileViewImage: '',
-        description: '',
-        schools: '',
+        courseName: "",
+        heroImage: "",
+        thumbnailImage: "",
+        mobileViewImage: "",
+        description: "",
+        schools: "",
       });
     } catch (err) {
-      setError('Failed to add course. Please try again.');
-      console.error('Error adding course:', err);
+      setError("Failed to add course. Please try again.");
+      console.error("Error adding course:", err);
     } finally {
       setLoading(false); // Stop loading
     }
@@ -61,9 +68,12 @@ const AddCourseDialog = ({ isOpen, onClose }) => {
 
   return (
     <>
-      <div className="fixed inset-0 flex items-center justify-center z-50 bg-black bg-opacity-50" onClick={onClose}>
-        <div 
-          className="bg-white p-6 rounded-lg shadow-lg w-full max-w-md relative z-60" 
+      <div
+        className="fixed inset-0 flex items-center justify-center z-50 bg-black bg-opacity-50"
+        onClick={onClose}
+      >
+        <div
+          className="bg-white p-6 rounded-lg shadow-lg w-full max-w-md relative z-60"
           onClick={(e) => e.stopPropagation()} // Prevent click events from closing the dialog
         >
           <h2 className="text-xl font-bold mb-4">Add New Course</h2>
@@ -91,7 +101,9 @@ const AddCourseDialog = ({ isOpen, onClose }) => {
               />
             </div>
             <div className="mb-4">
-              <label className="block text-gray-700">Thumbnail Image URL:</label>
+              <label className="block text-gray-700">
+                Thumbnail Image URL:
+              </label>
               <input
                 type="text"
                 name="thumbnailImage"
@@ -102,7 +114,9 @@ const AddCourseDialog = ({ isOpen, onClose }) => {
               />
             </div>
             <div className="mb-4">
-              <label className="block text-gray-700">Mobile View Image URL:</label>
+              <label className="block text-gray-700">
+                Mobile View Image URL:
+              </label>
               <input
                 type="text"
                 name="mobileViewImage"
@@ -124,7 +138,9 @@ const AddCourseDialog = ({ isOpen, onClose }) => {
               ></textarea>
             </div>
             <div className="mb-4">
-              <label className="block text-gray-700">Schools Being Targeted:</label>
+              <label className="block text-gray-700">
+                Schools Being Targeted:
+              </label>
               <input
                 type="text"
                 name="schools"
@@ -136,10 +152,12 @@ const AddCourseDialog = ({ isOpen, onClose }) => {
             </div>
             <button
               type="submit"
-              className={`bg-blue-500 text-white p-2 rounded hover:bg-blue-600 ${loading ? 'opacity-50 cursor-not-allowed' : ''}`}
+              className={`bg-blue-500 text-white p-2 rounded hover:bg-blue-600 ${
+                loading ? "opacity-50 cursor-not-allowed" : ""
+              }`}
               disabled={loading}
             >
-              {loading ? 'Adding...' : 'Add Course'}
+              {loading ? "Adding..." : "Add Course"}
             </button>
             <button
               type="button"

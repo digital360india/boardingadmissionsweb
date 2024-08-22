@@ -42,10 +42,10 @@ export const SideNavBar = () => {
               <span>Users</span>
             </div>
           </Link>
-          <Link href="/admin/dashboard/editmakeupdata">
+          <Link href="/admin/dashboard/coursepackages">
             <div className="flex items-center px-4 py-2 hover:text-white hover:bg-slate">
               <FaEdit className="mr-2" />
-              <span>Edit Makeup Data</span>
+              <span>Courses Packages</span>
             </div>
           </Link>
           
@@ -80,7 +80,7 @@ export const SideNavBar = () => {
         <Link  href="/admin/dashboard/courses">
           <div className="py-[20px]"><IoBookSharp className="w-[40px] h-[40px]" /></div>
         </Link>
-        <Link href="/admin/dashboard/allusers">
+        <Link href="/admin/dashboard/coursepackages">
           <div className="py-[20px]"><FiUser className="w-[40px] h-[40px]" /></div>
         </Link>
         <Link href="/admin/dashboard/vendors">
