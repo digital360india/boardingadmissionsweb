@@ -135,7 +135,7 @@ const CoursePage = () => {
       const docRef = doc(db, "courses", uniqueID);
       await deleteDoc(docRef);
       alert("Course deleted successfully");
-      router.push("/courses");
+      router.push("/admin/dashboard/courses");
     } catch (err) {
       console.error("Error deleting course:", err);
       alert("Failed to delete course");
