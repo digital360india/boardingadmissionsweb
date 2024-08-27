@@ -3,15 +3,11 @@ import Image from "next/image";
 import React, { useState } from "react";
 import Faqdata from "@/utils/frontend/FaqData.js"
 import FaqData from "@/utils/frontend/FaqData.js";
-
 const Faq = () => {
   const [activeQuestion, setActiveQuestion] = useState(false);
   const handleToggle = (id) => {
     setActiveQuestion(activeQuestion === id ? null : id);
   };
-
-
-
   return (
     <>
       <div className="md:flex md:justify-center md:items-center pb-12 bg-[#F4FCFD]">
@@ -23,7 +19,6 @@ const Faq = () => {
             <h1 className="text-[24px] md:text-[40px] font-bold text-black">
               Have Questions?
             </h1>
-            
           </div>
           <div className="mt-5 flex justify-center items-center">
             <div className="px-5 py-5 flex flex-col gap-5">
@@ -64,7 +59,6 @@ const Faq = () => {
               ))}
             </div>
           </div>
-          
         </div>
         <div className="md:hidden w-full h-1 bg[#FFFFFF]"></div>
       </div>
