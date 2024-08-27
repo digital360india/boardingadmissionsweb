@@ -11,6 +11,57 @@ const star = [
     ratingByPerson: 4,
   },
 ];
+const tableData = [
+  {
+    title: "Fee Details",
+    headers: ["Category", "Fees (INR)"],
+    rows: [
+      ["Indian Resident/NRI/OCI", "25,000"],
+      ["Renewal Registration Fee", "500"],
+      ["Prospectus (School Counter)", "500"],
+      ["Prospectus (By Post)", "550"],
+      ["Common Aptitude Analysis Paper Set (School Counter, per set per year)", "100"],
+      ["Common Aptitude Analysis Paper Set (By Post, per set per year)", "150"],
+      ["Online Common Aptitude Analysis Paper Set", "300"],
+    ],
+  },
+  {
+    title: "Admission Timeline",
+    headers: ["Event", "Date"],
+    rows: [
+      ["Notification for Common Aptitude Analysis", "August (preceding year)"],
+      ["Common Aptitude Analysis", "3rd Saturday of September"],
+      ["Interaction Sessions", "December to February"],
+      ["New Entrants Join", "April"],
+      ["Overseas Candidates Join", "July (of the year of entry)"],
+    ],
+  },
+  {
+    title: "Age Criteria for Admission",
+    headers: ["Class", "Minimum Age (Years)", "Maximum Age (Years)"],
+    rows: [
+      ["IV", "8", "9.5"],
+      ["V", "9", "10.5"],
+      ["VI", "10", "11.5"],
+      ["VII", "11", "12.5"],
+      ["VIII", "12", "13.5"],
+      ["IX", "13", "14.5"],
+    ],
+  },
+  {
+    title: "Fee Structure",
+    headers: ["Particulars", "Indian Resident/NRI/OCI (INR)"],
+    rows: [
+      ["School Fee (Annual)", "9,67,000"],
+      ["Caution Money", "4,83,500"],
+      ["Admission Fee", "2,50,000"],
+      ["One-time IT Fee", "42,000"],
+      ["Imprest Money", "80,000"],
+      ["Uniform Advance", "25,000"],
+      ["Prospectus", "500 (School Counter) / 550 (By Post)"],
+    ],
+  },
+];
 
 function MayoGirlsPage() {
   return (
@@ -219,63 +270,35 @@ function MayoGirlsPage() {
             </p>
 
             <table className="w-full border-collapse border border-gray-300">
-              <thead>
-                <tr>
-                  <th className="border border-gray-300 px-4 py-2 bg-gray-100 text-left font-medium">
-                    Category
+            <thead>
+              <tr>
+                {tableData[0].headers.map((header, idx) => (
+                  <th
+                    key={idx}
+                    className="border border-gray-300 px-4 py-2 bg-gray-100 text-left font-medium"
+                  >
+                    {header}
                   </th>
-                  <th className="border border-gray-300 px-4 py-2 bg-gray-100 text-left font-medium">
-                    Fees (INR)
-                  </th>
+                ))}
+              </tr>
+            </thead>
+            <tbody>
+              {tableData[0].rows.map((row, rowIndex) => (
+                <tr key={rowIndex}>
+                  {row.map((cell, cellIndex) => (
+                    <td
+                      key={cellIndex}
+                      className={`border border-gray-300 px-4 py-2 ${
+                        cellIndex === 0 ? "font-semibold" : ""
+                      }`}
+                    >
+                      {cell}
+                    </td>
+                  ))}
                 </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td className="border border-gray-300 px-4 py-2 font-semibold">
-                    Indian Resident/NRI/OCI
-                  </td>
-                  <td className="border border-gray-300 px-4 py-2">25,000</td>
-                </tr>
-                <tr>
-                  <td className="border border-gray-300 px-4 py-2 font-semibold">
-                    Renewal Registration Fee
-                  </td>
-                  <td className="border border-gray-300 px-4 py-2">500</td>
-                </tr>
-                <tr>
-                  <td className="border border-gray-300 px-4 py-2 font-semibold">
-                    Prospectus (School Counter)
-                  </td>
-                  <td className="border border-gray-300 px-4 py-2">500</td>
-                </tr>
-                <tr>
-                  <td className="border border-gray-300 px-4 py-2 font-semibold">
-                    Prospectus (By Post)
-                  </td>
-                  <td className="border border-gray-300 px-4 py-2">550</td>
-                </tr>
-                <tr>
-                  <td className="border border-gray-300 px-4 py-2 font-semibold">
-                    Common Aptitude Analysis Paper Set (School Counter, per set
-                    per year)
-                  </td>
-                  <td className="border border-gray-300 px-4 py-2">100</td>
-                </tr>
-                <tr>
-                  <td className="border border-gray-300 px-4 py-2 font-semibold">
-                    Common Aptitude Analysis Paper Set (By Post, per set per
-                    year)
-                  </td>
-                  <td className="border border-gray-300 px-4 py-2">150</td>
-                </tr>
-                <tr>
-                  <td className="border border-gray-300 px-4 py-2 font-semibold">
-                    Online Common Aptitude Analysis Paper Set
-                  </td>
-                  <td className="border border-gray-300 px-4 py-2">300</td>
-                </tr>
-              </tbody>
-            </table>
+              ))}
+            </tbody>
+          </table>
             <p className="leading-6 w-[88vw] text-[1.15rem] my-6">
               <span className=" text-[1.25rem] font-medium ">Payment:</span>
               Through a Demand Draft payable at Ajmer.
@@ -299,57 +322,35 @@ function MayoGirlsPage() {
               </p>
 
               <table className="w-full border-collapse border border-gray-300">
-                <thead>
-                  <tr>
-                    <th className="border border-gray-300 px-4 py-2 bg-gray-100 text-left font-medium">
-                      Event
-                    </th>
-                    <th className="border border-gray-300 px-4 py-2 bg-gray-100 text-left font-medium">
-                      Date
-                    </th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td className="border border-gray-300 px-4 py-2 font-semibold">
-                      Notification for Common Aptitude Analysis
+            <thead>
+              <tr>
+                {tableData[1].headers.map((header, idx) => (
+                  <th
+                    key={idx}
+                    className="border border-gray-300 px-4 py-2 bg-gray-100 text-left font-medium"
+                  >
+                    {header}
+                  </th>
+                ))}
+              </tr>
+            </thead>
+            <tbody>
+              {tableData[1].rows.map((row, rowIndex) => (
+                <tr key={rowIndex}>
+                  {row.map((cell, cellIndex) => (
+                    <td
+                      key={cellIndex}
+                      className={`border border-gray-300 px-4 py-2 ${
+                        cellIndex === 0 ? "font-semibold" : ""
+                      }`}
+                    >
+                      {cell}
                     </td>
-                    <td className="border border-gray-300 px-4 py-2">
-                      August (preceding year)
-                    </td>
-                  </tr>
-                  <tr>
-                    <td className="border border-gray-300 px-4 py-2 font-semibold">
-                      Common Aptitude Analysis
-                    </td>
-                    <td className="border border-gray-300 px-4 py-2">
-                      3rd Saturday of September
-                    </td>
-                  </tr>
-                  <tr>
-                    <td className="border border-gray-300 px-4 py-2 font-semibold">
-                      Interaction Sessions
-                    </td>
-                    <td className="border border-gray-300 px-4 py-2">
-                      December to February
-                    </td>
-                  </tr>
-                  <tr>
-                    <td className="border border-gray-300 px-4 py-2 font-semibold">
-                      New Entrants Join
-                    </td>
-                    <td className="border border-gray-300 px-4 py-2">April</td>
-                  </tr>
-                  <tr>
-                    <td className="border border-gray-300 px-4 py-2 font-semibold">
-                      Overseas Candidates Join
-                    </td>
-                    <td className="border border-gray-300 px-4 py-2">
-                      july (of the year of entry)
-                    </td>
-                  </tr>
-                </tbody>
-              </table>
+                  ))}
+                </tr>
+              ))}
+            </tbody>
+          </table>
               <p className="leading-6 w-[88vw] text-[1.15rem] my-6">
                 <span className=" text-[1.25rem] font-medium ">Note:</span>
                 Confirmation of admission is required within ten days of the
@@ -375,64 +376,35 @@ function MayoGirlsPage() {
               </p>
 
               <table className="w-full border-collapse border border-gray-300">
-                <thead>
-                  <tr>
-                    <th className="border border-gray-300 px-4 py-2 bg-gray-100 text-left font-medium">
-                      Class
-                    </th>
-                    <th className="border border-gray-300 px-4 py-2 bg-gray-100 text-left font-medium">
-                      Minimum Age (Years)
-                    </th>
-                    <th className="border border-gray-300 px-4 py-2 bg-gray-100 text-left font-medium">
-                      Maximum Age (Years)
-                    </th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td className="border border-gray-300 px-4 py-2 font-semibold">
-                      IV
+            <thead>
+              <tr>
+                {tableData[2].headers.map((header, idx) => (
+                  <th
+                    key={idx}
+                    className="border border-gray-300 px-4 py-2 bg-gray-100 text-left font-medium"
+                  >
+                    {header}
+                  </th>
+                ))}
+              </tr>
+            </thead>
+            <tbody>
+              {tableData[2].rows.map((row, rowIndex) => (
+                <tr key={rowIndex}>
+                  {row.map((cell, cellIndex) => (
+                    <td
+                      key={cellIndex}
+                      className={`border border-gray-300 px-4 py-2 ${
+                        cellIndex === 0 ? "font-semibold" : ""
+                      }`}
+                    >
+                      {cell}
                     </td>
-                    <td className="border border-gray-300 px-4 py-2">8</td>
-                    <td className="border border-gray-300 px-4 py-2">9.5</td>
-                  </tr>
-                  <tr>
-                    <td className="border border-gray-300 px-4 py-2 font-semibold">
-                      V
-                    </td>
-                    <td className="border border-gray-300 px-4 py-2">9</td>
-                    <td className="border border-gray-300 px-4 py-2">10.5</td>
-                  </tr>
-                  <tr>
-                    <td className="border border-gray-300 px-4 py-2 font-semibold">
-                      VI
-                    </td>
-                    <td className="border border-gray-300 px-4 py-2">10</td>
-                    <td className="border border-gray-300 px-4 py-2">11.5</td>
-                  </tr>
-                  <tr>
-                    <td className="border border-gray-300 px-4 py-2 font-semibold">
-                      VII
-                    </td>
-                    <td className="border border-gray-300 px-4 py-2">11</td>
-                    <td className="border border-gray-300 px-4 py-2">12.5</td>
-                  </tr>
-                  <tr>
-                    <td className="border border-gray-300 px-4 py-2 font-semibold">
-                      VIII
-                    </td>
-                    <td className="border border-gray-300 px-4 py-2">12</td>
-                    <td className="border border-gray-300 px-4 py-2">13.5</td>
-                  </tr>
-                  <tr>
-                    <td className="border border-gray-300 px-4 py-2 font-semibold">
-                      IX
-                    </td>
-                    <td className="border border-gray-300 px-4 py-2">13</td>
-                    <td className="border border-gray-300 px-4 py-2">14.5</td>
-                  </tr>
-                </tbody>
-              </table>
+                  ))}
+                </tr>
+              ))}
+            </tbody>
+          </table>
               <p className="leading-6 w-[88vw] text-[1.15rem] my-6">
                 Parents must ensure their child meets the age requirement by
                 April 1st of the admission year.
@@ -455,61 +427,35 @@ function MayoGirlsPage() {
               <p className="text-[1.15rem] font-semibold mb-4">Fee Structure</p>
 
               <table className="w-full border-collapse border border-gray-300">
-                <thead>
-                  <tr>
-                    <th className="border border-gray-300 px-4 py-2 bg-gray-100 text-left font-medium">
-                    Particulars
-                    </th>
-                    <th className="border border-gray-300 px-4 py-2 bg-gray-100 text-left font-medium">
-                    Indian Resident/NRI/OCI (INR)
-                    </th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td className="border border-gray-300 px-4 py-2 font-semibold">
-                    School Fee (Annual)
+            <thead>
+              <tr>
+                {tableData[3].headers.map((header, idx) => (
+                  <th
+                    key={idx}
+                    className="border border-gray-300 px-4 py-2 bg-gray-100 text-left font-medium"
+                  >
+                    {header}
+                  </th>
+                ))}
+              </tr>
+            </thead>
+            <tbody>
+              {tableData[3].rows.map((row, rowIndex) => (
+                <tr key={rowIndex}>
+                  {row.map((cell, cellIndex) => (
+                    <td
+                      key={cellIndex}
+                      className={`border border-gray-300 px-4 py-2 ${
+                        cellIndex === 0 ? "font-semibold" : ""
+                      }`}
+                    >
+                      {cell}
                     </td>
-                    <td className="border border-gray-300 px-4 py-2">9,67,000</td>
-                  </tr>
-                  <tr>
-                    <td className="border border-gray-300 px-4 py-2 font-semibold">
-                    Caution Money
-                    </td>
-                    <td className="border border-gray-300 px-4 py-2">4,83,500</td>
-                  </tr>
-                  <tr>
-                    <td className="border border-gray-300 px-4 py-2 font-semibold">
-                    Admission Fee
-                    </td>
-                    <td className="border border-gray-300 px-4 py-2">2,50,000</td>
-                  </tr>
-                  <tr>
-                    <td className="border border-gray-300 px-4 py-2 font-semibold">
-                    One-time IT Fee
-                    </td>
-                    <td className="border border-gray-300 px-4 py-2">42,000</td>
-                  </tr>
-                  <tr>
-                    <td className="border border-gray-300 px-4 py-2 font-semibold">
-                    Imprest Money
-                    </td>
-                    <td className="border border-gray-300 px-4 py-2">80,000</td>
-                  </tr>
-                  <tr>
-                    <td className="border border-gray-300 px-4 py-2 font-semibold">
-                    Uniform Advance
-                    </td>
-                    <td className="border border-gray-300 px-4 py-2">25,000</td>
-                  </tr>
-                  <tr>
-                    <td className="border border-gray-300 px-4 py-2 font-semibold">
-                    Prospectus
-                    </td>
-                    <td className="border border-gray-300 px-4 py-2">500 (School Counter) / 550 (By Post)</td>
-                  </tr>
-                </tbody>
-              </table>
+                  ))}
+                </tr>
+              ))}
+            </tbody>
+          </table>
               <p className="leading-6 w-[88vw] text-[1.15rem] my-6">
                 <span className=" text-[1.25rem] font-medium ">Additional Costs:</span>
                 Books, stationery, and uniforms are charged separately based on actual usage.
