@@ -10,6 +10,7 @@ const star = [
 
     ratingByPerson: 4,
   },
+  
 ];
 
 const registrationSteps = [
