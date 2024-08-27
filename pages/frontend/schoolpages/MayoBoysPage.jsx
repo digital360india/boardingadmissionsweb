@@ -56,7 +56,7 @@ function MayoBoysPage() {
                 {
                   [1, 2, 3, 4, 5].map((num) => (
                     <button key={num}>
-                      <span className='text-yellow-600'>
+                      <span className=&apos;text-yellow-600&apos;>
                         &#9733;
                       </span>
                     </button>
@@ -113,7 +113,7 @@ function MayoBoysPage() {
           <div>
             <p className="leading-6 w-[88vw] text-[1.15rem]">
               Mayo College Boys School in Ajmer, Rajasthan, is a prestigious
-              boys' residential school known for its rich heritage and top-notch
+              boys&apos; residential school known for its rich heritage and top-notch
               education. Established in 1875 by Richard Bourke, the school was
               initially founded to educate the sons of Indian nobility. Today,
               Mayo Boys Admissions are highly competitive, with students aiming
@@ -132,7 +132,7 @@ function MayoBoysPage() {
           <p className="leading-6 w-[88vw] text-[1.15rem]">
             The Mayo Boys Admissions process is designed to select students who
             show promise in academics, extracurricular activities, and
-            leadership. Here's a quick guide to help you navigate the process.
+            leadership. Here&apos;s a quick guide to help you navigate the process.
           </p>
           <h2 className="text-[#075D70] font-semibold text-[1.4rem] my-4">
             Steps to Admission
@@ -153,7 +153,7 @@ function MayoBoysPage() {
               <ul className="list-disc pl-4 mt-2 space-y-4">
                 <li>
                   <span className="font-medium">Documents:</span> Include the
-                  student's birth certificate, previous academic records, and
+                  student&apos;s birth certificate, previous academic records, and
                   other essential documents.
                 </li>
               </ul>
@@ -205,7 +205,7 @@ function MayoBoysPage() {
           </h1>
           <p className="leading-6 w-[88vw] text-[1.15rem]">
             The fee structure for Mayo Boys Admissions includes several
-            components essential for a student's education and well-being.
+            components essential for a student&apos;s education and well-being.
           </p>
           <div className="mt-10">
             <table className="w-full border-collapse border border-gray-300">
