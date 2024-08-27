@@ -34,14 +34,14 @@ export default function Navbar() {
           </div>
           <div className=" order-2  flex justify-center flex-1 md:flex-none   md:order-1 ">
             <Link href="/">
-             <Image
+              <Image
                 src="/images/navbar.svg"
                 width={1}
                 height={1}
                 alt="Image"
                 className=" h-10 w-10 md:h-24 md:w-28"
               />
-              </Link>
+            </Link>
           </div>
           <div className=" order-2 text-black text-[16px] md:text-[18px] hidden md:flex space-x-4 lg:space-x-8 ">
             <Link href="/courses">

@@ -28,10 +28,7 @@ const AuthPage = () => {
         console.error("Login failed: User not found.");
         return;
       }
-
       await signInWithEmailAndPassword(auth, data.email, data.password);
-
-
       setTimeout(() => {
         toast.success("Welcome ADMIN " );
       }, 2000);
