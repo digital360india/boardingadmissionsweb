@@ -31,6 +31,7 @@ function WelhamBoysPage() {
             className="absolute inset-0 left-[5%] top-[68%] w-[13vw] "
             width={2}
             height={2}
+            alt="img"
           />
         </div>
       </div>
@@ -84,6 +85,7 @@ function WelhamBoysPage() {
                   className="w-full h-full pt-1"
                   width={2}
                   height={2}
+                  alt="img"
                 />
               </div>
 
@@ -96,6 +98,7 @@ function WelhamBoysPage() {
                   className="w-full h-full pt-1"
                   width={2}
                   height={2}
+                  alt="img"
                 />
               </div>
 
