@@ -49,7 +49,7 @@ const examDetails = [
       "Be ready for an interview, as it may be part of the Woodstock School Entrance process to evaluate applicants comprehensively.",
   },
 ];
-
+  
 function WoodStockPage() {
   return (
     <div className="h-auto w-[100%]   md:mt-24">
