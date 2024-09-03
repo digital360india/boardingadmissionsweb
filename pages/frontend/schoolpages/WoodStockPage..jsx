@@ -79,7 +79,7 @@ function WoodStockPage() {
           <div className="w-full flex flex-col  gap-5">
             <div className="">
               <h1 className="text-[#075D70]  text-[2rem] font-bold">
-                Scindia School, Gwalior, Madhya Pradesh
+              Wood Stock School, (Mussoorie)
               </h1>
             </div>
             <div className="flex text-center gap-3">
@@ -168,54 +168,27 @@ function WoodStockPage() {
           </div>
         </div>
 
-        <div className="space-y-4 w-[90vw] mb-10 mt-10">
+
+        <div className="mt-5">
+  <h1 className="text-[#075D70] font-semibold text-[2rem]">Fee Structure</h1>
+  <ul className="text-[1.15rem] mt-3">
+    <li><span className="font-medium mr-1">Grade 6:</span> Rs. 1,986,000</li>
+    <li><span className="font-medium mr-1">Grade 7:</span> Rs. 1,986,000</li>
+    <li><span className="font-medium mr-1">Grade 8:</span> Rs. 1,986,000</li>
+    <li><span className="font-medium mr-1">Grade 9:</span> Rs. 2,052,000</li>
+    <li><span className="font-medium mr-1">Grade 10:</span> Rs. 2,052,000</li>
+    <li><span className="font-medium mr-1">Grade 11:</span> Rs. 2,206,000</li>
+    <li><span className="font-medium mr-1">Grade 12:</span> Rs. 2,206,000</li>
+  </ul>
+</div>
+
+
+        <div className="space-y-4 w-[90vw] mb-10 mt-5">
           <div>
             <h1 className="text-[#075D70] font-semibold text-[2rem]">
               Admission Procedure
             </h1>
           </div>
-          {/* <div>
-            <ul className="list-disc pl-4 space-y-4 text-[1.15rem]">
-              <li>
-                <span className="font-medium"> Choose the Exam:</span> Decide
-                between the Common Aptitude Analysis (CAA) and Scindia School
-                Aptitude Analysis (SAA), both covering Mathematics, English, and
-                Hindi.
-              </li>
-              <li>
-                {" "}
-                <span className="font-medium">Exam Centers: </span>Exams are
-                conducted in Kolkata, Mumbai, New Delhi, Lucknow, and Gwalior.
-              </li>
-              <li>
-                <span className="font-medium">Exam Schedules:</span> CAA is held
-                every third Saturday of November. SAA is in January/February,
-                with Gwalior center registrations open until January 27.
-                On-the-spot SAA registrations are available.
-              </li>
-              <li>
-                <span className="font-medium"> Aadhar Card Submission:</span>{" "}
-                Mandatory for all Indian states except J & K, Assam, Meghalaya.
-              </li>
-              <li>
-                <span className="font-medium">Eligibility for Admission:</span>{" "}
-                Candidates for classes VI, VII, and VIII should be under the
-                age-appropriate maximum age as of January 1 of the admission
-                year. Classes IX and XI may admit exceptionally meritorious
-                students if vacancies are available.
-              </li>
-              <li>
-                <span className="font-medium">Interactive Session: </span>
-                Shortlisted students will be invited to the school for an
-                interactive session including games, sports, and faculty
-                interaction.
-              </li>
-              <li>
-                <span className="font-medium">Download Syllabus: </span>
-                Available on the school&apos;s website after registration.
-              </li>
-            </ul>
-          </div> */}
 
           <div>
             <ul className="list-disc pl-4 space-y-4 text-[1.15rem]">
