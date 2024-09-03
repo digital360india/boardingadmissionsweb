@@ -12,7 +12,7 @@ const SchoolsPage = () => {
       <SchoolWeCracked/>
     <TrustedByStudent/>
     <TopSchools/>
-    <Faq/>
+    {/* <Faq/> */}
     </div>
   )
 }
