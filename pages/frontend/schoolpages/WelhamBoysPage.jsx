@@ -3,6 +3,7 @@ import React from "react";
 import Faq from "@/components/frontend/Faqdata";
 import Image from "next/image";
 import Star from "@/components/frontend/Ratings";
+import schoolFAQs from "@/utils/frontend/FaqData";
 
 const star = [
   {
@@ -13,6 +14,7 @@ const star = [
 ];
 
 function WelhamBoysPage() {
+  const WelhamBoys = schoolFAQs.find(school => school.school === 'WelhamBoys')?.faqs || [];
   return (
     <div className="h-auto w-[100%]">
       <div className="relative ">
@@ -486,7 +488,7 @@ function WelhamBoysPage() {
       </div>
 
       <div>
-        <Faq />
+        <Faq data={WelhamBoys}/>
       </div>
     </div>
   );

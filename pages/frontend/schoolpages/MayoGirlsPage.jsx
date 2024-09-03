@@ -64,6 +64,7 @@ const tableData = [
 ];
 
 function MayoGirlsPage() {
+  const MayoGirls = schoolFAQs.find(school => school.school === 'MayoGirls')?.faqs || [];
   return (
     <div className="h-auto w-[100%]">
       <div className="relative ">
@@ -537,7 +538,7 @@ function MayoGirlsPage() {
       </div>
 
       <div>
-        <Faq />
+        <Faq data={MayoGirls} />
       </div>
     </div>
   );
