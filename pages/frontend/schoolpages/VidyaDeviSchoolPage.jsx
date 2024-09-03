@@ -3,6 +3,7 @@ import React from "react";
 import Faq from "@/components/frontend/Faqdata";
 import Image from "next/image";
 import Star from "@/components/frontend/Ratings";
+import schoolFAQs from "@/utils/frontend/FaqData";
 
 const star = [
   {
@@ -55,6 +56,7 @@ const admissionSteps = [
 ];
 
 function VidyaDeviSchoolPage() {
+  const VidyaDeviJindalSchool = schoolFAQs.find(school => school.school === 'VidyaDeviJindalSchool')?.faqs || [];
   return (
     <div className="h-auto w-[100%] md:mt-24">
       <div className="relative ">
@@ -347,7 +349,7 @@ function VidyaDeviSchoolPage() {
       </div>
 
       <div>
-        <Faq />
+        <Faq data={VidyaDeviJindalSchool}/>
       </div>
     </div>
   );
