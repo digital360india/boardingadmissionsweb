@@ -14,7 +14,7 @@ const cardData = [
   {
     id: 2,
     type: "image",
-    imageSrc: "/path/to/image1.jpg",
+    imageSrc: "/",
     title: "Course 1",
     description: "Description for course 1",
     features: ["Feature 1", "Feature 2", "Feature 3"],
@@ -22,7 +22,7 @@ const cardData = [
   {
     id: 3,
     type: "image",
-    imageSrc: "/path/to/image2.jpg",
+    imageSrc: "/",
     title: "Course 2",
     description: "Description for course 2",
     features: ["Feature 1", "Feature 2", "Feature 3"],
