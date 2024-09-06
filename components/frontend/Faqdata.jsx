@@ -3,15 +3,11 @@ import Image from "next/image";
 import React, { useState } from "react";
 import Faqdata from "@/utils/frontend/FaqData.js"
 import FaqData from "@/utils/frontend/FaqData.js";
-
-const Faq = () => {
+const Faq = ({data}) => {
   const [activeQuestion, setActiveQuestion] = useState(false);
   const handleToggle = (id) => {
     setActiveQuestion(activeQuestion === id ? null : id);
   };
-
-
-
   return (
     <>
       <div className="md:flex md:justify-center md:items-center pb-12 bg-[#F4FCFD]">
@@ -23,11 +19,10 @@ const Faq = () => {
             <h1 className="text-[24px] md:text-[40px] font-bold text-black">
               Have Questions?
             </h1>
-            
           </div>
           <div className="mt-5 flex justify-center items-center">
             <div className="px-5 py-5 flex flex-col gap-5">
-              {Faqdata.map((item,key) => (
+              {data.map((item,key) => (
                 <div
                   key={key}
                   className={`w-[75vw]  flex flex-col  justify-between items-center bg-[#F4FCFD] sm:p-4 p-3   rounded-xl border border-[#075D70] transition-all ${
@@ -64,7 +59,6 @@ const Faq = () => {
               ))}
             </div>
           </div>
-          
         </div>
         <div className="md:hidden w-full h-1 bg[#FFFFFF]"></div>
       </div>
