@@ -7,7 +7,7 @@ import {
   signInWithPopup,
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
-  onAuthStateChanged,
+ onAuthStateChanged,
 } from "firebase/auth";
 
 const firebaseConfig = {
