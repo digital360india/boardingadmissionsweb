@@ -17,8 +17,8 @@ export const SideNavBar = () => {
 
   return (
     <>
-      <div
-        className={`bg-gradient-to-b from-background04 to-background01 text-white min-h-full top-0 fixed ${
+      <div                              
+        className={`bg-gradient-to-b from-primary02 to-background01 text-white min-h-full top-0 fixed ${
           isCollapsed ? "w-20" : "w-1/5"
         } transition-width duration-300`}
       >

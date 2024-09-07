@@ -1,6 +1,6 @@
 "use client";
 import React, { useState, useEffect } from "react";
-import { db } from "@/firebase/firebase"; // Adjust the import according to your setup
+import { db } from "@/firebase/firebase"; 
 import { collection, getDocs } from "firebase/firestore";
 import Link from "next/link";
 
@@ -37,6 +37,12 @@ const CourseList = () => {
     );
   if (error) return <div className="text-red-500">{error}</div>;
 
+  // Function to limit text to the first 4 lines (assuming approximately 200 characters per 4 lines)
+  const limitText = (text, limit = 200) => {
+    if (text.length <= limit) return text;
+    return text.slice(0, limit) + "...";
+  };
+
   return (
     <div className="course-list p-4">
       <h2 className="text-xl font-bold mb-4">Courses</h2>
@@ -53,7 +59,7 @@ const CourseList = () => {
               className="w-full h-40 object-cover rounded"
             />
             <h3 className="text-lg font-semibold mt-2">{course.courseName}</h3>
-            <p className="text-gray-700 mt-2">{course.description}</p>
+            <p className="text-gray-700 mt-2">{limitText(course.description)}</p>
           </Link>
         ))}
       </div>
@@ -62,3 +68,4 @@ const CourseList = () => {
 };
 
 export default CourseList;
+  

@@ -8,7 +8,7 @@ import { TbSquareRounded } from "react-icons/tb";
 const TopNavBar = () => {
   return (
     <div
-      className="flex  bg-gradient-to-r  from-background04 to-background01 text-white fixed lg:w-4/5 w-full  text-2xl text-slate
+      className="flex  bg-gradient-to-r  from-primary02 to-background01 text-white fixed lg:w-4/5 w-full  text-2xl text-slate
     bg-primary h-20"
     >
      <div className="justify-center items-center  flex lg:hidden"  ><img  src="/images/logo1.png" height={1000} width={1000} className="w-32 h-32 " /></div>
