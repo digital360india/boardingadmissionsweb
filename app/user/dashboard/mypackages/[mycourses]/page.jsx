@@ -74,7 +74,10 @@ const Page = () => {
                 <p className="text-gray-700 mt-2">{course.description}</p>
                 <div className="mt-4 flex justify-between items-center">
                   <Link
-                    href={`/user/dashboard/mypackages/[mycourses]/[course]`}
+                    href={{
+                      pathname: `/user/dashboard/mypackages/[mycourses]/[course]`,
+                      query: { mycourses: packageId, course: course.id },
+                    }}
                     as={`/user/dashboard/mypackages/${packageId}/${course.id}`}
                   >
                     {" "}
