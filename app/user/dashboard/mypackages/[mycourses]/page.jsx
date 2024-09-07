@@ -1,9 +1,10 @@
 "use client";
-import { usePathname } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 import React, { useState, useEffect } from "react";
 import { db } from "@/firebase/firebase"; // Ensure your Firebase setup is correct
 import { collection, getDocs, doc, getDoc } from "firebase/firestore";
 import Link from "next/link";
+import { IoMdArrowBack } from "react-icons/io";
 
 const Page = () => {
   const currentPage = usePathname();
@@ -12,6 +13,7 @@ const Page = () => {
   const [courses, setCourses] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
+  const router = useRouter(); // Access the router instance
 
   useEffect(() => {
     const fetchCourses = async () => {
@@ -54,6 +56,16 @@ const Page = () => {
 
   return (
     <div className="container mx-auto p-4">
+            <button
+        className="flex "
+        onClick={() => router.back()} // Navigate to the previous page
+      >
+        <div>
+          {" "}
+          <IoMdArrowBack  className="text-xl"/>{" "}
+        </div>
+        <div>Back</div>
+      </button>
       <h1 className="text-3xl font-bold mb-6">Courses in Package</h1>
       {courses.length > 0 ? (
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">

@@ -1,5 +1,6 @@
 import { SideNavBar } from "@/components/backend/SideNavBar";
 import "../../globals.css";
+import { AdminProvider } from "@/adminProvider";
 import TopNavBar from "@/components/backend/TopNavBar";
 import { UserProvider } from "@/userProvider";
 
