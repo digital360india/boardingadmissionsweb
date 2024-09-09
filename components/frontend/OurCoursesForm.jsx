@@ -1,7 +1,6 @@
 "use client";
 
 import React, { useState } from "react";
-import AboutForm from "./AboutForm";
 
 const OurCoursesForm = () => {
   const [formData, setFormData] = useState({
@@ -28,11 +27,11 @@ const OurCoursesForm = () => {
 
   return (
     <>
-      <div className="md:hidden block">
+      <div className="">
         <div className="bg-white p-4 md:mb-20 flex justify-center items-center" >
           <div 
-          // className={`mt-10 md:mt-12  md:mx-12 md:border-4 border-[#FFFFFF]  rounded-lg w-[19rem] md:w-[77.5rem] bg-[#F4FCFC80]`}  style={{ boxShadow: '0 0 6px 0 rgba(0, 0, 0, 0.32)' }}
-          className={`mt-10 md:mt-12 md:mx-12 md:border-4  rounded-lg w-[100%] md:w-[77.5rem] bg-[#F4FCFC80] border-4 border-[#F9FDFD] md:border-white md:shadow-lg`}
+          className={`mt-10 md:mt-12  md:mx-12 md:border-4 border-[#FFFFFF]  rounded-lg w-[19rem] md:w-[77.5rem] bg-[#F4FCFC80]`}  style={{ boxShadow: '0 0 6px 0 rgba(0, 0, 0, 0.32)' }}
+          // className={`mt-10 md:mt-12 md:mx-12 md:border-4  rounded-lg w-[100%] md:w-[77.5rem] bg-[#F4FCFC80] border-4 border-[#F9FDFD] md:border-white md:shadow-lg`}
          >
             <div className="pt-7">
               <h1 className="font-semibold   text-[2rem] md:text-[3rem] text-primary02 text-center">
@@ -52,6 +51,7 @@ const OurCoursesForm = () => {
                     placeholder="First Name*"
                     className="border border-[#E7E7E7] p-4 rounded-lg w-[100%]  h-[56px] text-[#667085] text-[1rem]"
                     onChange={handleChange}
+                    value={formData.firstName}
                     required
                   />
                   <input
@@ -60,6 +60,7 @@ const OurCoursesForm = () => {
                     placeholder="Last Name*"
                     className="border border-[#E7E7E7] p-4 rounded-lg w-[100%]  h-[56px] text-[#667085] text-[1rem]"
                     onChange={handleChange}
+                    value={formData.lastName}
                     required
                   />
                   <input
@@ -68,6 +69,7 @@ const OurCoursesForm = () => {
                     placeholder="Email*"
                     className="border border-[#E7E7E7] p-4 rounded-lg w-[100%] h-[56px] text-[#667085] text-[1rem]"
                     onChange={handleChange}
+                    value={formData.email}
                     required
                   />
                   <input
@@ -76,6 +78,8 @@ const OurCoursesForm = () => {
                     placeholder="Phone Number*"
                     className="border border-[#E7E7E7] p-4 rounded-lg w-[100%]  h-[56px] text-[#667085] text-[1rem]"
                     onChange={handleChange}
+                    value={formData.phoneNumber}
+
                     required
                   />
                 </div>
@@ -86,6 +90,7 @@ const OurCoursesForm = () => {
                     rows="5"
                     className="w-full h-[8rem]  md:h-[182px] border border-[#E7E7E7] p-4 rounded-lg mb-4 text-[#667085] text-[1rem] resize-none"
                     onChange={handleChange}
+                    value={formData.message}
                   ></textarea>
                 </div>
 
@@ -98,7 +103,7 @@ const OurCoursesForm = () => {
                       type="submit"
                       className=" text-white py-4  rounded-md "
                     >
-                      Primary
+                      Submit
                     </button>
                   </div>
                 </div>
@@ -107,9 +112,7 @@ const OurCoursesForm = () => {
           </div>
         </div>
       </div>
-      <div className="hidden md:block">
-        <AboutForm/>
-      </div>
+     
     </>
   );
 };
