@@ -1,13 +1,14 @@
 "use client";
 import React from "react";
 import Ace from "@/public/icons/Ace.svg";
+import Link from "next/link";
 
 const ServicesHero = () => {
   return (
     <>
       <div className="md:mx-20 mt-[25%] md:mt-[10%]">
         <h1 className="text-[2rem] md:text-[3.5rem] text-[#075D70] text-center pb-8 font-bold">
-          ACE INTERVIEW EXAM
+          ACE ENTRANCE EXAM
         </h1>
         <div
           className="w-full h-[30.375rem] bg-no-repeat bg-cover bg-center relative"
@@ -26,7 +27,7 @@ const ServicesHero = () => {
               securing a spot in India&apos;s top boarding schools.
             </p>
             <div className="w-[7.5rem] h-[2.0rem] md:w-[18.75rem] md:h-[3.5rem] bg-gradient01  border-custom rounded-md flex items-center justify-center text-[1rem] ">
-              <button className="text-white">Enroll Now</button>
+              <Link href="/checkout/aceentranceexams"><button className="text-white">Enroll Now</button></Link>
             </div>
           </div>
         </div>

@@ -14,7 +14,6 @@ const EnrollNow = () => {
       <EnrollNowAbout />
       <EnrollNowSellingPackage />
       <EnrollNowSyllabus />
-      {/* <Stories /> */}
     </>
   );
 };

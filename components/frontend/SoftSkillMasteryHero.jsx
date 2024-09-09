@@ -27,7 +27,10 @@ const SoftSkillMasteryHero = () => {
               Mastery module today!
             </p>
             <div className="w-[7.5rem] h-[2.0rem] md:w-[18.75rem] md:h-[3.5rem] bg-gradient01  border-custom rounded-md flex items-center justify-center text-[1rem] ">
-              <button className="text-white">Enroll Now</button>
+              <Link href="/checkout/softskillmastery">
+                {" "}
+                <button className="text-white">Enroll Now</button>
+              </Link>{" "}
             </div>
           </div>
         </div>
@@ -62,7 +65,7 @@ const SoftSkillMasteryHero = () => {
             <Link href="#Communication skills">
               {" "}
               <h1 className="border border-white rounded-md p-2">
-              Communication skills
+                Communication skills
               </h1>
             </Link>
             <Link href="#Leadership">
@@ -71,15 +74,16 @@ const SoftSkillMasteryHero = () => {
             </Link>
             <Link href="#Emotional intelligence">
               <h1 className="border border-white rounded-md p-2">
-              Emotional intelligence
+                Emotional intelligence
               </h1>
             </Link>
 
             <Link href="#Problem-solving">
               {" "}
-              <h1 className="border border-white rounded-md p-2">Problem-solving</h1>
+              <h1 className="border border-white rounded-md p-2">
+                Problem-solving
+              </h1>
             </Link>
-            
           </div>
         </div>
       </div>

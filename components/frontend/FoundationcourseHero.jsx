@@ -26,7 +26,10 @@ const FoundationcourseHero = () => {
               for your child&apos;s academic journey.
             </p>
             <div className="w-[7.5rem] h-[2.0rem] md:w-[18.75rem] md:h-[3.5rem] bg-gradient01  border-custom rounded-md flex items-center justify-center text-[1rem] ">
-              <button className="text-white">Enroll Now</button>
+              <Link href="checkout/foundationcourses">
+                {" "}
+                <button className="text-white">Enroll Now</button>
+              </Link>
             </div>
           </div>
         </div>
