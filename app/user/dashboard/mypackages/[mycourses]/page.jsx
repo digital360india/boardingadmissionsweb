@@ -28,8 +28,6 @@ const Page = () => {
 
         const packageData = packageDoc.data();
         const courseIds = packageData.courses || [];
-
-        // Fetch the course documents
         const coursesCollection = collection(db, "courses");
         const coursesDocs = await Promise.all(
           courseIds.map((courseId) => getDoc(doc(coursesCollection, courseId)))
@@ -53,20 +51,27 @@ const Page = () => {
 
   if (loading) return <div>Loading...</div>;
   if (error) return <div>{error}</div>;
+  const truncateText = (text, limit) => {
+    if (text === undefined) {
+      return "";
+    }
 
+    const words = text.split(" ");
+    if (words.length > limit) {
+      return words.slice(0, limit).join(" ") + "...";
+    }
+    return text;
+  };
   return (
     <div className="container mx-auto p-4">
-            <button
-        className="flex "
-        onClick={() => router.back()} // Navigate to the previous page
-      >
+      <button className="flex " onClick={() => router.back()}>
         <div>
           {" "}
-          <IoMdArrowBack  className="text-xl"/>{" "}
+          <IoMdArrowBack className="text-xl" />{" "}
         </div>
         <div>Back</div>
       </button>
-      <h1 className="text-3xl font-bold mb-6">Courses in Package</h1>
+      <h1 className="text-3xl font-bold mb-6 mt-6">Courses in Package</h1>
       {courses.length > 0 ? (
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {courses.map((course) => (
@@ -75,7 +80,7 @@ const Page = () => {
               className="bg-white shadow-lg rounded-lg overflow-hidden"
             >
               <img
-                src={`https://via.placeholder.com/400x200.png?text=${course.name}`}
+                src={course.heroImage}
                 alt={course.name}
                 className="w-full h-48 object-cover"
               />
@@ -83,18 +88,20 @@ const Page = () => {
                 <h2 className="text-xl font-semibold text-green-600">
                   {course.name}
                 </h2>
-                <p className="text-gray-700 mt-2">{course.description}</p>
-                <div className="mt-4 flex justify-between items-center">
+                <p className="text-gray-700 mt-2">
+                  {truncateText(course.description, 20)}
+                </p>
+                <div className="mt-4 flex w-full">
                   <Link
                     href={{
                       pathname: `/user/dashboard/mypackages/[mycourses]/[course]`,
                       query: { mycourses: packageId, course: course.id },
                     }}
                     as={`/user/dashboard/mypackages/${packageId}/${course.id}`}
+                    className="w-full" 
                   >
-                    {" "}
-                    <button className="bg-green-600 text-white px-4 py-2 rounded-lg">
-                      Learn{" "}
+                    <button className="bg-background04 text-white px-4 py-2 rounded-lg w-full">
+                      Learn
                     </button>
                   </Link>
                 </div>

@@ -51,8 +51,10 @@ const MyCoursesPage = () => {
 
   return (
     <div className="container mx-auto p-4">
-      <h1 className="text-3xl font-bold mb-6">Course Packages</h1>
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <h1 className="text-3xl font-bold mb-6 text-background04 ">
+        My Packages
+      </h1>
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 ">
         {packages.length > 0 ? (
           packages.map((pkg) => (
             <div
@@ -60,12 +62,12 @@ const MyCoursesPage = () => {
               className="bg-white shadow-lg rounded-lg overflow-hidden"
             >
               <img
-                src={`https://via.placeholder.com/400x200.png?text=${pkg.packageName}`} // Placeholder image
+                src={pkg.image}
                 alt={pkg.packageName}
                 className="w-full h-48 object-cover"
               />
               <div className="p-4">
-                <h2 className="text-xl font-semibold text-green-600">
+                <h2 className="text-xl font-semibold text-background04">
                   {pkg.packageName}
                 </h2>
                 <p className="text-gray-700 mt-2">{`Starting Date: ${new Date(
@@ -77,10 +79,14 @@ const MyCoursesPage = () => {
                 <p className="text-gray-700 mt-1">{`Students Enrolled: ${pkg.studentsEnrolled}`}</p>
                 <p className="text-gray-700 mt-1">{`Price: ₹${pkg.price}`}</p>
                 <p className="text-gray-700 mt-1">{`Discounted Price: ₹${pkg.discountedPrice}`}</p>
-                <div className="mt-4 flex justify-between items-center">
-                  <Link href={`/user/dashboard/mypackages/[mycourses]`} as={`/user/dashboard/mypackages/${pkg.id}`} >
-                    <button className="bg-green-600 text-white px-4 py-2 rounded-lg">
-                      Learn{" "}
+                <div className="mt-4 flex w-full justify-between items-center">
+                  <Link
+                    className="flex w-full"
+                    href={`/user/dashboard/mypackages/[mycourses]`}
+                    as={`/user/dashboard/mypackages/${pkg.id}`}
+                  >
+                    <button className="bg-background04 text-white px-4 py-2 rounded-lg w-full">
+                      Learn
                     </button>
                   </Link>
                 </div>

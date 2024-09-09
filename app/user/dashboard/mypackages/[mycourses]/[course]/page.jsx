@@ -7,11 +7,9 @@ import { IoMdArrowBack } from "react-icons/io";
 import { FaArrowRightLong, FaArrowDownLong } from "react-icons/fa6";
 
 const Page = () => {
-  const router = useRouter(); // Access the router instance
-
+  const router = useRouter();
   const pathname = usePathname();
   const pathParts = pathname.split("/");
-  const mycourses = pathParts[4];
   const course = pathParts[5];
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
@@ -20,20 +18,14 @@ const Page = () => {
   const [selectedLectureIndex, setSelectedLectureIndex] = useState(null);
   const [showFullText, setShowFullText] = useState(false);
 
-  const toggleTextDisplay = () => {
-    setShowFullText(!showFullText);
-  };
-
   const fetchCourseData = async () => {
     try {
       const courseDoc = await getDoc(doc(db, "courses", course));
-
       if (!courseDoc.exists()) {
         setError("Course not found.");
         setLoading(false);
         return;
       }
-
       setCourseData(courseDoc.data());
     } catch (err) {
       setError("Failed to fetch courses. Please try again.");
@@ -49,11 +41,29 @@ const Page = () => {
 
   const handleChapterClick = (index) => {
     setSelectedChapterIndex(index === selectedChapterIndex ? null : index);
-    setSelectedLectureIndex(null); // Reset selected lecture when changing chapter
+    setSelectedLectureIndex(null);
   };
-
   const handleLectureClick = (index) => {
     setSelectedLectureIndex(index === selectedLectureIndex ? null : index);
+    const chapter = courseData.chapters[selectedChapterIndex];
+    if (chapter.lectures[index].videoUrl) {
+      const queryParams = new URLSearchParams({
+        videoUrl: chapter.lectures[index].videoUrl,
+        index: index.toString(),
+        totalLectures: chapter.lectures.length.toString(),
+      });
+
+      chapter.lectures.forEach((lecture, idx) => {
+        if (lecture.videoUrl) {
+          queryParams.append(`videoUrl${idx}`, lecture.videoUrl);
+        }
+      });
+
+      router.push(`/user/dashboard/video?${queryParams.toString()}`);
+    }
+  };
+  const toggleTextDisplay = () => {
+    setShowFullText(!showFullText);
   };
 
   if (loading) {
@@ -123,7 +133,7 @@ const Page = () => {
                     <h4 className="text-lg font-semibold text-primary02 mb-2">
                       Lectures
                     </h4>
-                    <div className="space-y-4">
+                    <div className="space-y-4 flex gap-6 flex-wrap">
                       {chapter.lectures.map((lecture, lectureIndex) => (
                         <div
                           key={lectureIndex}
@@ -138,30 +148,17 @@ const Page = () => {
                           </p>
                           {selectedLectureIndex === lectureIndex && (
                             <div className="mt-2">
-                              {lecture.videoUrl && (
-                                <div className="mb-4">
-                                  <video
-                                    controls
-                                    className="w-full h-auto"
-                                    src={lecture.videoUrl}
-                                  >
-                                    Your browser does not support the video tag.
-                                  </video>
-                                </div>
-                              )}
-                              <div className="mt-2">
-                                {lecture.pdfs.map((pdf, i) => (
-                                  <a
-                                    key={i}
-                                    href={pdf}
-                                    className="text-blue-600 block"
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                  >
-                                    View PDF {i + 1}
-                                  </a>
-                                ))}
-                              </div>
+                              {lecture.pdfs.map((pdf, i) => (
+                                <a
+                                  key={i}
+                                  href={pdf}
+                                  className="text-blue-600 block"
+                                  target="_blank"
+                                  rel="noopener noreferrer"
+                                >
+                                  View PDF {i + 1}
+                                </a>
+                              ))}
                             </div>
                           )}
                         </div>
