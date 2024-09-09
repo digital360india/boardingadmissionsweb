@@ -3,6 +3,7 @@ import React, { useState, useEffect } from "react";
 import { db } from "@/firebase/firebase";
 import { collection, getDocs, addDoc } from "firebase/firestore";
 import CoursePackagesList from "@/components/admin/AllCoursePackages";
+import { getDownloadURL, ref, uploadBytesResumable } from "firebase/storage";
 
 const Page = () => {
   const [courses, setCourses] = useState([]);
@@ -16,11 +17,15 @@ const Page = () => {
     price: "",
     discountedPrice: "",
     startingDate: "",
+    thumbnailImage: "", 
   });
   const [selectedCourses, setSelectedCourses] = useState([]);
   const [selectedSchools, setSelectedSchools] = useState([]);
   const [selectedBoards, setSelectedBoards] = useState([]);
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [courseSearch, setCourseSearch] = useState("");
+  const [schoolSearch, setSchoolSearch] = useState("");
+  const [thumbnailImageFile, setThumbnailImageFile] = useState(null);
 
   useEffect(() => {
     const fetchCourses = async () => {
@@ -121,6 +126,22 @@ const Page = () => {
 
   const handlePackageCreation = async (e) => {
     e.preventDefault();
+
+    let thumbnailImageUrl = "";
+    if (thumbnailImageFile) {
+      const storageRef = ref(storage, `thumbnails/${thumbnailImageFile.name}`);
+      const uploadTask = uploadBytesResumable(storageRef, thumbnailImageFile);
+
+      try {
+        await uploadTask;
+        thumbnailImageUrl = await getDownloadURL(storageRef);
+      } catch (err) {
+        console.error("Error uploading thumbnail image:", err);
+        setError("Failed to upload thumbnail image. Please try again.");
+        return;
+      }
+    }
+
     try {
       await addDoc(collection(db, "coursePackages"), {
         ...formData,
@@ -131,6 +152,7 @@ const Page = () => {
         courses: selectedCourses,
         schools: selectedSchools,
         boards: selectedBoards,
+        thumbnailImage: thumbnailImageUrl, // Save the thumbnailImage URL
       });
 
       const querySnapshot = await getDocs(collection(db, "coursePackages"));
@@ -145,10 +167,12 @@ const Page = () => {
         price: "",
         discountedPrice: "",
         startingDate: "",
+        thumbnailImage: "",
       });
       setSelectedCourses([]);
       setSelectedSchools([]);
       setSelectedBoards([]);
+      setThumbnailImageFile(null);
       setIsModalOpen(false);
       alert("Course package created successfully!");
     } catch (err) {
@@ -156,7 +180,9 @@ const Page = () => {
       setError("Failed to create course package. Please try again.");
     }
   };
-
+  const handleFileChange = (e) => {
+    setThumbnailImageFile(e.target.files[0]); // Set the file
+  };
   const handleDelete = async (packageId) => {
     try {
       await getDocs(collection(db, "coursePackages"));
@@ -167,6 +193,14 @@ const Page = () => {
       console.error("Error updating course packages:", err);
     }
   };
+
+  const filteredCourses = courses.filter((course) =>
+    course.courseName.toLowerCase().includes(courseSearch.toLowerCase())
+  );
+
+  const filteredSchools = schools.filter((school) =>
+    school.schoolName.toLowerCase().includes(schoolSearch.toLowerCase())
+  );
 
   return (
     <div className="p-4">
@@ -179,7 +213,7 @@ const Page = () => {
 
       {isModalOpen && (
         <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50">
-          <div className="bg-white p-6 rounded-lg shadow-lg  w-[1000px] relative max-h-screen overflow-y-auto">
+          <div className="bg-white p-6 rounded-lg shadow-lg w-[1000px] relative max-h-screen overflow-y-auto">
             <button
               onClick={() => setIsModalOpen(false)}
               className="absolute top-2 right-2 text-gray-500 hover:text-gray-700"
@@ -200,7 +234,6 @@ const Page = () => {
                 />
               </div>
               <div className="flex gap-10">
-                {" "}
                 <div className="mb-4">
                   <label className="block text-gray-700">Price:</label>
                   <input
@@ -228,7 +261,6 @@ const Page = () => {
                   />
                 </div>
               </div>
-
               <div className="mb-4">
                 <label className="block text-gray-700">Starting Date:</label>
                 <input
@@ -240,12 +272,27 @@ const Page = () => {
                   required
                 />
               </div>
+              <div className="mb-4">
+                <label className="block text-gray-700">Thumbnail Image:</label>
+                <input
+                  type="file"
+                  accept="image/*"
+                  onChange={handleFileChange}
+                  className="mt-1 block w-full p-2 border border-gray-300 rounded"
+                />
+              </div>
               <div className="flex gap-5">
-                {" "}
-                <div className="mb-4">
+                <div className="mb-4 flex flex-col h-48">
                   <h3 className="text-lg font-semibold mb-2">
                     Select Courses:
                   </h3>
+                  <input
+                    type="text"
+                    placeholder="Search courses..."
+                    value={courseSearch}
+                    onChange={(e) => setCourseSearch(e.target.value)}
+                    className="mb-2 p-2 border border-gray-300 rounded"
+                  />
                   <div className="h-32 overflow-y-auto">
                     {loading ? (
                       <p>Loading courses...</p>
@@ -253,27 +300,36 @@ const Page = () => {
                       <p className="text-red-500">{error}</p>
                     ) : (
                       <div className="space-y-2">
-                        {courses.map((course) => (
-                          <label key={course.id} className="flex items-center">
+                        {filteredCourses.map((course) => (
+                          <div
+                            key={course.id}
+                            className="flex items-center gap-2"
+                          >
                             <input
                               type="checkbox"
                               checked={selectedCourses.includes(course.id)}
                               onChange={(e) =>
                                 handleCourseSelection(e, course.id)
                               }
-                              className="mr-2"
                             />
-                            {course.courseName}
-                          </label>
+                            <span>{course.courseName}</span>
+                          </div>
                         ))}
                       </div>
                     )}
                   </div>
                 </div>
-                <div className="mb-4 ">
+                <div className="mb-4 flex flex-col h-48">
                   <h3 className="text-lg font-semibold mb-2">
                     Select Schools:
                   </h3>
+                  <input
+                    type="text"
+                    placeholder="Search schools..."
+                    value={schoolSearch}
+                    onChange={(e) => setSchoolSearch(e.target.value)}
+                    className="mb-2 p-2 border border-gray-300 rounded"
+                  />
                   <div className="h-32 overflow-y-auto">
                     {loading ? (
                       <p>Loading schools...</p>
@@ -281,62 +337,52 @@ const Page = () => {
                       <p className="text-red-500">{error}</p>
                     ) : (
                       <div className="space-y-2">
-                        {schools.map((school) => (
-                          <label key={school.id} className="flex items-center">
+                        {filteredSchools.map((school) => (
+                          <div
+                            key={school.id}
+                            className="flex items-center gap-2"
+                          >
                             <input
                               type="checkbox"
                               checked={selectedSchools.includes(school.id)}
                               onChange={(e) =>
                                 handleSchoolSelection(e, school.id)
                               }
-                              className="mr-2"
                             />
-                            {school.schoolName}
-                          </label>
-                        ))}
-                      </div>
-                    )}
-                  </div>
-                </div>
-                <div className="mb-4">
-                  <h3 className="text-lg font-semibold mb-2">Select Boards:</h3>
-                  <div className="h-32 overflow-y-auto">
-                    {loading ? (
-                      <p>Loading boards...</p>
-                    ) : error ? (
-                      <p className="text-red-500">{error}</p>
-                    ) : (
-                      <div className="space-y-2">
-                        {boards.map((board) => (
-                          <label key={board.id} className="flex items-center">
-                            <input
-                              type="checkbox"
-                              checked={selectedBoards.includes(board.id)}
-                              onChange={(e) =>
-                                handleBoardSelection(e, board.id)
-                              }
-                              className="mr-2"
-                            />
-                            {board.boardName}
-                          </label>
+                            <span>{school.schoolName}</span>
+                          </div>
                         ))}
                       </div>
                     )}
                   </div>
                 </div>
               </div>
-              <div className="flex justify-end">
-                <button
-                  type="submit"
-                  className="bg-blue-500 text-white px-4 py-2 rounded-md shadow-md hover:bg-blue-600 transition"
-                >
-                  Create Package
-                </button>
+              <div className="mb-4 h-32 overflow-y-scroll">
+                <h3 className="text-lg font-semibold mb-2">Select Boards:</h3>
+                <div className="space-y-2">
+                  {boards.map((board) => (
+                    <div key={board.id} className="flex items-center gap-2">
+                      <input
+                        type="checkbox"
+                        checked={selectedBoards.includes(board.id)}
+                        onChange={(e) => handleBoardSelection(e, board.id)}
+                      />
+                      <span>{board.boardName}</span>
+                    </div>
+                  ))}
+                </div>
               </div>
+              <button
+                type="submit"
+                className="bg-blue-500 text-white px-4 py-2 rounded-md shadow-md hover:bg-blue-600 transition"
+              >
+                Create Package
+              </button>
             </form>
           </div>
         </div>
       )}
+
       <CoursePackagesList
         coursePackages={coursePackages}
         onDelete={handleDelete}
