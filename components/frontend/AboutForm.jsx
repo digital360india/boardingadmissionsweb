@@ -1,14 +1,36 @@
-import React from 'react'
+"use client";
+import React, { useState } from "react";
 
 export default function AboutForm() {
+  const [formData, setFormData] = useState({
+    firstName: "",
+    lastName: "",
+    email: "",
+    phoneNumber: "",
+    message: "",
+  });
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData((prevState) => ({
+      ...prevState,
+      [name]: value,
+    }));
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    console.log(formData);
+  };
   return (
     <>
-      <div className="md:hidden block">
-        <div className="bg-white p-4 md:mb-20 flex justify-center items-center" >
-          <div 
-          // className={`mt-10 md:mt-12  md:mx-12 md:border-4 border-[#FFFFFF]  rounded-lg w-[19rem] md:w-[77.5rem] bg-[#F4FCFC80]`}  style={{ boxShadow: '0 0 6px 0 rgba(0, 0, 0, 0.32)' }}
-          className={`mt-10 md:mt-12 md:mx-12 md:border-4  rounded-lg w-[100%] md:w-[77.5rem] bg-[#F4FCFC80] border-4 border-[#F9FDFD] md:border-white md:shadow-lg`}
-         >
+      <div className="">
+        <div className="bg-white p-4 md:mb-20 flex justify-center items-center">
+          <div
+            className={`mt-10 md:mt-12  md:mx-12 md:border-4 border-[#FFFFFF]  rounded-lg w-[19rem] md:w-[77.5rem] bg-[#F4FCFC80]`}  style={{ boxShadow: '0 0 6px 0 rgba(0, 0, 0, 0.32)' }}
+            // className={`mt-10 md:mt-12 md:mx-12 md:border-4  rounded-lg w-[100%] md:w-[77.5rem] bg-[#F4FCFC80] border-4 border-[#F9FDFD] md:border-white md:shadow-lg`}
+          >
             <div className="pt-7">
               <h1 className="font-semibold   text-[2rem] md:text-[3rem] text-primary02 text-center">
                 Leave Your Question Here
@@ -66,14 +88,11 @@ export default function AboutForm() {
 
                 <div className="flex justify-end px-5">
                   <div className=" w-[300px] h-[56px] text-center mb-4 mt-3   bg-gradient01  border-custom rounded-md">
-               
-    
-                    
                     <button
                       type="submit"
                       className=" text-white py-4  rounded-md "
                     >
-                      Primary
+                      Submit
                     </button>
                   </div>
                 </div>
@@ -82,10 +101,9 @@ export default function AboutForm() {
           </div>
         </div>
       </div>
-      <div className="hidden md:block">
-        <AboutForm/>
-      </div>
+      {/* <div className="hidden md:block">
+        <AboutForm />
+      </div> */}
     </>
- 
-  )
+  );
 }
