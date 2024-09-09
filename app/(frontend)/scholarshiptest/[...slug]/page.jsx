@@ -9,6 +9,10 @@ const TestPage = () => {
   const [time, setTime] = useState(20 * 60); // 20 minutes in seconds
   const [responses, setResponses] = useState({});
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [userDetails, setUserDetails] = useState({ email: "", phone: "", name: "" });
+  const [finalScore, setFinalScore] = useState(null);
+  const [showResultForm, setShowResultForm] = useState(false);
   const router = useRouter();
   const { user } = useContext(UserContext);
 
@@ -81,6 +85,10 @@ const TestPage = () => {
     const score = calculateScore();
     const redemptionCode = await generateRedemptionCode();
 
+    setFinalScore(score);
+    setIsSubmitting(true);
+    setShowResultForm(true);
+
     if (user) {
       // Save user responses and score to Firestore
       await setDoc(doc(db, "users", user.uid), {
@@ -89,23 +97,29 @@ const TestPage = () => {
         redemptionCode,
         timestamp: new Date(),
       });
-
-      console.log("User responses:", responses);
-      console.log("Score:", score);
-      console.log("Redemption Code:", redemptionCode);
-
-      // Redirect to completion page
-      router.push("/testcompletion");
-    } else {
-      console.error("No user is logged in");
     }
   };
 
-  // Timer function
+  const handleFormSubmit = async (e) => {
+    e.preventDefault();
+    
+    if (userDetails.email && userDetails.phone && userDetails.name) {
+      // Save the user details and redirect or show full result
+      await setDoc(doc(db, "userDetails", user.uid), {
+        ...userDetails,
+        finalScore,
+        timestamp: new Date(),
+      });
+
+      router.push("/testcompletion");
+    } else {
+      alert("Please fill out all fields.");
+    }
+  };
+
   useEffect(() => {
-    if (time === 0) {
+    if (time === 0 && !isSubmitting) {
       handleSubmit(); // Automatically submit when time is up
-      return;
     }
 
     const timer = setInterval(() => {
@@ -113,15 +127,12 @@ const TestPage = () => {
     }, 1000);
 
     return () => clearInterval(timer);
-  }, [time]);
+  }, [time, isSubmitting]);
 
   const formatTime = (seconds) => {
     const minutes = Math.floor(seconds / 60);
     const secs = seconds % 60;
-    return `${String(minutes).padStart(2, "0")}:${String(secs).padStart(
-      2,
-      "0"
-    )}`;
+    return `${String(minutes).padStart(2, "0")}:${String(secs).padStart(2, "0")}`;
   };
 
   const handleOptionChange = (questionID, selectedOption) => {
@@ -132,57 +143,128 @@ const TestPage = () => {
   };
 
   const nextQuestion = () => {
-    setCurrentQuestionIndex((prevIndex) =>
-      Math.min(prevIndex + 1, testQuestions.length - 1)
-    );
+    setCurrentQuestionIndex((prevIndex) => Math.min(prevIndex + 1, testQuestions.length - 1));
   };
 
   const prevQuestion = () => {
-    setCurrentQuestionIndex((prevIndex) =>
-      Math.max(prevIndex - 1, 0)
-    );
+    setCurrentQuestionIndex((prevIndex) => Math.max(prevIndex - 1, 0));
   };
 
   return (
-    <div className="test-container mt-40">
-      <h1>Test</h1>
-      <div className="timer">
-        <h2>Time Remaining: {formatTime(time)}</h2>
-      </div>
-      <div className="question-navigation">
-        {currentQuestionIndex > 0 && (
-          <button onClick={prevQuestion}>Previous</button>
-        )}
-        {currentQuestionIndex < testQuestions.length - 1 && (
-          <button onClick={nextQuestion}>Next</button>
-        )}
-      </div>
-      <div className="question">
-        {testQuestions.length > 0 && (
+    <div className="flex flex-col items-center justify-center min-h-screen bg-gradient-to-r from-gray-50 to-gray-100 p-8">
+      <div className="bg-white shadow-lg rounded-lg p-8 max-w-2xl w-full border border-gray-200">
+        {!showResultForm ? (
           <>
-            <h3>{testQuestions[currentQuestionIndex].question}</h3>
-            <ul>
-              {testQuestions[currentQuestionIndex].options.map((option, i) => (
-                <li key={i}>
-                  <input
-                    type="radio"
-                    name={`question${testQuestions[currentQuestionIndex].questionID}`}
-                    value={option}
-                    checked={responses[testQuestions[currentQuestionIndex].questionID] === option}
-                    onChange={() => handleOptionChange(testQuestions[currentQuestionIndex].questionID, option)}
-                  />
-                  {option}
-                </li>
-              ))}
-            </ul>
+            <h1 className="text-3xl font-extrabold mb-6 text-center text-gray-800">Test</h1>
+            
+            {/* Timer */}
+            <div className="bg-gray-200 p-4 rounded-lg mb-8 text-center">
+              <h2 className="text-2xl font-semibold text-gray-700">Time Remaining</h2>
+              <p className="text-xl font-bold text-blue-600">{formatTime(time)}</p>
+            </div>
+
+            {/* Question Navigation */}
+            <div className="flex justify-between mb-8">
+              {currentQuestionIndex > 0 && (
+                <button 
+                  onClick={prevQuestion} 
+                  className="bg-blue-500 text-white py-2 px-4 rounded-lg shadow-md hover:bg-blue-600 transition-colors"
+                >
+                  Previous
+                </button>
+              )}
+              {currentQuestionIndex < testQuestions.length - 1 && (
+                <button 
+                  onClick={nextQuestion} 
+                  className="bg-blue-500 text-white py-2 px-4 rounded-lg shadow-md hover:bg-blue-600 transition-colors"
+                >
+                  Next
+                </button>
+              )}
+            </div>
+
+            {/* Current Question */}
+            <div className="mb-8">
+              {testQuestions.length > 0 && (
+                <>
+                  <h3 className="text-xl font-semibold mb-4">{testQuestions[currentQuestionIndex].question}</h3>
+                  <ul className="space-y-2">
+                    {testQuestions[currentQuestionIndex].options.map((option, i) => (
+                      <li key={i} className="flex items-center space-x-3">
+                        <input
+                          type="radio"
+                          name={`question${testQuestions[currentQuestionIndex].questionID}`}
+                          value={option}
+                          checked={responses[testQuestions[currentQuestionIndex].questionID] === option}
+                          onChange={() => handleOptionChange(testQuestions[currentQuestionIndex].questionID, option)}
+                          className="form-radio h-5 w-5 text-blue-500"
+                        />
+                        <label className="text-gray-700">{option}</label>
+                      </li>
+                    ))}
+                  </ul>
+                </>
+              )}
+            </div>
+
+            {/* Submit Button */}
+            {currentQuestionIndex === testQuestions.length - 1 && (
+              <button 
+                onClick={handleSubmit} 
+                className="bg-gradient-to-r from-blue-500 to-teal-500 text-white py-3 px-8 rounded-lg shadow-lg hover:from-blue-600 hover:to-teal-600 transition-colors"
+              >
+                Submit
+              </button>
+            )}
           </>
+        ) : (
+          <div className="bg-white shadow-lg rounded-lg p-8 max-w-2xl w-full border border-gray-200">
+
+            <p className="text-xl font-semibold text-center mb-4">Get your Result</p>
+            <form onSubmit={handleFormSubmit} className="space-y-4">
+              <div>
+                <label htmlFor="name" className="block text-gray-700">Name</label>
+                <input
+                  id="name"
+                  type="text"
+                  value={userDetails.name}
+                  onChange={(e) => setUserDetails({ ...userDetails, name: e.target.value })}
+                  className="mt-1 block w-full p-2 border border-gray-300 rounded-lg"
+                  required
+                />
+              </div>
+              <div>
+                <label htmlFor="email" className="block text-gray-700">Email</label>
+                <input
+                  id="email"
+                  type="email"
+                  value={userDetails.email}
+                  onChange={(e) => setUserDetails({ ...userDetails, email: e.target.value })}
+                  className="mt-1 block w-full p-2 border border-gray-300 rounded-lg"
+                  required
+                />
+              </div>
+              <div>
+                <label htmlFor="phone" className="block text-gray-700">Phone Number</label>
+                <input
+                  id="phone"
+                  type="tel"
+                  value={userDetails.phone}
+                  onChange={(e) => setUserDetails({ ...userDetails, phone: e.target.value })}
+                  className="mt-1 block w-full p-2 border border-gray-300 rounded-lg"
+                  required
+                />
+              </div>
+              <button
+                type="submit"
+                className="bg-gradient-to-r from-blue-500 to-teal-500 text-white py-3 px-8 rounded-lg shadow-lg hover:from-blue-600 hover:to-teal-600 transition-colors"
+              >
+                View Full Result
+              </button>
+            </form>
+          </div>
         )}
       </div>
-      {currentQuestionIndex === testQuestions.length - 1 && (
-        <button onClick={handleSubmit} className="submit-btn">
-          Submit
-        </button>
-      )}
     </div>
   );
 };

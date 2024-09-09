@@ -27,7 +27,7 @@ const SoftSkillMasteryHero = () => {
               Mastery module today!
             </p>
             <div className="w-[7.5rem] h-[2.0rem] md:w-[18.75rem] md:h-[3.5rem] bg-gradient01  border-custom rounded-md flex items-center justify-center text-[1rem] ">
-              <Link href="/checkout/softskillmastery">
+              <Link href="/enrollnow/softskillmastery">
                 {" "}
                 <button className="text-white">Enroll Now</button>
               </Link>{" "}

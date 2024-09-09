@@ -1,39 +1,16 @@
-"use client"
-import React, { useContext } from 'react';
-import { UserContext } from '@/userProvider';
-import { auth, provider, signInWithPopup, createUserWithEmailAndPassword, signInWithEmailAndPassword } from '@/firebase/firebase';
-import { useRouter } from 'next/navigation'; // Import useRouter from next/navigation
+"use client";
+import React from "react";
+import { useRouter } from "next/navigation";
+import Image from "next/image"; // Import Image component for optimized images
+import Link from "next/link";
 
 const Page = () => {
-  const { user } = useContext(UserContext);
-  const [email, setEmail] = React.useState('');
-  const [password, setPassword] = React.useState('');
-  const [error, setError] = React.useState('');
-  const router = useRouter(); // Initialize the router
-
-  const handleGoogleAuth = async () => {
-    try {
-      await signInWithPopup(auth, provider);
-      console.log('User signed in with Google');
-    } catch (error) {
-      console.error('Error signing in with Google:', error);
-    }
-  };
-
-  const handleSimpleForm = async (event) => {
-    event.preventDefault();
-    try {
-      await createUserWithEmailAndPassword(auth, email, password);
-      console.log('User signed up with email');
-    } catch (error) {
-      setError(error.message);
-      console.error('Error signing up with email:', error);
-    }
-  };
+  const router = useRouter(); 
 
   const handleTakeTest = () => {
-    router.push(`/scholarshiptest/${user.uid}`); 
+    router.push(`/scholarshiptest/termsandconditionstest`);
   };
+
   const testDetails = {
     questions: 20,
     duration: "20 minutes",
@@ -43,54 +20,37 @@ const Page = () => {
   };
 
   return (
-    <div className="page-container">
-      <div className="test-details">
-        <h1>Test Details</h1>
-        <ul>
-          <li><strong>Number of Questions:</strong> {testDetails.questions}</li>
-          <li><strong>Duration:</strong> {testDetails.duration}</li>
-          <li><strong>Test Area:</strong> {testDetails.area}</li>
-          <li><strong>Number of Students Taken:</strong> {testDetails.studentsTaken}</li>
-          <li><strong>Number of Scholarships Given:</strong> {testDetails.scholarshipsGiven}</li>
+    <div className="flex flex-col items-center justify-center min-h-screen bg-gradient-to-r from-blue-50 to-teal-50 p-8">
+      <div className="bg-white shadow-lg rounded-lg p-8 mb-8 max-w-lg w-full border border-gray-200">
+        <h1 className="text-3xl font-extrabold mb-6 text-center text-gray-800">
+          Test Details
+        </h1>
+        <ul className="space-y-3 text-gray-700">
+          {Object.entries(testDetails).map(([key, value]) => (
+            <li key={key} className="flex justify-between">
+              <span className="font-medium capitalize">
+                {key.replace(/([A-Z])/g, " $1")}
+              </span>
+              <span className="text-gray-600">{value}</span>
+            </li>
+          ))}
         </ul>
       </div>
 
-      <div className="signup-options">
-        <button onClick={handleGoogleAuth} className="google-auth-btn">Sign Up with Google</button>
-        <button className="simple-form-btn">Sign Up with Email</button>
+      <div className="flex flex-col items-center space-y-6">
+        <Link href="/scholarshiptest/termsandconditionstest">
+          {" "}
+          <button
+            onClick={handleTakeTest}
+            className="bg-gradient-to-r from-blue-500 to-teal-500 text-white py-3 px-8 rounded-lg shadow-lg hover:from-blue-600 hover:to-teal-600 transition-colors"
+          >
+            Start Test
+          </button>
+        </Link>
+        <p className="text-gray-600 mt-2 text-center">
+          Click the button to begin the test.
+        </p>
       </div>
-
-      <div className="simple-form-container">
-        <form onSubmit={handleSimpleForm}>
-          <h2>Sign Up with Email</h2>
-          <label>
-            Email:
-            <input
-              type="email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              required  
-            />
-          </label>
-          <label>
-            Password:
-            <input
-              type="password"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-              required
-            />
-          </label>
-          <button type="submit">Sign Up</button>
-          {error && <p className="error">{error}</p>}
-        </form>
-      </div>
-      {user && (
-        <div>
-          <h2>Welcome, {user.displayName || user.email}</h2>
-          <button onClick={handleTakeTest} className="take-test-btn">Take Test</button>
-        </div>
-      )}
     </div>
   );
 };
