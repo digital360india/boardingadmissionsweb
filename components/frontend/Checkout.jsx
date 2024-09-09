@@ -19,7 +19,7 @@ export default function Checkout() {
     ];
   return (
     <>
-    <div className='xl:px-[100px] lg:px-10 py-[90px] flex flex-col lg:flex-row px-6 gap-10 justify-between'>
+    <div className='xl:px-[100px] lg:px-10 mt-14 py-[90px] flex flex-col lg:flex-row px-6 gap-10 justify-between'>
         <div className='space-y-8'>
             <div className='lg:py-[32px] lg:px-[32px] p-4 border rounded-lg ' >
                 <p className='font-semibold lg:text-[24px] text-[18px] lg:mb-8 lg:m-4 my-4 '>Items in Cart</p>

@@ -27,9 +27,9 @@ export default function AboutSuccess() {
     We provide expert guidance and tailored courses to ensure students are fully prepared for India's top boarding school entrance exams. With a deep understanding of elite school requirements, we enhance students' chances of admission, setting the stage for their academic success and personal growth.
     </p>
    
-    <button className="px-6 lg:px-16 py-2 text-primary02 bg-white mt-12 rounded-md border border-primary02">
+    {/* <button className="px-6 lg:px-16 py-2 text-primary02 bg-white mt-12 rounded-md border border-primary02">
       Primary
-    </button>
+    </button> */}
   </div>
 </div>
 

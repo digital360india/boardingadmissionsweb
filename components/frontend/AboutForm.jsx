@@ -2,30 +2,90 @@ import React from 'react'
 
 export default function AboutForm() {
   return (
-    <div className='flex items-center w-full h-[1000px]'>
-      <div className='w-[80%] h-[86%]  mx-auto bg-[#F4FCFC80] border-8 rounded-md border-white' style={{ boxShadow: '0 0 6px 0 rgba(0, 0, 0, 0.32)' }}
-      >
-        <p className='text-primary02 text-[48px] font-semibold text-center py-8'>Leave Your Question Here</p>
-        <p className='text-24px   text-center pb-6'>We aim to respond within 24 hours.</p>
+    <>
+      <div className="md:hidden block">
+        <div className="bg-white p-4 md:mb-20 flex justify-center items-center" >
+          <div 
+          // className={`mt-10 md:mt-12  md:mx-12 md:border-4 border-[#FFFFFF]  rounded-lg w-[19rem] md:w-[77.5rem] bg-[#F4FCFC80]`}  style={{ boxShadow: '0 0 6px 0 rgba(0, 0, 0, 0.32)' }}
+          className={`mt-10 md:mt-12 md:mx-12 md:border-4  rounded-lg w-[100%] md:w-[77.5rem] bg-[#F4FCFC80] border-4 border-[#F9FDFD] md:border-white md:shadow-lg`}
+         >
+            <div className="pt-7">
+              <h1 className="font-semibold   text-[2rem] md:text-[3rem] text-primary02 text-center">
+                Leave Your Question Here
+              </h1>
+              <p className="pt-4 font-medium text-center">
+                We aim to respond within 24 hours.
+              </p>
+            </div>
 
-<div>
-    <div className='flex justify-center gap-8 py-10'>
-    <input className='rounded-md p-4 w-[36vw] border border-[#E7E7E7]' type="text" placeholder='First Name*'/>
-    <input className='rounded-md p-4 w-[36vw] border border-[#E7E7E7]' type="text" placeholder='Last Name*' />
-    </div>
-    <div className='flex justify-center gap-8'>
-    <input className='rounded-md p-4 w-[36vw] border border-[#E7E7E7]' type="text" placeholder='Email*'/>
-    <input className='rounded-md p-4 w-[36vw] border border-[#E7E7E7]' type="text" placeholder='Phone Number*' />
-    </div>
-    <div className='flex justify-center py-10'>
-    <textarea className='text-[#667085] w-[74vw] rounded-md p-4 border border-[#E7E7E7]' name="" rows={10} cols={100} placeholder='Message' id=""></textarea>
-    </div>
-    <div className=" flex justify-end pr-10 rounded-md">
-    <button className="text-white w-[300px] h-[56px] bg-gradient01 border-custom rounded-md">Primary</button>
-    </div>
-</div>
+            <div>
+              <form onSubmit={handleSubmit}>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6 px-6 pt-12 ">
+                  <input
+                    type="text"
+                    name="firstName"
+                    placeholder="First Name*"
+                    className="border border-[#E7E7E7] p-4 rounded-lg w-[100%]  h-[56px] text-[#667085] text-[1rem]"
+                    onChange={handleChange}
+                    required
+                  />
+                  <input
+                    type="text"
+                    name="lastName"
+                    placeholder="Last Name*"
+                    className="border border-[#E7E7E7] p-4 rounded-lg w-[100%]  h-[56px] text-[#667085] text-[1rem]"
+                    onChange={handleChange}
+                    required
+                  />
+                  <input
+                    type="email"
+                    name="email"
+                    placeholder="Email*"
+                    className="border border-[#E7E7E7] p-4 rounded-lg w-[100%] h-[56px] text-[#667085] text-[1rem]"
+                    onChange={handleChange}
+                    required
+                  />
+                  <input
+                    type="tel"
+                    name="phoneNumber"
+                    placeholder="Phone Number*"
+                    className="border border-[#E7E7E7] p-4 rounded-lg w-[100%]  h-[56px] text-[#667085] text-[1rem]"
+                    onChange={handleChange}
+                    required
+                  />
+                </div>
+                <div className="px-6 pt-6">
+                  <textarea
+                    name="message"
+                    placeholder="Message"
+                    rows="5"
+                    className="w-full h-[8rem]  md:h-[182px] border border-[#E7E7E7] p-4 rounded-lg mb-4 text-[#667085] text-[1rem] resize-none"
+                    onChange={handleChange}
+                  ></textarea>
+                </div>
 
+                <div className="flex justify-end px-5">
+                  <div className=" w-[300px] h-[56px] text-center mb-4 mt-3   bg-gradient01  border-custom rounded-md">
+               
+    
+                    
+                    <button
+                      type="submit"
+                      className=" text-white py-4  rounded-md "
+                    >
+                      Primary
+                    </button>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
       </div>
-    </div>
+      <div className="hidden md:block">
+        <AboutForm/>
+      </div>
+    </>
+ 
   )
 }
