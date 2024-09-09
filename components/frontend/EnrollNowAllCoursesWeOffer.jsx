@@ -1,7 +1,14 @@
 "use client";
 import React, { useEffect, useState } from "react";
 import { usePathname } from "next/navigation";
-import { doc, getDoc, collection, getDocs, query, where } from "firebase/firestore";
+import {
+  doc,
+  getDoc,
+  collection,
+  getDocs,
+  query,
+  where,
+} from "firebase/firestore";
 import { db } from "@/firebase/firebase";
 import Link from "next/link";
 
@@ -17,7 +24,7 @@ const EnrollNowAllCoursesWeOffer = () => {
     courseName: "",
     boardName: "",
     schoolName: "",
-    packageName: "" 
+    packageName: "",
   });
   const [boards, setBoards] = useState([]);
   const [schools, setSchools] = useState([]);
@@ -25,7 +32,10 @@ const EnrollNowAllCoursesWeOffer = () => {
   useEffect(() => {
     const fetchPackagesAndCourses = async () => {
       try {
-        const q = query(collection(db, "coursePackages"), where("packageUID", "==", packageId));
+        const q = query(
+          collection(db, "coursePackages"),
+          where("packageUID", "==", packageId)
+        );
         const packageSnapshot = await getDocs(q);
         const packagesData = [];
 
@@ -87,21 +97,27 @@ const EnrollNowAllCoursesWeOffer = () => {
   useEffect(() => {
     const applyFilters = () => {
       const filtered = packages.filter((pkg) => {
-        const matchCourse = pkg.courses.some(course =>
-          course.courseName.toLowerCase().includes(filters.courseName.toLowerCase())
+        const matchCourse = pkg.courses.some((course) =>
+          course.courseName
+            .toLowerCase()
+            .includes(filters.courseName.toLowerCase())
         );
-        const matchBoard = pkg.targetedBoards.some(board =>
+        const matchBoard = pkg.targetedBoards.some((board) =>
           board.toLowerCase().includes(filters.boardName.toLowerCase())
         );
-        const matchSchool = pkg.targetedSchools.some(school =>
+        const matchSchool = pkg.targetedSchools.some((school) =>
           school.toLowerCase().includes(filters.schoolName.toLowerCase())
         );
-        const matchPackageName = pkg.packageName.toLowerCase().includes(filters.packageName.toLowerCase()); // Added packageName filter
+        const matchPackageName = pkg.packageName
+          .toLowerCase()
+          .includes(filters.packageName.toLowerCase()); // Added packageName filter
 
-        return (filters.courseName === "" || matchCourse) &&
-               (filters.boardName === "" || matchBoard) &&
-               (filters.schoolName === "" || matchSchool) &&
-               (filters.packageName === "" || matchPackageName); // Include packageName filter
+        return (
+          (filters.courseName === "" || matchCourse) &&
+          (filters.boardName === "" || matchBoard) &&
+          (filters.schoolName === "" || matchSchool) &&
+          (filters.packageName === "" || matchPackageName)
+        ); // Include packageName filter
       });
       setFilteredPackages(filtered);
     };
@@ -111,15 +127,11 @@ const EnrollNowAllCoursesWeOffer = () => {
 
   const handleFilterChange = (e) => {
     const { name, value } = e.target;
-    setFilters(prevFilters => ({
+    setFilters((prevFilters) => ({
       ...prevFilters,
-      [name]: value
+      [name]: value,
     }));
   };
-
-  if (loading) {
-    return <div>Loading...</div>;
-  }
 
   if (error) {
     return <div>Error: {error}</div>;
@@ -185,54 +197,66 @@ const EnrollNowAllCoursesWeOffer = () => {
 
           <div className="flex flex-wrap gap-8 p-3 md:p-12">
             {filteredPackages.map((packageData, index) => (
-        <Link href={`/checkout/${packageData.id}`}>       <div
-        key={index}
-        className="md:w-[38vw] lg:w-[29vw] bg-[#FFFFFF] border border-[#01010120] rounded-[9px] pb-4 drop-shadow-lg"
-      >
-        <h2 className="text-primary02 text-[1rem] md:text-[1.5rem] font-semibold text-center mt-2 md:mt-3">
-          {packageData.packageName}
-        </h2>
-        <p className="text-[0.5rem] md:text-[0.8rem] text-[#212224] pt-2 md:pt-3 text-center px-8">
-          Price: {packageData.price} - Discounted Price: {packageData.discountedPrice}
-        </p>
+              <Link href={`/checkout/${packageData.id}`}>
+                {" "}
+                <div
+  key={index}
+  className="md:w-[38vw] lg:w-[29vw] bg-[#FFFFFF] border border-[#01010120] rounded-[9px] pb-4 drop-shadow-lg"
+>
+  <div className="w-full h-72">
+    <img
+      src={packageData.thumbnailImage}
+      alt="Thumbnail"
+      className="w-full h-full object-cover rounded-t-[9px]"
+    />
+  </div>
+  <h2 className="text-primary02 text-[1rem] md:text-[1.5rem] font-semibold text-center mt-2 md:mt-3">
+    {packageData.packageName}
+  </h2>
+  <p className="text-[0.5rem] md:text-[0.8rem] text-[#212224] pt-2 md:pt-3 text-center px-8">
+    Price: {packageData.price} - Discounted Price:{" "}
+    {packageData.discountedPrice}
+  </p>
 
-        <hr className="mx-2 md:mx-10 mt-3" />
+  <hr className="mx-2 md:mx-10 mt-3" />
 
-        <div className="px-4">
-          <h3 className="text-[1rem] md:text-[1.2rem] text-primary02 font-semibold">
-            Courses in this package:
-          </h3>
-          <ul className="text-[0.8rem] md:text-[1rem] text-[#666666]">
-            {packageData.courses.map((course, idx) => (
-              <li key={idx} className="mt-2">
-                {course.courseName}
-              </li>
-            ))}
-          </ul>
+  <div className="px-4">
+    <h3 className="text-[1rem] md:text-[1.2rem] text-primary02 font-semibold">
+      Courses in this package:
+    </h3>
+    <ul className="text-[0.8rem] md:text-[1rem] text-[#666666]">
+      {packageData.courses.map((course, idx) => (
+        <li key={idx} className="mt-2">
+          {course.courseName}
+        </li>
+      ))}
+    </ul>
 
-          <h3 className="text-[1rem] md:text-[1.2rem] text-primary02 font-semibold mt-4">
-            Targeted Boards:
-          </h3>
-          <ul className="text-[0.8rem] md:text-[1rem] text-[#666666]">
-            {packageData.targetedBoards.map((board, idx) => (
-              <li key={idx} className="mt-2">
-                {board}
-              </li>
-            ))}
-          </ul>
+    <h3 className="text-[1rem] md:text-[1.2rem] text-primary02 font-semibold mt-4">
+      Targeted Boards:
+    </h3>
+    <ul className="text-[0.8rem] md:text-[1rem] text-[#666666]">
+      {packageData.targetedBoards.map((board, idx) => (
+        <li key={idx} className="mt-2">
+          {board}
+        </li>
+      ))}
+    </ul>
 
-          <h3 className="text-[1rem] md:text-[1.2rem] text-primary02 font-semibold mt-4">
-            Targeted Schools:
-          </h3>
-          <ul className="text-[0.8rem] md:text-[1rem] text-[#666666]">
-            {packageData.targetedSchools.map((school, idx) => (
-              <li key={idx} className="mt-2">
-                {school}
-              </li>
-            ))}
-          </ul>
-        </div>
-      </div></Link>
+    <h3 className="text-[1rem] md:text-[1.2rem] text-primary02 font-semibold mt-4">
+      Targeted Schools:
+    </h3>
+    <ul className="text-[0.8rem] md:text-[1rem] text-[#666666]">
+      {packageData.targetedSchools.map((school, idx) => (
+        <li key={idx} className="mt-2">
+          {school}
+        </li>
+      ))}
+    </ul>
+  </div>
+</div>
+
+              </Link>
             ))}
           </div>
         </div>

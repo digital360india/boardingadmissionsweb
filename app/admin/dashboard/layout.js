@@ -1,7 +1,8 @@
 import { SideNavBar } from "@/components/admin/SideNavBar";
 import "../../globals.css";
-import TopNavBar from "@/components/admin/TopNavBar";
 import { AdminProvider } from "@/adminProvider";
+import { TopNavBar } from "@/components/admin/TopNavBar";
+import LayoutFile from "@/components/admin/LayoutFile";
 
 export const metadata = {
   title: "Get Admissions in Top Boarding Schools  | Admission 2025-26",
@@ -13,17 +14,8 @@ export default function RootLayout({ children }) {
     <html lang="en">
       {" "}
       <AdminProvider>
-        <div className="lg:flex">
-          <div className="w-1/5 hidden lg:block ">
-            <SideNavBar />
-          </div>
-          <div className="lg:flex flex-col lg:w-4/5">
-            <div className="h-16 ">
-              <TopNavBar />
-            </div>
-            <main className="min-h-screen md:mt-16 ">{children}</main>
-          </div>
-        </div>
+        <LayoutFile children={children} />
+
       </AdminProvider>
     </html>
   );

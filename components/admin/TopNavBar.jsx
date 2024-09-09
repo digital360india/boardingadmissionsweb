@@ -1,29 +1,35 @@
-import Link from "next/link";
-import Image from "next/image";
+"use client";
 
+import Link from "next/link";
+import { usePathname, useRouter } from "next/navigation";
 import React from "react";
 import { IoIosNotifications } from "react-icons/io";
-import { TbSquareRounded } from "react-icons/tb";
 
-const TopNavBar = () => {
+export const TopNavBar = () => {
+  const path = usePathname();
+  const router = useRouter();
+  const pathArray = path.split("/");
+
   return (
-    <div
-      className="flex  bg-gradient-to-r  from-background04 to-background01 text-white fixed lg:w-4/5 w-full  text-2xl text-slate
-    bg-primary h-20"
-    >
-     <div className="justify-center items-center  flex lg:hidden"  ><img  src="/images/logo1.png" height={1000} width={1000} className="w-32 h-32 " /></div>
-      <div className="flex space-x-5  pb-5 justify-end items-end  w-full ">
-        {" "}
-        <Link href="#">
-          <IoIosNotifications className="" />
-        </Link>
-       
-        <Link href="#">
-          <TbSquareRounded className=" " />
-        </Link>
-      </div>
+    <div>
+      {path !== "/login" && (
+        <div className="bg-background04  text-[#fff] p-4 m-4 mt-7 rounded-lg shadow-md flex justify-between items-center">
+          <div className="">
+            <h2 className="text-3xl font-semibold capitalize">
+              <Link href={`/${pathArray[1] == "" ? "Home" : pathArray[1]}`}>
+                {pathArray[1] == "" ? "Home" : pathArray[1]}
+              </Link>
+            </h2>
+          </div>
+          <div className="flex gap-4 items-center">
+            <div className=" hidden md:flex">
+              <Link href="#">
+                <IoIosNotifications size={24} className="" />
+              </Link>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 };
-
-export default TopNavBar;
