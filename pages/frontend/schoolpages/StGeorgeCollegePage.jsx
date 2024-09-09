@@ -3,6 +3,7 @@ import React from "react";
 import Faq from "@/components/frontend/Faqdata";
 import Image from "next/image";
 import Star from "@/components/frontend/Ratings";
+import schoolFAQs from "@/utils/frontend/FaqData";
 
 const star = [
   {
@@ -56,6 +57,8 @@ const steps = [
 ];
 
 function StGeorgeCollegePage() {
+  const StGeorgeCollege = schoolFAQs.find(school => school.school === 'StGeorgeCollege')?.faqs || [];
+
   return (
     <div className="h-auto w-[100%] md:mt-24">
       <div className="relative ">
@@ -246,7 +249,9 @@ function StGeorgeCollegePage() {
                 Rs. 20,000.00
               </li>
             </ul>
-            <h1 className="font-semibold">Alternate Fees for New Admissions:</h1>
+            <h1 className="font-semibold">
+              Alternate Fees for New Admissions:
+            </h1>
             <ul className="list-disc pl-10">
               <li>
                 <span className="font-semibold">
@@ -303,13 +308,14 @@ function StGeorgeCollegePage() {
                 Rs. 1,00,000.00
               </li>
               <li>
-                <span className="font-semibold">Pocket Money:</span> Rs. 1,00,000.00
+                <span className="font-semibold">Pocket Money:</span> Rs.
+                1,00,000.00
               </li>
             </ul>
-            <h1 className="font-semibold pt-2">Note:</h1> The school fee includes
-            tuition and other charges. The advance against textbooks, uniforms,
-            stationery, and sports goods is adjustable at the end of the year in
-            the final bill.
+            <h1 className="font-semibold pt-2">Note:</h1> The school fee
+            includes tuition and other charges. The advance against textbooks,
+            uniforms, stationery, and sports goods is adjustable at the end of
+            the year in the final bill.
           </ul>
         </div>
 
@@ -374,6 +380,19 @@ function StGeorgeCollegePage() {
           </div>
         </div>
 
+        <div>
+          <h1 className="text-[#075D70] font-semibold text-[2rem] mb-2">
+            Important Note
+          </h1>
+          <ul className="list-disc pl-4 mb-7">
+            <li>
+              This guide should help you navigate the St. George College
+              Admissions process and understand the associated fees and entrance
+              requirements.
+            </li>
+          </ul>
+        </div>
+
         <div className="mb-10">
           <h1 className="text-[#075D70] font-semibold text-[1.5rem]">
             Downloads
@@ -384,7 +403,7 @@ function StGeorgeCollegePage() {
       </div>
 
       <div>
-        <Faq />
+        <Faq data={StGeorgeCollege}/>
       </div>
     </div>
   );

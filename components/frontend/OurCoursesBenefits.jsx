@@ -22,11 +22,10 @@ const OurCoursesBenefits = () => {
                 alt="course3"
               />
               <h1 className="pt-3 md:pt-5 text-center text-[#075D70] text-[1.1rem] md:text-[30px] font-poppins">
-                Lorem, ipsum
+              Guaranteed Results
               </h1>
               <p className="pt-3 md:pt-5 text-[0.75rem] md:text-[15px] text-center font-poppins">
-                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Est
-                consectetur mollitia distinctio iste ullam fugit reiciendis
+              90% of our students pass entrance exams confidently.
               </p>
             </div>
             <div className=" w-[9rem] md:w-[18rem] flex flex-col items-center h-[15rem] lg:h-full">
@@ -37,11 +36,10 @@ const OurCoursesBenefits = () => {
                 alt="course3"
               />
               <h1 className="pt-3 md:pt-5 text-center text-[#075D70] text-[1.1rem] md:text-[30px] font-poppins">
-                Lorem, ipsum
+              Strong Foundation
               </h1>
               <p className="pt-3 md:pt-5 text-[0.75rem] md:text-[15px] text-center font-poppins">
-                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Est
-                consectetur mollitia distinctio iste ullam fugit reiciendis
+              Build long-term academic success with our comprehensive curriculum.
               </p>
             </div>
             <div className=" w-[9rem] md:w-[18rem] flex flex-col items-center h-[15rem] lg:h-full">
@@ -52,11 +50,10 @@ const OurCoursesBenefits = () => {
                 alt="course3"
               />
               <h1 className="pt-3 md:pt-5 text-center text-[#075D70] text-[1.1rem] md:text-[30px] font-poppins">
-                Lorem, ipsum
+              Soft Skills
               </h1>
               <p className="pt-3 md:pt-5 text-[0.75rem] md:text-[15px] text-center font-poppins">
-                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Est
-                consectetur mollitia distinctio iste ullam fugit reiciendis
+              Master communication, problem-solving, and leadership for personal growth
               </p>
             </div>
             <div className=" w-[9rem] md:w-[18rem] flex flex-col items-center h-[15rem] lg:h-full">
@@ -67,11 +64,10 @@ const OurCoursesBenefits = () => {
                 alt="course3"
               />
               <h1 className="pt-3 md:pt-5 text-center text-[#075D70] text-[1.1rem] md:text-[30px] font-poppins">
-                Lorem, ipsum
+              Mental Strength
               </h1>
               <p className="pt-3 md:pt-5 text-[0.75rem] md:text-[15px] text-center font-poppins">
-                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Est
-                consectetur mollitia distinctio iste ullam fugit reiciendis
+              Develop resilience and vibrancy for a well-rounded personality.
               </p>
             </div>
           </div>

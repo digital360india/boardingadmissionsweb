@@ -9,47 +9,41 @@ export default function Stories() {
 
   const team = [
     {
-      story: "I had a great experience at Vedantu. All my concepts were clear and I felt confident while appearing for the board exams.",
+      story: "Boarding Admissions transformed my preparation journey. The personalized courses and expert guidance were invaluable. I couldn't have achieved my results without them!",
       imageSrc: "/images/arya.jpg.svg",
-      name: "English Expert",
-      school: "Welham Girls"
+      name: "Vasundhra",
+      school: "Welham Girls School"
     },
     
     {
-      story: "I had a great experience at Vedantu. All my concepts were clear and I felt confident while appearing for the board exams.",
+      story: "The mock tests and interactive classes at Boarding Admissions were game-changers. They helped me build confidence and ace my entrance exams. Highly recommend!",
       imageSrc: "/images/arya.jpg.svg",
-      name: "English Expert",
-      school: "Welham Girls"
+      name: "Ishana",
+      school: "Lawrence School"
     },
     {
-      story: "I had a great experience at Vedantu. All my concepts were clear and I felt confident while appearing for the board exams.",
+      story: "The comprehensive learning resources and flexible scheduling at Boarding Admissions made my preparation seamless. The support and feedback from teachers were outstanding.",
       imageSrc: "/images/arya.jpg.svg",
-      name: "English Expert",
-      school: "Welham Girls"
+      name: "Madhavani",
+      school: "Mayo Girls' College"
     },
     {
-      story: "I had a great experience at Vedantu. All my concepts were clear and I felt confident while appearing for the board exams.",
+      story: "Boarding Admissions' focus on soft skills and leadership set them apart. I feel prepared not just academically but also personally for boarding school life.",
       imageSrc: "/images/arya.jpg.svg",
-      name: "English Expert",
-      school: "Welham Girls"
+      name: "Amishi",
+      school: "Welham Girls' School"
     },
     {
-        story: "I had a great experience at Vedantu. All my concepts were clear and I felt confident while appearing for the board exams.",
+        story: "The tailored preparation plans and expert mentorship at Boarding Admissions helped me excel. The continuous feedback and practice sessions were key to my success.",
         imageSrc: "/images/arya.jpg.svg",
-        name: "English Expert",
-        school: "Welham Girls"
+        name: "Aratrika",
+        school: "Scindia Kanya Vidyalaya"
       },
       {
-        story: "I had a great experience at Vedantu. All my concepts were clear and I felt confident while appearing for the board exams.",
+        story: "Boarding Admissions provided the perfect balance of rigorous academics and personal growth. Their customized courses and interactive sessions made all the difference in my preparation.",
         imageSrc: "/images/arya.jpg.svg",
-        name: "English Expert",
-        school: "Welham Girls"
-      },
-      {
-        story: "I had a great experience at Vedantu. All my concepts were clear and I felt confident while appearing for the board exams.",
-        imageSrc: "/images/arya.jpg.svg",
-        name: "English Expert",
-        school: "Welham Girls"
+        name: "Nishka",
+        school: "Ecole Globale"
       },
   ];
 

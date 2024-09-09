@@ -9,7 +9,7 @@ export default function AboutusPage() {
   return (
     <div>
       <AboutHero/>
-      {/* <AboutMission/> */}
+      <AboutMission/>
       <AboutMakeUs/>
       <AboutSuccess/>
       <AboutForm/>

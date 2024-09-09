@@ -1,28 +1,10 @@
 "use client";
 import Image from "next/image";
 import Link from "next/link";
-import { useEffect, useState } from "react";
 import React from "react";
-// import Popup from "./Enquirypopup";
 
 export default function Navbar() {
-  //   const [isOpen, setIsOpen] = useState(false);
-
-  //   const openModal = () => {
-  //     document.body.style.overflow = "hidden";
-  //     setIsOpen(true);
-  //   };
-
-  //   const closeModal = () => {
-  //     setIsOpen(false);
-  //   };
-
-  //   useEffect(() => {
-  //     if (!isOpen) {
-  //       document.body.style.overflow = "auto";
-  //     }
-  //   }, [isOpen]);
-
+ 
   return (
     <div>
       <div className="flex   font-sans text-xl bg-transparent absolute top-0 py-4 w-full h-[14.5vh] z-20 backdrop-blur-lg backdrop-brightness-50 backdrop-contrast-75 backdrop-grayscale-20 backdrop-saturate-150 backdrop-opacity-10">
@@ -52,26 +34,27 @@ export default function Navbar() {
               {" "}
               <button>Schools</button>
             </Link>
-            <Link href="/blogs">
+            {/* <Link href="/blogs">
               {" "}
               <button>Blogs</button>
-            </Link>
+            </Link> */}
             <Link href="/aboutus">
               {" "}
-              <button> Abouts</button>
+              <button> About</button>
             </Link>
           </div>
 
           <div className="  order-3  ">
+            <Link href="/scholarshiptest">
             <button
-              //   onClick={openModal}
-              className="border bg-black text-[10px] md:text-[16px] text-white py-2 px-2 md:w-40 rounded-lg mr-4"
-            >
-              Primary
-            </button>
-            {/* {isOpen && (
-              <Popup isOpen={isOpen} closeModal={() => setIsOpen(false)} />
-            )} */}
+             
+             className="border bg-black text-[10px] md:text-[16px] text-white py-2 px-2 md:w-40 rounded-lg mr-4"
+           >
+             Compatibility Test
+           </button>
+         
+            </Link>
+         
           </div>
         </div>
       </div>

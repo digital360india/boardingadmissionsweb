@@ -6,7 +6,7 @@ export default function AboutSuccess() {
     <div className="bg-[#C7D5DC] lg:h-[683px] h-full lg:pb-0 pb-16 flex justify-between w-full xl:px-[100px] lg:px-[40px] px-[24px]">
 <div className="w-full lg:w-[46%]">
   <p className="text-[#666666] text-16px lg:text-24px mt-12">
-    Lorem Ipsum Dior
+  Success Starts Here
   </p>
   <p className="w-[90%] lg:w-[608px] text-32px lg:text-[48px] font-medium lg:pb-0 pb-5">
     Your Success is our Top Priority
@@ -24,20 +24,12 @@ export default function AboutSuccess() {
 
   <div className="w-full">
     <p className="text-18px my-6">
-      Lorem ipsum dolor sit amet consectetur. Augue sit dictum aenean velit.
-      Sociis bibendum eu ut id lectus at ornare eget vel. Fames amet cras
-      sagittis phasellus amet. Vel est nulla maecenas pretium sed.
-      Scelerisque vulputate eget in nibh aliquet ultrices vel tempus ut.
+    We provide expert guidance and tailored courses to ensure students are fully prepared for India's top boarding school entrance exams. With a deep understanding of elite school requirements, we enhance students' chances of admission, setting the stage for their academic success and personal growth.
     </p>
-    <p className="text-18px">
-      Id pellentesque arcu fermentum euismod neque turpis amet amet. Id in
-      sit aliquet vel neque adipiscing. Cursus nisi scelerisque orci vivamus
-      est in. Hac quam magna. Id in sit aliquet vel neque adipiscing. Id in
-      sit aliquet vel neque adipiscing.
-    </p>
-    <button className="px-6 lg:px-16 py-2 text-primary02 bg-white mt-12 rounded-md border border-primary02">
+   
+    {/* <button className="px-6 lg:px-16 py-2 text-primary02 bg-white mt-12 rounded-md border border-primary02">
       Primary
-    </button>
+    </button> */}
   </div>
 </div>
 
