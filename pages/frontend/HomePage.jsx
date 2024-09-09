@@ -1,5 +1,5 @@
 import CoursesWeOffer from '@/components/frontend/CoursesWeOffer'
-import FeaturedBlog from '@/components/frontend/FeaturedBlog'
+// import FeaturedBlog from '@/components/frontend/FeaturedBlog'
 import OurTeam from '@/components/frontend/OurTeam'
 import TrustedByStudent from '@/components/frontend/TrustedByStudent'
 import WhoWeAre from '@/components/frontend/WhoWeAre'
@@ -20,7 +20,7 @@ const HomePage = () => {
       <CoursesWeOffer/>
       <OurTeam/>
       <ScrollAnimation/>
-      <FeaturedBlog/>
+      {/* <FeaturedBlog/> */}
       <Stories/>
 
     </div>
