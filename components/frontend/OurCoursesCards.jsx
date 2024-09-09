@@ -82,7 +82,6 @@ const cardData = [
     imageSrc: "/icons/card4.svg",
     title: "BOARDING COMPATIBILITY TEST",
     route: "/services/Boardingcompatibilitytest",
-    
 
     description:
       "Find Your Ideal Boarding School Fit with Our Boarding Compatibility Test",
@@ -104,7 +103,6 @@ const cardData = [
     imageSrc: "/icons/card5.svg",
     title: "CUSTOMIZED COURSES",
     route: "/services/Customizedcourses",
-
 
     description:
       "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dolor, illum.",
@@ -159,7 +157,7 @@ const OurCoursesCards = () => {
   const handleFeatureHover = (cardId, title, description, top) => {
     setHoveredContent({ cardId, title, description, top });
   };
-
+  
   const handleFeatureLeave = () => {
     setHoveredContent({});
   };
@@ -168,8 +166,8 @@ const OurCoursesCards = () => {
     <div className="w-full bg-primary02 pt-14 pb-20">
       <div className="px-10 md:px-16">
         <p className="text-[#FFFFFF] ">100% QUALITY COURSES</p>
-        <h1 className="text-[2rem] md:text-[3rem] text-[#FFFFFF] font-medium md:w-[50%]">
-          Lorem ipsum, dolor sit amet consectetur.
+        <h1 className="text-[2rem] md:text-[3rem] text-[#FFFFFF] font-medium md:w-[65%]">
+        Enroll Now for Tailored Preparation and Guaranteed Success
         </h1>
       </div>
 
@@ -241,10 +239,10 @@ const OurCoursesCards = () => {
 
         {/* Second Row - Centered */}
         <div className="flex flex-wrap justify-center  md:space-x-5 lg:space-x-16 w-full  md:mt-10">
-          {cardData.slice(3).map((card) => (
+          {cardData.slice(3).map((card, index) => (
             <div
               key={card.id}
-              className="bg-[#FFFFFF] rounded-[12px] w-[24.5rem] mt-10  relative"
+              className="bg-[#FFFFFF] rounded-[12px] w-[24.5rem] mt-10 relative "
             >
               <Image
                 src={card.imageSrc}
@@ -295,17 +293,20 @@ const OurCoursesCards = () => {
                 </React.Fragment>
               ))}
 
-              <div className="flex justify-center items-center pt-4 pb-8">
-              <Link href={card.route}>
-
-                <div className="w-[138px] h-[40px] bg-gradient01 border-custom flex justify-center items-center">
-                  <button className="text-white">Enroll Now</button>
-                </div>
+              <div
+                className="flex justify-center items-center pt-4  pb-8"
+              >
+                <Link href={card.route}>
+                <div className={`${index === 0 ? 'mt-[9.3rem]' : ''} w-[138px] h-[40px] bg-gradient01 border-custom flex justify-center items-center`}>
+                <button className="text-white">Enroll Now</button>
+                  </div>
                 </Link>
               </div>
             </div>
           ))}
         </div>
+      
+
       </div>
     </div>
   );
