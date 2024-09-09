@@ -27,7 +27,7 @@ export default function OurTeam() {
   ];
 
   return (
-    <div className="xl:px-[100px] lg:px-[40px] px-[24px] flex justify-center h-full lg:py-16 py-12">
+    <div className="xl:px-[100px] lg:px-[40px] px-[24px] h-full lg:py-16 py-12">
       <div className="w-full">
         <div className="lg:text-24px text-16px text-primary03 lg:text-center text-left">
           OUR TEAM
@@ -36,7 +36,7 @@ export default function OurTeam() {
           Lorem ipsum dolor sit consetur.
         </div>
 
-        <div className="flex gap-5 overflow-x-auto hide-scrollbar">
+        <div className="flex gap-5 overflow-x-auto hide-scrollbar justify-center items-center">
           {team.map((member, index) => (
             <div
               key={index}

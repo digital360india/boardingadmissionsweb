@@ -3,7 +3,7 @@ import React from 'react'
 export default function ContactForm() {
   return (
     <div>
-    <div className='xl:px-[100px] lg:px-[40px] py-[110px] px-6 flex flex-col lg:flex-row justify-between space-y-10'>
+    <div className='mt-4  xl:px-[100px] lg:px-[40px] py-[110px] px-6 flex flex-col lg:flex-row justify-between space-y-10'>
     <div className='space-y-4  lg:pr-6'>
         <p className='text-[48px]'>Have an enquiry?</p>
         <p className='text-[18px] lg:w-[600px]'>We’d love to hear from you! Please fill out the form below and we

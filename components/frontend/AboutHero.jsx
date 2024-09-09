@@ -32,17 +32,17 @@ export default function AboutHero() {
       </div>
 
       <div className='w-[310px] h-[459px] text-white lg:order-3 lg:block hidden'>
-        <p className='pb-10'>Lorem ipsum dolor sit amet consectetur. Augue sit dictum aenean velit. Sociis bibendum eu ut id lectus at ornare eget vel. Fames amet cras sagittis phasellus amet. Vel est nulla maecenas pretium sed. Scelerisque vulputate eget in nibh aliquet ultrices vel tempus ut. </p>
-        <p className='pb-10'>Id pellentesque arcu fermentum euismod neque turpis amet amet. Id in sit aliquet vel neque adipiscing. Cursus nisi scelerisque orci vivamus est in. Hac quam magna.</p>
-        <p>d in sit aliquet vel neque adipiscing.d in sit aliquet vel neque adipiscing.</p>
+      <p className='pb-10'>Boarding Admissions is dedicated to guiding students toward success in entrance exams for India's premier boarding schools. </p>
+      <p className='pb-10'> With a 90% success rate, our specialized courses equip students with the essential knowledge and skills to secure admissions to top institutions, paving the way for their bright educational futures.</p>
+        {/* <p>d in sit aliquet vel neque adipiscing.d in sit aliquet vel neque adipiscing.</p> */}
       </div>
     </div>
    
     </div> 
     <div className='text-white lg:hidden block px-[24px] pt-6'>
-        <p className='pb-10'>Lorem ipsum dolor sit amet consectetur. Augue sit dictum aenean velit. Sociis bibendum eu ut id lectus at ornare eget vel. Fames amet cras sagittis phasellus amet. Vel est nulla maecenas pretium sed. Scelerisque vulputate eget in nibh aliquet ultrices vel tempus ut. </p>
-        <p className='pb-10'>Id pellentesque arcu fermentum euismod neque turpis amet amet. Id in sit aliquet vel neque adipiscing. Cursus nisi scelerisque orci vivamus est in. Hac quam magna.</p>
-        <p>d in sit aliquet vel neque adipiscing.d in sit aliquet vel neque adipiscing.</p>
+        <p className='pb-10'>Boarding Admissions is dedicated to guiding students toward success in entrance exams for India's premier boarding schools. </p>
+        <p className='pb-10'> With a 90% success rate, our specialized courses equip students with the essential knowledge and skills to secure admissions to top institutions, paving the way for their bright educational futures.</p>
+        {/* <p>d in sit aliquet vel neque adipiscing.d in sit aliquet vel neque adipiscing.</p> */}
       </div>
     </div>
   )
