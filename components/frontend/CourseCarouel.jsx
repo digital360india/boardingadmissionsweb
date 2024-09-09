@@ -10,7 +10,7 @@ const cardData = [
     id: 1,
     imageSrc: "/icons/card1.svg",
     title: "ACE ENTRANCE EXAM",
-    route: "/services/Aceinterviewexam",
+    route: "/coursepackages/Aceentranceexam",
     description:
       "Unlock Your Boarding School Dream and Ace the Entrance Exam with Confidence",
     features: [
@@ -40,7 +40,7 @@ const cardData = [
     id: 2,
     imageSrc: "/icons/card2.svg",
     title: "FOUNDATION COURSES",
-    route: "/services/Foundationcourses",
+    route: "/coursepackages/Foundationcourses",
     description: "Build a Strong Academic Base to thrive in every subject",
     features: [
       "4th Grade - 6th Grade",
@@ -53,7 +53,7 @@ const cardData = [
     id: 3,
     imageSrc: "/icons/card3.svg",
     title: "SOFT SKILL MASTERY",
-    route: "/services/Softskillmastery",
+    route: "/coursepackages/Softskillmastery",
     description: "Pathway to Personal Excellence or Skills Mastery",
     features: [
       {
@@ -82,7 +82,7 @@ const cardData = [
     id: 4,
     imageSrc: "/icons/card4.svg",
     title: "BOARDING COMPATIBILITY TEST",
-    route: "/services/Boardingcompatibilitytest",
+    route: "/coursepackages/Boardingcompatibilitytest",
 
     description:
       "Find Your Ideal Boarding School Fit with Our Boarding Compatibility Test",
@@ -103,7 +103,7 @@ const cardData = [
     id: 5,
     imageSrc: "/icons/card5.svg",
     title: "CUSTOMIZED COURSES",
-    route: "/services/Customizedcourses",
+    route: "/coursepackages/Customizedcourses",
     description:
       "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dolor, illum.",
     features: [

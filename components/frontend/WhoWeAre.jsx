@@ -14,23 +14,27 @@ export default function WhoWeAre() {
         />
       </div>
       <div className="lg:w-1/2 w-full flex justify-center items-center">
-      <div>
-        <div className="lg:ml-0 ml-2 lg:flex-none flex-col lg:space-y-0 space-y-4">
-        <div className="text-primary03 xl:text-24px lg:text-18px text-[14px] "><p>WHO WE ARE</p></div>
-        <div className="text-neutral01 xl:text-[48px] lg:w-full w-[310px] lg:text-[38px] text-24px font-semibold leading-none pb-4"><p>Master Entrance Exams with Expert Guidance</p></div>
-        </div>
+        <div>
+          <div className="lg:ml-0 ml-2 lg:flex-none flex-col lg:space-y-0 space-y-4">
+            <div className="text-primary03 xl:text-24px lg:text-18px text-[14px] ">
+              <p>WHO WE ARE</p>
+            </div>
+            <div className="text-neutral01 xl:text-[48px] lg:w-full w-[310px] lg:text-[38px] text-24px font-semibold leading-none pb-4">
+              <p>Master Entrance Exams with Expert Guidance</p>
+            </div>
+          </div>
 
-        <div className="lg:hidden block">
-        <div className="flex items-center justify-center py-4">
-        <Image
-          src="/images/rectangle2.svg"
-          alt="Calendar"
-          className="w-[100%]"
-          width={2}
-          height={2}
-        />
-      </div>
-        </div>
+          <div className="lg:hidden block">
+            <div className="flex items-center justify-center py-4">
+              <Image
+                src="/images/rectangle2.svg"
+                alt="Calendar"
+                className="w-[100%]"
+                width={2}
+                height={2}
+              />
+            </div>
+          </div>
 
 
         <div className="xl:text-18px lg:text-16px pb-4"><p>At Boarding Admissions, we excel in preparing students for entrance exams to top boarding schools across India. With over 8 years of experience and a 90% success rate, our specialized courses are meticulously crafted to meet elite institutions demands, ensuring thorough preparation and deep insights. We empower students with essential knowledge and skills, shaping their educational pathways and prospects. Enroll now for a comprehensive approach that combines rigorous academic preparation with vital soft skills, setting the foundation for lifelong success.</p></div>

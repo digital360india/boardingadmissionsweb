@@ -1,7 +1,8 @@
 "use client";
 import React, { useState } from "react";
-import { db } from "@/firebase/firebase";
+import { db, storage } from "@/firebase/firebase"; // Import storage from Firebase
 import { addDoc, collection } from "firebase/firestore";
+import { ref, uploadBytesResumable, getDownloadURL } from "firebase/storage"; // Import Firebase storage functions
 
 const AddCourseDialog = ({ isOpen, onClose }) => {
   const [formData, setFormData] = useState({
@@ -22,6 +23,36 @@ const AddCourseDialog = ({ isOpen, onClose }) => {
       ...formData,
       [name]: value,
     });
+  };
+
+  const handleImageUpload = async (e) => {
+    const file = e.target.files[0];
+    const { name } = e.target;
+
+    if (!file) return;
+
+    setLoading(true);
+    const storageRef = ref(storage, `images/${file.name}`);
+    const uploadTask = uploadBytesResumable(storageRef, file);
+
+    uploadTask.on(
+      "state_changed",
+      (snapshot) => {
+      },
+      (error) => {
+        setError("Failed to upload image. Please try again.");
+        console.error("Image upload error:", error);
+        setLoading(false);
+      },
+      async () => {
+        const downloadURL = await getDownloadURL(uploadTask.snapshot.ref);
+        setFormData((prevData) => ({
+          ...prevData,
+          [name]: downloadURL,
+        }));
+        setLoading(false);
+      }
+    );
   };
 
   const handleSubmit = async (e) => {
@@ -90,38 +121,31 @@ const AddCourseDialog = ({ isOpen, onClose }) => {
               />
             </div>
             <div className="mb-4">
-              <label className="block text-gray-700">Hero Image URL:</label>
+              <label className="block text-gray-700">Hero Image:</label>
               <input
-                type="text"
+                type="file"
                 name="heroImage"
-                value={formData.heroImage}
-                onChange={handleChange}
+                onChange={handleImageUpload}
                 className="mt-1 block w-full p-2 border border-gray-300 rounded"
                 required
               />
             </div>
             <div className="mb-4">
-              <label className="block text-gray-700">
-                Thumbnail Image URL:
-              </label>
+              <label className="block text-gray-700">Thumbnail Image:</label>
               <input
-                type="text"
+                type="file"
                 name="thumbnailImage"
-                value={formData.thumbnailImage}
-                onChange={handleChange}
+                onChange={handleImageUpload}
                 className="mt-1 block w-full p-2 border border-gray-300 rounded"
                 required
               />
             </div>
             <div className="mb-4">
-              <label className="block text-gray-700">
-                Mobile View Image URL:
-              </label>
+              <label className="block text-gray-700">Mobile View Image:</label>
               <input
-                type="text"
+                type="file"
                 name="mobileViewImage"
-                value={formData.mobileViewImage}
-                onChange={handleChange}
+                onChange={handleImageUpload}
                 className="mt-1 block w-full p-2 border border-gray-300 rounded"
                 required
               />

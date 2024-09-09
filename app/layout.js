@@ -1,8 +1,6 @@
 import { Barlow, Inter, Jost, Space_Grotesk } from "next/font/google";
 import "./globals.css";
 import { Poppins } from "next/font/google";
-import Footer from "@/components/frontend/Footer";
-import Navbar from "@/components/frontend/Navbar";
 import { UserProvider } from "@/userProvider";
 import Head from "next/head"; // Import Head for adding elements to the head section
 
@@ -76,11 +74,9 @@ export default function RootLayout({ children }) {
         {/* End Facebook Pixel Code */}
       </Head>
       <body className={`${poppins.variable}`}>
-        <Navbar />
-        <UserProvider>
-          {children}
-        </UserProvider>
-        <Footer />
+        {/* <Navbar /> */}
+        <UserProvider>{children}</UserProvider>
+        {/* <Footer /> */}
       </body>
     </html>
   );

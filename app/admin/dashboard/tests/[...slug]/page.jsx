@@ -1,7 +1,7 @@
 "use client";
 import { useState, useEffect } from "react";
 import { db } from "@/firebase/firebase";
-import { doc, getDoc, updateDoc } from "firebase/firestore";
+import { addDoc, doc, getDoc, updateDoc, collection } from "firebase/firestore";
 import { usePathname } from "next/navigation";
 import {
   essayQuestionModel,
@@ -24,22 +24,35 @@ const AddQuestionsPage = () => {
   const currentPage = usePathname();
   const pathArray = currentPage.split("/");
   const testId = pathArray[pathArray.length - 1];
+  const [questions, setQuestions] = useState([]);
+  const [loading, setLoading] = useState(false); // Loading state
+  const [editingQuestionId, setEditingQuestionId] = useState(null);
+  const [editMode, setEditMode] = useState(false);
+  const [allQuestions, setAllQuestions] = useState([]); // State to store all questions
 
-  useEffect(() => {
-    const fetchTest = async () => {
-      try {
-        const testRef = doc(db, "tests", testId);
-        const testDoc = await getDoc(testRef);
-        if (testDoc.exists()) {
-          setTest(testDoc.data());
-        } else {
-          console.error("No such test!");
+  const fetchTest = async () => {
+    try {
+      const testRef = doc(db, "tests", testId);
+      const testDoc = await getDoc(testRef);
+      if (testDoc.exists()) {
+        setTest(testDoc.data());
+        if (testDoc.data().test) {
+          const questionIds = testDoc.data().test;
+          const questionPromises = questionIds.map((id) =>
+            getDoc(doc(db, "questions", id))
+          );
+          const questionDocs = await Promise.all(questionPromises);
+          const fetchedQuestions = questionDocs.map((doc) => doc.data());
+          setQuestions(fetchedQuestions);
         }
-      } catch (err) {
-        console.error("Error fetching test:", err);
+      } else {
+        console.error("No such test!");
       }
-    };
-
+    } catch (err) {
+      console.error("Error fetching test:", err);
+    }
+  };
+  useEffect(() => {
     fetchTest();
   }, [testId]);
 
@@ -61,6 +74,16 @@ const AddQuestionsPage = () => {
       },
     }));
   };
+  const fetchAllQuestions = async () => {
+    try {
+      const questionsCollectionRef = collection(db, "questions");
+      const questionsSnapshot = await getDocs(questionsCollectionRef);
+      const questionsList = questionsSnapshot.docs.map((doc) => doc.data());
+      setAllQuestions(questionsList);
+    } catch (err) {
+      console.error("Error fetching all questions:", err);
+    }
+  };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -68,52 +91,89 @@ const AddQuestionsPage = () => {
       console.error("Test data is not loaded.");
       return;
     }
+
     try {
+      setLoading(true);
+
+      let questionRef;
+      if (editMode) {
+        questionRef = doc(db, "questions", editingQuestionId);
+        await updateDoc(questionRef, newQuestion);
+      } else {
+        questionRef = await addDoc(collection(db, "questions"), newQuestion);
+        const questionId = questionRef.id;
+        await updateDoc(questionRef, { id: questionId });
+      }
+
       const testRef = doc(db, "tests", testId);
-      await updateDoc(testRef, {
-        test: [...(test.test || []), newQuestion],
-      });
-      alert("Question added successfully!");
+      const updatedQuestions = editMode
+        ? test.test
+        : [...(test.test || []), questionRef.id];
+
+      await updateDoc(testRef, { test: updatedQuestions });
+
       const updatedTestDoc = await getDoc(testRef);
       setTest(updatedTestDoc.data());
-      setNewQuestion({
-        questionType: "essay",
-        ...essayQuestionModel,
-      });
+      setNewQuestion({ questionType: "essay", ...essayQuestionModel });
       setShowForm(false);
+      setEditMode(false);
+      setEditingQuestionId(null);
+      fetchTest();
     } catch (err) {
-      console.error("Error adding question:", err);
-      alert("Failed to add question.");
+      console.error("Error adding/updating question:", err);
+    } finally {
+      setLoading(false);
     }
   };
-  const handleDelete = async (questionSno) => {
+
+  const handleDelete = async (questionId) => {
     if (!test) {
       console.error("Test data is not loaded.");
       return;
     }
 
+    if (!test.test) {
+      console.error("Test array is not defined.");
+      return;
+    }
+
     try {
       const testRef = doc(db, "tests", testId);
-      const updatedQuestions = test.test.filter((q) => q.sno !== questionSno);
+      const updatedQuestions = test.test.filter((id) => id !== questionId);
 
-      await updateDoc(testRef, {
-        test: updatedQuestions,
-      });
+      await updateDoc(testRef, { test: updatedQuestions });
+      await deleteDoc(doc(db, "questions", questionId));
 
-      alert("Question deleted successfully!");
       setTest({ ...test, test: updatedQuestions });
+      setQuestions((prevQuestions) =>
+        prevQuestions.filter((q) => q.id !== questionId)
+      );
     } catch (err) {
       console.error("Error deleting question:", err);
       alert("Failed to delete question.");
+    } finally {
+      setLoading(false);
     }
   };
+
+  const handleEdit = (question) => {
+    setNewQuestion(question);
+    setEditingQuestionId(question.id);
+    setEditMode(true);
+    setShowForm(true);
+  };
+
   const renderQuestionForm = () => {
     return (
-      <div className="space-y-4">
-        <label className="block">
+      <div className="">
+        <h2 className="text-xl font-semibold mb-4 text-gray-800">
+          {editMode ? "Edit Question" : "Add New Question"}
+        </h2>
+
+        <label className="block mb-4">
           <span className="text-gray-700">Serial Number</span>
           <input
-            type="string"
+            type="text"
             name="sno"
             value={newQuestion.sno}
             onChange={handleInputChange}
@@ -121,12 +181,59 @@ const AddQuestionsPage = () => {
           />
         </label>
 
+        <label className="block mb-4">
+          <span className="text-gray-700">Question Type</span>
+          <select
+            name="questionType"
+            value={newQuestion.questionType}
+            onChange={(e) => {
+              setNewQuestion({
+                questionType: e.target.value,
+                ...getQuestionModel(e.target.value),
+              });
+              setQuestionModel(getQuestionModel(e.target.value));
+            }}
+            className="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:border-indigo-500 focus:ring-indigo-500"
+          >
+            <option value="essay">Essay</option>
+            <option value="passage">Passage</option>
+            <option value="mcq">MCQ</option>
+            <option value="fillInTheBlank">Fill in the Blank</option>
+            <option value="imageGuess">Image Guess</option>
+          </select>
+        </label>
+
+        {/* Add Previously Defined Question */}
+        <label className="block mb-4">
+          <span className="text-gray-700">Use Existing Question</span>
+          <select
+            name="existingQuestion"
+            onChange={(e) => {
+              const selectedQuestion = questions.find(
+                (question) => question.id === e.target.value
+              );
+              if (selectedQuestion) {
+                setNewQuestion({ ...selectedQuestion });
+                setEditMode(true); // Enter edit mode for the selected question
+              }
+            }}
+            className="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:border-indigo-500 focus:ring-indigo-500"
+          >
+            <option value="">Select Existing Question</option>
+            {questions.map((question) => (
+              <option key={question.id} value={question.id}>
+                {question.sno}. {question.question}
+              </option>
+            ))}
+          </select>
+        </label>
+
         {(() => {
           switch (newQuestion.questionType) {
             case "essay":
               return (
                 <div className="space-y-4">
-                  <label className="block">
+                  <label className="block mb-4">
                     <span className="text-gray-700">Heading</span>
                     <input
                       type="text"
@@ -136,7 +243,7 @@ const AddQuestionsPage = () => {
                       className="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:border-indigo-500 focus:ring-indigo-500"
                     />
                   </label>
-                  <label className="block">
+                  <label className="block mb-4">
                     <span className="text-gray-700">Question</span>
                     <textarea
                       name="question"
@@ -151,7 +258,7 @@ const AddQuestionsPage = () => {
             case "passage":
               return (
                 <div className="space-y-4">
-                  <label className="block">
+                  <label className="block mb-4">
                     <span className="text-gray-700">Heading</span>
                     <input
                       type="text"
@@ -161,7 +268,7 @@ const AddQuestionsPage = () => {
                       className="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:border-indigo-500 focus:ring-indigo-500"
                     />
                   </label>
-                  <label className="block">
+                  <label className="block mb-4">
                     <span className="text-gray-700">Passage</span>
                     <textarea
                       name="question"
@@ -176,7 +283,7 @@ const AddQuestionsPage = () => {
             case "mcq":
               return (
                 <div className="space-y-4">
-                  <label className="block">
+                  <label className="block mb-4">
                     <span className="text-gray-700">Question</span>
                     <input
                       type="text"
@@ -188,7 +295,7 @@ const AddQuestionsPage = () => {
                   </label>
                   <div className="space-y-2">
                     {["a", "b", "c", "d"].map((option) => (
-                      <label key={option} className="block">
+                      <label key={option} className="block mb-2">
                         <span className="text-gray-700">
                           Answer {option.toUpperCase()}
                         </span>
@@ -202,7 +309,7 @@ const AddQuestionsPage = () => {
                       </label>
                     ))}
                   </div>
-                  <label className="block">
+                  <label className="block mb-4">
                     <span className="text-gray-700">Correct Answer</span>
                     <input
                       type="text"
@@ -214,20 +321,10 @@ const AddQuestionsPage = () => {
                   </label>
                 </div>
               );
-            case "fillInTheBlank":
+            case "fill-in-the-blank":
               return (
                 <div className="space-y-4">
-                  <label className="block">
-                    <span className="text-gray-700">Heading</span>
-                    <input
-                      type="text"
-                      name="heading"
-                      value={newQuestion.heading}
-                      onChange={handleInputChange}
-                      className="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:border-indigo-500 focus:ring-indigo-500"
-                    />
-                  </label>
-                  <label className="block">
+                  <label className="block mb-4">
                     <span className="text-gray-700">Question</span>
                     <input
                       type="text"
@@ -237,27 +334,8 @@ const AddQuestionsPage = () => {
                       className="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:border-indigo-500 focus:ring-indigo-500"
                     />
                   </label>
-                  <label className="block">
-                    <span className="text-gray-700">
-                      Options (comma-separated)
-                    </span>
-                    <input
-                      type="text"
-                      name="options"
-                      value={newQuestion.options?.join(", ") || ""}
-                      onChange={(e) =>
-                        setNewQuestion((prevState) => ({
-                          ...prevState,
-                          options: e.target.value
-                            .split(",")
-                            .map((opt) => opt.trim()),
-                        }))
-                      }
-                      className="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:border-indigo-500 focus:ring-indigo-500"
-                    />
-                  </label>
-                  <label className="block">
-                    <span className="text-gray-700">Correct Answer</span>
+                  <label className="block mb-4">
+                    <span className="text-gray-700">Correct Option</span>
                     <input
                       type="text"
                       name="correctAnswer"
@@ -271,27 +349,7 @@ const AddQuestionsPage = () => {
             case "imageGuess":
               return (
                 <div className="space-y-4">
-                  <label className="block">
-                    <span className="text-gray-700">Heading</span>
-                    <input
-                      type="text"
-                      name="heading"
-                      value={newQuestion.heading}
-                      onChange={handleInputChange}
-                      className="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:border-indigo-500 focus:ring-indigo-500"
-                    />
-                  </label>
-                  <label className="block">
-                    <span className="text-gray-700">Question</span>
-                    <input
-                      type="text"
-                      name="question"
-                      value={newQuestion.question}
-                      onChange={handleInputChange}
-                      className="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:border-indigo-500 focus:ring-indigo-500"
-                    />
-                  </label>
-                  <label className="block">
+                  <label className="block mb-4">
                     <span className="text-gray-700">Image URL</span>
                     <input
                       type="text"
@@ -301,38 +359,38 @@ const AddQuestionsPage = () => {
                       className="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:border-indigo-500 focus:ring-indigo-500"
                     />
                   </label>
-                  <div className="space-y-2">
-                    {["a", "b", "c", "d"].map((option) => (
-                      <label key={option} className="block">
-                        <span className="text-gray-700">
-                          Answer {option.toUpperCase()}
-                        </span>
+                  <label className="block mb-4">
+                    <span className="text-gray-700">Question</span>
+                    <input
+                      type="text"
+                      name="question"
+                      value={newQuestion.question}
+                      onChange={handleInputChange}
+                      className="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:border-indigo-500 focus:ring-indigo-500"
+                    />
+                  </label>
+                  <label className="block mb-4">
+                    <span className="text-gray-700">Answers</span>
+                    <div className="space-y-2">
+                      {["a", "b", "c", "d"].map((option) => (
                         <input
+                          key={option}
                           type="text"
                           name={option}
                           value={newQuestion.answers?.[option] || ""}
                           onChange={handleOptionChange}
                           className="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:border-indigo-500 focus:ring-indigo-500"
+                          placeholder={`Answer ${option.toUpperCase()}`}
                         />
-                      </label>
-                    ))}
-                  </div>
-                  <label className="block">
+                      ))}
+                    </div>
+                  </label>
+                  <label className="block mb-4">
                     <span className="text-gray-700">Correct Answer</span>
                     <input
                       type="text"
                       name="correctAnswer"
                       value={newQuestion.correctAnswer}
-                      onChange={handleInputChange}
-                      className="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:border-indigo-500 focus:ring-indigo-500"
-                    />
-                  </label>
-                  <label className="block">
-                    <span className="text-gray-700">Total Marks</span>
-                    <input
-                      type="number"
-                      name="totalmarks"
-                      value={newQuestion.totalmarks}
                       onChange={handleInputChange}
                       className="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:border-indigo-500 focus:ring-indigo-500"
                     />
@@ -343,6 +401,14 @@ const AddQuestionsPage = () => {
               return null;
           }
         })()}
+
+        <button
+          type="submit"
+          className="mt-6 px-6 py-2 bg-blue-500 text-white rounded-lg shadow-md hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-indigo-500"
+          disabled={loading}
+        >
+          {editMode ? "Update Question" : "Add Question"}
+        </button>
       </div>
     );
   };
@@ -352,7 +418,7 @@ const AddQuestionsPage = () => {
       <div className="p-4 my-4 bg-white shadow-lg rounded-lg border border-gray-200">
         <div className=" top-2 right-2">
           <button
-            onClick={() => handleDelete(question.sno)}
+            onClick={() => handleDelete(question.id)}
             className="text-red-500 hover:text-red-700 transition duration-150 flex gap-2"
           >
             <RxCrossCircled className="text-xl" /> <p>Delete Question</p>
@@ -440,43 +506,42 @@ const AddQuestionsPage = () => {
   };
 
   return (
-    <div className="p-6 max-w-3xl mx-auto">
-      <h1 className="text-2xl font-semibold mb-6">Add Questions</h1>
-
+    <div className=" p-10">
       <button
-        onClick={() => setShowForm((prev) => !prev)}
-        className="px-4 py-2 bg-indigo-600 text-white rounded-md shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500"
+        onClick={() => setShowForm(!showForm)}
+        className="mb-4 px-4 py-2 bg-green-500 text-white rounded-md hover:bg-green-600"
       >
-        {showForm ? "Editing Mode On" : "Add Question"}
+        {showForm ? "Edit Mode ON" : "Add New Question"}
       </button>
 
       {showForm && (
-        <div className="absolute bg-white p-10 min-w-[700px] shadow-2xl rounded-3xl">
-          <div className="flex justify-between items-center mb-4">
-            <h2 className="text-2xl font-semibold text-gray-800">
-              Add a New Question
-            </h2>
-            <button
-              onClick={() => setShowForm((prev) => !prev)}
-              className="text-gray-500 hover:text-red-600 transition duration-150"
-            >
-              <RxCrossCircled className="text-3xl" />
-            </button>
-          </div>
-
-          <form onSubmit={handleSubmit} className="space-y-6">
-            <div className="space-y-2">
-              <label className="block text-lg font-medium text-gray-700">
-                Question Type
-              </label>
+        <>
+          {" "}
+          <form
+            onSubmit={handleSubmit}
+            className="space-y-4 absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-white border border-gray-300 rounded-xl shadow-lg p-8 w-full max-w-3xl z-50"
+          >
+            {" "}
+            <div className="flex justify-end items-end">
+              {" "}
+              <button
+                onClick={() => setShowForm(!showForm)}
+                className="mb-4 px-4 py-2 bg-red-500 text-white rounded-md hover:bg-red-800"
+              >
+                <RxCrossCircled />
+              </button>
+            </div>
+            <label className="block">
+              <span className="text-gray-700">Question Type</span>
               <select
                 name="questionType"
                 value={newQuestion.questionType}
                 onChange={(e) => {
-                  const type = e.target.value;
-                  const model = getQuestionModel(type);
-                  setNewQuestion({ questionType: type, ...model });
-                  setQuestionModel(model);
+                  setNewQuestion({
+                    questionType: e.target.value,
+                    ...getQuestionModel(e.target.value),
+                  });
+                  setQuestionModel(getQuestionModel(e.target.value));
                 }}
                 className="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:border-indigo-500 focus:ring-indigo-500"
               >
@@ -484,54 +549,38 @@ const AddQuestionsPage = () => {
                 <option value="passage">Passage</option>
                 <option value="mcq">MCQ</option>
                 <option value="fillInTheBlank">Fill in the Blank</option>
-                <option value="imageGuess">Image Question with options</option>
+                <option value="imageGuess">Image Guess</option>
               </select>
-            </div>
-
+            </label>
             {renderQuestionForm()}
-
-            <button
-              type="submit"
-              className="w-full py-3 bg-indigo-600 text-white rounded-lg shadow-lg hover:bg-indigo-700 transition duration-150"
-            >
-              Add Question
-            </button>
           </form>
-        </div>
+        </>
       )}
 
-      <div className="mt-10">
-        <h2 className="text-xl font-semibold mb-4">Existing Questions</h2>
-        {test?.test && test.test.length > 0 ? (
-          <ul className="space-y-4">
-            {test.test.map((question, index) => (
-              <li key={index} className="p-4 bg-gray-50 rounded-lg shadow-sm">
-                <h3 className="text-lg font-bold">{question.heading}</h3>
-                {question.questionType === "imageGuess" ? (
-                  <div className="mt-2">
-                    <p>
-                      <strong>Question:</strong> {question.question}
-                    </p>
-                    <img
-                      src={question.imageUrl}
-                      alt="Guess the image"
-                      className="mt-2 w-64 h-64 object-cover"
-                    />
-                  </div>
-                ) : (
-                  renderQuestionContent(question)
-                )}
-              </li>
-            ))}
-          </ul>
-        ) : (
-          <p>No questions available.</p>
-        )}
+      <div className="mt-8">
+        <h2 className="text-lg font-semibold mb-4">Existing Questions</h2>
+        <div className="space-y-4">
+          {questions.map((question) => (
+            <div key={question.id} className="border p-4 rounded-md">
+              <h3 className="text-xl font-bold">
+                {question.heading || question.question}
+              </h3>
+              {renderQuestionContent(question)}
+              <div className="mt-2">
+                <button
+                  onClick={() => handleEdit(question)}
+                  className="px-4 py-2 bg-yellow-500 text-white rounded-md hover:bg-yellow-600 mr-2"
+                >
+                  Edit
+                </button>
+              </div>
+            </div>
+          ))}
+        </div>
       </div>
     </div>
   );
 };
-
 const getQuestionModel = (type) => {
   switch (type) {
     case "essay":
