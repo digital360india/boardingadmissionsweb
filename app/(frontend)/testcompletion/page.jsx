@@ -15,12 +15,12 @@ const TestComplete = () => {
     const fetchData = async () => {
       if (user) {
         try {
-          const userDoc = doc(db, "users", user.uid); // Assuming "users" collection and document ID as user.uid
+          const userDoc = doc(db, "users", user.uid); 
           const docSnap = await getDoc(userDoc);
 
           if (docSnap.exists()) {
             const data = docSnap.data();
-            console.log("Fetched user data:", data); // Debug log
+            console.log("Fetched user data:", data); 
             setTestData(data);
           } else {
             console.error("No such document!");

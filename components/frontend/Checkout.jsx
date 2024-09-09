@@ -17,6 +17,7 @@ export default function Checkout() {
             image: './images/pencil.png'
         }
     ];
+    
   return (
     <>
     <div className='xl:px-[100px] lg:px-10 py-[90px] flex flex-col lg:flex-row px-6 gap-10 justify-between'>

@@ -63,7 +63,7 @@ const EnrollNowCoursesWeOffer = () => {
             Courses we Offer
           </h1>
 
-          <Link href="/Enrollnowcourse">
+          <Link href="/enrollnow/enrollnowcourse">
             <u className="text-white text-[0.875rem] md:pt-[2.5rem]">
               View all
             </u>
