@@ -14,7 +14,7 @@ const page = () => {
     fetchData();
   }, []);
   const deleteLead = async (id) => {
-    await deleteDoc(doc(db, "schools", id));
+    await deleteDoc(doc(db, "leads", id));
     fetchData();
   };
   const handleEditLead = (id) => {
