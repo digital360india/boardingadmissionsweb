@@ -1,7 +1,7 @@
 "use client";
 import { usePathname, useRouter } from "next/navigation";
 import React, { useState, useEffect } from "react";
-import { db } from "@/firebase/firebase"; // Ensure your Firebase setup is correct
+import { db } from "@/firebase/firebase"; 
 import { collection, getDocs, doc, getDoc } from "firebase/firestore";
 import Link from "next/link";
 import { IoMdArrowBack } from "react-icons/io";
@@ -13,7 +13,7 @@ const Page = () => {
   const [courses, setCourses] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
-  const router = useRouter(); // Access the router instance
+  const router = useRouter(); 
 
   useEffect(() => {
     const fetchCourses = async () => {

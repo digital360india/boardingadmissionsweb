@@ -23,6 +23,7 @@ export const UserProvider = ({ children }) => {
             email: currentUser.email,
             displayName: currentUser.displayName,
             mycoursepackages: userDoc.data().mycoursepackages || [],  
+            mytestpackages: userDoc.data().mytestpackages || [],  
           });
         } else {
           console.error("No such document!");
