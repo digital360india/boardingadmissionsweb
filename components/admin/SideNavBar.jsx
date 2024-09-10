@@ -49,7 +49,7 @@ export const SideNavBar = ({ isSidebarOpen, setIsSidebarOpen }) => {
     },
     {
       title: "My Leads",
-      src: "/user/dashboard/leads",
+      src: "/admin/dashboard/leads",
       icon: <FaPeopleLine />,
     },
   ];
