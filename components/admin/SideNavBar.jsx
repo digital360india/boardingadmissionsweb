@@ -6,7 +6,7 @@ import React, { useContext } from "react";
 import { FaEdit, FaHome, FaSignOutAlt } from "react-icons/fa";
 import { AdminContext } from "@/adminProvider";
 import { IoPeopleSharp } from "react-icons/io5";
-import { FaBook } from "react-icons/fa6";
+import { FaBook, FaPeopleLine } from "react-icons/fa6";
 import { usePathname } from "next/navigation";
 
 export const SideNavBar = ({ isSidebarOpen, setIsSidebarOpen }) => {
@@ -46,6 +46,11 @@ export const SideNavBar = ({ isSidebarOpen, setIsSidebarOpen }) => {
       title: "Keywords",
       src: "/admin/dashboard/keywords",
       icon: <FaEdit />,
+    },
+    {
+      title: "My Leads",
+      src: "/user/dashboard/leads",
+      icon: <FaPeopleLine />,
     },
   ];
   const path = usePathname();
