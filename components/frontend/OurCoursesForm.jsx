@@ -1,8 +1,10 @@
 "use client";
 
 import React, { useState } from "react";
+import emailjs from "emailjs-com";
 
 const OurCoursesForm = () => {
+  // const [isSubmitted, setIsSubmitted] = useState(false);
   const [formData, setFormData] = useState({
     firstName: "",
     lastName: "",
@@ -22,19 +24,42 @@ const OurCoursesForm = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    console.log(formData);
+    emailjs
+      .send(
+        "service_zzpjmnf", 
+        "template_72aafby",
+        formData,
+        "zA2422Fl3c6n_YSjA"
+      )
+      .then(
+        () => {
+          alert("Your form has been submitted successfully!");
+          setFormData({
+            firstName: "",
+            lastName: "",
+            email: "",
+            phoneNumber: "",
+            message: "",
+          });
+          // setIsSubmitted(true);
+        },
+        (error) => {
+          console.error("Error sending email:", error.text);
+        }
+      );
   };
 
   return (
     <>
       <div className="">
-        <div className="bg-white p-4 md:mb-20 flex justify-center items-center" >
-          <div 
-          className={`mt-10 md:mt-12  md:mx-12 md:border-4 border-[#FFFFFF]  rounded-lg w-[19rem] md:w-[77.5rem] bg-[#F4FCFC80]`}  style={{ boxShadow: '0 0 6px 0 rgba(0, 0, 0, 0.32)' }}
-          // className={`mt-10 md:mt-12 md:mx-12 md:border-4  rounded-lg w-[100%] md:w-[77.5rem] bg-[#F4FCFC80] border-4 border-[#F9FDFD] md:border-white md:shadow-lg`}
-         >
+        <div className="bg-white p-4 md:mb-20 flex justify-center items-center">
+          <div
+            className={`mt-10 md:mt-12  md:mx-12 md:border-4 border-[#FFFFFF]  rounded-lg w-[19rem] md:w-[77.5rem] bg-[#F4FCFC80]`}
+            style={{ boxShadow: "0 0 6px 0 rgba(0, 0, 0, 0.32)" }}
+            // className={`mt-10 md:mt-12 md:mx-12 md:border-4  rounded-lg w-[100%] md:w-[77.5rem] bg-[#F4FCFC80] border-4 border-[#F9FDFD] md:border-white md:shadow-lg`}
+          >
             <div className="pt-7">
-              <h1 className="font-semibold   text-[2rem] md:text-[3rem] text-primary02 text-center">
+              <h1 className="font-semibold   text-[1.5rem] md:text-[3rem] text-primary02 text-center">
                 Leave Your Question Here
               </h1>
               <p className="pt-4 font-medium text-center">
@@ -79,7 +104,6 @@ const OurCoursesForm = () => {
                     className="border border-[#E7E7E7] p-4 rounded-lg w-[100%]  h-[56px] text-[#667085] text-[1rem]"
                     onChange={handleChange}
                     value={formData.phoneNumber}
-
                     required
                   />
                 </div>
@@ -96,9 +120,6 @@ const OurCoursesForm = () => {
 
                 <div className="flex justify-end px-5">
                   <div className=" w-[300px] h-[56px] text-center mb-4 mt-3   bg-gradient01  border-custom rounded-md">
-               
-    
-                    
                     <button
                       type="submit"
                       className=" text-white py-4  rounded-md "
@@ -112,10 +133,8 @@ const OurCoursesForm = () => {
           </div>
         </div>
       </div>
-     
     </>
   );
 };
 
 export default OurCoursesForm;
-

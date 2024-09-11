@@ -50,42 +50,65 @@ const MyCoursesPage = () => {
   if (error) return <div>{error}</div>;
 
   return (
-    <div className="container mx-auto p-4">
+    <div className="container mx-auto p-4"
+    >
       <h1 className="text-3xl font-bold mb-6 text-background04 ">
         My Packages
       </h1>
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 ">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6  drop-shadow-lg">
         {packages.length > 0 ? (
           packages.map((pkg) => (
             <div
               key={pkg.id}
-              className="bg-white shadow-lg rounded-lg overflow-hidden"
+              className="bg-white shadow-xl rounded-lg overflow-hidden"
+              
             >
-              <img
-                src={pkg.image}
-                alt={pkg.packageName}
-                className="w-full h-48 object-cover"
-              />
+              <div className="flex justify-end">
+                <div className="bg-background04 text-center py-1  text-[12px] text-white  w-[223px] h-[27px] drop-shadow-lg">
+                  Starting from:&nbsp;
+                  <span className="font-bold">
+                    {new Date(pkg.startingDate).toLocaleDateString("en-GB", {
+                      day: "2-digit",
+                      month: "short",
+                      year: "numeric",
+                    })}
+                  </span>
+                </div>
+              </div>
+
+              <div className="flex justify-center items-center">
+                <img
+                  src={pkg.image}
+                  alt={pkg.packageName}
+                  className="w-[255px] h-[120px] object-cover pt-4 rounded-lg"
+                />
+              </div>
               <div className="p-4">
-                <h2 className="text-xl font-semibold text-background04">
+                <h2 className="text-xl font-bold text-background04">
                   {pkg.packageName}
                 </h2>
-                <p className="text-gray-700 mt-2">{`Starting Date: ${new Date(
+                {/* <p className="text-gray-700 mt-2">{`Starting Date: ${new Date(
                   pkg.startingDate
-                ).toLocaleDateString()}`}</p>
-                <p className="text-gray-700 mt-1">{`Date of Creation: ${new Date(
+                ).toLocaleDateString()}`}</p> */}
+
+                <p className="text-[#777777] text-[15px] pt-6 pb-4">
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis
+                  pulvinar magna risus, et iaculis libero elementum at. Etiam
+                  pellentesque ut massa ut gravida. Proin eget neque elementum
+                </p>
+                {/* <p className="text-gray-700 mt-1">{`Date of Creation: ${new Date(
                   pkg.dateOfCreation
                 ).toLocaleDateString()}`}</p>
                 <p className="text-gray-700 mt-1">{`Students Enrolled: ${pkg.studentsEnrolled}`}</p>
                 <p className="text-gray-700 mt-1">{`Price: ₹${pkg.price}`}</p>
-                <p className="text-gray-700 mt-1">{`Discounted Price: ₹${pkg.discountedPrice}`}</p>
-                <div className="mt-4 flex w-full justify-between items-center">
+                <p className="text-gray-700 mt-1">{`Discounted Price: ₹${pkg.discountedPrice}`}</p> */}
+                <div className="mt-3 flex w-full justify-between pb-3">
                   <Link
                     className="flex w-full"
                     href={`/user/dashboard/mypackages/[mycourses]`}
                     as={`/user/dashboard/mypackages/${pkg.id}`}
                   >
-                    <button className="bg-background04 text-white px-4 py-2 rounded-lg w-full">
+                    <button className="bg-background04 text-white  rounded-lg w-[144px] h-[35px] ">
                       Learn
                     </button>
                   </Link>
