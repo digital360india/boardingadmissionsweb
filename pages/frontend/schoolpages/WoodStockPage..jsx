@@ -54,7 +54,7 @@ const examDetails = [
 function WoodStockPage() {
   const WoodstockSchool = schoolFAQs.find(school => school.school === 'WoodstockSchool')?.faqs || [];
   return (
-    <div className="h-auto w-[100%]   md:mt-24">
+    <div className="h-auto w-[100%]">
       <div className="relative ">
         <div className="h-auto w-[100%]">
           <Image

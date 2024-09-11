@@ -55,7 +55,7 @@ export default function EntranceMain() {
 
   return (
     <div>
-      <div className="xl:px-[100px] md:px-[40px] px-[24px] mt-40">
+      <div className="xl:px-[100px] md:px-[40px] px-[24px] ">
         <div className="md:flex space-x-4 justify-between ">
           <div>
             <div className="relative rounded-t-lg">
