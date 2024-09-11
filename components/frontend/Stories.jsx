@@ -122,7 +122,7 @@ export default function Stories() {
         <div className="absolute top-[50%] lg:left-8 left-0 transform -translate-y-1/2">
           <button
             onClick={handlePrev}
-            className=" bg-white text-white p-2 rounded-full"
+            className="  text-white p-2 rounded-full"
           >
             <Image
                   src="/images/arrowleft.svg"

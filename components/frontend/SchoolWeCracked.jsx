@@ -51,10 +51,10 @@ export default function SchoolWeCracked() {
 
   return (
     <div className="xl:mx-[100px] lg:mx-[40px] mx-[24px] pb-[100px]">
-      <div>
-        <p className="text-primary02 py-[40px] lg:text-[48px] text-[24px] font-semibold lg:text-center">
+      <div className="py-[40px]">
+        {/* <p className="text-primary02  lg:text-[48px] text-[24px] font-semibold lg:text-center">
           Top Schools We have Cracked
-        </p>
+        </p> */}
       </div>
       <div className="flex space-x-6 overflow-x-auto hide-scrollbar">
         {school.map((member, index) => (

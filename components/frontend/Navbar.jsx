@@ -1,6 +1,7 @@
 "use client";
 import Image from "next/image";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import React, { useState } from "react";
 
 export default function Navbar() {
@@ -10,10 +11,17 @@ export default function Navbar() {
     setMenuOpen(!menuOpen);
   };
 
+  const path = usePathname();
+
   return (
     <div>
-      {/* Main Navbar Container */}
-      <div className="flex font-sans text-xl bg-transparent absolute top-0 py-4 w-full h-[14.5vh] z-20 backdrop-blur-lg backdrop-brightness-50 backdrop-contrast-75 backdrop-grayscale-20 backdrop-saturate-150 backdrop-opacity-10">
+      <div
+        className={`${
+          path === "/"
+            ? "bg-transparent z-20 backdrop-blur-lg absolute top-0 backdrop-brightness-50 backdrop-contrast-75 backdrop-grayscale-20 backdrop-saturate-150 backdrop-opacity-10"
+            : "bg-white fixed top-0 z-20"
+        } flex font-sans text-xl py-4 w-full h-[14.5vh]`}
+      >
         <div className="flex py-4 md:py-0 w-[100vw] items-center justify-between px-2 md:px-0 md:justify-around space-x-8 text-white hover:text-gray-300">
           {/* Hamburger Icon */}
           <div
@@ -46,7 +54,7 @@ export default function Navbar() {
             <Link href="/schools">
               <button>Schools</button>
             </Link>
-          
+
             <Link href="/aboutus">
               <button> About</button>
             </Link>
@@ -73,14 +81,14 @@ export default function Navbar() {
         <div className="flex justify-between items-center p-4">
           {/* Logo beside Close Button */}
           <Link href="/">
-              <Image
-                src="/images/navbar.svg"
-                width={1}
-                height={1}
-                alt="Image"
-                className="h-24 w-40"
-              />
-            </Link>
+            <Image
+              src="/images/navbar.svg"
+              width={1}
+              height={1}
+              alt="Image"
+              className="h-24 w-40"
+            />
+          </Link>
           {/* Close Button */}
           <button className="text-black text-xl" onClick={toggleMenu}>
             &times;
