@@ -4,7 +4,7 @@ import Desktop from "@/public/images/Desktop-2.svg"
 export default function HeroImage() {
   return (
     <div
-    className="w-full h-[480px] bg-no-repeat bg-cover bg-center relative mt-[6.5%]"
+    className="w-full h-[480px] bg-no-repeat bg-cover bg-center relative"
     style={{ backgroundImage: `url(${Desktop.src})` }}
   >
     <div className="lg:w-[31.25rem]  lg:px-16 pl-[24px]   absolute  bottom-20 text-white  ">

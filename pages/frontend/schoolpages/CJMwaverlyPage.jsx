@@ -75,7 +75,7 @@ function CJMwaverlyPage() {
   const CJMWaverly = schoolFAQs.find(school => school.school === 'CJMWaverly')?.faqs || [];
 
   return (
-    <div className="h-auto w-[100%] md:mt-24">
+    <div className="h-auto w-[100%] ">
       <div className="relative ">
         <div className="h-auto w-[100%]">
           <Image
