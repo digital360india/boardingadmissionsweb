@@ -8,11 +8,11 @@ export default function TrustedByStudent() {
   const [isPopupVisible, setPopupVisible] = useState(false);
 
   const handleClick = () => {
-    setPopupVisible(true); 
+    setPopupVisible(true);
   };
 
   const handleClosePopup = () => {
-    setPopupVisible(false);  
+    setPopupVisible(false);
   };
 
   return (
@@ -45,10 +45,10 @@ export default function TrustedByStudent() {
               <div className="xl:h-[339px] lg:h-[400px]"></div>
               <div className="">
                 <p className="w-[397px] h-[135px] font-normal">
-                  “Lorem ipsum dolor sit amet consectetur. Pellentesque
-                  fringilla commodo adipiscing proin. Nibh viverra mauris a
-                  integer. Facilisis tristique natoque pellentesque mauris
-                  urna.”
+                  &quot;At Boarding Admission, our students consistently express their
+                  gratitude for the seamless and supportive admission process.
+                  Their feedback highlights how our guidance helped them
+                  confidently secure their spot in top boarding schools.&quot;
                 </p>
                 <p className="font-semibold text-18px">Sakshi Pandey</p>
                 <p className="text-primary03 text-14px">Bishop Cotton School</p>
