@@ -12,40 +12,39 @@ const star = [
     ratingByPerson: 4,
   },
 ];
-
+ 
 function ScindiaSchoolPage() {
   const Scindia = schoolFAQs.find(school => school.school === 'Scindia')?.faqs || [];
   return (
     <div className="h-auto w-[100%]">
       <div className="relative ">
-        <div className="h-auto w-[100%]">
-          <Image
+ <div className=" h-[250px] w-[100%] ">          <Image
             src="/images/SchoolBanner/scindia.svg"
             alt="Descriptive text for screen readers"
-            className="w-full "
-            width={2}
-            height={2}
+            className="w-full h-[250px] object-cover rounded-b-2xl "
+            width={1000}
+            height={1000}
           />
         </div>
         <div className="w-[13vw] ">
           <Image
             src="/images/SchoolBanner/scindialogo.svg"
-            className="absolute inset-0 left-[5%] top-[68%] w-[13vw] "
-            width={2}
-            height={2}
+           className="absolute inset-0 left-[5%] top-[80%] w-[90px] h-[80px] "
+            width={1000}
+            height={1000}
           />
         </div>
       </div>
 
-      <div className="w-[90%] ml-[5%]  mt-[5%] ">
-        <div className="relative h-[28vh]  sm:h-[24vh] md:h-[22vh]   w-full  border-b-2  sm:flex sm:justify-between">
-          <div className="w-full flex flex-col  gap-3">
+     <div className="w-[90%] ml-[5%]  mt-[10%] ">
+        <div className="relative h-[20vh]  sm:h-[24vh] md:h-[22vh]   w-full  border-b-2  sm:flex sm:justify-between">
+          <div className="w-full flex flex-col  lg:gap-5 gap-2">
             <div className="">
-              <h1 className="text-[#075D70]  text-[2rem] font-bold">
+              <h1 className="text-[#075D70]  lg:text-[2rem] text-[18px] font-semibold lg:font-bold ">
                 Scindia School, Gwalior, Madhya Pradesh
               </h1>
             </div>
-            <div className="flex text-center gap-3">
+             <div className="flex text-center lg:gap-3 gap-2 items-center">
               <h2 className="text-[#075D70] ">4.2</h2>
 
               <div className="border-none ">
@@ -65,7 +64,7 @@ function ScindiaSchoolPage() {
                   ))
                 }
               </div> */}
-              <h2 className="text-[#075D70] ">Google reviews</h2>
+              <p className="text-[#075D70] ">Google reviews</p>
             </div>
 
             <div className=" flex sm:w-[50%] gap-3 mb-2 sm:mb-0">
@@ -79,18 +78,19 @@ function ScindiaSchoolPage() {
           </div>
 
           <div className=" sm:absolute  gap-3 flex  sm:right-0 sm:self-center">
-            <button className="py-1 px-2 sm:py-1.5 sm:px-2.5 border border-[#075D70] rounded-[5px] flex gap-2">
+             {/* <button className="py-1 px-2 sm:py-1.5 sm:px-2.5 border border-[#075D70] rounded-[5px] flex gap-2">
               <div>
                 <Image
                   src="/icons/download.svg"
                   className="w-full h-full pt-1"
                   width={2}
                   height={2}
+                  alt="svg"
                 />
               </div>
 
               <p className="text-[#075D70]">Broucher</p>
-            </button>
+            </button> */}
             <button className="py-1 px-2 sm:py-1.5 sm:px-2.5 border border-[#075D70]  rounded-[5px] flex gap-2">
               <div>
                 <Image
@@ -113,7 +113,7 @@ function ScindiaSchoolPage() {
             </h1>
           </div>
           <div>
-            <p className="leading-6 w-[88vw] text-[1.15rem]">
+            <p className="leading-6 w-[88vw] text-[1.15rem] text-justify">
               Scindia School, founded in 1897, is one of India&apos;s leading boys
               residential schools. Nestled on Gwalior Fort, the school is
               renowned for its integration of modern education with Indian
@@ -130,7 +130,7 @@ function ScindiaSchoolPage() {
             </h1>
           </div>
           <div>
-            <p className="leading-6 w-[88vw] text-[1.15rem]">
+            <p className="leading-6 w-[88vw] text-[1.15rem] text-justify">
             Scindia Admissions is designed to select students who are well-suited to thrive in the school&apos;s dynamic and challenging environment.
             </p>
           </div>
@@ -182,7 +182,7 @@ function ScindiaSchoolPage() {
           <h1 className="text-[#075D70] font-semibold text-[1.5rem]">
             Downloads
           </h1>
-          <h3 className="text-[#D77A61] text-[1.13rem] ">Fee structure</h3>
+          {/* <h3 className="text-[#D77A61] text-[1.13rem] ">Fee structure</h3> */}
           <h3 className="text-[#D77A61]  text-[1.13rem]">Broucher</h3>
         </div>
       </div>

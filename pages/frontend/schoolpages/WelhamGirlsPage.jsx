@@ -16,36 +16,36 @@ const star = [
 function WelhamGirlsPage() {
   const WelhamGirls = schoolFAQs.find(school => school.school === 'WelhamGirls')?.faqs || [];
   return (
-    <div className="h-auto w-[100%]">
+    <div className="h-auto w-[100%] poppins">
       <div className="relative ">
-        <div className="h-auto w-[100%]">
-          <Image
+      <div className=" h-[250px] w-[100%] ">      
+            <Image
             src="/images/SchoolBanner/welhamgirlsframe.svg"
             alt="Descriptive text for screen readers"
-            className="w-full "
-            width={2}
-            height={2}
+            className="w-full h-[250px] object-cover rounded-b-2xl "
+            width={1000}
+            height={1000}
           />
         </div>
         <div className="w-[13vw] ">
           <Image
             src="/images/SchoolBanner/welhamgirlslogo.svg"
-            className="absolute inset-0 left-[5%] top-[68%] w-[13vw] "
-            width={2}
-            height={2}
+           className="absolute inset-0 left-[5%] top-[80%] w-[90px] h-[80px] "
+            width={1000}
+            height={1000}
           />
         </div>
       </div>
 
-      <div className="w-[90%] ml-[5%]  mt-[5%] ">
-        <div className="relative h-[28vh]  sm:h-[24vh] md:h-[22vh]   w-full  border-b-2  sm:flex sm:justify-between">
-          <div className="w-full flex flex-col  gap-3">
+     <div className="w-[90%] ml-[5%]  mt-[10%] ">
+        <div className="relative h-[20vh]  sm:h-[24vh] md:h-[22vh]   w-full  border-b-2  sm:flex sm:justify-between">
+          <div className="w-full flex flex-col  lg:gap-5 gap-2">
             <div className="">
               <p className="text-[#075D70]  text-[2rem] font-bold">
                 Welham Girls School, Dehradun, Uttarakhand
               </p>
             </div>
-            <div className="flex text-center gap-3">
+             <div className="flex text-center lg:gap-3 gap-2 items-center">
               <h2 className="text-[#075D70] ">4.2</h2>
 
               <div className="border-none ">
@@ -58,14 +58,14 @@ function WelhamGirlsPage() {
                 {
                   [1, 2, 3, 4, 5].map((num) => (
                     <button key={num}>
-                      <span className= text-yellow-600 >
+                      <span className='text-yellow-600'>
                         &#9733;
                       </span>
                     </button>
                   ))
                 }
               </div> */}
-              <h2 className="text-[#075D70] ">Google reviews</h2>
+              <p className="text-[#075D70] ">Google reviews</p>
             </div>
 
             <div className=" flex sm:w-[50%] gap-3 mb-2 sm:mb-0">
@@ -79,18 +79,19 @@ function WelhamGirlsPage() {
           </div>
 
           <div className=" sm:absolute  gap-3 flex  sm:right-0 sm:self-center">
-            <button className="py-1 px-2 sm:py-1.5 sm:px-2.5 border border-[#075D70] rounded-[5px] flex gap-2">
+             {/* <button className="py-1 px-2 sm:py-1.5 sm:px-2.5 border border-[#075D70] rounded-[5px] flex gap-2">
               <div>
                 <Image
                   src="/icons/download.svg"
                   className="w-full h-full pt-1"
                   width={2}
                   height={2}
+                  alt="svg"
                 />
               </div>
 
               <p className="text-[#075D70]">Broucher</p>
-            </button>
+            </button> */}
             <button className="py-1 px-2 sm:py-1.5 sm:px-2.5 border border-[#075D70]  rounded-[5px] flex gap-2">
               <div>
                 <Image
@@ -113,7 +114,7 @@ function WelhamGirlsPage() {
             </p>
           </div>
           <div>
-            <p className="leading-6 w-[88vw] text-[1.15rem]">
+            <p className="leading-6 w-[88vw] text-[1.15rem] text-justify">
               Established to empower young women, Welham Girls  School has
               become synonymous with holistic education. The school offers
               classes from VI to XII, consistently producing students who excel
@@ -131,7 +132,7 @@ function WelhamGirlsPage() {
           </div>
           <div>
             <div>
-              <p className="leading-6 w-[88vw] text-[1.15rem]">
+              <p className="leading-6 w-[88vw] text-[1.15rem] text-justify">
                 Welham Girls Admissions are competitive, focusing on academic
                 potential and overall personality. The process includes the
                 submission of an application, entrance exams, and an interview.
@@ -614,7 +615,7 @@ function WelhamGirlsPage() {
             </p>
           </div>
           <div >
-            <p className="leading-6 w-[88vw] text-[1.15rem]">
+            <p className="leading-6 w-[88vw] text-[1.15rem] text-justify">
             Welham Girls  School offers a balanced education emphasizing academic excellence, leadership, and moral values. The school&apos;s strong alumni network and commitment to holistic development make it a top choice for parents considering Welham Girls Admissions.
             </p>
           </div>
@@ -625,7 +626,7 @@ function WelhamGirlsPage() {
           <p className="text-[#075D70] font-semibold text-[1.5rem]">
             Downloads
           </p>
-          <h3 className="text-[#D77A61] text-[1.13rem] ">Fee structure</h3>
+          {/* <h3 className="text-[#D77A61] text-[1.13rem] ">Fee structure</h3> */}
           <h3 className="text-[#D77A61]  text-[1.13rem]">Broucher</h3>
         </div>
       </div>

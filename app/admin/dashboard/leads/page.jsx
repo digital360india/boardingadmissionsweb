@@ -1,6 +1,6 @@
 "use client";
 import { db } from "@/firebase/firebase";
-import { collection, deleteDoc, doc, getDocs, updateDoc } from "firebase/firestore";
+import { arrayUnion, collection, deleteDoc, doc, getDocs, updateDoc } from "firebase/firestore";
 import React, { useEffect, useState } from "react";
 import { PiDotsThreeBold, PiWhatsappLogo } from "react-icons/pi";
 import { MdOutgoingMail } from "react-icons/md";
@@ -31,6 +31,8 @@ const [coldCount, setColdCount] = useState(0);
   const [dropdownOpen, setDropdownOpen] = useState(null); // Track which lead's dropdown is open
   const [dispositionMenuOpen, setDispositionMenuOpen] = useState(null); // Track which lead's disposition menu is open
   const [messagePopupOpen, setMessagePopupOpen] = useState(null); // Track which lead's message popup is open
+  const [remarkPopupOpen, setRemarkPopupOpen] = useState(null); // For remark pop-up
+  const [remarkText, setRemarkText] = useState(""); // For writing new remarks
   const openMessagePopup = (leadId) => {
     setMessagePopupOpen(leadId);
   };
@@ -142,7 +144,8 @@ const [coldCount, setColdCount] = useState(0);
     setIsDeleteConfirmOpen(true);
   };
 
-  const toggleDropdown = (id) => {
+  const 
+  toggleDropdown = (id) => {
     setDropdownOpen((prev) => (prev === id ? null : id));
   };
 
@@ -160,6 +163,47 @@ const [coldCount, setColdCount] = useState(0);
     }
     setDispositionMenuOpen(null);
   };
+
+
+  const openRemarkPopup = (leadId) => {
+    setRemarkPopupOpen(leadId);
+  };
+
+  const closeRemarkPopup = () => {
+    setRemarkPopupOpen(null);
+  };
+
+  const handleAddRemark = async (leadId) => {
+    try {
+      const leadDocRef = doc(db, "leads", leadId);
+      const newRemark = {
+        text: remarkText,
+        date: new Date().toLocaleString(),
+      };
+  
+      // Update the Firestore document with the new remark
+      await updateDoc(leadDocRef, {
+        remarks: arrayUnion(newRemark), // Add the new remark to the Firestore document
+      });
+  
+      // Directly update the remarks in the leads state without refetching
+      setLeads((prevLeads) =>
+        prevLeads.map((lead) =>
+          lead.id === leadId
+            ? { ...lead, remarks: [...(lead.remarks || []), newRemark] }
+            : lead
+        )
+      );
+  
+      setRemarkText(""); // Reset the textarea after submission
+      // Close the remark pop-up only if desired (this keeps it open for now)
+      // closeRemarkPopup(); 
+  
+    } catch (error) {
+      console.error("Error adding remark: ", error);
+    }
+  };
+  
 
   useEffect(() => {
     fetchData();
@@ -188,14 +232,17 @@ const [coldCount, setColdCount] = useState(0);
       ) : leads.length > 0 ? (
         <table className="min-w-full bg-white border">
           <thead>
-            <tr>
-              <th className="py-2 px-4 border-b">First Name</th>
-              <th className="py-2 px-4 border-b">Last Name</th>
-              <th className="py-2 px-4 border-b">Email</th>
-              <th className="py-2 px-4 border-b">Phone</th>
-              <th className="py-2 px-4 border-b">Message</th>
-              <th className="py-2 px-4 border-b">Disposition</th>
-              <th className="py-2 px-4 border-b">Actions</th>
+            <tr className="">
+              <th className="py-2 px-4 border-b text-start ">First Name</th>
+              <th className="py-2 px-4 border-b text-start">Last Name</th>
+              <th className="py-2 px-4 border-b text-start">Email</th>
+              <th className="py-2 px-4 border-b text-start">Phone</th>
+              <th className="py-2 px-4 border-b text-start">Message</th>
+              <th className="py-2 px-4 border-b text-start">Disposition</th>
+              <th className="py-2 px-4 border-b text-start">Remarks</th>
+
+              <th className="py-2 px-4 border-b text-start">Actions</th>
+
             </tr>
           </thead>
           <tbody>
@@ -245,6 +292,47 @@ const [coldCount, setColdCount] = useState(0);
           )}
         </div>
       </td>
+      <td className="py-2 px-4 border-b ">
+                  <button
+                    className="text-blue-500 "
+                    onClick={() => openRemarkPopup(lead.id)}
+                  >
+                  Remarks
+                  </button>
+                  {remarkPopupOpen === lead.id && (
+                    <div className="fixed inset-0 bg-gray-600 bg-opacity-75 flex items-center justify-center z-50  ">
+                      <div className="bg-white p-4 rounded shadow-md w-[900px] h-[400px] overflow-y-auto item ">
+                        <h2 className="text-lg font-semibold">Remarks for {lead.firstName}</h2>
+                        <textarea
+                          value={remarkText}
+                          onChange={(e) => setRemarkText(e.target.value)}
+                          placeholder="Add a remark"
+                          className="w-full border rounded p-2 mb-4"
+                        />
+                        <button
+                          className="bg-blue-500 text-white px-4 py-2 rounded"
+                          onClick={() => handleAddRemark(lead.id)}
+                        >
+                          Save Remark
+                        </button>
+                        <h3 className="mt-4 font-semibold">Previous Remarks:</h3>
+                        <ul className="list-disc pl-4">
+                          {lead.remarks?.map((remark, index) => (
+                            <li key={index}>
+                              {remark.text} <small className="text-gray-500">({remark.date})</small>
+                            </li>
+                          ))}
+                        </ul>
+                        <button
+                          className="mt-4 bg-gray-500 text-white px-4 py-2 rounded"
+                          onClick={closeRemarkPopup}
+                        >
+                          Close
+                        </button>
+                      </div>
+                    </div>
+                  )}
+                </td>
       <td className="py-2 px-4 border-b">
         <div className="relative">
           <button

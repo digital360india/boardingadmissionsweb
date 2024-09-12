@@ -11,42 +11,42 @@ const star = [
 
     ratingByPerson: 4,
   },
-];
+]; 
 
 function WelhamBoysPage() {
   const WelhamBoys = schoolFAQs.find(school => school.school === 'WelhamBoys')?.faqs || [];
   return (
     <div className="h-auto w-[100%]">
       <div className="relative ">
-        <div className="h-auto w-[100%]">
-          <Image
+ <div className=" h-[250px] w-[100%] ">     
+       <Image
             src="/images/SchoolBanner/welhamboysframe.svg"
             alt="Descriptive text for screen readers"
-            className="w-full "
-            width={2}
-            height={2}
+            className="w-full h-[250px] object-cover rounded-b-2xl "
+            width={1000}
+            height={1000}
           />
         </div>
         <div className="w-[13vw] ">
           <Image
             src="/images/SchoolBanner/welhamboyslogo.svg"
-            className="absolute inset-0 left-[5%] top-[68%] w-[13vw] "
-            width={2}
-            height={2}
+           className="absolute inset-0 left-[5%] top-[80%] w-[90px] h-[80px] "
+            width={1000}
+            height={1000}
             alt="img"
           />
         </div>
       </div>
 
-      <div className="w-[90%] ml-[5%]  mt-[5%] ">
-        <div className="relative h-[28vh]  sm:h-[24vh] md:h-[22vh]   w-full  border-b-2  sm:flex sm:justify-between">
-          <div className="w-full flex flex-col  gap-3">
+     <div className="w-[90%] ml-[5%]  mt-[10%] ">
+        <div className="relative h-[20vh]  sm:h-[24vh] md:h-[22vh]   w-full  border-b-2  sm:flex sm:justify-between">
+          <div className="w-full flex flex-col  lg:gap-5 gap-2">
             <div className="">
-              <h1 className="text-[#075D70]  text-[2rem] font-bold">
+              <h1 className="text-[#075D70]  lg:text-[2rem] text-[18px] font-semibold lg:font-bold ">
                 Welham Boys School, Dehradun, Uttarakhand
               </h1>
             </div>
-            <div className="flex text-center gap-3">
+             <div className="flex text-center lg:gap-3 gap-2 items-center">
               <h2 className="text-[#075D70] ">4.2</h2>
 
               <div className="border-none ">
@@ -59,14 +59,14 @@ function WelhamBoysPage() {
                 {
                   [1, 2, 3, 4, 5].map((num) => (
                     <button key={num}>
-                      <span className= text-yellow-600 >
+                      <span className='text-yellow-600'>
                         &#9733;
                       </span>
                     </button>
                   ))
                 }
               </div> */}
-              <h2 className="text-[#075D70] ">Google reviews</h2>
+              <p className="text-[#075D70] ">Google reviews</p>
             </div>
 
             <div className=" flex sm:w-[50%] gap-3 mb-2 sm:mb-0">
@@ -80,19 +80,19 @@ function WelhamBoysPage() {
           </div>
 
           <div className=" sm:absolute  gap-3 flex  sm:right-0 sm:self-center">
-            <button className="py-1 px-2 sm:py-1.5 sm:px-2.5 border border-[#075D70] rounded-[5px] flex gap-2">
+              {/* <button className="py-1 px-2 sm:py-1.5 sm:px-2.5 border border-[#075D70] rounded-[5px] flex gap-2">
               <div>
                 <Image
                   src="/icons/download.svg"
                   className="w-full h-full pt-1"
                   width={2}
                   height={2}
-                  alt="img"
+                  alt="svg"
                 />
               </div>
 
               <p className="text-[#075D70]">Broucher</p>
-            </button>
+            </button> */}
             <button className="py-1 px-2 sm:py-1.5 sm:px-2.5 border border-[#075D70]  rounded-[5px] flex gap-2">
               <div>
                 <Image
@@ -116,7 +116,7 @@ function WelhamBoysPage() {
             </h1>
           </div>
           <div>
-            <p className="leading-6 w-[88vw] text-[1.15rem]">
+            <p className="leading-6 w-[88vw] text-[1.15rem] text-justify">
               Welham Boys  School, a prestigious institution in Dehradun, is
               dedicated to nurturing boys into well-rounded individuals.
               Affiliated with the CBSE, it offers a curriculum aligned with
@@ -136,7 +136,7 @@ function WelhamBoysPage() {
             </h1>
           </div>
           <div>
-            <p className="leading-6 w-[88vw] text-[1.15rem]">
+            <p className="leading-6 w-[88vw] text-[1.15rem] text-justify">
               Welham Boys Admissions are competitive, designed to select
               students who can thrive in the school s dynamic environment. The
               primary entry points are in Classes IV, VI, and XI.
@@ -148,8 +148,8 @@ function WelhamBoysPage() {
             </p>
           </div>
           <div>
-            <ul className="list-disc pl-4 space-y-4 text-[1.15rem]">
-              <li>
+            <ul className="list-disc   pl-4 space-y-4 text-[1.15rem]">
+              <li className="">
                 <span className="font-medium"> Open Admission Policy:</span>{" "}
                 Welham Boys  School invites students from all communities,
                 fostering diversity.
@@ -164,6 +164,8 @@ function WelhamBoysPage() {
                 non-refundable registration fee is required, though it doesn&apos;t
                 guarantee admission.
               </li>
+              </ul>
+
               <div>
                 <table className="w-full border-collapse border border-gray-300">
                   <thead>
@@ -212,7 +214,7 @@ function WelhamBoysPage() {
                   </h1>
                 </div>
                 <div>
-                  <p className="leading-6 w-[88vw] text-[1.15rem]">
+                  <p className="leading-6 w-[88vw] text-[1.15rem] text-justify">
                     Welham Boys Entrance assessments evaluate proficiency in key
                     subjects to ensure students are prepared for the academic
                     rigors.
@@ -289,7 +291,7 @@ function WelhamBoysPage() {
                 </p>
               </div>
               <div>
-                <p className="leading-6 w-[88vw] text-[1.15rem]">
+                <p className="leading-6 w-[88vw] text-[1.15rem] text-justify">
                   Stay updated with Welham Boys Admissions by noting these key
                   dates:
                 </p>
@@ -374,7 +376,7 @@ function WelhamBoysPage() {
           </p>
         </div>
         <div>
-              <p className="leading-6 w-[88vw] text-[1.15rem]">
+              <p className="leading-6 w-[88vw] text-[1.15rem] text-justify">
               Welham Boys Admissions require candidates to meet specific eligibility criteria, focusing on age and academic prerequisites.
               </p>
             </div>
@@ -398,7 +400,6 @@ function WelhamBoysPage() {
               </ul>
               </div>
             </div>
-            </ul>
           </div>
 
           <div>
@@ -408,7 +409,7 @@ function WelhamBoysPage() {
           </p>
         </div>
         <div>
-              <p className="leading-6 w-[88vw] text-[1.15rem]">
+              <p className="leading-6 w-[88vw] text-[1.15rem] text-justify">
               Welham Boys  School offers a comprehensive fee structure that covers tuition, boarding, and extracurricular activities.
 
               </p>
@@ -482,7 +483,7 @@ function WelhamBoysPage() {
           <h1 className="text-[#075D70] font-semibold text-[1.5rem]">
             Downloads
           </h1>
-          <h3 className="text-[#D77A61] text-[1.13rem] ">Fee structure</h3>
+          {/* <h3 className="text-[#D77A61] text-[1.13rem] ">Fee structure</h3> */}
           <h3 className="text-[#D77A61]  text-[1.13rem]">Broucher</h3>
         </div>
       </div>

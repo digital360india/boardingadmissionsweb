@@ -25,20 +25,20 @@ const Faq = ({data}) => {
               {data.map((item,key) => (
                 <div
                   key={key}
-                  className={`w-[75vw]  flex flex-col  justify-between items-center bg-[#F4FCFD] sm:p-4 p-3   rounded-xl border border-[#075D70] transition-all ${
-                    activeQuestion === item.id ? "h-auto bg-white" : "h-[62px] md:h-[52px] bg-white"
+                  className={`w-[75vw]   flex flex-col  justify-between items-center bg-[#F4FCFD] sm:p-4 p-3   rounded-xl border border-[#075D70] transition-all ${
+                    activeQuestion === item.id ? "h-auto bg-white" : " md:h-[52px] bg-white"
                   }`}
                 >
                   <div
                     className="w-full flex justify-between items-center cursor-pointer"
                     onClick={() => handleToggle(item.id)}
                   >
-                    <h1
+                    <p
                       className={`text-[1rem] ${
                         activeQuestion === item.id ? "text-black font-semibold " : "text-black font-semibold"
                       }`}
                     >{item.question}
-                    </h1>
+                    </p>
                     <Image
                       src={
                         activeQuestion === item.id

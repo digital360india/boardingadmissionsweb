@@ -11,37 +11,36 @@ const star = [
 
     ratingByPerson: 4,
   },
-];
+]; 
 
 function MayoBoysPage() {
   const MayoBoys = schoolFAQs.find(school => school.school === 'MayoBoys')?.faqs || [];
   return (
     <div className="h-auto w-[100%]">
       <div className="relative ">
-        <div className="h-auto w-[100%]">
-          <Image
+ <div className=" h-[250px] w-[100%] ">          <Image
             src="/images/SchoolBanner/mayoboysframe.svg"
             alt="Descriptive text for screen readers"
-            className="w-full "
-            width={2}
-            height={2}
+            className="w-full h-[250px] object-cover rounded-b-2xl "
+            width={1000}
+            height={1000}
           />
         </div>
         <div className="w-[13vw] ">
           <Image
             src="/images/SchoolBanner/mayoboyslogo.svg"
-            className="absolute inset-0 left-[5%] top-[68%] w-[13vw] "
-            width={2}
-            height={2}
+           className="absolute inset-0 left-[5%] top-[80%] w-[90px] h-[80px] "
+            width={1000}
+            height={1000}
           />
         </div>
       </div>
 
-      <div className="w-[90%] ml-[5%]  mt-[5%] ">
-        <div className="relative h-[28vh]  sm:h-[24vh] md:h-[22vh]   w-full  border-b-2  sm:flex sm:justify-between">
-          <div className="w-full flex flex-col  gap-5">
+     <div className="w-[90%] ml-[5%]  mt-[10%] ">
+        <div className="relative h-[20vh]  sm:h-[24vh] md:h-[22vh]   w-full  border-b-2  sm:flex sm:justify-between">
+          <div className="w-full flex flex-col  lg:gap-5 gap-2">
             <div className="">
-              <h1 className="text-[#075D70]  text-[2rem] font-bold">
+              <h1 className="text-[#075D70]  lg:text-[2rem] text-[18px] font-semibold lg:font-bold ">
                 Mayo Boys School, Ajmer, Rajasthan
               </h1>
             </div>
@@ -79,18 +78,19 @@ function MayoBoysPage() {
           </div>
 
           <div className=" sm:absolute  gap-3 flex  sm:right-0 sm:self-center">
-            <button className="py-1 px-2 sm:py-1.5 sm:px-2.5 border border-[#075D70] rounded-[5px] flex gap-2">
+             {/* <button className="py-1 px-2 sm:py-1.5 sm:px-2.5 border border-[#075D70] rounded-[5px] flex gap-2">
               <div>
                 <Image
                   src="/icons/download.svg"
                   className="w-full h-full pt-1"
                   width={2}
                   height={2}
+                  alt="svg"
                 />
               </div>
 
               <p className="text-[#075D70]">Broucher</p>
-            </button>
+            </button> */}
             <button className="py-1 px-2 sm:py-1.5 sm:px-2.5 border border-[#075D70]  rounded-[5px] flex gap-2">
               <div>
                 <Image
@@ -113,7 +113,7 @@ function MayoBoysPage() {
             </h1>
           </div>
           <div>
-            <p className="leading-6 w-[88vw] text-[1.15rem]">
+            <p className="leading-6 w-[88vw] text-[1.15rem] text-justify">
               Mayo College Boys School in Ajmer, Rajasthan, is a prestigious
               boys&apos; residential school known for its rich heritage and top-notch
               education. Established in 1875 by Richard Bourke, the school was
@@ -271,7 +271,7 @@ function MayoBoysPage() {
           </div>
           <div>
             <div>
-              <p className="leading-6 w-[88vw] text-[1.15rem]">
+              <p className="leading-6 w-[88vw] text-[1.15rem] text-justify">
               For Mayo Boys Admissions, here are the key dates to remember:
               </p>
             </div>
@@ -298,7 +298,7 @@ function MayoBoysPage() {
           <h1 className="text-[#075D70] font-semibold text-[1.5rem]">
             Downloads
           </h1>
-          <h3 className="text-[#D77A61] text-[1.13rem] ">Fee structure</h3>
+          {/* <h3 className="text-[#D77A61] text-[1.13rem] ">Fee structure</h3> */}
           <h3 className="text-[#D77A61]  text-[1.13rem]">Broucher</h3>
         </div>
       </div>

@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import { IoMdStar,  } from 'react-icons/io';
 
 export default function Rating({ given, length = 5 }) {
   return (
@@ -6,21 +7,11 @@ export default function Rating({ given, length = 5 }) {
       {Array.from({ length }).map((_, index) => (
         <div key={index} className="icon-cont">
           {index < given ? (
-            <Image
-              src="/images/star-active.svg"
-              className="sm:w-[1.5vw] sm:h-[2.5vh] h-[3vh] w-[2.5vw] outline-none "
-              width={2}
-              height={2}
-              alt="Active star"
-            />
+           <IoMdStar size={16} color='orange' />
+
           ) : (
-            <Image
-              src="/images/star-inactive.svg"
-              className="sm:w-[1.5vw] sm:h-[2.5vh] h-[3vh] w-[2.5vw] outline-none"
-              width={2}
-              height={2}
-              alt="Inactive star"
-            />
+            <IoMdStar size={16} color='#808080' />
+
           )}
         </div>
       ))}
