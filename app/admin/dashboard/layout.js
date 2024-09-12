@@ -14,7 +14,7 @@ export default function RootLayout({ children }) {
     <html lang="en">
       {" "}
       <AdminProvider>
-        <LayoutFile children={children} />
+      <LayoutFile>{children}</LayoutFile>
 
       </AdminProvider>
     </html>

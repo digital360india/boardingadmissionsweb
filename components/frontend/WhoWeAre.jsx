@@ -5,12 +5,11 @@ export default function WhoWeAre() {
   return (
     <div className="lg:flex w-full md:px-[100px] lg:p-[40px] px-[24px] xl:h-[600px] lg:h-[480px] lg:py-0 py-12 bg-[#F4FCFC]">
       <div className=" w-1/2 lg:flex hidden items-center">
-        <Image
+        <img
           src="/images/reactangle.svg"
           alt="Calendar"
           className="xl:w-[503px] xl:h-[480px] lg:w-[420px] lg:h-[400px]"
-          width={2}
-          height={2}
+
         />
       </div>
       <div className="lg:w-1/2 w-full flex justify-center items-center">

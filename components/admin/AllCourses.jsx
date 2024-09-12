@@ -1,7 +1,7 @@
 "use client";
 import React, { useState, useEffect } from "react";
 import { db } from "@/firebase/firebase"; 
-import { collection, getDocs } from "firebase/firestore";
+import { collection, getDocs, deleteDoc, doc } from "firebase/firestore";
 import Link from "next/link";
 
 const CourseList = () => {
@@ -29,6 +29,19 @@ const CourseList = () => {
     fetchCourses();
   }, []);
 
+  const handleDelete = async (courseId) => {
+    const confirmDelete = window.confirm("Are you sure you want to delete this course?");
+    if (!confirmDelete) return;
+
+    try {
+      await deleteDoc(doc(db, "courses", courseId));
+      setCourses((prevCourses) => prevCourses.filter((course) => course.id !== courseId));
+    } catch (err) {
+      console.error("Error deleting course:", err);
+      setError("Failed to delete the course. Please try again.");
+    }
+  };
+
   if (loading)
     return (
       <div className="flex items-center justify-center">
@@ -37,7 +50,6 @@ const CourseList = () => {
     );
   if (error) return <div className="text-red-500">{error}</div>;
 
-  // Function to limit text to the first 4 lines (assuming approximately 200 characters per 4 lines)
   const limitText = (text, limit = 200) => {
     if (text.length <= limit) return text;
     return text.slice(0, limit) + "...";
@@ -48,24 +60,27 @@ const CourseList = () => {
       <h2 className="text-xl font-bold mb-4">Courses</h2>
       <div className="grid gap-4 grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
         {courses.map((course) => (
-          <Link
-            href={`/admin/dashboard/courses/${course.id}`}
-            key={course.id}
-            className="course-card border rounded-lg p-4 shadow-lg"
-          >
-            <img
-              src={course.heroImage}
-              alt={course.courseName}
-              className="w-full h-40 object-cover rounded"
-            />
-            <h3 className="text-lg font-semibold mt-2">{course.courseName}</h3>
-            <p className="text-gray-700 mt-2">{limitText(course.description)}</p>
-          </Link>
+          <div key={course.id} className="course-card border rounded-lg p-4 shadow-lg relative">
+            <Link href={`/admin/dashboard/courses/${course.id}`} className="block min-h-96">
+              <img
+                src={course.heroImage}
+                alt={course.courseName}
+                className="w-full h-40 object-cover rounded"
+              />
+              <h3 className="text-lg font-semibold mt-2">{course.courseName}</h3>
+              <p className="text-gray-700 mt-2">{limitText(course.description)}</p>
+            </Link>
+            <button 
+              onClick={() => handleDelete(course.id)}
+              className="mt-4 text-red-500 hover:text-red-700 absolute bottom-4 right-4"
+            >
+              Delete Course
+            </button>
+          </div>
         ))}
       </div>
     </div>
   );
 };
 
-export default CourseList;
-  
+export default CourseList

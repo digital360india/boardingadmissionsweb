@@ -24,7 +24,7 @@ export default function AboutSuccess() {
 
   <div className="w-full">
     <p className="text-18px my-6">
-    We provide expert guidance and tailored courses to ensure students are fully prepared for India's top boarding school entrance exams. With a deep understanding of elite school requirements, we enhance students' chances of admission, setting the stage for their academic success and personal growth.
+    We provide expert guidance and tailored courses to ensure students are fully prepared for India&apos;s top boarding school entrance exams. With a deep understanding of elite school requirements, we enhance students&apos; chances of admission, setting the stage for their academic success and personal growth.
     </p>
    
     {/* <button className="px-6 lg:px-16 py-2 text-primary02 bg-white mt-12 rounded-md border border-primary02">

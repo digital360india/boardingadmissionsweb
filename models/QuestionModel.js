@@ -32,7 +32,7 @@ const mcqQuestionModel = {
 };
 const fillInTheBlankQuestion = {
   heading: "",
-  questionType:"fillInTheBlank",
+  questionType: "fillInTheBlank",
   question: "",
   options: [],
   correctAnswer: "",
@@ -40,7 +40,7 @@ const fillInTheBlankQuestion = {
 };
 const imageGuessQuestionModel = {
   heading: "",
-  questionType:"imageGuess",
+  questionType: "imageGuess",
   question: "",
   imageUrl: "",
   answers: {
@@ -51,5 +51,12 @@ const imageGuessQuestionModel = {
   },
   correctAnswer: "",
   totalmarks: "",
-  sno: "", 
+  sno: "",
+};
+export {
+  essayQuestionModel,
+  passageQuestionModel,
+  mcqQuestionModel,
+  fillInTheBlankQuestion,
+  imageGuessQuestionModel,
 };

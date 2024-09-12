@@ -34,6 +34,7 @@ const Page = () => {
       id: doc.id,
       ...doc.data(),
     }));
+    
     setBoards(boardsList);
   };
 
@@ -42,13 +43,16 @@ const Page = () => {
   }, []);
 
   const addSchool = async () => {
-    await addDoc(collection(db, "schools"), { schoolName: newSchool });
+  const docRef =  await addDoc(collection(db, "schools"), { schoolName: newSchool });
+    await updateDoc(docRef, { id: docRef.id});
+
     setNewSchool("");
     fetchData();
   };
 
   const addBoard = async () => {
-    await addDoc(collection(db, "boards"), { boardName: newBoard });
+    const docRef =  await addDoc(collection(db, "boards"), { boardName: newBoard });
+    await updateDoc(docRef, { id: docRef.id});
     setNewBoard("");
     fetchData();
   };

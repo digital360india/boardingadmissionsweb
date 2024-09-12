@@ -18,7 +18,7 @@ const star = [
 const admissionsSteps = [
   {
     title: "Online Registration",
-    description: "Prospective students can begin their Bishop Cotton School Admissions process by registering online through the ‘APPLY’ button on the school's official website or by calling 078077 36880 for assistance."
+    description: "Prospective students can begin their Bishop Cotton School Admissions process by registering online through the &apos;APPLY&apos; button on the school's official website or by calling 078077 36880 for assistance."
   },
   {
     title: "Admission Test",
@@ -26,7 +26,7 @@ const admissionsSteps = [
   },
   {
     title: "Test and School Presentation",
-    description: "On the day of the test, candidates will also have the opportunity to attend a presentation that provides insight into the school’s culture and values."
+    description: "On the day of the test, candidates will also have the opportunity to attend a presentation that provides insight into the school&apos;s culture and values."
   },
   {
     title: "Testing for Junior/Middle School",

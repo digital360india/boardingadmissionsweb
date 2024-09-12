@@ -3,6 +3,7 @@ import React from "react";
 import Faq from "@/components/frontend/Faqdata";
 import Image from "next/image";
 import Star from "@/components/frontend/Ratings";
+import schoolFAQs from "@/utils/frontend/FaqData";
 
 const star = [
   {
