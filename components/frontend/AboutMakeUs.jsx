@@ -45,17 +45,17 @@ export default function AboutMakeUs() {
               className="xl:w-[540px] xl:h-[450px] lg:w-[400px] lg:h-[270px] h-full w-full object-contain"
             />
             {/* First Column - Top Left */}
-            <div className="absolute top-[10%] xl:top-[50px] lg:top-[0%] left-[13%] md:left-[10%] lg:left-[5%]  lg:text-left  md:w-[40%] lg:w-[40%]">
+            <div className="absolute top-[10%] xl:top-[50px] lg:top-[0%] left-[13%] md:left-[10%] lg:left-[5%]  lg:text-left  md:w-[40%] lg:w-[40%] ">
               <p className="text-primary02 text-[20px] md:text-[24px] lg:text-[28px] xl:pb-4 lg:pb-1 pb-4">
                 High Success
               </p>
-              <p className="text-[14px] w-[130px] md:w-full md:text-[16px] text-center lg:text-start">
+              <p className="text-[14px] w-[80%] md:w-full md:text-[16px] text-center lg:text-start">
                 {" "}
                 90% admission success.
               </p>
             </div>
             {/* Second Column - Top Right */}
-            <div className="absolute top-[10%] xl:top-[50px] lg:top-[0%] left-[50%] md:left-[55%] xl:left-[300px] lg:left-[240px] text-center lg:text-left md:w-[40%] lg:w-[40%]">
+            <div className="absolute top-[10%] xl:top-[50px] lg:top-[0%] left-[50%] md:left-[55%] xl:left-[300px] lg:left-[240px] text-center lg:text-left md:w-[40%] lg:w-[40%] w-[50%]">
               <p className="text-primary02 text-[20px] md:text-[24px] lg:text-[28px] xl:pb-4 lg:pb-1 pb-4">
               Expert Guidance
               </p>
@@ -64,7 +64,7 @@ export default function AboutMakeUs() {
               </p>
             </div>
             {/* Third Column - Bottom Left */}
-            <div className="absolute top-[60%] left-[5%] lg:top-[110%] xl:top-[240px] md:left-[10%] lg:left-[5%] text-center lg:text-left  md:w-[40%] lg:w-[40%]">
+            <div className="absolute top-[55%] left-[3%] lg:top-[110%] xl:top-[240px] md:left-[10%] lg:left-[5%] text-center lg:text-left  md:w-[40%] lg:w-[40%] ">
               <p className="text-primary02 text-[20px] md:text-[24px] lg:text-[28px] xl:pb-4 lg:pb-1 pb-4">
               Holistic Approach
               </p>
@@ -73,7 +73,7 @@ export default function AboutMakeUs() {
               </p>
             </div>
             {/* Fourth Column - Bottom Right */}
-            <div className="absolute top-[60%] lg:top-[110%] xl:top-[240px] left-[50%] md:left-[55%] xl:left-[300px] lg:left-[240px] text-center lg:text-left md:w-[40%] lg:w-[44%]">
+            <div className="absolute top-[55%] lg:top-[110%] xl:top-[240px] left-[50%] md:left-[55%] xl:left-[300px] lg:left-[240px] text-center lg:text-left md:w-[40%] lg:w-[44%] w-[50%]">
               <p className="text-primary02 text-[20px] md:text-[24px]  lg:text-[28px] xl:pb-4 lg:pb-1 pb-4">
               Customized Courses
               </p>

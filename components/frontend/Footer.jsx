@@ -1,5 +1,6 @@
 "use client";
 import Image from "next/image";
+import Link from "next/link";
 
 const Footer = () => {
   return (
@@ -140,7 +141,7 @@ const Footer = () => {
             </div>
             <div className="flex justify-between w-[300px]">
               <div>
-                <h1>Terms & Conditions</h1>
+                <Link href="/termsandconditions"><button>Terms & Conditions</button></Link>
               </div>
               <div>
                 <h1>Privacy Policy</h1>

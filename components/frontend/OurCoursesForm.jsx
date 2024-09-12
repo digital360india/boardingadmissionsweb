@@ -1,5 +1,7 @@
 "use client";
 
+import { db } from "@/firebase/firebase";
+import { addDoc, collection, updateDoc } from "firebase/firestore";
 import React, { useState } from "react";
 import emailjs from "emailjs-com";
 
@@ -21,8 +23,9 @@ const OurCoursesForm = () => {
     }));
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
+
 
     emailjs
       .send(
@@ -47,6 +50,37 @@ const OurCoursesForm = () => {
           console.error("Error sending email:", error.text);
         }
       );
+
+    try {
+      const docRef = await addDoc(collection(db, "leads"), {
+        firstName: formData.firstName,
+        lastName: formData.lastName,
+        email: formData.email,
+        phoneNumber: formData.phoneNumber,
+        message: formData.message,
+        timestamp: new Date(),
+      });
+
+      // Get the document ID
+      const docId = docRef.id;
+
+      await updateDoc(docRef, {
+        id: docId,
+      });
+
+      console.log("Form submitted successfully! Document ID stored:", docId);
+
+      setFormData({
+        firstName: "",
+        lastName: "",
+        email: "",
+        phoneNumber: "",
+        message: "",
+      });
+    } catch (e) {
+      console.error("Error adding or updating document: ", e);
+    }
+
   };
 
   return (
@@ -119,6 +153,7 @@ const OurCoursesForm = () => {
                 </div>
 
                 <div className="flex justify-end px-5">
+
                   <div className=" w-[300px] h-[56px] text-center mb-4 mt-3   bg-gradient01  border-custom rounded-md">
                     <button
                       type="submit"
@@ -127,6 +162,14 @@ const OurCoursesForm = () => {
                       Submit
                     </button>
                   </div>
+
+                  <button
+                    type="submit"
+                    className=" text-white py-4  rounded-md   w-[300px] h-[56px] text-center mb-4 mt-3   bg-gradient01  border-custom "
+                  >
+                    Submit
+                  </button>
+
                 </div>
               </form>
             </div>
