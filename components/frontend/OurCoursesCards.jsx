@@ -176,7 +176,7 @@ const OurCoursesCards = () => {
         {cardData.slice(0, 3).map((card) => (
           <div
             key={card.id}
-            className="w-[24.5rem] mt-10 bg-[#FFFFFF] rounded-[9px] relative"
+            className="md:w-[25rem]  mt-10 bg-[#FFFFFF] rounded-[9px] relative"
           >
             <Image
               src={card.imageSrc}
@@ -194,7 +194,7 @@ const OurCoursesCards = () => {
                 style={{ top: hoveredContent.top }}
               />
             )}
-            <p className="font-medium text-[0.87rem] md:text-[1rem] pt-4 text-center px-8">
+            <p className=" text-[0.87rem] md:text-[1rem] pt-4 text-center px-8">
               {card.description}
             </p>
 
@@ -238,11 +238,11 @@ const OurCoursesCards = () => {
         ))}
 
         {/* Second Row - Centered */}
-        <div className="flex flex-wrap justify-center  md:space-x-5 lg:space-x-16 w-full  md:mt-10">
+        <div className="flex flex-wrap justify-center  md:space-x-5 lg:space-x-16 xl:space-x-32   w-full  md:mt-10">
           {cardData.slice(3).map((card, index) => (
             <div
               key={card.id}
-              className="bg-[#FFFFFF] rounded-[12px] w-[24.5rem] mt-10 relative "
+              className="bg-[#FFFFFF] rounded-[12px] md:w-[25rem]  mt-10 relative "
             >
               <Image
                 src={card.imageSrc}
@@ -260,7 +260,7 @@ const OurCoursesCards = () => {
                   style={{ top: hoveredContent.top }}
                 />
               )}
-              <p className="font-medium text-[0.87rem] md:text-[1rem] pt-4 text-center px-8">
+              <p className=" text-[0.87rem] md:text-[1rem] pt-4 text-center px-8">
                 {card.description}
               </p>
 
