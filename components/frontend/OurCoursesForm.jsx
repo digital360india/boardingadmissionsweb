@@ -26,10 +26,9 @@ const OurCoursesForm = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-
     emailjs
       .send(
-        "service_zzpjmnf", 
+        "service_zzpjmnf",
         "template_72aafby",
         formData,
         "zA2422Fl3c6n_YSjA"
@@ -80,7 +79,6 @@ const OurCoursesForm = () => {
     } catch (e) {
       console.error("Error adding or updating document: ", e);
     }
-
   };
 
   return (
@@ -153,7 +151,6 @@ const OurCoursesForm = () => {
                 </div>
 
                 <div className="flex justify-end px-5">
-
                   <div className=" w-[300px] h-[56px] text-center mb-4 mt-3   bg-gradient01  border-custom rounded-md">
                     <button
                       type="submit"
@@ -162,14 +159,6 @@ const OurCoursesForm = () => {
                       Submit
                     </button>
                   </div>
-
-                  <button
-                    type="submit"
-                    className=" text-white py-4  rounded-md   w-[300px] h-[56px] text-center mb-4 mt-3   bg-gradient01  border-custom "
-                  >
-                    Submit
-                  </button>
-
                 </div>
               </form>
             </div>
