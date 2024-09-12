@@ -83,25 +83,25 @@ const OurCoursesForm = () => {
 
   return (
     <>
-      <div className="">
-        <div className="bg-white p-4 md:mb-20 flex justify-center items-center">
+      <div className="pb-4">
+        <div className="bg-white  md:mb-20 flex justify-center items-center">
           <div
-            className={`mt-10 md:mt-12  md:mx-12 md:border-4 border-[#FFFFFF]  rounded-lg w-[19rem] md:w-[77.5rem] bg-[#F4FCFC80]`}
+            className={`mt-10 md:mt-12  md:mx-12 md:border-4 border-[#FFFFFF]  rounded-lg w-[90%] md:w-[77.5rem] bg-[#F4FCFC80]`}
             style={{ boxShadow: "0 0 6px 0 rgba(0, 0, 0, 0.32)" }}
             // className={`mt-10 md:mt-12 md:mx-12 md:border-4  rounded-lg w-[100%] md:w-[77.5rem] bg-[#F4FCFC80] border-4 border-[#F9FDFD] md:border-white md:shadow-lg`}
           >
             <div className="pt-7">
-              <h1 className="font-semibold   text-[1.5rem] md:text-[3rem] text-primary02 text-center">
+              <h1 className=" font-semibold   text-[1.5rem] md:text-[3rem] text-[#1B1B1B] text-center">
                 Leave Your Question Here
               </h1>
-              <p className="pt-4 font-medium text-center">
+              <p className="pt-4 font-medium text-center text-[#1B1B1B]">
                 We aim to respond within 24 hours.
               </p>
             </div>
 
             <div>
               <form onSubmit={handleSubmit}>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6 px-6 pt-12 ">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6 px-6 pt-5 md:pt-12 ">
                   <input
                     type="text"
                     name="firstName"
@@ -150,7 +150,7 @@ const OurCoursesForm = () => {
                   ></textarea>
                 </div>
 
-                <div className="flex justify-end px-5">
+                <div className="flex justify-center md:justify-end px-5">
                   <div className=" w-[300px] h-[56px] text-center mb-4 mt-3   bg-gradient01  border-custom rounded-md">
                     <button
                       type="submit"

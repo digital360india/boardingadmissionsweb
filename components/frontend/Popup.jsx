@@ -1,26 +1,26 @@
 "use client";
-import { useRef, useState } from "react";
+import { useEffect, useState } from "react";
 // import emailjs from "@emailjs/browser";
-import { useRouter } from "next/navigation";
+// import { useRouter } from "next/navigation";
 
-const BookaDemoPopUp = ({ onClose }) => {
-  const form = useRef();
-  const router = useRouter();
+const Popup = () => {
+  //   const form = useRef();
+  //   const router = useRouter();
   const [isFormVisible, setIsFormVisible] = useState(false);
 
-    // useEffect(() => {
-    //   const timer = setTimeout(() => {
-    //     setIsFormVisible(true);
-    //   }, 2000);
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setIsFormVisible(true);
+    }, 30000);
 
-    //   return () => clearTimeout(timer);
-    // }, []);
+    return () => clearTimeout(timer);
+  }, [isFormVisible]);
 
   const [formData, setFormData] = useState({
     name: "",
     phonenumber: "",
-    email: "",
     school: "",
+    class: "",
     textmessage: "",
   });
 
@@ -30,11 +30,15 @@ const BookaDemoPopUp = ({ onClose }) => {
 
   const handleClose = () => {
     setIsFormVisible(false);
+
+    setTimeout(() => {
+      setIsFormVisible(true);
+    }, 30000);
   };
 
-  //   if (!isFormVisible) {
-  //     return null;
-  //   }
+  if (!isFormVisible) {
+    return null;
+  }
 
   const handlePhoneChange = (e) => {
     const value = e.target.value;
@@ -46,38 +50,37 @@ const BookaDemoPopUp = ({ onClose }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    emailjs
-      .sendForm("", "", form.current, {
-        publicKey: "",
-      })
-      .then(
-        () => {
-          console.log("SUCCESS!");
-          router.push("/");
+    // emailjs
+    //   .sendForm("service_7aklwae", "template_rz1st8k", form.current, {
+    //     publicKey: "2pUaiU9zWRFb5vMlr",
+    //   })
+    //   .then(
+    //     () => {
+    //       console.log("SUCCESS!");
+    //       router.push('/Goedusuccess');
 
-          // Reset form data after successful submission
-          setFormData({
-            name: "",
-            phonenumber: "",
-            email: "",
-            class: "",
-            textmessage: "",
-          });
-        },
-        (error) => {
-          console.log("FAILED...", error.text);
-          alert("Failed");
-        }
-      );
+    //       // Reset form data after successful submission
+    //       setFormData({
+    //         name: "",
+    //         phonenumber: "",
+    //         email: "",
+    //         preferredcourse: "",
+    //         textmessage: "",
+    //       });
+    //     },
+    //     (error) => {
+    //       console.log("FAILED...", error.text);
+    //       alert("Failed");
+    //     }
+    //   );
   };
 
   return (
-    <div className="z-10  fixed inset-0 flex items-center justify-center   bg-black bg-opacity-30 font-poppins">
+    <div className="z-10  fixed inset-0 flex items-center justify-center    bg-black bg-opacity-50 font-poppins">
       <div className="bg-[#FFFFFF] w-[351px] h-[650px] md:w-[710px] md:h-[460px] lg:w-[950px] lg:h-[520px] rounded  border-8 border-[#CDC6DB30] ">
         <div
           className="md:hidden  cursor-pointer flex justify-end "
-          // onClick={handleClose}
-          onClick={onClose}
+          onClick={handleClose}
         >
           <svg
             width="32"
@@ -103,7 +106,7 @@ const BookaDemoPopUp = ({ onClose }) => {
           </h1>
         </div>
 
-        <form ref={form} onSubmit={handleSubmit}>
+        <form onSubmit={handleSubmit}>
           <div className="font-poppins space-y-5">
             <div className=" mx-4 mt-5 grid grid-cols-1 md:grid-cols-2 gap-4">
               <input
@@ -132,11 +135,11 @@ const BookaDemoPopUp = ({ onClose }) => {
                 className="px-4 py-3 placeholder-[#969696] text-[16px] text-[#969696] border border-[#E1E3E2] font-poppins bg-[#F9F9F9] rounded-md"
                 onChange={handleChange}
               >
-                <option value="" >
-                  Select School* 
-                </option>
+                <option value="">Select School*</option>
                 <option value="Mayo College">Mayo College</option>
-                <option value="Welham Boys/Girls School">Welham Boys/Girls School</option>
+                <option value="Welham Boys/Girls School">
+                  Welham Boys/Girls School
+                </option>
                 <option value="Scindia School">Scindia School</option>
                 <option value="The Doon School">The Doon School</option>
               </select>
@@ -157,7 +160,7 @@ const BookaDemoPopUp = ({ onClose }) => {
                 type="text"
                 name="textmessage"
                 value={formData.textmessage}
-                placeholder="Message for our Experts (Atmost 250 words)"
+                placeholder="Message for our Expert (Atmost 250 words)"
                 className="w-[302px] h-[120px]  md:w-[660px] md:h-[110px] lg:w-[903px] lg:h-[150px]  text-[#969696] px-3 py-2 placeholder-[#969696] text-[16px] border border-[#E7E7E7] bg-[#F9F9F9] rounded-md resize-none"
                 maxLength={1500}
                 onChange={handleChange}
@@ -177,8 +180,7 @@ const BookaDemoPopUp = ({ onClose }) => {
 
         <div
           className="hidden md:flex md:justify-center md:items-center md:pt-[2px] cursor-pointer"
-          //   onClick={handleClose}
-          onClick={onClose}
+          onClick={handleClose}
         >
           <svg
             width="48"
@@ -199,4 +201,4 @@ const BookaDemoPopUp = ({ onClose }) => {
   );
 };
 
-export default BookaDemoPopUp;
+export default Popup;

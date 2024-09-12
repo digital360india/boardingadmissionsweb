@@ -2,6 +2,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import React, { useState } from "react";
+import BookaDemoPopUp from "./BookaDemoPopUp";
 
 const cardData = [
   {
@@ -40,7 +41,7 @@ const cardData = [
     title: "FOUNDATION COURSES",
     route: "/services/Foundationcourses",
 
-    description: "Build a Strong Academic Base to thrive in every subject",
+    description: "Build a Strong Academic Base to thrive in every subject for the courses.",
     features: [
       "4th Grade - 6th Grade",
       "6th Grade - 8th Grade",
@@ -53,7 +54,7 @@ const cardData = [
     imageSrc: "/icons/card3.svg",
     title: "SOFT SKILL MASTERY",
     route: "/services/Softskillmastery",
-    description: "Pathway to Personal Excellence or Skills Mastery",
+    description: "Pathway to Personal Excellence or Skills Mastery for your knowledge.",
     features: [
       {
         title: "Communication Skills",
@@ -105,7 +106,7 @@ const cardData = [
     route: "/services/Customizedcourses",
 
     description:
-      "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dolor, illum.",
+      "Tailor-made learning experiences designed to fit your individual needs and goals.",
     features: [
       {
         title: "One-on-One Classes",
@@ -132,25 +133,26 @@ const cardData = [
 ];
 
 const HoverContent = ({ content, style }) => {
+  
+
   return (
     <div className="px-10">
-
-    <div
-      className="absolute bg-[#075D70] w-[20.75rem] rounded-md mx-8 py-2 px-3 pt-5 "
-      style={style}
-    >
-      <p className="text-white text-[12px]">{content}</p>
-      <div className=" relative  top-5 flex justify-center items-center">
-        <Image
-          src="/icons/downarrow.svg"
-          width={25}
-          height={25}
-          alt="arrow"
-          className=""
-        />
+      <div
+        className="absolute bg-[#075D70] w-[20.75rem] rounded-md mx-8 py-2 px-3 pt-5 "
+        style={style}
+      >
+        <p className="text-white text-[12px]">{content}</p>
+        <div className=" relative  top-5 flex justify-center items-center">
+          <Image
+            src="/icons/downarrow.svg"
+            width={25}
+            height={25}
+            alt="arrow"
+            className=""
+          />
+        </div>
       </div>
     </div>
-      </div>
   );
 };
 
@@ -160,93 +162,105 @@ const OurCoursesCards = () => {
   const handleFeatureHover = (cardId, title, description, top) => {
     setHoveredContent({ cardId, title, description, top });
   };
-  
+
   const handleFeatureLeave = () => {
     setHoveredContent({});
   };
 
+  const [isPopupVisible, setPopupVisible] = useState(false);
+
+  const handleClick = () => {
+    setPopupVisible(true);
+  };
+
+  const handleClosePopup = () => {
+    setPopupVisible(false);
+  };
+
   return (
     <div className="w-full bg-primary02 pt-14 pb-20">
-      
-      <div className="px-10 md:px-16">  
-        
+      <div className="px-10 md:px-16">
         <p className="text-[#FFFFFF] ">100% QUALITY COURSES </p>
         <h1 className="text-[2rem] md:text-[3rem] text-[#FFFFFF] font-medium md:w-[65%]">
-        Enroll Now for Tailored Preparation and Guaranteed Success
+          Enroll Now for Tailored Preparation and Guaranteed Success
         </h1>
       </div>
 
-<div className="flex flex-wrap justify-center  space-x-1 gap-x-10 gap-y-10 px-3 md:px-0 ">
-  {/* Map through all cards */}
-  {cardData.map((card, index) => (
-    <div
-      key={card.id}
-      className="w-[20rem] md:w-[21rem] lg:w-[25rem] xl:w-[30rem] mt-10 bg-[#FFFFFF] rounded-[9px] "
-    >
-      <Image
-        src={card.imageSrc}
-        width={1}
-        height={250}
-        alt="card"
-        className="w-full"
-      />
-      <h1 className="text-primary02 text-[1.15rem] md:text-[1.5rem] font-bold md:font-semibold text-center pt-8">
-        {card.title}
-      </h1>
-      {hoveredContent.cardId === card.id && (
-        <HoverContent
-          content={hoveredContent.description}
-          style={{ top: hoveredContent.top }}
-        />
-      )}
-      <p className="text-[0.87rem] md:text-[1rem] pt-4 text-center px-8">
-        {card.description}
-      </p>
-
-      {card.features.map((feature, index) => (
-        <React.Fragment key={index}>
-          {typeof feature === "string" ? (
-            <p className="pt-8 pb-4 text-center text-primary02 font-light cursor-pointer">
-              {feature}
-            </p>
-          ) : (
-            <p
-              className="pt-8 pb-4 text-center text-primary02 font-light cursor-pointer relative"
-              onMouseEnter={(e) => {
-                const hoverHeight = 80; // height of the hover content box
-                const elementTop = e.target.offsetTop;
-                const topPosition = elementTop - hoverHeight - 3; // Adjust position by hoverHeight + 4px
-                handleFeatureHover(
-                  card.id,
-                  feature.title,
-                  feature.description,
-                  `${topPosition}px`
-                );
-              }}
-              onMouseLeave={handleFeatureLeave}
-            >
-              {feature.title}
-            </p>
-          )}
-          <hr className="mx-10" />
-        </React.Fragment>
-      ))}
-
-      <div className="flex justify-center items-center pt-4 pb-8">
-        <Link href={card.route}>
+      <div className="flex flex-wrap justify-center  space-x-1 gap-x-10 gap-y-10 px-3 md:px-0 ">
+        {/* Map through all cards */}
+        {cardData.map((card, index) => (
           <div
-            className={`${
-              index === 3 ? 'mt-[9.3rem]' : ''
-            } w-[138px] h-[40px] bg-gradient01 border-custom flex justify-center items-center`}
+            key={card.id}
+            className="w-[20rem] md:w-[21rem] lg:w-[25rem] xl:w-[30rem] mt-10 bg-[#FFFFFF] rounded-[9px] "
           >
-            <button className="text-white">Enroll Now</button>
-          </div>
-        </Link>
-      </div>
-    </div>
-  ))}
-</div>
+            <Image
+              src={card.imageSrc}
+              width={1}
+              height={250}
+              alt="card"
+              className="w-full"
+            />
+            <h1 className="text-primary02 text-[1.15rem] md:text-[1.5rem] font-bold md:font-semibold text-center pt-8">
+              {card.title}
+            </h1>
+            {hoveredContent.cardId === card.id && (
+              <HoverContent
+                content={hoveredContent.description}
+                style={{ top: hoveredContent.top }}
+              />
+            )}
+            <p className="text-[0.87rem] md:text-[1rem] pt-4 text-center px-8">
+              {card.description}
+            </p>
 
+            {card.features.map((feature, index) => (
+              <React.Fragment key={index}>
+                {typeof feature === "string" ? (
+                  <p className="pt-8 pb-4 text-center text-primary02 font-light cursor-pointer">
+                    {feature}
+                  </p>
+                ) : (
+                  <p
+                    className="pt-8 pb-4 text-center text-primary02 font-light cursor-pointer relative"
+                    onMouseEnter={(e) => {
+                      const hoverHeight = 80; // height of the hover content box
+                      const elementTop = e.target.offsetTop;
+                      const topPosition = elementTop - hoverHeight - 3; // Adjust position by hoverHeight + 4px
+                      handleFeatureHover(
+                        card.id,
+                        feature.title,
+                        feature.description,
+                        `${topPosition}px`
+                      );
+                    }}
+                    onMouseLeave={handleFeatureLeave}
+                  >
+                    {feature.title}
+                  </p>
+                )}
+                <hr className="mx-10" />
+              </React.Fragment>
+            ))}
+
+            <div className="flex justify-center items-center pt-4 pb-8">
+              {/* <Link href={card.route}> */}
+              <div
+                className={`${
+                  index === 3 ? "mt-[9.3rem]" : ""
+                } w-[138px] h-[40px] bg-gradient01 border-custom flex justify-center items-center`}
+              >
+                <button onClick={handleClick} className="text-white">
+                  Enroll Now
+                </button>
+                {isPopupVisible && (
+                  <BookaDemoPopUp onClose={handleClosePopup} />
+                )}
+              </div>
+              {/* </Link> */}
+            </div>
+          </div>
+        ))}
+      </div>
     </div>
   );
 };

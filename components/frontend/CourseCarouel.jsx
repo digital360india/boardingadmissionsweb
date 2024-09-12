@@ -1,9 +1,9 @@
 "use client";
-import React from "react";
+import React, { useState } from "react";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 import Image from "next/image";
-import Link from "next/link";
+import BookaDemoPopUp from "./BookaDemoPopUp";
 
 const cardData = [
   {
@@ -105,7 +105,7 @@ const cardData = [
     title: "CUSTOMIZED COURSES",
     route: "/coursepackages/Customizedcourses",
     description:
-      "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dolor, illum.",
+      "Tailor-made learning experiences designed to fit your individual needs and goals.",
     features: [
       {
         title: "One-on-One Classes",
@@ -209,6 +209,8 @@ export default function CourseCarousel() {
     },
   };
 
+ 
+
   return (
     <div className="w-full bg-primary02 lg:pt-14 pt-8 lg:pb-28 pb-16 h-full">
     <Carousel responsive={responsive} itemClass="px-4">
@@ -234,11 +236,12 @@ export default function CourseCarousel() {
             ))}
           </div>
           <div className="flex justify-center items-center pt-4 pb-8 mt-auto">
-            <Link href={card.route}>
+            {/* <Link href={card.route}>
             <div className="w-[138px] h-[40px] bg-gradient01 rounded-md border-custom flex justify-center items-center">
-              <button className="text-white">Enroll Now</button>
+              <button onClick={handleClick} className="text-white">Enroll Now</button>
+              
             </div>
-            </Link>
+            </Link> */}
           </div>
         </div>
       ))}
