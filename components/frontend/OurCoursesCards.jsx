@@ -133,6 +133,8 @@ const cardData = [
 
 const HoverContent = ({ content, style }) => {
   return (
+    <div className="px-10">
+
     <div
       className="absolute bg-[#075D70] w-[20.75rem] rounded-md mx-8 py-2 px-3 pt-5 "
       style={style}
@@ -148,6 +150,7 @@ const HoverContent = ({ content, style }) => {
         />
       </div>
     </div>
+      </div>
   );
 };
 
@@ -164,6 +167,7 @@ const OurCoursesCards = () => {
 
   return (
     <div className="w-full bg-primary02 pt-14 pb-20">
+      
       <div className="px-10 md:px-16">
         <p className="text-[#FFFFFF] ">100% QUALITY COURSES</p>
         <h1 className="text-[2rem] md:text-[3rem] text-[#FFFFFF] font-medium md:w-[65%]">
@@ -171,143 +175,77 @@ const OurCoursesCards = () => {
         </h1>
       </div>
 
-      <div className="flex flex-wrap justify-between px-6 md:px-16 space-x-1">
-        {/* First Row */}
-        {cardData.slice(0, 3).map((card) => (
-          <div
-            key={card.id}
-            className="md:w-[25rem]  mt-10 bg-[#FFFFFF] rounded-[9px] relative"
-          >
-            <Image
-              src={card.imageSrc}
-              width={1}
-              height={250}
-              alt="card"
-              className="w-full"
-            />
-            <h1 className="text-primary02 text-[1.15rem] md:text-[1.5rem] font-bold md:font-semibold text-center pt-8">
-              {card.title}
-            </h1>
-            {hoveredContent.cardId === card.id && (
-              <HoverContent
-                content={hoveredContent.description}
-                style={{ top: hoveredContent.top }}
-              />
-            )}
-            <p className=" text-[0.87rem] md:text-[1rem] pt-4 text-center px-8">
-              {card.description}
+<div className="flex flex-wrap justify-center  space-x-1 gap-x-10 gap-y-10 px-3 md:px-0 ">
+  {/* Map through all cards */}
+  {cardData.map((card, index) => (
+    <div
+      key={card.id}
+      className="w-[20rem] md:w-[21rem] lg:w-[25rem] xl:w-[30rem] mt-10 bg-[#FFFFFF] rounded-[9px] "
+    >
+      <Image
+        src={card.imageSrc}
+        width={1}
+        height={250}
+        alt="card"
+        className="w-full"
+      />
+      <h1 className="text-primary02 text-[1.15rem] md:text-[1.5rem] font-bold md:font-semibold text-center pt-8">
+        {card.title}
+      </h1>
+      {hoveredContent.cardId === card.id && (
+        <HoverContent
+          content={hoveredContent.description}
+          style={{ top: hoveredContent.top }}
+        />
+      )}
+      <p className="text-[0.87rem] md:text-[1rem] pt-4 text-center px-8">
+        {card.description}
+      </p>
+
+      {card.features.map((feature, index) => (
+        <React.Fragment key={index}>
+          {typeof feature === "string" ? (
+            <p className="pt-8 pb-4 text-center text-primary02 font-light cursor-pointer">
+              {feature}
             </p>
-
-            {card.features.map((feature, index) => (
-              <React.Fragment key={index}>
-                {typeof feature === "string" ? (
-                  <p className="pt-8 pb-4 text-center text-primary02 font-light cursor-pointer">
-                    {feature}
-                  </p>
-                ) : (
-                  <p
-                    className="pt-8 pb-4 text-center text-primary02 font-light cursor-pointer relative"
-                    onMouseEnter={(e) => {
-                      const hoverHeight = 80; // height of the hover content box
-                      const elementTop = e.target.offsetTop;
-                      const topPosition = elementTop - hoverHeight - 4; // Adjust position by hoverHeight + 4px
-                      handleFeatureHover(
-                        card.id,
-                        feature.title,
-                        feature.description,
-                        `${topPosition}px`
-                      );
-                    }}
-                    onMouseLeave={handleFeatureLeave}
-                  >
-                    {feature.title}
-                  </p>
-                )}
-                <hr className="mx-10" />
-              </React.Fragment>
-            ))}
-
-            <div className="flex justify-center items-center pt-4 pb-8">
-              <Link href={card.route}>
-                <div className="w-[138px] h-[40px] bg-gradient01 border-custom flex justify-center items-center">
-                  <button className="text-white">Enroll Now</button>
-                </div>
-              </Link>
-            </div>
-          </div>
-        ))}
-
-        {/* Second Row - Centered */}
-        <div className="flex flex-wrap justify-center  md:space-x-5 lg:space-x-16 xl:space-x-32   w-full  md:mt-10">
-          {cardData.slice(3).map((card, index) => (
-            <div
-              key={card.id}
-              className="bg-[#FFFFFF] rounded-[12px] md:w-[25rem]  mt-10 relative "
+          ) : (
+            <p
+              className="pt-8 pb-4 text-center text-primary02 font-light cursor-pointer relative"
+              onMouseEnter={(e) => {
+                const hoverHeight = 80; // height of the hover content box
+                const elementTop = e.target.offsetTop;
+                const topPosition = elementTop - hoverHeight - 3; // Adjust position by hoverHeight + 4px
+                handleFeatureHover(
+                  card.id,
+                  feature.title,
+                  feature.description,
+                  `${topPosition}px`
+                );
+              }}
+              onMouseLeave={handleFeatureLeave}
             >
-              <Image
-                src={card.imageSrc}
-                width={1}
-                height={250}
-                alt="card"
-                className="w-full"
-              />
-              <h1 className="text-primary02 text-[1.15rem] md:text-[1.5rem] font-bold md:font-semibold text-center pt-8">
-                {card.title}
-              </h1>
-              {hoveredContent.cardId === card.id && (
-                <HoverContent
-                  content={hoveredContent.description}
-                  style={{ top: hoveredContent.top }}
-                />
-              )}
-              <p className=" text-[0.87rem] md:text-[1rem] pt-4 text-center px-8">
-                {card.description}
-              </p>
+              {feature.title}
+            </p>
+          )}
+          <hr className="mx-10" />
+        </React.Fragment>
+      ))}
 
-              {card.features.map((feature, index) => (
-                <React.Fragment key={index}>
-                  {typeof feature === "string" ? (
-                    <p className="pt-8 pb-4 text-center text-primary02 font-light cursor-pointer">
-                      {feature}
-                    </p>
-                  ) : (
-                    <p
-                      className="pt-8 pb-4 text-center text-primary02 font-light cursor-pointer relative"
-                      onMouseEnter={(e) => {
-                        const hoverHeight = 80; // height of the hover content box
-                        const elementTop = e.target.offsetTop;
-                        const topPosition = elementTop - hoverHeight - 14; // Adjust position by hoverHeight + 4px
-                        handleFeatureHover(
-                          card.id,
-                          feature.title,
-                          feature.description,
-                          `${topPosition}px`
-                        );
-                      }}
-                      onMouseLeave={handleFeatureLeave}
-                    >
-                      {feature.title}
-                    </p>
-                  )}
-                  <hr className="mx-10" />
-                </React.Fragment>
-              ))}
-
-              <div
-                className="flex justify-center items-center pt-4  pb-8"
-              >
-                <Link href={card.route}>
-                <div className={`${index === 0 ? 'mt-[9.3rem]' : ''} w-[138px] h-[40px] bg-gradient01 border-custom flex justify-center items-center`}>
-                <button className="text-white">Enroll Now</button>
-                  </div>
-                </Link>
-              </div>
-            </div>
-          ))}
-        </div>
-      
-
+      <div className="flex justify-center items-center pt-4 pb-8">
+        <Link href={card.route}>
+          <div
+            className={`${
+              index === 3 ? 'mt-[9.3rem]' : ''
+            } w-[138px] h-[40px] bg-gradient01 border-custom flex justify-center items-center`}
+          >
+            <button className="text-white">Enroll Now</button>
+          </div>
+        </Link>
       </div>
+    </div>
+  ))}
+</div>
+
     </div>
   );
 };
