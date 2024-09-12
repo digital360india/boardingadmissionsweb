@@ -111,7 +111,7 @@ export const SideNavBar = ({ isSidebarOpen, setIsSidebarOpen }) => {
               <Link
                 href={Menu.src}
                 className={`${
-                  path === Menu.src
+                  path === Menu.src || (index !== 0 && path.startsWith(Menu.src))
                     ? "flex items-center gap-6 border border-[#FFFFFF] bg-white text-background04 font-bold  rounded-md p-2 w-full cursor-pointer"
                     : "flex items-center gap-6 border border-[#FFFFFF40] hover:border-[#FFFFFF] rounded-md p-2 w-full cursor-pointer"
                 }`}
