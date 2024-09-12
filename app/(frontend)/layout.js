@@ -44,8 +44,8 @@ export default function RootLayout({ children }) {
       <UserProvider>
        
         <body className={`${poppins.variable}`}>
-          <Layout children={children} />
-          </body>
+        <Layout>{children}</Layout>
+        </body>
       </UserProvider>
       <Footer />
     </html>

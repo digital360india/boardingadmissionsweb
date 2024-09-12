@@ -11,7 +11,7 @@ export default function Termsandconditionpage() {
         <strong>Enrollment in Preparation Programs:</strong> Parents or guardians must enroll their child in one of our preparation programs through the official Boarding Admissions website or office. All required forms and documents must be completed accurately. Enrollment is confirmed once full payment for the selected program is received.
       </p>
       <p className="text-lg mb-4">
-        <strong>Preparation Content:</strong> Our preparation programs are tailored to meet the admission requirements of India’s top boarding schools. This includes academic content, mock exams, and interview training. We aim to prepare students as thoroughly as possible, but performance in actual entrance exams is the student's responsibility.
+        <strong>Preparation Content:</strong> Our preparation programs are tailored to meet the admission requirements of India&apos;s top boarding schools. This includes academic content, mock exams, and interview training. We aim to prepare students as thoroughly as possible, but performance in actual entrance exams is the student's responsibility.
       </p>
       <p className="text-lg mb-4">
         <strong>Entrance Exam Dates and Information:</strong> While we help with preparation, parents, and guardians are responsible for registering their children for the official entrance exams and interviews with the boarding schools they are applying to. Boarding Admissions will provide general guidance but does not handle exam registrations for individual schools.

@@ -13,10 +13,10 @@ const page = () => {
             content="width=device-width, initial-scale=1, shrink-to-fit=no"
           />
 
-          <title>Mayo Girls' School | Admission 2025-26</title>
+          <title>Mayo Girls&apos; School | Admission 2025-26</title>
           <meta
             name="description"
-            content="Secure a spot for your child at Mayo Girls' School for the 2025-2026 academic year! Exceptional education and holistic development await. Apply now!"
+            content="Secure a spot for your child at Mayo Girls&apos; School for the 2025-2026 academic year! Exceptional education and holistic development await. Apply now!"
           />
           <meta
             name="keywords"
@@ -34,10 +34,10 @@ const page = () => {
                 image:
                   "https://www.boardingadmissions.com/largescreen/mayogirls.png",
                 description:
-                  "Secure a spot for your child at Mayo Girls' School for the 2025-2026 academic year! Exceptional education and holistic development await. Apply now!",
+                  "Secure a spot for your child at Mayo Girls&apos; School for the 2025-2026 academic year! Exceptional education and holistic development await. Apply now!",
                 brand: {
                   "@type": "Brand",
-                  name: "Mayo Girl's School",
+                  name: "Mayo Girl&apos;s School",
                 },
                 sku: "198",
                 offers: {
@@ -102,7 +102,7 @@ const page = () => {
                     name: "What is the Mayo Girls admissions process like?",
                     acceptedAnswer: {
                       "@type": "Answer",
-                      text: "Mayo Girls admissions involve a comprehensive process starting with registration, followed by an entrance exam. The entrance exam evaluates the student's capabilities in subjects like English, Mathematics, and General Awareness. After the exam, shortlisted candidates are called for an interview, which plays a key role in the final admission decision.",
+                      text: "Mayo Girls admissions involve a comprehensive process starting with registration, followed by an entrance exam. The entrance exam evaluates the student&apos;s capabilities in subjects like English, Mathematics, and General Awareness. After the exam, shortlisted candidates are called for an interview, which plays a key role in the final admission decision.",
                     },
                   },
                   {
@@ -110,7 +110,7 @@ const page = () => {
                     name: "What subjects are covered in the Mayo Girls entrance exam?",
                     acceptedAnswer: {
                       "@type": "Answer",
-                      text: "The Mayo Girls entrance exam typically assesses students in English, Mathematics, and General Awareness. This exam is designed to gauge the student’s readiness and aptitude for the challenging curriculum offered at Mayo College Girls' School.",
+                      text: "The Mayo Girls entrance exam typically assesses students in English, Mathematics, and General Awareness. This exam is designed to gauge the student&apos;s readiness and aptitude for the challenging curriculum offered at Mayo College Girls&apos; School.",
                     },
                   },
                   {
@@ -118,15 +118,15 @@ const page = () => {
                     name: "What age criteria are there for Mayo Girls admissions?",
                     acceptedAnswer: {
                       "@type": "Answer",
-                      text: "Mayo College Girls' School has specific age criteria for admission to different classes. For example, students must meet the age requirements for the class they are applying to as of a certain cutoff date. This ensures that students are placed in the appropriate grade level.",
+                      text: "Mayo College Girls&apos; School has specific age criteria for admission to different classes. For example, students must meet the age requirements for the class they are applying to as of a certain cutoff date. This ensures that students are placed in the appropriate grade level.",
                     },
                   },
                   {
                     "@type": "Question",
-                    name: "What facilities are available at Mayo College Girls' School?",
+                    name: "What facilities are available at Mayo College Girls&apos; School?",
                     acceptedAnswer: {
                       "@type": "Answer",
-                      text: "Mayo College Girls' School offers a wide array of facilities, including state-of-the-art classrooms, science and computer labs, a well-stocked library, and sports facilities. The school also has extensive provisions for extracurricular activities such as arts, music, and dance.",
+                      text: "Mayo College Girls&apos; School offers a wide array of facilities, including state-of-the-art classrooms, science and computer labs, a well-stocked library, and sports facilities. The school also has extensive provisions for extracurricular activities such as arts, music, and dance.",
                     },
                   },
                   {
@@ -134,7 +134,7 @@ const page = () => {
                     name: "How does Mayo Girls School support student development beyond academics?",
                     acceptedAnswer: {
                       "@type": "Answer",
-                      text: "Mayo College Girls' School emphasizes holistic development through various programs that include leadership training, social service, and extracurricular activities. The school encourages students to participate in activities that foster personal growth, ethical values, and a sense of responsibility.",
+                      text: "Mayo College Girls&apos; School emphasizes holistic development through various programs that include leadership training, social service, and extracurricular activities. The school encourages students to participate in activities that foster personal growth, ethical values, and a sense of responsibility.",
                     },
                   },
                 ],
