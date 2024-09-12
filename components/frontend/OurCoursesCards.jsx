@@ -169,7 +169,7 @@ const OurCoursesCards = () => {
     <div className="w-full bg-primary02 pt-14 pb-20">
       
       <div className="px-10 md:px-16">
-        <p className="text-[#FFFFFF] ">100% QUALITY COURSES</p>
+        <p className="text-[#FFFFFF] ">100% QUALITY COURSES </p>
         <h1 className="text-[2rem] md:text-[3rem] text-[#FFFFFF] font-medium md:w-[65%]">
         Enroll Now for Tailored Preparation and Guaranteed Success
         </h1>
