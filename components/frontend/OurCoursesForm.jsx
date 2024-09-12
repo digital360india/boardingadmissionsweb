@@ -3,8 +3,10 @@
 import { db } from "@/firebase/firebase";
 import { addDoc, collection, updateDoc } from "firebase/firestore";
 import React, { useState } from "react";
+import emailjs from "emailjs-com";
 
 const OurCoursesForm = () => {
+  // const [isSubmitted, setIsSubmitted] = useState(false);
   const [formData, setFormData] = useState({
     firstName: "",
     lastName: "",
@@ -23,6 +25,31 @@ const OurCoursesForm = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+
+
+    emailjs
+      .send(
+        "service_zzpjmnf", 
+        "template_72aafby",
+        formData,
+        "zA2422Fl3c6n_YSjA"
+      )
+      .then(
+        () => {
+          alert("Your form has been submitted successfully!");
+          setFormData({
+            firstName: "",
+            lastName: "",
+            email: "",
+            phoneNumber: "",
+            message: "",
+          });
+          // setIsSubmitted(true);
+        },
+        (error) => {
+          console.error("Error sending email:", error.text);
+        }
+      );
 
     try {
       const docRef = await addDoc(collection(db, "leads"), {
@@ -53,6 +80,7 @@ const OurCoursesForm = () => {
     } catch (e) {
       console.error("Error adding or updating document: ", e);
     }
+
   };
 
   return (
@@ -65,7 +93,7 @@ const OurCoursesForm = () => {
             // className={`mt-10 md:mt-12 md:mx-12 md:border-4  rounded-lg w-[100%] md:w-[77.5rem] bg-[#F4FCFC80] border-4 border-[#F9FDFD] md:border-white md:shadow-lg`}
           >
             <div className="pt-7">
-              <h1 className="font-semibold   text-[2rem] md:text-[3rem] text-primary02 text-center">
+              <h1 className="font-semibold   text-[1.5rem] md:text-[3rem] text-primary02 text-center">
                 Leave Your Question Here
               </h1>
               <p className="pt-4 font-medium text-center">
@@ -125,12 +153,23 @@ const OurCoursesForm = () => {
                 </div>
 
                 <div className="flex justify-end px-5">
+
+                  <div className=" w-[300px] h-[56px] text-center mb-4 mt-3   bg-gradient01  border-custom rounded-md">
+                    <button
+                      type="submit"
+                      className=" text-white py-4  rounded-md "
+                    >
+                      Submit
+                    </button>
+                  </div>
+
                   <button
                     type="submit"
                     className=" text-white py-4  rounded-md   w-[300px] h-[56px] text-center mb-4 mt-3   bg-gradient01  border-custom "
                   >
                     Submit
                   </button>
+
                 </div>
               </form>
             </div>
