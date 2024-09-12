@@ -15,12 +15,10 @@ const MyCoursesPage = () => {
   }
   useEffect(() => {
     const fetchPackages = async () => {
-      if (user && user.mycoursepackages && user.mycoursepackages.length > 0) {
+      if (user.mycoursepackages && user.mycoursepackages.length > 0) {
         try {
           const allPackages = [];
-
           for (const pkg of user.mycoursepackages) {
-            console.log("Fetching document for packageId:", pkg.packageId);
             const packageDoc = await getDoc(
               doc(db, "coursePackages", pkg.packageId)
             );
@@ -28,20 +26,16 @@ const MyCoursesPage = () => {
             if (packageDoc.exists()) {
               const packageData = packageDoc.data();
               allPackages.push({ id: packageDoc.id, ...packageData });
-            } else {
-              console.warn(`No document found for packageId: ${pkg.packageId}`);
             }
           }
-
           setPackages(allPackages);
         } catch (err) {
-          setError("Failed to fetch course packages. Please try again.");
-          console.error("Error fetching course packages:", err);
+          setError("Failed to fetch course packages.");
         } finally {
           setLoading(false);
         }
       } else {
-        setLoading(false); // No packages to fetch
+        setLoading(false);
       }
     };
 
