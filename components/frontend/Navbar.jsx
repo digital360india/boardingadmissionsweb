@@ -2,31 +2,69 @@
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import React, { useState } from "react";
+import React, { useState,useEffect } from "react";
 
 export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
-
+  const initial = {
+    l1: false,
+    l2: false,
+    l3: false,
+  
+  };
+  const [list, SetList] = useState(initial);
   const toggleMenu = () => {
     setMenuOpen(!menuOpen);
   };
 
   const path = usePathname();
 
+  useEffect(() => {
+  
+    const updatedList = { ...list };
+
+    if (path === "/courses") {
+      updatedList.l1 = true;
+      updatedList.l2 = false;
+      updatedList.l3 = false;
+
+    } else if (path === "/schools") {
+      updatedList.l2 = true;
+      updatedList.l1 = false;
+      updatedList.l3 = false;
+    } else if (path === "/aboutus") {
+      updatedList.l3 = true;
+      updatedList.l2 = false;
+      updatedList.l1 = false;
+    }
+    else if (path === "/"){
+updatedList.l1 = false;
+updatedList.l2 = false;
+updatedList.l3 = false;
+    }
+
+    SetList(updatedList);
+  }, [path]);
+
+
+
+
+
+
   return (
     <div>
       <div
         className={`${
           path === "/"
-            ? "bg-transparent z-20 backdrop-blur-lg absolute top-0 backdrop-brightness-50 backdrop-contrast-75 backdrop-grayscale-20 backdrop-saturate-150 backdrop-opacity-10"
-            : "bg-white fixed top-0 z-20"
+            ? "bg-transparent z-20  backdrop-blur-lg absolute top-0 backdrop-brightness-50 backdrop-contrast-75 backdrop-grayscale-20 backdrop-saturate-150 backdrop-opacity-30"
+            : "bg-white  fixed top-0 z-20"
         } flex font-sans text-xl py-4 w-full h-[14.5vh]`}
       >
         <div className="flex py-4 md:py-0 w-[100vw] items-center justify-between px-2 md:px-0 md:justify-around space-x-8 text-white hover:text-gray-300">
           {/* Hamburger Icon */}
           <div
             className="hamburger ps-6 order-1 cursor-pointer md:hidden"
-            onClick={toggleMenu}
+            onClick={()=>{toggleMenu(); document.body.style.overflow='hidden';}}
           >
             <div className="line h-0.5 w-6 bg-black my-1"></div>
             <div className="line h-0.5 w-4 bg-black my-1"></div>
@@ -34,46 +72,55 @@ export default function Navbar() {
           </div>
 
           {/* Logo */}
-          <div className="order-2 flex justify-center flex-1 md:flex-none md:order-1">
+          <div className="order-2  flex justify-center flex-1 md:flex-none md:order-1">
             <Link href="/">
               <Image
                 src="/images/navbar.svg"
                 width={1}
                 height={1}
                 alt="Image"
-                className="w-full md:h-24 md:w-28"
+                className="w-full md:h-24 md:w-28  brightness-150"
               />
             </Link>
           </div>
 
           {/* Desktop Navigation Links */}
-          <div className="order-2 text-black text-[16px] md:text-[18px] hidden md:flex space-x-4 lg:space-x-8">
+          <div className={`order-2 text-black ${path ==="/"? `text-white`:`text-[#2d879b]`}  md:w-[400px] font-bold text-[16px] md:text-[20px] hidden md:flex justify-center space-x-4 lg:space-x-8`}>
             <Link href="/courses">
-              <button>Courses</button>
+              <div className="">
+              <button className={`duration-200 ${path==="/"?`hover:text-[#fff78e]`:`hover:text-[#366faf]`} hover:tracking-widest`} >Courses</button>
+              <div className={`h-[3px] rounded-md duration-200 ${list.l1?`w-full`:`w-0`} bg-[#2d879b]`}></div>
+              </div>
             </Link>
             <Link href="/schools">
-              <button>Schools</button>
+            <div className="">
+              <button className={`duration-200 ${path==="/"?`hover:text-[#fff78e]`:`hover:text-[#366faf]`} hover:tracking-widest`}>Schools</button>
+              <div className={`h-[3px] rounded-md duration-200 ${list.l2?`w-full`:`w-0`} bg-[#2d879b]`}></div>
+              </div>
             </Link>
 
             <Link href="/aboutus">
-              <button> About</button>
+            <div className="">
+              <button className={`duration-200 ${path==="/"?`hover:text-[#fff78e]`:`hover:text-[#366faf]`} hover:tracking-widest`}> About</button>
+              <div className={`h-[3px] rounded-md duration-200 ${list.l3?`w-full`:`w-0`} bg-[#2d879b]`}></div>
+              </div>
             </Link>
           </div>
 
           {/* Compatibility Test Button */}
           <div className="order-3">
-            <Link href="/scholarshiptest">
+            {/* <Link href="/scholarshiptest">
               <button className="border bg-black text-[10px] md:text-[16px] text-white py-2 px-2 md:w-40 rounded-lg mr-4">
                 Compatibility Test
               </button>
-            </Link>
+            </Link> */}
           </div>
         </div>
       </div>
 
       {/* Mobile Menu (Sliding from Left to Right) */}
       <div
-        className={`fixed top-0 left-0 h-full bg-white z-30 w-64 transform ${
+        className={`fixed top-0 left-0 h-full bg-white z-30 w-full transform ${
           menuOpen ? "translate-x-0" : "-translate-x-full"
         } transition-transform duration-300 ease-in-out md:hidden`}
       >
@@ -83,14 +130,14 @@ export default function Navbar() {
           <Link href="/">
             <Image
               src="/images/navbar.svg"
-              width={1}
-              height={1}
+              width={2}
+              height={2}
               alt="Image"
               className="h-24 w-40"
             />
           </Link>
           {/* Close Button */}
-          <button className="text-black text-xl" onClick={toggleMenu}>
+          <button className="text-black text-xl" onClick={()=>{toggleMenu(); document.body.style.overflow="auto";}}>
             &times;
           </button>
         </div>
