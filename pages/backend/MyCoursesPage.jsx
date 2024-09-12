@@ -38,8 +38,9 @@ const MyCoursesPage = () => {
         setLoading(false);
       }
     };
-
-    fetchPackages();
+    if (user) {
+      fetchPackages();
+    }
   }, [user]);
 
   if (loading) return <div>Loading...</div>;
