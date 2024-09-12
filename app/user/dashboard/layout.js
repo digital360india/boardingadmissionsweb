@@ -1,5 +1,4 @@
 import "../../globals.css";
-import { AdminProvider } from "@/adminProvider";
 import { UserProvider } from "@/userProvider";
 import LayoutFile from "@/components/backend/LayoutFile";
 

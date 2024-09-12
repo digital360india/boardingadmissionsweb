@@ -7,7 +7,7 @@ const CompatibilityTest = () => {
       <>
         <div
           className="w-full h-[480px] bg-no-repeat bg-cover bg-center relative md:mt-24"
-          style={{ backgroundImage: `url(${boardingHero.src})` }}
+          style={{ backgroundImage:`url(/icons/boardinghero.svg)` }}
         >
           <div className="md:w-[31.25rem] px-6 md:px-16   absolute  bottom-20 text-white  ">
             <h1 className="text-[2rem] md:text-[3.5rem] font-poppins font-bold w-[14rem] h-[8.25rem] md:w-[31.25rem] md:h-[9.25rem] leading-tight">

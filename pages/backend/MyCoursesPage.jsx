@@ -2,7 +2,7 @@
 import { UserContext } from "@/userProvider";
 import { collection, getDoc, doc } from "firebase/firestore";
 import React, { useContext, useEffect, useState } from "react";
-import { db } from "@/firebase/firebase"; // Ensure your Firebase setup is correct
+import { db } from "@/firebase/firebase"; 
 import Link from "next/link";
 
 const MyCoursesPage = () => {
@@ -10,7 +10,9 @@ const MyCoursesPage = () => {
   const [packages, setPackages] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
-
+  if (!user) {
+    return <div>Loading user...</div>; 
+  }
   useEffect(() => {
     const fetchPackages = async () => {
       if (user && user.mycoursepackages && user.mycoursepackages.length > 0) {
@@ -50,8 +52,7 @@ const MyCoursesPage = () => {
   if (error) return <div>{error}</div>;
 
   return (
-    <div className="container mx-auto p-4"
-    >
+    <div className="container mx-auto p-4">
       <h1 className="text-3xl font-bold mb-6 text-background04 ">
         My Packages
       </h1>
@@ -61,7 +62,6 @@ const MyCoursesPage = () => {
             <div
               key={pkg.id}
               className="bg-white shadow-xl rounded-lg overflow-hidden"
-              
             >
               <div className="flex justify-end">
                 <div className="bg-background04 text-center py-1  text-[12px] text-white  w-[223px] h-[27px] drop-shadow-lg">

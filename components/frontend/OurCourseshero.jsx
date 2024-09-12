@@ -1,12 +1,11 @@
 "use client"
 import React from 'react'
-import boardingHero from '@/public/icons/boardinghero.svg';
 
 const OurCourses = () => {
   return (
     <div 
       className="w-full h-[480px] bg-no-repeat bg-cover bg-center relative" 
-      style={{ backgroundImage: `url(${boardingHero.src})` }}
+      style={{ backgroundImage: `url(/icons/boardinghero.svg)` }}
     >
       <div className='w-[19rem] md:w-[470px] px-8 md:px-16   absolute  bottom-20  text-white  '>
         <h1 className='text-[2rem] md:text-[3.5rem] font-poppins '>Our Courses</h1>
