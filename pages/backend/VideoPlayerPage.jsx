@@ -1,7 +1,7 @@
 "use client";
 import React, { useState, useEffect } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
-import { db } from "./firebaseConfig";
+import { db } from "@/firebase/firebase";
 import { doc, getDoc } from "firebase/firestore";
 
 const VideoPlayer = () => {
