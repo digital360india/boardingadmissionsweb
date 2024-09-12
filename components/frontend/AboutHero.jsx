@@ -32,7 +32,7 @@ export default function AboutHero() {
       </div>
 
       <div className='w-[310px] h-[459px] text-white lg:order-3 lg:block hidden text-[1.35rem]'>
-      <p className='pb-10'>Boarding Admissions is dedicated to guiding students toward success in entrance exams for India's premier boarding schools. </p>
+      <p className='pb-10'>Boarding Admissions is dedicated to guiding students toward success in entrance exams for India&apos;s premier boarding schools. </p>
       <p className='pb-10'> With a 90% success rate, our specialized courses equip students with the essential knowledge and skills to secure admissions to top institutions, paving the way for their bright educational futures.</p>
         {/* <p>d in sit aliquet vel neque adipiscing.d in sit aliquet vel neque adipiscing.</p> */}
       </div>
