@@ -3,7 +3,7 @@ import React from 'react'
 export default function Registration() {
   return (
     <div>
-          <div className="xl:px-[100px] lg:px-[40px] px-[24px] mx-auto mt-36 mb-8">
+          <div className="xl:px-[100px] lg:px-[40px] px-[24px] mx-auto mb-8">
       <div className="ml-[1%]">
         <p className="text-primary02 font-semibold lg:text-32px text-24px">
           Registration Form
