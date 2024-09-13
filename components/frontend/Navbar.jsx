@@ -204,14 +204,14 @@ export default function Navbar() {
               About
             </button>
           </Link>
-          <Link href="/scholarshiptest">
+          {/* <Link href="/scholarshiptest">
             <button
               onClick={toggleMenu}
               className="border bg-black text-white py-2 px-4 rounded-lg mt-4"
             >
               Compatibility Test
             </button>
-          </Link>
+          </Link> */}
         </div>
       </div>
     </div>
