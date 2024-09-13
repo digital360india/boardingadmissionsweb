@@ -15,6 +15,7 @@ export default function Navbar() {
   const [list, SetList] = useState(initial);
   const toggleMenu = () => {
     setMenuOpen(!menuOpen);
+    document.body.style.overflow = "auto";
   };
 
   const path = usePathname();
@@ -179,7 +180,7 @@ export default function Navbar() {
             className="text-white font-medium text-2xl rounded-full bg-primary02 p-2 "
             onClick={() => {
               toggleMenu();
-              document.body.style.overflow = "auto";
+        
             }}
           >
            <RxCross2 />
