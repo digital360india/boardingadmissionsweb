@@ -212,11 +212,13 @@ export default function CourseCarousel() {
  
 
   return (
-    <div className="w-full bg-primary02 lg:pt-14 pt-8 lg:pb-28 pb-16 h-full">
+    <div className="w-full bg-primary02 lg:pt-14 pt-8 lg:pb-28 pb-16 h-full ">
     <Carousel responsive={responsive} itemClass="px-4">
       {cardData.map((card) => (
         <div
           key={card.id}
+          style={{ boxShadow: "0px 0px 8px 0px #FFFFFF4D" }}
+          // style={{ boxShadow: "0 0 6px 0 rgba(0, 0, 0, 0.32)" }}
           className="w-full h-full bg-[#FFFFFF] rounded-[9px] relative flex flex-col items-center "
         >
           <Image src={card.imageSrc} width={600} height={250} alt="card" />
