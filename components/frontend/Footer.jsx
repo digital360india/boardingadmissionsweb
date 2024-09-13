@@ -39,7 +39,12 @@ const Footer = () => {
                   />
 
                   <div>
-                    <h1>info@boardingadmission</h1>
+                    <a
+                      href="mailto:info@boardingadmission"
+                      className="cursor-pointer"
+                    >
+                      <h1>info@boardingadmission</h1>
+                    </a>
                   </div>
                 </div>
                 <div className="flex gap-3">
@@ -56,7 +61,7 @@ const Footer = () => {
             <div className="flex justify-center pt-20        text-[14px]  md:w-[340px] md:text-[16px] md:text-[#FFFFFF] lg:w-[380px]  ">
               <div className="space-y-3 lg:pr-44">
                 <h1>SITE MAP</h1>
-                <h1>Home</h1>
+                <Link href="/"> <h1 className="">Home</h1></Link> 
                 <h1>Courses</h1>
                 <h1>Package</h1>
                 <h1>Boarding Compatibility Test</h1>
@@ -84,7 +89,11 @@ const Footer = () => {
                       />
                     </svg>
                   </div>{" "}
-                  <div>Facebook</div>
+                  <div>
+                    <Link href="https://www.facebook.com/profile.php?id=100093512793631">
+                      Facebook
+                    </Link>{" "}
+                  </div>
                 </h1>
                 <h1 className="flex gap-3">
                   <div>
@@ -106,7 +115,7 @@ const Footer = () => {
                       </g>
                     </svg>
                   </div>
-                  <div>YouTube</div>
+                 <Link href="https://www.youtube.com/channel/UCDXg7LwxBc_375I7EgEhY2g"> <div>YouTube</div></Link>
                 </h1>
                 <h1 className="flex gap-3">
                   <div>
@@ -124,12 +133,18 @@ const Footer = () => {
                       />
                     </svg>
                   </div>
-                  <div> Instagram</div>
+                  <div>
+                    <Link href="https://www.instagram.com/boarding_admissions/">
+                      Instagram
+                    </Link>{" "}
+                  </div>
                 </h1>
               </div>
 
               <div className="space-y-5 text-[10px] md:text-[16px] lg:text-[16px] md:hidden  lg:hidden">
-                <h1 className="text-[16px] text-[#FFFFFF]">Copyright © 2024</h1>
+                <h1 className="text-[16px] text-[#FFFFFF] cursor-pointer">
+                  Copyright © 2024
+                </h1>
                 <h1>Terms & Conditions</h1>
                 <h1>Privacy Policy</h1>
               </div>
@@ -137,22 +152,27 @@ const Footer = () => {
           </div>
           <div className="hidden md:flex md:justify-between md:py-[40px] md:px-[90px] lg:flex lg:justify-between  lg:py-[48px] lg:px-[100px]">
             <div>
-              <h1 className="text-[16px] text-[#FFFFFF]">Copyright © 2024</h1>
+              <h1 className="text-[16px] text-[#FFFFFF] cursor-pointer">
+                Copyright © 2024
+              </h1>
             </div>
             <div className="flex justify-between w-[300px]">
               <div>
-                <Link href="/termsandconditions"><button>Terms & Conditions</button></Link>
+                <Link href="/termsandconditions">
+                  <h1 className="cursor-pointer">Terms & Conditions</h1>
+                </Link>
               </div>
               <div>
-                <h1>Privacy Policy</h1>
+                <Link href="/privacypolicy">
+                  <h1 className="cursor-pointer">Privacy Policy</h1>
+                </Link>
               </div>
             </div>
           </div>
         </div>
       </div>
 
-
-{/* mobile  */}
+      {/* mobile  */}
       <div className="bg-primary02 md:hidden lg:hidden">
         <div className="flex justify-center items-center pt-8">
           <div>
@@ -181,9 +201,15 @@ const Footer = () => {
 
             <div className="flex gap-2 mt-2">
               <Image src="/icons/mail.svg" width={14} height={14} alt="mail" />
-              <h1 className="text-white text-[0.75rem]">
-                info@boardingadmission
-              </h1>
+
+              <div>
+                <a
+                  href="mailto:info@boardingadmission"
+                  className="text-white text-[0.75rem] cursor-pointer"
+                >
+                  <h1>info@boardingadmission</h1>
+                </a>
+              </div>
             </div>
           </div>
 
@@ -192,7 +218,6 @@ const Footer = () => {
             <h1 className="text-white text-[0.75rem]">+91 9149057322</h1>
           </div>
         </div>
-
 
         <div className="grid grid-cols-3 text-white text-[0.875rem] p-4 gap-3">
           <div>
@@ -204,10 +229,10 @@ const Footer = () => {
 
           <div>
             <h1 className="font-semibold pb-2">SITE MAP</h1>
-            <h1 className="font-light">Home</h1>
+          <Link href="/"> <h1 className="font-light">Home</h1></Link> 
             <h1 className="font-light">Shop</h1>
             <h1 className="font-light">Consult</h1>
-            <h1 className="font-light">About Us</h1>
+           <Link href="/aboutus"><h1 className="font-light">About Us</h1></Link> 
           </div>
 
           <div>
@@ -219,7 +244,10 @@ const Footer = () => {
                 height={20}
                 alt="Facebook logo"
               />
-              <h1 className="font-light">Facebook</h1>
+              <Link href="https://www.facebook.com/profile.php?id=100093512793631">
+                {" "}
+                <h1 className="font-light cursor-pointer">Facebook</h1>
+              </Link>
             </div>
             <div className="flex items-center gap-2 mt-2">
               <Image
@@ -228,7 +256,7 @@ const Footer = () => {
                 height={20}
                 alt="YouTube logo"
               />
-              <h1 className="font-light">YouTube</h1>
+            <Link href="https://www.youtube.com/channel/UCDXg7LwxBc_375I7EgEhY2g"> <h1 className="font-light cursor-pointer">YouTube</h1></Link> 
             </div>
             <div className="flex items-center gap-2 mt-2">
               <Image
@@ -237,14 +265,22 @@ const Footer = () => {
                 height={20}
                 alt="Instagram logo"
               />
-              <h1 className="font-light">Instagram</h1>
+              <Link href="https://www.instagram.com/boarding_admissions/">
+                {" "}
+                <h1 className="font-light cursor-pointer">Instagram</h1>
+              </Link>
             </div>
           </div>
         </div>
 
         <div className="flex text-white text-[0.75rem] p-4 gap-3  font-light">
-          <h1>Terms & Conditions</h1>
-          <h1>Privacy Policy</h1>
+          <Link href="/termsandconditions">
+            <h1 className="cursor-pointer">Terms & Conditions</h1>
+          </Link>
+
+          <Link href="/privacypolicy">
+            <h1 className="cursor-pointer">Privacy Policy</h1>
+          </Link>
         </div>
 
         <h1 className="text-white text-[0.75rem] text-center pb-8">

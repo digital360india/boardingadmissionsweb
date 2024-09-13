@@ -79,7 +79,7 @@ export default function TopSchools() {
   ];
   return (
     <div>
-      <div className="xl:mx-[100px] lg:mx-[40px] mx-[24px] lg:pb-[100px] pb-[50px]">
+      <div className="xl:mx-[100px] lg:mx-[40px] mx-[10px] lg:pb-[100px] pb-[50px]">
         <div>
           <p className="text-primary02 py-[40px] lg:text-[48px] text-[24px] lg:w-full  font-semibold text-center">
             Top Schools We have Cracked
@@ -89,7 +89,7 @@ export default function TopSchools() {
           {school.map((member, index) => (
             <div
               key={index}
-              className="flex-shrink-0 lg:w-[330px] lg:h-[350px] w-[150px] h-[150px] rounded-md lg:border-2 border-4 border-[#075D70]"
+              className="flex-shrink-0 lg:w-[330px] lg:h-[350px] w-[45%] h-[160px] rounded-md lg:border-2 border-4 border-[#075D70]"
             >
               <Link href={member.routes}>
               
