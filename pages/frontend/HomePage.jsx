@@ -16,10 +16,11 @@ const HomePage = () => {
     <div>
       <HeroCarousel/> 
       <WhoWeAre/>
+      <ScrollAnimation/>
       <TrustedByStudent/>
       <CoursesWeOffer/>
       <OurTeam/>
-      <ScrollAnimation/>
+      
       {/* <FeaturedBlog/> */}
       <Stories/>
 
