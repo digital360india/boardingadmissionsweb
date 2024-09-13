@@ -2,7 +2,7 @@
 import { UserContext } from "@/userProvider";
 import { collection, getDoc, doc } from "firebase/firestore";
 import React, { useContext, useEffect, useState } from "react";
-import { db } from "@/firebase/firebase"; 
+import { db } from "@/firebase/firebase";
 import Link from "next/link";
 
 const MyCoursesPage = () => {
@@ -10,112 +10,120 @@ const MyCoursesPage = () => {
   const [packages, setPackages] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
-  if (!user) {
-    return <div>Loading user...</div>; 
-  }
-  useEffect(() => {
-    const fetchPackages = async () => {
-      if (user.mycoursepackages && user.mycoursepackages.length > 0) {
-        try {
-          const allPackages = [];
-          for (const pkg of user.mycoursepackages) {
-            const packageDoc = await getDoc(
-              doc(db, "coursePackages", pkg.packageId)
-            );
 
-            if (packageDoc.exists()) {
-              const packageData = packageDoc.data();
-              allPackages.push({ id: packageDoc.id, ...packageData });
-            }
+  const fetchPackages = async () => {
+    if (user && user.mycoursepackages && user.mycoursepackages.length > 0) {
+      try {
+        const allPackages = [];
+        for (const pkg of user.mycoursepackages) {
+          const packageDoc = await getDoc(
+            doc(db, "coursePackages", pkg.packageId)
+          );
+
+          if (packageDoc.exists()) {
+            const packageData = packageDoc.data();
+            allPackages.push({ id: packageDoc.id, ...packageData });
           }
-          setPackages(allPackages);
-        } catch (err) {
-          setError("Failed to fetch course packages.");
-        } finally {
-          setLoading(false);
         }
-      } else {
+        setPackages(allPackages);
+      } catch (err) {
+        setError("Failed to fetch course packages.");
+      } finally {
         setLoading(false);
       }
-    };
-   
-      fetchPackages();
-    
+    } else {
+      setLoading(false);
+    }
+  };
+
+  useEffect(() => {
+    fetchPackages();
   }, [user]);
 
   if (loading) return <div>Loading...</div>;
   if (error) return <div>{error}</div>;
 
   return (
-    <div className="container mx-auto p-4">
-      <h1 className="text-3xl font-bold mb-6 text-background04 ">
-        My Packages
-      </h1>
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6  drop-shadow-lg">
-        {packages.length > 0 ? (
-          packages.map((pkg) => (
-            <div
-              key={pkg.id}
-              className="bg-white shadow-xl rounded-lg overflow-hidden"
-            >
-              <div className="flex justify-end">
-                <div className="bg-background04 text-center py-1  text-[12px] text-white  w-[223px] h-[27px] drop-shadow-lg">
-                  Starting from:&nbsp;
-                  <span className="font-bold">
-                    {new Date(pkg.startingDate).toLocaleDateString("en-GB", {
-                      day: "2-digit",
-                      month: "short",
-                      year: "numeric",
-                    })}
-                  </span>
-                </div>
-              </div>
+    <>
+      {" "}
+      {user ? (
+        <div className="container mx-auto p-4">
+          <h1 className="text-3xl font-bold mb-6 text-background04 ">
+            My Packages
+          </h1>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6  drop-shadow-lg">
+            {packages.length > 0 ? (
+              packages.map((pkg) => (
+                <div
+                  key={pkg.id}
+                  className="bg-white shadow-xl rounded-lg overflow-hidden"
+                >
+                  <div className="flex justify-end">
+                    <div className="bg-background04 text-center py-1  text-[12px] text-white  w-[223px] h-[27px] drop-shadow-lg">
+                      Starting from:&nbsp;
+                      <span className="font-bold">
+                        {new Date(pkg.startingDate).toLocaleDateString(
+                          "en-GB",
+                          {
+                            day: "2-digit",
+                            month: "short",
+                            year: "numeric",
+                          }
+                        )}
+                      </span>
+                    </div>
+                  </div>
 
-              <div className="flex justify-center items-center">
-                <img
-                  src={pkg.image}
-                  alt={pkg.packageName}
-                  className="w-[255px] h-[120px] object-cover pt-4 rounded-lg"
-                />
-              </div>
-              <div className="p-4">
-                <h2 className="text-xl font-bold text-background04">
-                  {pkg.packageName}
-                </h2>
-                {/* <p className="text-gray-700 mt-2">{`Starting Date: ${new Date(
-                  pkg.startingDate
-                ).toLocaleDateString()}`}</p> */}
+                  <div className="flex justify-center items-center">
+                    <img
+                      src={pkg.image}
+                      alt={pkg.packageName}
+                      className="w-[255px] h-[120px] object-cover pt-4 rounded-lg"
+                    />
+                  </div>
+                  <div className="p-4">
+                    <h2 className="text-xl font-bold text-background04">
+                      {pkg.packageName}
+                    </h2>
+                    {/* <p className="text-gray-700 mt-2">{`Starting Date: ${new Date(
+            pkg.startingDate
+          ).toLocaleDateString()}`}</p> */}
 
-                <p className="text-[#777777] text-[15px] pt-6 pb-4">
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis
-                  pulvinar magna risus, et iaculis libero elementum at. Etiam
-                  pellentesque ut massa ut gravida. Proin eget neque elementum
-                </p>
-                {/* <p className="text-gray-700 mt-1">{`Date of Creation: ${new Date(
-                  pkg.dateOfCreation
-                ).toLocaleDateString()}`}</p>
-                <p className="text-gray-700 mt-1">{`Students Enrolled: ${pkg.studentsEnrolled}`}</p>
-                <p className="text-gray-700 mt-1">{`Price: ₹${pkg.price}`}</p>
-                <p className="text-gray-700 mt-1">{`Discounted Price: ₹${pkg.discountedPrice}`}</p> */}
-                <div className="mt-3 flex w-full justify-between pb-3">
-                  <Link
-                    className="flex w-full"
-                    href={`/user/dashboard/mypackages/[mycourses]`}
-                    as={`/user/dashboard/mypackages/${pkg.id}`}
-                  >
-                    <button className="bg-background04 text-white  rounded-lg w-[144px] h-[35px] ">
-                      Learn
-                    </button>
-                  </Link>
+                    <p className="text-[#777777] text-[15px] pt-6 pb-4">
+                      Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                      Duis pulvinar magna risus, et iaculis libero elementum at.
+                      Etiam pellentesque ut massa ut gravida. Proin eget neque
+                      elementum
+                    </p>
+                    {/* <p className="text-gray-700 mt-1">{`Date of Creation: ${new Date(
+            pkg.dateOfCreation
+          ).toLocaleDateString()}`}</p>
+          <p className="text-gray-700 mt-1">{`Students Enrolled: ${pkg.studentsEnrolled}`}</p>
+          <p className="text-gray-700 mt-1">{`Price: ₹${pkg.price}`}</p>
+          <p className="text-gray-700 mt-1">{`Discounted Price: ₹${pkg.discountedPrice}`}</p> */}
+                    <div className="mt-3 flex w-full justify-between pb-3">
+                      <Link
+                        className="flex w-full"
+                        href={`/user/dashboard/mypackages/[mycourses]`}
+                        as={`/user/dashboard/mypackages/${pkg.id}`}
+                      >
+                        <button className="bg-background04 text-white  rounded-lg w-[144px] h-[35px] ">
+                          Learn
+                        </button>
+                      </Link>
+                    </div>
+                  </div>
                 </div>
-              </div>
-            </div>
-          ))
-        ) : (
-          <p>No course packages available.</p>
-        )}
-      </div>
-    </div>
+              ))
+            ) : (
+              <p>No course packages available.</p>
+            )}
+          </div>
+        </div>
+      ) : (
+        <div>Loading...</div>
+      )}
+    </>
   );
 };
 
