@@ -4,6 +4,8 @@ import Faq from "@/components/frontend/Faqdata";
 import Image from "next/image";
 import Star from "@/components/frontend/Ratings";
 import schoolFAQs from "@/utils/frontend/FaqData";
+import GetPrepared from "@/components/frontend/GetPrepared";
+
 
 const star = [
   {
@@ -22,7 +24,7 @@ function WelhamGirlsPage() {
             <Image
             src="/images/SchoolBanner/welhamgirlsframe.svg"
             alt="Descriptive text for screen readers"
-            className="w-full h-[250px] object-cover rounded-b-2xl "
+           className="w-full lg:h-[400px] h-[250px]  object-cover lg:rounded-2xl rounded-b-2xl "
             width={1000}
             height={1000}
           />
@@ -30,15 +32,15 @@ function WelhamGirlsPage() {
         <div className="w-[13vw] ">
           <Image
             src="/images/SchoolBanner/welhamgirlslogo.svg"
-           className="absolute inset-0 left-[5%] top-[80%] w-[90px] h-[80px] "
+           className="absolute inset-0 left-[5%] lg:top-[300px] top-[80%] lg:w-[132px] lg:h-[130px] w-[90px] h-[80px] "
             width={1000}
             height={1000}
           />
         </div>
       </div>
 
-     <div className="w-[90%] ml-[5%]  mt-[10%] ">
-        <div className="relative h-[20vh]  sm:h-[24vh] md:h-[22vh]   w-full  border-b-2  sm:flex sm:justify-between">
+     <div className="w-[90%] ml-[5%]  mt-[10%]  ">
+        <div className="relative h-[170px]   xl:h-[180px] md:h-[120px] lg:h-[170px]    w-full  border-b-2  sm:flex sm:justify-between">
           <div className="w-full flex flex-col  lg:gap-5 gap-2">
             <div className="">
               <p className="text-[#075D70]  text-[2rem] font-bold">
@@ -92,18 +94,8 @@ function WelhamGirlsPage() {
 
               <p className="text-[#075D70]">Broucher</p>
             </button> */}
-            <button className="py-1 px-2 sm:py-1.5 sm:px-2.5 border border-[#075D70]  rounded-[5px] flex gap-2">
-              <div>
-                <Image
-                  src="/icons/star.svg"
-                  className="w-full h-full pt-1"
-                  width={2}
-                  height={2}
-                />
-              </div>
+                       <GetPrepared/>
 
-              <p className="text-[#075D70]">Get Prepared</p>
-            </button>
           </div>
         </div>
 

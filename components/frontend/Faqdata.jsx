@@ -11,7 +11,7 @@ const Faq = ({data}) => {
   return (
     <>
       <div className="md:flex md:justify-center md:items-center pb-12 bg-[#F4FCFD]">
-        <div className="flex flex-col justify-center md:ml-0  lg:ml-0 pt-10 h-auto w-full  ">
+        <div className="flex flex-col justify-center md:ml-0  lg:ml-0 pt-6 h-auto w-full  ">
           <div className="flex justify-center  items-center">
            <h1 className="text-black text-[25px]">FAQs</h1>
           </div>
@@ -26,7 +26,7 @@ const Faq = ({data}) => {
                 <div
                   key={key}
                   className={`w-[75vw]   flex flex-col  justify-between items-center bg-[#F4FCFD] sm:p-4 p-3   rounded-xl border border-[#075D70] transition-all ${
-                    activeQuestion === item.id ? "h-auto bg-white" : " md:h-[52px] bg-white"
+                    activeQuestion === item.id ? "h-auto bg-white" : "  bg-white"
                   }`}
                 >
                   <div
