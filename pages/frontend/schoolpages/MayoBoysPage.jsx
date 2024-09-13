@@ -22,7 +22,7 @@ function MayoBoysPage() {
       <div className="relative lg:px-[30px] xl:px-[50px]  ">
         <div className=" h-[250px] xl:h-[300px] lg:h-[350px] w-[100%] ">    
              <Image
-            src="/images/SchoolBanner/mayoboysframe.svg"
+            src="/images/SchoolBanner/mayoboys.svg"
             alt="Descriptive text for screen readers"
            className="w-full lg:h-[400px] h-[250px]  object-cover lg:rounded-2xl rounded-b-2xl "
             width={1000}

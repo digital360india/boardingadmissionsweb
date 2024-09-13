@@ -217,7 +217,7 @@ function CJMwaverlyPage() {
           <h2 className="text-[#075D70] font-semibold text-[2rem] mt-8 mb-5">
             Fee Structure
           </h2>
-<div className="overflow-x-scroll">
+<div className="lg:overflow-auto overflow-x-scroll">
 <table className="w-full border-collapse border border-gray-300">
             <thead>
               <tr className="bg-gray-100">

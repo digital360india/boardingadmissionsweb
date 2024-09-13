@@ -211,7 +211,7 @@ function VidyaDeviSchoolPage() {
           <h2 className="text-[#075D70] font-semibold  text-[2rem] mt-8 mb-5">
             Fee Structure
           </h2>
-          <div className="overflow-scroll w-[90vw]">
+          <div className="overflow-scroll lg:overflow-auto w-[90vw]">
             <table className=" border-collapse border border-gray-300">
               <thead>
                 <tr className="bg-gray-100">
