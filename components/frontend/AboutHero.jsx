@@ -3,7 +3,7 @@ import React from 'react'
 
 export default function AboutHero() {
   return (
-    <div className='h-full  bg-[#333333]'>
+    <div className='h-full  bg-[#333333] lg:pt-0 pt-14'>
     <div className='lg:h-[680px] w-full flex items-center bg-[#333333] xl:px-[100px] lg:px-[40px] px-[24px]'>
         <div className='flex justify-between lg:gap-0  w-full '>
       <div className='order-2 lg:order-1'>
@@ -31,7 +31,7 @@ export default function AboutHero() {
         </div>
       </div>
 
-      <div className='w-[310px] h-[459px] text-white lg:order-3 lg:block hidden text-[1.35rem]'>
+      <div className='w-[310px] h-[459px] text-white lg:order-3 lg:block hidden text-[1.18rem]'>
       <p className='pb-10'>Boarding Admissions is dedicated to guiding students toward success in entrance exams for India&apos;s premier boarding schools. </p>
       <p className='pb-10'> With a 90% success rate, our specialized courses equip students with the essential knowledge and skills to secure admissions to top institutions, paving the way for their bright educational futures.</p>
         {/* <p>d in sit aliquet vel neque adipiscing.d in sit aliquet vel neque adipiscing.</p> */}

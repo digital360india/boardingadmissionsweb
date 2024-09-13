@@ -5,28 +5,20 @@ import "react-multi-carousel/lib/styles.css";
 import Image from "next/image";
 
 const cardData = [
-  { 
+  {
     id: 1,
     type: "video",
     videoSrc:
       "https://firebasestorage.googleapis.com/v0/b/boardingadmissions-f3ba3.appspot.com/o/carousel%2FIMG_5183.MP4?alt=media&token=1ffc7bc7-8b31-4a40-8fd8-7aa3bb34500c",
   },
-  // {
-  //   id: 2,
-  //   type: "image",
-  //   imageSrc: "/",
-  //   title: "Course 1",
-  //   description: "Description for course 1",
-  //   features: ["Feature 1", "Feature 2", "Feature 3"],
-  // },
-  // {
-  //   id: 3,
-  //   type: "image",
-  //   imageSrc: "/",
-  //   title: "Course 2",
-  //   description: "Description for course 2",
-  //   features: ["Feature 1", "Feature 2", "Feature 3"],
-  // },
+  {
+    id: 2,
+    type: "image",
+    imageSrc: "/images/slideimg.jpg",
+    title: "Course 1",
+    description: "Description for course 1",
+    features: ["Feature 1", "Feature 2", "Feature 3"],
+  },
 ];
 
 export default function HeroCarousel() {
@@ -120,33 +112,20 @@ export default function HeroCarousel() {
             return (
               <div
                 key={card.id}
-                className="lg:w-full lg:h-full lg:max-h-[97vh] bg-[#FFFFFF] rounded-[9px] relative flex flex-col items-center p-6"
+                className="relative lg:w-full lg:h-[100vh] h-[66vh] flex items-center justify-center bg-[#FFFFFF]"
               >
                 <Image
                   src={card.imageSrc}
-                  width={600}
-                  height={250}
+                  width={1000} // Set the image width
+                  height={1000} // Set the image height
                   alt="card"
-                  className="object-contain max-w-full max-h-64"
+                  className=" w-[100vw] xl:h-[100%] lg:h-[104%] h-[110%]  -mt-16"
                 />
-                <h1 className="text-primary02 text-2xl font-semibold text-center pt-4">
-                  {card.title}
-                </h1>
-                <p className="text-base pt-4 text-center px-4">
-                  {card.description}
-                </p>
-                <div className="flex-grow mt-4">
-                  {card.features.map((feature, index) => (
-                    <React.Fragment key={index}>
-                      <p className="pt-4 pb-2 border-b w-full sm:w-[250px] border-primary02 text-center text-primary02 font-light">
-                        {typeof feature === "string" ? feature : feature.title}
-                      </p>
-                    </React.Fragment>
-                  ))}
-                </div>
-                <div className="flex justify-center items-center pt-4 pb-8 mt-auto">
-                  <div className="w-[138px] h-[40px] bg-gradient01 rounded-md flex justify-center items-center">
-                    <button className="text-white">Enroll Now</button>
+                <div className="absolute top-0 xl:h-[95%] lg:h-[94%] h-[100%] w-[100vw] text-[#FFFF] bg-[#0000005c]">
+                <div className="absolute lg:bottom-[20%] bottom-[14%] lg:left-24 left-12 text-[#FFFF] lg:w-[60%] w-[80%]">
+
+<p className="xl:text-[18px] lg:text-[16px] text-[14px] mb-4 ">100% QUALIATY COURSES</p>
+<p className="xl:text-[56px] lg:text-[46px] text-[32px] font-medium  leading-tight">Elevate Your Skills: Enroll in our Diverse online Courses</p>
                   </div>
                 </div>
               </div>

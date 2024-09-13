@@ -35,7 +35,7 @@ export default function AboutMakeUs() {
           />
         </div>
 
-        <div className="flex  items-center justify-center xl:mt-5 mt-2">
+        <div className="flex  items-center justify-center mt-2">
           <div className="relative w-[90vw] xl:w-[35vw] h-auto xl:h-[38vh] lg:h-[27vh] lg:w-[40vw]">
             <Image
               src="/images/lines.svg"
@@ -45,7 +45,7 @@ export default function AboutMakeUs() {
               className="xl:w-[540px] xl:h-[450px] lg:w-[400px] lg:h-[270px] h-full w-full object-contain"
             />
             {/* First Column - Top Left */}
-            <div className="absolute top-[10%] xl:top-[50px] lg:top-[0%] left-[13%] md:left-[10%] lg:left-[5%]  lg:text-left  md:w-[40%] lg:w-[40%] ">
+            <div className="absolute top-[10%] xl:top-[50px] lg:top-[0%] left-[8%] md:left-[10%] lg:left-[5%]  lg:text-left  md:w-[40%] lg:w-[40%] ">
               <p className="text-primary02 text-[20px] md:text-[24px] lg:text-[28px] xl:pb-4 lg:pb-1 pb-4">
                 High Success
               </p>
