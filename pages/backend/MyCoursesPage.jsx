@@ -15,7 +15,7 @@ const MyCoursesPage = () => {
   }
   useEffect(() => {
     const fetchPackages = async () => {
-      if (user.mycoursepackages && user.mycoursepackages.length > 0) {
+      if (user &&  user.mycoursepackages && user.mycoursepackages.length > 0) {
         try {
           const allPackages = [];
           for (const pkg of user.mycoursepackages) {
@@ -41,7 +41,7 @@ const MyCoursesPage = () => {
    
       fetchPackages();
     
-  },[]);
+  },[user]);
 
   if (loading) return <div>Loading...</div>;
   if (error) return <div>{error}</div>;
