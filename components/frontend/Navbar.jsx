@@ -2,7 +2,8 @@
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import React, { useState,useEffect } from "react";
+import React, { useState, useEffect } from "react";
+import { RxCross2 } from "react-icons/rx";
 
 export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -10,7 +11,6 @@ export default function Navbar() {
     l1: false,
     l2: false,
     l3: false,
-  
   };
   const [list, SetList] = useState(initial);
   const toggleMenu = () => {
@@ -20,14 +20,12 @@ export default function Navbar() {
   const path = usePathname();
 
   useEffect(() => {
-  
     const updatedList = { ...list };
 
     if (path === "/courses") {
       updatedList.l1 = true;
       updatedList.l2 = false;
       updatedList.l3 = false;
-
     } else if (path === "/schools") {
       updatedList.l2 = true;
       updatedList.l1 = false;
@@ -36,20 +34,14 @@ export default function Navbar() {
       updatedList.l3 = true;
       updatedList.l2 = false;
       updatedList.l1 = false;
-    }
-    else if (path === "/"){
-updatedList.l1 = false;
-updatedList.l2 = false;
-updatedList.l3 = false;
+    } else if (path === "/") {
+      updatedList.l1 = false;
+      updatedList.l2 = false;
+      updatedList.l3 = false;
     }
 
     SetList(updatedList);
   }, [path]);
-
-
-
-
-
 
   return (
     <div>
@@ -58,13 +50,16 @@ updatedList.l3 = false;
           path === "/"
             ? "bg-transparent z-20  backdrop-blur-lg absolute top-0 backdrop-brightness-50 backdrop-contrast-75 backdrop-grayscale-20 backdrop-saturate-150 backdrop-opacity-30"
             : "bg-white  fixed top-0 z-20"
-        } flex font-sans text-xl py-4 w-full h-[14.5vh]`}
+        } flex font-sans text-xl py-4 w-full lg:h-[14.5vh] h-[8vh]`}
       >
-        <div className="flex py-4 md:py-0 w-[100vw] items-center justify-between px-2 md:px-0 md:justify-around space-x-8 text-white hover:text-gray-300">
+        <div className="flex py-4 md:py-0 w-[100vw] items-center px-2 md:px-0 md:justify-around space-x-8 text-white hover:text-gray-300">
           {/* Hamburger Icon */}
           <div
             className="hamburger ps-6 order-1 cursor-pointer md:hidden"
-            onClick={()=>{toggleMenu(); document.body.style.overflow='hidden';}}
+            onClick={() => {
+              toggleMenu();
+              document.body.style.overflow = "hidden";
+            }}
           >
             <div className="line h-0.5 w-6 bg-black my-1"></div>
             <div className="line h-0.5 w-4 bg-black my-1"></div>
@@ -72,37 +67,78 @@ updatedList.l3 = false;
           </div>
 
           {/* Logo */}
-          <div className="order-2  flex justify-center flex-1 md:flex-none md:order-1">
+          <div className="order-2 lg:pl-[0px] pl-[9%] flex justify-center items-center md:flex-none md:order-1">
             <Link href="/">
               <Image
                 src="/images/navbar.svg"
                 width={1}
                 height={1}
                 alt="Image"
-                className="w-full md:h-24 md:w-28  brightness-150"
+                className="w-full md:h-24 md:w-28 h-16  brightness-150"
               />
             </Link>
           </div>
 
           {/* Desktop Navigation Links */}
-          <div className={`order-2 text-black ${path ==="/"? `text-white`:`text-[#2d879b]`}  md:w-[400px] font-bold text-[16px] md:text-[20px] hidden md:flex justify-center space-x-4 lg:space-x-8`}>
+          <div
+            className={`order-2 text-black ${
+              path === "/" ? `text-white` : `text-[#2d879b]`
+            }  md:w-[400px] font-bold text-[16px] md:text-[20px] hidden md:flex justify-center space-x-4 lg:space-x-8`}
+          >
             <Link href="/courses">
               <div className="">
-              <button className={`duration-200 ${path==="/"?`hover:text-[#fff78e]`:`hover:text-[#366faf]`} hover:tracking-widest`} >Courses</button>
-              <div className={`h-[3px] rounded-md duration-200 ${list.l1?`w-full`:`w-0`} bg-[#2d879b]`}></div>
+                <button
+                  className={`duration-200 ${
+                    path === "/"
+                      ? `hover:text-[#fff78e]`
+                      : `hover:text-[#366faf]`
+                  } hover:tracking-widest`}
+                >
+                  Courses
+                </button>
+                <div
+                  className={`h-[3px] rounded-md duration-200 ${
+                    list.l1 ? `w-full` : `w-0`
+                  } bg-[#2d879b]`}
+                ></div>
               </div>
             </Link>
             <Link href="/schools">
-            <div className="">
-              <button className={`duration-200 ${path==="/"?`hover:text-[#fff78e]`:`hover:text-[#366faf]`} hover:tracking-widest`}>Schools</button>
-              <div className={`h-[3px] rounded-md duration-200 ${list.l2?`w-full`:`w-0`} bg-[#2d879b]`}></div>
+              <div className="">
+                <button
+                  className={`duration-200 ${
+                    path === "/"
+                      ? `hover:text-[#fff78e]`
+                      : `hover:text-[#366faf]`
+                  } hover:tracking-widest`}
+                >
+                  Schools
+                </button>
+                <div
+                  className={`h-[3px] rounded-md duration-200 ${
+                    list.l2 ? `w-full` : `w-0`
+                  } bg-[#2d879b]`}
+                ></div>
               </div>
             </Link>
 
             <Link href="/aboutus">
-            <div className="">
-              <button className={`duration-200 ${path==="/"?`hover:text-[#fff78e]`:`hover:text-[#366faf]`} hover:tracking-widest`}> About</button>
-              <div className={`h-[3px] rounded-md duration-200 ${list.l3?`w-full`:`w-0`} bg-[#2d879b]`}></div>
+              <div className="">
+                <button
+                  className={`duration-200 ${
+                    path === "/"
+                      ? `hover:text-[#fff78e]`
+                      : `hover:text-[#366faf]`
+                  } hover:tracking-widest`}
+                >
+                  {" "}
+                  About
+                </button>
+                <div
+                  className={`h-[3px] rounded-md duration-200 ${
+                    list.l3 ? `w-full` : `w-0`
+                  } bg-[#2d879b]`}
+                ></div>
               </div>
             </Link>
           </div>
@@ -128,6 +164,7 @@ updatedList.l3 = false;
         <div className="flex justify-between items-center p-4">
           {/* Logo beside Close Button */}
           <Link href="/">
+          <button  onClick={toggleMenu}>
             <Image
               src="/images/navbar.svg"
               width={2}
@@ -135,10 +172,17 @@ updatedList.l3 = false;
               alt="Image"
               className="h-24 w-40"
             />
+          </button>
           </Link>
           {/* Close Button */}
-          <button className="text-black text-xl" onClick={()=>{toggleMenu(); document.body.style.overflow="auto";}}>
-            &times;
+          <button
+            className="text-white font-medium text-2xl rounded-full bg-primary02 p-2 "
+            onClick={() => {
+              toggleMenu();
+              document.body.style.overflow = "auto";
+            }}
+          >
+           <RxCross2 />
           </button>
         </div>
 
