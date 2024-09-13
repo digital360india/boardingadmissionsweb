@@ -36,10 +36,11 @@ export default function TrustedBy2() {
       </div>
       <div className="flex-col space-y-4">
         <div>
-          <p className="text-14px">
-            “Lorem ipsum dolor sit amet consectetur. Pellentesque fringilla
-            commodo adipiscing proin. Nibh viverra mauris a integer. Facilisis
-            tristique natoque pellentesque mauris urna.”
+          <p className="text-14px text-justify">
+          &quot;At Boarding Admission, our students consistently express their
+                  gratitude for the seamless and supportive admission process.
+                  Their feedback highlights how our guidance helped them
+                  confidently secure their spot in top boarding schools.&quot;
           </p>
         </div>
         <div>
@@ -50,7 +51,7 @@ export default function TrustedBy2() {
       <div>
         <button
           onClick={handleClick}
-          className="bg-gradient01 w-[90%] text-white rounded-md py-2"
+          className="bg-gradient01 w-[100%] text-white rounded-md py-2"
         >
           Book a Demo Class
         </button>

@@ -191,6 +191,7 @@ const OurCoursesCards = () => {
         {cardData.map((card, index) => (
           <div
             key={card.id}
+            style={{ boxShadow: "0px 0px 8px 0px #FFFFFF4D" }}
             className="w-[20rem] md:w-[21rem] lg:w-[25rem] xl:w-[30rem] mt-10 bg-[#FFFFFF] rounded-[9px] "
           >
             <Image

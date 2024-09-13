@@ -6,7 +6,7 @@ import Link from "next/link";
 const FoundationcourseHero = () => {
   return (
     <>
-      <div className="md:mx-20 mt-[25%] md:mt-[10%]">
+      <div className="md:mx-20">
         <h1 className="text-[2rem] md:text-[3.5rem] text-[#075D70] text-center pb-8 font-bold">
           FOUNDATION COURSES
         </h1>

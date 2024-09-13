@@ -28,6 +28,16 @@ const BookaDemoPopUp = ({ onClose }) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
+
+  const handleInputChange = (e) => {
+    const value = e.target.value;
+  
+    if (value === '' || (value >= 1 && value <= 12)) {
+      setFormData({ ...formData, class: value });
+    }
+  };
+
+
   const handleClose = () => {
     setIsFormVisible(false);
   };
@@ -142,13 +152,13 @@ const BookaDemoPopUp = ({ onClose }) => {
               </select>
 
               <input
-                type="text"
+                type="number"
                 name="class"
                 placeholder="Class*"
                 value={formData.class}
                 required
                 className="w  px-4 py-3 placeholder-[#969696] text-[16px] text-[#969696] border border-[#E1E3E2] font-poppins bg-[#F9F9F9] rounded-md"
-                onChange={handleChange}
+                onChange={handleInputChange}
               />
             </div>
 

@@ -20,9 +20,9 @@ function MayoBoysPage() {
       <div className="relative ">
         <div className="h-auto w-[100%]">
           <Image
-            src="/images/SchoolBanner/mayoboysframe.svg"
+            src="/images/SchoolBanner/mayoboyshero.svg"
             alt="Descriptive text for screen readers"
-            className="w-full "
+            className="w-full"
             width={2}
             height={2}
           />
@@ -33,6 +33,7 @@ function MayoBoysPage() {
             className="absolute inset-0 left-[5%] top-[68%] w-[13vw] "
             width={2}
             height={2}
+            alt="logo"
           />
         </div>
       </div>

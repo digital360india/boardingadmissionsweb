@@ -11,7 +11,7 @@ const Popup = () => {
   useEffect(() => {
     const timer = setTimeout(() => {
       setIsFormVisible(true);
-    }, 30000);
+    }, 60000);
 
     return () => clearTimeout(timer);
   }, [isFormVisible]);
@@ -24,6 +24,17 @@ const Popup = () => {
     textmessage: "",
   });
 
+
+  const handleInputChange = (e) => {
+    const value = e.target.value;
+  
+    if (value === '' || (value >= 1 && value <= 12)) {
+      setFormData({ ...formData, class: value });
+    }
+  };
+  
+
+
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
@@ -33,7 +44,7 @@ const Popup = () => {
 
     setTimeout(() => {
       setIsFormVisible(true);
-    }, 30000);
+    }, 60000);
   };
 
   if (!isFormVisible) {
@@ -48,7 +59,9 @@ const Popup = () => {
   };
 
   const handleSubmit = (e) => {
+
     e.preventDefault();
+  
 
     // emailjs
     //   .sendForm("service_7aklwae", "template_rz1st8k", form.current, {
@@ -76,7 +89,7 @@ const Popup = () => {
   };
 
   return (
-    <div className="z-10  fixed inset-0 flex items-center justify-center    bg-black bg-opacity-50 font-poppins">
+    <div className="z-[9999]  fixed inset-0 flex items-center justify-center    bg-black bg-opacity-50 font-poppins">
       <div className="bg-[#FFFFFF] w-[351px] h-[650px] md:w-[710px] md:h-[460px] lg:w-[950px] lg:h-[520px] rounded  border-8 border-[#CDC6DB30] ">
         <div
           className="md:hidden  cursor-pointer flex justify-end "
@@ -145,14 +158,15 @@ const Popup = () => {
               </select>
 
               <input
-                type="text"
+                type="number"
                 name="class"
                 placeholder="Class*"
                 value={formData.class}
                 required
                 className="w  px-4 py-3 placeholder-[#969696] text-[16px] text-[#969696] border border-[#E1E3E2] font-poppins bg-[#F9F9F9] rounded-md"
-                onChange={handleChange}
+                onChange={handleInputChange}
               />
+       
             </div>
 
             <div className="mx-4 ">
