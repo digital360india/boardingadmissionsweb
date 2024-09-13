@@ -15,6 +15,7 @@ export default function Navbar() {
   const [list, SetList] = useState(initial);
   const toggleMenu = () => {
     setMenuOpen(!menuOpen);
+    document.body.style.overflow = "auto";
   };
 
   const path = usePathname();
@@ -145,7 +146,7 @@ export default function Navbar() {
           </div>
 
           {/* Compatibility Test Button */}
-          <div className="order-3">
+          <div className="order-3 w-[200px] h-2">
             {/* <Link href="/scholarshiptest">
               <button className="border bg-black text-[10px] md:text-[16px] text-white py-2 px-2 md:w-40 rounded-lg mr-4">
                 Compatibility Test
