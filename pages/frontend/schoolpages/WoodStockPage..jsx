@@ -194,7 +194,7 @@ function WoodStockPage() {
           </div>
         </div>
 
-       <Broucher pdfLink={"https://firebasestorage.googleapis.com/v0/b/boardingadmissions-f3ba3.appspot.com/o/brochure%2FEntranceExamBrochure.pdf?alt=media&token=a62ae681-e33f-4129-801c-1087c4530214"}/>
+       {/* <Broucher pdfLink={"https://firebasestorage.googleapis.com/v0/b/boardingadmissions-f3ba3.appspot.com/o/brochure%2FEntranceExamBrochure.pdf?alt=media&token=a62ae681-e33f-4129-801c-1087c4530214"}/> */}
       </div>
 
       <div>

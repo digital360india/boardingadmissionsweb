@@ -5,6 +5,7 @@ import Image from "next/image";
 import Star from "@/components/frontend/Ratings";
 import schoolFAQs from "@/utils/frontend/FaqData";
 import GetPrepared from "@/components/frontend/GetPrepared";
+import Broucher from "@/components/frontend/Broucher";
 
 
 const star = [
@@ -170,13 +171,8 @@ function ScindiaSchoolPage() {
           </div>
         </div>
 
-        <div className="mb-10">
-          <h1 className="text-[#075D70] font-semibold text-[1.5rem]">
-            Downloads
-          </h1>
-          {/* <h3 className="text-[#D77A61] text-[1.13rem] ">Fee structure</h3> */}
-          <h3 className="text-[#D77A61]  text-[1.13rem]">Broucher</h3>
-        </div>
+        <Broucher pdfLink={"https://firebasestorage.googleapis.com/v0/b/boardingadmissions-f3ba3.appspot.com/o/brochure%2FSKVENTRANCE%20ExamBrochure.pdf?alt=media&token=49068628-3c47-46a6-bce6-f7e12568d268"}/>
+
       </div>
 
       <div>
