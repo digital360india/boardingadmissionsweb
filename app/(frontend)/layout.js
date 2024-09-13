@@ -40,15 +40,14 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <Navbar />
       <Popup />
       <UserProvider>
-       
         <body className={`${poppins.variable}`}>
-        {children}
+          {" "}
+          <Navbar />
+          {children} <Footer />
         </body>
       </UserProvider>
-      <Footer />
     </html>
   );
 }
