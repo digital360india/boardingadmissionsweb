@@ -53,33 +53,32 @@ export default function Navbar() {
             : "bg-white  fixed top-0 z-20"
         } flex font-sans text-xl py-4 w-full lg:h-[14.5vh] h-[8vh]`}
       >
-      <div className="flex py-4 md:py-0 w-[100vw] items-center px-2 md:px-0 justify-between md:justify-around text-white hover:text-gray-300">
-  {/* Hamburger Icon */}
-  <div
-    className="hamburger cursor-pointer md:hidden flex-none pl-2"
-    onClick={() => {
-      toggleMenu();
-      // document.body.style.overflow = "hidden";
-    }}
-  >
-    <div className="line h-0.5 w-6 bg-black my-1"></div>
-    <div className="line h-0.5 w-4 bg-black my-1"></div>
-    <div className="line h-0.5 w-6 bg-black my-1"></div>
-  </div>
+        <div className="flex py-4 md:py-0 w-[100vw] items-center px-2 md:px-0 md:justify-around space-x-8 text-white hover:text-gray-300">
+          {/* Hamburger Icon */}
+          <div
+            className="hamburger ps-6 order-1 cursor-pointer md:hidden"
+            onClick={() => {
+              toggleMenu();
+             
+            }}
+          >
+            <div className="line h-0.5 w-6 bg-black my-1"></div>
+            <div className="line h-0.5 w-4 bg-black my-1"></div>
+            <div className="line h-0.5 w-6 bg-black my-1"></div>
+          </div>
 
-  {/* Logo */}
-  <div className="flex-1 flex justify-center items-center md:flex-none">
-    <Link href="/">
-      <Image
-        src="/images/navbar.svg"
-        width={1}
-        height={1}
-        alt="Image"
-        className="w-full md:h-24 md:w-28 h-16 brightness-150"
-      />
-    </Link>
-  </div>
-
+          {/* Logo */}
+          <div className="order-2 lg:pl-[0px] pl-[9%] flex justify-center items-center md:flex-none md:order-1">
+            <Link href="/">
+              <Image
+                src="/images/navbar.svg"
+                width={1}
+                height={1}
+                alt="Image"
+                className="ml-3 md:ml-0 w-full md:h-24 md:w-28 h-16  brightness-150"
+              />
+            </Link>
+          </div>
 
           {/* Desktop Navigation Links */}
           <div
@@ -146,7 +145,7 @@ export default function Navbar() {
           </div>
 
           {/* Compatibility Test Button */}
-          <div className="order-3 w-[200px] h-2">
+          <div className="order-3  md:w-[200px] h-2">
             {/* <Link href="/scholarshiptest">
               <button className="border bg-black text-[10px] md:text-[16px] text-white py-2 px-2 md:w-40 rounded-lg mr-4">
                 Compatibility Test
@@ -181,7 +180,7 @@ export default function Navbar() {
             className="text-white font-medium text-2xl rounded-full bg-primary02 p-2 "
             onClick={() => {
               toggleMenu();
-            //  document.body.style.overflow = "auto";
+            
             }}
           >
            <RxCross2 />
