@@ -26,7 +26,7 @@ export default function WhoWeAre() {
           <div className="lg:hidden block">
             <div className="flex items-center justify-center py-4">
               <Image
-                src="/images/rectangle2.svg"
+                src="/images/Rectangle2.svg"
                 alt="Calendar"
                 className="w-[100%]"
                 width={2}
