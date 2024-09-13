@@ -73,8 +73,8 @@ export default function EntranceMain() {
               </div>
             </div>
 
-            <div className="flex justify-between md:px-8 px-4 bg-[#FFFFFF01] shadow-2xl w-full  h-[40px] mt-2">
-              <div className="flex md:space-x-6 space-x-3">
+            <div className="flex justify-between md:px-8 px-3 bg-[#FFFFFF01] shadow-2xl w-full  h-[40px] mt-2">
+              <div className="flex md:space-x-6 space-x-2">
                 <div
                   className={`  md:text-13px text-11px cursor-pointer ${
                     activeTab === "Description"
@@ -104,7 +104,7 @@ export default function EntranceMain() {
                   Tests
                 </div>
               </div>
-              <div className="md:w-[124px] w-[90px] md:h-[32px] h-[20px] border border-[#B4B9C0] px-2 flex justify-between items-center rounded-2xl mt-1">
+              <div className="md:w-[124px] w-[95px] md:h-[32px] h-[20px] border border-[#B4B9C0] px-2 flex justify-between items-center rounded-2xl mt-1">
                 <div>
                   <Image
                     src="/vectors/whatsapp.svg"
@@ -114,7 +114,7 @@ export default function EntranceMain() {
                     className="md:w-[24px] md:h-[24px] w-[13px] h-[13px]"
                   />
                 </div>
-                <div className="md:text-14px text-[10px] font-semibold text-[#5E6166]">
+                <div className="md:text-14px text-[9px] font-semibold text-[#5E6166]">
                   Share batch
                 </div>
               </div>
