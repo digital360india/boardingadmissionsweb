@@ -58,7 +58,7 @@ export default function Navbar() {
             className="hamburger ps-6 order-1 cursor-pointer md:hidden"
             onClick={() => {
               toggleMenu();
-              document.body.style.overflow = "hidden";
+             
             }}
           >
             <div className="line h-0.5 w-6 bg-black my-1"></div>
@@ -74,7 +74,7 @@ export default function Navbar() {
                 width={1}
                 height={1}
                 alt="Image"
-                className="w-full md:h-24 md:w-28 h-16  brightness-150"
+                className="ml-3 md:ml-0 w-full md:h-24 md:w-28 h-16  brightness-150"
               />
             </Link>
           </div>
@@ -144,7 +144,7 @@ export default function Navbar() {
           </div>
 
           {/* Compatibility Test Button */}
-          <div className="order-3 w-[200px] h-2">
+          <div className="order-3  md:w-[200px] h-2">
             {/* <Link href="/scholarshiptest">
               <button className="border bg-black text-[10px] md:text-[16px] text-white py-2 px-2 md:w-40 rounded-lg mr-4">
                 Compatibility Test
@@ -179,7 +179,7 @@ export default function Navbar() {
             className="text-white font-medium text-2xl rounded-full bg-primary02 p-2 "
             onClick={() => {
               toggleMenu();
-              document.body.style.overflow = "auto";
+            
             }}
           >
            <RxCross2 />
