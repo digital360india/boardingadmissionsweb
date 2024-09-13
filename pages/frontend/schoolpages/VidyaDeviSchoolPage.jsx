@@ -4,6 +4,7 @@ import Faq from "@/components/frontend/Faqdata";
 import Image from "next/image";
 import Star from "@/components/frontend/Ratings";
 import schoolFAQs from "@/utils/frontend/FaqData";
+import GetPrepared from "@/components/frontend/GetPrepared";
 
 const star = [
   {
@@ -12,7 +13,7 @@ const star = [
     ratingByPerson: 4,
   },
 ];
- 
+
 const admissionSteps = [
   {
     title: "Start the Process:",
@@ -56,14 +57,17 @@ const admissionSteps = [
 ];
 
 function VidyaDeviSchoolPage() {
-  const VidyaDeviJindalSchool = schoolFAQs.find(school => school.school === 'VidyaDeviJindalSchool')?.faqs || [];
+  const VidyaDeviJindalSchool =
+    schoolFAQs.find((school) => school.school === "VidyaDeviJindalSchool")
+      ?.faqs || [];
   return (
-    <div className="h-auto w-[100%]">
-      <div className="relative ">
- <div className=" h-[250px] w-[100%] ">          <Image
+    <div className="h-auto w-[100%] poppins">
+      <div className="relative lg:px-[30px] xl:px-[50px]  ">
+        <div className=" h-[250px] xl:h-[300px] lg:h-[350px] w-[100%] ">
+          <Image
             src="/images/SchoolBanner/vidyadeviframe.svg"
             alt="Descriptive text for screen readers"
-            className="w-full h-[250px] object-cover rounded-b-2xl "
+            className="w-full lg:h-[400px] h-[250px]  object-cover lg:rounded-2xl rounded-b-2xl "
             width={1000}
             height={1000}
           />
@@ -71,7 +75,7 @@ function VidyaDeviSchoolPage() {
         <div className="w-[13vw] ">
           <Image
             src="/images/SchoolBanner/vidyadevilogo.svg"
-           className="absolute inset-0 left-[5%] top-[80%] w-[90px] h-[80px] "
+            className="absolute inset-0 left-[5%] lg:top-[300px] top-[80%] lg:w-[132px] lg:h-[130px] w-[90px] h-[80px] "
             width={1000}
             height={1000}
             alt="banner"
@@ -79,15 +83,15 @@ function VidyaDeviSchoolPage() {
         </div>
       </div>
 
-     <div className="w-[90%] ml-[5%]  mt-[10%] ">
-        <div className="relative h-[20vh]  sm:h-[24vh] md:h-[22vh]   w-full  border-b-2  sm:flex sm:justify-between">
+      <div className="w-[90%] ml-[5%]  mt-[10%] ">
+        <div className="relative h-[170px]   xl:h-[180px] md:h-[120px] lg:h-[170px]    w-full  border-b-2  sm:flex sm:justify-between">
           <div className="w-full flex flex-col  lg:gap-5 gap-2">
             <div className="">
               <h1 className="text-[#075D70]  lg:text-[2rem] text-[18px] font-semibold lg:font-bold ">
                 Vidya Devi Jindal School, Hisar, Haryana
               </h1>
             </div>
-             <div className="flex text-center lg:gap-3 gap-2 items-center">
+            <div className="flex text-center lg:gap-3 gap-2 items-center">
               <h2 className="text-[#075D70] ">4.2</h2>
 
               <div className="border-none ">
@@ -121,7 +125,7 @@ function VidyaDeviSchoolPage() {
           </div>
 
           <div className=" sm:absolute  gap-3 flex  sm:right-0 sm:self-center">
-            <button className="py-1 px-2 sm:py-1.5 sm:px-2.5 border border-[#075D70] rounded-[5px] flex gap-2">
+            {/* <button className="py-1 px-2 sm:py-1.5 sm:px-2.5 border border-[#075D70] rounded-[5px] flex gap-2">
               <div>
                 <Image
                   src="/icons/download.svg"
@@ -133,20 +137,8 @@ function VidyaDeviSchoolPage() {
               </div>
 
               <p className="text-[#075D70]">Broucher</p>
-            </button>
-            <button className="py-1 px-2 sm:py-1.5 sm:px-2.5 border border-[#075D70]  rounded-[5px] flex gap-2">
-              <div>
-                <Image
-                  src="/icons/star.svg"
-                  className="w-full h-full pt-1"
-                  width={2}
-                  height={2}
-                  alt="avg"
-                />
-              </div>
-
-              <p className="text-[#075D70]">Get Prepared</p>
-            </button>
+            </button> */}
+            <GetPrepared />
           </div>
         </div>
 
@@ -173,8 +165,6 @@ function VidyaDeviSchoolPage() {
             </p>
           </div>
         </div>
-
-
 
         {/* <div>
                 <table className="w-full border-collapse border border-gray-300">
@@ -217,58 +207,71 @@ function VidyaDeviSchoolPage() {
                 </table>
               </div> */}
 
-
-<div className="">
-      <h2 className="text-[#075D70] font-semibold  text-[2rem] mt-8 mb-5">Fee Structure</h2>
-      <table className="w-full border-collapse border border-gray-300">
-        <thead>
-          <tr className="bg-gray-100">
-            <th className="border border-gray-300 p-2">Class</th>
-            <th className="border border-gray-300 p-2">Admission Fee</th>
-            <th className="border border-gray-300 p-2">Caution Money</th>
-            <th className="border border-gray-300 p-2">School Fee</th>
-            <th className="border border-gray-300 p-2">Joining Kit</th>
-            <th className="border border-gray-300 p-2">Imprest Account</th>
-            <th className="border border-gray-300 p-2">Total Fee</th>
-            <th className="border border-gray-300 p-2">2nd Installment School Fee</th>
-            <th className="border border-gray-300 p-2">Annual Total</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td className="border border-gray-300 p-2">IV-VII</td>
-            <td className="border border-gray-300 p-2">Rs. 60,000</td>
-            <td className="border border-gray-300 p-2">50,000</td>
-            <td className="border border-gray-300 p-2">227,000</td>
-            <td className="border border-gray-300 p-2">30,000</td>
-            <td className="border border-gray-300 p-2">20,000</td>
-            <td className="border border-gray-300 p-2">387,000</td>
-            <td className="border border-gray-300 p-2">152,000</td>
-            <td className="border border-gray-300 p-2">539,000</td>
-          </tr>
-          <tr>
-            <td className="border border-gray-300 p-2">IX-XII</td>
-            <td className="border border-gray-300 p-2">Rs. 60,000</td>
-            <td className="border border-gray-300 p-2">50,000</td>
-            <td className="border border-gray-300 p-2">283,50</td>
-            <td className="border border-gray-300 p-2">30,000</td>
-            <td className="border border-gray-300 p-2">20,000</td>
-            <td className="border border-gray-300 p-2">443,500</td>
-            <td className="border border-gray-300 p-2">190,000</td>
-            <td className="border border-gray-300 p-2">633,500</td>
-          </tr>
-        </tbody>
-      </table>
-      <div className="mt-4">
-        <h3 className="text-[#075D70] font-semibold  text-[1.2rem] mb-2">Note:</h3>
-        <ul className="list-disc list-inside">
-          <li className="mb-1">The first installment covers the period from April to September, and the second installment covers October to March.</li>
-          <li>Fees should be deposited by 10th March for the first installment and by 10th September for the second installment.</li>
-        </ul>
-      </div>
-    </div>
-
-
+        <div className=" ">
+          <h2 className="text-[#075D70] font-semibold  text-[2rem] mt-8 mb-5">
+            Fee Structure
+          </h2>
+          <div className="overflow-scroll w-[90vw]">
+            <table className=" border-collapse border border-gray-300">
+              <thead>
+                <tr className="bg-gray-100">
+                  <th className="border border-gray-300 p-2">Class</th>
+                  <th className="border border-gray-300 p-2">Admission Fee</th>
+                  <th className="border border-gray-300 p-2">Caution Money</th>
+                  <th className="border border-gray-300 p-2">School Fee</th>
+                  <th className="border border-gray-300 p-2">Joining Kit</th>
+                  <th className="border border-gray-300 p-2">
+                    Imprest Account
+                  </th>
+                  <th className="border border-gray-300 p-2">Total Fee</th>
+                  <th className="border border-gray-300 p-2">
+                    2nd Installment School Fee
+                  </th>
+                  <th className="border border-gray-300 p-2">Annual Total</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td className="border border-gray-300 p-2">IV-VII</td>
+                  <td className="border border-gray-300 p-2">Rs. 60,000</td>
+                  <td className="border border-gray-300 p-2">50,000</td>
+                  <td className="border border-gray-300 p-2">227,000</td>
+                  <td className="border border-gray-300 p-2">30,000</td>
+                  <td className="border border-gray-300 p-2">20,000</td>
+                  <td className="border border-gray-300 p-2">387,000</td>
+                  <td className="border border-gray-300 p-2">152,000</td>
+                  <td className="border border-gray-300 p-2">539,000</td>
+                </tr>
+                <tr>
+                  <td className="border border-gray-300 p-2">IX-XII</td>
+                  <td className="border border-gray-300 p-2">Rs. 60,000</td>
+                  <td className="border border-gray-300 p-2">50,000</td>
+                  <td className="border border-gray-300 p-2">283,50</td>
+                  <td className="border border-gray-300 p-2">30,000</td>
+                  <td className="border border-gray-300 p-2">20,000</td>
+                  <td className="border border-gray-300 p-2">443,500</td>
+                  <td className="border border-gray-300 p-2">190,000</td>
+                  <td className="border border-gray-300 p-2">633,500</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div className="mt-4">
+            <h3 className="text-[#075D70] font-semibold  text-[1.2rem] mb-2">
+              Note:
+            </h3>
+            <ul className="list-disc list-inside">
+              <li className="mb-1">
+                The first installment covers the period from April to September,
+                and the second installment covers October to March.
+              </li>
+              <li>
+                Fees should be deposited by 10th March for the first installment
+                and by 10th September for the second installment.
+              </li>
+            </ul>
+          </div>
+        </div>
 
         <div className="space-y-4 w-[90vw] mb-10 mt-10">
           <div>
@@ -348,7 +351,7 @@ function VidyaDeviSchoolPage() {
       </div>
 
       <div>
-        <Faq data={VidyaDeviJindalSchool}/>
+        <Faq data={VidyaDeviJindalSchool} />
       </div>
     </div>
   );

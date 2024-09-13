@@ -4,15 +4,16 @@ import Faq from "@/components/frontend/Faqdata";
 import Image from "next/image";
 import Star from "@/components/frontend/Ratings";
 import schoolFAQs from "@/utils/frontend/FaqData";
+import GetPrepared from "@/components/frontend/GetPrepared";
+
 const star = [
   {
     id: 1,
 
     ratingByPerson: 4,
   },
-  
 ];
- 
+
 const registrationSteps = [
   {
     title: "Registration",
@@ -42,14 +43,18 @@ const registrationSteps = [
 ];
 
 function BishopKarnatakaPage() {
-  const BishopKarnatakFAQ = schoolFAQs.find(school => school.school === 'BishopCottonSchool')?.faqs || [];
+  const BishopKarnatakFAQ =
+    schoolFAQs.find((school) => school.school === "BishopCottonSchool")?.faqs ||
+    [];
   return (
-    <div className="h-auto w-[100%]">
-      <div className="relative ">
- <div className=" h-[250px] w-[100%] ">          <Image
+    <div className="h-auto w-[100%] poppins">
+      <div className="relative lg:px-[30px] xl:px-[50px]  ">
+        <div className=" h-[250px] xl:h-[300px] lg:h-[350px] w-[100%] ">
+          {" "}
+          <Image
             src="/images/SchoolBanner/bishopframe.svg"
             alt="Descriptive text for screen readers"
-            className="w-full h-[250px] object-cover rounded-b-2xl "
+            className="w-full lg:h-[400px] h-[250px]  object-cover lg:rounded-2xl rounded-b-2xl "
             width={1000}
             height={1000}
           />
@@ -57,7 +62,7 @@ function BishopKarnatakaPage() {
         <div className="w-[13vw] ">
           <Image
             src="/images/SchoolBanner/bishoplogo.svg"
-           className="absolute inset-0 left-[5%] top-[80%] w-[90px] h-[80px] "
+            className="absolute inset-0 left-[5%] lg:top-[300px] top-[80%] lg:w-[132px] lg:h-[130px] w-[90px] h-[80px] "
             width={1000}
             height={1000}
             alt="img"
@@ -65,15 +70,15 @@ function BishopKarnatakaPage() {
         </div>
       </div>
 
-     <div className="w-[90%] ml-[5%]  mt-[10%] ">
-        <div className="relative h-[20vh]  sm:h-[24vh] md:h-[22vh]   w-full  border-b-2  sm:flex sm:justify-between">
+      <div className="w-[90%] ml-[5%]  mt-[10%] ">
+        <div className="relative h-[170px]   xl:h-[180px] md:h-[120px] lg:h-[170px]    w-full  border-b-2  sm:flex sm:justify-between">
           <div className="w-full flex flex-col  lg:gap-5 gap-2">
             <div className="">
               <h1 className="text-[#075D70]  lg:text-[2rem] text-[18px] font-semibold lg:font-bold ">
                 Bishop Cotton School, Bangalore, Karnataka
               </h1>
             </div>
-             <div className="flex text-center lg:gap-3 gap-2 items-center">
+            <div className="flex text-center lg:gap-3 gap-2 items-center">
               <h2 className="text-[#075D70] ">4.2</h2>
 
               <div className="border-none ">
@@ -107,7 +112,7 @@ function BishopKarnatakaPage() {
           </div>
 
           <div className=" sm:absolute  gap-3 flex  sm:right-0 sm:self-center">
-              {/* <button className="py-1 px-2 sm:py-1.5 sm:px-2.5 border border-[#075D70] rounded-[5px] flex gap-2">
+            {/* <button className="py-1 px-2 sm:py-1.5 sm:px-2.5 border border-[#075D70] rounded-[5px] flex gap-2">
               <div>
                 <Image
                   src="/icons/download.svg"
@@ -120,19 +125,8 @@ function BishopKarnatakaPage() {
 
               <p className="text-[#075D70]">Broucher</p>
             </button> */}
-            <button className="py-1 px-2 sm:py-1.5 sm:px-2.5 border border-[#075D70]  rounded-[5px] flex gap-2">
-              <div>
-                <Image
-                  src="/icons/star.svg"
-                  className="w-full h-full pt-1"
-                  width={2}
-                  height={2}
-                  alt="img"
-                />
-              </div>
+                       <GetPrepared/>
 
-              <p className="text-[#075D70]">Get Prepared</p>
-            </button>
           </div>
         </div>
 
@@ -222,7 +216,7 @@ function BishopKarnatakaPage() {
       </div>
 
       <div>
-        <Faq data={BishopKarnatakFAQ}/>
+        <Faq data={BishopKarnatakFAQ} />
       </div>
     </div>
   );

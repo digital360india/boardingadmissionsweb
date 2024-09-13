@@ -4,6 +4,8 @@ import Faq from "@/components/frontend/Faqdata";
 import Image from "next/image";
 import Star from "@/components/frontend/Ratings";
 import schoolFAQs from "@/utils/frontend/FaqData";
+import GetPrepared from "@/components/frontend/GetPrepared";
+
 
 const star = [
   {
@@ -12,16 +14,44 @@ const star = [
     ratingByPerson: 4,
   },
 ];
- 
 
 const feeData = [
-  { class: 'I-IV', oldStudent: 283000, daySchool: 94000, boarding: 250000, dayScholar: 72000 },
-  { class: 'V-VIII', oldStudent: 314000, daySchool: 97000, boarding: 280000, dayScholar: 75000 },
-  { class: 'IX-X', oldStudent: 338000, daySchool: 112000, boarding: 305000, dayScholar: 87000 },
-  { class: 'XI-XII', oldStudent: 338000, daySchool: 112000, boarding: 305000, dayScholar: 87000 },
-  { class: 'XI-XII (Science)', oldStudent: 344000, daySchool: 118000, boarding: 311000, dayScholar: 93000 },
+  {
+    class: "I-IV",
+    oldStudent: 283000,
+    daySchool: 94000,
+    boarding: 250000,
+    dayScholar: 72000,
+  },
+  {
+    class: "V-VIII",
+    oldStudent: 314000,
+    daySchool: 97000,
+    boarding: 280000,
+    dayScholar: 75000,
+  },
+  {
+    class: "IX-X",
+    oldStudent: 338000,
+    daySchool: 112000,
+    boarding: 305000,
+    dayScholar: 87000,
+  },
+  {
+    class: "XI-XII",
+    oldStudent: 338000,
+    daySchool: 112000,
+    boarding: 305000,
+    dayScholar: 87000,
+  },
+  {
+    class: "XI-XII (Science)",
+    oldStudent: 344000,
+    daySchool: 118000,
+    boarding: 311000,
+    dayScholar: 93000,
+  },
 ];
-
 
 const admissionSteps = [
   {
@@ -71,16 +101,18 @@ const admissionSteps = [
 ];
 
 function CJMwaverlyPage() {
-
-  const CJMWaverly = schoolFAQs.find(school => school.school === 'CJMWaverly')?.faqs || [];
+  const CJMWaverly =
+    schoolFAQs.find((school) => school.school === "CJMWaverly")?.faqs || [];
 
   return (
-    <div className="h-auto w-[100%] ">
-      <div className="relative ">
- <div className=" h-[250px] w-[100%] ">          <Image
+    <div className="h-auto w-[100%] poppins">
+      <div className="relative lg:px-[30px] xl:px-[50px]  ">
+        <div className=" h-[250px] xl:h-[300px] lg:h-[350px] w-[100%] ">
+          {" "}
+          <Image
             src="/images/SchoolBanner/cjmframe.svg"
             alt="Descriptive text for screen readers"
-            className="w-full h-[250px] object-cover rounded-b-2xl "
+            className="w-full lg:h-[400px] h-[250px]  object-cover lg:rounded-2xl rounded-b-2xl "
             width={1000}
             height={1000}
           />
@@ -88,7 +120,7 @@ function CJMwaverlyPage() {
         <div className="w-[13vw] ">
           <Image
             src="/images/SchoolBanner/cjmlogo.svg"
-           className="absolute inset-0 left-[5%] top-[80%] w-[90px] h-[80px] "
+            className="absolute inset-0 left-[5%] lg:top-[300px] top-[80%] lg:w-[132px] lg:h-[130px] w-[90px] h-[80px] "
             width={1000}
             height={1000}
             alt="img"
@@ -96,15 +128,15 @@ function CJMwaverlyPage() {
         </div>
       </div>
 
-     <div className="w-[90%] ml-[5%]  mt-[10%] ">
-        <div className="relative h-[20vh]  sm:h-[24vh] md:h-[22vh]   w-full  border-b-2  sm:flex sm:justify-between">
+      <div className="w-[90%] ml-[5%]  mt-[10%] ">
+        <div className="relative h-[170px]   xl:h-[180px] md:h-[120px] lg:h-[170px]    w-full  border-b-2  sm:flex sm:justify-between">
           <div className="w-full flex flex-col  lg:gap-5 gap-2">
             <div className="">
               <h1 className="text-[#075D70]  lg:text-[2rem] text-[18px] font-semibold lg:font-bold ">
                 CJM Waverly, Mussoorie, Uttarakhand
               </h1>
             </div>
-             <div className="flex text-center lg:gap-3 gap-2 items-center">
+            <div className="flex text-center lg:gap-3 gap-2 items-center">
               <h2 className="text-[#075D70] ">4.2</h2>
 
               <div className="border-none ">
@@ -138,7 +170,7 @@ function CJMwaverlyPage() {
           </div>
 
           <div className=" sm:absolute  gap-3 flex  sm:right-0 sm:self-center">
-              {/* <button className="py-1 px-2 sm:py-1.5 sm:px-2.5 border border-[#075D70] rounded-[5px] flex gap-2">
+            {/* <button className="py-1 px-2 sm:py-1.5 sm:px-2.5 border border-[#075D70] rounded-[5px] flex gap-2">
               <div>
                 <Image
                   src="/icons/download.svg"
@@ -151,19 +183,8 @@ function CJMwaverlyPage() {
 
               <p className="text-[#075D70]">Broucher</p>
             </button> */}
-            <button className="py-1 px-2 sm:py-1.5 sm:px-2.5 border border-[#075D70]  rounded-[5px] flex gap-2">
-              <div>
-                <Image
-                  src="/icons/star.svg"
-                  className="w-full h-full pt-1"
-                  width={2}
-                  height={2}
-                  alt="img"
-                />
-              </div>
+                       <GetPrepared/>
 
-              <p className="text-[#075D70]">Get Prepared</p>
-            </button>
           </div>
         </div>
 
@@ -196,29 +217,41 @@ function CJMwaverlyPage() {
           <h2 className="text-[#075D70] font-semibold text-[2rem] mt-8 mb-5">
             Fee Structure
           </h2>
-
-          <table className="w-full border-collapse border border-gray-300">
-        <thead>
-          <tr className="bg-gray-100">
-            <th className="border border-gray-300 p-2">Class</th>
-            <th className="border border-gray-300 p-2">Old Student</th>
-            <th className="border border-gray-300 p-2">Day School</th>
-            <th className="border border-gray-300 p-2">Boarding</th>
-            <th className="border border-gray-300 p-2">Day Scholar</th>
-          </tr>
-        </thead>
-        <tbody>
-          {feeData.map((row, index) => (
-            <tr key={index}>
-              <td className="border border-gray-300 p-2 text-center">{row.class}</td>
-              <td className="border border-gray-300 p-2 text-center">Rs.{row.oldStudent}/-</td>
-              <td className="border border-gray-300 p-2 text-center">Rs.{row.daySchool}/-</td>
-              <td className="border border-gray-300 p-2 text-center">Rs.{row.boarding}/-</td>
-              <td className="border border-gray-300 p-2 text-center">Rs.{row.dayScholar}/-</td>
-            </tr>
-          ))}
-        </tbody>
-      </table>
+<div className="overflow-x-scroll">
+<table className="w-full border-collapse border border-gray-300">
+            <thead>
+              <tr className="bg-gray-100">
+                <th className="border border-gray-300 p-2">Class</th>
+                <th className="border border-gray-300 p-2">Old Student</th>
+                <th className="border border-gray-300 p-2">Day School</th>
+                <th className="border border-gray-300 p-2">Boarding</th>
+                <th className="border border-gray-300 p-2">Day Scholar</th>
+              </tr>
+            </thead>
+            <tbody>
+              {feeData.map((row, index) => (
+                <tr key={index}>
+                  <td className="border border-gray-300 p-2 text-center">
+                    {row.class}
+                  </td>
+                  <td className="border border-gray-300 p-2 text-center">
+                    Rs.{row.oldStudent}/-
+                  </td>
+                  <td className="border border-gray-300 p-2 text-center">
+                    Rs.{row.daySchool}/-
+                  </td>
+                  <td className="border border-gray-300 p-2 text-center">
+                    Rs.{row.boarding}/-
+                  </td>
+                  <td className="border border-gray-300 p-2 text-center">
+                    Rs.{row.dayScholar}/-
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+</div>
+          
         </div>
 
         <div className="space-y-4 w-[90vw] mb-10 mt-10">
@@ -241,7 +274,9 @@ function CJMwaverlyPage() {
         </div>
 
         <div>
-          <h1 className="text-[#075D70] font-semibold text-[2rem] mb-2">Important Note</h1>
+          <h1 className="text-[#075D70] font-semibold text-[2rem] mb-2">
+            Important Note
+          </h1>
           <ul className="list-disc pl-4 mb-7">
             <li>
               For the latest updates on the admission process and fee structure,
@@ -261,7 +296,7 @@ function CJMwaverlyPage() {
       </div>
 
       <div>
-        <Faq data={CJMWaverly}/>
+        <Faq data={CJMWaverly} />
       </div>
     </div>
   );
