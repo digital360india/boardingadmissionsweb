@@ -27,7 +27,7 @@ export default function EntranceCourse() {
       <div className="flex-col space-y-6">
       <div className="flex items-center space-x-4">
         <div>
-          <Image src="/vectors/celender.svg" className="md:w-[24px] md:h-[24px] w-[20px] h-[20px]" width={1} height={1} alt="image" />
+          <Image src="/vectors/celender.svg" className="md:w-[24px] md:h-[24px] w-[20px] h-[20px]" width={1000} height={1000} alt="image" />
         </div>
         <div>
           <div className="flex-col leading-tight font-medium md:text-16px text-[12px]">
@@ -38,7 +38,7 @@ export default function EntranceCourse() {
       </div>
       <div className="flex items-center space-x-4">
         <div>
-          <Image src="/vectors/star.svg" className="md:w-[24px] md:h-[24px] w-[20px] h-[20px]" width={1} height={1} alt="image" />
+          <Image src="/vectors/star.svg" className="md:w-[24px] md:h-[24px] w-[20px] h-[20px]" width={1000} height={1000} alt="image" />
         </div>
         <div className="flex-col leading-tight font-medium md:text-16px text-[12px]">
             <p className="text-[#888888]">Validity:</p>
@@ -51,7 +51,7 @@ export default function EntranceCourse() {
           <div>
             <Image
               src="/vectors/star.svg"
-              className="md:w-[24px] md:h-[24px] w-[20px] h-[20px]" width={1} height={1}
+              className="md:w-[24px] md:h-[24px] w-[20px] h-[20px]" width={1000} height={1000}
               alt="image"
             />
           </div>
@@ -61,7 +61,7 @@ export default function EntranceCourse() {
     </div>
     <div className="flex items-center space-x-4">
         <div>
-          <Image src="/vectors/subject.svg" className="md:w-[24px] md:h-[24px] w-[20px] h-[20px]" width={1} height={1} alt="image" />
+          <Image src="/vectors/subject.svg" className="md:w-[24px] md:h-[24px] w-[20px] h-[20px]" width={1000} height={1000} alt="image" />
         </div>
         <div>
           <div className="flex-col leading-tight md:text-16px text-[12px]">

@@ -29,8 +29,8 @@ export default function WhoWeAre() {
                 src="/images/Rectangle2.svg"
                 alt="Calendar"
                 className="w-[100%]"
-                width={2}
-                height={2}
+                width={1000}
+                height={1000}
               />
             </div>
           </div>

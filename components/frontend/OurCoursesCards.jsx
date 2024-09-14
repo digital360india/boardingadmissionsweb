@@ -196,7 +196,7 @@ const OurCoursesCards = () => {
           >
             <Image
               src={card.imageSrc}
-              width={1}
+              width={1000}
               height={250}
               alt="card"
               className="w-full"

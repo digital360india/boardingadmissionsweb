@@ -78,7 +78,7 @@ const EnrollNowCoursesWeOffer = () => {
             >
               <Image
                 src={card.imageSrc}
-                width={1}
+                width={1000}
                 height={228}
                 alt="card"
                 className="w-full"

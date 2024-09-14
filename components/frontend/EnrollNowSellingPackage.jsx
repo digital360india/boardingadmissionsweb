@@ -25,8 +25,8 @@ const EnrollNowSellingPackage = () => {
                     <Image
                       src="/icons/school2.svg"
                       alt="school"
-                      width={1}
-                      height={1}
+                      width={1000}
+                      height={1000}
                       className="w-[7.8rem] h-[7.125rem] md:w-[15.813rem] md:h-[12.5rem]"
                     />
                   </div>
@@ -37,8 +37,8 @@ const EnrollNowSellingPackage = () => {
                     <Image
                       src="/icons/school4.svg"
                       alt="school"
-                      width={1}
-                      height={1}
+                      width={1000}
+                      height={1000}
                       className="w-[7.8rem] h-[7.125rem] md:w-[15.813rem] md:h-[12.5rem]"
                     />
                   </div>

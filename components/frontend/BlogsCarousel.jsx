@@ -152,8 +152,8 @@ const carouselRef = useRef(null);
                       style={{ width: "100%" }}
                     >
                       <Image
-                        width={1}
-                        height={1}
+                        width={1000}
+                        height={1000}
                         src={item.image}
                         alt={item.text}
                         className="object-cover w-full h-full"
@@ -171,8 +171,8 @@ const carouselRef = useRef(null);
             className="absolute top-[60%] left-0 px-4 py-2 transform -translate-y-1/2 rounded-full"
           >
             <Image
-              width={1}
-              height={1}
+              width={1000}
+              height={1000}
               src="/images/leftbutton.svg"
               alt="/"
               className="object-cover w-full h-full "
@@ -183,8 +183,8 @@ const carouselRef = useRef(null);
             className="absolute top-[60%] right-0 p-2  px-4  transform -translate-y-1/2 rounded-full"
           >
             <Image
-              width={1}
-              height={1}
+              width={1000}
+              height={1000}
               src="/images/rightbutton.svg"
               alt="/"
               className="object-cover w-full h-full "
@@ -212,7 +212,7 @@ const carouselRef = useRef(null);
                 <div className="flex justify-center ">
                   <Image 
                     src={member.imageSrc}
-                    width={380}
+                    width={1000}
                     height={244}
                     alt={member.name}
                     className=" rounded-t-3xl"

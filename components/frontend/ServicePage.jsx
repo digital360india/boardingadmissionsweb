@@ -25,7 +25,7 @@ const ServicePage = () => {
               <div>
                 <Image
                   src="/icons/online1.svg"
-                  width={632}
+                  width={1000}
                   height={280}
                   alt="course1"
                 />
@@ -33,7 +33,7 @@ const ServicePage = () => {
               <div>
                 <Image
                   src="/icons/online2.svg"
-                  width={368}
+                  width={1000}
                   height={280}
                   alt="course1"
                 />
@@ -42,7 +42,7 @@ const ServicePage = () => {
                 <div>
                   <Image
                     src="/icons/online3.svg"
-                    width={180}
+                    width={1000}
                     height={128}
                     alt="course1"
                   />
@@ -50,7 +50,7 @@ const ServicePage = () => {
                 <div>
                   <Image
                     src="/icons/online4.svg"
-                    width={180}
+                    width={1000}
                     height={128}
                     alt="course1"
                   />
@@ -61,7 +61,7 @@ const ServicePage = () => {
             <div className="md:hidden lg:hidden mt-4">
               <Image
                 src="/icons/online1.svg"
-                width={632}
+                width={1000}
                 height={280}
                 alt="course1"
               />
@@ -88,7 +88,7 @@ const ServicePage = () => {
               <div>
                 <Image
                   src="/icons/PI1.svg"
-                  width={632}
+                  width={1000}
                   height={280}
                   alt="course1"
                 />
@@ -96,7 +96,7 @@ const ServicePage = () => {
               <div>
                 <Image
                   src="/icons/PI2.svg"
-                  width={579}
+                  width={1000}
                   height={280}
                   alt="course1"
                 />
@@ -105,7 +105,7 @@ const ServicePage = () => {
             <div className="md:hidden lg:hidden mt-4">
               <Image
                 src="/icons/PI1.svg"
-                width={632}
+                width={1000}
                 height={280}
                 alt="course1"
               />
@@ -133,7 +133,7 @@ const ServicePage = () => {
               <div>
                 <Image
                   src="/icons/MT1.svg"
-                  width={632}
+                  width={1000}
                   height={280}
                   alt="Mock Test"
                 />
@@ -141,7 +141,7 @@ const ServicePage = () => {
               <div>
                 <Image
                   src="/icons/MT2.svg"
-                  width={262}
+                  width={1000}
                   height={280}
                   alt="Mock Test"
                 />
@@ -149,7 +149,7 @@ const ServicePage = () => {
               <div>
                 <Image
                   src="/icons/MT3.svg"
-                  width={280}
+                  width={1000}
                   height={280}
                   alt="Mock Test"
                 />
@@ -158,7 +158,7 @@ const ServicePage = () => {
             <div className="md:hidden lg:hidden mt-4">
               <Image
                 src="/icons/MT1.svg"
-                width={632}
+                width={1000}
                 height={280}
                 alt="Mock Test"
               />
@@ -186,7 +186,7 @@ const ServicePage = () => {
               <div>
                 <Image
                   src="/icons/Doubt1.svg"
-                  width={632}
+                  width={1000}
                   height={280}
                   alt="Doubt1"
                 />
@@ -194,7 +194,7 @@ const ServicePage = () => {
               <div>
                 <Image
                   src="/icons/Doubt2.svg"
-                  width={368}
+                  width={1000}
                   height={280}
                   alt="Doubt2"
                 />
@@ -203,7 +203,7 @@ const ServicePage = () => {
               <div>
                 <Image
                   src="/icons/Doubt3.svg"
-                  width={187}
+                  width={1000}
                   height={130}
                   alt="Doubt3"
                 />
@@ -212,7 +212,7 @@ const ServicePage = () => {
             <div className="md:hidden lg:hidden mt-4">
               <Image
                 src="/icons/Doubt1.svg"
-                width={632}
+                width={1000}
                 height={280}
                 alt="Doubt1"
               />

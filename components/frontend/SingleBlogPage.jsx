@@ -52,8 +52,8 @@ const SingleBlogPage = () => {
             <div className="w-full h-full md:px-10 lg:px-20">
               <Image
                 src="/icons/bloghead.svg"
-                width={1}
-                height={1}
+                width={1000}
+                height={1000}
                 alt="icon"
                 className="w-full h-full"
               />
@@ -91,8 +91,8 @@ const SingleBlogPage = () => {
                   <div className="w-full h-auto">
                     <Image
                       src="/icons/b1.svg"
-                      width={1}
-                      height={1}
+                      width={1000}
+                      height={1000}
                       alt="icon"
                       className="w-full h-auto"
                     />
@@ -101,8 +101,8 @@ const SingleBlogPage = () => {
                   <div className="w-full h-auto">
                     <Image
                       src="/icons/b2.svg"
-                      width={1}
-                      height={1}
+                      width={1000}
+                      height={1000}
                       alt="icon"
                       className="w-full h-auto"
                     />
@@ -163,8 +163,8 @@ const SingleBlogPage = () => {
                 <div className="w-full h-full pt-10">
                   <Image
                     src="/icons/b3.svg"
-                    width={1}
-                    height={1}
+                    width={1000}
+                    height={1000}
                     alt="icon"
                     className="w-full h-full"
                   />

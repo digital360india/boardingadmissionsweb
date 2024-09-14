@@ -62,8 +62,8 @@ export default function EntranceMain() {
               <Image
                 src="/images/faoundation.svg"
                 className="w-full md:h-[125px] h-[55px] object-cover rounded-t-lg"
-                width={1}
-                height={1}
+                width={1000}
+                height={1000}
                 alt="image"
               />
               <div className="absolute inset-0 flex items-center justify-center p-4">
@@ -108,8 +108,8 @@ export default function EntranceMain() {
                 <div>
                   <Image
                     src="/vectors/whatsapp.svg"
-                    width={1}
-                    height={1}
+                    width={1000}
+                    height={1000}
                     alt="image"
                     className="md:w-[24px] md:h-[24px] w-[13px] h-[13px]"
                   />
@@ -135,7 +135,7 @@ export default function EntranceMain() {
                   >
                     <Image
                       src={card.imageSrc}
-                      width={1}
+                      width={1000}
                       height={228}
                       alt="card"
                       className="w-full"
@@ -265,7 +265,7 @@ export default function EntranceMain() {
                   >
                     <Image
                       src={card.imageSrc}
-                      width={1}
+                      width={1000}
                       height={228}
                       alt="card"
                       className="w-full"

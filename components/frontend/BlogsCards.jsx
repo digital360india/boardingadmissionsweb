@@ -123,8 +123,8 @@ export default function BlogsCards() {
             <div className="lg:mb-4 mb-2">
               <Image
                 src={item.imageSrc}
-                width={3}
-                height={244}
+                width={1000}
+                height={1000}
                 alt="Image"
                 className="rounded-t-lg w-full"
               />
@@ -153,8 +153,8 @@ export default function BlogsCards() {
           disabled={currentPage === 1}
         >
            <Image
-                width={1}
-                height={1}
+                width={1000}
+                height={1000}
                     src="/images/leftbutton.svg"
                     alt="/"
                     className=" w-full h-full "
@@ -169,8 +169,8 @@ export default function BlogsCards() {
           disabled={currentPage === totalPages}
         >
            <Image
-                width={1}
-                height={1}
+                width={1000}
+                height={1000}
                     src="/images/rightbutton.svg"
                     alt="/"
                     className=" w-full h-full "

@@ -57,7 +57,7 @@ export default function TopSchools() {
       school: "Vidya Devi Jindal School",
       imageSrc: "/images/schoolimages/Vidya_Devi_Jindal_School.svg",
       location: "",
-      routes: "/school/the-doon-school",
+      routes: "/school/vidya-devi-jindal",
     },
     {
       school: "Welham Boys",
@@ -69,7 +69,7 @@ export default function TopSchools() {
       school: "Welham Girls",
       imageSrc: "/images/schoolimages/Welham_Girls.svg",
       location: "(Dehradun)",
-      routes: "/school/welham-boys-school",
+      routes: "/school/welham-girls-school",
     },
     {
       school: "Wood Stock School",
@@ -97,8 +97,8 @@ export default function TopSchools() {
                 <div className="flex justify-center lg:mt-[8%] mt-[6%] lg:mb-[5%] mb-[3%]">
                   <Image
                     src={member.imageSrc}
-                    width={1}
-                    height={1}
+                    width={1000}
+                    height={1000}
                     alt={member.school}
                     className="lg:w-[200px] lg:h-[200px] w-[80px] h-[80px]"
                   />

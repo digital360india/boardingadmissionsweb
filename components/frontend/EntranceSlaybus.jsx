@@ -29,7 +29,7 @@ export default function EntranceSlaybus() {
           <div key={index} className="border-b border-r border-[#F0F0F0] lg:w-[290px] lg:h-[169px] w-[163px] h-[81px] md:w-[315px] md:h-[120px] md:p-6 p-3">
             <div className="flex md:items-center md:space-x-6 space-x-3">
               <div className="">
-                <Image src="/images/apti.svg" className="lg:w-[64px] lg:h-[64px] w-[32px] h-[32px]" width={1} height={1} alt="image" />
+                <Image src="/images/apti.svg" className="lg:w-[64px] lg:h-[64px] w-[32px] h-[32px]" width={1000} height={1000} alt="image" />
               </div>
               <div className="font-semibold md:text-14px text-[10px]"> {item.name}</div>
             </div>

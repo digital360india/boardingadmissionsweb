@@ -94,7 +94,7 @@ export default function FeaturedBlog() {
                 <div className="flex justify-center">
                   <Image
                     src={member.imageSrc}
-                    width={380}
+                    width={1000}
                     height={244}
                     alt={member.name}
                   />

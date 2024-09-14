@@ -9,8 +9,8 @@ export default function AboutHero() {
       <div className='order-2 lg:order-1'>
       <Image
                 src="/images/aboutimg.svg"
-                width={1}
-                height={1}
+                width={1000}
+                height={1000}
                 alt="Image"
                 className='lg:w-[316px] lg:h-[459px] w-[214px] h-[311]'
               />
