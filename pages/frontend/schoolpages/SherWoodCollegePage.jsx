@@ -5,6 +5,7 @@ import Image from "next/image";
 import Star from "@/components/frontend/Ratings";
 import schoolFAQs from "@/utils/frontend/FaqData";
 import GetPrepared from "@/components/frontend/GetPrepared";
+import EnquiryForm from "@/components/frontend/EnquiryForm";
 
 const star = [
   {
@@ -115,7 +116,10 @@ function SherWoodCollegePage() {
               </h3>
             </div>
           </div>
+          <div className="md:hidden mt-6">
+<EnquiryForm/>
 
+</div>
           <div className=" sm:absolute  gap-3 flex  sm:right-0 sm:self-center">
             {/* <button className="py-1 px-2 sm:py-1.5 sm:px-2.5 border border-[#075D70] rounded-[5px] flex gap-2">
               <div>
