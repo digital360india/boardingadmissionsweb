@@ -190,23 +190,31 @@ export default function Navbar() {
         </div>
 
         {/* Mobile Navigation Links */}
-        <div className="flex flex-col items-start pl-6 text-black space-y-4 mt-4">
+        <div className="flex flex-col items-start pl-6 text-black space-y-6  mt-4">
+        <Link href="/">
+            <button onClick={toggleMenu} className="text-2xl">
+              Home
+            </button>
+          </Link>
           <Link href="/courses">
-            <button onClick={toggleMenu} className="text-lg">
+            <button onClick={toggleMenu} className="text-2xl">
               Courses
             </button>
           </Link>
           <Link href="/schools">
-            <button onClick={toggleMenu} className="text-lg">
+            <button onClick={toggleMenu} className="text-2xl">
               Schools
             </button>
           </Link>
 
           <Link href="/aboutus">
-            <button onClick={toggleMenu} className="text-lg">
+            <button onClick={toggleMenu} className="text-2xl">
               About
             </button>
           </Link>
+
+
+          
           {/* <Link href="/scholarshiptest">
             <button
               onClick={toggleMenu}
