@@ -82,7 +82,7 @@ export default function TopSchools() {
       <div className="xl:mx-[100px] lg:mx-[40px] mx-[10px] lg:pb-[100px] pb-[50px]">
         <div>
           <p className="text-primary02 py-[40px] lg:text-[48px] text-[24px] lg:w-full  font-semibold text-center">
-            Top Schools We have Cracked
+            List of Schools
           </p>
         </div>
         <div className="flex justify-center mx-auto lg:gap-8 gap-4 flex-wrap ">

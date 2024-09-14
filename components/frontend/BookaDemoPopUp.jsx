@@ -82,7 +82,7 @@ const BookaDemoPopUp = ({ onClose }) => {
   };
 
   return (
-    <div className="z-10  fixed inset-0 flex items-center justify-center   bg-black bg-opacity-30 font-poppins">
+    <div className="z-20  fixed inset-0 flex items-center justify-center   bg-black bg-opacity-30 font-poppins">
       <div className="bg-[#FFFFFF] w-[351px] h-[650px] md:w-[710px] md:h-[460px] lg:w-[950px] lg:h-[520px] rounded  border-8 border-[#CDC6DB30] ">
         <div
           className="md:hidden  cursor-pointer flex justify-end "

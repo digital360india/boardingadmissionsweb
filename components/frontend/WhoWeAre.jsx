@@ -3,7 +3,7 @@ import React from "react";
 
 export default function WhoWeAre() {
   return (
-    <div className="lg:flex w-full md:px-[100px] lg:p-[40px] px-[24px] xl:h-[600px] lg:h-[480px] lg:py-0 py-12 bg-[#F4FCFC]">
+    <div className="lg:flex w-full xl:px-[100px] lg:p-[40px] px-[24px] xl:h-[600px] lg:h-[480px] lg:py-0 py-12 bg-[#F4FCFC]">
       <div className=" w-1/2 lg:flex hidden items-center">
         <img
           src="/images/reactangle.svg"
