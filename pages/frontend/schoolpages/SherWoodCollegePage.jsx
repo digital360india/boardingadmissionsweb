@@ -53,7 +53,7 @@ function SherWoodCollegePage() {
     schoolFAQs.find((school) => school.school === "SherwoodCollege")?.faqs ||
     [];
   return (
-    <div className="h-auto w-[100%] poppins">
+    <div className="h-auto w-[100%] poppins lg:mt-28 mt-20 md:mt-16">
       <div className="relative lg:px-[30px] xl:px-[50px]  ">
         <div className=" h-[250px] xl:h-[300px] lg:h-[350px] w-[100%] ">
           {" "}
@@ -116,10 +116,7 @@ function SherWoodCollegePage() {
               </h3>
             </div>
           </div>
-          <div className="md:hidden mt-6">
-<EnquiryForm/>
-
-</div>
+         
           <div className=" sm:absolute  gap-3 flex  sm:right-0 sm:self-center">
             {/* <button className="py-1 px-2 sm:py-1.5 sm:px-2.5 border border-[#075D70] rounded-[5px] flex gap-2">
               <div>
@@ -138,7 +135,10 @@ function SherWoodCollegePage() {
 
           </div>
         </div>
+        <div className="md:hidden mt-6">
+<EnquiryForm/>
 
+</div>
         <div className="space-y-4 w-[90vw]  mt-10 ">
           <div className="">
             <h1 className="text-[#075D70] font-semibold  text-[2rem] ">

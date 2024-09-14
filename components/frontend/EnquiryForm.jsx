@@ -91,7 +91,7 @@ export default function EnquiryForm({title}) {
         <button
           type="submit"
           name="submit"
-          className=" mt-[4vh] w-[180px] h-[40px] px-2 font-semibold text-white rounded-xl bg-[#0B446F] grid place-content-center"
+          className=" mt-[4vh] w-[180px] h-[40px] px-2 font-semibold text-white rounded-xl bg-primary02 grid place-content-center"
         >
           Submit
         </button>

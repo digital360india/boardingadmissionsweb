@@ -19,9 +19,11 @@ const star = [
 function TheDoonPage() {
   const TheDoon = schoolFAQs.find(school => school.school === 'TheDoon')?.faqs || [];
   return (
-    <div className="h-auto w-[100%] poppins">
-      <div className="relative lg:px-[30px] xl:px-[50px]  ">
-        <div className=" h-[250px] xl:h-[300px] lg:h-[350px] w-[100%] ">       <Image
+    <div className="h-auto w-[100%] poppins lg:mt-28 mt-20 md:mt-16">
+      <div className="relative lg:px-[30px] xl:px-[50px]">
+
+        <div className=" h-[250px] xl:h-[300px] lg:h-[350px] w-[100%] ">   
+              <Image
             src="/images/SchoolBanner/thedoonframe.svg"
             alt="Descriptive text for screen readers"
            className="w-full lg:h-[400px] h-[250px]  object-cover lg:rounded-2xl rounded-b-2xl "

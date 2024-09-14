@@ -20,7 +20,7 @@ const star = [
 function WelhamGirlsPage() {
   const WelhamGirls = schoolFAQs.find(school => school.school === 'WelhamGirls')?.faqs || [];
   return (
-    <div className="h-auto w-[100%] poppins lg:mt-28 mt-12">
+    <div className="h-auto w-[100%] poppins lg:mt-28 mt-20 md:mt-16">
       <div className="relative ">
       <div className=" h-[250px] w-[100%] ">      
             <Image
