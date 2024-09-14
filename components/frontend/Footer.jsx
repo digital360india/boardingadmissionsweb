@@ -22,7 +22,7 @@ const Footer = () => {
                 <div className="flex gap-3">
                   <Image
                     src="/icons/location.svg"
-                    width={20}
+                    width={1000}
                     height={24}
                     alt="course1"
                   />
@@ -33,7 +33,7 @@ const Footer = () => {
                 <div className="flex  gap-3">
                   <Image
                     src="/icons/mail.svg"
-                    width={20}
+                    width={1000}
                     height={24}
                     alt="course1"
                   />
@@ -50,7 +50,7 @@ const Footer = () => {
                 <div className="flex gap-3">
                   <Image
                     src="/icons/call.svg"
-                    width={20}
+                    width={1000}
                     height={24}
                     alt="course1"
                   />
@@ -178,7 +178,7 @@ const Footer = () => {
           <div>
             <Image
               src="/icons/Boardinglogo.svg"
-              width={180}
+              width={1000}
               height={62}
               alt="logo"
             />
@@ -240,7 +240,7 @@ const Footer = () => {
             <div className="flex items-center gap-2 mt-2">
               <Image
                 src="/icons/fb2.svg"
-                width={20}
+                width={1000}
                 height={20}
                 alt="Facebook logo"
               />
@@ -252,7 +252,7 @@ const Footer = () => {
             <div className="flex items-center gap-2 mt-2">
               <Image
                 src="/icons/youtube.svg"
-                width={20}
+                width={1000}
                 height={20}
                 alt="YouTube logo"
               />
@@ -261,7 +261,7 @@ const Footer = () => {
             <div className="flex items-center gap-2 mt-2">
               <Image
                 src="/icons/insta.svg"
-                width={20}
+                width={1000}
                 height={20}
                 alt="Instagram logo"
               />

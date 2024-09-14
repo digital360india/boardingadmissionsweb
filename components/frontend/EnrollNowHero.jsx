@@ -58,7 +58,7 @@ const EnrollNowHero = () => {
                   <div className="w-[2rem]  h-[2.3rem]">
                     <Image
                       src="/icons/Background.svg"
-                      width={16}
+                      width={1000}
                       height={16}
                       alt="school"
                       className="w-[2rem] h-[1rem]"
@@ -117,7 +117,7 @@ const EnrollNowHero = () => {
                 {/* <div className="flex items-center gap-2">
                   <Image
                     src="/icons/Background.svg"
-                    width={16}
+                    width={1000}
                     height={16}
                     alt="school"
                   />
@@ -129,7 +129,7 @@ const EnrollNowHero = () => {
                 {/* <div className="flex items-center gap-2">
                   <Image
                     src="/icons/Background.svg"
-                    width={16}
+                    width={1000}
                     height={16}
                     alt="school"
                   />

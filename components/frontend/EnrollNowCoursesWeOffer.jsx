@@ -78,7 +78,7 @@ const EnrollNowCoursesWeOffer = () => {
             >
               <Image
                 src={card.imageSrc}
-                width={1}
+                width={1000}
                 height={228}
                 alt="card"
                 className="w-full"
@@ -106,7 +106,7 @@ const EnrollNowCoursesWeOffer = () => {
                     <div className="flex items-center  pt-[5px] gap-3">
                       <Image
                         src="/icons/Vector.svg"
-                        width={20}
+                        width={1000}
                         height={20}
                         alt="card"
                         className=""

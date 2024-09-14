@@ -25,16 +25,16 @@ const BoardingCompatibilityTestPage = () => {
               <div>
                 <Image
                   src="/icons/online1.svg"
-                  width={632}
-                  height={280}
+                  width={1000}
+                  height={1000}
                   alt="course1"
                 />
               </div>
               <div>
                 <Image
                   src="/icons/online2.svg"
-                  width={368}
-                  height={280}
+                  width={1000}
+                  height={1000}
                   alt="course1"
                 />
               </div>
@@ -42,16 +42,16 @@ const BoardingCompatibilityTestPage = () => {
                 <div>
                   <Image
                     src="/icons/online3.svg"
-                    width={180}
-                    height={128}
+                    width={1000}
+                    height={1000}
                     alt="course1"
                   />
                 </div>
                 <div>
                   <Image
                     src="/icons/online4.svg"
-                    width={180}
-                    height={128}
+                    width={1000}
+                    height={1000}
                     alt="course1"
                   />
                 </div>
@@ -61,8 +61,8 @@ const BoardingCompatibilityTestPage = () => {
             <div className="md:hidden lg:hidden mt-4">
               <Image
                 src="/icons/online1.svg"
-                width={632}
-                height={280}
+                width={1000}
+                height={1000}
                 alt="course1"
               />
             </div>
@@ -89,16 +89,16 @@ const BoardingCompatibilityTestPage = () => {
               <div>
                 <Image
                   src="/icons/PI1.svg"
-                  width={632}
-                  height={280}
+                  width={1000}
+                  height={1000}
                   alt="course1"
                 />
               </div>
               <div>
                 <Image
                   src="/icons/PI2.svg"
-                  width={579}
-                  height={280}
+                  width={1000}
+                  height={1000}
                   alt="course1"
                 />
               </div>
@@ -106,8 +106,8 @@ const BoardingCompatibilityTestPage = () => {
             <div className="md:hidden lg:hidden mt-4">
               <Image
                 src="/icons/PI1.svg"
-                width={632}
-                height={280}
+                width={1000}
+                height={1000}
                 alt="course1"
               />
             </div>

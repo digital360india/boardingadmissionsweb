@@ -97,8 +97,8 @@ export default function TopSchools() {
                 <div className="flex justify-center lg:mt-[8%] mt-[6%] lg:mb-[5%] mb-[3%]">
                   <Image
                     src={member.imageSrc}
-                    width={1}
-                    height={1}
+                    width={1000}
+                    height={1000}
                     alt={member.school}
                     className="lg:w-[200px] lg:h-[200px] w-[80px] h-[80px]"
                   />

@@ -15,8 +15,8 @@ export default function AboutSuccess() {
   <div className="lg:hidden flex justify-center items-center w-full">
     <Image
       src="/images/aboutsuccess2.svg"
-      width={380}
-      height={380}
+      width={1000}
+      height={1000}
       className="w-full"
       alt="Image"
     />
@@ -36,8 +36,8 @@ export default function AboutSuccess() {
       <div className="hidden lg:flex justify-center items-center">
         <Image
           src="/images/aboutsuccess.svg"
-          width={500}
-          height={480}
+          width={1000}
+          height={1000}
           alt="Image"
         />
       </div>

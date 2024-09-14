@@ -7,8 +7,8 @@ export default function AboutMakeUs() {
       <div className="lg:block hidden">
         <Image
           src="/images/aboutgirl.svg"
-          width={700}
-          height={700}
+          width={1000}
+          height={1000}
           alt="Image"
         />
       </div>
@@ -29,8 +29,8 @@ export default function AboutMakeUs() {
           <Image
             src="/images/aboutgirl2.svg"
             className="w-full "
-            width={1}
-            height={1}
+            width={1000}
+            height={1000}
             alt="Image"
           />
         </div>
@@ -41,8 +41,8 @@ export default function AboutMakeUs() {
     {/* Background Image */}
     <Image
       src="/images/lines.svg"
-      width={2}
-      height={2}
+      width={1000}
+      height={1000}
       alt="Image"
       className="absolute inset-0 xl:w-[540px] xl:h-[450px] lg:w-[400px] lg:h-[270px] h-full w-full object-contain"
     />
@@ -101,8 +101,8 @@ export default function AboutMakeUs() {
    
 <Image
       src="/images/Frame 50 (2).svg"
-      width={2}
-      height={2}
+      width={1000}
+      height={1000}
       alt="Image"
       className=" xl:h-[400px] w-[1200px] h-[250px] "
     />

@@ -63,8 +63,8 @@ export default function SchoolWeCracked() {
               <Image
                 src={member.imageSrc}
                 className="lg:w-full lg:h-[200px] w-full h-[122px] "
-                width={1}
-                height={1}
+                width={1000}
+                height={1000}
                 alt={member.school}
               />
             </div></Link>

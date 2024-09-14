@@ -42,8 +42,8 @@ export default function OurTeam() {
               className="bg-[#075D70] rounded-lg flex-shrink-0 lg:w-[295px] w-[240px] lg:h-[460px] h-[350px] flex flex-col items-center"
             >
                <div className="">
-                {/* <Image src={member.imageSrc} width={1} height={1} className="lg:object-none object-cover lg:w-[295px] w-[270px] lg:h-[350px] h-[260px]" alt={member.name} /> */}
-                <img src={member.imageSrc} width={1} height={1} className="w-[300px] h-[270px] md:h-[350px]  object-cover rounded-md" alt={member.name} />
+                {/* <Image src={member.imageSrc} width={1000} height={1000} className="lg:object-none object-cover lg:w-[295px] w-[270px] lg:h-[350px] h-[260px]" alt={member.name} /> */}
+                <img src={member.imageSrc} width={1000} height={1000} className="w-[300px] h-[270px] md:h-[350px]  object-cover rounded-md" alt={member.name} />
               </div>
               <div className="md:py-6 text-white text-center">
                 <div>

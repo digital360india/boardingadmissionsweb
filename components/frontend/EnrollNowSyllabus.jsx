@@ -68,8 +68,8 @@ export default function EnrollNowSyllabus() {
                   <Image
                     src="/images/apti.svg"
                     className="lg:w-[64px] lg:h-[64px] w-[32px] h-[32px]"
-                    width={1}
-                    height={1}
+                    width={1000}
+                    height={1000}
                     alt="image"
                   />
                 </div>

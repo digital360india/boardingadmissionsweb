@@ -94,7 +94,7 @@ export default function FeaturedBlog() {
                 <div className="flex justify-center">
                   <Image
                     src={member.imageSrc}
-                    width={380}
+                    width={1000}
                     height={244}
                     alt={member.name}
                   />
@@ -123,7 +123,7 @@ export default function FeaturedBlog() {
             >
               <Image
                     src="/images/arrowleft.svg"
-                    width={20}
+                    width={1000}
                     height={50}
                     alt="card"
                   />
@@ -136,7 +136,7 @@ export default function FeaturedBlog() {
             >
              <Image
                     src="/images/arrowright.svg"
-                    width={20}
+                    width={1000}
                     height={50}
                     alt="card"
                   />
