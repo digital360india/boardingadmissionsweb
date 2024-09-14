@@ -64,7 +64,7 @@ export default function ScrollAnimation() {
               src="./images/doon_school.png"
               alt=""
             />{" "}
-           <Link href='schoolpages/TheDoonPage'><button className="w-[220px] mt-5 text-xl text-white h-[50px] rounded-lg bg-[#075D70]">
+           <Link href='school/the-doon-school'><button className="w-[220px] mt-5 text-xl text-white h-[50px] rounded-lg bg-[#075D70]">
               THE DOON SCHOOL
             </button></Link> 
           </div>
@@ -75,7 +75,7 @@ export default function ScrollAnimation() {
               src="./images/mayo.png"
               alt=""
             />{" "}
-          <Link href='schoolpages/MayoBoysPage'><button className="w-[220px] mt-5 text-xl text-white h-[50px] rounded-lg bg-[#075D70]">
+          <Link href='school/mayo-boys-school'><button className="w-[220px] mt-5 text-xl text-white h-[50px] rounded-lg bg-[#075D70]">
               MAYO&apos;S SCHOOL
             </button></Link> 
           </div>
@@ -86,7 +86,7 @@ export default function ScrollAnimation() {
               src="./images/scindia.png"
               alt=""
             />{" "}
-           <Link href='schoolpages/ScindiaSchoolPage'> <button className="w-[220px] mt-5 text-xl text-white h-[50px] rounded-lg bg-[#075D70]">
+           <Link href='school/scindia-girls-school'> <button className="w-[220px] mt-5 text-xl text-white h-[50px] rounded-lg bg-[#075D70]">
               SCINDIA SCHOOL
             </button></Link>
           </div>
@@ -97,7 +97,7 @@ export default function ScrollAnimation() {
               src="./images/st_george_college.png"
               alt=""
             />{" "}
-           <Link href='schoolpages/StGeorgeCollegePage'><button className="w-[220px] mt-5 text-xl text-white h-[50px] rounded-lg bg-[#075D70]">
+           <Link href='school/george-college'><button className="w-[220px] mt-5 text-xl text-white h-[50px] rounded-lg bg-[#075D70]">
               ST GOERGE&apos;S COLLEGE
             </button></Link> 
           </div>
@@ -108,7 +108,7 @@ export default function ScrollAnimation() {
               src="./images/CJM_waverly.png"
               alt=""
             />{" "}
-            <Link href='schoolpages/CJMwaverlyPage'><button className="w-[220px] mt-5 text-xl text-white h-[50px] rounded-lg bg-[#075D70]">
+            <Link href='school/cjm-waverly'><button className="w-[220px] mt-5 text-xl text-white h-[50px] rounded-lg bg-[#075D70]">
               CJM WAVERLY
             </button></Link>
           </div>

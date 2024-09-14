@@ -72,10 +72,10 @@ export default function Navbar() {
             <Link href="/">
               <Image
                 src="/images/navbar.svg"
-                width={1}
-                height={1}
+                width={1000}
+                height={1000}
                 alt="Image"
-                className="ml-3 md:ml-0 w-[50%] md:h-24 md:w-28 h-[12%]  brightness-150"
+                className="ml-3 md:ml-0 w-[50%] md:h-40 md:w-40 h-[12%]  brightness-150"
 
 
               />
@@ -170,10 +170,10 @@ export default function Navbar() {
           <button  onClick={toggleMenu}>
             <Image
               src="/images/navbar.svg"
-              width={2}
-              height={2}
+              width={1000}
+              height={100}
               alt="Image"
-              className="h-24 w-40"
+              className="h-28 w-40"
             />
           </button>
           </Link>
