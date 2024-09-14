@@ -4,7 +4,7 @@ import "./ScrollbarHide.css"; // Import the custom scrollbar CSS
 export default function OurTeam() {
   const team = [
     {
-      name: "Dr. Neema Negi",
+      name: "Ms. Neema Negi",
       imageSrc: "/images/neema.png",
       designation: "Hindi Expert",
     },

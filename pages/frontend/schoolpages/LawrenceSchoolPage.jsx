@@ -83,7 +83,7 @@ function LawrenceSchoolPage() {
         <div className=" h-[250px] xl:h-[300px] lg:h-[350px] w-[100%] ">
           {" "}
           <Image
-            src="/images/SchoolBanner/Lawrenceframe.svg"
+            src="/images/SchoolBanner/lawrenceframe.svg"
             alt="Descriptive text for screen readers"
             className="w-full lg:h-[400px] h-[250px]  object-cover lg:rounded-2xl rounded-b-2xl "
             width={1000}
@@ -92,7 +92,7 @@ function LawrenceSchoolPage() {
         </div>
         <div className="w-[13vw] ">
           <Image
-            src="/images/SchoolBanner/Lawrencelogo.svg"
+            src="/images/SchoolBanner/lawrencelogo.svg"
             className="absolute inset-0 left-[5%] lg:top-[300px] top-[80%] lg:w-[132px] lg:h-[130px] w-[90px] h-[80px] "
             width={1000}
             height={1000}
