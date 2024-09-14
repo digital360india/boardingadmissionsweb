@@ -46,7 +46,7 @@ const Faq = ({data}) => {
                           : "/images/plus.svg"
                       }
                       alt="icon"
-                      width={1000}
+                      width={16}
                       height={16}
                     />
                   </div>

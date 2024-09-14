@@ -123,7 +123,7 @@ export default function FeaturedBlog() {
             >
               <Image
                     src="/images/arrowleft.svg"
-                    width={1000}
+                    width={20}
                     height={50}
                     alt="card"
                   />
@@ -136,7 +136,7 @@ export default function FeaturedBlog() {
             >
              <Image
                     src="/images/arrowright.svg"
-                    width={1000}
+                    width={20}
                     height={50}
                     alt="card"
                   />

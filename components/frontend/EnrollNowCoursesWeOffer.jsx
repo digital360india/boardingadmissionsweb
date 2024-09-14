@@ -106,7 +106,7 @@ const EnrollNowCoursesWeOffer = () => {
                     <div className="flex items-center  pt-[5px] gap-3">
                       <Image
                         src="/icons/Vector.svg"
-                        width={1000}
+                        width={20}
                         height={20}
                         alt="card"
                         className=""
