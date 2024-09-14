@@ -9,43 +9,43 @@ export default function SchoolWeCracked() {
       school: "Bishop Cotton School",
       imageSrc: "/images/schoolimages/Bishop_Cotton_School(Bangaluru).svg",
       location: "(Bangaluru)",
-      routes: "/schoolpages/BishopKarnatakaPage"
+      routes: "/school/bishop-cotton-school-bangalore"
     },
     {
       school: "CJM Waverly",
       imageSrc: "/images/schoolimages/CJM_Waverly.svg",
       location: "(Mussoorie)",
-      routes: "/schoolpages/CJMwaverlyPage"
+      routes: "/school/cjm-waverly"
     },
     {
       school: "Lawrence School",
       imageSrc: "/images/schoolimages/Lawrence_School.svg",
       location: "(Solan)",
-      routes: "/schoolpages/LawrenceSchoolPage"
+      routes: "/school/laurence-school"
     },
     {
       school: "Mayo Boys College",
       imageSrc: "/images/schoolimages/Mayo_Boys_College.svg",
       location: "(Ajmer)",
-      routes: "/schoolpages/MayoBoysPage"
+      routes: "/school/mayo-boys-school"
     },
     {
       school: "Scindia School",
       imageSrc: "/images/schoolimages/Scindia_School.svg",
       location: "(Gwalior)",
-      routes: "/schoolpages/ScindiaSchoolPage"
+      routes: "/school/scindia-girls-school"
     },
     {
       school: "Sherwood College",
       imageSrc: "/images/schoolimages/Sherwood_College.svg",
       location: "(Nainital)",
-      routes: "/schoolpages/SherWoodCollegePage"
+      routes: "/school/sherwood-college"
     },
     {
       school: "St.George College",
       imageSrc: "/images/schoolimages/St.George_College.svg",
       location: "(Mussoorie)",
-      routes: "/schoolpages/StGeorgeCollegePage"
+      routes: "/school/george-college"
     },
   ];
 
