@@ -5,6 +5,7 @@ import Image from "next/image";
 import Star from "@/components/frontend/Ratings";
 import schoolFAQs from "@/utils/frontend/FaqData";
 import GetPrepared from "@/components/frontend/GetPrepared";
+import EnquiryForm from "@/components/frontend/EnquiryForm";
 
 const star = [
   {
@@ -141,7 +142,10 @@ function VidyaDeviSchoolPage() {
             <GetPrepared />
           </div>
         </div>
+        <div className="md:hidden mt-6">
+<EnquiryForm/>
 
+</div>
         <div className="space-y-4 w-[90vw]  mt-10 ">
           <div className="">
             <h1 className="text-[#075D70] font-semibold  text-[2rem] ">
