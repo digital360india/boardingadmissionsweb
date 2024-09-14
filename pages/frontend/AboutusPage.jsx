@@ -6,7 +6,7 @@ import AboutSuccess from '@/components/frontend/AboutSuccess'
 import OurCoursesForm from '@/components/frontend/OurCoursesForm'
 import React from 'react'
 
-export default function AboutusPage() {
+export default function xAboutusPage() {
   return (
     <div className=''>
       <AboutHero/>

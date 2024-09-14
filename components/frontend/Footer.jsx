@@ -22,7 +22,7 @@ const Footer = () => {
                 <div className="flex gap-3">
                   <Image
                     src="/icons/location.svg"
-                    width={1000}
+                    width={24}
                     height={24}
                     alt="course1"
                   />
@@ -33,7 +33,7 @@ const Footer = () => {
                 <div className="flex  gap-3">
                   <Image
                     src="/icons/mail.svg"
-                    width={1000}
+                    width={24}
                     height={24}
                     alt="course1"
                   />
@@ -50,7 +50,7 @@ const Footer = () => {
                 <div className="flex gap-3">
                   <Image
                     src="/icons/call.svg"
-                    width={1000}
+                    width={24}
                     height={24}
                     alt="course1"
                   />
