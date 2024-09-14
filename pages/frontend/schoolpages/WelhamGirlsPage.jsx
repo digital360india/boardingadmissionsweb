@@ -8,7 +8,6 @@ import GetPrepared from "@/components/frontend/GetPrepared";
 import Broucher from "@/components/frontend/Broucher";
 import EnquiryForm from "@/components/frontend/EnquiryForm";
 
-
 const star = [
   {
     id: 1,
@@ -18,15 +17,16 @@ const star = [
 ];
 
 function WelhamGirlsPage() {
-  const WelhamGirls = schoolFAQs.find(school => school.school === 'WelhamGirls')?.faqs || [];
+  const WelhamGirls =
+    schoolFAQs.find((school) => school.school === "WelhamGirls")?.faqs || [];
   return (
     <div className="h-auto w-[100%] poppins lg:mt-28 mt-20 md:mt-16">
       <div className="relative ">
-      <div className=" h-[250px] w-[100%] ">      
-            <Image
+        <div className=" h-[250px] w-[100%]  xl:px-[50px] lg:px-[30px]">
+          <Image
             src="/images/SchoolBanner/welhamgirlsframe.svg"
             alt="Descriptive text for screen readers"
-           className="w-full lg:h-[400px] h-[250px]  object-cover lg:rounded-2xl rounded-b-2xl "
+            className="w-full lg:h-[400px] h-[250px]  object-cover lg:rounded-2xl rounded-b-2xl   "
             width={1000}
             height={1000}
           />
@@ -34,22 +34,22 @@ function WelhamGirlsPage() {
         <div className="w-[13vw] ">
           <Image
             src="/images/SchoolBanner/welhamgirlslogo.svg"
-           className="absolute inset-0 left-[5%] lg:top-[300px] top-[80%] lg:w-[132px] lg:h-[130px] w-[90px] h-[80px] "
+            className="absolute inset-0 left-[5%] lg:top-[300px] top-[80%] lg:w-[132px] lg:h-[130px] w-[90px] h-[80px] "
             width={1000}
             height={1000}
           />
         </div>
       </div>
 
-     <div className="w-[90%] ml-[5%]  lg:mt-[15%]  mt-[10%] ">
+      <div className="w-[90%] ml-[5%]  lg:mt-[20%] xl:mt-[13%]  mt-[10%] md:mt-[7%] ">
         <div className="relative h-[200px]   xl:h-[180px] md:h-[120px] lg:h-[160px]     w-full  border-b-2  sm:flex sm:justify-between">
           <div className="w-full flex flex-col  lg:gap-5 gap-2">
             <div className="">
-            <h1 className="text-[#075D70]  lg:text-[2rem] text-[18px] font-semibold lg:font-bold ">
-            Welham Girls School, Dehradun, Uttarakhand
+              <h1 className="text-[#075D70]  lg:text-[2rem] text-[18px] font-semibold lg:font-bold ">
+                Welham Girls School, Dehradun, Uttarakhand
               </h1>
             </div>
-             <div className="flex text-center lg:gap-3 gap-2 items-center">
+            <div className="flex text-center lg:gap-3 gap-2 items-center">
               <h2 className="text-[#075D70] ">4.2</h2>
 
               <div className="border-none ">
@@ -83,7 +83,7 @@ function WelhamGirlsPage() {
           </div>
 
           <div className=" sm:absolute  gap-3 flex  sm:right-0 sm:self-center">
-             {/* <button className="py-1 px-2 sm:py-1.5 sm:px-2.5 border border-[#075D70] rounded-[5px] flex gap-2">
+            {/* <button className="py-1 px-2 sm:py-1.5 sm:px-2.5 border border-[#075D70] rounded-[5px] flex gap-2">
               <div>
                 <Image
                   src="/icons/download.svg"
@@ -96,14 +96,12 @@ function WelhamGirlsPage() {
 
               <p className="text-[#075D70]">Broucher</p>
             </button> */}
-                       <GetPrepared/>
-
+            <GetPrepared />
           </div>
         </div>
         <div className="md:hidden mt-6">
-<EnquiryForm/>
-
-</div>
+          <EnquiryForm />
+        </div>
         <div className="space-y-4 w-[90vw]  mt-10 ">
           <div className="">
             <p className="text-[#075D70] font-semibold  text-[2rem] ">
@@ -112,11 +110,11 @@ function WelhamGirlsPage() {
           </div>
           <div>
             <p className="leading-6 w-[88vw] text-[1.15rem] text-justify">
-              Established to empower young women, Welham Girls  School has
-              become synonymous with holistic education. The school offers
-              classes from VI to XII, consistently producing students who excel
-              in academics and beyond. Located in the tranquil foothills of the
-              Himalayas, it provides an ideal environment for learning. .
+              Established to empower young women, Welham Girls School has become
+              synonymous with holistic education. The school offers classes from
+              VI to XII, consistently producing students who excel in academics
+              and beyond. Located in the tranquil foothills of the Himalayas, it
+              provides an ideal environment for learning. .
             </p>
           </div>
         </div>
@@ -250,7 +248,7 @@ function WelhamGirlsPage() {
                   <ul className="list-disc pl-4 space-y-4">
                     <li>
                       <span className="font-medium">Initial Application:</span>{" "}
-                      Visit the Welham Girls  School website and click on Online
+                      Visit the Welham Girls School website and click on Online
                       Application Process under the Admission tab. Complete the
                       required details accurately.
                     </li>
@@ -374,7 +372,7 @@ function WelhamGirlsPage() {
               Preference for Admission
             </p>
             <p className="my-4 pl-2 leading-6 w-[88vw] text-[1.15rem]">
-              Welham Girls  School gives preference to:
+              Welham Girls School gives preference to:
             </p>
           </div>
 
@@ -518,7 +516,7 @@ function WelhamGirlsPage() {
             Fee Structure
           </p>
           <p className="mb-6 ml-4 leading-6 w-[88vw] text-[1.15rem]">
-            The fee structure for Welham Girls  School is as follows:
+            The fee structure for Welham Girls School is as follows:
           </p>
 
           <table className="w-full border-collapse border border-gray-300 ml-4">
@@ -602,29 +600,35 @@ function WelhamGirlsPage() {
               <span className="font-medium">General Knowledge:</span>
               Includes current affairs and basic scientific principles.
             </li>
-          </ul> 
+          </ul>
         </div>
 
         <div className="space-y-4 w-[90vw]  my-10 ">
           <div className="">
             <p className="text-[#075D70] font-semibold  text-[2rem] ">
-            Why Choose Welham Girls  School?
+              Why Choose Welham Girls School?
             </p>
           </div>
-          <div >
+          <div>
             <p className="leading-6 w-[88vw] text-[1.15rem] text-justify">
-            Welham Girls  School offers a balanced education emphasizing academic excellence, leadership, and moral values. The school&apos;s strong alumni network and commitment to holistic development make it a top choice for parents considering Welham Girls Admissions.
+              Welham Girls School offers a balanced education emphasizing
+              academic excellence, leadership, and moral values. The
+              school&apos;s strong alumni network and commitment to holistic
+              development make it a top choice for parents considering Welham
+              Girls Admissions.
             </p>
           </div>
         </div>
 
-
-        <Broucher pdfLink={"https://firebasestorage.googleapis.com/v0/b/boardingadmissions-f3ba3.appspot.com/o/brochure%2FWELHAM%20ENTRANCEExamBrochure.pdf?alt=media&token=83196ac2-120d-47a1-afb0-037bf25848d1"}/>
-
+        <Broucher
+          pdfLink={
+            "https://firebasestorage.googleapis.com/v0/b/boardingadmissions-f3ba3.appspot.com/o/brochure%2FWELHAM%20ENTRANCEExamBrochure.pdf?alt=media&token=83196ac2-120d-47a1-afb0-037bf25848d1"
+          }
+        />
       </div>
 
       <div>
-        <Faq data={WelhamGirls}/>
+        <Faq data={WelhamGirls} />
       </div>
     </div>
   );

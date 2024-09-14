@@ -6,6 +6,8 @@ import Star from "@/components/frontend/Ratings";
 import schoolFAQs from "@/utils/frontend/FaqData";
 import GetPrepared from "@/components/frontend/GetPrepared";
 import EnquiryForm from "@/components/frontend/EnquiryForm";
+import Broucher from "@/components/frontend/Broucher";
+
 
 const star = [
   {
@@ -210,13 +212,9 @@ function BishopKarnatakaPage() {
             and ready to navigate the application process smoothly.
           </h1>
         </div>
-        <div className="mb-10">
-          <h1 className="text-[#075D70] font-semibold text-[1.5rem]">
-            Downloads
-          </h1>
-          {/* <h3 className="text-[#D77A61] text-[1.13rem] ">Fee structure</h3> */}
-          <h3 className="text-[#D77A61]  text-[1.13rem]">Broucher</h3>
-        </div>
+               <Broucher/>
+
+
       </div>
 
       <div>
