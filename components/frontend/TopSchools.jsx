@@ -69,7 +69,7 @@ export default function TopSchools() {
       school: "Welham Girls",
       imageSrc: "/images/schoolimages/Welham_Girls.svg",
       location: "(Dehradun)",
-      routes: "/school/welham-boys-school",
+      routes: "/school/welham-girls-school",
     },
     {
       school: "Wood Stock School",

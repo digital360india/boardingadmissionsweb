@@ -27,10 +27,11 @@ export default function HeroCarousel() {
   const [videoPlayed, setVideoPlayed] = useState(false);
   const [isMobile, setIsMobile] = useState(false); // Detect if it's mobile
   const [isSwipeable, setIsSwipeable] = useState(false); // Initially disable swiping
+  const [videoSrc, setVideoSrc] = useState(cardData[0].videoSrc); // State for video source
   const videoRef = useRef(null);
   const carouselRef = useRef(null);
 
-  // Detect screen size
+  // Detect screen size and set video source
   useEffect(() => {
     const handleResize = () => {
       setIsMobile(window.innerWidth <= 1000); // Mobile threshold
@@ -45,6 +46,16 @@ export default function HeroCarousel() {
     // Cleanup event listener on unmount
     return () => window.removeEventListener("resize", handleResize);
   }, []);
+
+  // Update video source when isMobile changes
+  useEffect(() => {
+    if (cardData[0].type === "video") {
+      const newVideoSrc = isMobile
+        ? cardData[0].videoSrcSmallScreen
+        : cardData[0].videoSrc;
+      setVideoSrc(newVideoSrc);
+    }
+  }, [isMobile]);
 
   const handleVideoEnd = () => {
     setVideoPlayed(true);
@@ -109,7 +120,6 @@ export default function HeroCarousel() {
       >
         {cardData.map((card, index) => {
           if (card.type === "video") {
-            const videoSrc = isMobile ? card.videoSrcSmallScreen : card.videoSrc; // Choose based on screen size
             return (
               <div
                 key={card.id}
