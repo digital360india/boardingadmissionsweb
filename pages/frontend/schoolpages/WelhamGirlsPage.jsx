@@ -6,6 +6,7 @@ import Star from "@/components/frontend/Ratings";
 import schoolFAQs from "@/utils/frontend/FaqData";
 import GetPrepared from "@/components/frontend/GetPrepared";
 import Broucher from "@/components/frontend/Broucher";
+import EnquiryForm from "@/components/frontend/EnquiryForm";
 
 
 const star = [
