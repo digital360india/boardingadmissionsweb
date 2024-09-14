@@ -13,57 +13,57 @@ const OurCoursesBenefits = () => {
             </h1>
           </div>
    
-          <div className="p-4  md:mt-12 md:px-16 flex flex-wrap justify-center  md:justify-between   w-full">
-            <div className=" w-[9rem]  md:w-[18rem] flex flex-col items-center h-[15rem] lg:h-full">
+          <div className="md:p-4  md:mt-12 md:px-16 flex flex-wrap justify-center  md:justify-between   w-full">
+            <div className=" w-[10rem]  md:w-[18rem] flex flex-col items-center h-[15rem] lg:h-full">
               <Image
                 src="/icons/course3.svg"
                 width={48}
                 height={48}
                 alt="course3"
               />
-              <h1 className="pt-3 md:pt-5 text-center text-[#075D70] text-[1.1rem] md:text-[30px] font-poppins">
+              <h1 className="pt-3 md:pt-5 text-center text-[#075D70] text-[1.01rem] md:text-[29px] font-poppins">
               Guaranteed Results
               </h1>
               <p className="pt-3 md:pt-5 text-[0.75rem] md:text-[15px] text-center font-poppins">
               90% of our students pass entrance exams confidently.
               </p>
             </div>
-            <div className=" w-[9rem] md:w-[18rem] flex flex-col items-center h-[15rem] lg:h-full">
+            <div className=" w-[11rem] md:w-[18rem] flex flex-col items-center h-[15rem] lg:h-full">
               <Image
                 src="/icons/course3.svg"
                 width={48}
                 height={48}
                 alt="course3"
               />
-              <h1 className="pt-3 md:pt-5 text-center text-[#075D70] text-[1.1rem] md:text-[30px] font-poppins">
+              <h1 className="pt-3 md:pt-5 text-center text-[#075D70] text-[1.01rem] md:text-[29px] font-poppins">
               Strong Foundation
               </h1>
               <p className="pt-3 md:pt-5 text-[0.75rem] md:text-[15px] text-center font-poppins">
               Build long-term academic success with our comprehensive curriculum.
               </p>
             </div>
-            <div className=" w-[9rem] md:w-[18rem] flex flex-col items-center h-[15rem] lg:h-full">
+            <div className=" w-[11rem] md:w-[18rem] flex flex-col items-center h-[15rem] lg:h-full">
               <Image
                 src="/icons/course3.svg"
                 width={48}
                 height={48}
                 alt="course3"
               />
-              <h1 className="pt-3 md:pt-5 text-center text-[#075D70] text-[1.1rem] md:text-[30px] font-poppins">
+              <h1 className="pt-3 md:pt-5 text-center text-[#075D70] text-[1.01rem] md:text-[29px] font-poppins">
               Soft Skills
               </h1>
               <p className="pt-3 md:pt-5 text-[0.75rem] md:text-[15px] text-center font-poppins">
               Master communication, problem-solving, and leadership for personal growth
               </p>
             </div>
-            <div className=" w-[9rem] md:w-[18rem] flex flex-col items-center h-[15rem] lg:h-full">
+            <div className=" w-[11rem] md:w-[18rem] flex flex-col items-center h-[15rem] lg:h-full">
               <Image
                 src="/icons/course3.svg"
                 width={48}
                 height={48}
                 alt="course3"
               />
-              <h1 className="pt-3 md:pt-5 text-center text-[#075D70] text-[1.1rem] md:text-[30px] font-poppins">
+              <h1 className="pt-3 md:pt-5 text-center text-[#075D70] text-[1.01rem] md:text-[29px] font-poppins">
               Mental Strength
               </h1>
               <p className="pt-3 md:pt-5 text-[0.75rem] md:text-[15px] text-center font-poppins">
