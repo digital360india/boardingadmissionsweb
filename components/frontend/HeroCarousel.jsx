@@ -33,7 +33,7 @@ export default function HeroCarousel() {
   // Detect screen size
   useEffect(() => {
     const handleResize = () => {
-      setIsMobile(window.innerWidth <= 768); // Mobile threshold
+      setIsMobile(window.innerWidth <= 1000); // Mobile threshold
     };
 
     // Initial check
