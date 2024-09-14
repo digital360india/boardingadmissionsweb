@@ -5,7 +5,7 @@ import Image from "next/image";
 import Star from "@/components/frontend/Ratings";
 import schoolFAQs from "@/utils/frontend/FaqData";
 import GetPrepared from "@/components/frontend/GetPrepared";
-import EnquiryForm from "@/components/frontend/EnquiryForm";
+import Broucher from "@/components/frontend/Broucher";
 
 
 const star = [
@@ -19,7 +19,7 @@ const star = [
 function WelhamGirlsPage() {
   const WelhamGirls = schoolFAQs.find(school => school.school === 'WelhamGirls')?.faqs || [];
   return (
-    <div className="h-auto w-[100%] poppins">
+    <div className="h-auto w-[100%] poppins lg:mt-28 mt-12">
       <div className="relative ">
       <div className=" h-[250px] w-[100%] ">      
             <Image
@@ -40,13 +40,13 @@ function WelhamGirlsPage() {
         </div>
       </div>
 
-     <div className="w-[90%] ml-[5%]  mt-[10%]  ">
-        <div className="relative h-[170px]   xl:h-[180px] md:h-[120px] lg:h-[170px]    w-full  border-b-2  sm:flex sm:justify-between">
+     <div className="w-[90%] ml-[5%]  lg:mt-[15%]  mt-[10%] ">
+        <div className="relative h-[200px]   xl:h-[180px] md:h-[120px] lg:h-[160px]     w-full  border-b-2  sm:flex sm:justify-between">
           <div className="w-full flex flex-col  lg:gap-5 gap-2">
             <div className="">
-              <p className="text-[#075D70]  text-[2rem] font-bold">
-                Welham Girls School, Dehradun, Uttarakhand
-              </p>
+            <h1 className="text-[#075D70]  lg:text-[2rem] text-[18px] font-semibold lg:font-bold ">
+            Welham Girls School, Dehradun, Uttarakhand
+              </h1>
             </div>
              <div className="flex text-center lg:gap-3 gap-2 items-center">
               <h2 className="text-[#075D70] ">4.2</h2>
@@ -618,13 +618,8 @@ function WelhamGirlsPage() {
         </div>
 
 
-        <div className="mb-10">
-          <p className="text-[#075D70] font-semibold text-[1.5rem]">
-            Downloads
-          </p>
-          {/* <h3 className="text-[#D77A61] text-[1.13rem] ">Fee structure</h3> */}
-          <h3 className="text-[#D77A61]  text-[1.13rem]">Broucher</h3>
-        </div>
+        <Broucher pdfLink={"https://firebasestorage.googleapis.com/v0/b/boardingadmissions-f3ba3.appspot.com/o/brochure%2FWELHAM%20ENTRANCEExamBrochure.pdf?alt=media&token=83196ac2-120d-47a1-afb0-037bf25848d1"}/>
+
       </div>
 
       <div>

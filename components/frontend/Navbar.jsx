@@ -53,7 +53,7 @@ export default function Navbar() {
             : "bg-white  fixed top-0 z-20"
         } flex font-sans text-xl py-4 w-full lg:h-[13%] md:h-[12%] h-[9%]`}
       >
-        <div className="flex py-4 md:py-0 w-[100vw] items-center px-2 md:px-0 md:justify-around space-x-8 text-white hover:text-gray-300">
+        <div className="flex py-4 md:py-0 w-[100vw] items-center px-2 md:px-0 justify-between md:justify-around space-x-8 text-white hover:text-gray-300">
           {/* Hamburger Icon */}
           <div
             className="hamburger ps-6 order-1 cursor-pointer md:hidden"
@@ -76,6 +76,8 @@ export default function Navbar() {
                 height={1}
                 alt="Image"
                 className="ml-3 md:ml-0 w-[50%] md:h-24 md:w-28 h-[12%]  brightness-150"
+
+
               />
             </Link>
           </div>
@@ -145,7 +147,7 @@ export default function Navbar() {
           </div>
 
           {/* Compatibility Test Button */}
-          <div className="order-3  md:w-[200px] h-2">
+          <div className="order-3 w-[100px]  md:w-[200px] h-2">
             {/* <Link href="/scholarshiptest">
               <button className="border bg-black text-[10px] md:text-[16px] text-white py-2 px-2 md:w-40 rounded-lg mr-4">
                 Compatibility Test
