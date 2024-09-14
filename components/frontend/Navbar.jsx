@@ -62,9 +62,9 @@ export default function Navbar() {
              
             }}
           >
-            <div className="line h-0.5 w-6 bg-black my-1"></div>
-            <div className="line h-0.5 w-4 bg-black my-1"></div>
-            <div className="line h-0.5 w-6 bg-black my-1"></div>
+            <div className="line h-0.5 w-6 bg-primary02 my-1"></div>
+            <div className="line h-0.5 w-4 bg-primary02 my-1"></div>
+            <div className="line h-0.5 w-6 bg-primary02 my-1"></div>
           </div>
 
           {/* Logo */}
@@ -185,7 +185,7 @@ export default function Navbar() {
             
             }}
           >
-           <RxCross2 />
+           <RxCross2  />
           </button>
         </div>
 
