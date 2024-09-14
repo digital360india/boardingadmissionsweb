@@ -62,7 +62,7 @@ const Footer = () => {
               <div className="space-y-3 lg:pr-44">
                 <h1>SITE MAP</h1>
                 <Link href="/"> <h1 className="">Home</h1></Link> 
-                <h1>Courses</h1>
+                <Link href="/courses"><h1>Courses</h1></Link>
                 <h1>Package</h1>
                 <h1>Boarding Compatibility Test</h1>
               </div>
@@ -222,9 +222,9 @@ const Footer = () => {
         <div className="grid grid-cols-3 text-white text-[0.875rem] p-4 gap-3">
           <div>
             <h1 className="font-semibold pb-2">COMPANY</h1>
-            <h1 className="font-light">Contact</h1>
-            <h1 className="font-light">Career</h1>
-            <h1 className="font-light">Blog</h1>
+           <Link href="/contact"><h1 className="font-light cursor-pointer">Contact</h1></Link> 
+            {/* <h1 className="font-light">Career</h1>
+            <h1 className="font-light">Blog</h1> */}
           </div>
 
           <div>
