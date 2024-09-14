@@ -51,7 +51,7 @@ export default function Navbar() {
           path === "/"
             ? "bg-transparent z-20  backdrop-blur-lg absolute top-0 backdrop-brightness-50 backdrop-contrast-75 backdrop-grayscale-20 backdrop-saturate-150 backdrop-opacity-30"
             : "bg-white  fixed top-0 z-20"
-        } flex font-sans text-xl py-4 w-full lg:h-[14.5vh] md:h-[10vh] h-[8vh]`}
+        } flex font-sans text-xl py-4 w-full lg:h-[13%] md:h-[12%] h-[9%]`}
       >
         <div className="flex py-4 md:py-0 w-[100vw] items-center px-2 md:px-0 justify-between md:justify-around space-x-8 text-white hover:text-gray-300">
           {/* Hamburger Icon */}
@@ -75,7 +75,9 @@ export default function Navbar() {
                 width={1}
                 height={1}
                 alt="Image"
-                className=" md:ml-0 w-full md:h-24 md:w-28 h-16  brightness-150"
+                className="ml-3 md:ml-0 w-[50%] md:h-24 md:w-28 h-[12%]  brightness-150"
+
+
               />
             </Link>
           </div>
