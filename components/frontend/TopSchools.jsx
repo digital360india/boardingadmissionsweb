@@ -57,7 +57,7 @@ export default function TopSchools() {
       school: "Vidya Devi Jindal School",
       imageSrc: "/images/schoolimages/Vidya_Devi_Jindal_School.svg",
       location: "",
-      routes: "/school/the-doon-school",
+      routes: "/school/vidya-devi-jindal",
     },
     {
       school: "Welham Boys",
