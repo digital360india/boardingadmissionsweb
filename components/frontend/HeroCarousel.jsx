@@ -9,7 +9,7 @@ const cardData = [
     id: 1,
     type: "video",
     videoSrc:
-      "https://firebasestorage.googleapis.com/v0/b/boardingadmissions-f3ba3.appspot.com/o/carousel%2FIMG_5183.MP4?alt=media&token=1ffc7bc7-8b31-4a40-8fd8-7aa3bb34500c",
+      "https://firebasestorage.googleapis.com/v0/b/boardingadmissions-f3ba3.appspot.com/o/carousel%2Fmobileviewvideo.mp4?alt=media&token=40e1d369-04fb-42eb-913a-abc1be12794f",
     videoSrcSmallScreen:
       "https://firebasestorage.googleapis.com/v0/b/boardingadmissions-f3ba3.appspot.com/o/carousel%2Fmobileviewvideo.mp4?alt=media&token=40e1d369-04fb-42eb-913a-abc1be12794f",
   },
