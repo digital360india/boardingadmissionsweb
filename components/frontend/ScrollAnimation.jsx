@@ -50,7 +50,7 @@ export default function ScrollAnimation() {
         className="some h-[85vh] flex justify-center w-full bg-gradient-to-br from-[#075D70] to-[#0DB2D6] relative overflow-hidden"
       >
         <div className="h-[100px]  flex items-center pt-10 md:pt-0  text-center md:text-start  md:pl-24 w-full">
-          <p className="text-[48px]  pt-8 md:pt-0 text-white ">Schools we have cracked</p>
+          <p className="text-[48px]  pt-8 md:pt-0 text-white  ">Schools we have cracked</p>
         </div>
         <div
           ref={mainRef}

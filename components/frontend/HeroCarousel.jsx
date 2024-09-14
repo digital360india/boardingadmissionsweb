@@ -10,6 +10,8 @@ const cardData = [
     type: "video",
     videoSrc:
       "https://firebasestorage.googleapis.com/v0/b/boardingadmissions-f3ba3.appspot.com/o/carousel%2FIMG_5183.MP4?alt=media&token=1ffc7bc7-8b31-4a40-8fd8-7aa3bb34500c",
+    videoSrcSmallScreen:
+      "https://firebasestorage.googleapis.com/v0/b/boardingadmissions-f3ba3.appspot.com/o/carousel%2Fmobileviewvideo.mp4?alt=media&token=40e1d369-04fb-42eb-913a-abc1be12794f",
   },
   {
     id: 2,
@@ -23,9 +25,26 @@ const cardData = [
 
 export default function HeroCarousel() {
   const [videoPlayed, setVideoPlayed] = useState(false);
+  const [isMobile, setIsMobile] = useState(false); // Detect if it's mobile
   const [isSwipeable, setIsSwipeable] = useState(false); // Initially disable swiping
   const videoRef = useRef(null);
   const carouselRef = useRef(null);
+
+  // Detect screen size
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth <= 768); // Mobile threshold
+    };
+
+    // Initial check
+    handleResize();
+
+    // Add event listener to handle window resize
+    window.addEventListener("resize", handleResize);
+
+    // Cleanup event listener on unmount
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
 
   const handleVideoEnd = () => {
     setVideoPlayed(true);
@@ -90,6 +109,7 @@ export default function HeroCarousel() {
       >
         {cardData.map((card, index) => {
           if (card.type === "video") {
+            const videoSrc = isMobile ? card.videoSrcSmallScreen : card.videoSrc; // Choose based on screen size
             return (
               <div
                 key={card.id}
@@ -103,7 +123,7 @@ export default function HeroCarousel() {
                   onEnded={handleVideoEnd}
                   controls={false} // Disable controls for the first video
                 >
-                  <source src={card.videoSrc} type="video/mp4" />
+                  <source src={videoSrc} type="video/mp4" />
                   Your browser does not support the video tag.
                 </video>
               </div>
@@ -122,10 +142,13 @@ export default function HeroCarousel() {
                   className=" w-[100vw] xl:h-[100%] lg:h-[104%] h-[110%]  -mt-16"
                 />
                 <div className="absolute top-0 xl:h-[95%] lg:h-[94%] h-[100%] w-[100vw] text-[#FFFF] bg-[#0000005c]">
-                <div className="absolute lg:bottom-[20%] bottom-[14%] lg:left-24 left-12 text-[#FFFF] lg:w-[60%] w-[80%]">
-
-<p className="xl:text-[18px] lg:text-[16px] text-[14px] mb-4 ">100% QUALIATY COURSES</p>
-<p className="xl:text-[56px] lg:text-[46px] text-[32px] font-medium  leading-tight">Elevate Your Skills: Enroll in our Diverse online Courses</p>
+                  <div className="absolute lg:bottom-[20%] bottom-[14%] lg:left-24 left-12 text-[#FFFF] lg:w-[60%] w-[80%]">
+                    <p className="xl:text-[18px] lg:text-[16px] text-[14px] mb-4">
+                      100% QUALITY COURSES
+                    </p>
+                    <p className="xl:text-[56px] lg:text-[46px] text-[32px] font-medium leading-tight">
+                      Elevate Your Skills: Enroll in our Diverse Online Courses
+                    </p>
                   </div>
                 </div>
               </div>
