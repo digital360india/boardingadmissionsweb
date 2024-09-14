@@ -5,6 +5,7 @@ import Image from "next/image";
 import Star from "@/components/frontend/Ratings";
 import schoolFAQs from "@/utils/frontend/FaqData";
 import GetPrepared from "@/components/frontend/GetPrepared";
+import EnquiryForm from "@/components/frontend/EnquiryForm";
 
 
 const star = [
@@ -39,6 +40,7 @@ function WelhamBoysPage() {
           />
         </div>
       </div>
+
 
      <div className="w-[90%] ml-[5%]  mt-[10%] ">
         <div className="relative h-[170px]   xl:h-[180px] md:h-[120px] lg:h-[170px]    w-full  border-b-2  sm:flex sm:justify-between">
@@ -99,7 +101,10 @@ function WelhamBoysPage() {
 
           </div>
         </div>
+<div className="md:hidden mt-6">
+<EnquiryForm/>
 
+</div>
         <div className="space-y-4 w-[90vw]  mt-10 ">
           <div className="">
             <h1 className="text-[#075D70] font-semibold  text-[2rem] ">
