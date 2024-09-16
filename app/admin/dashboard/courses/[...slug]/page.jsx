@@ -1,17 +1,11 @@
 "use client";
 import React, { useEffect, useRef, useState } from "react";
 import { db } from "@/firebase/firebase";
-import {
-  doc,
-  getDoc,
-  updateDoc,
-  deleteDoc,
-
-} from "firebase/firestore";
+import { doc, getDoc, updateDoc, deleteDoc, addDoc } from "firebase/firestore";
 import { usePathname, useRouter } from "next/navigation";
 import { getStorage, ref, uploadBytes, getDownloadURL } from "firebase/storage";
 import { getDocs, collection } from "firebase/firestore";
-import {  FiPenTool, FiVideo,  } from "react-icons/fi";
+import { FiPenTool, FiVideo } from "react-icons/fi";
 import { MdAutoDelete, MdEdit, MdFolderDelete } from "react-icons/md";
 import { FaWindowClose } from "react-icons/fa";
 
@@ -20,7 +14,7 @@ const CoursePage = () => {
   const currentPage = usePathname();
   const pathArray = currentPage.split("/");
   const uniqueID = pathArray[pathArray.length - 1];
-  const fileInputRef = useRef(null); 
+  const fileInputRef = useRef(null);
   const [course, setCourse] = useState("");
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
@@ -29,7 +23,8 @@ const CoursePage = () => {
     lectures: [],
   });
   const [inputKey, setInputKey] = useState(Date.now()); // Key to force re-render
-
+  const [showModal, setShowModal] = useState(false); // State to control the modal visibility
+  const [videoLink, setVideoLink] = useState("");
   const [schoolsList, setSchoolsList] = useState([]);
   const [boardsList, setBoardsList] = useState([]);
   const [selectedChapterIndex, setSelectedChapterIndex] = useState(null);
@@ -39,7 +34,6 @@ const CoursePage = () => {
   const [newLectureDescription, setNewLectureDescription] = useState("");
   const [lectureData, setLectureData] = useState({
     name: "",
-    videoLink: "",
     videoUrl: "",
     pdfs: [],
   });
@@ -129,7 +123,6 @@ const CoursePage = () => {
       const filteredLectures = newChapter.lectures.filter(
         (lecture) =>
           lecture.name.trim() !== "" ||
-          lecture.videoLink.trim() !== "" ||
           lecture.pdfs.some((pdf) => pdf.trim() !== "")
       );
 
@@ -190,13 +183,48 @@ const CoursePage = () => {
       console.error("Error deleting PDF:", err);
     }
   };
+  const handleAddVideoLink = async (chapterIndex, lectureIndex, link) => {
+    try {
+      const courseRef = doc(db, "courses", uniqueID);
+      const courseSnap = await getDoc(courseRef);
+
+      if (courseSnap.exists()) {
+        const courseData = courseSnap.data();
+        const updatedChapters = [...courseData.chapters];
+        updatedChapters[chapterIndex].lectures[lectureIndex].videoLink = link;
+        await updateDoc(courseRef, { chapters: updatedChapters });
+        const chapterName = updatedChapters[chapterIndex].chapterName;
+        const lectureName =
+          updatedChapters[chapterIndex].lectures[lectureIndex].name;
+        const lectureTime = new Date().toISOString();
+        const teacherName = courseData.facultyname || "";
+        const courseID = uniqueID;
+
+        const liveLectureRef = collection(db, "liveLecture");
+        await addDoc(liveLectureRef, {
+          chapterName,
+          courseID,
+          lectureName,
+          lectureTime,
+          teacherName,
+          link
+        });
+
+        console.log("Video link added and live lecture created successfully");
+      } else {
+        console.error("No such course document!");
+      }
+    } catch (err) {
+      console.error("Error adding video link and live lecture:", err);
+    }
+  };
 
   const addLectureField = () => {
     setNewChapter({
       ...newChapter,
       lectures: [
         ...newChapter.lectures,
-        { name: "", videoLink: "", videoUrl: "", creationDate: "", pdfs: [] },
+        { name: "", videoUrl: "", creationDate: "", pdfs: [] },
       ],
     });
   };
@@ -206,6 +234,22 @@ const CoursePage = () => {
     setSelectedChapterIndex(chapterIndex);
     setSelectedLectureIndex(lectureIndex);
     setIsEditingLecture(true);
+  };
+  const openModal = (chapterIndex, lectureIndex) => {
+    setVideoLink(
+      course.chapters[chapterIndex].lectures[lectureIndex].videoLink || ""
+    );
+    setShowModal(true);
+  };
+
+  const closeModal = () => {
+    setShowModal(false);
+  };
+
+  const handleSaveVideoLink = (index, lIndex, videoLink) => {
+    handleAddVideoLink(index, lIndex, videoLink);
+    setVideoLink("");
+    closeModal();
   };
 
   const handleSaveLecture = async () => {
@@ -257,10 +301,9 @@ const CoursePage = () => {
           }));
           console.log("update");
           if (fileInputRef.current) {
-            fileInputRef.current.value = ""; 
+            fileInputRef.current.value = "";
           }
-          setInputKey(Date.now()); // Changing key will force re-render
-
+          setInputKey(Date.now());
         } else {
           console.error("Failed to upload the file.");
         }
@@ -337,6 +380,7 @@ const CoursePage = () => {
   const handleChapterClick = (index) => {
     setSelectedChapterIndex(index);
     setShowLectureDialog(true);
+    addLectureField();
   };
 
   const handleAddLectureToChapter = async () => {
@@ -484,17 +528,7 @@ const CoursePage = () => {
                   onChange={(e) => setNewLectureDescription(e.target.value)}
                   className="border border-gray-300 p-4 rounded-lg w-full h-32 resize-none shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
                 />
-                <label className="block text-gray-700 text-md font-medium mb-2 mt-4">
-                  Video Link:
-                </label>
-                <input
-                  type="text"
-                  value={lecture.videoLink}
-                  onChange={(e) =>
-                    handleAddLecture(idx, "videoLink", e.target.value)
-                  }
-                  className="border border-gray-300 p-4 rounded-lg w-full shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
-                />
+
                 <label className="block text-gray-700 text-md font-medium mb-2 mt-4">
                   Upload Video:
                 </label>
@@ -551,12 +585,7 @@ const CoursePage = () => {
                 )}
               </div>
             ))}
-            <button
-              onClick={addLectureField}
-              className="bg-blue-600 text-white p-2 rounded-lg hover:bg-blue-700 transition-colors mb-4"
-            >
-              Add Lecture Field
-            </button>
+
             <div className="flex justify-end">
               <button
                 onClick={handleAddLectureToChapter}
@@ -617,7 +646,12 @@ const CoursePage = () => {
                           {lIndex + 1}. {lecture.name}
                         </div>
                         <div className="flex justify-center items-center gap-5">
-                          {" "}
+                          <button
+                            onClick={() => openModal(index, lIndex)}
+                            className="bg-blue-500 text-white px-4 py-2 rounded"
+                          >
+                            Add Video Link
+                          </button>
                           <a
                             href={lecture.videoLink}
                             target="_blank"
@@ -631,8 +665,7 @@ const CoursePage = () => {
                             <input
                               type="file"
                               ref={fileInputRef}
-                                      key={inputKey} // Key ensures a new input element is created after reset
-
+                              key={inputKey} // Key ensures a new input element is created after reset
                               onChange={(e) =>
                                 handleAddpdfs(
                                   index,
@@ -657,8 +690,43 @@ const CoursePage = () => {
                             <MdEdit />
                           </button>
                         </div>
+                        {showModal && (
+                          <div className="fixed inset-0 z-50 flex items-center justify-center bg-gray-900 bg-opacity-50">
+                            <div className="bg-white p-6 rounded-lg shadow-lg w-1/3">
+                              <h2 className="text-lg font-semibold mb-4">
+                                Add Video Link
+                              </h2>
+
+                              <label className="block text-gray-700 text-md font-medium mb-2 mt-4">
+                                Video Link:
+                              </label>
+                              <input
+                                type="text"
+                                value={videoLink}
+                                onChange={(e) => setVideoLink(e.target.value)}
+                                className="border border-gray-300 p-4 rounded-lg w-full shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+                              />
+                              <button
+                                onClick={() =>
+                                  handleSaveVideoLink(index, lIndex, videoLink)
+                                }
+                                className="bg-green-500 text-white px-4 py-2 rounded mt-4"
+                              >
+                                Save
+                              </button>
+
+                              {/* Cancel Button */}
+                              <button
+                                onClick={closeModal}
+                                className="bg-red-500 text-white px-4 py-2 rounded mt-4 ml-2"
+                              >
+                                Cancel
+                              </button>
+                            </div>
+                          </div>
+                        )}
                       </div>
-<div className="poppins text-xl p-1">PDF Files</div>
+                      <div className="poppins text-xl p-1">PDF Files</div>
                       {lecture.pdfs &&
                         lecture.pdfs.map((pdf, pIndex) => (
                           <div key={pIndex} className=" pl-8  flex gap-5 ">
@@ -675,7 +743,7 @@ const CoursePage = () => {
                                 handleDeletePdf(index, lIndex, pIndex)
                               }
                               className="text-red-500 hover:underline"
-                            > 
+                            >
                               <MdAutoDelete />
                             </button>
                           </div>
