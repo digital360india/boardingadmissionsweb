@@ -40,7 +40,7 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-<Head>
+<head>
   <meta name="viewport" content={metadata.viewport} />
   <meta name="description" content={metadata.description} />
   <meta name="keywords" content={metadata.keywords} />
@@ -86,7 +86,7 @@ export default function RootLayout({ children }) {
     />
   </noscript>
   {/* End Facebook Pixel Code */}
-</Head>
+</head>
 
 
       <body className={`${poppins.variable}`}>
