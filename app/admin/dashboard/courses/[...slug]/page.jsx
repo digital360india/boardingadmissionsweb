@@ -1,19 +1,18 @@
 "use client";
-import React, { useEffect, useState } from "react";
-import { db, firebaseApp } from "@/firebase/firebase";
+import React, { useEffect, useRef, useState } from "react";
+import { db } from "@/firebase/firebase";
 import {
   doc,
   getDoc,
   updateDoc,
   deleteDoc,
-  FieldValue,
-  Firestore,
+
 } from "firebase/firestore";
 import { usePathname, useRouter } from "next/navigation";
 import { getStorage, ref, uploadBytes, getDownloadURL } from "firebase/storage";
 import { getDocs, collection } from "firebase/firestore";
-import { FiDelete, FiPenTool, FiVideo, FiWatch } from "react-icons/fi";
-import { MdEdit, MdFolderDelete } from "react-icons/md";
+import {  FiPenTool, FiVideo,  } from "react-icons/fi";
+import { MdAutoDelete, MdEdit, MdFolderDelete } from "react-icons/md";
 import { FaWindowClose } from "react-icons/fa";
 
 const CoursePage = () => {
@@ -21,7 +20,7 @@ const CoursePage = () => {
   const currentPage = usePathname();
   const pathArray = currentPage.split("/");
   const uniqueID = pathArray[pathArray.length - 1];
-
+  const fileInputRef = useRef(null); 
   const [course, setCourse] = useState("");
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
@@ -29,6 +28,8 @@ const CoursePage = () => {
     chapterName: "",
     lectures: [],
   });
+  const [inputKey, setInputKey] = useState(Date.now()); // Key to force re-render
+
   const [schoolsList, setSchoolsList] = useState([]);
   const [boardsList, setBoardsList] = useState([]);
   const [selectedChapterIndex, setSelectedChapterIndex] = useState(null);
@@ -255,6 +256,11 @@ const CoursePage = () => {
             chapters: updatedChapters,
           }));
           console.log("update");
+          if (fileInputRef.current) {
+            fileInputRef.current.value = ""; 
+          }
+          setInputKey(Date.now()); // Changing key will force re-render
+
         } else {
           console.error("Failed to upload the file.");
         }
@@ -624,6 +630,9 @@ const CoursePage = () => {
                             <span className="text-gray-700">Add PDFs</span>
                             <input
                               type="file"
+                              ref={fileInputRef}
+                                      key={inputKey} // Key ensures a new input element is created after reset
+
                               onChange={(e) =>
                                 handleAddpdfs(
                                   index,
@@ -649,29 +658,25 @@ const CoursePage = () => {
                           </button>
                         </div>
                       </div>
-
+<div className="poppins text-xl p-1">PDF Files</div>
                       {lecture.pdfs &&
                         lecture.pdfs.map((pdf, pIndex) => (
-                          <div key={pIndex}>
+                          <div key={pIndex} className=" pl-8  flex gap-5 ">
                             <a
                               href={pdf}
                               target="_blank"
                               rel="noopener noreferrer"
                               className="text-blue-500 hover:underline"
                             >
-                              Pdf. {pIndex + 1}{" "}
+                              PDF FILE NO. {pIndex + 1}{" "}
                             </a>
                             <button
                               onClick={() =>
-                                handleDeletePdf(
-                                  index,
-                                  lIndex,
-                                  pIndex
-                                )
+                                handleDeletePdf(index, lIndex, pIndex)
                               }
                               className="text-red-500 hover:underline"
-                            >
-                              Delete
+                            > 
+                              <MdAutoDelete />
                             </button>
                           </div>
                         ))}
