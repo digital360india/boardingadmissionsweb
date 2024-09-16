@@ -1,10 +1,20 @@
 "use client";
 import React, { useEffect, useState } from "react";
-import { db } from "@/firebase/firebase";
-import { doc, getDoc, updateDoc, deleteDoc } from "firebase/firestore";
+import { db, firebaseApp } from "@/firebase/firebase";
+import {
+  doc,
+  getDoc,
+  updateDoc,
+  deleteDoc,
+  FieldValue,
+  Firestore,
+} from "firebase/firestore";
 import { usePathname, useRouter } from "next/navigation";
 import { getStorage, ref, uploadBytes, getDownloadURL } from "firebase/storage";
 import { getDocs, collection } from "firebase/firestore";
+import { FiDelete, FiPenTool, FiVideo, FiWatch } from "react-icons/fi";
+import { MdEdit, MdFolderDelete } from "react-icons/md";
+import { FaWindowClose } from "react-icons/fa";
 
 const CoursePage = () => {
   const router = useRouter();
@@ -12,7 +22,7 @@ const CoursePage = () => {
   const pathArray = currentPage.split("/");
   const uniqueID = pathArray[pathArray.length - 1];
 
-  const [course, setCourse] = useState(null);
+  const [course, setCourse] = useState("");
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
   const [newChapter, setNewChapter] = useState({
@@ -22,9 +32,16 @@ const CoursePage = () => {
   const [schoolsList, setSchoolsList] = useState([]);
   const [boardsList, setBoardsList] = useState([]);
   const [selectedChapterIndex, setSelectedChapterIndex] = useState(null);
+  const [selectedLectureIndex, setSelectedLectureIndex] = useState(null);
+  const [isEditingLecture, setIsEditingLecture] = useState(false);
   const [showLectureDialog, setShowLectureDialog] = useState(false);
   const [newLectureDescription, setNewLectureDescription] = useState("");
-
+  const [lectureData, setLectureData] = useState({
+    name: "",
+    videoLink: "",
+    videoUrl: "",
+    pdfs: [],
+  });
   useEffect(() => {
     const fetchCourse = async () => {
       try {
@@ -32,7 +49,13 @@ const CoursePage = () => {
         const docSnap = await getDoc(docRef);
 
         if (docSnap.exists()) {
-          setCourse(docSnap.data());
+          const courseData = docSnap.data();
+
+          setCourse({
+            ...courseData,
+            targetedSchools: courseData.targetedSchools || [],
+            targetedBoards: courseData.targetedBoards || [],
+          });
         } else {
           setError("Course not found");
         }
@@ -126,6 +149,46 @@ const CoursePage = () => {
       alert("Failed to add chapter");
     }
   };
+  const handleDeletePdf = async (chapterIndex, lectureIndex, pdfIndex) => {
+    try {
+      const courseRef = doc(db, "courses", uniqueID);
+      const courseSnap = await getDoc(courseRef);
+
+      if (courseSnap.exists()) {
+        const courseData = courseSnap.data();
+        const updatedChapters = [...courseData.chapters];
+
+        // Remove the PDF from the PDFs array
+        const updatedPdfs = updatedChapters[chapterIndex].lectures[
+          lectureIndex
+        ].pdfs.filter((pdf, index) => index !== pdfIndex);
+
+        // Update the lecture with the new PDFs array
+        updatedChapters[chapterIndex].lectures[lectureIndex].pdfs = updatedPdfs;
+
+        // Update the document in Firestore
+        await updateDoc(courseRef, { chapters: updatedChapters });
+
+        // Update the course and lectureData state
+        setCourse((prevCourse) => ({
+          ...prevCourse,
+          chapters: updatedChapters,
+        }));
+
+        // Update the lectureData to reflect the deletion
+        setLectureData((prevData) => ({
+          ...prevData,
+          pdfs: updatedPdfs,
+        }));
+
+        console.log("PDF deleted successfully");
+      } else {
+        setError("No such document!");
+      }
+    } catch (err) {
+      console.error("Error deleting PDF:", err);
+    }
+  };
 
   const addLectureField = () => {
     setNewChapter({
@@ -136,6 +199,32 @@ const CoursePage = () => {
       ],
     });
   };
+  const handleLectureEdit = (chapterIndex, lectureIndex) => {
+    const lectureToEdit = course.chapters[chapterIndex].lectures[lectureIndex];
+    setLectureData({ ...lectureToEdit });
+    setSelectedChapterIndex(chapterIndex);
+    setSelectedLectureIndex(lectureIndex);
+    setIsEditingLecture(true);
+  };
+
+  const handleSaveLecture = async () => {
+    if (selectedChapterIndex === null || selectedLectureIndex === null) return;
+
+    const updatedChapters = [...course.chapters];
+    updatedChapters[selectedChapterIndex].lectures[selectedLectureIndex] = {
+      ...lectureData,
+    };
+    try {
+      const docRef = doc(db, "courses", uniqueID);
+      await updateDoc(docRef, { chapters: updatedChapters });
+      setCourse((prev) => ({ ...prev, chapters: updatedChapters }));
+      alert("Lecture updated successfully");
+      setIsEditingLecture(false);
+    } catch (err) {
+      console.error("Error updating lecture:", err);
+      alert("Failed to update lecture");
+    }
+  };
   const handleFileUpload = async (file) => {
     if (!file) return null;
 
@@ -145,6 +234,36 @@ const CoursePage = () => {
 
     const downloadURL = await getDownloadURL(fileRef);
     return downloadURL;
+  };
+
+  const handleAddpdfs = async (chapterIndex, lectureIndex, type, file) => {
+    try {
+      const courseRef = doc(db, "courses", uniqueID);
+      const courseSnap = await getDoc(courseRef);
+
+      if (courseSnap.exists()) {
+        const courseData = courseSnap.data();
+        const updatedChapters = [...courseData.chapters];
+        const newPdfUrl = await handleFileUpload(file);
+        if (newPdfUrl) {
+          updatedChapters[chapterIndex].lectures[lectureIndex].pdfs.push(
+            newPdfUrl
+          );
+          await updateDoc(courseRef, { chapters: updatedChapters });
+          setCourse((prevCourse) => ({
+            ...prevCourse,
+            chapters: updatedChapters,
+          }));
+          console.log("update");
+        } else {
+          console.error("Failed to upload the file.");
+        }
+      } else {
+        setError("No such document!");
+      }
+    } catch (err) {
+      console.error("Error updating lecture PDFs:", err);
+    }
   };
 
   const handleAddLecture = async (index, field, value) => {
@@ -472,26 +591,65 @@ const CoursePage = () => {
               key={index}
               className="mb-4 p-4 border border-gray-300 rounded-lg"
             >
-              <h3 className="text-xl font-semibold">{chapter.chapterName}</h3>
-              <button
-                onClick={() => handleChapterClick(index)}
-                className="bg-blue-600 text-white p-2 rounded-lg hover:bg-blue-700 transition-colors mt-2"
-              >
-                Add Lectures
-              </button>
+              <div className="flex justify-between items-center">
+                {" "}
+                <h3 className="text-xl font-semibold">{chapter.chapterName}</h3>
+                <button
+                  onClick={() => handleChapterClick(index)}
+                  className="bg-blue-600 text-white p-2 rounded-lg hover:bg-blue-700 transition-colors mt-2"
+                >
+                  <FiPenTool />{" "}
+                </button>
+              </div>
               {chapter.lectures && (
                 <ul className="mt-2">
                   {chapter.lectures.map((lecture, lIndex) => (
                     <li key={lIndex} className="mb-2">
-                      <div className="font-medium">{lecture.name}</div>
-                      <a
-                        href={lecture.videoLink}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="text-blue-500 hover:underline"
-                      >
-                        Watch Video
-                      </a>
+                      <div className="flex justify-between items-center bg-blue-300 p-2 rounded-lg">
+                        {" "}
+                        <div className="font-medium">
+                          {lIndex + 1}. {lecture.name}
+                        </div>
+                        <div className="flex justify-center items-center gap-5">
+                          {" "}
+                          <a
+                            href={lecture.videoLink}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="text-green-500 text-2xl mt-1 hover:{} bg-blue-900 p-1 rounded-md hover:underline"
+                          >
+                            <FiVideo />
+                          </a>
+                          <label className="block mb-4">
+                            <span className="text-gray-700">Add PDFs</span>
+                            <input
+                              type="file"
+                              onChange={(e) =>
+                                handleAddpdfs(
+                                  index,
+                                  lIndex,
+                                  "file",
+                                  e.target.files[0]
+                                )
+                              }
+                              className="mt-1 block w-full p-2 border rounded"
+                            />
+                          </label>
+                          <button
+                            onClick={() => handleDeleteLecture(index, lIndex)}
+                            className="bg-red-600 text-white p-2 rounded-lg hover:bg-red-700 transition-colors mt-2"
+                          >
+                            <MdFolderDelete />
+                          </button>
+                          <button
+                            onClick={() => handleLectureEdit(index, lIndex)}
+                            className="edit-button"
+                          >
+                            <MdEdit />
+                          </button>
+                        </div>
+                      </div>
+
                       {lecture.pdfs &&
                         lecture.pdfs.map((pdf, pIndex) => (
                           <div key={pIndex}>
@@ -501,16 +659,22 @@ const CoursePage = () => {
                               rel="noopener noreferrer"
                               className="text-blue-500 hover:underline"
                             >
-                              Download PDF
+                              Pdf. {pIndex + 1}{" "}
                             </a>
+                            <button
+                              onClick={() =>
+                                handleDeletePdf(
+                                  index,
+                                  lIndex,
+                                  pIndex
+                                )
+                              }
+                              className="text-red-500 hover:underline"
+                            >
+                              Delete
+                            </button>
                           </div>
                         ))}
-                      <button
-                        onClick={() => handleDeleteLecture(index, lIndex)}
-                        className="bg-red-600 text-white p-2 rounded-lg hover:bg-red-700 transition-colors mt-2"
-                      >
-                        Delete Lecture
-                      </button>
                     </li>
                   ))}
                 </ul>
@@ -519,6 +683,70 @@ const CoursePage = () => {
           ))}
         </ul>
       </div>
+
+      {isEditingLecture && (
+        <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 overflow-auto">
+          <div className="bg-white p-6 rounded-lg shadow-lg max-w-lg w-full mx-4 sm:mx-auto">
+            <div className="flex justify-between items-center mb-4">
+              <span className="text-gray-700 text-lg">Lecture Name</span>
+              <button onClick={() => setIsEditingLecture(false)}>
+                <FaWindowClose className="text-red-400 text-2xl" />
+              </button>
+            </div>
+            <input
+              type="text"
+              value={lectureData.name}
+              onChange={(e) =>
+                setLectureData({
+                  ...lectureData,
+                  name: e.target.value,
+                })
+              }
+              placeholder="Lecture Name"
+              className="mb-4 p-2 border rounded w-full"
+            />
+            <span className="text-gray-700 text-lg">Lecture Video Link</span>
+            <input
+              type="text"
+              value={lectureData.videoLink}
+              onChange={(e) =>
+                setLectureData({
+                  ...lectureData,
+                  videoLink: e.target.value,
+                })
+              }
+              placeholder="Video Link"
+              className="mb-4 p-2 border rounded w-full"
+            />
+
+            {lectureData.pdfs && lectureData.pdfs.length > 0 && (
+              <div className="mb-4">
+                <span className="text-gray-700 block mb-2">Existing PDFs</span>
+                <ul className="list-disc pl-5">
+                  {lectureData.pdfs.map((pdf, index) => (
+                    <li key={index} className="mb-1">
+                      <a
+                        href={pdf.url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-blue-500"
+                      >
+                        {pdf.name}
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            )}
+            <button
+              onClick={handleSaveLecture}
+              className="bg-blue-500 text-white py-2 px-4 rounded"
+            >
+              Save Lecture
+            </button>
+          </div>
+        </div>
+      )}
     </div>
   );
 };
