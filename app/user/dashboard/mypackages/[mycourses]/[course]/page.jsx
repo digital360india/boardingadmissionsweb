@@ -81,37 +81,38 @@ const Page = () => {
         <span>Back</span>
       </button>
 
-      <div className="w-full relative">
-        <img src={courseData.heroImage} className="w-full h-48 object-cover" />
-        <img
-          src={courseData.thumbnailImage}
-          className="w-40 h-40 object-cover absolute bottom-2 left-10 rounded-lg shadow-2xl backdrop-blur-2xl"
-        />
+      <div className="w-full   ">
+        <img src={courseData.heroImage} className="w-full h-[259px] rounded-[10px]  object-cover" />
+        
       </div>
 
-      <h1 className="text-3xl font-bold text-primary02 my-4">
+      <div className=" ">
+        <h1 className=" lg:text-[30px] text-[16px] font-bold text-[#075D70] py-5 my-3 ">
         {courseData.courseName}
-      </h1>
+      </h1></div>
 
-      <p className="text-gray-700 mt-2 bg-gray-200 p-5 rounded-md shadow-lg">
-        <div className="text-xl font-bold py-2">Course Description</div>
+      <div className="border border-[#075D70] px-[25px] rounded-[10px]">
+        <div className="text-[15px] font-semibold text-[#075D70] relative -top-[14px] bg-white w-fit px-1 ">Course Description</div>
+      <p className="text-gray-700 mt-2 bg-gray-20 rounded-md shadow-lg">
         <div>
           {showFullText
             ? courseData.description
-            : courseData.description.split(" ").slice(0, 20).join(" ") + "..."}
+            : courseData.description.split(" ").slice(0, 30).join(" ") + "..."}
         </div>
-        <button className="text-blue-600 mt-2" onClick={toggleTextDisplay}>
+        <button className="text-[#075D70] my-3 text-[15px] font-medium" onClick={toggleTextDisplay}>
           {showFullText ? "See Less" : "See More"}
         </button>
       </p>
+      </div>
 
       <div className="mt-6">
-        <h2 className="text-xl font-semibold text-primary02 mb-4">Chapters</h2>
+        <h2 className="lg:text-[30px] text-[16px] font-bold text-[#075D70]    mb-4">Chapters</h2>
         <div className="space-y-4">
           {courseData.chapters.map((chapter, index) => (
             <div key={index}>
               <div
-                className="bg-white shadow-lg rounded-lg p-4 cursor-pointer"
+                className="bg-white shadow-lg  rounded-lg p-4 cursor-pointer"
+                style={{ boxShadow: '0 2px 1px #075D70' }} 
                 onClick={() => handleChapterClick(index)}
               >
                 <h3 className="text-lg font-semibold text-primary03 flex gap-2 items-center transition-all delay-500">
@@ -120,7 +121,7 @@ const Page = () => {
                   ) : (
                     <FaArrowRightLong />
                   )}
-                  <span>{chapter.chapterName}</span>
+                  <span className="text-[12px] lg:text-[15px] font-semibold text-black">{chapter.chapterName}</span>
                 </h3>
               </div>
               <div
@@ -133,17 +134,17 @@ const Page = () => {
                     <h4 className="text-lg font-semibold text-primary02 mb-2">
                       Lectures
                     </h4>
-                    <div className="space-y-4 flex gap-6 flex-wrap">
+                    <div className=" flex gap-6 flex-wrap ">
                       {chapter.lectures.map((lecture, lectureIndex) => (
                         <div
                           key={lectureIndex}
-                          className="bg-white shadow-lg rounded-lg p-4 cursor-pointer"
+                          className="bg-white shadow-lg rounded-lg p-4 cursor-pointer "
                           onClick={() => handleLectureClick(lectureIndex)}
                         >
-                          <h4 className="text-md font-semibold text-primary03">
+                          <h4 className="text-md font-semibold text-black">
                             {lecture.name}
                           </h4>
-                          <p className="text-gray-700 mt-2">
+                          <p className="text-black mt-2">
                             {`Creation Date: ${lecture.creationDate}`}
                           </p>
                           {selectedLectureIndex === lectureIndex && (
