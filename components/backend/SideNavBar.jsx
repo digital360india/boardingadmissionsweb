@@ -4,7 +4,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useContext } from "react";
 import { FaHome, FaBook, FaSignOutAlt } from "react-icons/fa";
-import { FaPen } from "react-icons/fa6";
+import { FaPen, FaVideo } from "react-icons/fa6";
 
 export const SideNavBar = ({ isSidebarOpen, setIsSidebarOpen }) => {
   const { handleLogout } = useContext(UserContext);
@@ -19,6 +19,11 @@ export const SideNavBar = ({ isSidebarOpen, setIsSidebarOpen }) => {
       title: "My Tests",
       src: "/user/dashboard/mytests",
       icon: <FaPen />,
+    },
+    {
+      title: "Live Classes",
+      src: "/user/dashboard/livelectures",
+      icon: <FaVideo />,
     },
   ];
 
