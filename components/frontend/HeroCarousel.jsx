@@ -14,8 +14,8 @@ const cardData = [
   {
     id: 1,
     type: "video",
-    videoSrc: "https://firebasestorage.googleapis.com/v0/b/boardingadmissions-f3ba3.appspot.com/o/carousel%2Fmobileviewvideo.mp4?alt=media&token=40e1d369-04fb-42eb-913a-abc1be12794f",
-    videoSrcSmallScreen: "https://firebasestorage.googleapis.com/v0/b/boardingadmissions-f3ba3.appspot.com/o/carousel%2Fmobileviewvideo.mp4?alt=media&token=40e1d369-04fb-42eb-913a-abc1be12794f",
+    videoSrc: "https://firebasestorage.googleapis.com/v0/b/boardingadmissions-f3ba3.appspot.com/o/carousel%2Fmobileviewvideo%20(1)%20(1).mp4?alt=media&token=0273a9fc-6edc-4c15-b642-1da56f906bc7",
+    videoSrcSmallScreen: "https://firebasestorage.googleapis.com/v0/b/boardingadmissions-f3ba3.appspot.com/o/carousel%2Fmobileviewvideo%20(1)%20(1).mp4?alt=media&token=0273a9fc-6edc-4c15-b642-1da56f906bc7",
   },
   {
     id: 2,
@@ -75,6 +75,7 @@ const HeroCarousel = () => {
 
   // Handle video end event
   const handleVideoEnd = () => {
+    // Pause video and set it to allow touch move only after it played
     setVideoPlayed(true);
     localStorage.setItem("videoPlayed", "true"); // Store video played status
     if (swiperRef.current) {
@@ -82,6 +83,16 @@ const HeroCarousel = () => {
       swiperRef.current.swiper.slideNext(); // Move to the next slide programmatically
     }
   };
+
+  // Play the video again after it's ended
+  useEffect(() => {
+    if (videoRef.current) {
+      videoRef.current.addEventListener("ended", () => {
+        videoRef.current.currentTime = 0; // Reset to start
+        videoRef.current.play(); // Play again after the end
+      });
+    }
+  }, [videoRef]);
 
   // Set allowTouchMove based on the current slide
   const handleSlideChange = () => {
@@ -98,7 +109,6 @@ const HeroCarousel = () => {
         ref={swiperRef}
         spaceBetween={50}
         slidesPerView={1}
-        pagination={{ clickable: true }}
         onSlideChange={handleSlideChange} // Adjust swiping permissions on slide change
       >
         {cardData.map((card, index) => (
@@ -119,18 +129,15 @@ const HeroCarousel = () => {
               </div>
             ) : (
               <div>
-                {/* For screens larger than md and below lg */}
                 <div className="hidden w-full h-[100vh] md:flex items-center justify-center bg-[#FFFFFF]">
                   <Image
                     src={card.imageSrc}
                     width={1000}
                     height={1000}
                     alt={`Slide ${card.id}`}
-                    className=" xl:h-[100%] lg:h-[104%] h-[110%] -mt-16"
+                    className="xl:h-[100%] w-full lg:h-[104%] h-[110%] -mt-16"
                   />
                 </div>
-                
-                {/* For screens larger than lg */}
                 <div className="md:hidden w-full lg:h-[100vh] h-[66vh] flex items-center justify-center bg-[#FFFFFF]">
                   <Image
                     src={card.mobileimageSrc}
