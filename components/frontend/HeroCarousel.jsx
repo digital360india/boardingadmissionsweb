@@ -1,11 +1,12 @@
 "use client";
 import React, { useState, useRef, useEffect } from "react";
-import { Swiper, SwiperSlide } from 'swiper/react';
-import SwiperCore, { Navigation, Pagination } from 'swiper';
-import 'swiper/css';
-import 'swiper/css/navigation';
-import 'swiper/css/pagination';
-import Image from 'next/image';
+import { Swiper, SwiperSlide } from "swiper/react";
+import SwiperCore, { Navigation, Pagination } from "swiper";
+import "swiper/css";
+import "swiper/css/navigation";
+import "swiper/css/pagination";
+import Image from "next/image";
+import Navbar from "./Navbar";
 
 // Install Swiper modules
 SwiperCore.use([Navigation, Pagination]);
@@ -14,13 +15,16 @@ const cardData = [
   {
     id: 1,
     type: "video",
-    videoSrc: "https://firebasestorage.googleapis.com/v0/b/boardingadmissions-f3ba3.appspot.com/o/carousel%2Fmobileviewvideo%20(1)%20(1).mp4?alt=media&token=0273a9fc-6edc-4c15-b642-1da56f906bc7",
-    videoSrcSmallScreen: "https://firebasestorage.googleapis.com/v0/b/boardingadmissions-f3ba3.appspot.com/o/carousel%2Fmobileviewvideo%20(1)%20(1).mp4?alt=media&token=0273a9fc-6edc-4c15-b642-1da56f906bc7",
+    videoSrc:
+      "https://firebasestorage.googleapis.com/v0/b/boardingadmissions-f3ba3.appspot.com/o/carousel%2Fmobileviewvideo%20(1)%20(1).mp4?alt=media&token=0273a9fc-6edc-4c15-b642-1da56f906bc7",
+    videoSrcSmallScreen:
+      "https://firebasestorage.googleapis.com/v0/b/boardingadmissions-f3ba3.appspot.com/o/carousel%2Fmobileviewvideo%20(1)%20(1).mp4?alt=media&token=0273a9fc-6edc-4c15-b642-1da56f906bc7",
   },
   {
     id: 2,
     type: "image",
-    imageSrc: "https://firebasestorage.googleapis.com/v0/b/bookify-faedc.appspot.com/o/banner1.png?alt=media&token=25e52b21-cad7-4e3f-adaa-521f15a6f7a9",
+    imageSrc:
+      "https://firebasestorage.googleapis.com/v0/b/bookify-faedc.appspot.com/o/banner1.png?alt=media&token=25e52b21-cad7-4e3f-adaa-521f15a6f7a9",
     mobileimageSrc: "/images/mobilebanner1.jpg",
   },
   {
@@ -35,6 +39,7 @@ const HeroCarousel = () => {
   const [videoPlayed, setVideoPlayed] = useState(false); // Track if the video has been played
   const [isMobile, setIsMobile] = useState(false); // Detect if it's mobile
   const [videoSrc, setVideoSrc] = useState(cardData[0].videoSrc); // State for video source
+  const [isLoading, setIsLoading] = useState(true); // Loading state for video
   const swiperRef = useRef(null);
   const videoRef = useRef(null);
 
@@ -75,7 +80,6 @@ const HeroCarousel = () => {
 
   // Handle video end event
   const handleVideoEnd = () => {
-    // Pause video and set it to allow touch move only after it played
     setVideoPlayed(true);
     localStorage.setItem("videoPlayed", "true"); // Store video played status
     if (swiperRef.current) {
@@ -103,24 +107,37 @@ const HeroCarousel = () => {
     }
   };
 
+  // Handle when the video is ready to play
+  const handleCanPlay = () => {
+    setIsLoading(false); // Stop the loading animation
+  };
+
   return (
-    <div className="w-full lg:h-screen bg-[#F4FCFC]">
+    <div className="w-full lg:h-screen bg-[#F4FCFC] relative">
+      {/* Loading screen */}
+      {isLoading && (
+        <div className="absolute inset-0 flex items-center justify-center bg-white z-50">
+          <div className="loader">Loading...</div>
+        </div>
+      )}
+
       <Swiper
         ref={swiperRef}
         spaceBetween={50}
         slidesPerView={1}
         onSlideChange={handleSlideChange} // Adjust swiping permissions on slide change
       >
-        {cardData.map((card, index) => (
+        {cardData.map((card) => (
           <SwiperSlide key={card.id}>
             {card.type === "video" ? (
               <div className="lg:w-full lg:h-[97vh] h-[66vh] flex items-center justify-center bg-[#FFFFFF]">
                 <video
-                  ref={index === 0 ? videoRef : null}
+                  ref={videoRef}
                   className="w-full h-full object-cover"
                   autoPlay // Ensure the video auto-plays
                   muted // Ensure the video is muted for autoplay
-                  onEnded={handleVideoEnd}
+                  onCanPlay={handleCanPlay} // Detect when the video is ready
+                  onEnded={handleVideoEnd} // Handle when the video ends
                   controls={false} // Disable controls for the video
                 >
                   <source src={videoSrc} type="video/mp4" />
