@@ -1,0 +1,69 @@
+
+.ball {
+    
+    border-radius: 50%;
+    transform: translateY(200px); /* Starts out of view */
+    opacity: 0;
+  }
+  
+  /* First ball appears, moves to the center, and then separates */
+  .ball:nth-child(1) {
+      background-color: #144d74;
+    animation: appearFromBottom 1s forwards ease-in-out 0s, seperate1 0.8s forwards ease-in-out infinite;
+  }
+  
+  /* Second ball appears after 0.2s, moves to the center, and then separates */
+  .ball:nth-child(2) {
+      background-color: #13c8d4;
+    animation: appearFromBottom 1s forwards ease-in-out 0.2s ;
+  }
+  
+  /* Third ball appears after 0.4s, moves to the center, and then separates */
+  .ball:nth-child(3) {
+      background-color: #2692da;
+    animation: appearFromBottom 1s forwards ease-in-out 0.4s, seperate2 0.8s  forwards ease-in-out infinite;
+  }
+  
+  /* Animation to appear from the bottom */
+  @keyframes appearFromBottom {
+    0% {
+      opacity: 0;
+      transform: translateY(200px); /* Start out of view */
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0); /* Move to the center vertically */
+    }
+  }
+  
+  
+  
+  /* Separate the first ball to the right */
+  @keyframes seperate1 {
+    0% ,100% {
+      transform: translateX(0);
+    }
+    50% {
+      transform: translateX(150px);
+    }
+  }
+  
+  /* Separate the third ball to the left */
+  @keyframes seperate2 {
+    0% ,100% {
+      transform: translateX(0);
+    }
+    50% {
+      transform: translateX(-150px);
+    }
+  }
+  
+  /* Bounce animation */
+  @keyframes bounce {
+    0%, 100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-50px);
+    }
+  }
