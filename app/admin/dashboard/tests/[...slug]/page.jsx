@@ -319,6 +319,16 @@ const AddQuestionsPage = () => {
                       className="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:border-indigo-500 focus:ring-indigo-500"
                     />
                   </label>
+                  <label className="block mb-4">
+                    <span className="text-gray-700">Weightage</span>
+                    <input
+                      type="text"
+                      name="totalmarks"
+                      value={newQuestion.totalmarks}
+                      onChange={handleInputChange}
+                      className="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:border-indigo-500 focus:ring-indigo-500"
+                    />
+                  </label>
                 </div>
               );
             case "fill-in-the-blank":
@@ -425,9 +435,10 @@ const AddQuestionsPage = () => {
           </button>
         </div>
         <div className="flex justify-between items-center mb-4">
-          <h3 className="text-lg font-semibold text-indigo-600">
-            {question.sno}. {question.question}
-          </h3>
+          <div className="text-lg flex justify-between w-full font-semibold text-indigo-600">
+          <p> {question.sno}. {question.question}</p> 
+          <p>Marks Assigned: {question.totalmarks}</p>
+          </div>
         </div>
 
         <div className="text-gray-700 space-y-2">
@@ -456,13 +467,21 @@ const AddQuestionsPage = () => {
                       <strong>Question:</strong> {question.question}
                     </p>
                     <ul className="list-disc pl-5">
-                      {Object.entries(question.answers || {}).map(
+                      {/* {Object.entries(question.answers || {}).map(
                         ([key, value]) => (
                           <li key={key}>
                             <strong>{key.toUpperCase()}:</strong> {value}
                           </li>
                         )
-                      )}
+                      )} */}
+<li><strong>A:</strong> {question.answers.a}</li>
+<li><strong>B:</strong> {question.answers.b}</li>
+<li><strong>C:</strong> {question.answers.c}</li>
+<li><strong>D:</strong> {question.answers.d}</li>
+
+
+
+
                     </ul>
                     <p>
                       <strong>Correct Answer:</strong> {question.correctAnswer}
@@ -519,7 +538,7 @@ const AddQuestionsPage = () => {
           {" "}
           <form
             onSubmit={handleSubmit}
-            className="space-y-4 absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-white border border-gray-300 rounded-xl shadow-lg p-8 w-full max-w-3xl z-50"
+            className="space-y-4 fixed overflow-y-auto h-[600px] top-[10vh] right-2 bg-white border border-gray-300 rounded-xl shadow-lg p-8 w-full max-w-3xl z-50"
           >
             {" "}
             <div className="flex justify-end items-end">
@@ -558,7 +577,9 @@ const AddQuestionsPage = () => {
       )}
 
       <div className="mt-8">
-        <h2 className="text-lg font-semibold mb-4">Existing Questions</h2>
+        <div className="text-lg flex w-full justify-between font-semibold mb-4"><p>Existing questions</p>
+        <p>Total Number of Questions: {questions.length}</p> 
+        </div>
         <div className="space-y-4">
           {questions.map((question) => (
             <div key={question.id} className="border p-4 rounded-md">

@@ -22,7 +22,8 @@ const TestPage = () => {
     testTitle: '',
     duration: '',
     testDescription: '',
-    testUploadDate: ''
+    testUploadDate: '',
+    Totalmarks:""
   });
 
 
@@ -72,6 +73,12 @@ useEffect(()=>{ fetchTests();},[]);
         ...doc.data(),
       }));
       setTests(testList);
+      setNewTest({
+        testTitle: '',
+        duration: '',
+        testDescription: '',
+        testUploadDate: ''
+      });
     } catch (err) {
       console.error('Error adding test:', err);
       alert('Failed to add test.');
@@ -116,7 +123,7 @@ function filterData(value)
 const results = tests.filter((test)=>{
   const includes= test.testTitle.toLowerCase().includes(value.toLowerCase());
 return includes
-});
+}); 
 console.log(results);
 setResults(results);
 }
@@ -130,8 +137,8 @@ setResults(results);
 
   return (
     <div className="space-y-4">
-     <div className={`fixed ${deletePopup.show?`block`:`hidden`}  flex h-[75vh] w-[78vw] z-20 justify-center items-center`}>
-     <div className='h-[75vh] z-20 w-[78vw]  bg-black opacity-70 '>
+     <div className={`fixed ${deletePopup.show?`block`:`hidden`}  flex h-[75vh] w-[80%] z-20 justify-center items-center`}>
+     <div className='h-[75vh] z-20 w-full  bg-black opacity-70 '>
       </div>
       <div className='h-[150px] flex flex-col justify-center fixed gap-5 w-[250px] text-center rounded-md opacity-100 z-30 bg-white '>
         <p className='text-xl'>Are you Sure to Delete ?</p>
@@ -159,7 +166,7 @@ setResults(results);
      </div>
 
       {isDialogOpen && (
-        <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50">
+        <div className="fixed inset-0 z-30 flex items-center justify-center bg-black bg-opacity-50">
           <div className="bg-white p-6 rounded-md shadow-lg w-full max-w-lg">
             <h2 className="text-xl font-bold mb-4">Add New Test</h2>
             <form onSubmit={handleAddTest} className="space-y-4">
@@ -203,7 +210,17 @@ setResults(results);
                   className="mt-1 block w-full p-2 border border-gray-300 rounded"
                 />
               </div>
-              <button
+              <div>
+                <label className="block text-gray-700">Total marks:</label>
+                <input
+                  type="text"
+                  name="Totalmarks"
+                  value={newTest.Totalmarks}
+                  onChange={handleInputChange}
+                  className="mt-1 block w-full p-2 border border-gray-300 rounded"
+                />
+              </div>
+             <div className='flex gap-5'> <button
                 type="submit"
                 className="bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600"
               >
@@ -215,7 +232,7 @@ setResults(results);
                 className="bg-gray-500 text-white px-4 py-2 rounded-md hover:bg-gray-600"
               >
                 Cancel
-              </button>
+              </button></div>
             </form>
           </div>
         </div>
@@ -228,6 +245,7 @@ setResults(results);
         <th className="border p-4 text-left">Duration</th>
         <th className="border p-4 text-left">Test Description</th>
         <th className="border p-4 text-left">Test Upload Date</th>
+        <th className='border p-4 text-left'>Total Marks</th>
         <th className="border p-4 text-left">Actions</th>
       </tr>
     </thead>
@@ -238,9 +256,10 @@ setResults(results);
           <td className="border p-4">{test.duration || "N/A"}</td>
           <td className="border p-4">{test.testDescription || "N/A"}</td>
           <td className="border p-4">{test.testUploadDate || "N/A"}</td>
+          <td className="border p-4">{test.Totalmarks || "N/A"}</td>
           <td className="border p-4 flex gap-3">
             <button
-              onClick={() => handleAddQuestions(test.id)}
+              onClick={() =>{handleAddQuestions(test.id);}}
               className='relative bg-blue-500 text-white px-4 py-2 rounded-md after:z-50 hover:bg-blue-700 after:rounded-md  after:content-[""] hover:after:content-["Add_more_questions"] after:h-[30px] after:overflow-hidden  after:text-center after:p-1 after:w-[0px] after:shadow-lg after:bg-white after:absolute after:-left-4 after:-bottom- after:text-sm hover:after:visible hover:after:w-[140px] after:duration-200 after:invisible after:text-black'
             >
               <img src="/icons/add.svg" alt="" />
