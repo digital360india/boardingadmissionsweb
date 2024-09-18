@@ -22,7 +22,7 @@ const team = [
   },
   {
     story:
-      "The comprehensive learning resources and flexible scheduling at Boarding Admissions made my preparation seamless. The support and feedback from teachers were outstanding.",
+      "The complete learning resources and flexible scheduling at Boarding Admissions made my entire preparation journey so seamless and stress-free. The constant support and detailed feedback from the teachers truly boosted my confidence and helped me stay on track.",
     imageSrc: "/icons/logo.enc",
     name: "Madhavani",
     school: "Mayo Girls' College",
