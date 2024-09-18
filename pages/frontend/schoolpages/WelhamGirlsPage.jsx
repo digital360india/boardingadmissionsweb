@@ -42,7 +42,7 @@ function WelhamGirlsPage() {
       </div>
 
       <div className="w-[90%] ml-[5%]  lg:mt-[20%] xl:mt-[13%]  mt-[10%] md:mt-[7%] ">
-        <div className="relative h-[200px]   xl:h-[180px] md:h-[120px] lg:h-[160px]     w-full  border-b-2  sm:flex sm:justify-between">
+        <div className="relative h-[150px]   xl:h-[150px] md:h-[120px] lg:h-[160px]     w-full  border-b-2  sm:flex sm:justify-between">
           <div className="w-full flex flex-col  lg:gap-5 gap-2">
             <div className="">
               <h1 className="text-[#075D70]  lg:text-[2rem] text-[18px] font-semibold lg:font-bold ">
@@ -82,7 +82,7 @@ function WelhamGirlsPage() {
             </div> */}
           </div>
 
-          <div className=" sm:absolute  gap-3 flex  sm:right-0 sm:self-center">
+          <div className=" sm:absolute pt-2  gap-3 flex  sm:right-0 sm:self-center">
             {/* <button className="py-1 px-2 sm:py-1.5 sm:px-2.5 border border-[#075D70] rounded-[5px] flex gap-2">
               <div>
                 <Image

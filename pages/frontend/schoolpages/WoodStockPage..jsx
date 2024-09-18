@@ -80,7 +80,7 @@ function WoodStockPage() {
       </div>
 
       <div className="w-[90%] ml-[5%]  mt-[10%] ">
-        <div className="relative h-[170px]   xl:h-[180px] md:h-[120px] lg:h-[170px]    w-full  border-b-2  sm:flex sm:justify-between">
+        <div className="relative h-[150px]   xl:h-[150px] md:h-[120px] lg:h-[170px]    w-full  border-b-2  sm:flex sm:justify-between">
           <div className="w-full flex flex-col  lg:gap-5 gap-2">
             <div className="">
               <h1 className="text-[#075D70]  lg:text-[2rem] text-[18px] font-semibold lg:font-bold ">
@@ -135,6 +135,7 @@ function WoodStockPage() {
 
               <p className="text-[#075D70]">Broucher</p>
             </button> */}
+            
             <GetPrepared/>
           </div>
         </div>

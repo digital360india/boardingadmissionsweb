@@ -119,7 +119,7 @@ function SherWoodCollegePage() {
             </div> */}
           </div>
          
-          <div className=" sm:absolute  gap-3 flex  sm:right-0 sm:self-center">
+          <div className=" sm:absolute pt-2  gap-3 flex  sm:right-0 sm:self-center">
             {/* <button className="py-1 px-2 sm:py-1.5 sm:px-2.5 border border-[#075D70] rounded-[5px] flex gap-2">
               <div>
                 <Image
