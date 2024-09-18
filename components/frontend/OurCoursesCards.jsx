@@ -2,7 +2,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import React, { useState } from "react";
-import BookaDemoPopUp from "./BookaDemoPopUp";
+import BookaDemoPopUp from "./BookaDemoPopup";
 
 const cardData = [
   {
@@ -267,3 +267,6 @@ const OurCoursesCards = () => {
 };
 
 export default OurCoursesCards;
+
+
+

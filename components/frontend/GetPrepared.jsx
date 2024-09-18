@@ -1,7 +1,7 @@
 "use client";
 import React, { useState } from "react";
 
-import BookaDemoPopUp from "./BookaDemoPopUp";
+import BookaDemoPopUp from "./BookaDemo";
 import Image from "next/image";
 
 export default function GetPrepared() {
