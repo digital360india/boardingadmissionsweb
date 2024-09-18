@@ -2,7 +2,7 @@
 import React from "react";
 import Faq from "@/components/frontend/Faqdata";
 import Image from "next/image";
-import Star from "@/components/frontend/Ratings";
+import StarRatings from "@/components/frontend/StarRatings";
 import schoolFAQs from "@/utils/frontend/FaqData";
 import GetPrepared from "@/components/frontend/GetPrepared";
 import EnquiryForm from "@/components/frontend/EnquiryForm";
@@ -10,13 +10,7 @@ import Broucher from "@/components/frontend/Broucher";
 
 
 
-const star = [
-  {
-    id: 1,
-
-    ratingByPerson: 4,
-  },
-]; 
+ 
 
 function TheDoonPage() {
   const TheDoon = schoolFAQs.find(school => school.school === 'TheDoon')?.faqs || [];
@@ -52,13 +46,13 @@ function TheDoonPage() {
               </h1>
             </div>
             <div className="flex text-center gap-3">
-              <h2 className="text-[#075D70] ">4.2</h2>
+            
 
-              <div className="border-none ">
-                {star.map((star) => (
-                  <Star key={star.id} star={star} />
-                ))}
-              </div>
+              <StarRatings
+              lat={30.3350442}
+              lng={78.0294387}
+              schoolName={"The Doon School"}
+            />
 
               {/* <div>
                 {

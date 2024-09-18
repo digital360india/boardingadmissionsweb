@@ -2,20 +2,14 @@
 import React from "react";
 import Faq from "@/components/frontend/Faqdata";
 import Image from "next/image";
-import Star from "@/components/frontend/Ratings";
+import StarRatings from "@/components/frontend/StarRatings";
 import schoolFAQs from "@/utils/frontend/FaqData";
 import GetPrepared from "@/components/frontend/GetPrepared";
 import Broucher from "@/components/frontend/Broucher";
 import EnquiryForm from "@/components/frontend/EnquiryForm";
 
 
-const star = [
-  {
-    id: 1,
 
-    ratingByPerson: 4,
-  },
-];
  
 function ScindiaSchoolPage() {
   const Scindia = schoolFAQs.find(school => school.school === 'Scindia')?.faqs || [];
@@ -49,28 +43,11 @@ function ScindiaSchoolPage() {
                 Scindia School, Gwalior, Madhya Pradesh
               </h1>
             </div>
-             <div className="flex text-center lg:gap-3 gap-2 items-center">
-              <h2 className="text-[#075D70] ">4.2</h2>
-
-              <div className="border-none ">
-                {star.map((star) => (
-                  <Star key={star.id} star={star} />
-                ))}
-              </div>
-
-              {/* <div>
-                {
-                  [1, 2, 3, 4, 5].map((num) => (
-                    <button key={num}>
-                      <span className='text-yellow-600'>
-                        &#9733;
-                      </span>
-                    </button>
-                  ))
-                }
-              </div> */}
-              <p className="text-[#075D70] ">Google reviews</p>
-            </div>
+             <StarRatings
+              lat={26.2179713}
+              lng={78.1569787}
+              schoolName={"The Scindia School"}
+            />
 
                {/* <div className=" flex sm:w-[50%] gap-3 mb-2 sm:mb-0">
               <h3 className="px-1 py-1 rounded-md bg-[#6198A3] bg-opacity-[12%] text-black ">
