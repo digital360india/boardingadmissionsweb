@@ -1,26 +1,60 @@
 "use client";
-import { useEffect, useState, useRef } from "react";
+import { useRef, useState } from "react";
 import emailjs from "@emailjs/browser";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
 import Image from "next/image";
 import PopupSuccess from "./PopupSuccess";
 
+// const PopupSuccess = () => {
+//   return (
+//     <div className=" flex  items-center justify-center mt-5  bg-opacity-50 font-poppins">
+//       <div className=" mt-10 mb-10 sm:mb-0   rounded-2xl w-[351px] h-[400px] md:w-[710px] md:h-[400px] lg:w-[900px] lg:h-[420px]   sm:p-6 sm:rounded-2xl  bg-[#006269] ">
+//       <div className="mt-8 flex justify-center">
+//           <Image
+//             src="/icons/Boardinglogo.svg"
+//             alt="congrats"
+//             width={152}
+//             height={120}
+//           />
+//         </div>
 
-const Popup = () => {
+//         <div className="mt-8 text-center text-lg text-white ">
+//           <p>
+//             Congratulations on embarking on the first step <br /> toward a
+//             bright future!
+//           </p>
+//         </div>
+
+//         <div className="max-w-[324px] sm:hidden mt-6 text-center text-[12px] text-white">
+//           <p>Our Team will connect with you shortly.</p>
+//         </div>
+//         <div className="hidden sm:block mt-6 text-center text-[12px] text-white">
+//           <p>Our Team will connect with you at your preferred time.</p>
+//         </div>
+
+//         <div className="mt-14 flex justify-center text-[16px] ">
+//           <Link href="/">
+//             <button
+//               type="button"
+//               className="px-5 p-2  bg-white text-[#006269] text-[12px]    rounded-md  transition-colors duration-300"
+//             >
+//               Back To Home
+//             </button>
+//           </Link>
+//         </div>
+//       </div>
+//     </div>
+//   );
+// };
+
+const BookaDemo = () => {
   const form = useRef();
   const router = useRouter();
   const [isFormVisible, setIsFormVisible] = useState(false);
+
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [buttonclick, setButtonClick] = useState(false);
-
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      setIsFormVisible(true);
-    }, 20000);
-
-    return () => clearTimeout(timer);
-  }, [isFormVisible]);
 
   const [formData, setFormData] = useState({
     name: "",
@@ -30,6 +64,10 @@ const Popup = () => {
     textmessage: "",
   });
 
+  const handleChange = (e) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
+
   const handleInputChange = (e) => {
     const value = e.target.value;
 
@@ -38,21 +76,11 @@ const Popup = () => {
     }
   };
 
-  const handleChange = (e) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
-  };
-
   const handleClose = () => {
     setIsFormVisible(false);
-setIsSubmitted(false);
-    setTimeout(() => {
-      setIsFormVisible(true);
-    }, 20000);
-  };
+    setIsSubmitted(false);
 
-  if (!isFormVisible) {
-    return null;
-  }
+  };
 
   const handlePhoneChange = (e) => {
     const value = e.target.value;
@@ -63,7 +91,10 @@ setIsSubmitted(false);
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    setButtonClick(true);
+
     emailjs
+
       .sendForm("service_zzpjmnf", "template_72aafby", form.current, {
         publicKey: "zA2422Fl3c6n_YSjA",
       })
@@ -71,15 +102,14 @@ setIsSubmitted(false);
         () => {
           console.log("SUCCESS!");
           setIsSubmitted(true);
-
-          // alert("Submitted!")
+          // router.push("/");
 
           // Reset form data after successful submission
           setFormData({
             name: "",
             phonenumber: "",
             email: "",
-            preferredcourse: "",
+            class: "",
             textmessage: "",
           });
         },
@@ -88,16 +118,15 @@ setIsSubmitted(false);
           alert("Failed");
         }
       );
-      
   };
-  console.log(isSubmitted);
 
   return (
-    <div className="z-[9999]  fixed inset-0 flex items-center justify-center    bg-black bg-opacity-50 font-poppins">
+    <div className=" flex items-center justify-center p-10    font-poppins">
       <div className="bg-[#FFFFFF] w-[351px] h-[650px] md:w-[710px] md:h-[460px] lg:w-[950px] lg:h-[520px] rounded  border-8 border-[#CDC6DB30] ">
-        <div
+        {/* <div
           className="md:hidden  cursor-pointer flex justify-end "
-          onClick={handleClose}
+          // onClick={handleClose}
+          onClick={onClose}
         >
           <svg
             width="32"
@@ -112,7 +141,7 @@ setIsSubmitted(false);
               fill="#F8F8F8"
             />
           </svg>
-        </div>
+        </div> */}
 
         {/* If form is submitted, show PopupSuccess component */}
         {isSubmitted ? (
@@ -183,7 +212,7 @@ setIsSubmitted(false);
                     type="text"
                     name="textmessage"
                     value={formData.textmessage}
-                    placeholder="Message for our Expert (Atmost 250 words)"
+                    placeholder="Message for our Experts (Atmost 250 words)"
                     className="w-[302px] h-[120px]  md:w-[660px] md:h-[110px] lg:w-[903px] lg:h-[150px]  text-[#969696] px-3 py-2 placeholder-[#969696] text-[16px] border border-[#E7E7E7] bg-[#F9F9F9] rounded-md resize-none"
                     maxLength={1500}
                     onChange={handleChange}
@@ -195,9 +224,9 @@ setIsSubmitted(false);
                     type="submit"
                     className={`${
                       buttonclick ? `hidden` : `block`
-                    }w-[302px] h-[50px] md:w-[250px] md:h-[50px] bg-[#006269] text-white py-2 px-4 rounded hover:bg-[#029FAA] transition duration-300 `}
+                    } w-[302px] h-[50px] md:w-[250px] md:h-[50px] bg-[#006269] text-white py-2 px-4 rounded hover:bg-[#029FAA] transition duration-300 `}
                   >
-                    Book a Demo
+                    Get Consultation
                   </button>
                   <svg
                     className={`animate-spin ${
@@ -219,9 +248,10 @@ setIsSubmitted(false);
           </>
         )}
 
-        <div
+        {/* <div
           className="hidden md:flex md:justify-center md:items-center md:pt-[2px] cursor-pointer"
-          onClick={handleClose}
+          //   onClick={handleClose}
+          onClick={onClose}
         >
           <svg
             width="48"
@@ -236,10 +266,10 @@ setIsSubmitted(false);
               fill="#F8F8F8"
             />
           </svg>
-        </div>
+        </div> */}
       </div>
     </div>
   );
 };
 
-export default Popup;
+export default BookaDemo;
