@@ -13,6 +13,7 @@ module.exports = {
         gradient01: "linear-gradient(to right, #075D70, #A1C5CD)",
         gradient02: "linear-gradient(to right, #075D70, #FEFEFE)",
         gradient03: "linear-gradient(to bottom, #075D70 100%, #CACBCB 100%)",
+        gradient04: "linear-gradient(to top, #B9E4EE 20%, #F9F9F9 100%)",
         bordergradient1: "linear-gradient(to right, rgba(7, 93, 112, 0.19), rgba(13, 178, 214, 0.1))",
         
       },
@@ -22,7 +23,8 @@ module.exports = {
         background02: "#FEFEFE",
         background03: "#F6F4F1",
         background04: "#284c80",
-        primary01: "#7791A1",
+        background05:"#075D70"
+,        primary01: "#7791A1",
         primary02: "#075D70",
         primary03: "#5C616E",
         secondary01: "#CBBEA6",
