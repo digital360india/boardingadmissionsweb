@@ -78,7 +78,7 @@ export default function TrustedByStudent() {
             </div>
 
             {/* Background image positioned below the first div */}
-            <div className="absolute inset-0 xl:top-[290px] top-[160px] z-0">
+            <div className="absolute inset-0 xl:top-[60%] top-[57%] z-0">
               <div className="flex justify-center">
                 <Image
                   src="/images/frame.svg"

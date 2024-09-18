@@ -3,8 +3,8 @@ import React from 'react'
 
 export default function AboutHero() {
   return (
-    <div className='h-full  bg-[#333333] lg:pt-8 pt-[25%]'>
-    <div className='lg:h-[680px] w-full flex items-center bg-[#333333] xl:px-[100px] lg:px-[40px] px-[24px]'>
+    <div className='h-full  bg-background05 lg:pt-8 pt-[25%]'>
+    <div className='lg:h-[680px] w-full flex items-center bg-background05 xl:px-[100px] lg:px-[40px] px-[24px]'>
         <div className='flex justify-between lg:gap-0  w-full '>
       <div className='order-2 lg:order-1'>
       <Image
