@@ -14,7 +14,7 @@ const team = [
   },
   {
     story:
-      "The mock tests and interactive classes at Boarding Admissions were game-changers. They helped me build confidence and ace my entrance exams. Highly recommend!",
+      "The complete learning resources and flexible scheduling at Boarding Admissions made my entire preparation journey so seamless and stress-free. The constant support and detailed feedback from the teachers truly boosted my confidence and helped me stay on track.",
     imageSrc: "/icons/logo.enc",
     name: "Sanchit Sharma",
     school: "Welham Boys School",
@@ -30,7 +30,7 @@ const team = [
   },
   {
     story:
-      "Boarding Admissions' focus on soft skills and leadership set them apart. I feel prepared not just academically but also personally for boarding school life.",
+      "Boarding Admissions’ focus on developing not just academic skills, but also leadership and soft skills, really set them apart. I now feel fully prepared for the challenges of boarding school life, both academically and personally. I couldn’t have asked for a better foundation.",
     imageSrc: "/icons/logo.enc",
     name: "Amishi",
     school: "Welham Girls' School",
@@ -38,7 +38,7 @@ const team = [
   },
   {
     story:
-      "The tailored preparation plans and expert mentorship at Boarding Admissions helped me excel. The continuous feedback and practice sessions were key to my success.",
+      "The tailored preparation plans and expert mentorship at Boarding Admissions were absolutely key to my success. Their continuous feedback, along with practice sessions, ensured that I was always improving and working on my weak points with clarity.",
     imageSrc: "/icons/logo.enc",
     name: "Aratrika",
     school: "Scindia Kanya Vidyalaya",
@@ -46,7 +46,7 @@ const team = [
   },
   {
     story:
-      "Boarding Admissions provided the perfect balance of rigorous academics and personal growth. Their customized courses and interactive sessions made all the difference in my preparation.",
+      "Boarding Admissions provided me with the perfect balance of rigorous academic preparation and personal growth. Their customized courses, combined with interactive sessions, made studying not only effective but also engaging, transforming my entire approach to learning.",
     imageSrc: "/icons/logo.enc",
     name: "Nishka",
     school: "Ecole Globale",
