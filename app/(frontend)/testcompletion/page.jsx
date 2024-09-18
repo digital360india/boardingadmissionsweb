@@ -20,7 +20,6 @@ const TestComplete = () => {
 
           if (docSnap.exists()) {
             const data = docSnap.data();
-            console.log("Fetched user data:", data); 
             setTestData(data);
           } else {
             console.error("No such document!");

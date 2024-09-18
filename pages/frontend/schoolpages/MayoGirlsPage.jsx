@@ -2,7 +2,7 @@
 import React from "react";
 import Faq from "@/components/frontend/Faqdata";
 import Image from "next/image";
-import Star from "@/components/frontend/Ratings";
+import StarRatings from "@/components/frontend/StarRatings";
 import schoolFAQs from "@/utils/frontend/FaqData";
 import GetPrepared from "@/components/frontend/GetPrepared";
 import EnquiryForm from "@/components/frontend/EnquiryForm";
@@ -10,13 +10,7 @@ import Broucher from "@/components/frontend/Broucher";
 
 
 
-const star = [
-  {
-    id: 1,
-
-    ratingByPerson: 4,
-  },
-]; 
+ 
 const tableData = [
   {
     title: "Fee Details",
@@ -93,47 +87,30 @@ function MayoGirlsPage() {
       </div>
 
      <div className="w-[90%] ml-[5%]  mt-[10%] ">
-        <div className="relative h-[170px]   xl:h-[180px] md:h-[120px] lg:h-[170px]    w-full  border-b-2  sm:flex sm:justify-between">
+        <div className="relative h-[150px]   xl:h-[150px] md:h-[120px] lg:h-[170px]    w-full  border-b-2  sm:flex sm:justify-between">
           <div className="w-full flex flex-col  lg:gap-5 gap-2">
             <div className="">
               <h1 className="text-[#075D70]  lg:text-[2rem] text-[18px] font-semibold lg:font-bold ">
                 Mayo Girls College, Ajmer, Rajasthan
               </h1>
             </div>
-             <div className="flex text-center lg:gap-3 gap-2 items-center">
-              <h2 className="text-[#075D70] ">4.2</h2>
+             <StarRatings
+              lat={26.4428978}
+              lng={74.6494307}
+              schoolName={"Mayo College Girls School"}
+            />
 
-              <div className="border-none ">
-                {star.map((star) => (
-                  <Star key={star.id} star={star} />
-                ))}
-              </div>
-
-              {/* <div>
-                {
-                  [1, 2, 3, 4, 5].map((num) => (
-                    <button key={num}>
-                      <span className='text-yellow-600'>
-                        &#9733;
-                      </span>
-                    </button>
-                  ))
-                }
-              </div> */}
-              <p className="text-[#075D70] ">Google reviews</p>
-            </div>
-
-            <div className=" flex sm:w-[50%] gap-3 mb-2 sm:mb-0">
+               {/* <div className=" flex sm:w-[50%] gap-3 mb-2 sm:mb-0">
               <h3 className="px-1 py-1 rounded-md bg-[#6198A3] bg-opacity-[12%] text-black ">
                 Private School
               </h3>
               <h3 className="px-1 py-1 rounded-md bg-[#6198A3] bg-opacity-[12%] text-black ">
                 Estd.- 1995
               </h3>
-            </div>
+            </div> */}
           </div>
 
-          <div className=" sm:absolute  gap-3 flex  sm:right-0 sm:self-center">
+          <div className=" sm:absolute pt-2  gap-3 flex  sm:right-0 sm:self-center">
              {/* <button className="py-1 px-2 sm:py-1.5 sm:px-2.5 border border-[#075D70] rounded-[5px] flex gap-2">
               <div>
                 <Image
@@ -158,7 +135,7 @@ function MayoGirlsPage() {
         <div className="space-y-4 w-[90vw]  mt-10 ">
           <div className="">
             <h1 className="text-[#075D70] font-semibold  text-[2rem] ">
-              About School
+              About  Mayo Girls College
             </h1>
           </div>
           <div>

@@ -51,7 +51,7 @@ export default function TrustedBy2() {
       <div>
         <button
           onClick={handleClick}
-          className="bg-gradient01 w-[100%] text-white rounded-md py-2"
+          className="bg-gradient01 w-[100%] text-white rounded-md py-2  hover:bg-background05 transition duration-300"
         >
           Book a Demo Class
         </button>

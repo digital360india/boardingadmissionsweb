@@ -76,7 +76,7 @@ const Page = () => {
 
   return (
     <div className="container mx-auto p-4">
-      <button className="flex gap-1" onClick={() => router.back()}>
+      <button className="flex px-2 items-center bg-[#075D70] text-white  rounded-lg w-[90px] h-[35px] text-[15px] font-medium mb-2" onClick={() => router.back()}>
         <IoMdArrowBack className="text-xl" />
         <span>Back</span>
       </button>
@@ -115,7 +115,7 @@ const Page = () => {
                 style={{ boxShadow: '0 2px 1px #075D70' }} 
                 onClick={() => handleChapterClick(index)}
               >
-                <h3 className="text-lg font-semibold text-primary03 flex gap-2 items-center transition-all delay-500">
+                <h3 className="text-lg font-semibold text-primary03 flex gap-2 items-center transition-all  delay-500">
                   {selectedChapterIndex === index ? (
                     <FaArrowDownLong />
                   ) : (

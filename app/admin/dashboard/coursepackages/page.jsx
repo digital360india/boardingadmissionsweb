@@ -1,6 +1,6 @@
 "use client";
 import React, { useState, useEffect } from "react";
-import { db } from "@/firebase/firebase";
+import { db, storage } from "@/firebase/firebase";
 import { collection, getDocs, addDoc } from "firebase/firestore";
 import CoursePackagesList from "@/components/admin/AllCoursePackages";
 import { getDownloadURL, ref, uploadBytesResumable } from "firebase/storage";

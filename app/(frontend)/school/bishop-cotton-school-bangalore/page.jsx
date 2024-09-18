@@ -1,20 +1,13 @@
-import React from 'react'
+import React from "react";
 
-import BishopKarnatakaPage from '@/pages/frontend/schoolpages/BishopKarnatakaPage'
-
-
+import BishopKarnatakaPage from "@/pages/frontend/schoolpages/BishopKarnatakaPage";
 
 const page = () => {
   return (
     <div>
-   
-    <BishopKarnatakaPage />
-    
-   
-   
-
+      <BishopKarnatakaPage />
     </div>
-  )
-}
+  );
+};
 
 export default page;

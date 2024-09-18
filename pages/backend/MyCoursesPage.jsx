@@ -56,10 +56,10 @@ const MyCoursesPage = () => {
               packages.map((pkg) => (
                 <div
                   key={pkg.id}
-                  className="bg-white shadow-xl rounded-[10px] overflow-hidden  sm:w-[285px] sm:h-[403px]  w-full h-auto border border-black pb-5 "
+                  className="bg-white shadow-xl rounded-[10px] overflow-hidden  sm:w-[285px] sm:h-[403px]  w-full h-auto  pb-5 "
                 >
                   <div className="flex justify-end">
-                    <div className="bg-[#075D70] px-[30px] py-[11px]   text-[12px] text-white   drop-shadow-lg rounded-l-[10px]">
+                    <div className="bg-primary02 px-[30px] py-[11px]   text-[12px] text-white   drop-shadow-lg rounded-l-[10px]">
                       Starting from:&nbsp;
                       <span className="font-semibold">
                         {new Date(pkg.startingDate).toLocaleDateString(
@@ -106,7 +106,7 @@ const MyCoursesPage = () => {
                         href={`/user/dashboard/mypackages/[mycourses]`}
                         as={`/user/dashboard/mypackages/${pkg.id}`}
                       >
-                        <button className="bg-[#075D70] text-white  rounded-lg w-[144px] h-[35px] text-[15px] font-medium  ">
+                        <button className="bg-primary02 text-white  rounded-lg w-[144px] h-[35px] text-[15px] font-medium  ">
                           Learn
                         </button>
                       </Link>

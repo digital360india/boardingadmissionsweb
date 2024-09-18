@@ -35,14 +35,15 @@ export default function TrustedByStudent() {
             <div className="flex justify-between relative z-10">
               {/* Left side: Button */}
               <div>
-                <div className="py-10">
-                  <button
-                    onClick={handleClick}
-                    className="cursor-pointer border rounded-md w-[260px] py-2 bg-gradient-to-r text-white from-[#075D70] via-[#A1C5CD] to-[#dfdfdf]"
-                  >
-                    Book a Demo Class
-                  </button>
-                </div>
+              <div className="py-10">
+  <button
+    onClick={handleClick}
+    className="cursor-pointer border rounded-md w-[260px] py-2 bg-gradient-to-r text-white from-[#075D70] via-[#A1C5CD] to-[#dfdfdf] hover:bg-background05 transition duration-300"
+  >
+    Book a Demo Class
+  </button>
+</div>
+
                 {isPopupVisible && (
                   <BookaDemoPopUp onClose={handleClosePopup} />
                 )}
@@ -54,8 +55,8 @@ export default function TrustedByStudent() {
                   src="/images/student.svg"
                   alt="Student"
                   className="w-[480px] xl:h-[100%] "
-                  width={2}
-                  height={2}
+                  width={1000}
+                  height={1000}
                 />
               </div>
 
@@ -78,14 +79,14 @@ export default function TrustedByStudent() {
             </div>
 
             {/* Background image positioned below the first div */}
-            <div className="absolute inset-0 top-[61%] z-0">
+            <div className="absolute inset-0 xl:top-[60%] top-[57%] z-0">
               <div className="flex justify-center">
                 <Image
                   src="/images/frame.svg"
                   alt="Frame"
-                  className="xl:w-full w-[83%] xl:h-[100%]  object-fill"
-                  width={2}
-                  height={2}
+                  className="xl:w-[1200px] w-[83%] "
+                  width={1000}
+                  height={1000}
                 />
               </div>
             </div>
