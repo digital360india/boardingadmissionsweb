@@ -165,6 +165,25 @@ const [coldCount, setColdCount] = useState(0);
   };
 
 
+
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      // Check if the click is outside the disposition menu
+      if (dispositionMenuOpen && !event.target.closest(`#disposition-menu-${dispositionMenuOpen}`)) {
+        setDispositionMenuOpen(null);
+      }
+    };
+  
+    document.addEventListener("mousedown", handleClickOutside);
+  
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, [dispositionMenuOpen]);
+  
+
+
+
   const openRemarkPopup = (leadId) => {
     setRemarkPopupOpen(leadId);
   };
@@ -268,28 +287,29 @@ const [coldCount, setColdCount] = useState(0);
           >
             {lead.disposition || "NA"}
           </button>
-          {dispositionMenuOpen === lead.id && (
-            <div className="absolute right-0 mt-2 w-24 bg-white border rounded shadow-lg z-50">
-              <button
-                className="block w-full text-left px-4 py-2 text-green-500 hover:bg-gray-100"
-                onClick={() => handleDispositionChange(lead.id, "Hot")}
-              >
-                Hot
-              </button>
-              <button
-                className="block w-full text-left px-4 py-2 text-blue-500 hover:bg-gray-100"
-                onClick={() => handleDispositionChange(lead.id, "Cold")}
-              >
-                Cold
-              </button>
-              <button
-                className="block w-full text-left px-4 py-2 text-gray-500 hover:bg-gray-100"
-                onClick={() => handleDispositionChange(lead.id, "NA")}
-              >
-                NA
-              </button>
-            </div>
-          )}
+         {dispositionMenuOpen === lead.id && (
+  <div id={`disposition-menu-${lead.id}`} className="absolute right-0 mt-2 w-24 bg-white border rounded shadow-lg z-50">
+    <button
+      className="block w-full text-left px-4 py-2 text-green-500 hover:bg-gray-100"
+      onClick={() => handleDispositionChange(lead.id, "Hot")}
+    >
+      Hot
+    </button>
+    <button
+      className="block w-full text-left px-4 py-2 text-blue-500 hover:bg-gray-100"
+      onClick={() => handleDispositionChange(lead.id, "Cold")}
+    >
+      Cold
+    </button>
+    <button
+      className="block w-full text-left px-4 py-2 text-gray-500 hover:bg-gray-100"
+      onClick={() => handleDispositionChange(lead.id, "NA")}
+    >
+      NA
+    </button>
+  </div>
+)}
+
         </div>
       </td>
       <td className="py-2 px-4 border-b ">

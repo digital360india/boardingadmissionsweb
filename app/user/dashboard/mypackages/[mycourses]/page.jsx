@@ -122,38 +122,38 @@ const Page = () => {
     <IoMdArrowBack className="text-xl mr-2" />
     <span>Back</span>
   </button>
-  <h1 className="text-3xl font-bold mb-6 mt-6">Courses in Package</h1>
+  <h1 className="lg:text-[30px] text-[16px] font-bold text-[#075D70] mb-6 mt-6">Courses in Package</h1>
   {courses.length > 0 ? (
     <div className="grid grid-cols-1  gap-6">
       {courses.map((course) => (
         <div
           key={course.id}
-          className="bg-white shadow-lg rounded-lg overflow-hidden flex p-4"
+          className="bg-whit shadow-2xl rounded-lg overflow-hidden flex flex-col sm:flex-row  sm:p-4 p-6  "
         >
           <img
             src={course.heroImage}
             alt={course.name}
-            className="w-[160px] h-[160px]  rounded-lg mr-4"
+            className="sm:w-[160px] h-[160px]  w-full rounded-[10px] mr-5"
           />
-          <div className="flex flex-col justify-between">
+          <div className="flex flex-col justify-between mt-[18px] sm:mt-0">
             <div>
-              <h2 className="text-xl font-bold text-[#07294A]">
+              <h2 className="md:text-[25px] text-[16px] font-semibold text-[#075D70]">
                 {course.courseName}
               </h2>
-              <p className="text-[#777777] mt-2">
-                {truncateText(course.description, 20)}
+              <p className="text-[#777777] mt-2 text-[12px]">
+                {truncateText(course.description, 60)}
               </p>
             </div>
-            <div className="mt-4">
+            <div className="px-[20px] py-[7px] hidden lg:block">
               <Link
                 href={{
                   pathname: `/user/dashboard/mypackages/[mycourses]/[course]`,
                   query: { mycourses: packageId, course: course.id },
                 }}
                 as={`/user/dashboard/mypackages/${packageId}/${course.id}`}
-                className="block w-full"
+                className=""
               >
-                <button className="bg-[#07294A] w-[100px] h-[32px] text-white  rounded-lg">
+                <button className="bg-[#075D70] text-white  rounded-lg w-[144px] h-[35px] text-[15px] font-medium  ">
                   Learn
                 </button>
               </Link>
