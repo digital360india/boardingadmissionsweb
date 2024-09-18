@@ -2,98 +2,62 @@
 import React, { useEffect } from "react";
 import Faq from "@/components/frontend/Faqdata";
 import Image from "next/image";
-import Star from "@/components/frontend/Ratings";
 import schoolFAQs from "@/utils/frontend/FaqData";
 import GetPrepared from "@/components/frontend/GetPrepared";
 import EnquiryForm from "@/components/frontend/EnquiryForm";
 import Broucher from "@/components/frontend/Broucher";
 
-
-
-
-
-const star = [
-  {
-    id: 1,
-
-    ratingByPerson: 4,
-  },
-];
-
-
 const admissionsSteps = [
   {
     title: "Online Registration",
-    description: "Prospective students can begin their Bishop Cotton School Admissions process by registering online through the &apos;APPLY&apos; button on the school's official website or by calling 078077 36880 for assistance."
+    description:
+      "Prospective students can begin their Bishop Cotton School Admissions process by registering online through the &apos;APPLY&apos; button on the school's official website or by calling 078077 36880 for assistance.",
   },
   {
     title: "Admission Test",
-    description: "The entrance exam for Bishop Cotton School is planned to be held on the school campus in Shimla, typically early in the year. The school prides itself on high board exam scores and offers a Cambridge curriculum starting from Class 9."
+    description:
+      "The entrance exam for Bishop Cotton School is planned to be held on the school campus in Shimla, typically early in the year. The school prides itself on high board exam scores and offers a Cambridge curriculum starting from Class 9.",
   },
   {
     title: "Test and School Presentation",
-    description: "On the day of the test, candidates will also have the opportunity to attend a presentation that provides insight into the school&apos;s culture and values."
+    description:
+      "On the day of the test, candidates will also have the opportunity to attend a presentation that provides insight into the school&apos;s culture and values.",
   },
   {
     title: "Testing for Junior/Middle School",
-    description: "Students will be required to write an essay in English and take a Mathematics test."
+    description:
+      "Students will be required to write an essay in English and take a Mathematics test.",
   },
   {
     title: "Interview",
-    description: "Shortlisted candidates will have an interview conducted in English by either section heads or the Headmaster."
+    description:
+      "Shortlisted candidates will have an interview conducted in English by either section heads or the Headmaster.",
   },
   {
     title: "Further Information",
-    description: "For additional details or assistance with the Bishop Cotton School Admissions, you can contact the school directly at (0177) 262 0880."
+    description:
+      "For additional details or assistance with the Bishop Cotton School Admissions, you can contact the school directly at (0177) 262 0880.",
   },
   {
     title: "Waiting Lists",
-    description: "Due to high demand, particularly for Middle School, it is advised to apply early as waiting lists are common."
-  }
+    description:
+      "Due to high demand, particularly for Middle School, it is advised to apply early as waiting lists are common.",
+  },
 ];
 
 function BishopHimachalPage() {
+  const BishopShimlaFAQ =
+    schoolFAQs.find((school) => school.school === "BishopShimla")?.faqs || [];
 
-  const BishopShimlaFAQ = schoolFAQs.find(school => school.school === 'BishopShimla')?.faqs || [];
-  const [rating, setRating] = useState(null);
-  const [error, setError] = useState("");
-
-  useEffect(() => {
-    const fetchRating = async () => {
-      try {
-        const lat = 31.0853043;
-        const lng = 77.17117;
-        const schoolName = "Bishop Cotton School";
-        const response = await axios.get("/api/getSchoolRating", {
-          params: {
-            schoolName,
-            lat,
-            lng,
-          },
-        });
-        console.log(response);
-        if (response.status === 200) {
-          setRating(response.data.rating);
-          setError("");
-        } else {
-          setRating(null);
-          setError(response.data.message || "School not found");
-        }
-      } catch (err) {
-        console.error("Error fetching school rating:", err);
-        setRating(null);
-        setError("Error fetching school rating");
-      }
-    };
-    fetchRating()
-  })
   return (
     <div className="h-auto w-[100%] poppins lg:mt-28 mt-20 md:mt-16">
       <div className="relative lg:px-[30px] xl:px-[50px]  ">
-        <div className=" h-[250px] xl:h-[300px] lg:h-[350px] w-[100%] ">        <Image
+        <div className=" h-[250px] xl:h-[300px] lg:h-[350px] w-[100%] ">
+          {" "}
+          <Image
             src="/images/SchoolBanner/bishopframe.svg"
             alt="Descriptive text for screen readers"
-           className="w-full lg:h-[400px] h-[250px]  object-cover lg:rounded-2xl rounded-b-2xl "
+            className="w-full lg:h-[400px] h-[250px]  object-cover lg:rounded-2xl rounded-b-2xl "
             width={1000}
             height={1000}
           />
@@ -101,7 +65,7 @@ function BishopHimachalPage() {
         <div className="w-[13vw] ">
           <Image
             src="/images/SchoolBanner/bishoplogo.svg"
-           className="absolute inset-0 left-[5%] lg:top-[300px] top-[80%] lg:w-[132px] lg:h-[130px] w-[90px] h-[80px] "
+            className="absolute inset-0 left-[5%] lg:top-[300px] top-[80%] lg:w-[132px] lg:h-[130px] w-[90px] h-[80px] "
             width={1000}
             height={1000}
             alt="img"
@@ -109,7 +73,7 @@ function BishopHimachalPage() {
         </div>
       </div>
 
-     <div className="w-[90%] ml-[5%]  mt-[10%] ">
+      <div className="w-[90%] ml-[5%]  mt-[10%] ">
         <div className="relative h-[150px]   xl:h-[150px] md:h-[120px] lg:h-[170px]    w-full  border-b-2  sm:flex sm:justify-between">
           <div className="w-full flex flex-col  lg:gap-5 gap-2">
             <div className="">
@@ -117,28 +81,13 @@ function BishopHimachalPage() {
                 Bishop Cotton School, Shimla, Himanchal Pradesh
               </h1>
             </div>
-             <div className="flex text-center lg:gap-3 gap-2 items-center">
-              <h2 className="text-[#075D70] ">               {rating}</h2>
+            <StarRatings
+              lat={31.0853043}
+              lng={77.1711754}
+              schoolName={"Bishop Cotton School, Shimla"}
+            />
 
-              <div className="border-none ">
-              <FaStar className="text-yellow-200"/>
-              </div>
-
-              {/* <div>
-                {
-                  [1, 2, 3, 4, 5].map((num) => (
-                    <button key={num}>
-                      <span className='text-yellow-600'>
-                        &#9733;
-                      </span>
-                    </button>
-                  ))
-                }
-              </div> */}
-              <p className="text-[#075D70] ">Google reviews</p>
-            </div>
-
-               {/* <div className=" flex sm:w-[50%] gap-3 mb-2 sm:mb-0">
+            {/* <div className=" flex sm:w-[50%] gap-3 mb-2 sm:mb-0">
               <h3 className="px-1 py-1 rounded-md bg-[#6198A3] bg-opacity-[12%] text-black ">
                 Private School
               </h3>
@@ -149,7 +98,7 @@ function BishopHimachalPage() {
           </div>
 
           <div className=" sm:absolute pt-2  gap-3 flex  sm:right-0 sm:self-center">
-              {/* <button className="py-1 px-2 sm:py-1.5 sm:px-2.5 border border-[#075D70] rounded-[5px] flex gap-2">
+            {/* <button className="py-1 px-2 sm:py-1.5 sm:px-2.5 border border-[#075D70] rounded-[5px] flex gap-2">
               <div>
                 <Image
                   src="/icons/download.svg"
@@ -162,14 +111,12 @@ function BishopHimachalPage() {
 
               <p className="text-[#075D70]">Broucher</p>
             </button> */}
-                       <GetPrepared/>
-
+            <GetPrepared />
           </div>
         </div>
         <div className="md:hidden mt-6">
-<EnquiryForm/>
-
-</div>
+          <EnquiryForm />
+        </div>
         <div className="space-y-4 w-[90vw]  mt-10 ">
           <div className="">
             <h1 className="text-[#075D70] font-semibold  text-[2rem] ">
@@ -201,9 +148,9 @@ function BishopHimachalPage() {
           <ul className="list-disc pl-4 pt-4">
             <li className="text-[1.15rem]">
               <span className="font-semibold">
-                Average Daycare Fee per Month:    
+                Average Daycare Fee per Month:
               </span>
-               Rs. 16,708
+              Rs. 16,708
             </li>
           </ul>
         </div>
@@ -215,23 +162,22 @@ function BishopHimachalPage() {
             </h1>
           </div>
           <div>
-    <ul className="list-disc pl-4 space-y-4 text-[1.15rem]">
-      {admissionsSteps.map((step, index) => (
-        <li key={index}>
-          <span className="font-medium">{step.title}:</span> {step.description}
-        </li>
-      ))}
-    </ul>
-  </div>
+            <ul className="list-disc pl-4 space-y-4 text-[1.15rem]">
+              {admissionsSteps.map((step, index) => (
+                <li key={index}>
+                  <span className="font-medium">{step.title}:</span>{" "}
+                  {step.description}
+                </li>
+              ))}
+            </ul>
+          </div>
         </div>
 
-               <Broucher/>
-
-
+        <Broucher />
       </div>
 
       <div>
-        <Faq data={BishopShimlaFAQ}/>
+        <Faq data={BishopShimlaFAQ} />
       </div>
     </div>
   );

@@ -2,20 +2,14 @@
 import React from "react";
 import Faq from "@/components/frontend/Faqdata";
 import Image from "next/image";
-import Star from "@/components/frontend/Ratings";
+import StarRatings from "@/components/frontend/StarRatings";
 import schoolFAQs from "@/utils/frontend/FaqData";
 import GetPrepared from "@/components/frontend/GetPrepared";
 import Broucher from "@/components/frontend/Broucher";
 import EnquiryForm from "@/components/frontend/EnquiryForm";
 
 
-const star = [
-  {
-    id: 1,
-
-    ratingByPerson: 4,
-  },
-]; 
+ 
 
 function MayoBoysPage() {
   const MayoBoys = schoolFAQs.find(school => school.school === 'MayoBoys')?.faqs || [];
@@ -50,13 +44,13 @@ function MayoBoysPage() {
               </h1>
             </div>
             <div className="flex text-center gap-3">
-              <h2 className="text-[#075D70] ">4.2</h2>
+          
 
-              <div className="border-none ">
-                {star.map((star) => (
-                  <Star key={star.id} star={star} />
-                ))}
-              </div>
+              <StarRatings
+              lat={26.4460952}
+              lng={74.6494257}
+              schoolName={"Mayo College Ajmer"}
+            />
 
               {/* <div>
                 {
