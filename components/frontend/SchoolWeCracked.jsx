@@ -6,22 +6,22 @@ import Link from "next/link";
 export default function SchoolWeCracked() {
   const school = [
     {
-      school: "Bishop Cotton School",
-      imageSrc: "/images/schoolimages/Bishop_Cotton_School(Bangaluru).svg",
-      location: "(Bangaluru)",
-      routes: "/school/bishop-cotton-school-bangalore"
+      school: "Welham Boys",
+      imageSrc: "/images/schoolimages/Welham_Boys.svg",
+      location: "(Dehradun)",
+      routes: "/school/welham-boys-school",
     },
     {
-      school: "CJM Waverly",
-      imageSrc: "/images/schoolimages/CJM_Waverly.svg",
-      location: "(Mussoorie)",
-      routes: "/school/cjm-waverly"
+      school: "Welham Girls",
+      imageSrc: "/images/schoolimages/Welham_Girls.svg",
+      location: "(Dehradun)",
+      routes: "/school/wellham-girls-school",
     },
     {
-      school: "Lawrence School",
-      imageSrc: "/images/schoolimages/Lawrence_School.svg",
-      location: "(Solan)",
-      routes: "/school/laurence-school"
+      school: "The Doon School",
+      imageSrc: "/images/schoolimages/The_Doon_School.svg",
+      location: "(Dehradun)",
+      routes: "/school/the-doon-school",
     },
     {
       school: "Mayo Boys College",
@@ -29,17 +29,12 @@ export default function SchoolWeCracked() {
       location: "(Ajmer)",
       routes: "/school/mayo-boys-school"
     },
+   
     {
       school: "Scindia School",
       imageSrc: "/images/schoolimages/Scindia_School.svg",
       location: "(Gwalior)",
       routes: "/school/scindia-girls-school"
-    },
-    {
-      school: "Sherwood College",
-      imageSrc: "/images/schoolimages/Sherwood_College.svg",
-      location: "(Nainital)",
-      routes: "/school/sherwood-college"
     },
     {
       school: "St.George College",

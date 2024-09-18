@@ -3,7 +3,7 @@ import React from 'react'
 
 export default function AboutHero() {
   return (
-    <div className='h-full  bg-primary02 lg:pt-8 pt-[25%]'>
+    <div className='h-full  bg-primary02 lg:pt-32 pt-[25%]'>
     <div className='lg:h-[680px] w-full flex items-center bg-primary02 xl:px-[100px] lg:px-[40px] px-[24px]'>
         <div className='flex justify-between lg:gap-0  w-full '>
       <div className='order-2 lg:order-1'>
