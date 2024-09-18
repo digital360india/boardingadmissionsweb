@@ -29,8 +29,8 @@ const Page = () => {
     await setDoc(resultRef, {
       userID: user.id,
       testId: ID,
-      answers: [],
-      submittedAt: null,
+      answers: answers,
+      submittedAt:Date.now(),
     });
   };
 
@@ -39,13 +39,15 @@ const Page = () => {
       const testDocumentId = ID;
       const testDocRef = doc(db, "tests", testDocumentId);
       const testDocSnap = await getDoc(testDocRef);
-
+console.log(testDocSnap)
       if (!testDocSnap.exists()) {
         console.error("Test document does not exist.");
         return;
       }
       const testData = testDocSnap.data();
-      const questionIds = testData.questions;
+      console.log(testData);
+      const questionIds = testData.test;
+
 
       if (!questionIds || questionIds.length === 0) {
         console.error("No questions found in the test document.");
@@ -80,6 +82,14 @@ const Page = () => {
       [questionId]: answerData,
     }));
   };
+console.log(answers)
+
+const handlePreviousQuestion = async() =>{
+  if (currentQuestionIndex > 0)
+  {
+    setCurrentQuestionIndex(currentQuestionIndex - 1);
+  }
+}
 
   const handleNextQuestion = async () => {
     if (currentQuestionIndex < questions.length - 1) {
@@ -114,6 +124,7 @@ const Page = () => {
       case "mcq":
         return (
           <div className="mt-4">
+            <div className="flex justify-between  items-center"><p className=" text-lg font-semibold"> {question.sno}. {question.question}</p> <p>Marks assigned:{question.totalmarks}</p></div>
             <p className="font-bold">Options:</p>
             <ul>
               {["a", "b", "c", "d"].map((option) => (
@@ -123,6 +134,7 @@ const Page = () => {
                       type="radio"
                       name={`mcqAnswer_${questionId}`}
                       value={option}
+                      checked={answers[questionId]?.answer === option}
                       onChange={(e) =>
                         handleAnswerChange(questionId, {
                           questionType: "mcq",
@@ -225,6 +237,9 @@ const Page = () => {
             {questions.length > 0 &&
               renderQuestionContent(questions[currentQuestionIndex])}
             <div className="mt-4 flex justify-between">
+            <button  className="bg-blue-500 text-white px-4 py-2 rounded-lg" onClick={handlePreviousQuestion} disabled={currentQuestionIndex === 0}>
+            Previous
+          </button>
               <button
                 onClick={handleNextQuestion}
                 className="bg-blue-500 text-white px-4 py-2 rounded-lg"

@@ -20,6 +20,11 @@ export const SideNavBar = ({ isSidebarOpen, setIsSidebarOpen }) => {
       src: "/user/dashboard/mytests",
       icon: <FaPen />,
     },
+    {
+      title:"My Results",
+      src:"/user/dashboard/myresults",
+      
+    }
   ];
 
   const path = usePathname();
