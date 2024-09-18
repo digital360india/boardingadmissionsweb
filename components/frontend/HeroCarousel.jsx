@@ -1,37 +1,44 @@
 "use client";
 import React, { useState, useRef, useEffect } from "react";
-import Carousel from "react-multi-carousel";
-import "react-multi-carousel/lib/styles.css";
-import Image from "next/image";
+import { Swiper, SwiperSlide } from 'swiper/react';
+import SwiperCore, { Navigation, Pagination } from 'swiper';
+import 'swiper/css';
+import 'swiper/css/navigation';
+import 'swiper/css/pagination';
+import Image from 'next/image';
+
+// Install Swiper modules
+SwiperCore.use([Navigation, Pagination]);
 
 const cardData = [
   {
     id: 1,
     type: "video",
-    videoSrc:
-      "https://firebasestorage.googleapis.com/v0/b/boardingadmissions-f3ba3.appspot.com/o/carousel%2Fmobileviewvideo.mp4?alt=media&token=40e1d369-04fb-42eb-913a-abc1be12794f",
-    videoSrcSmallScreen:
-      "https://firebasestorage.googleapis.com/v0/b/boardingadmissions-f3ba3.appspot.com/o/carousel%2Fmobileviewvideo.mp4?alt=media&token=40e1d369-04fb-42eb-913a-abc1be12794f",
+    videoSrc: "https://firebasestorage.googleapis.com/v0/b/boardingadmissions-f3ba3.appspot.com/o/carousel%2Fmobileviewvideo.mp4?alt=media&token=40e1d369-04fb-42eb-913a-abc1be12794f",
+    videoSrcSmallScreen: "https://firebasestorage.googleapis.com/v0/b/boardingadmissions-f3ba3.appspot.com/o/carousel%2Fmobileviewvideo.mp4?alt=media&token=40e1d369-04fb-42eb-913a-abc1be12794f",
   },
   {
     id: 2,
     type: "image",
-    imageSrc: "/images/slideimg.jpg",
-    title: "Course 1",
-    description: "Description for course 1",
-    features: ["Feature 1", "Feature 2", "Feature 3"],
+    imageSrc: "https://firebasestorage.googleapis.com/v0/b/bookify-faedc.appspot.com/o/banner1.png?alt=media&token=25e52b21-cad7-4e3f-adaa-521f15a6f7a9",
+    mobileimageSrc: "/images/mobilebanner1.jpg",
+  },
+  {
+    id: 3,
+    type: "image",
+    imageSrc: "/images/banner3.jpg",
+    mobileimageSrc: "/images/mobilebanner1.jpg",
   },
 ];
 
-export default function HeroCarousel() {
-  const [videoPlayed, setVideoPlayed] = useState(false);
+const HeroCarousel = () => {
+  const [videoPlayed, setVideoPlayed] = useState(false); // Track if the video has been played
   const [isMobile, setIsMobile] = useState(false); // Detect if it's mobile
-  const [isSwipeable, setIsSwipeable] = useState(false); // Initially disable swiping
   const [videoSrc, setVideoSrc] = useState(cardData[0].videoSrc); // State for video source
+  const swiperRef = useRef(null);
   const videoRef = useRef(null);
-  const carouselRef = useRef(null);
 
-  // Detect screen size and set video source
+  // Handle screen size changes
   useEffect(() => {
     const handleResize = () => {
       setIsMobile(window.innerWidth <= 1000); // Mobile threshold
@@ -42,8 +49,6 @@ export default function HeroCarousel() {
 
     // Add event listener to handle window resize
     window.addEventListener("resize", handleResize);
-
-    // Cleanup event listener on unmount
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
@@ -57,117 +62,91 @@ export default function HeroCarousel() {
     }
   }, [isMobile]);
 
-  const handleVideoEnd = () => {
-    setVideoPlayed(true);
-    setIsSwipeable(true); // Re-enable swiping and navigation after video ends
-    if (carouselRef.current) {
-      carouselRef.current.next();
-    }
-  };
-
-  const handleBeforeChange = () => {
-    if (videoRef.current) {
-      videoRef.current.pause();
-    }
-  };
-
-  const handleAfterChange = (previousSlide, { currentSlide }) => {
-    if (cardData[currentSlide].type === "video" && videoRef.current) {
-      videoRef.current.play().catch((error) => {
-        console.log("Autoplay was prevented:", error);
-      });
-    }
-  };
-
+  // Check local storage to see if the video has been played
   useEffect(() => {
-    if (videoRef.current && cardData[0].type === "video") {
-      videoRef.current.play().catch((error) => {
-        console.log("Autoplay was prevented:", error);
-      });
+    const videoPlayedStatus = localStorage.getItem("videoPlayed");
+    if (videoPlayedStatus === "true") {
+      setVideoPlayed(true);
+      if (swiperRef.current) {
+        swiperRef.current.swiper.allowTouchMove = true; // Enable swiping
+      }
     }
   }, []);
 
-  const responsive = {
-    superLargeDesktop: {
-      breakpoint: { max: 4000, min: 3000 },
-      items: 1,
-    },
-    desktop: {
-      breakpoint: { max: 3000, min: 1024 },
-      items: 1,
-    },
-    tablet: {
-      breakpoint: { max: 1024, min: 464 },
-      items: 1,
-    },
-    mobile: {
-      breakpoint: { max: 464, min: 0 },
-      items: 1,
-    },
+  // Handle video end event
+  const handleVideoEnd = () => {
+    setVideoPlayed(true);
+    localStorage.setItem("videoPlayed", "true"); // Store video played status
+    if (swiperRef.current) {
+      swiperRef.current.swiper.allowTouchMove = true; // Enable swiping
+      swiperRef.current.swiper.slideNext(); // Move to the next slide programmatically
+    }
+  };
+
+  // Set allowTouchMove based on the current slide
+  const handleSlideChange = () => {
+    if (swiperRef.current) {
+      const swiperInstance = swiperRef.current.swiper;
+      const isVideoSlide = swiperInstance.activeIndex === 0;
+      swiperInstance.allowTouchMove = !isVideoSlide; // Disable swiping for video slide
+    }
   };
 
   return (
     <div className="w-full lg:h-screen bg-[#F4FCFC]">
-      <Carousel
-        ref={carouselRef}
-        responsive={responsive}
-        infinite={false}
-        arrows={false}
-        swipeable={isSwipeable} // Control swipeability
-        draggable={isSwipeable} // Control dragability
-        beforeChange={handleBeforeChange}
-        afterChange={handleAfterChange}
+      <Swiper
+        ref={swiperRef}
+        spaceBetween={50}
+        slidesPerView={1}
+        pagination={{ clickable: true }}
+        onSlideChange={handleSlideChange} // Adjust swiping permissions on slide change
       >
-        {cardData.map((card, index) => {
-          if (card.type === "video") {
-            return (
-              <div
-                key={card.id}
-                className="lg:w-full lg:h-[97vh] h-[66vh] flex items-center justify-center bg-[#FFFFFF]"
-              >
+        {cardData.map((card, index) => (
+          <SwiperSlide key={card.id}>
+            {card.type === "video" ? (
+              <div className="lg:w-full lg:h-[97vh] h-[66vh] flex items-center justify-center bg-[#FFFFFF]">
                 <video
                   ref={index === 0 ? videoRef : null}
                   className="w-full h-full object-cover"
-                  autoPlay={index === 0}
-                  muted
+                  autoPlay // Ensure the video auto-plays
+                  muted // Ensure the video is muted for autoplay
                   onEnded={handleVideoEnd}
-                  controls={false} // Disable controls for the first video
+                  controls={false} // Disable controls for the video
                 >
                   <source src={videoSrc} type="video/mp4" />
                   Your browser does not support the video tag.
                 </video>
               </div>
-            );
-          } else if (card.type === "image" && videoPlayed) {
-            return (
-              <div
-                key={card.id}
-                className="relative lg:w-full lg:h-[100vh] h-[66vh] flex items-center justify-center bg-[#FFFFFF]"
-              >
-                <Image
-                  src={card.imageSrc}
-                  width={1000} // Set the image width
-                  height={1000} // Set the image height
-                  alt="card"
-                  className=" w-[100vw] xl:h-[100%] lg:h-[104%] h-[110%]  -mt-16"
-                />
-                <div className="absolute top-0 xl:h-[95%] lg:h-[94%] h-[100%] w-[100vw] text-[#FFFF] bg-[#0000005c]">
-                  <div className="absolute lg:bottom-[20%] bottom-[14%] lg:left-24 left-12 text-[#FFFF] lg:w-[60%] w-[80%]">
-                    <p className="xl:text-[18px] lg:text-[16px] text-[14px] mb-4">
-                      100% QUALITY COURSES
-                    </p>
-                    <p className="xl:text-[56px] lg:text-[46px] text-[32px] font-medium leading-tight">
-                      Elevate Your Skills: Enroll in our Diverse Online Courses
-                    </p>
-                  </div>
+            ) : (
+              <div>
+                {/* For screens larger than md and below lg */}
+                <div className="hidden w-full h-[100vh] md:flex items-center justify-center bg-[#FFFFFF]">
+                  <Image
+                    src={card.imageSrc}
+                    width={1000}
+                    height={1000}
+                    alt={`Slide ${card.id}`}
+                    className=" xl:h-[100%] lg:h-[104%] h-[110%] -mt-16"
+                  />
+                </div>
+                
+                {/* For screens larger than lg */}
+                <div className="md:hidden w-full lg:h-[100vh] h-[66vh] flex items-center justify-center bg-[#FFFFFF]">
+                  <Image
+                    src={card.mobileimageSrc}
+                    width={1000}
+                    height={1000}
+                    alt={`Slide ${card.id}`}
+                    className="h-[100%]"
+                  />
                 </div>
               </div>
-            );
-          } else {
-            return null;
-          }
-        })}
-      </Carousel>
+            )}
+          </SwiperSlide>
+        ))}
+      </Swiper>
     </div>
   );
-}
+};
+
+export default HeroCarousel;
