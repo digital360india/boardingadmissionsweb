@@ -118,7 +118,7 @@ const Page = () => {
 
 
  <div className="container mx-auto p-4">
-  <button className="flex items-center" onClick={() => router.back()}>
+  <button className="flex px-2 items-center bg-primary02 text-white  rounded-lg w-[90px] h-[35px] text-[15px] font-medium" onClick={() => router.back()}>
     <IoMdArrowBack className="text-xl mr-2" />
     <span>Back</span>
   </button>
@@ -153,7 +153,7 @@ const Page = () => {
                 as={`/user/dashboard/mypackages/${packageId}/${course.id}`}
                 className=""
               >
-                <button className="bg-[#075D70] text-white  rounded-lg w-[144px] h-[35px] text-[15px] font-medium  ">
+                <button className="bg-primary02 text-white  rounded-lg w-[144px] h-[35px] text-[15px] font-medium  ">
                   Learn
                 </button>
               </Link>
