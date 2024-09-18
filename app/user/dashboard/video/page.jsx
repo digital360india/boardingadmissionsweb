@@ -16,7 +16,6 @@ const VideoPlayer = () => {
       .filter(key => key.startsWith("videoUrl"))
       .map(key => searchParams.get(key) || ""); 
     
-    console.log("Lecture URLs:", lectureUrls); // Debugging statement
     setLectures(lectureUrls);
   }, [searchParams]);
 
