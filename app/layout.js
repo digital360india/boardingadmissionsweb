@@ -48,8 +48,9 @@ export default function RootLayout({ children }) {
   <meta name="google-site-verification" content="e2d7uybW-qYP1CRxNzoD2b3btePllT2VMs0_XqwZIGo" />
   <title>{metadata.title}</title>
 
-  {/* Google Tag (gtag.js) */}
+
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-XHSL8SZLKJ"></script>
+  
   <script
     dangerouslySetInnerHTML={{
       __html: `

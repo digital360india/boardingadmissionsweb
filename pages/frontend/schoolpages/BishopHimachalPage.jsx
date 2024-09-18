@@ -1,5 +1,5 @@
 "use client";
-import React from "react";
+import React, { useEffect } from "react";
 import Faq from "@/components/frontend/Faqdata";
 import Image from "next/image";
 import Star from "@/components/frontend/Ratings";
@@ -55,7 +55,38 @@ const admissionsSteps = [
 function BishopHimachalPage() {
 
   const BishopShimlaFAQ = schoolFAQs.find(school => school.school === 'BishopShimla')?.faqs || [];
+  const [rating, setRating] = useState(null);
+  const [error, setError] = useState("");
 
+  useEffect(() => {
+    const fetchRating = async () => {
+      try {
+        const lat = 31.0853043;
+        const lng = 77.17117;
+        const schoolName = "Bishop Cotton School";
+        const response = await axios.get("/api/getSchoolRating", {
+          params: {
+            schoolName,
+            lat,
+            lng,
+          },
+        });
+        console.log(response);
+        if (response.status === 200) {
+          setRating(response.data.rating);
+          setError("");
+        } else {
+          setRating(null);
+          setError(response.data.message || "School not found");
+        }
+      } catch (err) {
+        console.error("Error fetching school rating:", err);
+        setRating(null);
+        setError("Error fetching school rating");
+      }
+    };
+    fetchRating()
+  })
   return (
     <div className="h-auto w-[100%] poppins lg:mt-28 mt-20 md:mt-16">
       <div className="relative lg:px-[30px] xl:px-[50px]  ">
@@ -87,12 +118,10 @@ function BishopHimachalPage() {
               </h1>
             </div>
              <div className="flex text-center lg:gap-3 gap-2 items-center">
-              <h2 className="text-[#075D70] ">4.2</h2>
+              <h2 className="text-[#075D70] ">               {rating}</h2>
 
               <div className="border-none ">
-                {star.map((star) => (
-                  <Star key={star.id} star={star} />
-                ))}
+              <FaStar className="text-yellow-200"/>
               </div>
 
               {/* <div>

@@ -2,10 +2,10 @@
 import React from 'react';
 import Rating from "./Ratingdata"
 
-export default function Star({ star }) {
+export default function Star({ rating }) {
   return (
     <div>
-      <Rating given={star.ratingByPerson} />
+      <Rating given={rating} />
     </div>
   );
 }
