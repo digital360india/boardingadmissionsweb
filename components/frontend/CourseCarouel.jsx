@@ -208,74 +208,46 @@ export default function CourseCarousel() {
       items: 1,
     },
   };
-  const [hoveredContent, setHoveredContent] = useState({});
-
-  const handleFeatureHover = (cardId, title, description, top) => {
-    setHoveredContent({ cardId, title, description, top });
-  };
-
-  const handleFeatureLeave = () => {
-    setHoveredContent({});
-  };
-  const [popupCardId, setPopupCardId] = useState(null);
-  const [isPopupVisible, setPopupVisible] = useState(false);
-
-  const handleClick = () => {
-    setPopupVisible(true);
-  };
-
-  const handleClosePopup = () => {
-    setPopupVisible(false);
-  };
 
  
-  return (
-    <div className="w-full bg-primary02 lg:pt-14 pt-8 lg:pb-28 pb-16 h-full">
-      <Carousel responsive={responsive} itemClass="px-4">
-        {cardData.map((card) => (
-          <div
-            key={card.id}
-            style={{ boxShadow: "0px 0px 8px 0px #FFFFFF4D" }}
-            className="w-full h-full bg-[#FFFFFF] rounded-[9px] relative flex flex-col items-center"
-          >
-            <Image src={card.imageSrc} width={600} height={250} alt="card" />
-            <h1 className="text-primary02 text-24px font-semibold text-center lg:pt-8 pt-3">
-              {card.title}
-            </h1>
-            <p className="text-[100%] lg:pt-4 pt-2 text-center px-4">
-              {card.description}
-            </p>
-            <div className="flex-grow">
-              {card.features.map((feature, index) => (
-                <React.Fragment key={index}>
-                  <p className="pt-8 pb-4 text-center text-primary02 font-light cursor-pointer">
-                    {typeof feature === "string"
-                      ? feature
-                      : feature.title}
-                  </p>
-                  <hr className="mx-10" />
-                </React.Fragment>
-              ))}
-            </div>
 
-            <div className="flex justify-center items-center pt-4 pb-8">
-              <div
-                className={`${
-                  card.id === 3 ? "mt-[9.3rem]" : ""
-                } w-[138px] h-[40px] bg-gradient01 border-custom flex justify-center items-center`}
-              >
-                <button onClick={() => handleClick(card.id)} className="text-white">
-                  Enroll Now
-                </button>
-                {/* Show popup only if the current card is clicked */}
-                {popupCardId === card.id && (
-                  <BookaDemoPopUp onClose={handleClosePopup} />
-                )}
-              </div>
-            </div>
+  return (
+    <div className="w-full bg-primary02 lg:pt-14 pt-8 lg:pb-28 pb-16 h-full ">
+    <Carousel responsive={responsive} itemClass="px-4">
+      {cardData.map((card) => (
+        <div
+          key={card.id}
+          style={{ boxShadow: "0px 0px 8px 0px #FFFFFF4D" }}
+          // style={{ boxShadow: "0 0 6px 0 rgba(0, 0, 0, 0.32)" }}
+          className="w-full h-full bg-[#FFFFFF] rounded-[9px] relative flex flex-col items-center "
+        >
+          <Image src={card.imageSrc} width={600} height={250} alt="card" />
+          <h1 className="text-primary02 text-24px font-semibold text-center lg:pt-8 pt-3">
+            {card.title}
+          </h1>
+          <p className="text-[100%] lg:pt-4 pt-2 text-center px-4">
+            {card.description}
+          </p>
+          <div className="flex-grow">
+            {card.features.map((feature, index) => (
+              <React.Fragment key={index}>
+                <p className="lg:pt-8 pt-3 pb-4 border-b w-[250px] border-primary02 text-center text-primary02 font-light">
+                  {typeof feature === "string" ? feature : feature.title}
+                </p>
+              </React.Fragment>
+            ))}
           </div>
-        ))}
-      </Carousel>
-    </div>
+          <div className="flex justify-center items-center pt-4 pb-8 mt-auto">
+            {/* <Link href={card.route}>
+            <div className="w-[138px] h-[40px] bg-gradient01 rounded-md border-custom flex justify-center items-center">
+              <button onClick={handleClick} className="text-white">Enroll Now</button>
+              
+            </div>
+            </Link> */}
+          </div>
+        </div>
+      ))}
+    </Carousel>
+  </div>
   );
 }
