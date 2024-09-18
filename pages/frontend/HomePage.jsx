@@ -8,7 +8,6 @@ import '@/app/globals.css'
 import Stories from '@/components/frontend/Stories'
 import HeroCarousel from '@/components/frontend/HeroCarousel'
 import ScrollAnimation from '@/components/frontend/ScrollAnimation'
-import OurCoursesCards from '@/components/frontend/OurCoursesCards'
 const HomePage = () => {
 
 
@@ -19,7 +18,7 @@ const HomePage = () => {
       <WhoWeAre/>
       <ScrollAnimation/>
       <TrustedByStudent/>
-       <OurCoursesCards  />
+      <CoursesWeOffer/>
       <OurTeam/>
       
       {/* <FeaturedBlog/> */}
