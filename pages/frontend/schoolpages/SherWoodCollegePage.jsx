@@ -109,14 +109,14 @@ function SherWoodCollegePage() {
               <p className="text-[#075D70] ">Google reviews</p>
             </div>
 
-            <div className=" flex sm:w-[50%] gap-3 mb-2 sm:mb-0">
+               {/* <div className=" flex sm:w-[50%] gap-3 mb-2 sm:mb-0">
               <h3 className="px-1 py-1 rounded-md bg-[#6198A3] bg-opacity-[12%] text-black ">
                 Private School
               </h3>
               <h3 className="px-1 py-1 rounded-md bg-[#6198A3] bg-opacity-[12%] text-black ">
                 Estd.- 1995
               </h3>
-            </div>
+            </div> */}
           </div>
          
           <div className=" sm:absolute  gap-3 flex  sm:right-0 sm:self-center">
@@ -144,7 +144,7 @@ function SherWoodCollegePage() {
         <div className="space-y-4 w-[90vw]  mt-10 ">
           <div className="">
             <h1 className="text-[#075D70] font-semibold  text-[2rem] ">
-              About School
+              About Sherwood College
             </h1>
           </div>
           <div>
