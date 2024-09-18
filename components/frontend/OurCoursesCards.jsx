@@ -166,6 +166,7 @@ const OurCoursesCards = () => {
   const handleFeatureLeave = () => {
     setHoveredContent({});
   };
+  const [popupCardId, setPopupCardId] = useState(null);
 
   const [isPopupVisible, setPopupVisible] = useState(false);
 

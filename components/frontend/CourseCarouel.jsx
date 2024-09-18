@@ -208,13 +208,32 @@ export default function CourseCarousel() {
       items: 1,
     },
   };
+  const [hoveredContent, setHoveredContent] = useState({});
+
+  const handleFeatureHover = (cardId, title, description, top) => {
+    setHoveredContent({ cardId, title, description, top });
+  };
+
+  const handleFeatureLeave = () => {
+    setHoveredContent({});
+  };
+
+  const [isPopupVisible, setPopupVisible] = useState(false);
+
+  const handleClick = () => {
+    setPopupVisible(true);
+  };
+
+  const handleClosePopup = () => {
+    setPopupVisible(false);
+  };
 
  
 
   return (
     <div className="w-full bg-primary02 lg:pt-14 pt-8 lg:pb-28 pb-16 h-full ">
     <Carousel responsive={responsive} itemClass="px-4">
-      {cardData.map((card) => (
+      {cardData.map((card, index) => (
         <div
           key={card.id}
           style={{ boxShadow: "0px 0px 8px 0px #FFFFFF4D" }}
@@ -230,13 +249,52 @@ export default function CourseCarousel() {
           </p>
           <div className="flex-grow">
             {card.features.map((feature, index) => (
-              <React.Fragment key={index}>
-                <p className="lg:pt-8 pt-3 pb-4 border-b w-[250px] border-primary02 text-center text-primary02 font-light">
-                  {typeof feature === "string" ? feature : feature.title}
-                </p>
-              </React.Fragment>
+                 <React.Fragment key={index}>
+                 {typeof feature === "string" ? (
+                   <p className="pt-8 pb-4 text-center text-primary02 font-light cursor-pointer">
+                     {feature}
+                   </p>
+                 ) : (
+                   <p
+                     className="pt-8 pb-4 text-center text-primary02 font-light cursor-pointer relative"
+                     onMouseEnter={(e) => {
+                       const hoverHeight = 80; // height of the hover content box
+                       const elementTop = e.target.offsetTop;
+                       const topPosition = elementTop - hoverHeight - 3; // Adjust position by hoverHeight + 4px
+                       handleFeatureHover(
+                         card.id,
+                         feature.title,
+                         feature.description,
+                         `${topPosition}px`
+                       );
+                     }}
+                     onMouseLeave={handleFeatureLeave}
+                   >
+                     {feature.title}
+                   </p>
+                 )}
+                 <hr className="mx-10" />
+               </React.Fragment>
+               
             ))}
+            
           </div>
+          <div className="flex justify-center items-center pt-4 pb-8">
+              {/* <Link href={card.route}> */}
+              <div
+                className={`${
+                  index === 3 ? "mt-[9.3rem]" : ""
+                } w-[138px] h-[40px] bg-gradient01 border-custom flex justify-center items-center`}
+              >
+                <button onClick={handleClick} className="text-white">
+                  Enroll Now
+                </button>
+                {isPopupVisible && (
+                  <BookaDemoPopUp onClose={handleClosePopup} />
+                )}
+              </div>
+              {/* </Link> */}
+            </div>
           <div className="flex justify-center items-center pt-4 pb-8 mt-auto">
             {/* <Link href={card.route}>
             <div className="w-[138px] h-[40px] bg-gradient01 rounded-md border-custom flex justify-center items-center">

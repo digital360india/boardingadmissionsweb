@@ -13,11 +13,11 @@ export default function OurTeam() {
       imageSrc: "/images/Noshin.png",
       designation: "English & GA Expert",
     },
-    // {
-    //   name: "Dr. Anna Richard",
-    //   imageSrc: "/images/neema.png",
-    //   designation: "English Expert",
-    // },
+    {
+      name: "Mr. Mayank Gaur",
+      imageSrc: "/images/mayank.png",
+      designation: "English Expert",
+    },
     // {
     //   name: "Dr. Anna Richard",
     //   imageSrc: "/images/teacher.svg",
@@ -35,7 +35,7 @@ export default function OurTeam() {
         Experts guiding your success.
         </div>
 
-        <div className="flex gap-5 overflow-x-auto hide-scrollbar justify-center items-center pl-52 md:pl-0">
+        <div className="flex w-full gap-5 overflow-x-auto hide-scrollbar   md:justify-center md:items-center md:pl-0">
           {team.map((member, index) => (
             <div
               key={index}
