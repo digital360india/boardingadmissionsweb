@@ -94,7 +94,7 @@ const BookaDemoPopUp = ({ onClose }) => {
           phonenumber: formData.phonenumber,
           school:formData.school,
           class:formData.class,
-          message: formData.message,
+          message: formData.textmessage,
           timestamp: new Date(),
         });
   
