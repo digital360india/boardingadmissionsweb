@@ -2,7 +2,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import React, { useState } from "react";
-import BookaDemoPopUp from "./BookaDemoPopup";
+import BookaDemoPopUp from "./BookaDemoPopUp";
 
 const cardData = [
   {
