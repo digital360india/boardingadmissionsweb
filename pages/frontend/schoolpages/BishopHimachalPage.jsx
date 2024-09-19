@@ -6,6 +6,7 @@ import schoolFAQs from "@/utils/frontend/FaqData";
 import GetPrepared from "@/components/frontend/GetPrepared";
 import EnquiryForm from "@/components/frontend/EnquiryForm";
 import Broucher from "@/components/frontend/Broucher";
+import StarRatings from "@/components/frontend/StarRatings";
 
 const admissionsSteps = [
   {
