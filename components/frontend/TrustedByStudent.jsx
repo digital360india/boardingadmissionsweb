@@ -2,7 +2,7 @@
 import Image from "next/image";
 import React, { useState } from "react";
 import TrustedBy2 from "./TrustedBy2";
-import BookaDemoPopUp from "./BookaDemo";
+import BookaDemoPopUp from "./BookaDemoPopUp";
 
 export default function TrustedByStudent() {
   const [isPopupVisible, setPopupVisible] = useState(false);

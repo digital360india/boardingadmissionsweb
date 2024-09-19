@@ -2,10 +2,9 @@
 import { useEffect, useState, useRef } from "react";
 import emailjs from "@emailjs/browser";
 import { useRouter } from "next/navigation";
-import Link from "next/link";
-import Image from "next/image";
 import PopupSuccess from "./PopupSuccess";
-
+import { db } from "@/firebase/firebase";
+import { addDoc, collection, updateDoc } from "firebase/firestore";
 
 const Popup = () => {
   const form = useRef();
@@ -13,11 +12,12 @@ const Popup = () => {
   const [isFormVisible, setIsFormVisible] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [buttonclick, setButtonClick] = useState(false);
+  
 
   useEffect(() => {
     const timer = setTimeout(() => {
       setIsFormVisible(true);
-    }, 20000);
+    }, 60000);
 
     return () => clearTimeout(timer);
   }, [isFormVisible]);
@@ -44,10 +44,10 @@ const Popup = () => {
 
   const handleClose = () => {
     setIsFormVisible(false);
-setIsSubmitted(false);
+    setIsSubmitted(false);
     setTimeout(() => {
       setIsFormVisible(true);
-    }, 20000);
+    }, 60000);
   };
 
   if (!isFormVisible) {
@@ -61,7 +61,7 @@ setIsSubmitted(false);
     }
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit =async (e) => {
     e.preventDefault();
     emailjs
       .sendForm("service_zzpjmnf", "template_72aafby", form.current, {
@@ -71,15 +71,14 @@ setIsSubmitted(false);
         () => {
           console.log("SUCCESS!");
           setIsSubmitted(true);
+          setButtonClick(false);
 
-          // alert("Submitted!")
-
-          // Reset form data after successful submission
+          
           setFormData({
             name: "",
             phonenumber: "",
-            email: "",
-            preferredcourse: "",
+            school: "",
+            class: "",
             textmessage: "",
           });
         },
@@ -88,9 +87,39 @@ setIsSubmitted(false);
           alert("Failed");
         }
       );
+
+      try {
+        const docRef = await addDoc(collection(db, "leads"), {
+          name: formData.name,
+          phonenumber: formData.phonenumber,
+          school:formData.school,
+          class:formData.class,
+          message: formData.message,
+          timestamp: new Date(),
+        });
+  
+        // Get the document ID
+        const docId = docRef.id;
+  
+        await updateDoc(docRef, {
+          id: docId,
+        });
+  
+        console.log("Form submitted successfully! Document ID stored:", docId);
+  
+        setFormData({
+          name: "",
+          phonenumber: "",
+          school: "",
+          class: "",
+          textmessage: "",
+        });
+      } catch (e) {
+        console.error("Error adding or updating document: ", e);
+      }
       
   };
-  console.log(isSubmitted);
+  
 
   return (
     <div className="z-[9999]  fixed inset-0 flex items-center justify-center    bg-black bg-opacity-50 font-poppins">
@@ -201,7 +230,7 @@ setIsSubmitted(false);
                   </button>
                   <svg
                     className={`animate-spin ${
-                      buttonclick ? `block` : `hidden`
+                      buttonclick && isSubmitted === false ? `block` : `hidden`
                     }`}
                     xmlns="http://www.w3.org/2000/svg"
                     width="2em"
