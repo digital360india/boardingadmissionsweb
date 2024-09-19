@@ -1,5 +1,5 @@
-"use client"
-import React, { useState } from "react";
+"use client";
+import React, { useState, useRef } from "react";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 import Image from "next/image";
@@ -134,6 +134,7 @@ const cardData = [
 export default function CourseCarousel() {
   const [isPopupVisible, setPopupVisible] = useState(false); // Popup visibility state
   const [selectedCard, setSelectedCard] = useState(null); // To keep track of selected card
+  const carouselRef = useRef(null); // Reference for carousel to control it
 
   const handleClick = (cardId) => {
     setSelectedCard(cardId); // Set the selected card (if needed)
@@ -142,6 +143,18 @@ export default function CourseCarousel() {
 
   const handleClosePopup = () => {
     setPopupVisible(false); // Hide the popup
+  };
+
+  const handleNext = () => {
+    if (carouselRef.current) {
+      carouselRef.current.next(); // Trigger next slide
+    }
+  };
+
+  const handlePrev = () => {
+    if (carouselRef.current) {
+      carouselRef.current.previous(); // Trigger previous slide
+    }
   };
 
   const responsive = {
@@ -164,8 +177,14 @@ export default function CourseCarousel() {
   };
 
   return (
-    <div className="w-full bg-primary02 lg:pt-14 pt-8 lg:pb-28 pb-16 h-full">
-      <Carousel responsive={responsive} itemClass="px-4">
+    <div className="w-full bg-primary02 lg:pt-14 pt-8 lg:pb-28 pb-16 h-full relative">
+      {/* Carousel */}
+      <Carousel
+        ref={carouselRef} // Attach the carousel reference
+        arrows={false}
+        responsive={responsive}
+        itemClass="px-4"
+      >
         {cardData.map((card) => (
           <div
             key={card.id}
@@ -201,12 +220,24 @@ export default function CourseCarousel() {
         ))}
       </Carousel>
 
+      {/* Left Arrow Button */}
+      <button
+        className="hidden lg:flex justify-center items-center absolute top-1/2 xl:-left-16 -left-6 transform -translate-y-1/2 bg-primary01 xl:w-12 xl:h-12 w-10 h-10 rounded-full text-white shadow-lg"
+        onClick={handlePrev}
+      >
+        &#9664; {/* Left Arrow Icon */}
+      </button>
+
+      {/* Right Arrow Button */}
+      <button
+        className="hidden lg:flex justify-center items-center absolute top-1/2 xl:-right-16 -right-6 transform -translate-y-1/2 bg-primary01 xl:w-12 xl:h-12 w-10 h-10 rounded-full text-white shadow-lg"
+        onClick={handleNext}
+      >
+        &#9654; {/* Right Arrow Icon */}
+      </button>
+
       {/* Popup Modal */}
-      {isPopupVisible && (
-        
-          <BookaDemoPopUp onClose={handleClosePopup} />
-   
-      )}
+      {isPopupVisible && <BookaDemoPopUp onClose={handleClosePopup} />}
     </div>
   );
 }
