@@ -16,7 +16,7 @@ export default function OurTeam() {
     {
       name: "Mr. Mayank Gaur",
       imageSrc: "/images/mayank.png",
-      designation: "English Expert",
+      designation: "Mathematics Expert",
     },
     // {
     //   name: "Dr. Anna Richard",

@@ -6,7 +6,7 @@ import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 import Image from "next/image";
-import '@/components/frontend/HeroCarousel.css';
+import "@/components/frontend/HeroCarousel.css";
 
 // Install Swiper modules
 SwiperCore.use([Navigation, Pagination]);
@@ -31,7 +31,7 @@ const cardData = [
     id: 3,
     type: "image",
     imageSrc: "/images/banner3.jpg",
-    mobileimageSrc: "/images/mobilebanner1.jpg",
+    mobileimageSrc: "/images/mobilebanner2.png",
   },
 ];
 
@@ -108,13 +108,14 @@ const HeroCarousel = () => {
     <div className="w-full lg:h-screen bg-[#F4FCFC]">
       {isLoading && (
         <div className="absolute inset-0 flex items-center justify-center bg-white z-50">
-          <div className='h-screen w-full flex justify-center items-center relative bg-[#e9fdfa] '>
-
-<div className='ball h-[120px] w-[120px] md:h-[200px] shadow-md md:w-[200px] rounded-[50%]'></div>
-<img src="icons/Boardinglogo.svg" className='object-fit ball h-[120px] w-[120px] md:h-[200px] shadow-md md:w-[200px] rounded-[50%]'/>
-<div className='ball h-[120px] w-[120px] md:h-[200px] md:w-[200px] shadow-lg rounded-[50%]'></div>
-</div>
-
+          <div className="h-screen w-full flex justify-center items-center relative bg-[#e9fdfa] ">
+            <div className="ball h-[120px] w-[120px] md:h-[200px] shadow-md md:w-[200px] rounded-[50%]"></div>
+            <img
+              src="icons/Boardinglogo.svg"
+              className="object-fit ball h-[120px] w-[120px] md:h-[200px] shadow-md md:w-[200px] rounded-[50%]"
+            />
+            <div className="ball h-[120px] w-[120px] md:h-[200px] md:w-[200px] shadow-lg rounded-[50%]"></div>
+          </div>
         </div>
       )}
       <Swiper
@@ -151,13 +152,13 @@ const HeroCarousel = () => {
                     className="xl:h-[100%] w-full lg:h-[104%] h-[110%] -mt-16"
                   />
                 </div>
-                <div className="md:hidden w-full lg:h-[100vh] h-[66vh] flex items-center justify-center bg-[#FFFFFF]">
+                <div className="md:hidden w-full lg:h-[100vh] h-[70vh] flex items-center justify-center bg-[#FFFFFF]">
                   <Image
                     src={card.mobileimageSrc}
                     width={1000}
                     height={1000}
                     alt={`Slide ${card.id}`}
-                    className="h-[100%]"
+                    className="object-contain object-center"
                   />
                 </div>
               </div>
