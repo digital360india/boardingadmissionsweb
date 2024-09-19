@@ -7,6 +7,7 @@ import schoolFAQs from "@/utils/frontend/FaqData";
 import GetPrepared from "@/components/frontend/GetPrepared";
 import EnquiryForm from "@/components/frontend/EnquiryForm";
 import Broucher from "@/components/frontend/Broucher";
+import SchoolCarousel from "../SchoolCarousel";
 
 
  
@@ -14,30 +15,11 @@ import Broucher from "@/components/frontend/Broucher";
 function WelhamBoysPage() {
   const WelhamBoys = schoolFAQs.find(school => school.school === 'WelhamBoys')?.faqs || [];
   return (
-    <div className="h-auto w-[100%] poppins lg:mt-28 mt-20 md:mt-16">
-      <div className="relative lg:px-[30px] xl:px-[50px]  ">
-        <div className=" h-[250px] xl:h-[300px] lg:h-[350px] w-[100%] ">  
-       <Image
-            src="/images/SchoolBanner/welhamboysframe.svg"
-            alt="Descriptive text for screen readers"
-           className="w-full lg:h-[400px] h-[250px]  object-cover lg:rounded-2xl rounded-b-2xl "
-            width={1000}
-            height={1000}
-          />
-        </div>
-        <div className="w-[13vw] ">
-          <Image
-            src="/images/SchoolBanner/welhamboyslogo.svg"
-           className="absolute inset-0 left-[5%] lg:top-[300px] top-[80%] lg:w-[132px] lg:h-[130px] w-[90px] h-[80px] "
-            width={1000}
-            height={1000}
-            alt="img"
-          />
-        </div>
-      </div>
+    <div className="h-auto w-[100%] poppins ">
+    
+<SchoolCarousel/>
 
-
-     <div className="w-[90%] ml-[5%]  mt-[10%] ">
+     <div className="w-[90%] ml-[5%] mt-9">
         <div className="relative h-[150px]   xl:h-[150px] md:h-[120px] lg:h-[160px]     w-full  border-b-2  sm:flex sm:justify-between">
           <div className="w-full flex flex-col  lg:gap-5 gap-2">
             <div className="">

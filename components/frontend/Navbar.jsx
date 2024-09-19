@@ -1,230 +1,132 @@
 "use client";
+import { useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { usePathname } from "next/navigation";
-import React, { useState, useEffect } from "react";
-import { RxCross2 } from "react-icons/rx";
 
-export default function Navbar() {
-  const [menuOpen, setMenuOpen] = useState(false);
-  const initial = {
-    l1: false,
-    l2: false,
-    l3: false,
-  };
-  const [list, SetList] = useState(initial);
+const Navbar = () => {
+  const [isOpen, setIsOpen] = useState(false);
+  const [showBackdrop, setShowBackdrop] = useState(false);
+
   const toggleMenu = () => {
-    setMenuOpen(!menuOpen);
-    document.body.style.overflow = "auto";
+    setIsOpen(!isOpen);
   };
 
-  const path = usePathname();
+  const closeMenu = () => {
+    setIsOpen(false);
+  };
 
+  // Prevent scrolling when sidebar is open
   useEffect(() => {
-    const updatedList = { ...list };
-
-    if (path === "/courses") {
-      updatedList.l1 = true;
-      updatedList.l2 = false;
-      updatedList.l3 = false;
-    } else if (path === "/schools") {
-      updatedList.l2 = true;
-      updatedList.l1 = false;
-      updatedList.l3 = false;
-    } else if (path === "/aboutus") {
-      updatedList.l3 = true;
-      updatedList.l2 = false;
-      updatedList.l1 = false;
-    } else if (path === "/") {
-      updatedList.l1 = false;
-      updatedList.l2 = false;
-      updatedList.l3 = false;
+    if (isOpen) {
+      document.body.style.overflow = "hidden";
+      setShowBackdrop(true); // Show backdrop when menu opens
+    } else {
+      document.body.style.overflow = "auto";
+      setTimeout(() => setShowBackdrop(false), 300); // Wait for the transition to hide backdrop
     }
 
-    SetList(updatedList);
-  }, [path]);
+    return () => {
+      document.body.style.overflow = "auto"; // Reset overflow on cleanup
+    };
+  }, [isOpen]);
+
+  const handleClickOutside = (e) => {
+    if (e.target.classList.contains("backdrop")) {
+      closeMenu();
+    }
+  };
 
   return (
-    <div>
-      <div
-        className={`${
-          path === "/"
-            ? "bg-transparent z-20  backdrop-blur-lg absolute top-0 backdrop-brightness-50 backdrop-contrast-75 backdrop-grayscale-20 backdrop-saturate-150 backdrop-opacity-30"
-            : "bg-white  fixed top-0 z-20"
-        } flex font-sans text-xl py-4 w-full lg:h-[13%] md:h-[12%] h-[9%]`}
-      >
-        <div className="flex py-4 md:py-0 w-[100vw] items-center px-2 md:px-0 justify-between md:justify-around space-x-8 text-white hover:text-gray-300">
-          {/* Hamburger Icon */}
-          <div
-            className="hamburger ps-6 order-1 cursor-pointer md:hidden"
-            onClick={() => {
-              toggleMenu();
-             
-            }}
-          >
-            <div className="line h-0.5 w-6 bg-primary02 my-1"></div>
-            <div className="line h-0.5 w-4 bg-primary02 my-1"></div>
-            <div className="line h-0.5 w-6 bg-primary02 my-1"></div>
-          </div>
-
-          {/* Logo */}
-          <div className="order-2 lg:pl-[0px] pl-[9%] flex justify-center items-center md:flex-none md:order-1">
-            <Link href="/">
-              <Image
-                src="/images/navbar.svg"
-                width={1000}
-                height={1000}
-                alt="Image"
-                className="ml-3 md:ml-0 w-[50%] md:h-40 md:w-40 h-[12%]  brightness-150"
-
-
-              />
-            </Link>
-          </div>
-
-          {/* Desktop Navigation Links */}
-          <div
-            className={`order-2 text-black ${
-              path === "/" ? `text-white` : `text-[#2d879b]`
-            }  md:w-[400px] font-bold text-[16px] md:text-[20px] hidden md:flex justify-center space-x-4 lg:space-x-8`}
-          >
-            <Link href="/courses">
-              <div className="">
-                <button
-                  className={`duration-200 ${
-                    path === "/"
-                      ? `hover:text-[#fff78e]`
-                      : `hover:text-[#366faf]`
-                  } hover:tracking-widest`}
-                >
-                  Courses
-                </button>
-                <div
-                  className={`h-[3px] rounded-md duration-200 ${
-                    list.l1 ? `w-full` : `w-0`
-                  } bg-[#2d879b]`}
-                ></div>
-              </div>
-            </Link>
-            <Link href="/schools">
-              <div className="">
-                <button
-                  className={`duration-200 ${
-                    path === "/"
-                      ? `hover:text-[#fff78e]`
-                      : `hover:text-[#366faf]`
-                  } hover:tracking-widest`}
-                >
-                  Schools
-                </button>
-                <div
-                  className={`h-[3px] rounded-md duration-200 ${
-                    list.l2 ? `w-full` : `w-0`
-                  } bg-[#2d879b]`}
-                ></div>
-              </div>
-            </Link>
-
-            <Link href="/aboutus">
-              <div className="">
-                <button
-                  className={`duration-200 ${
-                    path === "/"
-                      ? `hover:text-[#fff78e]`
-                      : `hover:text-[#366faf]`
-                  } hover:tracking-widest`}
-                >
-                  {" "}
-                  About
-                </button>
-                <div
-                  className={`h-[3px] rounded-md duration-200 ${
-                    list.l3 ? `w-full` : `w-0`
-                  } bg-[#2d879b]`}
-                ></div>
-              </div>
-            </Link>
-          </div>
-
-          {/* Compatibility Test Button */}
-          <div className="order-3 w-[100px]  md:w-[200px] h-2">
-            {/* <Link href="/scholarshiptest">
-              <button className="border bg-black text-[10px] md:text-[16px] text-white py-2 px-2 md:w-40 rounded-lg mr-4">
-                Compatibility Test
-              </button>
-            </Link> */}
-          </div>
-        </div>
-      </div>
-
-      {/* Mobile Menu (Sliding from Left to Right) */}
-      <div
-        className={`fixed top-0 left-0 h-full bg-white z-30 w-full transform ${
-          menuOpen ? "translate-x-0" : "-translate-x-full"
-        } transition-transform duration-300 ease-in-out md:hidden`}
-      >
-        {/* Mobile Menu Header with Logo and Close Button */}
-        <div className="flex justify-between items-center p-4">
-          {/* Logo beside Close Button */}
-          <Link href="/">
-          <button  onClick={toggleMenu}>
-            <Image
-              src="/images/navbar.svg"
-              width={1000}
-              height={100}
-              alt="Image"
-              className="h-28 w-40"
-            />
-          </button>
-          </Link>
-          {/* Close Button */}
-          <button
-            className="text-white font-medium text-2xl rounded-full bg-primary02 p-2 "
-            onClick={() => {
-              toggleMenu();
-            
-            }}
-          >
-           <RxCross2  />
-          </button>
-        </div>
-
-        {/* Mobile Navigation Links */}
-        <div className="flex flex-col items-start pl-6 text-black space-y-6  mt-4">
+    <div className="relative">
+      {/* Navbar for desktop */}
+      <nav className="hidden md:flex justify-between items-center pl-6 py-2 bg-white shadow">
         <Link href="/">
-            <button onClick={toggleMenu} className="text-2xl">
-              Home
-            </button>
-          </Link>
+          <Image
+            src="/images/navbar.svg"
+            alt="Logo"
+            className="w-[130px]"
+            width={1000}
+            height={1000}
+          />
+        </Link>
+        <ul className="flex space-x-12">
           <Link href="/courses">
-            <button onClick={toggleMenu} className="text-2xl">
-              Courses
-            </button>
+            <li className="transition-all duration-300 font-semibold hover:text-primary02 text-[18px] hover:tracking-widest cursor-pointer">
+              Course
+            </li>
           </Link>
           <Link href="/schools">
-            <button onClick={toggleMenu} className="text-2xl">
+            <li className="transition-all duration-300 font-semibold hover:text-primary02 text-[18px] hover:tracking-widest cursor-pointer">
               Schools
-            </button>
+            </li>
           </Link>
-
           <Link href="/aboutus">
-            <button onClick={toggleMenu} className="text-2xl">
-              About
-            </button>
+            <li className="transition-all duration-300 font-semibold hover:text-primary02 hover:tracking-widest cursor-pointer">
+              About Us
+            </li>
           </Link>
+        </ul>
+        <div className="w-10"></div>
+      </nav>
 
+      {/* Mobile Navbar */}
+      <div className="md:hidden flex justify-between items-center py-2 px-4 bg-white shadow">
+        <button onClick={toggleMenu} className="text-2xl">
+          ☰
+        </button>
+     <Link href="/">
+     <Image src="/images/navbar.svg" alt="Logo" className="w-[100px]" width={1000} height={1000} />
+     </Link>  
+      </div>
 
-          
-          {/* <Link href="/scholarshiptest">
-            <button
-              onClick={toggleMenu}
-              className="border bg-black text-white py-2 px-4 rounded-lg mt-4"
-            >
-              Compatibility Test
-            </button>
-          </Link> */}
+      {/* Backdrop with transition */}
+      {showBackdrop && (
+        <div
+          className={`fixed inset-0 z-40 transition-opacity duration-300 ${
+            isOpen ? "opacity-100" : "opacity-0"
+          } backdrop bg-black bg-opacity-50`}
+          onClick={handleClickOutside}
+        />
+      )}
+
+      {/* Side Navbar with transition */}
+      <div
+        className={`fixed top-0 left-0 z-50 h-full w-2/4 max-w-[200px] p-4 bg-white shadow-lg transition-transform duration-500 transform ${
+          isOpen ? "translate-x-0" : "-translate-x-full"
+        }`}
+      >
+        <div className="flex justify-between items-center mb-4">
+          <Image src="/images/navbar.svg" alt="Logo" className="w-[100px]" width={1000} height={1000} />
+          {/* Close icon (cross) */}
+          <button onClick={closeMenu} className="text-2xl">
+            ✕
+          </button>
         </div>
+        <ul className="flex flex-col space-y-4">
+          <li>
+            <Link href="/" onClick={closeMenu}>
+              Home
+            </Link>
+          </li>
+          <li>
+            <Link href="courses" onClick={closeMenu}>
+              Course
+            </Link>
+          </li>
+          <li>
+            <Link href="/schools" onClick={closeMenu}>
+              Schools
+            </Link>
+          </li>
+          <li>
+            <Link href="/aboutus" onClick={closeMenu}>
+              About
+            </Link>
+          </li>
+        </ul>
       </div>
     </div>
   );
-}
+};
+
+export default Navbar;
