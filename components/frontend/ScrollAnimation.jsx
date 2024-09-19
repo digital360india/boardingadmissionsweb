@@ -49,8 +49,8 @@ export default function ScrollAnimation() {
         ref={boxRef}
         className="some h-[85vh] flex justify-center w-full bg-gradient-to-br from-[#075D70] to-[#0DB2D6] relative overflow-hidden"
       >
-        <div className="h-[100px]  flex items-center pt-10 md:pt-0  text-center md:text-start  md:pl-24 w-full">
-          <p className="text-[40px]  poppins font-semibold pt-8 md:pt-4 text-white">Schools we have Cracked</p>
+        <div className="h-[100px]  flex justify-center items-center pt-10 md:pt-0  text-center md:text-start  md:pl-24 w-full">
+          <p className="text-[26px] text-center  md:text-[40px]  poppins font-semibold pt-8 md:pt-4 text-white">Schools we have Cracked</p>
         </div>
         <div
           ref={mainRef}
