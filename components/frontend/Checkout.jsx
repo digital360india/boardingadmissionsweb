@@ -136,7 +136,8 @@ export default function Checkout() {
           ))}
         </div>
       </div>
-
+ 
+ 
       {/* Order Summary and Other Components */}
       <div className="md:w-[560px] h-fit py-[32px] px-[32px] border rounded-lg">
         <p className="font-semibold text-[24px] mb-8">Order Summary</p>
