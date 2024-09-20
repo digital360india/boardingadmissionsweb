@@ -7,7 +7,7 @@ import schoolFAQs from "@/utils/frontend/FaqData";
 import GetPrepared from "@/components/frontend/GetPrepared";
 import Broucher from "@/components/frontend/Broucher";
 import EnquiryForm from "@/components/frontend/EnquiryForm";
-import SchoolCarousel from "../SchoolCarousel";
+import SchoolCarousel from "../../../components/frontend/SchoolCarousel";
 
 
  

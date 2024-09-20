@@ -7,7 +7,7 @@ import schoolFAQs from "@/utils/frontend/FaqData";
 import GetPrepared from "@/components/frontend/GetPrepared";
 import EnquiryForm from "@/components/frontend/EnquiryForm";
 import Broucher from "@/components/frontend/Broucher";
-import SchoolCarousel from "../SchoolCarousel";
+import SchoolCarousel from "../../../components/frontend/SchoolCarousel";
 
 const data = [
   {
