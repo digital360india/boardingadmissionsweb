@@ -122,7 +122,7 @@ function CJMwaverlyPage() {
         </div>
       </div> */}
 <SchoolCarousel/>
-<div className="w-[90%] ml-[5%] mt-9">
+<div className="w-[90%] ml-[5%] mt-6">
         <div className="relative h-[150px]   xl:h-[150px] md:h-[120px] lg:h-[170px]    w-full  border-b-2  sm:flex sm:justify-between">
           <div className="w-full flex flex-col  lg:gap-5 gap-2">
             <div className="">
@@ -168,12 +168,12 @@ function CJMwaverlyPage() {
         </div>
         <div className="space-y-4 w-[90vw]  mt-10 ">
           <div className="">
-            <h1 className="text-[#075D70] font-semibold  text-[2rem] ">
+            <h1 className="text-[#075D70] font-semibold  text-[1.5rem] md:text-[2rem] ">
               About CJM Waverly
             </h1>
           </div>
           <div>
-            <p className="leading-6 w-[88vw] text-[1.15rem] text-justify">
+            <p className="leading-6 w-[88vw] text-[14px] md:text-[1.15rem] text-justify">
               CJM Waverly, located in the picturesque hills of Mussoorie, is a
               distinguished institution known for its commitment to academic
               excellence and moral development. As one of India&apos;s oldest
@@ -192,7 +192,7 @@ function CJMwaverlyPage() {
         </div>
 
         <div>
-          <h2 className="text-[#075D70] font-semibold text-[2rem] mt-8 mb-5">
+          <h2 className="text-[#075D70] font-semibold text-[1.5rem] md:text-[2rem] mt-8 mb-5">
             Fee Structure
           </h2>
           <div className="lg:overflow-auto overflow-x-scroll">
@@ -233,7 +233,7 @@ function CJMwaverlyPage() {
 
         <div className="space-y-4 w-[90vw] mb-10 mt-10">
           <div>
-            <h1 className="text-[#075D70] font-semibold text-[2rem]">
+            <h1 className="text-[#075D70] font-semibold text-[1.5rem] md:text-[2rem]">
               Admission Procedure
             </h1>
           </div>
@@ -242,8 +242,8 @@ function CJMwaverlyPage() {
             <ul className="list-disc pl-4 space-y-4 text-[1.15rem]">
               {admissionSteps.map((step, index) => (
                 <li key={index}>
-                  <span className="font-medium">{step.title}:</span>{" "}
-                  {step.description}
+                  <span className="font-medium text-[1rem]">{step.title}:</span>{" "}
+                 <span className="text-[14px] md:text-[1.15rem]"> {step.description}</span>
                 </li>
               ))}
             </ul>
@@ -251,10 +251,10 @@ function CJMwaverlyPage() {
         </div>
 
         <div>
-          <h1 className="text-[#075D70] font-semibold text-[2rem] mb-2">
+          <h1 className="text-[#075D70] font-semibold text-[1.5rem] md:text-[2rem] mb-2">
             Important Note
           </h1>
-          <ul className="list-disc pl-4 mb-7">
+          <ul className="list-disc text-[14px] md:text-[1.15rem] pl-4 mb-7">
             <li>
               For the latest updates on the admission process and fee structure,
               regularly check the official website of CJM Waverly, as

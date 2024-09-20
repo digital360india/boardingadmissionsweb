@@ -104,12 +104,12 @@ function TheDoonPage() {
 </div>
         <div className="space-y-4 w-[90vw]  mt-10 ">
           <div className="">
-            <h1 className="text-[#075D70] font-semibold  text-[2rem] ">
+            <h1 className="text-[#075D70] font-semibold  text-[1.5rem] md:text-[2rem] ">
               About The Doon School
             </h1>
           </div>
           <div>
-            <p className="leading-6 w-[88vw] text-[1.15rem] text-justify">
+            <p className="leading-6 w-[88vw] text-[14px] md:text-[1.15rem] text-justify">
               Founded in 1935, The Doon School is known for its academic
               excellence and focus on holistic education. The school&apos;s mission
               is to groom boys who excel in academics, sports, music, and
@@ -121,12 +121,12 @@ function TheDoonPage() {
 
         <div className="space-y-4 w-[90vw] mb-10 mt-10">
           <div>
-            <h1 className="text-[#075D70] font-semibold text-[2rem]">
+            <h1 className="text-[#075D70] font-semibold text-[1.5rem] md:text-[2rem]">
               Admission Procedure
             </h1>
           </div>
           <div>
-            <ul className="list-disc pl-4 space-y-4 text-[1.15rem]">
+            <ul className="list-disc pl-4 space-y-4 text-[14px] md:text-[1.15rem]">
               <li>
                 <span className="font-medium"> Admission Overview :</span>Doon
                 School Admissions are available for Class VII and Class VIII.
@@ -160,29 +160,29 @@ function TheDoonPage() {
 
         <div className="space-y-4 w-[90vw] mb-10 mt-10">
           <div>
-            <h1 className="text-[#075D70] font-semibold text-[2rem]">
+            <h1 className="text-[#075D70] font-semibold text-[1.5rem] md:text-[2rem]">
               Registration
             </h1>
           </div>
           <div>
-            <ul className="list-disc pl-4 space-y-4 text-[1.15rem]">
+            <ul className="list-disc pl-4 space-y-4 text-[14px] md:text-[1.15rem]">
               <li>
-                <span className="font-medium">How to Register:</span>Parents can
+                <span className="font-semibold">How to Register:</span>Parents can
                 register their sons for Doon School Admissions at any time after
                 birth, though early registration is advised for lower fees.
               </li>
               <div className="">
-                <ol className="list-decimal list-inside ml-4 mb-6 ">
+                <ol className="list-decimal list-inside  mb-6 ">
                   <li>
-                    <span className="text-[1.15rem] font-medium">
-                      Submission of Birth Certificate:
+                    <span className="text-[14px] md:text-[1.15rem] font-semibold">
+                      Submission of Birth Certificate: 
                     </span>
                     A certified copy of the boy&apos;s birth certificate must be
                     submitted.
                   </li>
                   <li>
-                    <span className="text-[1.15rem] font-medium">
-                      Payment of Registration Fee:
+                    <span className="text-[14px] md:text-[1.15rem] font-semibold">
+                      Payment of Registration Fee: 
                     </span>
                     The registration fee varies depending on the age of the boy
                     at the time of registration. The fee structure is detailed
@@ -271,7 +271,7 @@ function TheDoonPage() {
                     </tr>
                   </tbody>
                 </table>
-                <p className="leading-6 w-[88vw] text-[1.15rem] my-6">
+                <p className="leading-6 w-[88vw] text-[14px] md:text-[1.15rem] my-6">
                   Please note that the registration fee is non-refundable and
                   does not guarantee admission. The earlier you register, the
                   lower the fee, so it is beneficial to register your son as
@@ -283,12 +283,12 @@ function TheDoonPage() {
         </div>
         <div className="space-y-4 w-[90vw] mb-10 mt-10">
           <div>
-            <h1 className="text-[#075D70] font-semibold text-[2rem]">
+            <h1 className="text-[#075D70] font-semibold text-[1.5rem] md:text-[2rem]">
               Important Notes on Registration
             </h1>
           </div>
           <div>
-            <ul className="list-disc pl-4 space-y-4 text-[1.15rem]">
+            <ul className="list-disc pl-4 space-y-4 text-[14px] md:text-[1.15rem]">
               <li>
                 <span className="font-medium">
                   No Admission After Class VIII:
@@ -309,33 +309,33 @@ function TheDoonPage() {
 
         <div className="space-y-4 w-[90vw] mb-10 mt-10">
           <div>
-            <h1 className="text-[#075D70] font-semibold text-[2rem]">
+            <h1 className="text-[#075D70] font-semibold text-[1.5rem] md:text-[2rem]">
               Important Dates
             </h1>
           </div>
-          <p className="leading-6 w-[88vw] text-[1.15rem] font-medium my-6">
+          <p className="leading-6 w-[88vw] text-[1rem] md:text-[1.15rem] font-semibold my-6">
             Timeline for Admissions
           </p>
           <div>
-            <ul className="list-disc pl-4 space-y-4 text-[1.15rem]">
+            <ul className="list-disc pl-4 space-y-4 text-[14px] md:text-[1.15rem]">
               <li>
-                <span className="font-medium">Registration Opens:</span>
+                <span className="font-semibold">Registration Opens: </span>
                 At eligible age.
               </li>
               <li>
-                <span className="font-medium">Entrance Examination Date:</span>{" "}
+                <span className="font-semibold">Entrance Examination Date: </span>{" "}
                 October.
               </li>
               <li>
-                <span className="font-medium">Interview and Assessment:</span>{" "}
+                <span className="font-semibold">Interview and Assessment: </span>{" "}
                 November-December.
               </li>
               <li>
-                <span className="font-medium">Final Admission Decision:</span>{" "}
+                <span className="font-semibold">Final Admission Decision: </span>{" "}
                 January.
               </li>
             </ul>
-            <p className="leading-6 w-[88vw] text-[1.15rem] my-6">
+            <p className="leading-6 w-[88vw] text-[14px] md:text-[1.15rem] my-6">
               Dates may vary slightly each year, so stay in touch with the
               Admissions Office for the latest updates.
             </p>
@@ -344,20 +344,20 @@ function TheDoonPage() {
 
         <div className="space-y-4 w-[90vw] mb-10 mt-10">
           <div>
-            <h1 className="text-[#075D70] font-semibold text-[2rem]">
+            <h1 className="text-[#075D70] font-semibold text-[1.5rem] md:text-[2rem]">
               Eligibility Criteria
             </h1>
           </div>
           <div>
-            <ul className="list-disc pl-4 space-y-4 text-[1.15rem]">
+            <ul className="list-disc pl-4 space-y-4 text-[14px] md:text-[1.15rem]">
               <li>
-                <span className="font-medium">Academic Requirements:</span>
+                <span className="font-medium">Academic Requirements: </span>
                 Doon School Admissions prioritizes boys with strong academic
                 backgrounds, particularly in English and Mathematics.
               </li>
               <li>
                 <span className="font-medium">
-                  Extracurricular and Personal Qualities:
+                  Extracurricular and Personal Qualities: 
                 </span>{" "}
                 The school looks for well-rounded individuals with interests in
                 extracurricular activities like sports, music, and community
@@ -365,10 +365,10 @@ function TheDoonPage() {
                 valued.
               </li>
               <li>
-                <span className="font-medium">Age Criteria:</span>
+                <span className="font-medium">Age Criteria: </span>
                 <ul>
                   <li>
-                    <span className="font-medium">Class VII Admission:</span>11
+                    <span className="font-medium">Class VII Admission: </span>11
                     to 12 years old.
                   </li>
                   <li>
@@ -378,7 +378,7 @@ function TheDoonPage() {
                 </ul>
               </li>
             </ul>
-            <p className="leading-6 w-[88vw] text-[1.15rem] my-6">
+            <p className="leading-6 w-[88vw] text-[14px] md:text-[1.15rem] my-6">
               Dates may vary slightly each year, so stay in touch with the
               Admissions Office for the latest updates.
             </p>
@@ -387,14 +387,14 @@ function TheDoonPage() {
 
         <div className="space-y-4 w-[90vw] mb-10 mt-10">
           <div>
-            <h1 className="text-[#075D70] font-semibold text-[2rem]">
+            <h1 className="text-[#075D70] font-semibold text-[1.5rem] md:text-[2rem]">
               Fees Structure
             </h1>
           </div>
           <div>
-            <ul className="list-disc pl-4 space-y-4 text-[1.15rem]">
+            <ul className="list-disc pl-4 space-y-4 text-[14px] md:text-[1.15rem]">
               <li>
-                <span className="font-medium">Annual Fees:</span>The fee
+                <span className="font-semibold">Annual Fees: </span>The fee
                 structure covers various aspects of a student&apos;s education,
                 including tuition and boarding.
               </li>
@@ -445,7 +445,7 @@ function TheDoonPage() {
                     </tr>
                   </tbody>
                 </table>
-                <p className="leading-6 w-[88vw] text-[1.15rem] my-6">
+                <p className="leading-6 w-[88vw] text-[14px] md:text-[1.15rem] my-6">
                   Please note that the registration fee is non-refundable and
                   does not guarantee admission. The earlier you register, the
                   lower the fee, so it is beneficial to register your son as
@@ -458,28 +458,28 @@ function TheDoonPage() {
 
         <div className="space-y-4 w-[90vw] mb-10 mt-10">
           <div>
-            <h1 className="text-[#075D70] font-semibold text-[2rem]">
+            <h1 className="text-[#075D70] font-semibold text-[1.5rem] md:text-[2rem]">
               Additional Costs
             </h1>
           </div>
-          <p className="leading-6 w-[88vw] text-[1.15rem] my-6">
+          <p className="leading-6 w-[88vw] text-[14px] md:text-[1.15rem] my-6">
             Apart from the standard fees, there are additional costs that
             parents should be aware of:
           </p>
           <div>
-            <ul className="list-disc pl-4 space-y-4 text-[1.15rem]">
+            <ul className="list-disc pl-4 space-y-4 text-[14px] md:text-[1.15rem]">
               <li>
-                <span className="font-medium">Uniforms and Books:</span>
+                <span className="font-semibold">Uniforms and Books:</span>
                 The cost of uniforms, textbooks, and other academic materials is
                 not included in the annual fees.
               </li>
               <li>
-                <span className="font-medium">Extracurricular Activities:</span>{" "}
+                <span className="font-semibold">Extracurricular Activities:</span>{" "}
                 Fees for certain extracurricular activities, such as sports
                 coaching or music lessons, may be charged separately.
               </li>
               <li>
-                <span className="font-medium">Medical Expenses: </span> The
+                <span className="font-semibold">Medical Expenses: </span> The
                 school provides basic medical care, but any additional medical
                 expenses may be billed to the parents.
               </li>
@@ -489,11 +489,11 @@ function TheDoonPage() {
 
         <div className="space-y-4 w-[90vw] mb-10 mt-10">
           <div>
-            <h1 className="text-[#075D70] font-semibold text-[2rem]">
+            <h1 className="text-[#075D70] font-semibold text-[1.5rem] md:text-[2rem]">
               Scholarships and Financial Aid
             </h1>
           </div>
-          <p className="leading-6 w-[88vw] text-[1.15rem] my-6">
+          <p className="leading-6 w-[88vw] text-[14px] md:text-[1.15rem] my-6">
             The Doon School offers scholarships and financial aid based on merit
             and need. Contact the Admissions Office for details.
           </p>

@@ -51,7 +51,7 @@ export default function SchoolWeCracked() {
           Top Schools We have Cracked
         </p>
       </div>
-      <div className="flex space-x-5 overflow-x-auto hide-scrollbar">
+      <div className="flex space-x-5 md:space-x-20 overflow-x-auto hide-scrollbar">
         {school.map((member, index) => (
           <div key={index} className="flex-shrink-0  w-[220px] rounded-md lg:h-[350px] h-[220px] ">
     <Link href={member.routes}>        <div className="flex justify-center lg:mt-[8%] mt-[6%] lg:mb-[5%] mb-[3%]">

@@ -9,11 +9,9 @@ import Broucher from "@/components/frontend/Broucher";
 import EnquiryForm from "@/components/frontend/EnquiryForm";
 import SchoolCarousel from "../../../components/frontend/SchoolCarousel";
 
-
- 
-
 function MayoBoysPage() {
-  const MayoBoys = schoolFAQs.find(school => school.school === 'MayoBoys')?.faqs || [];
+  const MayoBoys =
+    schoolFAQs.find((school) => school.school === "MayoBoys")?.faqs || [];
   return (
     <div className="h-auto w-[100%] poppins ">
       {/* <div className="relative lg:px-[30px] xl:px-[50px]  ">
@@ -35,8 +33,8 @@ function MayoBoysPage() {
           />
         </div>
       </div> */}
-<SchoolCarousel/>
-<div className="w-[90%] ml-[5%] mt-9">
+      <SchoolCarousel />
+      <div className="w-[90%] ml-[5%] mt-6">
         <div className="relative h-[150px]   xl:h-[150px] md:h-[120px] lg:h-[170px]    w-full  border-b-2  sm:flex sm:justify-between">
           <div className="w-full flex flex-col  lg:gap-5 gap-2">
             <div className="">
@@ -45,13 +43,11 @@ function MayoBoysPage() {
               </h1>
             </div>
             <div className="flex text-center gap-3">
-          
-
               <StarRatings
-              lat={26.4460952}
-              lng={74.6494257}
-              schoolName={"Mayo College Ajmer"}
-            />
+                lat={26.4460952}
+                lng={74.6494257}
+                schoolName={"Mayo College Ajmer"}
+              />
 
               {/* <div>
                 {
@@ -67,7 +63,7 @@ function MayoBoysPage() {
               <h2 className="text-[#075D70] ">Google reviews</h2>
             </div>
 
-               {/* <div className=" flex sm:w-[50%] gap-3 mb-2 sm:mb-0">
+            {/* <div className=" flex sm:w-[50%] gap-3 mb-2 sm:mb-0">
               <h3 className="px-1 py-1 rounded-md bg-[#6198A3] bg-opacity-[12%] text-black ">
                 Private School
               </h3>
@@ -78,7 +74,7 @@ function MayoBoysPage() {
           </div>
 
           <div className=" sm:absolute pt-2  gap-3 flex  sm:right-0 sm:self-center">
-             {/* <button className="py-1 px-2 sm:py-1.5 sm:px-2.5 border border-[#075D70] rounded-[5px] flex gap-2">
+            {/* <button className="py-1 px-2 sm:py-1.5 sm:px-2.5 border border-[#075D70] rounded-[5px] flex gap-2">
               <div>
                 <Image
                   src="/icons/download.svg"
@@ -91,52 +87,51 @@ function MayoBoysPage() {
 
               <p className="text-[#075D70]">Broucher</p>
             </button> */}
-                       <GetPrepared/>
-
+            <GetPrepared />
           </div>
         </div>
         <div className="md:hidden mt-6">
-<EnquiryForm/>
-
-</div>
+          <EnquiryForm />
+        </div>
         <div className="space-y-4 w-[90vw]  mt-10 ">
           <div className="">
-            <h1 className="text-[#075D70] font-semibold  text-[2rem] ">
+            <h1 className="text-[#075D70] font-semibold  text-[1.5rem] md:text-[2rem] ">
               About Mayo Boys School
             </h1>
           </div>
           <div>
-            <p className="leading-6 w-[88vw] text-[1.15rem] text-justify">
+            <p className="leading-6 w-[88vw] text-[14px] md:text-[1.15rem] text-justify">
               Mayo College Boys School in Ajmer, Rajasthan, is a prestigious
-              boys&apos; residential school known for its rich heritage and top-notch
-              education. Established in 1875 by Richard Bourke, the school was
-              initially founded to educate the sons of Indian nobility. Today,
-              Mayo Boys Admissions are highly competitive, with students aiming
-              to join an institution that fosters academic excellence and
-              holistic development. The schools sprawling green campus, modern
-              facilities, and a strong emphasis on character building make it a
-              sought-after choice for parents.
+              boys&apos; residential school known for its rich heritage and
+              top-notch education. Established in 1875 by Richard Bourke, the
+              school was initially founded to educate the sons of Indian
+              nobility. Today, Mayo Boys Admissions are highly competitive, with
+              students aiming to join an institution that fosters academic
+              excellence and holistic development. The schools sprawling green
+              campus, modern facilities, and a strong emphasis on character
+              building make it a sought-after choice for parents.
             </p>
           </div>
         </div>
 
         <div className="space-y-4 w-[90vw] my-10">
-          <h1 className="text-[#075D70] font-semibold text-[2rem]">
+          <h1 className="text-[#075D70] font-semibold text-[1.5rem] md:text-[2rem]">
             Admission Procedure
           </h1>
-          <p className="leading-6 w-[88vw] text-[1.15rem]">
+          <p className="leading-6 w-[88vw] text-[14px] md:text-[1.15rem]">
             The Mayo Boys Admissions process is designed to select students who
             show promise in academics, extracurricular activities, and
-            leadership. Here&apos;s a quick guide to help you navigate the process.
+            leadership. Here&apos;s a quick guide to help you navigate the
+            process.
           </p>
-          <h2 className="text-[#075D70] font-semibold text-[1.4rem] my-4">
+          <h2 className="text-[#075D70] font-semibold text-[1.5rem] md:text-[2rem] my-4">
             Steps to Admission
           </h2>
           <ol className="list-decimal pl-4 space-y-4 text-[1.15rem]">
             <li>
-              <span className="font-medium">Application Form</span>
+              <span className="font-medium ">Application Form</span>
               <ul className="list-disc pl-4 mt-2 space-y-4">
-                <li>
+                <li className="text-[14px] md:text-[1.15rem]">
                   <span className="font-medium">Registration:</span> Start by
                   registering on the Mayo College official website. Early
                   registration increases your chances.
@@ -146,17 +141,17 @@ function MayoBoysPage() {
             <li>
               <span className="font-medium">Required Documents</span>
               <ul className="list-disc pl-4 mt-2 space-y-4">
-                <li>
+                <li className="text-[14px] md:text-[1.15rem]">
                   <span className="font-medium">Documents:</span> Include the
-                  student&apos;s birth certificate, previous academic records, and
-                  other essential documents.
+                  student&apos;s birth certificate, previous academic records,
+                  and other essential documents.
                 </li>
               </ul>
             </li>
             <li>
               <span className="font-medium">Online Application Process</span>
               <ul className="list-disc pl-4 mt-2 space-y-4">
-                <li>
+                <li className="text-[14px] md:text-[1.15rem]">
                   <span className="font-medium">Submission:</span> Complete the
                   online form, attaching the required documents.
                 </li>
@@ -165,26 +160,26 @@ function MayoBoysPage() {
             <li>
               <span className="font-medium">Mayo Boys Entrance Exam</span>
               <ul className="list-disc pl-4 mt-2 space-y-4">
-                <li>
+                <li className="text-[14px] md:text-[1.15rem]">
                   <span className="font-medium">Focus Subjects:</span> The
                   entrance exam tests English grammar, general knowledge (GK),
                   and mathematics, aligning with the subjects our course
                   specializes in.
                 </li>
-                <li>
+                <li className="text-[14px] md:text-[1.15rem]">
                   <span className="font-medium">Format:</span> Typically
                   conducted online in January or February.
                 </li>
               </ul>
             </li>
-            <li>
+            <li >
               <span className="font-medium">Interview and Final Selection</span>
               <ul className="list-disc pl-4 mt-2 space-y-4">
-                <li>
+                <li className="text-[14px] md:text-[1.15rem]">
                   <span className="font-medium">Interview:</span> Shortlisted
                   candidates are invited for a personal interview.
                 </li>
-                <li>
+                <li className="text-[14px] md:text-[1.15rem]">
                   <span className="font-medium">Selection:</span> Final
                   selection is based on performance in the entrance exam and
                   interview.
@@ -195,10 +190,10 @@ function MayoBoysPage() {
         </div>
 
         <div className="space-y-4 w-[90vw] my-10">
-          <h1 className="text-[#075D70] font-semibold text-[2rem]">
+          <h1 className="text-[#075D70] font-semibold text-[1.5rem] md:text-[2rem]">
             Fees Structure
           </h1>
-          <p className="leading-6 w-[88vw] text-[1.15rem]">
+          <p className="leading-6 w-[88vw] text-[14px] md:text-[1.15rem]">
             The fee structure for Mayo Boys Admissions includes several
             components essential for a student&apos;s education and well-being.
           </p>
@@ -258,41 +253,45 @@ function MayoBoysPage() {
 
         <div className="space-y-4 w-[90vw] my-10 ">
           <div>
-            <p className="text-[#075D70] font-semibold text-[2rem]">
-            Important Dates for Mayo Boys Admissions
+            <p className="text-[#075D70] font-semibold text-[1.5rem] md:text-[2rem]">
+              Important Dates for Mayo Boys Admissions
             </p>
           </div>
           <div>
             <div>
-              <p className="leading-6 w-[88vw] text-[1.15rem] text-justify">
-              For Mayo Boys Admissions, here are the key dates to remember:
+              <p className="leading-6 w-[88vw] text-[14px] md:text-[1.15rem] text-justify">
+                For Mayo Boys Admissions, here are the key dates to remember:
               </p>
             </div>
-            <ul className="list-disc pl-4 space-y-4">
-                    <li>
-                      <span className="font-medium">Registration:</span>
-                      Open throughout the year, with early registration recommended.
-                    </li>
-                    <li>
-                      <span className="font-medium">Mayo Boys Entrance Exam:</span>Typically held in January or February.
-                    </li>
-                    <li>
-                      <span className="font-medium">Interviews:</span>Conducted between December and February.
-                    </li>
-                    <li>
-                      <span className="font-medium">Session Start:</span>April.
-                    </li>
-                  </ul>
-            </div>
-            </div>
+            <ul className="list-disc pl-4 space-y-4 text-[14px] md:text-[1.15rem]">
+              <li>
+                <span className="font-medium">Registration: </span>
+                Open throughout the year, with early registration recommended.
+              </li>
+              <li>
+                <span className="font-medium">Mayo Boys Entrance Exam: </span>
+                Typically held in January or February.
+              </li>
+              <li>
+                <span className="font-medium">Interviews: </span>Conducted
+                between December and February.
+              </li>
+              <li>
+                <span className="font-medium">Session Start:</span>April.
+              </li>
+            </ul>
+          </div>
+        </div>
 
-
-            <Broucher pdfLink={"https://firebasestorage.googleapis.com/v0/b/boardingadmissions-f3ba3.appspot.com/o/brochure%2FEntranceExamBrochure.pdf?alt=media&token=a62ae681-e33f-4129-801c-1087c4530214"}/>
-
+        <Broucher
+          pdfLink={
+            "https://firebasestorage.googleapis.com/v0/b/boardingadmissions-f3ba3.appspot.com/o/brochure%2FEntranceExamBrochure.pdf?alt=media&token=a62ae681-e33f-4129-801c-1087c4530214"
+          }
+        />
       </div>
 
       <div>
-        <Faq data={MayoBoys}/>
+        <Faq data={MayoBoys} />
       </div>
     </div>
   );
