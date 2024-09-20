@@ -2,65 +2,131 @@
 import EntranceCourse from "@/components/frontend/EntranceCourse";
 import EntranceOtherDetail from "@/components/frontend/EntranceOtherDetail";
 import EntranceSlaybus from "@/components/frontend/EntranceSlaybus";
+import { db } from "@/firebase/firebase";
 import Image from "next/image";
-import React, { useState } from "react";
+import { usePathname } from "next/navigation";
+import React, { useEffect, useState } from "react";
+import {
+  query,
+  collection,
+  getDocs,
+  getDoc,
+  doc,
+  where,
+} from "firebase/firestore";
+import Link from "next/link";
 
 export default function EntranceMain() {
-  const cardData = [
-    {
-      id: 1,
-      imageSrc: "/icons/card1.svg",
-      title: "ACE ENTRANCE EXAM",
-      description:
-        "Lorem ipsum dolor sit amet consectetur. Vestibulum ut quam pulvinar ultrices vitae magna. Ut. Lorem ipsum dolor sit amet consectetur. Vestibulum ut",
-      price1: "$45,000",
-      price2: " $75,000",
-      batch: "(For Full Batch)",
-      discountInfo: "Discount of 55% applied",
-    },
-  ];
-
   const [activeTab, setActiveTab] = useState("Description");
+  const currentPage = usePathname();
+  const pathArray = currentPage.split("/");
+  const [packageData, setPackageData] = useState(null);
+  const [boards, setBoards] = useState([]);
+  const [schools, setSchools] = useState([]);
+  const [courses, setCourses] = useState([]);
+  const [tests, setTests] = useState([]);
+  const packageId = pathArray[pathArray.length - 1];
+
+  useEffect(() => {
+    const fetchPackage = async () => {
+      try {
+        const q = query(
+          collection(db, "coursePackages"),
+          where("id", "==", packageId)
+        );
+        const packageSnapshot = await getDocs(q);
+
+        if (!packageSnapshot.empty) {
+          const packageInfo = packageSnapshot.docs[0].data();
+          const courseIds = packageInfo.courses || [];
+          const boardIds = packageInfo.targetedBoards || [];
+          const schoolIds = packageInfo.targetedSchools || [];
+
+          // Fetch courses, boards, and schools
+          const [coursesSnap, boardsSnap, schoolsSnap] = await Promise.all([
+            Promise.all(
+              courseIds.map((courseId) => getDoc(doc(db, "courses", courseId)))
+            ),
+            Promise.all(
+              boardIds.map((boardId) => getDoc(doc(db, "boards", boardId)))
+            ),
+            Promise.all(
+              schoolIds.map((schoolId) => getDoc(doc(db, "schools", schoolId)))
+            ),
+          ]);
+
+          const courseNames = coursesSnap
+            .map((doc) => (doc.exists() ? doc.data() : null))
+            .filter(Boolean);
+          const boardNames = boardsSnap
+            .map((doc) => (doc.exists() ? doc.data().boardName : null))
+            .filter(Boolean);
+          const schoolNames = schoolsSnap
+            .map((doc) => (doc.exists() ? doc.data().schoolName : null))
+            .filter(Boolean);
+
+          setPackageData(packageInfo);
+          setCourses(courseNames);
+          setBoards(boardNames);
+          setSchools(schoolNames);
+        }
+      } catch (error) {
+        console.error("Error fetching package: ", error);
+      }
+    };
+
+    fetchPackage();
+  }, [packageId]);
+
+  const fetchCourses = async () => {
+    if (packageData) {
+      const coursePromises = packageData.courses.map((courseId) =>
+        getDoc(doc(db, "courses", courseId))
+      );
+      const coursesSnap = await Promise.all(coursePromises);
+      const fetchedCourses = coursesSnap
+        .map((doc) => (doc.exists() ? doc.data() : null))
+        .filter(Boolean);
+      setCourses(fetchedCourses);
+      console.log(fetchedCourses);
+    }
+  };
+
+  const fetchTests = async () => {
+    if (packageData && packageData.tests) {
+      const testPromises = packageData.tests.map((testId) =>
+        getDoc(doc(db, "testPackages", testId))
+      );
+      const testsSnap = await Promise.all(testPromises);
+      const fetchedTests = testsSnap
+        .map((doc) => (doc.exists() ? doc.data() : null))
+        .filter(Boolean);
+      setTests(fetchedTests);
+    }
+  };
 
   const handleTabClick = (tab) => {
     setActiveTab(tab);
+    if (tab === "Courses") {
+      fetchCourses();
+    } else if (tab === "Tests") {
+      fetchTests();
+    }
   };
-
-  const list = [
-    {
-      name: "Doubt Solving",
-    },
-    {
-      name: "Doubt Solving",
-    },
-    {
-      name: "Doubt Solving",
-    },
-    {
-      name: "Mentorship",
-    },
-    {
-      name: "Daily Practice Paper",
-    },
-    {
-      name: "Test Series",
-    },
-    {
-      name: "Live and recorded lectures",
-    },
-    {
-      name: "Live and recorded lectures",
-    },
-  ];
 
   return (
     <div>
-      <div className="xl:px-[100px] md:px-[40px] px-[24px] ">
-        <div className="md:flex space-x-4 justify-between ">
+      <div className="xl:px-[100px] md:px-[40px] px-[24px]">
+        <div className="md:flex space-x-4 justify-between">
           <div>
+            {/* Package Image and Title */}
             <div className="relative rounded-t-lg">
               <Image
-                src="/images/faoundation.svg"
+                src={
+                  packageData
+                    ? packageData.thumbnailImage
+                    : "/images/default.png"
+                }
                 className="w-full md:h-[125px] h-[55px] object-cover rounded-t-lg"
                 width={1000}
                 height={1000}
@@ -68,269 +134,140 @@ export default function EntranceMain() {
               />
               <div className="absolute inset-0 flex items-center justify-center p-4">
                 <p className="text-white md:text-[28px] text-14px font-bold">
-                  ACE ENTRANCE EXAM + FOUNDATION COURSE
+                  {packageData ? packageData.packageName : "Loading..."}
                 </p>
               </div>
             </div>
 
-            <div className="flex justify-between md:px-8 px-3 bg-[#FFFFFF01] shadow-2xl w-full  h-[40px] mt-2">
+            {/* Tabs for Description, Courses, Tests */}
+            <div className="flex justify-between md:px-8 px-3 bg-[#FFFFFF01] shadow-2xl w-full h-[40px] mt-2">
               <div className="flex md:space-x-6 space-x-2">
-                <div
-                  className={`  md:text-13px text-11px cursor-pointer ${
-                    activeTab === "Description"
-                      ? "border-b-4 border-primary02"
-                      : ""
-                  }`}
-                  onClick={() => handleTabClick("Description")}
-                >
-                  Description
-                </div>
-                <div
-                  className={`  md:text-13px text-11px cursor-pointer ${
-                    activeTab === "Syllabus"
-                      ? "border-b-4 border-primary02"
-                      : ""
-                  }`}
-                  onClick={() => handleTabClick("Syllabus")}
-                >
-                  Syllabus
-                </div>
-                <div
-                  className={`  md:text-13px text-11px cursor-pointer ${
-                    activeTab === "Tests" ? "border-b-4 border-primary02" : ""
-                  }`}
-                  onClick={() => handleTabClick("Tests")}
-                >
-                  Tests
-                </div>
-              </div>
-              <div className="md:w-[124px] w-[95px] md:h-[32px] h-[20px] border border-[#B4B9C0] px-2 flex justify-between items-center rounded-2xl mt-1">
-                <div>
-                  <Image
-                    src="/vectors/whatsapp.svg"
-                    width={1000}
-                    height={1000}
-                    alt="image"
-                    className="md:w-[24px] md:h-[24px] w-[13px] h-[13px]"
-                  />
-                </div>
-                <div className="md:text-14px text-[9px] font-semibold text-[#5E6166]">
-                  Share batch
-                </div>
-              </div>
-            </div>
-
-{/* just for mobile view */}
-
-{/* <div className="md:hidden block">
-            <div
-              className=" w-full"
-              style={{ boxShadow: "0 1px 8px 0 rgba(0, 0, 0, 0.08)" }}
-            >
-              <div className="flex flex-wrap justify-center gap-10 ">
-                {cardData.map((card) => (
+                {["Description", "Courses", "Tests"].map((tab) => (
                   <div
-                    key={card.id}
-                    className="w-[28vw] bg-[#FFFFFF] rounded-[9px] pb-4"
+                    key={tab}
+                    className={`md:text-13px text-11px cursor-pointer ${
+                      activeTab === tab ? "border-b-4 border-primary02" : ""
+                    }`}
+                    onClick={() => handleTabClick(tab)}
                   >
-                    <Image
-                      src={card.imageSrc}
-                      width={1000}
-                      height={228}
-                      alt="card"
-                      className="w-full"
-                    />
-                    <h1 className="text-primary02 text-[1.5rem] font-semibold text-center mt-3  ">
-                      {card.title}
-                    </h1>
-                    <p className=" text-[0.8rem] text-[#212224] pt-3 text-center px-8">
-                      {card.description}
-                    </p>
-                    <hr className="mx-10 mt-3" />
-                    <div className="flex">
-                      <div className="flex items-center gap-2 px-8">
-                        <h1 className="text-[1.5rem] text-primary02">
-                          {card.price1}
-                        </h1>
-                        <h1 className="text-[0.9rem] text-[#666666] line-through">
-                          {card.price2}
-                        </h1>
-                      </div>
-                      <div className="bg-[#ADD1A748] px-2 w-[10rem] h-[2.5rem] mt-2  rounded-lg">
-                        <div className="flex items-center pt-[5px]     gap-3">
-                          <Image
-                            src="/icons/Vector.svg"
-                            width={24}
-                            height={24}
-                            alt="card"
-                            className=""
-                          />
-                          <p className="text-[#000000] text-[0.63rem]">
-                            {card.discountInfo}
-                          </p>
-                          <div>
-                            <u className="text-[#000000] text-[7px] cursor-pointer">
-                              Remove
-                            </u>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    <p className="text-[#666666] text-[0.7rem] px-16">
-                      {card.batch}
-                    </p>
-                    <hr className="mx-10 mt-1" />
-                    <div className="flex justify-center gap-8 pt-3">
-                      <div className="">
-                        <button
-                          type="submit"
-                          className="w-[8.625rem] h-[2.5rem] text-primary02 bg-white  rounded-md border border-primary02"
-                        >
-                          Explore
-                        </button>
-                      </div>
-                      <div className="">
-                        <button
-                          type="submit"
-                          className="w-[8.625rem] h-[2.5rem] text-white   rounded-md border border-primary02 bg-gradient01 border-custom"
-                        >
-                          Buy Now
-                        </button>
-                      </div>
-                    </div>
+                    {tab}
                   </div>
                 ))}
               </div>
+              <div className="md:w-[140px] w-[95px] md:h-[32px] h-[20px] border border-[#B4B9C0] px-2 flex justify-between items-center rounded-2xl mt-1">
+                <Image
+                  src="/vectors/whatsapp.svg"
+                  width={1000}
+                  height={1000}
+                  alt="share"
+                  className="md:w-[24px] md:h-[24px] w-[13px] h-[13px]"
+                />
+                <p className="md:text-14px text-[9px] font-semibold text-[#5E6166]">
+                  Share batch
+                </p>
+              </div>
             </div>
-          </div> */}
 
-
-
-            <div className="my-10">
-              <div className="bg-[#075D7036] relative md:h-[64px] h-[44px] w-full rounded-t-lg">
-                <div className="absolute inset-0 p-4 text-black flex items-center space-x-3 text-18px font-medium">
-                  <div className="mt-1">
-                    {" "}
-                    <Image
-                      src="/vectors/bulb.svg.svg"
-                      width={22}
-                      height={22}
-                      alt="image"
-                    />
-                  </div>
-                  <div className="font-medium md:text-[18px] text-[14px]">Ace Entrance Exam course include</div>
+            <div>
+              <h2 className="text-2xl font-bold text-primary02 mb-2">
+                {packageData ? packageData.packageName : "Loading..."}
+              </h2>
+              <p className="text-gray-700 mb-4">
+                {packageData
+                  ? packageData.description
+                  : "Loading description..."}
+              </p>
+              <div className="flex justify-between items-center mb-4">
+                <div>
+                  <p className="text-lg font-semibold">
+                    <strong>Price:</strong>{" "}
+                    <span className="line-through text-gray-500">
+                      {packageData ? packageData.price : "Loading..."}
+                    </span>
+                  </p>
+                  <p className="text-xl font-bold text-green-500">
+                    <strong>Discounted Price:</strong>{" "}
+                    {packageData ? packageData.discountedPrice : "Loading..."}
+                  </p>
+                </div>
+                <div className="bg-green-100 text-green-700 text-sm font-medium px-2 py-1 rounded">
+                  Special Offer!
                 </div>
               </div>
-
-              <div className="grid lg:grid-cols-3 grid-cols-2 pl-6 rounded-b-lg border border-[#D9DCE1] pb-4 pt-2">
-                {list.map((item, index) => (
-                  <div key={index} className="flex items-center lg:my-6 my-2">
-                    <div>
-                      <Image
-                        src="/vectors/star.svg"
-                        width={18}
-                        height={18}
-                        alt="image"
-                      />
-                    </div>
-                    <div className="md:text-16px text-[12px] pl-4 w-[160px]">
-                      {item.name}
-                    </div>
-                  </div>
-                ))}
+              <p className="mb-2">
+                <strong>Targeted Boards:</strong>{" "}
+                {boards.length > 0 ? boards.join(", ") : "Loading..."}
+              </p>
+              <p>
+                <strong>Targeted Schools:</strong>{" "}
+                {schools.length > 0 ? schools.join(", ") : "Loading..."}
+              </p>
+              <div className="mt-4">
+                <Link href={`/checkout/${packageId}`}>
+                  <button className="px-4 py-2 bg-primary02 text-white font-semibold rounded hover:bg-primaryDark transition duration-200">
+                    Buy Now
+                  </button>
+                </Link>
+                <button className="ml-2 px-4 py-2 border border-gray-300 text-gray-700 font-semibold rounded hover:bg-gray-100 transition duration-200">
+                  Explore
+                </button>
               </div>
             </div>
-            <div>
-              <EntranceCourse />
+
+            {/* Package Details Section */}
+            <div className="my-10 p-6 rounded-lg">
+              {activeTab === "Description" ? (
+                <div>
+                  <h2 className="text-2xl font-bold mb-4 text-black">
+                    Courses Package Detials
+                  </h2>
+                  <div className="poppins text-xl">
+                    {"Course Starts on : "}
+                    {packageData
+                      ? new Date(packageData.startingDate).toLocaleDateString(
+                          "en-US",
+                          { year: "numeric", month: "long", day: "numeric" }
+                        )
+                      : "Loading..."}{" "}
+                  </div>
+                </div>
+              ) : activeTab === "Courses" ? (
+                <div>
+                  <h2 className="text-2xl font-bold mb-4">Courses</h2>
+                  {courses.length > 0 ? (
+                    courses.map((course, index) => (
+                      <div key={index} className="mb-2">
+                        <h3 className="font-semibold">{course.courseName}</h3>
+                      </div>
+                    ))
+                  ) : (
+                    <p>No courses available.</p>
+                  )}
+                </div>
+              ) : activeTab === "Tests" ? (
+                <div>
+                  <h2 className="text-2xl font-bold mb-4">Tests</h2>
+                  {tests.length > 0 ? (
+                    tests.map((test, index) => (
+                      <div key={index} className="mb-2">
+                        <h3 className="font-semibold">{test.title}</h3>
+                        <p>{test.description}</p>
+                      </div>
+                    ))
+                  ) : (
+                    <p>No tests available.</p>
+                  )}
+                </div>
+              ) : (
+                <p className="text-gray-500">Loading package details...</p>
+              )}
             </div>
+
             <div>
               <EntranceSlaybus />
             </div>
             <div>
               <EntranceOtherDetail />
-            </div>
-          </div>
-
-{/* mobile section */}
-          <div className="lg:block hidden">
-            <div
-              className=" w-full"
-              style={{ boxShadow: "0 1px 8px 0 rgba(0, 0, 0, 0.08)" }}
-            >
-              <div className="flex flex-wrap justify-center gap-10 ">
-                {cardData.map((card) => (
-                  <div
-                    key={card.id}
-                    className="w-[28vw] bg-[#FFFFFF] rounded-[9px] pb-4"
-                  >
-                    <Image
-                      src={card.imageSrc}
-                      width={1000}
-                      height={228}
-                      alt="card"
-                      className="w-full"
-                    />
-                    <h1 className="text-primary02 text-[1.5rem] font-semibold text-center mt-3  ">
-                      {card.title}
-                    </h1>
-                    <p className=" text-[0.8rem] text-[#212224] pt-3 text-center px-8">
-                      {card.description}
-                    </p>
-                    <hr className="mx-10 mt-3" />
-                    <div className="flex">
-                      <div className="flex items-center gap-2 px-8">
-                        <h1 className="text-[1.5rem] text-primary02">
-                          {card.price1}
-                        </h1>
-                        <h1 className="text-[0.9rem] text-[#666666] line-through">
-                          {card.price2}
-                        </h1>
-                      </div>
-                      <div className="bg-[#ADD1A748] px-2 w-[10rem] h-[2.5rem] mt-2  rounded-lg">
-                        <div className="flex items-center pt-[5px]     gap-3">
-                          <Image
-                            src="/icons/Vector.svg"
-                            width={24}
-                            height={24}
-                            alt="card"
-                            className=""
-                          />
-                          <p className="text-[#000000] text-[0.63rem]">
-                            {card.discountInfo}
-                          </p>
-                          <div>
-                            <u className="text-[#000000] text-[7px] cursor-pointer">
-                              Remove
-                            </u>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    <p className="text-[#666666] text-[0.7rem] px-16">
-                      {card.batch}
-                    </p>
-                    <hr className="mx-10 mt-1" />
-                    <div className="flex justify-center gap-8 pt-3">
-                      <div className="">
-                        <button
-                          type="submit"
-                          className="w-[8.625rem] h-[2.5rem] text-primary02 bg-white  rounded-md border border-primary02"
-                        >
-                          Explore
-                        </button>
-                      </div>
-                      <div className="">
-                        <button
-                          type="submit"
-                          className="w-[8.625rem] h-[2.5rem] text-white   rounded-md border border-primary02 bg-gradient01 border-custom"
-                        >
-                          Buy Now
-                        </button>
-                      </div>
-                    </div>
-                  </div>
-                ))}
-              </div>
             </div>
           </div>
         </div>

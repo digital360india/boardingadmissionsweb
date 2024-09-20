@@ -1,4 +1,5 @@
 "use client";
+
 import React, { useEffect, useState } from "react";
 import { usePathname } from "next/navigation";
 import { doc, getDoc, collection, getDocs, query, where } from "firebase/firestore";
@@ -22,7 +23,6 @@ export default function Checkout() {
       }
 
       try {
-        // Fetch package details
         const packageQuery = query(
           collection(db, "coursePackages"),
           where("id", "==", packageId)
@@ -38,7 +38,6 @@ export default function Checkout() {
         const packageData = packageDocs.docs[0].data();
         setPackageDetails(packageData);
 
-        // Fetch courses inside the package
         const coursePromises = packageData.courses.map((courseId) =>
           getDoc(doc(db, "courses", courseId))
         );
@@ -56,29 +55,54 @@ export default function Checkout() {
     fetchPackageAndCourses();
   }, [packageId]);
 
+  const handleCheckout = async () => {
+    const amount = packageDetails?.price;
+    const mobile = "your_mobile_number"; 
+    const muid = "your_user_id";
+
+    try {
+      const response = await fetch('/api/payment', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ amount, mobile, muid }),
+      });
+
+      const data = await response.json();
+      if (response.ok) {
+        window.location.href = data.redirectUrl;
+      } else {
+        console.error("Payment initiation failed:", data);
+        alert("Failed to initiate payment: " + data.error);
+      }
+    } catch (error) {
+      console.error("Error during checkout:", error);
+      alert("An error occurred. Please try again.");
+    }
+  };
+
   if (loading) return <p>Loading...</p>;
   if (error) return <p>{error}</p>;
 
   return (
-    <div className="xl:px-[100px] lg:mt-20 lg:px-10 py-[90px] flex flex-col lg:flex-row px-6 gap-10 justify-between">
-      {/* Package Details */}
+    <div className="xl:px-[100px]  py-[40px] flex flex-col lg:flex-row px-6 gap-10 justify-between">
       <div className="space-y-8">
         {packageDetails && (
-          <div className="lg:py-[32px] lg:px-[32px] p-4 border rounded-lg">
-            <p className="font-semibold lg:text-[24px] text-[18px] lg:mb-8 lg:m-4 my-4">
+          <div className="lg:py-[32px] lg:px-[32px] p-4 border rounded-lg flex flex-col gap-2">
+            <h1 className="text-3xl font-semibold text-background05">Package</h1>
+            <p className="font-semibold lg:text-[24px] text-[18px] lg:mb-4 ">
               {packageDetails.packageName || "Package Name"}
             </p>
             <img
-              className="w-full h-[200px] object-cover rounded-md"
+              className="w-full h-[200px] object-fill rounded-md"
               src={packageDetails.image || "./images/product.png"}
               alt={packageDetails.packageName || "Package Image"}
             />
-            <p className="font-medium lg:text-[24px] text-[18px]">
-              ${packageDetails.discountedPrice || "0"} (Discounted Price)
+            <p className="font-medium lg:text-[24px] text-background05 text-[18px]">
+            {"Package Price : "}  ${packageDetails.price || "0"}
             </p>
-            <p className="font-medium lg:text-[18px] text-[12px] text-[#808080]">
-              ${packageDetails.price || "0"} (Original Price)
-            </p>
+          
             <p className="font-medium lg:text-[18px] text-[14px] text-[#808080]">
               Starting Date: {new Date(packageDetails.startingDate).toLocaleDateString()}
             </p>
@@ -89,8 +113,8 @@ export default function Checkout() {
         )}
 
         {/* Courses */}
-        <div className="lg:py-[32px] lg:px-[32px] p-4 border rounded-lg">
-          <p className="font-semibold lg:text-[24px] text-[18px] lg:mb-8 lg:m-4 my-4">
+        <div className=" flex flex-col gap-2 p-4 border rounded-lg">
+          <p className="font-semibold lg:text-[24px] text-[18px] lg:mb-4 lg:m-4 my-4">
             Courses in this Package
           </p>
           {courses.map((course, index) => (
@@ -106,65 +130,16 @@ export default function Checkout() {
                 <p className="font-medium lg:text-[24px] text-[16px]">
                   {course.courseName || "Course Name"}
                 </p>
-                <div className="flex gap-4 items-center">
-                  <p className="font-medium lg:text-[32px] text-[18px]">
-                    ${course.discountedPrice || "0"}
-                  </p>
-                  <p className="font-medium lg:text-[18px] text-[12px] text-[#808080]">
-                    ${course.originalPrice || "0"}
-                  </p>
-                </div>
-                <div className="flex gap-10">
-                  <p className="lg:text-[14px] text-[10px] text-[#808080]">
-                    <u>Add to wishlist</u>
-                  </p>
-                  <p className="lg:text-[14px] text-[10px] text-[#808080]">
-                    <u>Remove</u>
-                  </p>
-                  <p className="lg:text-[14px] text-[10px] text-[#808080]">
-                    <u>Share</u>
-                  </p>
-                </div>
+            
               </div>
             </div>
-         ) )}
+          ))}
         </div>
       </div>
+
       {/* Order Summary and Other Components */}
-      <div className="py-[32px] px-[32px] border rounded-lg">
+      <div className="md:w-[560px] h-fit py-[32px] px-[32px] border rounded-lg">
         <p className="font-semibold text-[24px] mb-8">Order Summary</p>
-        <p className="text-[14px]">Discount code / Promo code</p>
-        <div className="py-4 px-4 border rounded flex justify-between mb-4">
-          <input
-            type="text"
-            placeholder="Enter Code"
-            className="flex-grow mr-2 p-2 border rounded"
-          />
-          <button className="text-white bg-gradient01 px-5 py-2 rounded">
-            Apply
-          </button>
-        </div>
-        <div className="border rounded-md lg:py-[32px] py-6 px-4 flex lg:gap-6 gap-4 items-center my-4">
-          <p>
-            <input
-              className="h-[24px] w-[24px]"
-              type="checkbox"
-              id="test-series"
-            />
-          </p>
-          <img
-            src="./images/pencil.png"
-            alt="Test Series"
-            className="w-[83px] h-[61px] rounded-md"
-          />
-          <div>
-            <p className="font-medium lg:text-[18px] text-[14px]">
-              Test Series with PYQs
-            </p>
-            <p className="text-[12px]">Details about the test series</p>
-            <p className="font-medium lg:text-[24px] text-[18px]">$120</p>
-          </div>
-        </div>
         <div className="flex flex-col space-y-4 py-4">
           <div className="flex justify-between">
             <p className="font-semibold lg:text-[24px] text-[18px]">Subtotal</p>
@@ -174,9 +149,7 @@ export default function Checkout() {
           </div>
           <div className="space-y-2 text-[16px]">
             <div className="justify-between flex">
-              <p className="text-[#545454] text-[14px] lg:text-[16px]">
-                Discount
-              </p>
+              <p className="text-[#545454] text-[14px] lg:text-[16px]">Discount</p>
               <p className="text-[#95D18B] font-medium">$0</p>
             </div>
             {/* Add more discount or additional charges here if needed */}
@@ -188,7 +161,7 @@ export default function Checkout() {
             </p>
           </div>
         </div>
-        <button className="py-4 mt-10 w-full bg-gradient01 rounded-md text-[18px] font-medium text-white">
+        <button onClick={handleCheckout} className="py-4 mt-10 w-full bg-gradient01 rounded-md text-[18px] font-medium text-white">
           Proceed to Buy
         </button>
       </div>

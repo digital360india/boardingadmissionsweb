@@ -110,14 +110,14 @@ const EnrollNowAllCoursesWeOffer = () => {
         );
         const matchPackageName = pkg.packageName
           .toLowerCase()
-          .includes(filters.packageName.toLowerCase()); // Added packageName filter
+          .includes(filters.packageName.toLowerCase()); 
 
         return (
           (filters.courseName === "" || matchCourse) &&
           (filters.boardName === "" || matchBoard) &&
           (filters.schoolName === "" || matchSchool) &&
           (filters.packageName === "" || matchPackageName)
-        ); // Include packageName filter
+        ); 
       });
       setFilteredPackages(filtered);
     };
@@ -197,7 +197,7 @@ const EnrollNowAllCoursesWeOffer = () => {
 
           <div className="flex flex-wrap gap-8 p-3 md:p-12">
             {filteredPackages.map((packageData, index) => (
-              <Link href={`/checkout/${packageData.id}`} key={index}>
+              <Link href={`/packagedetails/${packageData.id}`} key={index}>
                 {" "}
                 <div
                   key={index}
