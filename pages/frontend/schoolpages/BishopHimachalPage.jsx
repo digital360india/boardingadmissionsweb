@@ -7,7 +7,7 @@ import GetPrepared from "@/components/frontend/GetPrepared";
 import EnquiryForm from "@/components/frontend/EnquiryForm";
 import Broucher from "@/components/frontend/Broucher";
 import StarRatings from "@/components/frontend/StarRatings";
-import SchoolCarousel from "../SchoolCarousel";
+import SchoolCarousel from "../../../components/frontend/SchoolCarousel";
 
 const admissionsSteps = [
   {
