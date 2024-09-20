@@ -3,9 +3,9 @@
 import { useRef, useState } from "react";
 import emailjs from "@emailjs/browser";
 import { useRouter } from "next/navigation";
-import Image from "next/image";
-import Link from "next/link";
 import PopupSuccess from "./PopupSuccess";
+import { db } from "@/firebase/firebase";
+import { addDoc, collection, updateDoc } from "firebase/firestore";
 
 
 
@@ -47,9 +47,7 @@ const BookaDemoPopUp = ({ onClose }) => {
 
   };
 
-  //   if (!isFormVisible) {
-  //     return null;
-  //   }
+ 
 
   const handlePhoneChange = (e) => {
     const value = e.target.value;
@@ -59,7 +57,7 @@ const BookaDemoPopUp = ({ onClose }) => {
   };
 
  
-  const handleSubmit = (e) => {
+  const handleSubmit =async (e) => {
     e.preventDefault();
     setButtonClick(true);
 
@@ -72,13 +70,14 @@ const BookaDemoPopUp = ({ onClose }) => {
         () => {
           console.log("SUCCESS!");
           setIsSubmitted(true);
-          // router.push("/");
+          setButtonClick(false);
+
 
           // Reset form data after successful submission
           setFormData({
             name: "",
             phonenumber: "",
-            email: "",
+            school: "",
             class: "",
             textmessage: "",
           });
@@ -88,6 +87,36 @@ const BookaDemoPopUp = ({ onClose }) => {
           alert("Failed");
         }
       );
+
+      try {
+        const docRef = await addDoc(collection(db, "leads"), {
+          name: formData.name,
+          phonenumber: formData.phonenumber,
+          school:formData.school,
+          class:formData.class,
+          message: formData.textmessage,
+          timestamp: new Date(),
+        });
+  
+        // Get the document ID
+        const docId = docRef.id;
+  
+        await updateDoc(docRef, {
+          id: docId,
+        });
+  
+        console.log("Form submitted successfully! Document ID stored:", docId);
+  
+        setFormData({
+          name: "",
+          phonenumber: "",
+          school: "",
+          class: "",
+          textmessage: "",
+        });
+      } catch (e) {
+        console.error("Error adding or updating document: ", e);
+      }
   };
 
   return (
@@ -203,7 +232,7 @@ const BookaDemoPopUp = ({ onClose }) => {
                   </button>
                   <svg
                     className={`animate-spin ${
-                      buttonclick ? `block` : `hidden`
+                      buttonclick && isSubmitted === false ? `block` : `hidden`
                     }`}
                     xmlns="http://www.w3.org/2000/svg"
                     width="2em"

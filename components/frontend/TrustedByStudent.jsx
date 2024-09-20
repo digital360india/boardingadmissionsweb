@@ -2,7 +2,7 @@
 import Image from "next/image";
 import React, { useState } from "react";
 import TrustedBy2 from "./TrustedBy2";
-import BookaDemoPopUp from "./BookaDemo";
+import BookaDemoPopUp from "./BookaDemoPopUp";
 
 export default function TrustedByStudent() {
   const [isPopupVisible, setPopupVisible] = useState(false);
@@ -21,7 +21,7 @@ export default function TrustedByStudent() {
         <div className="">
           <div className="flex items-center">
             <div>
-              <p className="xl:text-[60px] lg:text-[48px]  font-semibold text-primary02 pb-4">
+              <p className="xl:text-[60px] lg:text-[48px] text-24px  font-semibold text-primary02 pb-4">
                 Trusted By Students
               </p>
               <p className="text-18px w-1/2">

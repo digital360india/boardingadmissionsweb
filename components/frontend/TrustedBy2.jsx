@@ -19,7 +19,7 @@ export default function TrustedBy2() {
   return (
     <div className="px-[24px] py-10 flex-col space-y-6 bg-[#F4FCFC]">
       <div className="text-center flex-col space-y-4">
-        <p className="font-semibold text-32px">Trusted by Students</p>
+        <p className="font-semibold md:text-32px text-[24px]">Trusted by Students</p>
         <p className="text-18px ">
           Join our live demo class to have all your questions answered by our
           expert.

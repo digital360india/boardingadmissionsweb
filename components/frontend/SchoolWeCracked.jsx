@@ -45,19 +45,19 @@ export default function SchoolWeCracked() {
   ];
 
   return (
-    <div className="xl:mx-[100px] lg:mx-[40px] mx-[24px] pb-[100px]">
-      <div className="py-[40px]">
+    <div className="xl:mx-[100px] lg:mx-[40px] mx-[24px] ">
+      <div className="py-[30px] md:py-[40px]">
         <p className="text-primary02  lg:text-[48px] text-[24px] font-semibold lg:text-center">
           Top Schools We have Cracked
         </p>
       </div>
-      <div className="flex space-x-6 overflow-x-auto hide-scrollbar">
+      <div className="flex space-x-5 overflow-x-auto hide-scrollbar">
         {school.map((member, index) => (
-          <div key={index} className="flex-shrink-0 lg:w-[350px] w-[220px] rounded-md lg:h-[350px] h-[220px] lg:border-2 border-4 border-[#075D70]">
+          <div key={index} className="flex-shrink-0  w-[220px] rounded-md lg:h-[350px] h-[220px] ">
     <Link href={member.routes}>        <div className="flex justify-center lg:mt-[8%] mt-[6%] lg:mb-[5%] mb-[3%]">
               <Image
                 src={member.imageSrc}
-                className="lg:w-full lg:h-[200px] w-full h-[122px] "
+                className="lg:w-full lg:h-[220px] w-full h-[122px] "
                 width={1000}
                 height={1000}
                 alt={member.school}
