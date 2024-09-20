@@ -1,7 +1,7 @@
 "use client";
 import Image from "next/image";
 import React, { useState } from "react";
-import BookaDemoPopUp from "./BookaDemo";
+import BookaDemoPopUp from "./BookaDemoPopUp";
 
 export default function TrustedBy2() {
   const [isPopupVisible, setPopupVisible] = useState(false);
