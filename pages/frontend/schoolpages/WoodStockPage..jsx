@@ -1,3 +1,4 @@
+"use client"
 import React from "react";
 import Faq from "@/components/frontend/Faqdata";
 import Image from "next/image";
