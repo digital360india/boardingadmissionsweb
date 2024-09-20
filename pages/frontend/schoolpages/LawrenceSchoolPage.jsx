@@ -7,6 +7,7 @@ import schoolFAQs from "@/utils/frontend/FaqData";
 import GetPrepared from "@/components/frontend/GetPrepared";
 import EnquiryForm from "@/components/frontend/EnquiryForm";
 import Broucher from "@/components/frontend/Broucher";
+import SchoolCarousel from "../SchoolCarousel";
 
 const data = [
   {
@@ -70,8 +71,8 @@ function LawrenceSchoolPage() {
   const LawrenceSchool =
     schoolFAQs.find((school) => school.school === "LawrenceSchool")?.faqs || [];
   return (
-    <div className="h-auto w-[100%] poppins lg:mt-28 mt-20 md:mt-16">
-      <div className="relative lg:px-[30px] xl:px-[50px]  ">
+    <div className="h-auto w-[100%] poppins ">
+      {/* <div className="relative lg:px-[30px] xl:px-[50px]  ">
         <div className=" h-[250px] xl:h-[300px] lg:h-[350px] w-[100%] ">
           {" "}
           <Image
@@ -91,9 +92,9 @@ function LawrenceSchoolPage() {
             alt="img"
           />
         </div>
-      </div>
-
-      <div className="w-[90%] ml-[5%]  mt-[10%] ">
+      </div> */}
+<SchoolCarousel />
+<div className="w-[90%] ml-[5%] mt-9">
         <div className="relative h-[150px]   xl:h-[150px] md:h-[120px] lg:h-[160px]     w-full  border-b-2  sm:flex sm:justify-between">
           <div className="w-full flex flex-col  lg:gap-5 gap-2">
             <div className="">
