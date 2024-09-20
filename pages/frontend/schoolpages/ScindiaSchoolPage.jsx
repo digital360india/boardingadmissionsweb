@@ -9,14 +9,12 @@ import Broucher from "@/components/frontend/Broucher";
 import EnquiryForm from "@/components/frontend/EnquiryForm";
 import SchoolCarousel from "../../../components/frontend/SchoolCarousel";
 
-
-
- 
 function ScindiaSchoolPage() {
-  const Scindia = schoolFAQs.find(school => school.school === 'Scindia')?.faqs || [];
+  const Scindia =
+    schoolFAQs.find((school) => school.school === "Scindia")?.faqs || [];
   return (
     <div className="h-auto w-[100%] poppins ">
-{/* 
+      {/* 
       <div className="relative lg:px-[30px] xl:px-[50px]  ">
         <div className=" h-[250px] xl:h-[300px] lg:h-[350px] w-[100%] ">    
              <Image
@@ -36,8 +34,8 @@ function ScindiaSchoolPage() {
           />
         </div>
       </div> */}
-      <SchoolCarousel/>
-      <div className="w-[90%] ml-[5%] mt-9">
+      <SchoolCarousel />
+      <div className="w-[90%] ml-[5%] mt-6">
         <div className="relative h-[170px]   xl:h-[180px] md:h-[120px] lg:h-[170px]    w-full  border-b-2  sm:flex sm:justify-between">
           <div className="w-full flex flex-col  lg:gap-5 gap-2">
             <div className="">
@@ -45,13 +43,13 @@ function ScindiaSchoolPage() {
                 Scindia School, Gwalior, Madhya Pradesh
               </h1>
             </div>
-             <StarRatings
+            <StarRatings
               lat={26.2179713}
               lng={78.1569787}
               schoolName={"The Scindia School"}
             />
 
-               {/* <div className=" flex sm:w-[50%] gap-3 mb-2 sm:mb-0">
+            {/* <div className=" flex sm:w-[50%] gap-3 mb-2 sm:mb-0">
               <h3 className="px-1 py-1 rounded-md bg-[#6198A3] bg-opacity-[12%] text-black ">
                 Private School
               </h3>
@@ -62,7 +60,7 @@ function ScindiaSchoolPage() {
           </div>
 
           <div className=" sm:absolute pt-2  gap-3 flex  sm:right-0 sm:self-center">
-             {/* <button className="py-1 px-2 sm:py-1.5 sm:px-2.5 border border-[#075D70] rounded-[5px] flex gap-2">
+            {/* <button className="py-1 px-2 sm:py-1.5 sm:px-2.5 border border-[#075D70] rounded-[5px] flex gap-2">
               <div>
                 <Image
                   src="/icons/download.svg"
@@ -75,24 +73,22 @@ function ScindiaSchoolPage() {
 
               <p className="text-[#075D70]">Broucher</p>
             </button> */}
-                       <GetPrepared/>
-
+            <GetPrepared />
           </div>
         </div>
         <div className="md:hidden mt-6">
-<EnquiryForm/>
-
-</div>
+          <EnquiryForm />
+        </div>
         <div className="space-y-4 w-[90vw]  mt-10 ">
           <div className="">
-            <h1 className="text-[#075D70] font-semibold  text-[2rem] ">
+            <h1 className="text-[#075D70] font-semibold  text-[1.5rem] md:text-[2rem] ">
               About Scindia School
             </h1>
           </div>
           <div>
-            <p className="leading-6 w-[88vw] text-[1.15rem] text-justify">
-              Scindia School, founded in 1897, is one of India&apos;s leading boys
-              residential schools. Nestled on Gwalior Fort, the school is
+            <p className="leading-6 w-[88vw] text-[14px] md:text-[1.15rem] text-justify">
+              Scindia School, founded in 1897, is one of India&apos;s leading
+              boys residential schools. Nestled on Gwalior Fort, the school is
               renowned for its integration of modern education with Indian
               traditions, fostering an environment where students excel in
               academics, sports, and arts.
@@ -102,17 +98,19 @@ function ScindiaSchoolPage() {
 
         <div className="space-y-4 w-[90vw] mb-10 mt-10">
           <div>
-            <h1 className="text-[#075D70] font-semibold text-[2rem]">
+            <h1 className="text-[#075D70] font-semibold text-[1.5rem] md:text-[2rem]">
               Scindia Admissions Process
             </h1>
           </div>
           <div>
-            <p className="leading-6 w-[88vw] text-[1.15rem] text-justify">
-            Scindia Admissions is designed to select students who are well-suited to thrive in the school&apos;s dynamic and challenging environment.
+            <p className="leading-6 w-[88vw] text-[14px] md:text-[1.15rem] text-justify">
+              Scindia Admissions is designed to select students who are
+              well-suited to thrive in the school&apos;s dynamic and challenging
+              environment.
             </p>
           </div>
           <div>
-            <ul className="list-disc pl-4 space-y-4 text-[1.15rem]">
+            <ul className="list-disc pl-4 space-y-4 text-[14px] md:text-[1.15rem]">
               <li>
                 <span className="font-medium"> Choose the Exam:</span> Decide
                 between the Common Aptitude Analysis (CAA) and Scindia School
@@ -155,12 +153,15 @@ function ScindiaSchoolPage() {
           </div>
         </div>
 
-        <Broucher pdfLink={"https://firebasestorage.googleapis.com/v0/b/boardingadmissions-f3ba3.appspot.com/o/brochure%2FSKVENTRANCE%20ExamBrochure.pdf?alt=media&token=49068628-3c47-46a6-bce6-f7e12568d268"}/>
-
+        <Broucher
+          pdfLink={
+            "https://firebasestorage.googleapis.com/v0/b/boardingadmissions-f3ba3.appspot.com/o/brochure%2FSKVENTRANCE%20ExamBrochure.pdf?alt=media&token=49068628-3c47-46a6-bce6-f7e12568d268"
+          }
+        />
       </div>
 
       <div>
-        <Faq data={Scindia}/>
+        <Faq data={Scindia} />
       </div>
     </div>
   );

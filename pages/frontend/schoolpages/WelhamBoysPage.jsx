@@ -16,7 +16,7 @@ function WelhamBoysPage() {
     <div className="h-auto w-[100%] poppins ">
       <SchoolCarousel />
 
-      <div className="w-[90%] ml-[5%] mt-9">
+      <div className="w-[90%] ml-[5%] mt-6">
         <div className="relative h-[150px]   xl:h-[150px] md:h-[120px] lg:h-[160px]     w-full  border-b-2  sm:flex sm:justify-between">
           <div className="w-full flex flex-col  lg:gap-5 gap-2">
             <div className="">
@@ -62,12 +62,12 @@ function WelhamBoysPage() {
         </div>
         <div className="space-y-4 w-[90vw]  mt-10 ">
           <div className="">
-            <h1 className="text-[#075D70] font-semibold  text-[2rem] ">
+            <h1 className="text-[#075D70] font-semibold  text-[1.5rem] md:text-[2rem] ">
               About Welham Boys School
             </h1>
           </div>
           <div>
-            <p className="leading-6 w-[88vw] text-[1.15rem] text-justify">
+            <p className="leading-6 w-[88vw] text-[14px] md:text-[1.15rem] text-justify">
               Welham Boys School, a prestigious institution in Dehradun, is
               dedicated to nurturing boys into well-rounded individuals.
               Affiliated with the CBSE, it offers a curriculum aligned with
@@ -82,24 +82,24 @@ function WelhamBoysPage() {
 
         <div className="space-y-4 w-[90vw] mb-10 mt-10">
           <div>
-            <h1 className="text-[#075D70] font-semibold text-[2rem]">
+            <h1 className="text-[#075D70] font-semibold text-[1.5rem] md:text-[2rem]">
               Admission Procedure
             </h1>
           </div>
           <div>
-            <p className="leading-6 w-[88vw] text-[1.15rem] text-justify">
+            <p className="leading-6 w-[88vw] text-[14px] md:text-[1.15rem] text-justify">
               Welham Boys Admissions are competitive, designed to select
               students who can thrive in the school s dynamic environment. The
               primary entry points are in Classes IV, VI, and XI.
             </p>
           </div>
           <div>
-            <p className="text-[#075D70] font-semibold text-[1.4rem] my-4">
+            <p className="text-[#075D70] font-semibold text-[1.5rem] md:text-[2rem] my-4">
               Key Steps:
             </p>
           </div>
           <div>
-            <ul className="list-disc   pl-4 space-y-4 text-[1.15rem]">
+            <ul className="list-disc   pl-4 space-y-4 text-[14px] md:text-[1.15rem]">
               <li className="">
                 <span className="font-medium"> Open Admission Policy:</span>{" "}
                 Welham Boys School invites students from all communities,
@@ -160,12 +160,12 @@ function WelhamBoysPage() {
 
             <div className="space-y-4 my-10">
               <div>
-                <h1 className="text-[#075D70] font-semibold text-[2rem]">
+                <h1 className="text-[#075D70] font-semibold text-[1.5rem] md:text-[2rem]">
                   Assessment and Interaction
                 </h1>
               </div>
               <div>
-                <p className="leading-6 w-[88vw] text-[1.15rem] text-justify">
+                <p className="leading-6 w-[88vw] text-[14px] md:text-[1.15rem] text-justify">
                   Welham Boys Entrance assessments evaluate proficiency in key
                   subjects to ensure students are prepared for the academic
                   rigors.
@@ -173,18 +173,18 @@ function WelhamBoysPage() {
               </div>
 
               <div>
-                <p className="text-[#075D70] font-semibold text-[1.4rem] my-4">
+                <p className="text-[#075D70] font-semibold text-[1.5rem] md:text-[2rem] my-4">
                   Assessment Details:
                 </p>
               </div>
               <div>
-                <ul className="list-disc pl-4 space-y-4 text-[1.15rem]">
+                <ul className="list-disc pl-4 space-y-4 text-[14px] md:text-[1.15rem]">
                   <li>
-                    <span className="font-medium">Classes IV - IX:</span>{" "}
+                    <span className="font-semibold">Classes IV - IX:</span>{" "}
                     English, Hindi, Mathematics, Life Skills.
                   </li>
                   <li>
-                    <span className="font-medium">Class XI:</span> Subjects vary
+                    <span className="font-semibold">Class XI:</span> Subjects vary
                     by stream (Science, Commerce, Humanities).
                   </li>
                 </ul>
@@ -228,7 +228,7 @@ function WelhamBoysPage() {
                       </tr>
                     </tbody>
                   </table>
-                  <p className="my-10 text-[1.15rem]">
+                  <p className="my-4 md:my-10 text-[14px] md:text-[1.15rem]">
                     Successful candidates are invited for an interaction session
                     with their parents. This interaction is crucial for the
                     final selection.
@@ -237,17 +237,17 @@ function WelhamBoysPage() {
               </div>
             </div>
             <div>
-              <p className="text-[#075D70] font-semibold text-[2rem]">
+              <p className="text-[#075D70] font-semibold text-[1.5rem] md:text-[2rem]">
                 Important Dates
               </p>
             </div>
             <div>
-              <p className="leading-6 w-[88vw] text-[1.15rem] text-justify">
+              <p className="leading-6 w-[88vw] text-[14px] md:text-[1.15rem] text-justify">
                 Stay updated with Welham Boys Admissions by noting these key
                 dates:
               </p>
             </div>
-            <div className="my-10">
+            <div className="my-5 md:my-10">
               <table className="w-full border-collapse border border-gray-300">
                 <thead>
                   <tr>
@@ -322,12 +322,12 @@ function WelhamBoysPage() {
 
             <div>
               <div>
-                <p className="text-[#075D70] font-semibold text-[2rem]">
+                <p className="text-[#075D70] font-semibold text-[1.5rem] md:text-[2rem]">
                   Eligibility Criteria
                 </p>
               </div>
               <div>
-                <p className="leading-6 w-[88vw] text-[1.15rem] text-justify">
+                <p className="leading-6 w-[88vw] text-[14px] md:text-[1.15rem] text-justify">
                   Welham Boys Admissions require candidates to meet specific
                   eligibility criteria, focusing on age and academic
                   prerequisites.
@@ -335,13 +335,13 @@ function WelhamBoysPage() {
               </div>
 
               <div>
-                <p className="text-[#075D70] font-semibold text-[1.4rem] my-4">
+                <p className="text-[#075D70] font-semibold text-[1.5rem] md:text-[2rem] my-4">
                   Academic Requirements for Class XI:
                 </p>
               </div>
 
               <div>
-                <ul className="list-disc pl-4 space-y-4 text-[1.15rem]">
+                <ul className="list-disc pl-4 space-y-4 text-[14px] md:text-[1.15rem]">
                   <li>
                     <span className="font-medium">Science Stream:</span> Strong
                     foundation in Mathematics and Science.
@@ -359,12 +359,12 @@ function WelhamBoysPage() {
 
           <div>
             <div>
-              <p className="text-[#075D70] font-semibold text-[2rem]">
+              <p className="text-[#075D70] font-semibold text-[1.5rem] md:text-[2rem]">
                 Fee Structure
               </p>
             </div>
             <div>
-              <p className="leading-6 w-[88vw] text-[1.15rem] text-justify">
+              <p className="leading-6 w-[88vw] text-[14px] md:text-[1.15rem] text-justify">
                 Welham Boys School offers a comprehensive fee structure that
                 covers tuition, boarding, and extracurricular activities.
               </p>
@@ -423,16 +423,16 @@ function WelhamBoysPage() {
                 </tr>
               </tbody>
             </table>
-            <p className="leading-6 w-[88vw] text-[1.15rem] my-6">
-              <span className=" text-[1.25rem] font-medium ">
-                Payment Terms:
+            <p className="leading-6 w-[88vw] text-[14px] md:text-[1.15rem] my-6">
+              <span className=" text-[14px] md:text-[1.15rem] font-semibold ">
+                Payment Terms:  
               </span>
               Fees are payable in two installments, with specific deadlines.
               Late payments may incur additional charges.
             </p>
-            <p className="leading-6 w-[88vw] text-[1.15rem] my-6">
-              <span className=" text-[1.25rem] font-medium ">
-                Refund Policy:
+            <p className="leading-6 w-[88vw] text-[14px] md:text-[1.15rem] my-6">
+              <span className=" text-[14px] md:text-[1.15rem] font-semibold ">
+                Refund Policy: 
               </span>
               The registration and admission fees are non-refundable. Partial
               refunds of tuition and boarding fees may be considered under

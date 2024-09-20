@@ -68,7 +68,7 @@ function BishopKarnatakaPage() {
       </div> */}
       <SchoolCarousel/>
 
-      <div className="w-[90%] ml-[5%] mt-9">
+      <div className="w-[90%] ml-[5%] mt-6">
         <div className="relative h-[150px]   xl:h-[150px] md:h-[120px] lg:h-[160px]     w-full  border-b-2  sm:flex sm:justify-between">
           <div className="w-full flex flex-col  lg:gap-5 gap-2">
             <div className="">
@@ -114,12 +114,12 @@ function BishopKarnatakaPage() {
         </div>
         <div className="space-y-4 w-[90vw]  mt-10 ">
           <div className="">
-            <h1 className="text-[#075D70] font-semibold  text-[2rem] ">
+            <h1 className="text-[#075D70] font-semibold  text-[1.5rem] md:text-[2rem] ">
               About Bishop Cotton School
             </h1>
           </div>
           <div>
-            <p className="leading-6 w-[88vw] text-[1.15rem] text-justify">
+            <p className="leading-6 w-[88vw] text-[14px] md:text-[1.15rem] text-justify">
               Bishop Cotton School in Bangalore is one of India&apos;s oldest
               and most respected schools, combining its long-standing traditions
               with modern teaching methods. The school is known for offering a
@@ -136,13 +136,13 @@ function BishopKarnatakaPage() {
 
         <div className="space-y-4 w-[90vw] mb-10 mt-10">
           <div>
-            <h1 className="text-[#075D70] font-semibold text-[2rem]">
+            <h1 className="text-[#075D70] font-semibold text-[1.5rem] md:text-[2rem]">
               Admission Procedure
             </h1>
 
-            <h1 className="pt-4">
+            <h1 className="pt-4 text-[14px] md:text-[1.15rem]">
               To apply for
-              <span className="font-bold">
+              <span className="font-bold text-[14px] md:text-[1.15rem]">
                 {" "}
                 Bishop Cotton School Admissions
               </span>
@@ -154,8 +154,8 @@ function BishopKarnatakaPage() {
             <ul className="list-disc pl-4 space-y-3 text-[1.15rem]">
               {registrationSteps.map((step, index) => (
                 <li key={index}>
-                  <span className="font-semibold">{step.title}: </span>
-                  {step.description}
+                  <span className="font-semibold text-[14px] md:text-[1.15rem]">{step.title}: </span>
+                  <span className="text-[14px] md:text-[1.15rem]">{step.description}</span>
                 </li>
               ))}
             </ul>
@@ -163,11 +163,11 @@ function BishopKarnatakaPage() {
         </div>
 
         <div className="">
-          <h1 className="text-[#075D70] font-semibold  text-[2rem] ">
+          <h1 className="text-[#075D70] font-semibold  text-[1.5rem] md:text-[2rem] ">
             Important Notes
           </h1>
 
-          <ul className="list-disc pl-4 mt-4  space-y-2  text-[1.15rem]">
+          <ul className="list-disc pl-4 mt-4  space-y-2 text-[14px] md:text-[1.15rem]">
             <li>
               Make sure to complete the application form accurately, as
               incomplete or incorrect forms may lead to rejection.
@@ -182,7 +182,7 @@ function BishopKarnatakaPage() {
         </div>
 
         <div className="mt-5 mb-7">
-          <h1 className="text-[1.14rem]">
+          <h1 className="text-[14px] md:text-[1.15rem]">
             By following this guide, you&apos;ll be well-prepared for{" "}
             <span className="font-bold">Bishop Cotton School Admissions</span>{" "}
             and ready to navigate the application process smoothly.

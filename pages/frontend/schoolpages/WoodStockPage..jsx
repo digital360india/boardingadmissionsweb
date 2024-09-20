@@ -77,7 +77,7 @@ function WoodStockPage() {
       </div> */}
       <SchoolCarousel />
 
-      <div className="w-[90%] ml-[5%] mt-9">
+      <div className="w-[90%] ml-[5%] mt-6">
         <div className="relative h-[150px]   xl:h-[150px] md:h-[120px] lg:h-[170px]    w-full  border-b-2  sm:flex sm:justify-between">
           <div className="w-full flex flex-col  lg:gap-5 gap-2">
             <div className="">
@@ -126,12 +126,12 @@ function WoodStockPage() {
 </div>
         <div className="space-y-4 w-[90vw]   mt-6 ">
           <div className="">
-            <h1 className="text-[#075D70] font-semibold  text-[2rem] ">
+            <h1 className="text-[#075D70] font-semibold text-[1.5rem] md:text-[2rem] ">
               About WoodStock School
             </h1>
           </div>
           <div>
-            <p className="leading-6 w-[88vw] text-[1.15rem] text-justify">
+            <p className="leading-6 w-[88vw] text-[14px] md:text-[1.15rem] text-justify">
               Woodstock School, nestled in the scenic hills of Mussoorie,
               Uttarakhand, is one of Asia&apos;s oldest and most prestigious
               residential schools. Established in 1854, it is an independent,
@@ -149,31 +149,31 @@ function WoodStockPage() {
 
 
         <div className="mt-5">
-  <h1 className="text-[#075D70] font-semibold text-[2rem]">Fee Structure</h1>
-  <ul className="text-[1.15rem] mt-3">
-    <li><span className="font-medium mr-1">Grade 6:</span> Rs. 1,986,000</li>
-    <li><span className="font-medium mr-1">Grade 7:</span> Rs. 1,986,000</li>
-    <li><span className="font-medium mr-1">Grade 8:</span> Rs. 1,986,000</li>
-    <li><span className="font-medium mr-1">Grade 9:</span> Rs. 2,052,000</li>
-    <li><span className="font-medium mr-1">Grade 10:</span> Rs. 2,052,000</li>
-    <li><span className="font-medium mr-1">Grade 11:</span> Rs. 2,206,000</li>
-    <li><span className="font-medium mr-1">Grade 12:</span> Rs. 2,206,000</li>
+  <h1 className="text-[#075D70] font-semibold text-[1.5rem] md:text-[2rem]">Fee Structure</h1>
+  <ul className="text-[1rem] md:text-[1.15rem] mt-3">
+    <li><span className="font-semibold mr-1">Grade 6:</span> Rs. 1,986,000</li>
+    <li><span className="font-semibold mr-1">Grade 7:</span> Rs. 1,986,000</li>
+    <li><span className="font-semibold mr-1">Grade 8:</span> Rs. 1,986,000</li>
+    <li><span className="font-semibold mr-1">Grade 9:</span> Rs. 2,052,000</li>
+    <li><span className="font-semibold mr-1">Grade 10:</span> Rs. 2,052,000</li>
+    <li><span className="font-semibold mr-1">Grade 11:</span> Rs. 2,206,000</li>
+    <li><span className="font-semibold mr-1">Grade 12:</span> Rs. 2,206,000</li>
   </ul>
 </div>
 
 
         <div className="space-y-4 w-[90vw] mb-10 mt-5">
           <div>
-            <h1 className="text-[#075D70] font-semibold text-[2rem]">
+            <h1 className="text-[#075D70] font-semibold text-[1.5rem] md:text-[2rem]">
               Admission Procedure
             </h1>
           </div>
 
           <div>
-            <ul className="list-disc pl-4 space-y-4 text-[1.15rem]">
+            <ul className="list-disc pl-4 space-y-4 text-[14px] md:text-[1.15rem]">
               {examDetails.map((item, index) => (
                 <li key={index}>
-                  <span className="font-medium">{item.title}</span>{" "}
+                  <span className="font-semibold">{item.title}</span>{" "}
                   {item.description}
                 </li>
               ))}

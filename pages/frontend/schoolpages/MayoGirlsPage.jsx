@@ -90,7 +90,7 @@ function MayoGirlsPage() {
         </div>
       </div> */}
 <SchoolCarousel/>
-<div className="w-[90%] ml-[5%] mt-9">
+<div className="w-[90%] ml-[5%] mt-6">
         <div className="relative h-[150px]   xl:h-[150px] md:h-[120px] lg:h-[170px]    w-full  border-b-2  sm:flex sm:justify-between">
           <div className="w-full flex flex-col  lg:gap-5 gap-2">
             <div className="">
