@@ -64,7 +64,7 @@ function MayoBoysPage() {
                   ))
                 }
               </div> */}
-              <h2 className="text-[#075D70] ">Google reviews</h2>
+           
             </div>
 
                {/* <div className=" flex sm:w-[50%] gap-3 mb-2 sm:mb-0">
