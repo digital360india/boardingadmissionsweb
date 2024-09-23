@@ -1,21 +1,12 @@
-"use client";
 import React from "react";
 import Faq from "@/components/frontend/Faqdata";
 import Image from "next/image";
-import Star from "@/components/frontend/Ratings";
 import schoolFAQs from "@/utils/frontend/FaqData";
 import GetPrepared from "@/components/frontend/GetPrepared";
 import EnquiryForm from "@/components/frontend/EnquiryForm";
 import Broucher from "@/components/frontend/Broucher";
 
-
-const star = [
-  {
-    id: 1,
-
-    ratingByPerson: 4,
-  },
-];
+import StarRatings from "@/components/frontend/StarRatings";
 
 const registrationSteps = [
   {
@@ -49,6 +40,7 @@ function BishopKarnatakaPage() {
   const BishopKarnatakFAQ =
     schoolFAQs.find((school) => school.school === "BishopCottonSchool")?.faqs ||
     [];
+
   return (
     <div className="h-auto w-[100%] poppins lg:mt-28 mt-20 md:mt-16">
       <div className="relative lg:px-[30px] xl:px-[50px]  ">
@@ -81,30 +73,13 @@ function BishopKarnatakaPage() {
                 Bishop Cotton School, Bangalore, Karnataka
               </h1>
             </div>
-            <div className="flex text-center lg:gap-3 gap-2 items-center">
-              <h2 className="text-[#075D70] ">4.2</h2>
+            <StarRatings
+              lat={12.9683377}
+              lng={77.5962364}
+              schoolName={"Bishop Cotton Boys' School"}
+            />
 
-              <div className="border-none ">
-                {star.map((star) => (
-                  <Star key={star.id} star={star} />
-                ))}
-              </div>
-
-              {/* <div>
-                {
-                  [1, 2, 3, 4, 5].map((num) => (
-                    <button key={num}>
-                      <span className='text-yellow-600'>
-                        &#9733;
-                      </span>
-                    </button>
-                  ))
-                }
-              </div> */}
-              <p className="text-[#075D70] ">Google reviews</p>
-            </div>
-
-               {/* <div className=" flex sm:w-[50%] gap-3 mb-2 sm:mb-0">
+            {/* <div className=" flex sm:w-[50%] gap-3 mb-2 sm:mb-0">
               <h3 className="px-1 py-1 rounded-md bg-[#6198A3] bg-opacity-[12%] text-black ">
                 Private School
               </h3>
@@ -128,14 +103,12 @@ function BishopKarnatakaPage() {
 
               <p className="text-[#075D70]">Broucher</p>
             </button> */}
-                       <GetPrepared/>
-
+            <GetPrepared />
           </div>
         </div>
         <div className="md:hidden mt-6">
-<EnquiryForm/>
-
-</div>
+          <EnquiryForm />
+        </div>
         <div className="space-y-4 w-[90vw]  mt-10 ">
           <div className="">
             <h1 className="text-[#075D70] font-semibold  text-[2rem] ">
@@ -212,9 +185,7 @@ function BishopKarnatakaPage() {
             and ready to navigate the application process smoothly.
           </h1>
         </div>
-               <Broucher/>
-
-
+        <Broucher />
       </div>
 
       <div>

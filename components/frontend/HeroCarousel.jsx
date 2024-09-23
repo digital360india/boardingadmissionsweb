@@ -6,6 +6,7 @@ import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 import Image from "next/image";
+import '@/components/frontend/HeroCarousel.css';
 
 // Install Swiper modules
 SwiperCore.use([Navigation, Pagination]);
@@ -107,7 +108,13 @@ const HeroCarousel = () => {
     <div className="w-full lg:h-screen bg-[#F4FCFC]">
       {isLoading && (
         <div className="absolute inset-0 flex items-center justify-center bg-white z-50">
-          <div className="loader">Loading...</div>
+          <div className='h-screen w-full flex justify-center items-center relative bg-[#e9fdfa] '>
+
+<div className='ball h-[120px] w-[120px] md:h-[200px] shadow-md md:w-[200px] rounded-[50%]'></div>
+<img src="icons/Boardinglogo.svg" className='object-fit ball h-[120px] w-[120px] md:h-[200px] shadow-md md:w-[200px] rounded-[50%]'/>
+<div className='ball h-[120px] w-[120px] md:h-[200px] md:w-[200px] shadow-lg rounded-[50%]'></div>
+</div>
+
         </div>
       )}
       <Swiper

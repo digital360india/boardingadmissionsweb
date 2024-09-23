@@ -5,7 +5,7 @@ import Link from "next/link";
 const Footer = () => {
   return (
     <>
-      <div className="h-full bg-gradient03 hidden md:block lg:block">
+      <div className="h-full bg-gradient03 hidden  lg:block">
         <div className=" text-white  ">
           <div className=" pt-[48px] px-[24px] md:flex md:justify-between md:px-[70px]    lg:flex lg:justify-between  lg:px-[100px]">
             <div className="space-y-5">
@@ -59,15 +59,20 @@ const Footer = () => {
               </div>
             </div>
             <div className="flex justify-center pt-20        text-[14px]  md:w-[340px] md:text-[16px] md:text-[#FFFFFF] lg:w-[380px]  ">
-              <div className="space-y-3 lg:pr-44">
+              <div className="space-y-3 lg:pr-44 xl:pr-28">
                 <h1>SITE MAP</h1>
-                <Link href="/"> <h1 className="">Home</h1></Link> 
-                <Link href="/courses"><h1>Courses</h1></Link>
+                <Link href="/">
+                  {" "}
+                  <h1 className="pt-3">Home</h1>
+                </Link>
+                <Link href="/courses">
+                  <h1 className="pt-2">Courses</h1>
+                </Link>
                 <h1>Package</h1>
                 <h1>Boarding Compatibility Test</h1>
               </div>
 
-              <div className="space-y-3 pr-20 md:text-[16px] md:text-[#FFFFFF]">
+              <div className="space-y-3 pr-20 md:text-[16px] md:text-[#FFFFFF]  ">
                 <h1>Resources</h1>
                 <h1>Demo Classes</h1>
                 <h1>Sample Test Paper</h1>
@@ -115,7 +120,10 @@ const Footer = () => {
                       </g>
                     </svg>
                   </div>
-                 <Link href="https://www.youtube.com/channel/UCDXg7LwxBc_375I7EgEhY2g"> <div>YouTube</div></Link>
+                  <Link href="https://www.youtube.com/channel/UCDXg7LwxBc_375I7EgEhY2g">
+                    {" "}
+                    <div>YouTube</div>
+                  </Link>
                 </h1>
                 <h1 className="flex gap-3">
                   <div>
@@ -173,7 +181,7 @@ const Footer = () => {
       </div>
 
       {/* mobile  */}
-      <div className="bg-primary02 md:hidden lg:hidden">
+      <div className="bg-primary02  lg:hidden">
         <div className="flex justify-center items-center pt-8">
           <div>
             <Image
@@ -222,17 +230,24 @@ const Footer = () => {
         <div className="grid grid-cols-3 text-white text-[0.875rem] p-4 gap-3">
           <div>
             <h1 className="font-semibold pb-2">COMPANY</h1>
-           <Link href="/contact"><h1 className="font-light cursor-pointer">Contact</h1></Link> 
+            <Link href="/contact">
+              <h1 className="font-light cursor-pointer">Contact</h1>
+            </Link>
             {/* <h1 className="font-light">Career</h1>
             <h1 className="font-light">Blog</h1> */}
           </div>
 
           <div>
             <h1 className="font-semibold pb-2">SITE MAP</h1>
-          <Link href="/"> <h1 className="font-light">Home</h1></Link> 
+            <Link href="/">
+              {" "}
+              <h1 className="font-light">Home</h1>
+            </Link>
             <h1 className="font-light">Shop</h1>
             <h1 className="font-light">Consult</h1>
-           <Link href="/aboutus"><h1 className="font-light">About Us</h1></Link> 
+            <Link href="/aboutus">
+              <h1 className="font-light">About Us</h1>
+            </Link>
           </div>
 
           <div>
@@ -256,7 +271,10 @@ const Footer = () => {
                 height={20}
                 alt="YouTube logo"
               />
-            <Link href="https://www.youtube.com/channel/UCDXg7LwxBc_375I7EgEhY2g"> <h1 className="font-light cursor-pointer">YouTube</h1></Link> 
+              <Link href="https://www.youtube.com/channel/UCDXg7LwxBc_375I7EgEhY2g">
+                {" "}
+                <h1 className="font-light cursor-pointer">YouTube</h1>
+              </Link>
             </div>
             <div className="flex items-center gap-2 mt-2">
               <Image

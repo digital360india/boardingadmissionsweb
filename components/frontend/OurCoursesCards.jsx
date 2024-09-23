@@ -2,7 +2,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import React, { useState } from "react";
-import BookaDemoPopUp from "./BookaDemoPopUp";
+import BookaDemoPopUp from "./BookaDemoPopup";
 
 const cardData = [
   {
@@ -166,6 +166,7 @@ const OurCoursesCards = () => {
   const handleFeatureLeave = () => {
     setHoveredContent({});
   };
+  const [popupCardId, setPopupCardId] = useState(null);
 
   const [isPopupVisible, setPopupVisible] = useState(false);
 
@@ -267,3 +268,6 @@ const OurCoursesCards = () => {
 };
 
 export default OurCoursesCards;
+
+
+
