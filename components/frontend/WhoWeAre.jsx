@@ -36,7 +36,7 @@ export default function WhoWeAre() {
           </div>
 
 
-        <div className="xl:text-18px lg:text-16px pb-4 text-justify"><p>At Boarding Admissions, we excel in preparing students for entrance exams to top boarding schools across India. With over 8 years of experience and a 90% success rate, our specialized courses are meticulously crafted to meet elite institutions demands, ensuring thorough preparation and deep insights. We empower students with essential knowledge and skills, shaping their educational pathways and prospects. Enroll now for a comprehensive approach that combines rigorous academic preparation with vital soft skills, setting the foundation for lifelong success.</p></div>
+        <div className="xl:text-18px lg:text-16px text-[14px] pb-4 text-justify"><p>At Boarding Admissions, we excel in preparing students for entrance exams to top boarding schools across India. With over 8 years of experience and a 90% success rate, our specialized courses are meticulously crafted to meet elite institutions demands, ensuring thorough preparation and deep insights. We empower students with essential knowledge and skills, shaping their educational pathways and prospects. Enroll now for a comprehensive approach that combines rigorous academic preparation with vital soft skills, setting the foundation for lifelong success.</p></div>
         {/* <div className="lg:py-0 py-4 "><button className="border text-white rounded-md w-[223px] py-2 bg-gradient-to-r from-[#075D70] via-[#A1C5CD] to-[#dfdfdf]">Know More</button></div> */}
       </div>
       </div>

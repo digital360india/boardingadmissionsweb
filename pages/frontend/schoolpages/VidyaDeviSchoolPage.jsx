@@ -7,6 +7,7 @@ import schoolFAQs from "@/utils/frontend/FaqData";
 import GetPrepared from "@/components/frontend/GetPrepared";
 import EnquiryForm from "@/components/frontend/EnquiryForm";
 import Broucher from "@/components/frontend/Broucher";
+import SchoolCarousel from "../../../components/frontend/SchoolCarousel";
 
 
 
@@ -57,8 +58,9 @@ function VidyaDeviSchoolPage() {
     schoolFAQs.find((school) => school.school === "VidyaDeviJindalSchool")
       ?.faqs || [];
   return (
-    <div className="h-auto w-[100%] poppins lg:mt-28 mt-20 md:mt-16">
-      <div className="relative lg:px-[30px] xl:px-[50px]  ">
+    <div className="h-auto w-[100%] poppins ">
+
+      {/* <div className="relative lg:px-[30px] xl:px-[50px]  ">
         <div className=" h-[250px] xl:h-[300px] lg:h-[350px] w-[100%] ">
           <Image
             src="/images/SchoolBanner/vidyadeviframe.svg"
@@ -77,9 +79,10 @@ function VidyaDeviSchoolPage() {
             alt="banner"
           />
         </div>
-      </div>
+      </div> */}
+<SchoolCarousel />
 
-      <div className="w-[90%] ml-[5%]  mt-[10%] ">
+       <div className="w-[90%] ml-[5%] mt-6">
         <div className="relative h-[150px]   xl:h-[150px] md:h-[120px] lg:h-[170px]    w-full  border-b-2  sm:flex sm:justify-between">
           <div className="w-full flex flex-col  lg:gap-5 gap-2">
             <div className="">
@@ -126,12 +129,12 @@ function VidyaDeviSchoolPage() {
 </div>
         <div className="space-y-4 w-[90vw]  mt-10 ">
           <div className="">
-            <h1 className="text-[#075D70] font-semibold  text-[2rem] ">
+            <h1 className="text-[#075D70] font-semibold  text-[1.5rem] md:text-[2rem] ">
               About Vidya Devi Jindal School
             </h1>
           </div>
           <div>
-            <p className="leading-6 w-[88vw] text-[1.15rem] text-justify">
+            <p className="leading-6 w-[88vw] text-[14px] md:text-[1.15rem] text-justify">
               Vidya Devi Jindal School in Hisar is a prestigious institution
               dedicated to empowering young women through a comprehensive and
               modern education. The school harmonizes traditional values with
@@ -190,7 +193,7 @@ function VidyaDeviSchoolPage() {
               </div> */}
 
         <div className=" ">
-          <h2 className="text-[#075D70] font-semibold  text-[2rem] mt-8 mb-5">
+          <h2 className="text-[#075D70] font-semibold  text-[1.5rem] md:text-[2rem] mt-8 mb-5">
             Fee Structure
           </h2>
           <div className="overflow-scroll lg:overflow-auto w-[90vw]">
@@ -242,7 +245,7 @@ function VidyaDeviSchoolPage() {
             <h3 className="text-[#075D70] font-semibold  text-[1.2rem] mb-2">
               Note:
             </h3>
-            <ul className="list-disc list-inside">
+            <ul className="list-disc text-[14px] md:text-[1.15rem] list-inside">
               <li className="mb-1">
                 The first installment covers the period from April to September,
                 and the second installment covers October to March.
@@ -257,61 +260,19 @@ function VidyaDeviSchoolPage() {
 
         <div className="space-y-4 w-[90vw] mb-10 mt-10">
           <div>
-            <h1 className="text-[#075D70] font-semibold text-[2rem]">
+            <h1 className="text-[#075D70] font-semibold text-[1.5rem] md:text-[2rem]">
               Admission Procedure
             </h1>
           </div>
-          {/* <div>
-            <ul className="list-disc pl-4 space-y-4 text-[1.15rem]">
-              <li>
-                <span className="font-medium"> Choose the Exam:</span> Decide
-                between the Common Aptitude Analysis (CAA) and Scindia School
-                Aptitude Analysis (SAA), both covering Mathematics, English, and
-                Hindi.
-              </li>
-              <li>
-                {" "}
-                <span className="font-medium">Exam Centers: </span>Exams are
-                conducted in Kolkata, Mumbai, New Delhi, Lucknow, and Gwalior.
-              </li>
-              <li>
-                <span className="font-medium">Exam Schedules:</span> CAA is held
-                every third Saturday of November. SAA is in January/February,
-                with Gwalior center registrations open until January 27.
-                On-the-spot SAA registrations are available.
-              </li>
-              <li>
-                <span className="font-medium"> Aadhar Card Submission:</span>{" "}
-                Mandatory for all Indian states except J & K, Assam, Meghalaya.
-              </li>
-              <li>
-                <span className="font-medium">Eligibility for Admission:</span>{" "}
-                Candidates for classes VI, VII, and VIII should be under the
-                age-appropriate maximum age as of January 1 of the admission
-                year. Classes IX and XI may admit exceptionally meritorious
-                students if vacancies are available.
-              </li>
-              <li>
-                <span className="font-medium">Interactive Session: </span>
-                Shortlisted students will be invited to the school for an
-                interactive session including games, sports, and faculty
-                interaction.
-              </li>
-              <li>
-                <span className="font-medium">Download Syllabus: </span>
-                Available on the school&apos;s website after registration.
-              </li>
-            </ul>
-          </div> */}
 
           <div>
-            <ul className="list-disc pl-4 space-y-4 text-[1.15rem]">
+            <ul className="list-disc pl-4 space-y-4 text-[14px] md:text-[1.15rem]">
               {admissionSteps.map((step, index) => (
                 <li key={index}>
-                  <span className="font-medium">{step.title}</span>{" "}
+                  <span className="font-semibold">{step.title}</span>{" "}
                   {step.description}
                   {step.items && (
-                    <ul className="list-disc pl-52 space-y-2 mt-2">
+                    <ul className="list-disc space-y-2 mt-2">
                       {step.items.map((item, idx) => (
                         <li key={idx}>{item}</li>
                       ))}

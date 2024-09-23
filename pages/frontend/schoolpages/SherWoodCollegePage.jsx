@@ -7,9 +7,7 @@ import schoolFAQs from "@/utils/frontend/FaqData";
 import GetPrepared from "@/components/frontend/GetPrepared";
 import EnquiryForm from "@/components/frontend/EnquiryForm";
 import Broucher from "@/components/frontend/Broucher";
-
-
-
+import SchoolCarousel from "../../../components/frontend/SchoolCarousel";
 
 const admissionDetails = [
   {
@@ -49,8 +47,8 @@ function SherWoodCollegePage() {
     schoolFAQs.find((school) => school.school === "SherwoodCollege")?.faqs ||
     [];
   return (
-    <div className="h-auto w-[100%] poppins lg:mt-28 mt-20 md:mt-16">
-      <div className="relative lg:px-[30px] xl:px-[50px]  ">
+    <div className="h-auto w-[100%] poppins ">
+      {/* <div className="relative lg:px-[30px] xl:px-[50px]  ">
         <div className=" h-[250px] xl:h-[300px] lg:h-[350px] w-[100%] ">
           {" "}
           <Image
@@ -70,9 +68,10 @@ function SherWoodCollegePage() {
             alt="img"
           />
         </div>
-      </div>
+      </div> */}
+      <SchoolCarousel />
 
-      <div className="w-[90%] ml-[5%]  mt-[10%] ">
+      <div className="w-[90%] ml-[5%] mt-6">
         <div className="relative h-[170px]   xl:h-[180px] md:h-[120px] lg:h-[170px]    w-full  border-b-2  sm:flex sm:justify-between">
           <div className="w-full flex flex-col  lg:gap-5 gap-2">
             <div className="">
@@ -86,7 +85,7 @@ function SherWoodCollegePage() {
               schoolName={"Sherwood Public School"}
             />
 
-               {/* <div className=" flex sm:w-[50%] gap-3 mb-2 sm:mb-0">
+            {/* <div className=" flex sm:w-[50%] gap-3 mb-2 sm:mb-0">
               <h3 className="px-1 py-1 rounded-md bg-[#6198A3] bg-opacity-[12%] text-black ">
                 Private School
               </h3>
@@ -95,7 +94,7 @@ function SherWoodCollegePage() {
               </h3>
             </div> */}
           </div>
-         
+
           <div className=" sm:absolute pt-2  gap-3 flex  sm:right-0 sm:self-center">
             {/* <button className="py-1 px-2 sm:py-1.5 sm:px-2.5 border border-[#075D70] rounded-[5px] flex gap-2">
               <div>
@@ -110,22 +109,20 @@ function SherWoodCollegePage() {
 
               <p className="text-[#075D70]">Broucher</p>
             </button> */}
-                       <GetPrepared/>
-
+            <GetPrepared />
           </div>
         </div>
         <div className="md:hidden mt-6">
-<EnquiryForm/>
-
-</div>
+          <EnquiryForm />
+        </div>
         <div className="space-y-4 w-[90vw]  mt-10 ">
           <div className="">
-            <h1 className="text-[#075D70] font-semibold  text-[2rem] ">
+            <h1 className="text-[#075D70] font-semibold  text-[1.5rem] md:text-[2rem] ">
               About Sherwood College
             </h1>
           </div>
           <div>
-            <p className="leading-6 w-[88vw] text-[1.15rem] text-justify">
+            <p className="leading-6 w-[88vw] text-[14px] md:text-[1.15rem] text-justify">
               Sherwood College, nestled in the scenic town of Nainital, is a
               prestigious institution celebrated for its legacy of academic
               excellence and comprehensive development. Surrounded by the
@@ -145,78 +142,36 @@ function SherWoodCollegePage() {
         </div>
 
         <div>
-          <h2 className="text-[#075D70] font-semibold text-[2rem] mt-7 mb-5">
+          <h2 className="text-[#075D70] font-semibold text-[1.5rem] md:text-[2rem] mt-7 mb-5">
             Fee Structure
           </h2>
 
-          <ul className="list-disc pl-10 ">
+          <ul className="list-disc pl-3 md:pl-10 text-[14px] md:text-[1.15rem] ">
             <li>
-              <span className="font-bold">Application Registration Fees:</span>{" "}
+              <span className="font-semibold">Application Registration Fees:</span>{" "}
               Rs. 7,000/-
             </li>
             <li>
-              <span className="font-bold">Security Deposit:</span> Rs. 10,000/-
+              <span className="font-semibold">Security Deposit:</span> Rs. 10,000/-
             </li>
             <li>
-              <span className="font-bold">Annual Fees:</span> Rs. 6,20,000/-
+              <span className="font-semibold">Annual Fees:</span> Rs. 6,20,000/-
             </li>
           </ul>
         </div>
 
         <div className="space-y-4 w-[90vw] mb-10 mt-10">
           <div>
-            <h1 className="text-[#075D70] font-semibold text-[2rem]">
+            <h1 className="text-[#075D70] font-semibold text-[1.5rem] md:text-[2rem]">
               Admission Procedure
             </h1>
           </div>
-          {/* <div>
-            <ul className="list-disc pl-4 space-y-4 text-[1.15rem]">
-              <li>
-                <span className="font-medium"> Choose the Exam:</span> Decide
-                between the Common Aptitude Analysis (CAA) and Scindia School
-                Aptitude Analysis (SAA), both covering Mathematics, English, and
-                Hindi.
-              </li>
-              <li>
-                {" "}
-                <span className="font-medium">Exam Centers: </span>Exams are
-                conducted in Kolkata, Mumbai, New Delhi, Lucknow, and Gwalior.
-              </li>
-              <li>
-                <span className="font-medium">Exam Schedules:</span> CAA is held
-                every third Saturday of November. SAA is in January/February,
-                with Gwalior center registrations open until January 27.
-                On-the-spot SAA registrations are available.
-              </li>
-              <li>
-                <span className="font-medium"> Aadhar Card Submission:</span>{" "}
-                Mandatory for all Indian states except J & K, Assam, Meghalaya.
-              </li>
-              <li>
-                <span className="font-medium">Eligibility for Admission:</span>{" "}
-                Candidates for classes VI, VII, and VIII should be under the
-                age-appropriate maximum age as of January 1 of the admission
-                year. Classes IX and XI may admit exceptionally meritorious
-                students if vacancies are available.
-              </li>
-              <li>
-                <span className="font-medium">Interactive Session: </span>
-                Shortlisted students will be invited to the school for an
-                interactive session including games, sports, and faculty
-                interaction.
-              </li>
-              <li>
-                <span className="font-medium">Download Syllabus: </span>
-                Available on the school&apos;s website after registration.
-              </li>
-            </ul>
-          </div> */}
 
           <div>
-            <ul className="list-disc pl-4 space-y-4 text-[1.15rem]">
+            <ul className="list-disc pl-4 space-y-4 text-[14px] md:text-[1.15rem]">
               {admissionDetails.map((step, index) => (
                 <li key={index}>
-                  <span className="font-medium">{step.title}</span>{" "}
+                  <span className="font-semibold">{step.title}</span>{" "}
                   {step.description}
                 </li>
               ))}
@@ -224,9 +179,7 @@ function SherWoodCollegePage() {
           </div>
         </div>
 
-               <Broucher/>
-
-
+        <Broucher />
       </div>
 
       <div>

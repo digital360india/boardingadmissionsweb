@@ -54,8 +54,22 @@ export default function EnquiryForm({title}) {
               type="text"
               id="name"
               name="name"
-              placeholder="Your Name"
+              placeholder="Name"
               value={formData.name}
+              className="w-full md:w-[400px] h-[40px] bg-[#F6F6F6] rounded-md px-4 py-2 outline-none"
+              onChange={handleChange}
+              required
+            />
+          </div>
+         
+          <div>
+            <label for="phoneNumber" className="hidden"></label>
+            <input
+              type="tel"
+              id="phoneNumber"
+              name="phoneNumber"
+              placeholder="Contact number"
+              value={formData.phoneNumber}
               className="w-full md:w-[400px] h-[40px] bg-[#F6F6F6] rounded-md px-4 py-2 outline-none"
               onChange={handleChange}
               required
@@ -69,19 +83,6 @@ export default function EnquiryForm({title}) {
               name="email"
               placeholder="Email address"
               value={formData.email}
-              className="w-full md:w-[400px] h-[40px] bg-[#F6F6F6] rounded-md px-4 py-2 outline-none"
-              onChange={handleChange}
-              required
-            />
-          </div>
-          <div>
-            <label for="phoneNumber" className="hidden"></label>
-            <input
-              type="tel"
-              id="phoneNumber"
-              name="phoneNumber"
-              placeholder="Contact number"
-              value={formData.phoneNumber}
               className="w-full md:w-[400px] h-[40px] bg-[#F6F6F6] rounded-md px-4 py-2 outline-none"
               onChange={handleChange}
               required

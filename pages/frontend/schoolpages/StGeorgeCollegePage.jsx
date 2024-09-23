@@ -7,6 +7,7 @@ import schoolFAQs from "@/utils/frontend/FaqData";
 import GetPrepared from "@/components/frontend/GetPrepared";
 import EnquiryForm from "@/components/frontend/EnquiryForm";
 import Broucher from "@/components/frontend/Broucher";
+import SchoolCarousel from "../../../components/frontend/SchoolCarousel";
 
 
 
@@ -61,8 +62,8 @@ function StGeorgeCollegePage() {
     [];
 
   return (
-    <div className="h-auto w-[100%] poppins lg:mt-28 mt-20 md:mt-16">
-      <div className="relative lg:px-[30px] xl:px-[50px]  ">
+    <div className="h-auto w-[100%] poppins ">
+      {/* <div className="relative lg:px-[30px] xl:px-[50px]  ">
         <div className=" h-[250px] xl:h-[300px] lg:h-[350px] w-[100%] ">
           <Image
             src="/images/SchoolBanner/stgeorgeframe.svg"
@@ -81,9 +82,9 @@ function StGeorgeCollegePage() {
             alt="img"
           />
         </div>
-      </div>
-
-      <div className="w-[90%] ml-[5%]  lg:mt-[14%] mt-[8%] ">
+      </div> */}
+<SchoolCarousel />
+<div className="w-[90%] ml-[5%] mt-6">
         <div className="relative h-[150px]   xl:h-[150px] md:h-[120px] lg:h-[160px]     w-full  border-b-2  sm:flex sm:justify-between">
           <div className="w-full flex flex-col  lg:gap-5 gap-2">
             <div className="">
@@ -131,12 +132,12 @@ function StGeorgeCollegePage() {
 </div>
         <div className="space-y-4 w-[90vw]  mt-10 ">
           <div className="">
-            <h1 className="text-[#075D70] font-semibold  text-[2rem] ">
+            <h1 className="text-[#075D70] font-semibold  text-[1.5rem] md:text-[2rem] ">
               About St. George College
             </h1>
           </div>
           <div>
-            <p className="leading-6 w-[88vw] text-[1.15rem] text-justify">
+            <p className="leading-6 w-[88vw] text-[14px] md:text-[1.15rem] text-justify">
               St. George College, set in the picturesque hill station of
               Mussoorie, is a prestigious educational institution celebrated for
               its academic excellence and vibrant co-curricular activities.
@@ -156,12 +157,12 @@ function StGeorgeCollegePage() {
         </div>
 
         <div>
-          <h2 className="text-[#075D70] font-semibold text-[2rem] mt-8 mb-5">
+          <h2 className="text-[#075D70] font-semibold text-[1.5rem] md:text-[2rem] mt-8 mb-5">
             Fee Structure
           </h2>
-          <ul className="list-disc pl-4 space-y-4 text-[1.15rem]">
+          <ul className="list-disc pl-2 space-y-4 text-[14px] md:text-[1.15rem]">
             <span className="font-semibold">For New Admissions:</span>
-            <ul className="list-disc pl-10">
+            <ul className="list-disc pl-3 md:pl-10">
               <li>
                 <span className="font-semibold">
                   Admission Fees (Non-Refundable):
@@ -176,7 +177,7 @@ function StGeorgeCollegePage() {
               </li>
             </ul>
             <h1 className="font-semibold">Annual School Fees:</h1>
-            <ul className="list-disc pl-10">
+            <ul className="list-disc pl-3 md:pl-10">
               <li>
                 <span className="font-semibold">Class IV to VI:</span> Rs.
                 7,16,632.00
@@ -211,7 +212,7 @@ function StGeorgeCollegePage() {
               </li>
             </ul>
             <h1 className="font-semibold">Other Annual Charges:</h1>
-            <ul className="list-disc pl-10">
+            <ul className="list-disc pl-3 md:pl-10">
               <li>
                 <span className="font-semibold">
                   Boarding Students (Class IV to XII):
@@ -228,7 +229,7 @@ function StGeorgeCollegePage() {
             <h1 className="font-semibold">
               Alternate Fees for New Admissions:
             </h1>
-            <ul className="list-disc pl-10">
+            <ul className="list-disc pl-3 md:pl-10">
               <li>
                 <span className="font-semibold">
                   Admission Fees (Non-Refundable):
@@ -243,7 +244,7 @@ function StGeorgeCollegePage() {
               </li>
             </ul>
             <h1 className="font-semibold">Alternate Annual School Fees:</h1>
-            <ul className="list-disc pl-10">
+            <ul className="list-disc pl-3 md:pl-10">
               <li>
                 <span className="font-semibold">Class IV to VI:</span> Rs.
                 1,25,568.00
@@ -276,7 +277,7 @@ function StGeorgeCollegePage() {
               </li>
             </ul>
             <h1 className="font-semibold">Additional Charges:</h1>
-            <ul className="list-disc pl-10">
+            <ul className="list-disc pl-3 md:pl-10">
               <li>
                 <span className="font-semibold">
                   Advance for Textbooks, Stationery, etc. (Boarding Students):
@@ -297,58 +298,17 @@ function StGeorgeCollegePage() {
 
         <div className="space-y-4 w-[90vw] mb-10 mt-10">
           <div>
-            <h1 className="text-[#075D70] font-semibold text-[2rem]">
+            <h1 className="text-[#075D70] font-semibold text-[1.5rem] md:text-[2rem]">
               Admission Procedure
             </h1>
           </div>
-          {/* <div>
-            <ul className="list-disc pl-4 space-y-4 text-[1.15rem]">
-              <li>
-                <span className="font-medium"> Choose the Exam:</span> Decide
-                between the Common Aptitude Analysis (CAA) and Scindia School
-                Aptitude Analysis (SAA), both covering Mathematics, English, and
-                Hindi.
-              </li>
-              <li>
-                {" "}
-                <span className="font-medium">Exam Centers: </span>Exams are
-                conducted in Kolkata, Mumbai, New Delhi, Lucknow, and Gwalior.
-              </li>
-              <li>
-                <span className="font-medium">Exam Schedules:</span> CAA is held
-                every third Saturday of November. SAA is in January/February,
-                with Gwalior center registrations open until January 27.
-                On-the-spot SAA registrations are available.
-              </li>
-              <li>
-                <span className="font-medium"> Aadhar Card Submission:</span>{" "}
-                Mandatory for all Indian states except J & K, Assam, Meghalaya.
-              </li>
-              <li>
-                <span className="font-medium">Eligibility for Admission:</span>{" "}
-                Candidates for classes VI, VII, and VIII should be under the
-                age-appropriate maximum age as of January 1 of the admission
-                year. Classes IX and XI may admit exceptionally meritorious
-                students if vacancies are available.
-              </li>
-              <li>
-                <span className="font-medium">Interactive Session: </span>
-                Shortlisted students will be invited to the school for an
-                interactive session including games, sports, and faculty
-                interaction.
-              </li>
-              <li>
-                <span className="font-medium">Download Syllabus: </span>
-                Available on the school&apos;s website after registration.
-              </li>
-            </ul>
-          </div> */}
+          
 
           <div>
-            <ul className="list-disc pl-4 space-y-4 text-[1.15rem]">
+            <ul className="list-disc pl-4 space-y-4 text-[14px] md:text-[1.15rem]">
               {steps.map((step, index) => (
                 <li key={index}>
-                  <span className="font-medium">{step.title}:</span>{" "}
+                  <span className="font-semibold">{step.title}:</span>{" "}
                   {step.description}
                 </li>
               ))}
@@ -357,10 +317,10 @@ function StGeorgeCollegePage() {
         </div>
 
         <div>
-          <h1 className="text-[#075D70] font-semibold text-[2rem] mb-2">
+          <h1 className="text-[#075D70] font-semibold text-[1.5rem] md:text-[2rem] mb-2">
             Important Note
           </h1>
-          <ul className="list-disc pl-4 mb-7">
+          <ul className="list-disc text-[14px] md:text-[1.15rem] pl-4 mb-7">
             <li>
               This guide should help you navigate the St. George College
               Admissions process and understand the associated fees and entrance

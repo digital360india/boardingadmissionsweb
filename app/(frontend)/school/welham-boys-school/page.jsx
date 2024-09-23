@@ -1,7 +1,7 @@
 import React from "react";
 
 import WelhamBoysPage from "@/pages/frontend/schoolpages/WelhamBoysPage";
-import Navbar from "@/components/frontend/Navbar";
+
 
 const page = () => {
   return (
@@ -143,7 +143,7 @@ const page = () => {
         />
       </head>
       <div>
-        <Navbar />
+      
         <WelhamBoysPage />
       </div>
     </>

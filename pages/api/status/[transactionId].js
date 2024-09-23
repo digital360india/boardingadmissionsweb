@@ -1,43 +1,51 @@
+"use client";
 
-// "use client"
+import { useRouter } from 'next/router';
+import { useEffect, useState } from 'react';
 
-// import { useRouter } from 'next/router';
+const PaymentStatus = () => {
+  const router = useRouter();
+  const { transactionId } = router.query;
+  const [status, setStatus] = useState(null);
 
-// const PaymentStatus = () => {
-//   const router = useRouter();
-//   const { transactionId } = router.query;
+  useEffect(() => {
+    if (transactionId) {
+      const fetchPaymentStatus = async () => {
+        try {
+          const response = await fetch(`/api/payment-status?transactionId=${transactionId}`);
+          const data = await response.json();
+          setStatus(data.status); 
+        } catch (error) {
+          console.error('Error fetching payment status:', error);
+          setStatus('error');
+        }
+      };
 
-//   // Fetch the transaction status using transactionId, show success/failure
-//   return (
-//     <div>
-//       <h1>Payment Status</h1>
-//       <p>Transaction ID: {transactionId}</p>
-//       {/* Display status (success/failure) based on transaction ID */}
-//     </div>
-//   );
-// };
+      fetchPaymentStatus();
+    }
+  }, [transactionId]);
 
-// export default PaymentStatus;
+  return (
+    <div>
+      <h1>Payment Status</h1>
+      {transactionId ? (
+        <div>
+          <p>Transaction ID: {transactionId}</p>
+          {status === null ? (
+            <p>Loading status...</p>
+          ) : status === 'success' ? (
+            <p className="text-green-500">Payment was successful!</p>
+          ) : status === 'failure' ? (
+            <p className="text-red-500">Payment failed. Please try again.</p>
+          ) : (
+            <p className="text-yellow-500">An error occurred while fetching the status.</p>
+          )}
+        </div>
+      ) : (
+        <p>No transaction ID provided.</p>
+      )}
+    </div>
+  );
+};
 
-
-
-
-
-
-
-
-
-
-
-
-// pages/api/status/[transactionId].js
-
-export default async function handler(req, res) {
-    const { transactionId } = req.query;
-  
-    // Handle the callback from the payment gateway
-    // Verify the transaction status with PhonePe and update the database
-  
-    res.status(200).json({ message: `Payment status for ${transactionId}` });
-  }
-  
+export default PaymentStatus;

@@ -16,7 +16,7 @@ export default function OurTeam() {
     {
       name: "Mr. Mayank Gaur",
       imageSrc: "/images/mayank.png",
-      designation: "English Expert",
+      designation: "Mathematics Expert",
     },
     // {
     //   name: "Dr. Anna Richard",
@@ -31,7 +31,7 @@ export default function OurTeam() {
         <div className="lg:text-24px text-16px text-primary03 lg:text-center text-left">
           OUR TEAM
         </div>
-        <div className="lg:text-[48px] text-[32px] font-medium lg:text-center text-left pb-12">
+        <div className="lg:text-[48px] text-[26px] font-semibold lg:text-center text-left pb-12">
         Experts guiding your success.
         </div>
 

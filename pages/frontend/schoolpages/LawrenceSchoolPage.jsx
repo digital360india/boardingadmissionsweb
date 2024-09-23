@@ -7,6 +7,7 @@ import schoolFAQs from "@/utils/frontend/FaqData";
 import GetPrepared from "@/components/frontend/GetPrepared";
 import EnquiryForm from "@/components/frontend/EnquiryForm";
 import Broucher from "@/components/frontend/Broucher";
+import SchoolCarousel from "../../../components/frontend/SchoolCarousel";
 
 const data = [
   {
@@ -70,8 +71,8 @@ function LawrenceSchoolPage() {
   const LawrenceSchool =
     schoolFAQs.find((school) => school.school === "LawrenceSchool")?.faqs || [];
   return (
-    <div className="h-auto w-[100%] poppins lg:mt-28 mt-20 md:mt-16">
-      <div className="relative lg:px-[30px] xl:px-[50px]  ">
+    <div className="h-auto w-[100%] poppins ">
+      {/* <div className="relative lg:px-[30px] xl:px-[50px]  ">
         <div className=" h-[250px] xl:h-[300px] lg:h-[350px] w-[100%] ">
           {" "}
           <Image
@@ -91,9 +92,9 @@ function LawrenceSchoolPage() {
             alt="img"
           />
         </div>
-      </div>
-
-      <div className="w-[90%] ml-[5%]  mt-[10%] ">
+      </div> */}
+<SchoolCarousel />
+<div className="w-[90%] ml-[5%] mt-6">
         <div className="relative h-[150px]   xl:h-[150px] md:h-[120px] lg:h-[160px]     w-full  border-b-2  sm:flex sm:justify-between">
           <div className="w-full flex flex-col  lg:gap-5 gap-2">
             <div className="">
@@ -139,12 +140,12 @@ function LawrenceSchoolPage() {
         </div>
         <div className="space-y-4 w-[90vw]  mt-10 ">
           <div className="">
-            <h1 className="text-[#075D70] font-semibold  text-[2rem] ">
+            <h1 className="text-[#075D70] font-semibold  text-[1.5rem] md:text-[2rem] ">
               About Lawrence School
             </h1>
           </div>
           <div>
-            <p className="leading-6 w-[88vw] text-[1.15rem] text-justify">
+            <p className="leading-6 w-[88vw] text-[14px] md:text-[1.15rem] text-justify">
               Lawrence School, Sanawar, is a distinguished educational
               institution nestled in the serene hills of Sanawar. Known for its
               rich history and commitment to excellence, the school offers a
@@ -161,12 +162,12 @@ function LawrenceSchoolPage() {
         </div>
 
         <div>
-          <h2 className="text-[#075D70] font-semibold text-[2rem] mt-6 mb-5">
+          <h2 className="text-[#075D70] font-semibold text-[1.5rem] md:text-[2rem] mt-6 mb-5">
             Fee Structure
           </h2>
 
           <div>
-            <ul className="list-disc pl-4 space-y-4 text-[1rem]">
+            <ul className="list-disc pl-4 space-y-4 text-[14px] md:text-[1.15rem]">
               <li className="font-semibold">
                 General Category and NRI/Foreign National:
                 <span className="font-normal">
@@ -192,22 +193,22 @@ function LawrenceSchoolPage() {
 
         <div className="space-y-4 w-[90vw] mb-10 mt-10">
           <div>
-            <h1 className="text-[#075D70] font-semibold text-[2rem]">
+            <h1 className="text-[#075D70] font-semibold text-[1.5rem] md:text-[2rem]">
               Admission Procedure
             </h1>
 
-            <h1 className="pt-4">
+            <h1 className="pt-4 text-[14px] md:text-[1.15rem]">
               For those interested in
-              <span className="font-bold">Lawrence School Admissions</span>,
+              <span className="font-bold"> Lawrence School Admissions</span>,
               here&apos;s a simplified guide to understanding the process:
             </h1>
           </div>
 
           <div>
-            <ul className="list-disc pl-4 space-y-4 text-[1.15rem]">
+            <ul className="list-disc pl-4 space-y-4 text-[14px] md:text-[1.15rem]">
               {data.map((step, index) => (
                 <li key={index}>
-                  <span className="font-medium">{step.title}:</span>
+                  <span className="font-semibold">{step.title}: </span>
                   {step.description}
                   {step.items && (
                     <ul className="list-disc pl-6 space-y-2 mt-2">
@@ -220,7 +221,7 @@ function LawrenceSchoolPage() {
               ))}
             </ul>
           </div>
-          <h1 className="text-[1.2rem] pt-4">
+          <h1 className="text-[14px] md:text-[1.15rem] pt-4">
             For the most up-to-date information, including specific deadlines,
             it&apos;s recommended to visit the school&apos;s official website.
           </h1>

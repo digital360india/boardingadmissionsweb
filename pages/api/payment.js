@@ -5,22 +5,19 @@ export default async function handler(req, res) {
     try {
       const { amount, mobile, muid } = req.body;
 
-      // Set your merchant-specific values here
       const merchantId = process.env.NEXT_PUBLIC_MERCHANT_ID;
       const saltKey = process.env.NEXT_PUBLIC_SALT_KEY;
       const saltIndex = process.env.NEXT_PUBLIC_SALT_INDEX;
       const transactionId = "Tr-" + Math.random().toString(36).substring(2, 15);
-
-      // Production: Make sure you're using HTTPS for all URLs
+console.log("asdfa")
       const redirectUrl = `http://localhost:3000/api/status/${transactionId}`;
       const callbackUrl = `http://localhost:3000/api/status/${transactionId}`;
 
-      // Payment payload to be sent to PhonePe
       const payload = {
         merchantId: merchantId,
         merchantTransactionId: transactionId,
         merchantUserId: muid,
-        amount: amount * 100, // Amount in paise/cents (multiply by 100)
+        amount: amount * 100, 
         redirectUrl: redirectUrl,
         redirectMode: "POST",
         callbackUrl: callbackUrl,
@@ -30,18 +27,14 @@ export default async function handler(req, res) {
         }
       };
 
-      // Convert payload to base64 string
       const dataPayload = JSON.stringify(payload);
       const dataBase64 = Buffer.from(dataPayload).toString("base64");
 
-      // Generate checksum using SHA256
       const fullURL = `/pg/v1/pay${dataBase64}${saltKey}`;
       const checksum = SHA256(fullURL).toString() + "###" + saltIndex;
 
-      // **Production API URL** for PhonePe
       const PRODUCTION_PAY_API_URL = "https://api.phonepe.com/apis/pg/v1/pay";
 
-      // Make a request to PhonePe production payment API
       const response = await fetch(PRODUCTION_PAY_API_URL, {
         method: 'POST',
         headers: {
@@ -55,7 +48,6 @@ export default async function handler(req, res) {
       const responseData = await response.json();
       const redirectUrlResponse = responseData?.data?.instrumentResponse?.redirectInfo?.url;
 
-      // Send back the redirection URL
       if (redirectUrlResponse) {
         res.status(200).json({ redirectUrl: redirectUrlResponse });
       } else {

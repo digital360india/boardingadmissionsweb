@@ -7,6 +7,7 @@ import schoolFAQs from "@/utils/frontend/FaqData";
 import GetPrepared from "@/components/frontend/GetPrepared";
 import Broucher from "@/components/frontend/Broucher";
 import EnquiryForm from "@/components/frontend/EnquiryForm";
+import SchoolCarousel from "../../../components/frontend/SchoolCarousel";
 
 
 
@@ -14,8 +15,9 @@ function WelhamGirlsPage() {
   const WelhamGirls =
     schoolFAQs.find((school) => school.school === "WelhamGirls")?.faqs || [];
   return (
-    <div className="h-auto w-[100%] poppins lg:mt-28 mt-20 md:mt-16">
-      <div className="relative ">
+    <div className="h-auto w-[100%] poppins ">
+
+      {/* <div className="relative ">
         <div className=" h-[250px] w-[100%]  xl:px-[50px] lg:px-[30px]">
           <Image
             src="/images/SchoolBanner/welhamgirlsframe.svg"
@@ -33,9 +35,10 @@ function WelhamGirlsPage() {
             height={1000}
           />
         </div>
-      </div>
+      </div> */}
+      <SchoolCarousel />    
 
-      <div className="w-[90%] ml-[5%]  lg:mt-[20%] xl:mt-[13%]  mt-[10%] md:mt-[7%] ">
+<div className="w-[90%] ml-[5%] mt-6">
         <div className="relative h-[150px]   xl:h-[150px] md:h-[120px] lg:h-[160px]     w-full  border-b-2  sm:flex sm:justify-between">
           <div className="w-full flex flex-col  lg:gap-5 gap-2">
             <div className="">
@@ -81,12 +84,12 @@ function WelhamGirlsPage() {
         </div>
         <div className="space-y-4 w-[90vw]  mt-10 ">
           <div className="">
-            <p className="text-[#075D70] font-semibold  text-[2rem] ">
+            <p className="text-[#075D70] font-semibold  text-[1.5rem] md:text-[2rem]">
               About  Welham Girls School
             </p>
           </div>
           <div>
-            <p className="leading-6 w-[88vw] text-[1.15rem] text-justify">
+            <p className="leading-6 w-[88vw] text-[14px] md:text-[1.15rem] text-justify">
               Established to empower young women, Welham Girls School has become
               synonymous with holistic education. The school offers classes from
               VI to XII, consistently producing students who excel in academics
@@ -98,13 +101,13 @@ function WelhamGirlsPage() {
 
         <div className="space-y-4 w-[90vw] my-10 ">
           <div>
-            <p className="text-[#075D70] font-semibold text-[2rem]">
+            <p className="text-[#075D70] font-semibold text-[1.5rem] md:text-[2rem]">
               Admission Procedure
             </p>
           </div>
           <div>
             <div>
-              <p className="leading-6 w-[88vw] text-[1.15rem] text-justify">
+              <p className="leading-6 w-[88vw] text-[14px] md:text-[1.15rem] text-justify">
                 Welham Girls Admissions are competitive, focusing on academic
                 potential and overall personality. The process includes the
                 submission of an application, entrance exams, and an interview.
@@ -112,15 +115,15 @@ function WelhamGirlsPage() {
               </p>
             </div>
             <div>
-              <p className="text-[#075D70] font-semibold text-[1.4rem] my-4">
+              <p className="text-[#075D70] font-semibold text-[1.5rem] md:text-[2rem] my-4">
                 Steps to Admission
               </p>
             </div>
             <ol className="list-decimal pl-4 space-y-4 text-[1.15rem]">
               <li>
-                <span className="font-medium">Application Form:</span>
+                <span className="font-semibold">Application Form:</span>
                 <div className="mt-2">
-                  <ul className="list-disc pl-4 space-y-4">
+                  <ul className="list-disc pl-4 space-y-4 text-[14px] md:text-[1.15rem]">
                     <li>Available on the school&apos;s website.</li>
                     <li>
                       Submission requires a fee of Rs. 20,000 (non-refundable).
@@ -134,7 +137,7 @@ function WelhamGirlsPage() {
                   <h2 className="text-lg font-semibold mb-2">
                     Required Documents
                   </h2>
-                  <p className="mb-4">
+                  <p className="mb-4 text-[14px] md:text-[1.15rem]">
                     The following documents are essential for completing the
                     admission application:
                   </p>
@@ -222,7 +225,7 @@ function WelhamGirlsPage() {
               <li>
                 <span className="font-medium">Online Application Process:</span>
                 <div className="mt-2">
-                  <ul className="list-disc pl-4 space-y-4">
+                  <ul className="list-disc pl-4 space-y-4 text-[14px] md:text-[1.15rem]">
                     <li>
                       <span className="font-medium">Initial Application:</span>{" "}
                       Visit the Welham Girls School website and click on Online
@@ -258,7 +261,7 @@ function WelhamGirlsPage() {
                   <h2 className="text-lg font-semibold mb-2">
                     Entrance Examination
                   </h2>
-                  <p className="mb-4  ">
+                  <p className="mb-4 text-[14px] md:text-[1.15rem] ">
                     The Welham Girls Entrance exam covers English, Mathematics,
                     and General Knowledge designed to assess the academic
                     readiness of applicants.
@@ -304,11 +307,11 @@ function WelhamGirlsPage() {
                     </tbody>
                   </table>
                   <div className="my-4">
-                    <ul className="list-disc pl-4 space-y-4">
+                    <ul className="list-disc pl-4 space-y-4 text-[14px] md:text-[1.15rem]">
                       <li>
                         {" "}
-                        <span className="font-medium">
-                          Aptitude/Proficiency Test:
+                        <span className="font-semibold">
+                          Aptitude/Proficiency Test:  
                         </span>
                         In addition to the entrance exam, an
                         Aptitude/Proficiency Test is conducted to evaluate the
@@ -320,19 +323,19 @@ function WelhamGirlsPage() {
                 </div>
               </li>
 
-              <li>
-                <span className="font-medium">
+              <li className="text-[14px] md:text-[1.15rem]">
+                <span className="font-semibold">
                   Interview and Final Selection
                 </span>
                 <div className="mt-2">
                   <ul className="list-disc pl-4 space-y-4">
                     <li>
-                      <span className="font-medium">Selection Process:</span>
+                      <span className="font-semibold">Selection Process:</span>
                       Shortlisted candidates are invited for an interview with
                       the admissions committee
                     </li>
                     <li>
-                      <span className="font-medium">Notification</span>
+                      <span className="font-semibold">Notification</span>
                       Successful candidates receive official admission
                       confirmation after the interview process.
                     </li>
@@ -345,15 +348,15 @@ function WelhamGirlsPage() {
 
         <div className="space-y-4 w-[90vw] my-10">
           <div>
-            <p className="text-[#075D70] font-semibold text-[2rem]">
+            <p className="text-[#075D70] font-semibold text-[1.5rem] md:text-[2rem]">
               Preference for Admission
             </p>
-            <p className="my-4 pl-2 leading-6 w-[88vw] text-[1.15rem]">
+            <p className="my-4 pl-2 leading-6 w-[88vw] text-[14px] md:text-[1.15rem]">
               Welham Girls School gives preference to:
             </p>
           </div>
 
-          <ul className="list-disc ml-6 space-y-4 leading-6 w-[88vw] text-[1.15rem]">
+          <ul className="list-disc ml-6 space-y-4 leading-6 w-[88vw] text-[14px] md:text-[1.15rem]">
             <li>
               Daughters of transferable Government officials and Armed Forces
               personnel.
@@ -367,10 +370,10 @@ function WelhamGirlsPage() {
         </div>
 
         <div>
-          <p className="text-primary02 text-[2rem] font-semibold mb-4">
+          <p className="text-primary02 text-[1.5rem] md:text-[2rem] font-semibold mb-4">
             Required Documents
           </p>
-          <p className="mb-6 ml-4 leading-6 w-[88vw] text-[1.15rem]">
+          <p className="mb-6 ml-4 leading-6 w-[88vw] text-[14px] md:text-[1.15rem]">
             Keep track of these important dates for a smooth Welham Girls
             Admissions process:
           </p>
@@ -420,17 +423,17 @@ function WelhamGirlsPage() {
             </tbody>
           </table>
 
-          <p className="leading-6 w-[88vw] text-[1.15rem] my-6">
-            <span className=" text-[1.25rem] font-medium ">Note:</span>
+          <p className="leading-6 w-[88vw] text-[14px] md:text-[1.15rem] my-6">
+            <span className=" text-[1rem] font-semibold ">Note: </span>
             Dates may vary always check the official website for updates
           </p>
         </div>
 
         <div>
-          <p className="text-primary02 text-[2rem] font-semibold mb-4">
+          <p className="text-primary02 text-[1.5rem] md:text-[2rem] font-semibold mb-4">
             Eligibility Criteria
           </p>
-          <p className="mb-6 ml-4 leading-6 w-[88vw] text-[1.15rem]">
+          <p className="mb-6 ml-4 leading-6 w-[88vw] text-[14px] md:text-[1.15rem]">
             Eligibility for Welham Girls Admissions depends on the student s age
             and academic performance
           </p>
@@ -482,17 +485,17 @@ function WelhamGirlsPage() {
             </tbody>
           </table>
 
-          <p className="leading-6 w-[88vw] text-[1.15rem] my-6">
+          <p className="leading-6 w-[88vw] text-[14px] md:text-[1.15rem] my-6">
             In addition to age requirements, students are expected to have
             strong academic records and demonstrate good character and conduct.
           </p>
         </div>
 
         <div>
-          <p className="text-primary02 text-[2rem] font-semibold mb-4">
+          <p className="text-primary02 text-[1.5rem] md:text-[2rem] font-semibold mb-4">
             Fee Structure
           </p>
-          <p className="mb-6 ml-4 leading-6 w-[88vw] text-[1.15rem]">
+          <p className="mb-6 ml-4 leading-6 w-[88vw] text-[14px] md:text-[1.15rem]">
             The fee structure for Welham Girls School is as follows:
           </p>
 
@@ -547,24 +550,24 @@ function WelhamGirlsPage() {
             </tbody>
           </table>
 
-          <p className="leading-6 w-[88vw] text-[1.15rem] my-6">
-            <span className=" text-[1.25rem] font-medium ">Note:</span>
+          <p className="leading-6 w-[88vw] text-[14px] md:text-[1.15rem] my-6">
+            <span className=" text-[1rem] font-semibold ">Note: </span>
             Fees are subject to revision; please confirm on the official website
           </p>
         </div>
 
         <div className="space-y-4 w-[90vw] my-10">
           <div>
-            <p className="text-[#075D70] font-semibold text-[2rem]">
+            <p className="text-[#075D70] font-semibold text-[1.5rem] md:text-[2rem]">
               Syllabus Pattern
             </p>
-            <p className="my-4 pl-2 leading-6 w-[88vw] text-[1.15rem]">
+            <p className="my-4 pl-2 leading-6 w-[88vw] text-[14px] md:text-[1.15rem]">
               The syllabus for the Welham Girls Entrance exam is tailored to
               assess academic readiness:
             </p>
           </div>
 
-          <ul className="list-disc ml-6 space-y-4 leading-6 w-[88vw] text-[1.15rem]">
+          <ul className="list-disc ml-6 space-y-4 leading-6 w-[88vw] text-[14px] md:text-[1.15rem]">
             <li>
               <span className="font-medium">English:</span>
               Focuses on grammar, comprehension, and essay writing
@@ -582,12 +585,12 @@ function WelhamGirlsPage() {
 
         <div className="space-y-4 w-[90vw]  my-10 ">
           <div className="">
-            <p className="text-[#075D70] font-semibold  text-[2rem] ">
+            <p className="text-[#075D70] font-semibold text-[1.5rem] md:text-[2rem] ">
               Why Choose Welham Girls School?
             </p>
           </div>
           <div>
-            <p className="leading-6 w-[88vw] text-[1.15rem] text-justify">
+            <p className="leading-6 w-[88vw] text-[14px] md:text-[1.15rem] text-justify">
               Welham Girls School offers a balanced education emphasizing
               academic excellence, leadership, and moral values. The
               school&apos;s strong alumni network and commitment to holistic
