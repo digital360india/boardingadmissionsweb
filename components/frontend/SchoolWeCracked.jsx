@@ -12,35 +12,46 @@ export default function SchoolWeCracked() {
       routes: "/school/wellham-girls-school",
     },
     {
-      school: "Welham Boys",
-      imageSrc: "/images/schoolimages/Welham_Boys.svg",
-      location: "(Dehradun)",
-      routes: "/school/welham-boys-school",
-    },
-    {
       school: "The Doon School",
       imageSrc: "/images/schoolimages/The_Doon_School.svg",
       location: "(Dehradun)",
       routes: "/school/the-doon-school",
     },
     {
-      school: "Mayo Boys College",
-      imageSrc: "/images/schoolimages/Mayo_Boys_College.svg",
-      location: "(Ajmer)",
-      routes: "/school/mayo-boys-school",
-    },
-
-    {
       school: "Scindia School",
       imageSrc: "/images/schoolimages/Scindia_School.svg",
       location: "(Gwalior)",
-      routes: "/school/scindia-girls-school",
+      routes: "/school/scindia-girls-school"
     },
     {
-      school: "St.George College",
-      imageSrc: "/images/schoolimages/St.George_College.svg",
-      location: "(Mussoorie)",
-      routes: "/school/george-college",
+      school: "Lawrence School",
+      imageSrc: "/images/schoolimages/Lawrence_School.svg",
+      location: "(Solan)",
+      routes: "/school/laurence-school"
+    },
+    {
+      school: "Welham Boys",
+      imageSrc: "/images/schoolimages/Welham_Boys.svg",
+      location: "(Dehradun)",
+      routes: "/school/welham-boys-school",
+    },
+    {
+      school: "Mayo Boys College",
+      imageSrc: "/images/schoolimages/Mayo_Boys_College.svg",
+      location: "(Ajmer)",
+      routes: "/school/mayo-boys-school"
+    },
+    {
+      school: "Bishop Cotton School",
+      imageSrc: "/images/schoolimages/Bishop_Cotton_School(Bangaluru).svg",
+      location: "(Bangaluru)",
+      routes: "/school/bishop-cotton-school-bangalore"
+    },
+    {
+      school: "Vidya Devi Jindal School",
+      imageSrc: "/images/schoolimages/Vidya_Devi_Jindal_School.svg",
+      location: "",
+      routes: "/school/vidya-devi-jindal",
     },
   ];
 

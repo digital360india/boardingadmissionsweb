@@ -3,19 +3,25 @@ import Link from "next/link";
 import React from "react";
 
 export default function TopSchools() {
-
+  
   const school = [
     {
-      school: "Bishop Cotton School",
-      imageSrc: "/images/schoolimages/Bishop_Cotton_School(Bangaluru).svg",
-      location: "(Bangaluru)",
-      routes: "/school/bishop-cotton-school-bangalore"
+      school: "Welham Girls",
+      imageSrc: "/images/schoolimages/Welham_Girls.svg",
+      location: "(Dehradun)",
+      routes: "/school/wellham-girls-school",
     },
     {
-      school: "CJM Waverly",
-      imageSrc: "/images/schoolimages/CJM_Waverly.svg",
-      location: "(Mussoorie)",
-      routes: "/school/cjm-waverly"
+      school: "The Doon School",
+      imageSrc: "/images/schoolimages/The_Doon_School.svg",
+      location: "(Dehradun)",
+      routes: "/school/the-doon-school",
+    },
+    {
+      school: "Scindia School",
+      imageSrc: "/images/schoolimages/Scindia_School.svg",
+      location: "(Gwalior)",
+      routes: "/school/scindia-girls-school"
     },
     {
       school: "Lawrence School",
@@ -24,16 +30,34 @@ export default function TopSchools() {
       routes: "/school/laurence-school"
     },
     {
+      school: "Welham Boys",
+      imageSrc: "/images/schoolimages/Welham_Boys.svg",
+      location: "(Dehradun)",
+      routes: "/school/welham-boys-school",
+    },
+    {
       school: "Mayo Boys College",
       imageSrc: "/images/schoolimages/Mayo_Boys_College.svg",
       location: "(Ajmer)",
       routes: "/school/mayo-boys-school"
     },
     {
-      school: "Scindia School",
-      imageSrc: "/images/schoolimages/Scindia_School.svg",
-      location: "(Gwalior)",
-      routes: "/school/scindia-girls-school"
+      school: "Bishop Cotton School",
+      imageSrc: "/images/schoolimages/Bishop_Cotton_School(Bangaluru).svg",
+      location: "(Bangaluru)",
+      routes: "/school/bishop-cotton-school-bangalore"
+    },
+    {
+      school: "Vidya Devi Jindal School",
+      imageSrc: "/images/schoolimages/Vidya_Devi_Jindal_School.svg",
+      location: "",
+      routes: "/school/vidya-devi-jindal",
+    },
+    {
+      school: "CJM Waverly",
+      imageSrc: "/images/schoolimages/CJM_Waverly.svg",
+      location: "(Mussoorie)",
+      routes: "/school/cjm-waverly"
     },
     {
       school: "Sherwood College",
@@ -46,30 +70,6 @@ export default function TopSchools() {
       imageSrc: "/images/schoolimages/St.George_College.svg",
       location: "(Mussoorie)",
       routes: "/school/george-college"
-    },
-    {
-      school: "The Doon School",
-      imageSrc: "/images/schoolimages/The_Doon_School.svg",
-      location: "(Dehradun)",
-      routes: "/school/the-doon-school",
-    },
-    {
-      school: "Vidya Devi Jindal School",
-      imageSrc: "/images/schoolimages/Vidya_Devi_Jindal_School.svg",
-      location: "",
-      routes: "/school/vidya-devi-jindal",
-    },
-    {
-      school: "Welham Boys",
-      imageSrc: "/images/schoolimages/Welham_Boys.svg",
-      location: "(Dehradun)",
-      routes: "/school/welham-boys-school",
-    },
-    {
-      school: "Welham Girls",
-      imageSrc: "/images/schoolimages/Welham_Girls.svg",
-      location: "(Dehradun)",
-      routes: "/school/wellham-girls-school",
     },
     {
       school: "Wood Stock School",
