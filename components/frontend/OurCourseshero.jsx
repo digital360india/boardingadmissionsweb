@@ -5,7 +5,7 @@ const OurCourses = () => {
   return (
     <div 
       className="w-full h-[480px] bg-no-repeat bg-cover bg-center relative" 
-      style={{ backgroundImage: `url(/icons/boardinghero.svg)` }}
+      style={{ backgroundImage: `url(https://firebasestorage.googleapis.com/v0/b/boardingadmissions-f3ba3.appspot.com/o/images%2Fourcoursebanner.png?alt=media&token=174a9e21-5de8-4d4f-9329-f1912d3a36fd)` }}
     >
       <div className='w-[19rem] md:w-[470px] px-8 md:px-16   absolute  bottom-20  text-white  '>
         <h1 className='text-[2rem] md:text-[3.5rem] font-poppins '>Our Courses</h1>
