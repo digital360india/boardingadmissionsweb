@@ -193,14 +193,14 @@ const OurCoursesCards = () => {
           <div
             key={card.id}
             style={{ boxShadow: "0px 0px 8px 0px #FFFFFF4D" }}
-            className="w-[20rem] md:w-[21rem] lg:w-[25rem] xl:w-[30rem] mt-10 bg-[#FFFFFF] rounded-[9px] "
+            className="w-[20rem] md:w-[21rem] lg:w-[25rem]  mt-10 bg-[#FFFFFF] rounded-[9px] "
           >
             <Image
               src={card.imageSrc}
               width={1000}
               height={250}
               alt="card"
-              className="w-full rounded-lg"
+              className="w-full object-cover h-[220px] rounded-t-lg"
             />
             <h1 className="text-primary02 text-[1.15rem] md:text-[1.5rem] font-bold md:font-semibold text-center pt-8">
               {card.title}
