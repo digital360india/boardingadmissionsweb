@@ -80,7 +80,7 @@ export default function ScrollAnimation() {
             />{" "}
             <Link href="/school/the-doon-school">
               <button className="w-[220px] mt-5 text-xl text-white h-[50px] rounded-lg bg-[#075D70]">
-                The Doon School
+              THE DOON SCHOOL
               </button>
             </Link>
           </div>
@@ -115,12 +115,12 @@ export default function ScrollAnimation() {
             {" "}
             <img
               className="w-[200px] h-[200px]"
-              src="/images/schoolimages/Welham_Boys.svg"
+              src="/images/schoolimages/Mayo_Boys_College.svg"
               alt=""
             />{" "}
-            <Link href="/school/welham-boys-school">
+            <Link href="/school/mayo-boys-school">
               <button className="w-[230px] mt-5 text-xl text-white h-[50px] rounded-lg bg-[#075D70]">
-                MAYO&spos;s COLLEGE{" "}
+                MAYO COLLEGE{" "}
               </button>
             </Link>
           </div>
