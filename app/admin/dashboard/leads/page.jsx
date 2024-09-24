@@ -20,10 +20,12 @@ const [coldCount, setColdCount] = useState(0);
   const [isDeleteConfirmOpen, setIsDeleteConfirmOpen] = useState(false); 
   const [selectedLeadForDeletion, setSelectedLeadForDeletion] = useState(null);
   const [formData, setFormData] = useState({
-    firstName: "",
-    lastName: "",
-    email: "",
-    phoneNumber: "",
+    name: "",
+    // lastName: "",
+    // email: "",
+    phonenumber: "",
+    class:"",
+
     message: "",
     disposition: "NA" // Default disposition
   });
@@ -84,10 +86,13 @@ const [coldCount, setColdCount] = useState(0);
   const handleEditLead = (lead) => {
     setEditingLead(lead.id);
     setFormData({
-      firstName: lead.firstName,
-      lastName: lead.lastName,
-      email: lead.email,
-      phoneNumber: lead.phoneNumber,
+      name: lead.name,
+      // lastName: lead.lastName,
+      // email: lead.email,
+      phonenumber: lead.phonenumber,
+      class:lead.class,
+
+
       message: lead.message,
       disposition: lead.disposition || "NA" // Default to "NA" if not set
     });
@@ -117,10 +122,11 @@ const [coldCount, setColdCount] = useState(0);
   const handleReplyLead = (lead) => {
     setEditingLead(lead.id);
     setFormData({
-      firstName: lead.firstName,
-      lastName: lead.lastName,
-      email: lead.email,
-      phoneNumber: lead.phoneNumber,
+      name: lead.name,
+      // lastName: lead.lastName,
+      // email: lead.email,
+      class:lead.class,
+      phonenumber: lead.phonenumber,
       message: lead.message,
       disposition: lead.disposition || "NA" // Default to "NA" if not set
     });
@@ -129,15 +135,15 @@ const [coldCount, setColdCount] = useState(0);
   };
 
   const sendWhatsApp = () => {
-    const phoneNumber = formData.phoneNumber.replace(/\D/g, "");
-    const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(replyMessage)}`;
+    const phonenumber = formData.phonenumber.replace(/\D/g, "");
+    const whatsappUrl = `https://wa.me/${phonenumber}?text=${encodeURIComponent(replyMessage)}`;
     window.open(whatsappUrl, "_blank");
   };
 
-  const sendEmail = () => {
-    const mailtoLink = `mailto:${formData.email}?subject=Reply&body=${encodeURIComponent(replyMessage)}`;
-    window.open(mailtoLink, "_blank");
-  };
+  // const sendEmail = () => {
+  //   const mailtoLink = `mailto:${formData.email}?subject=Reply&body=${encodeURIComponent(replyMessage)}`;
+  //   window.open(mailtoLink, "_blank");
+  // };
 
   const handleDeleteConfirm = (id) => {
     setSelectedLeadForDeletion(id);
@@ -165,12 +171,16 @@ const [coldCount, setColdCount] = useState(0);
   };
 
 
-
   useEffect(() => {
     const handleClickOutside = (event) => {
+      // Check if the click is outside the dropdown menu
+      if (dropdownOpen && !event.target.closest(`#dropdown-${dropdownOpen}`)) {
+        setDropdownOpen(null); // Close the dropdown
+      }
+  
       // Check if the click is outside the disposition menu
       if (dispositionMenuOpen && !event.target.closest(`#disposition-menu-${dispositionMenuOpen}`)) {
-        setDispositionMenuOpen(null);
+        setDispositionMenuOpen(null); // Close the disposition menu
       }
     };
   
@@ -179,7 +189,8 @@ const [coldCount, setColdCount] = useState(0);
     return () => {
       document.removeEventListener("mousedown", handleClickOutside);
     };
-  }, [dispositionMenuOpen]);
+  }, [dropdownOpen, dispositionMenuOpen]);
+  
   
 
 
@@ -253,9 +264,11 @@ const [coldCount, setColdCount] = useState(0);
           <thead>
             <tr className="">
               <th className="py-2 px-4 border-b text-start ">First Name</th>
-              <th className="py-2 px-4 border-b text-start">Last Name</th>
-              <th className="py-2 px-4 border-b text-start">Email</th>
+              {/* <th className="py-2 px-4 border-b text-start">Last Name</th>
+              <th className="py-2 px-4 border-b text-start">Email</th> */}
               <th className="py-2 px-4 border-b text-start">Phone</th>
+              <th className="py-2 px-4 border-b text-start">class</th>
+
               <th className="py-2 px-4 border-b text-start">Message</th>
               <th className="py-2 px-4 border-b text-start">Disposition</th>
               <th className="py-2 px-4 border-b text-start">Remarks</th>
@@ -267,10 +280,13 @@ const [coldCount, setColdCount] = useState(0);
           <tbody>
   {leads.map((lead) => (
     <tr key={lead.id}>
-      <td className="py-2 px-4 border-b">{lead.firstName}</td>
-      <td className="py-2 px-4 border-b">{lead.lastName}</td>
-      <td className="py-2 px-4 border-b">{lead.email}</td>
-      <td className="py-2 px-4 border-b">{lead.phoneNumber}</td>
+      <td className="py-2 px-4 border-b">{lead.name}</td>
+      {/* <td className="py-2 px-4 border-b">{lead.lastName}</td>
+      <td className="py-2 px-4 border-b">{lead.email}</td> */}
+
+      <td className="py-2 px-4 border-b">{lead.phonenumber}</td>
+      <td className="py-2 px-4 border-b">{lead.class}</td>
+
       <td className="py-2 px-4 border-b">
         <button
           className="text-blue-500"
@@ -322,7 +338,7 @@ const [coldCount, setColdCount] = useState(0);
                   {remarkPopupOpen === lead.id && (
                     <div className="fixed inset-0 bg-gray-600 bg-opacity-75 flex items-center justify-center z-50  ">
                       <div className="bg-white p-4 rounded shadow-md w-[900px] h-[400px] overflow-y-auto item ">
-                        <h2 className="text-lg font-semibold">Remarks for {lead.firstName}</h2>
+                        <h2 className="text-lg font-semibold">Remarks for {lead.name}</h2>
                         <textarea
                           value={remarkText}
                           onChange={(e) => setRemarkText(e.target.value)}
@@ -353,53 +369,54 @@ const [coldCount, setColdCount] = useState(0);
                     </div>
                   )}
                 </td>
-      <td className="py-2 px-4 border-b">
-        <div className="relative">
-          <button
-            className="text-black px-2 py-1 rounded"
-            onClick={() => toggleDropdown(lead.id)}
-          >
-            <PiDotsThreeBold className="text-[35px]" />
-          </button>
-          {dropdownOpen === lead.id && (
-            <div className="absolute right-0 mt-2 bg-white border rounded shadow-lg z-50">
-              <button
-                className="block w-full text-left px-4 py-2 text-blue-500 hover:bg-gray-100"
-                onClick={() => handleEditLead(lead)}
-              >
-                <p className="flex gap-6">
-                  <p>Edit</p>
-                  <p className="flex justify-center items-center">
-                    <FaEdit />
-                  </p>
-                </p>
-              </button>
-              <button
-                className="block w-full text-left px-4 py-2 text-green-500 hover:bg-gray-100"
-                onClick={() => handleReplyLead(lead)}
-              >
-                <p className="flex gap-4">
-                  Reply
-                  <p className="flex justify-center items-center">
-                    <FaReply />
-                  </p>
-                </p>
-              </button>
-              <button
-                className="block w-full text-left px-4 py-2 text-red-500 hover:bg-gray-100"
-                onClick={() => handleDeleteConfirm(lead.id)}
-              >
-                <p className="flex gap-4">
-                  Delete
-                  <p className="flex justify-center items-center">
-                    <MdDeleteSweep />
-                  </p>
-                </p>
-              </button>
-            </div>
-          )}
-        </div>
-      </td>
+                <td className="py-2 px-4 border-b">
+  <div className="relative">
+    <button
+      className="text-black px-2 py-1 rounded"
+      onClick={() => toggleDropdown(lead.id)}
+    >
+      <PiDotsThreeBold className="text-[35px]" />
+    </button>
+    {dropdownOpen === lead.id && (
+      <div id={`dropdown-${lead.id}`} className="absolute right-0 mt-2 bg-white border rounded shadow-lg z-50">
+        <button
+          className="block w-full text-left px-4 py-2 text-blue-500 hover:bg-gray-100"
+          onClick={() => handleEditLead(lead)}
+        >
+          <p className="flex gap-6">
+            <p>Edit</p>
+            <p className="flex justify-center items-center">
+              <FaEdit />
+            </p>
+          </p>
+        </button>
+        <button
+          className="block w-full text-left px-4 py-2 text-green-500 hover:bg-gray-100"
+          onClick={() => handleReplyLead(lead)}
+        >
+          <p className="flex gap-4">
+            Reply
+            <p className="flex justify-center items-center">
+              <FaReply />
+            </p>
+          </p>
+        </button>
+        <button
+          className="block w-full text-left px-4 py-2 text-red-500 hover:bg-gray-100"
+          onClick={() => handleDeleteConfirm(lead.id)}
+        >
+          <p className="flex gap-4">
+            Delete
+            <p className="flex justify-center items-center">
+              <MdDeleteSweep />
+            </p>
+          </p>
+        </button>
+      </div>
+    )}
+  </div>
+</td>
+
     </tr>
   ))}
 </tbody>
@@ -407,7 +424,7 @@ const [coldCount, setColdCount] = useState(0);
 {messagePopupOpen && (
   <div className="fixed inset-0 bg-gray-600 bg-opacity-50 flex justify-center items-center">
     <div className="bg-white p-6 rounded-md w-96">
-      <h2 className="text-xl font-bold mb-4">Message from {leads.find(lead => lead.id === messagePopupOpen)?.firstName}</h2>
+      <h2 className="text-xl font-bold mb-4">Message from {leads.find(lead => lead.id === messagePopupOpen)?.name}</h2>
       <p>{leads.find(lead => lead.id === messagePopupOpen)?.message}</p>
       <div className="flex justify-end mt-4">
         <button
@@ -434,14 +451,14 @@ const [coldCount, setColdCount] = useState(0);
             <form onSubmit={handleUpdateLead}>
               <input
                 type="text"
-                name="firstName"
+                name="name"
                 placeholder="First Name"
-                value={formData.firstName}
+                value={formData.name}
                 onChange={handleChange}
                 className="border p-2 mb-4 w-full"
                 required
               />
-              <input
+              {/* <input
                 type="text"
                 name="lastName"
                 placeholder="Last Name"
@@ -458,15 +475,15 @@ const [coldCount, setColdCount] = useState(0);
                 onChange={handleChange}
                 className="border p-2 mb-4 w-full"
                 required
-              />
+              /> */}
               <input
                 type="tel"
-                name="phoneNumber"
+                name="phonenumber"
                 placeholder="Phone Number"
-                value={formData.phoneNumber}
+                value={formData.phonenumber}
                 onChange={handleChange}
                 className="border p-2 mb-4 w-full"
-                required
+                required  x-
               />
               <textarea
                 name="message"
@@ -511,7 +528,7 @@ const [coldCount, setColdCount] = useState(0);
       {isReplyDialogOpen && (
         <div className="fixed inset-0 bg-gray-600 bg-opacity-50 flex justify-center items-center">
           <div className="bg-white p-6 rounded-md w-[700px]">
-            <h2 className="text-xl font-bold mb-4">Reply to {formData.firstName} {formData.lastName}</h2>
+            <h2 className="text-xl font-bold mb-4">Reply to {formData.name} {formData.lastName}</h2>
             {/* <textarea
               placeholder="Type your message here..."
               value={replyMessage}
@@ -531,7 +548,7 @@ const [coldCount, setColdCount] = useState(0);
                   </p>
                 </p>
               </button>
-              <button
+              {/* <button
                 type="button"
                 className="bg-blue-500 text-white px-4 py-2 rounded"
                 onClick={sendEmail}
@@ -542,7 +559,7 @@ const [coldCount, setColdCount] = useState(0);
                     <MdOutgoingMail className="text-[20px]" />
                   </p>
                 </p>
-              </button>
+              </button> */}
               <button
                 type="button"
                 className="bg-red-600 text-white px-4 py-2 rounded"

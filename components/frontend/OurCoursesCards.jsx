@@ -9,7 +9,7 @@ const cardData = [
     id: 1,
     imageSrc: "/icons/card1.svg",
     title: "ACE ENTRATION EXAM",
-    route: "/services/Aceinterviewexam",
+    route: "/coursepackages/Aceinterviewexam",
     description:
       "Unlock Your Boarding School Dream and Ace the Entrance Exam with Confidence",
     features: [
@@ -37,9 +37,9 @@ const cardData = [
   },
   {
     id: 2,
-    imageSrc: "/icons/card2.svg",
+    imageSrc: "https://firebasestorage.googleapis.com/v0/b/boardingadmissions-f3ba3.appspot.com/o/images%2Ffoundationcourses.png?alt=media&token=b969ff1f-9f0b-4ca5-8798-2a594e6fc828",
     title: "FOUNDATION COURSES",
-    route: "/services/Foundationcourses",
+    route: "/coursepackages/Foundationcourses",
 
     description: "Build a Strong Academic Base to thrive in every subject for the courses.",
     features: [
@@ -51,9 +51,9 @@ const cardData = [
   },
   {
     id: 3,
-    imageSrc: "/icons/card3.svg",
+    imageSrc: "https://firebasestorage.googleapis.com/v0/b/boardingadmissions-f3ba3.appspot.com/o/images%2Fsoftskills.png?alt=media&token=49a18a46-f850-422c-b1ce-d7b0dfeddc7a",
     title: "SOFT SKILL MASTERY",
-    route: "/services/Softskillmastery",
+    route: "/coursepackages/Softskillmastery",
     description: "Pathway to Personal Excellence or Skills Mastery for your knowledge.",
     features: [
       {
@@ -80,9 +80,9 @@ const cardData = [
   },
   {
     id: 4,
-    imageSrc: "/icons/card4.svg",
+    imageSrc: "https://firebasestorage.googleapis.com/v0/b/boardingadmissions-f3ba3.appspot.com/o/images%2Fboardingcompatibilitytest.png?alt=media&token=b3f71995-989c-4edd-89c8-886b5167dd18",
     title: "BOARDING COMPATIBILITY TEST",
-    route: "/services/Boardingcompatibilitytest",
+    route: "/coursepackages/Boardingcompatibilitytest",
 
     description:
       "Find Your Ideal Boarding School Fit with Our Boarding Compatibility Test",
@@ -103,7 +103,7 @@ const cardData = [
     id: 5,
     imageSrc: "/icons/card5.svg",
     title: "CUSTOMIZED COURSES",
-    route: "/services/Customizedcourses",
+    route: "/coursepackages/Customizedcourses",
 
     description:
       "Tailor-made learning experiences designed to fit your individual needs and goals.",
@@ -142,7 +142,7 @@ const HoverContent = ({ content, style }) => {
         style={style}
       >
         <p className="text-white text-[12px]">{content}</p>
-        <div className=" relative  top-5 flex justify-center items-center">
+        <div className=" relative  top-5 flex justify-center items-center ">
           <Image
             src="/icons/downarrow.svg"
             width={25}
@@ -200,7 +200,7 @@ const OurCoursesCards = () => {
               width={1000}
               height={250}
               alt="card"
-              className="w-full"
+              className="w-full rounded-lg"
             />
             <h1 className="text-primary02 text-[1.15rem] md:text-[1.5rem] font-bold md:font-semibold text-center pt-8">
               {card.title}
