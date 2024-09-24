@@ -100,7 +100,7 @@ const Page = () => {
     //                 as={`/user/dashboard/mypackages/${packageId}/${course.id}`}
     //                 className="w-full" 
     //               >
-    //                 <button className="bg-background04 text-white px-4 py-2 rounded-lg w-full">
+    //                 <button className="bg-background05 text-white px-4 py-2 rounded-lg w-full">
     //                   Learn
     //                 </button>
     //               </Link>

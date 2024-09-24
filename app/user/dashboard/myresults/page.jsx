@@ -59,7 +59,7 @@ export default function Page() {
                 </p>
               </div>
               <a href={`/user/dashboard/myresults/${user.id}_${test.id}`}>
-                <button className="bg-background04 text-white px-4 py-2 rounded-lg w-full">
+                <button className="bg-background05 text-white px-4 py-2 rounded-lg w-full">
                   Show Result
                 </button>
               </a> 

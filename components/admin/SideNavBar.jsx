@@ -58,7 +58,7 @@ export const SideNavBar = ({ isSidebarOpen, setIsSidebarOpen }) => {
   return (
     <>
       <div
-        className={`fixed top-0 left-0 h-screen bg-background04 p-5 pt-8 duration-300 flex flex-col ${
+        className={`fixed top-0 left-0 h-screen bg-background05 p-5 pt-8 duration-300 flex flex-col ${
           isSidebarOpen ? "w-72" : "w-[85px]"
         }`}
       >

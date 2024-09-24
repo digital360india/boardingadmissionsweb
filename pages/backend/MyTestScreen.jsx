@@ -86,7 +86,7 @@ const MyTestScreen = () => {
                   href={`/user/dashboard/mytests/[mytests]`}
                   as={`/user/dashboard/mytests/${pkg.id}`}
                 >
-                  <button className="bg-background04 text-white px-4 py-2 rounded-lg w-full">
+                  <button className="bg-background05 text-white px-4 py-2 rounded-lg w-full">
                     Learn
                   </button>
                 </Link>

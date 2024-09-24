@@ -13,7 +13,7 @@ export const TopNavBar = () => {
   return (
     <div>
       {path !== "/login" && (
-        <div className="bg-background04  text-[#fff] p-4 m-4 mt-7 rounded-lg shadow-md flex justify-between items-center">
+        <div className="bg-background05  text-[#fff] p-4 m-4 mt-7 rounded-lg shadow-md flex justify-between items-center">
           <div className="">
             <h2 className="text-3xl font-semibold capitalize">
               <Link href={`/${pathArray[1] == "" ? "Home" : pathArray[1]}`}>

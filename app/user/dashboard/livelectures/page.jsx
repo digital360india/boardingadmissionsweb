@@ -1,60 +1,142 @@
-"use client"
-import React, { useState, useEffect, useContext } from 'react';
-import { collection, query, where, onSnapshot } from 'firebase/firestore';
-import { db } from '@/firebase/firebase';
-import { UserContext } from '@/userProvider';
+"use client";
+import React, { useState, useEffect, useContext } from "react";
+import { collection, query, where, onSnapshot } from "firebase/firestore";
+import { db } from "@/firebase/firebase";
+import { UserContext } from "@/userProvider";
 
 const LiveLectures = () => {
   const [liveLectures, setLiveLectures] = useState([]);
+  const [futureLectures, setFutureLectures] = useState([]);
   const [loading, setLoading] = useState(true);
-  const {user} = useContext(UserContext);
+  const { user } = useContext(UserContext);
 
   useEffect(() => {
-console.log(user)
-    const coursePackageIds = user.mycoursepackages.map(pkg => pkg.packageId);
-    console.log(coursePackageIds)
+    const coursePackageIds = user.mycoursepackages.map((pkg) => pkg.packageId);
     const q = query(
-      collection(db, 'liveLecture'),
-      where('courseID', 'in', coursePackageIds)
+      collection(db, "liveLecture"),
+      where("courseID", "in", coursePackageIds)
     );
 
-
     const unsubscribe = onSnapshot(q, (querySnapshot) => {
-      const lectures = [];
+      const currentLectures = [];
+      const upcomingLectures = [];
+      const now = new Date().toISOString();
+
       querySnapshot.forEach((doc) => {
-        lectures.push({ id: doc.id, ...doc.data() });
+        const lectureData = { id: doc.id, ...doc.data() };
+        if (
+          lectureData.startDateTime <= now &&
+          lectureData.endDateTime >= now
+        ) {
+          // Current live lecture
+          currentLectures.push(lectureData);
+        } else if (lectureData.startDateTime > now) {
+          // Future lecture
+          upcomingLectures.push(lectureData);
+        }
       });
-      setLiveLectures(lectures);
+
+      setLiveLectures(currentLectures);
+      setFutureLectures(upcomingLectures);
       setLoading(false);
     });
+
     return () => unsubscribe();
   }, [user]);
 
   if (loading) return <p>Loading...</p>;
 
   return (
-    <div>
-      <h2 className="text-lg font-semibold mb-4">Live Lectures</h2>
+    <div className="p-6">
+      {/* Ongoing Class Section */}
+      <h2 className="text-lg font-semibold mb-4">Ongoing Class</h2>
       {liveLectures.length === 0 ? (
         <p>No live lectures available.</p>
       ) : (
-        <ul>
+        <div className="flex gap-10">
           {liveLectures.map((lecture) => (
-            <li key={lecture.id} className="mb-4">
-              <h3 className="text-xl font-semibold">{lecture.lectureName}</h3>
-              <p>Chapter: {lecture.chapterName}</p>
-              <p>Lecture Time: {new Date(lecture.lectureTime).toLocaleString()}</p>
+            <div key={lecture.id} className="min-w-fit max-w-96 p-4 bg-white shadow-lg rounded-lg  flex flex-col gap-54">
+              {/* <img
+                src="/icons/Boardinglogo.svg" // Replace with actual image
+                alt="Class"
+                className="w-20 h-20 rounded-full mb-4"
+              /> */}
+              <h3 className="text-xl font-semibold mb-2">
+                 {lecture.lectureName}
+              </h3>
+              <p className="text-gray-500">
+                Instructor: {lecture.teacherName || "Instructor Name"}
+              </p>
+              <p className="text-gray-700 mt-2">
+                  {new Date(lecture.startDateTime).toLocaleTimeString([], {
+                    hour: "2-digit",
+                    minute: "2-digit",
+                    hour12: true, 
+                  })}{" "}
+                  -{" "}
+                  {new Date(lecture.endDateTime).toLocaleTimeString([], {
+                    hour: "2-digit",
+                    minute: "2-digit",
+                    hour12: true, 
+                  })}
+                </p>
               <a
-                href={lecture.videoLink}
+                href={lecture.link}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-blue-500 underline"
+                className="mt-4 bg-background05 hover:bg-green-600 text-white px-4 py-2 rounded w-28"
               >
-                Watch Video
+                Join Class
               </a>
-            </li>
+            </div>
           ))}
-        </ul>
+        </div>
+      )}
+
+
+      <h2 className="text-lg font-semibold mt-10 mb-4">Today Upcoming Sessions</h2>
+      {futureLectures.length === 0 ? (
+        <p>No upcoming lectures available.</p>
+      ) : (
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {futureLectures.map((lecture) => (
+            <div
+              key={lecture.id}
+              className="bg-white shadow-lg rounded-lg p-6 flex"
+            >
+              <img
+                src="/icons/Boardinglogo.svg"
+                alt="Class"
+                className="w-32 h-32 object-cover rounded-md mb-4"
+              />
+              <div>
+                <h3 className="text-xl font-semibold mb-2">
+                  {lecture.lectureName}
+                </h3>
+                <p className="text-gray-500">
+                  Instructor: {lecture.teacherName || "N/A"}
+                </p>
+                <p className="text-gray-700 mt-2">
+                  {new Date(lecture.startDateTime).toLocaleTimeString([], {
+                    hour: "2-digit",
+                    minute: "2-digit",
+                    hour12: true, 
+                  })}{" "}
+                  -{" "}
+                  {new Date(lecture.endDateTime).toLocaleTimeString([], {
+                    hour: "2-digit",
+                    minute: "2-digit",
+                    hour12: true, 
+                  })}
+                </p>
+
+                <button className="mt-4 bg-green-500 text-white px-4 py-2 rounded">
+                  Set Reminder
+                </button>
+              </div>
+            </div>
+          ))}
+        </div>
       )}
     </div>
   );

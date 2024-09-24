@@ -22,6 +22,10 @@ const CoursePage = () => {
     chapterName: "",
     lectures: [],
   });
+  const [meetingDate, setMeetingDate] = useState("");
+  const [startTime, setStartTime] = useState("");
+  const [endTime, setEndTime] = useState("");
+
   const [inputKey, setInputKey] = useState(Date.now()); // Key to force re-render
   const [showModal, setShowModal] = useState(false); // State to control the modal visibility
   const [videoLink, setVideoLink] = useState("");
@@ -183,7 +187,14 @@ const CoursePage = () => {
       console.error("Error deleting PDF:", err);
     }
   };
-  const handleAddVideoLink = async (chapterIndex, lectureIndex, link) => {
+  const handleAddVideoLink = async (
+    chapterIndex,
+    lectureIndex,
+    link,
+    meetingDate,
+    startTime,
+    endTime
+  ) => {
     try {
       const courseRef = doc(db, "courses", uniqueID);
       const courseSnap = await getDoc(courseRef);
@@ -191,7 +202,11 @@ const CoursePage = () => {
       if (courseSnap.exists()) {
         const courseData = courseSnap.data();
         const updatedChapters = [...courseData.chapters];
-        updatedChapters[chapterIndex].lectures[lectureIndex].videoLink = link;
+        const lecture = updatedChapters[chapterIndex].lectures[lectureIndex];
+        lecture.videoLink = link;
+        lecture.meetingDate = meetingDate;
+        lecture.startTime = startTime;
+        lecture.endTime = endTime;
         await updateDoc(courseRef, { chapters: updatedChapters });
         const chapterName = updatedChapters[chapterIndex].chapterName;
         const lectureName =
@@ -199,7 +214,10 @@ const CoursePage = () => {
         const lectureTime = new Date().toISOString();
         const teacherName = courseData.facultyname || "";
         const courseID = uniqueID;
-
+        const startDateTime = new Date(
+          `${meetingDate}T${startTime}`
+        ).toISOString();
+        const endDateTime = new Date(`${meetingDate}T${endTime}`).toISOString();
         const liveLectureRef = collection(db, "liveLecture");
         await addDoc(liveLectureRef, {
           chapterName,
@@ -207,15 +225,21 @@ const CoursePage = () => {
           lectureName,
           lectureTime,
           teacherName,
-          link
+          link,
+          startDateTime,
+          endDateTime,
         });
-
-        console.log("Video link added and live lecture created successfully");
+        setMeetingDate("");
+        setStartTime("");
+        setEndTime("");
+        alert(
+          "Video link, start time, and end time added, and live lecture created successfully"
+        );
       } else {
         console.error("No such course document!");
       }
     } catch (err) {
-      console.error("Error adding video link and live lecture:", err);
+      console.error("Error adding video link, times, and live lecture:", err);
     }
   };
 
@@ -246,8 +270,22 @@ const CoursePage = () => {
     setShowModal(false);
   };
 
-  const handleSaveVideoLink = (index, lIndex, videoLink) => {
-    handleAddVideoLink(index, lIndex, videoLink);
+  const handleSaveVideoLink = (
+    index,
+    lIndex,
+    videoLink,
+    meetingDate,
+    startTime,
+    endTime
+  ) => {
+    handleAddVideoLink(
+      index,
+      lIndex,
+      videoLink,
+      meetingDate,
+      startTime,
+      endTime
+    );
     setVideoLink("");
     closeModal();
   };
@@ -697,6 +735,7 @@ const CoursePage = () => {
                                 Add Video Link
                               </h2>
 
+                              {/* Video Link Input */}
                               <label className="block text-gray-700 text-md font-medium mb-2 mt-4">
                                 Video Link:
                               </label>
@@ -706,9 +745,51 @@ const CoursePage = () => {
                                 onChange={(e) => setVideoLink(e.target.value)}
                                 className="border border-gray-300 p-4 rounded-lg w-full shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
                               />
+
+                              {/* Date Input */}
+                              <label className="block text-gray-700 text-md font-medium mb-2 mt-4">
+                                Date:
+                              </label>
+                              <input
+                                type="date"
+                                value={meetingDate}
+                                onChange={(e) => setMeetingDate(e.target.value)}
+                                className="border border-gray-300 p-4 rounded-lg w-full shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+                              />
+
+                              {/* Start Time Input */}
+                              <label className="block text-gray-700 text-md font-medium mb-2 mt-4">
+                                Start Time:
+                              </label>
+                              <input
+                                type="time"
+                                value={startTime}
+                                onChange={(e) => setStartTime(e.target.value)}
+                                className="border border-gray-300 p-4 rounded-lg w-full shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+                              />
+
+                              {/* End Time Input */}
+                              <label className="block text-gray-700 text-md font-medium mb-2 mt-4">
+                                End Time:
+                              </label>
+                              <input
+                                type="time"
+                                value={endTime}
+                                onChange={(e) => setEndTime(e.target.value)}
+                                className="border border-gray-300 p-4 rounded-lg w-full shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+                              />
+
+                              {/* Save Button */}
                               <button
                                 onClick={() =>
-                                  handleSaveVideoLink(index, lIndex, videoLink)
+                                  handleSaveVideoLink(
+                                    index,
+                                    lIndex,
+                                    videoLink,
+                                    meetingDate,
+                                    startTime,
+                                    endTime
+                                  )
                                 }
                                 className="bg-green-500 text-white px-4 py-2 rounded mt-4"
                               >

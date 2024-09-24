@@ -106,7 +106,7 @@ const Page = () => {
                 as={`/user/dashboard/mytests/mytests/${test.id}`}
               >
                 {" "}
-                <button className="bg-background04 text-white px-4 py-2 rounded-lg w-full">
+                <button className="bg-background05 text-white px-4 py-2 rounded-lg w-full">
                   Take Test
                 </button>
               </Link>

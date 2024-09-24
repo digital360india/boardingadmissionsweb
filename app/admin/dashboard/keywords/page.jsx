@@ -103,7 +103,7 @@ const Page = () => {
   return (
     <div className="container mx-auto p-4">
       {/* Schools Section */}
-      <div className="p-4 px-8 bg-background04 rounded-2xl ">
+      <div className="p-4 px-8 bg-background05 rounded-2xl ">
         <h2 className="text-2xl font-bold mb-4 text-white">Schools</h2>
         <ul className="space-y-2 h-72  overflow-y-scroll ">
           {schools.map((school) => (
@@ -147,7 +147,7 @@ const Page = () => {
       </div>
 
       {/* Boards Section */}
-      <div className="p-4 px-8 bg-background04 rounded-2xl mt-10 ">
+      <div className="p-4 px-8 bg-background05 rounded-2xl mt-10 ">
         <h2 className="text-2xl font-bold mb-4 text-white">Boards</h2>
         <ul className="space-y-4 h-72 overflow-y-scroll">
           {boards.map((board) => (
