@@ -8,19 +8,19 @@
   
   /* First ball appears, moves to the center, and then separates */
   .ball:nth-child(1) {
-      background-color: #144d74;
+      background-color: #075D70;
     animation: appearFromBottom 1s forwards ease-in-out 0s, seperate1 0.8s forwards ease-in-out infinite;
   }
   
   /* Second ball appears after 0.2s, moves to the center, and then separates */
   .ball:nth-child(2) {
-      background-color: #13c8d4;
+      background-color: #075D70;
     animation: appearFromBottom 1s forwards ease-in-out 0.2s ;
   }
   
   /* Third ball appears after 0.4s, moves to the center, and then separates */
   .ball:nth-child(3) {
-      background-color: #2692da;
+      background-color: #075D70;
     animation: appearFromBottom 1s forwards ease-in-out 0.4s, seperate2 0.8s  forwards ease-in-out infinite;
   }
   
