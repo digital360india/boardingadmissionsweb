@@ -35,14 +35,14 @@ export default function TrustedByStudent() {
             <div className="flex justify-between relative z-10">
               {/* Left side: Button */}
               <div>
-              <div className="py-10">
-  <button
-    onClick={handleClick}
-    className="cursor-pointer border rounded-md w-[260px] py-2 bg-gradient-to-r text-white from-[#075D70] via-[#A1C5CD] to-[#dfdfdf] hover:bg-background05 transition duration-300"
-  >
-    Book a Demo Class
-  </button>
-</div>
+                <div className="py-10">
+                  <button
+                    onClick={handleClick}
+                    className="cursor-pointer border rounded-md w-[260px] py-2 bg-gradient-to-r text-white from-[#075D70] via-[#A1C5CD] to-[#dfdfdf] hover:bg-background05 transition duration-300"
+                  >
+                    Book a Demo Class
+                  </button>
+                </div>
 
                 {isPopupVisible && (
                   <BookaDemoPopUp onClose={handleClosePopup} />
@@ -70,10 +70,12 @@ export default function TrustedByStudent() {
                     guidance helped them confidently secure their spot in top
                     boarding schools.&quot;
                   </p>
-                  <p className="font-semibold text-18px xl:mt-6 mt-4">Sakshi Pandey</p>
+                  {/* <p className="font-semibold text-18px xl:mt-6 mt-4">
+                    Sakshi Pandey
+                  </p>
                   <p className="text-primary03 text-14px">
                     Bishop Cotton School
-                  </p>
+                  </p> */}
                 </div>
               </div>
             </div>

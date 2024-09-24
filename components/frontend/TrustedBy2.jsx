@@ -43,15 +43,15 @@ export default function TrustedBy2() {
                   confidently secure their spot in top boarding schools.&quot;
           </p>
         </div>
-        <div>
+        {/* <div>
           <p className="text-14px font-semibold">Sakshi Pandey</p>
           <p className="text-[10px] text-[#656675]">Bishop Cotton School</p>
-        </div>
+        </div> */}
       </div>
       <div>
         <button
           onClick={handleClick}
-          className="bg-gradient01 w-[100%] text-white rounded-md py-2  hover:bg-background05 transition duration-300"
+          className="bg-gradient01 w-[100%] text-white rounded-md py-2  hover:bg-[#075D70] transition duration-300"
         >
           Book a Demo Class
         </button>

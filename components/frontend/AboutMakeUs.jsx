@@ -3,7 +3,7 @@ import React from "react";
 
 export default function AboutMakeUs() {
   return (
-    <div className="flex h-full w-full ">
+    <div className="flex h-full w-full md:py-10  ">
       <div className="lg:block hidden ">
         <Image
           src="https://firebasestorage.googleapis.com/v0/b/boardingadmissions-f3ba3.appspot.com/o/images%2Faboutmakeusdifferent.png?alt=media&token=496c1d44-4e2b-4c30-9ada-93b011836489"

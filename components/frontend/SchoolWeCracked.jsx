@@ -6,16 +6,16 @@ import Link from "next/link";
 export default function SchoolWeCracked() {
   const school = [
     {
-      school: "Welham Boys",
-      imageSrc: "/images/schoolimages/Welham_Boys.svg",
-      location: "(Dehradun)",
-      routes: "/school/welham-boys-school",
-    },
-    {
       school: "Welham Girls",
       imageSrc: "/images/schoolimages/Welham_Girls.svg",
       location: "(Dehradun)",
       routes: "/school/wellham-girls-school",
+    },
+    {
+      school: "Welham Boys",
+      imageSrc: "/images/schoolimages/Welham_Boys.svg",
+      location: "(Dehradun)",
+      routes: "/school/welham-boys-school",
     },
     {
       school: "The Doon School",
@@ -27,20 +27,20 @@ export default function SchoolWeCracked() {
       school: "Mayo Boys College",
       imageSrc: "/images/schoolimages/Mayo_Boys_College.svg",
       location: "(Ajmer)",
-      routes: "/school/mayo-boys-school"
+      routes: "/school/mayo-boys-school",
     },
-   
+
     {
       school: "Scindia School",
       imageSrc: "/images/schoolimages/Scindia_School.svg",
       location: "(Gwalior)",
-      routes: "/school/scindia-girls-school"
+      routes: "/school/scindia-girls-school",
     },
     {
       school: "St.George College",
       imageSrc: "/images/schoolimages/St.George_College.svg",
       location: "(Mussoorie)",
-      routes: "/school/george-college"
+      routes: "/school/george-college",
     },
   ];
 
@@ -53,16 +53,22 @@ export default function SchoolWeCracked() {
       </div>
       <div className="flex space-x-5 md:space-x-20 overflow-x-auto hide-scrollbar">
         {school.map((member, index) => (
-          <div key={index} className="flex-shrink-0  w-[220px] rounded-md lg:h-[350px] h-[220px] ">
-    <Link href={member.routes}>        <div className="flex justify-center lg:mt-[8%] mt-[6%] lg:mb-[5%] mb-[3%]">
-              <Image
-                src={member.imageSrc}
-                className="lg:w-full lg:h-[220px] w-full h-[122px] "
-                width={1000}
-                height={1000}
-                alt={member.school}
-              />
-            </div></Link>
+          <div
+            key={index}
+            className="flex-shrink-0  w-[220px] rounded-md lg:h-[360px] h-[220px] "
+          >
+            <Link href={member.routes}>
+              {" "}
+              <div className="flex justify-center lg:mt-[8%] mt-[6%] lg:mb-[5%] mb-[3%]">
+                <Image
+                  src={member.imageSrc}
+                  className="lg:w-full lg:h-[220px] w-full h-[122px] "
+                  width={1000}
+                  height={1000}
+                  alt={member.school}
+                />
+              </div>
+            </Link>
             <div className="text-center text-primary02 lg:text-24px text-18px font-medium">
               <p>{member.school}</p>
               <p>{member.location}</p>
