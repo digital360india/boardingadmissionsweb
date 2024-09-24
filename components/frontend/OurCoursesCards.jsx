@@ -200,7 +200,7 @@ const OurCoursesCards = () => {
               width={1000}
               height={250}
               alt="card"
-              className="w-full rounded-lg"
+              className="w-full rounded-t-lg"
             />
             <h1 className="text-primary02 text-[1.15rem] md:text-[1.5rem] font-bold md:font-semibold text-center pt-8">
               {card.title}
