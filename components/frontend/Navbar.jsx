@@ -70,12 +70,12 @@ const Navbar = () => {
       </nav>
 
       {/* Mobile Navbar */}
-      <div className="md:hidden flex justify-between items-center py-2 px-4 bg-white shadow">
+      <div className="md:hidden flex justify-between items-center px-4 bg-white shadow">
         <button onClick={toggleMenu} className="text-2xl">
           ☰
         </button>
      <Link href="/">
-     <Image src="/images/navbar.svg" alt="Logo" className="w-[100px]" width={1000} height={1000} />
+     <Image src="/images/navbar.svg" alt="Logo" className="w-[130px]" width={1000} height={1000} />
      </Link>  
       </div>
 
