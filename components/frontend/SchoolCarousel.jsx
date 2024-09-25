@@ -68,7 +68,7 @@ const SchoolCarousel = () => {
             <img
               src={image}
               alt={`Slide ${index + 1}`}
-              className="w-full h-[80vh] object-cover transition duration-300" // Ensure image height is responsive
+              className="w-full h-[720px] object-cover transition duration-300" // Ensure image height is responsive
             />
           </div>
         ))}

@@ -48,6 +48,12 @@ export default function TopSchools() {
       routes: "/school/bishop-cotton-school-bangalore"
     },
     {
+      school: "Bishop Cotton School",
+      imageSrc: "/images/schoolimages/Bishop_Cotton_School(shimla).png",
+      location: "(Shimla)",
+      routes: "/school/bishop-cotton-school-shimla"
+    },
+    {
       school: "Vidya Devi Jindal School",
       imageSrc: "/images/schoolimages/Vidya_Devi_Jindal_School.svg",
       location: "",
