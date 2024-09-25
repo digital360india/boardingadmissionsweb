@@ -1,8 +1,7 @@
 "use client";
 import { db } from "@/firebase/firebase";
 import { UserContext } from "@/userProvider";
-import { collection, onSnapshot, query, where } from "firebase/firestore"; // Import `where`
-import Link from "next/link";
+import { collection, onSnapshot, query, where } from "firebase/firestore";
 import React, { useContext, useEffect, useState } from "react";
 
 export default function Page() {
@@ -12,12 +11,10 @@ export default function Page() {
   useEffect(() => {
     if (user?.id) {
       const fetchData = async () => {
-        // Use `array-contains` to check if user.id exists in the `attemptedBy` array
         const q = query(
           collection(db, "tests"),
-          where("attemptedBy", "array-contains", user.id) // Check if user.id is in attemptedBy array
+          where("attemptedBy", "array-contains", user.id)
         );
-        // Set up the real-time listener with onSnapshot
         const unsubscribe = onSnapshot(q, (querySnapshot) => {
           let dataArr = [];
           querySnapshot.forEach((doc) => {

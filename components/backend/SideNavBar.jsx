@@ -25,6 +25,11 @@ export const SideNavBar = ({ isSidebarOpen, setIsSidebarOpen }) => {
       src: "/user/dashboard/livelectures",
       icon: <FaVideo />,
     },
+    {
+      title: "My Results",
+      src: "/user/dashboard/myresults",
+      
+    }
   ];
 
   const path = usePathname();
