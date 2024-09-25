@@ -142,13 +142,13 @@ function WelhamGirlsPage() {
                     admission application:
                   </p>
 
-                  <table className="w-full border-collapse border border-gray-300">
+                  <table className="w-full border-collapse border border-gray-300 text-[14px] md:text-[1.1rem] mt-6">
                     <thead>
                       <tr>
-                        <th className="border border-gray-300 px-4 py-2 bg-gray-100 text-left font-medium">
+                        <th className="border border-gray-300 px-4 py-2 bg-gray-100 text-left font-semibold">
                           Document
                         </th>
-                        <th className="border border-gray-300 px-4 py-2 bg-gray-100 text-left font-medium">
+                        <th className="border border-gray-300 px-4 py-2 bg-gray-100 text-left font-semibold">
                           Details
                         </th>
                       </tr>
@@ -267,13 +267,13 @@ function WelhamGirlsPage() {
                     readiness of applicants.
                   </p>
 
-                  <table className="w-full border-collapse border border-gray-300">
+                  <table className="w-full border-collapse border border-gray-300 text-[14px] md:text-[1.1rem] mt-6">
                     <thead>
                       <tr>
-                        <th className="border border-gray-300 px-4 py-2 bg-gray-100 text-left font-medium">
+                        <th className="border border-gray-300 px-4 py-2 bg-gray-100 text-left font-semibold">
                           Subject
                         </th>
-                        <th className="border border-gray-300 px-4 py-2 bg-gray-100 text-left font-medium">
+                        <th className="border border-gray-300 px-4 py-2 bg-gray-100 text-left font-semibold">
                           Focus Areas
                         </th>
                       </tr>
@@ -378,13 +378,13 @@ function WelhamGirlsPage() {
             Admissions process:
           </p>
 
-          <table className="w-full border-collapse border border-gray-300 ml-4">
+          <table className="w-full border-collapse border border-gray-300 ml-2 text-[14px] md:text-[1.1rem]">
             <thead>
               <tr>
-                <th className="border border-gray-300 px-4 py-2 bg-gray-100 text-left font-medium">
+                <th className="border border-gray-300 px-4 py-2 bg-gray-100 text-left font-semibold">
                   Event
                 </th>
-                <th className="border border-gray-300 px-4 py-2 bg-gray-100 text-left font-medium">
+                <th className="border border-gray-300 px-4 py-2 bg-gray-100 text-left font-semibold">
                   Date
                 </th>
               </tr>
@@ -438,13 +438,13 @@ function WelhamGirlsPage() {
             and academic performance
           </p>
 
-          <table className="w-full border-collapse border border-gray-300 ml-4">
+          <table className="w-full border-collapse border border-gray-300 ml-2  text-[14px] md:text-[1.1rem]">
             <thead>
               <tr>
-                <th className="border border-gray-300 px-4 py-2 bg-gray-100 text-left font-medium">
+                <th className="border border-gray-300 px-4 py-2 bg-gray-100 text-left font-semibold">
                   Class
                 </th>
-                <th className="border border-gray-300 px-4 py-2 bg-gray-100 text-left font-medium">
+                <th className="border border-gray-300 px-4 py-2 bg-gray-100 text-left font-semibold">
                   Age Eligibility
                 </th>
               </tr>
@@ -499,13 +499,13 @@ function WelhamGirlsPage() {
             The fee structure for Welham Girls School is as follows:
           </p>
 
-          <table className="w-full border-collapse border border-gray-300 ml-4">
+          <table className="w-full border-collapse border border-gray-300 ml-2 text-[14px] md:text-[1.1rem]">
             <thead>
               <tr>
-                <th className="border border-gray-300 px-4 py-2 bg-gray-100 text-left font-medium">
+                <th className="border border-gray-300 px-4 py-2 bg-gray-100 text-left font-semibold">
                   Fee Category
                 </th>
-                <th className="border border-gray-300 px-4 py-2 bg-gray-100 text-left font-medium">
+                <th className="border border-gray-300 px-4 py-2 bg-gray-100 text-left font-semibold">
                   Amount (INR)
                 </th>
               </tr>

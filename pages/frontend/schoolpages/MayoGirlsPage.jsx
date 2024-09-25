@@ -248,13 +248,13 @@ function MayoGirlsPage() {
               Registration Fees
             </p>
 
-            <table className="w-full border-collapse border border-gray-300">
+            <table className="w-full text-[14px] md:text-[1.1rem] border-collapse border border-gray-300">
               <thead>
                 <tr>
                   {tableData[0].headers.map((header, idx) => (
                     <th
                       key={idx}
-                      className="border border-gray-300 px-4 py-2 bg-gray-100 text-left font-medium"
+                      className="border border-gray-300 px-4 py-2 bg-gray-100 text-left font-semibold"
                     >
                       {header}
                     </th>
@@ -300,13 +300,13 @@ function MayoGirlsPage() {
                 Admission Timeline
               </p>
 
-              <table className="w-full border-collapse border border-gray-300">
+              <table className="w-full text-[14px] md:text-[1.1rem] border-collapse border border-gray-300">
                 <thead>
-                  <tr>
+                  <tr className="font-semibold">
                     {tableData[1].headers.map((header, idx) => (
                       <th
                         key={idx}
-                        className="border border-gray-300 px-4 py-2 bg-gray-100 text-left font-medium"
+                        className="border border-gray-300 px-4 py-2 bg-gray-100 text-left font-semibold"
                       >
                         {header}
                       </th>
@@ -354,13 +354,13 @@ function MayoGirlsPage() {
                 Age Criteria for Admission
               </p>
 
-              <table className="w-full border-collapse border border-gray-300">
+              <table className="w-full text-[14px] md:text-[1.1rem] border-collapse border border-gray-300">
                 <thead>
-                  <tr>
+                  <tr className="font-semibold">
                     {tableData[2].headers.map((header, idx) => (
                       <th
                         key={idx}
-                        className="border border-gray-300 px-4 py-2 bg-gray-100 text-left font-medium"
+                        className="border border-gray-300 px-4 py-2 bg-gray-100 text-left font-semibold"
                       >
                         {header}
                       </th>
@@ -405,13 +405,13 @@ function MayoGirlsPage() {
             <div>
               <p className="text-[1.15rem] font-semibold mb-4">Fee Structure</p>
 
-              <table className="w-full border-collapse border border-gray-300">
+              <table className="w-full text-[14px] md:text-[1.1rem] border-collapse border border-gray-300">
                 <thead>
-                  <tr>
+                  <tr className="font-semibold">
                     {tableData[3].headers.map((header, idx) => (
                       <th
                         key={idx}
-                        className="border border-gray-300 px-4 py-2 bg-gray-100 text-left font-medium"
+                        className="border border-gray-300 px-4 py-2 bg-gray-100 text-left font-semibold"
                       >
                         {header}
                       </th>

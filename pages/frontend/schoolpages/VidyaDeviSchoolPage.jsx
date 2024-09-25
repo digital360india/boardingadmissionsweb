@@ -197,7 +197,7 @@ function VidyaDeviSchoolPage() {
             Fee Structure
           </h2>
           <div className="overflow-scroll lg:overflow-auto w-[90vw]">
-            <table className=" border-collapse border border-gray-300">
+            <table className=" border-collapse border border-gray-300 text-[14px] md:text-[1.1rem]">
               <thead>
                 <tr className="bg-gray-100">
                   <th className="border border-gray-300 p-2">Class</th>

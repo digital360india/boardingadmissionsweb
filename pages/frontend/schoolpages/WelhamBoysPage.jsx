@@ -117,14 +117,14 @@ function WelhamBoysPage() {
               </li>
             </ul>
 
-            <div>
-              <table className="w-full border-collapse border border-gray-300">
+            <div className="pt-6">
+              <table className="w-full border-collapse border border-gray-300 text-[14px] md:text-[1.1rem]">
                 <thead>
                   <tr>
-                    <th className="border border-gray-300 px-4 py-2 bg-gray-100 text-left font-medium">
+                    <th className="border border-gray-300 px-4 py-2 bg-gray-100 text-left font-semibold">
                       Grade
                     </th>
-                    <th className="border border-gray-300 px-4 py-2 bg-gray-100 text-left font-medium">
+                    <th className="border border-gray-300 px-4 py-2 bg-gray-100 text-left font-semibold">
                       Age Requirement (as of April 1 of the joining year)
                     </th>
                   </tr>
@@ -189,14 +189,14 @@ function WelhamBoysPage() {
                   </li>
                 </ul>
 
-                <div className="mt-10">
-                  <table className="w-full border-collapse border border-gray-300">
+                <div className="mt-6">
+                  <table className="w-full border-collapse border border-gray-300 text-[14px] md:text-[1.1rem]">
                     <thead>
                       <tr>
-                        <th className="border border-gray-300 px-4 py-2 bg-gray-100 text-left font-medium">
+                        <th className="border border-gray-300 px-4 py-2 bg-gray-100 text-left font-semibold">
                           Grade
                         </th>
-                        <th className="border border-gray-300 px-4 py-2 bg-gray-100 text-left font-medium">
+                        <th className="border border-gray-300 px-4 py-2 bg-gray-100 text-left font-semibold">
                           Assessment Dates
                         </th>
                       </tr>
@@ -248,13 +248,13 @@ function WelhamBoysPage() {
               </p>
             </div>
             <div className="my-5 md:my-10">
-              <table className="w-full border-collapse border border-gray-300">
+              <table className="w-full border-collapse border border-gray-300 text-[14px] md:text-[1.1rem]">
                 <thead>
                   <tr>
-                    <th className="border border-gray-300 px-4 py-2 bg-gray-100 text-left font-medium">
+                    <th className="border border-gray-300 px-4 py-2 bg-gray-100 text-left font-semibold">
                       Event
                     </th>
-                    <th className="border border-gray-300 px-4 py-2 bg-gray-100 text-left font-medium">
+                    <th className="border border-gray-300 px-4 py-2 bg-gray-100 text-left font-semibold">
                       Date
                     </th>
                   </tr>
@@ -369,13 +369,13 @@ function WelhamBoysPage() {
                 covers tuition, boarding, and extracurricular activities.
               </p>
             </div>
-            <table className="w-full border-collapse border border-gray-300">
+            <table className="w-full border-collapse border border-gray-300 text-[14px] md:text-[1.1rem] mt-6">
               <thead>
                 <tr>
-                  <th className="border border-gray-300 px-4 py-2 bg-gray-100 text-left font-medium">
+                  <th className="border border-gray-300 px-4 py-2 bg-gray-100 text-left font-semibold">
                     Fee Category
                   </th>
-                  <th className="border border-gray-300 px-4 py-2 bg-gray-100 text-left font-medium">
+                  <th className="border border-gray-300 px-4 py-2 bg-gray-100 text-left font-semibold">
                     Amount (INR)
                   </th>
                 </tr>
