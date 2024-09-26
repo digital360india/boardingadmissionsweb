@@ -3,7 +3,6 @@ import Link from "next/link";
 import React from "react";
 
 export default function TopSchools() {
-  
   const school = [
     {
       school: "Welham Girls",
@@ -21,13 +20,13 @@ export default function TopSchools() {
       school: "Scindia School",
       imageSrc: "/images/schoolimages/Scindia_School.svg",
       location: "(Gwalior)",
-      routes: "/school/scindia-girls-school"
+      routes: "/school/scindia-girls-school",
     },
     {
       school: "Lawrence School",
       imageSrc: "/images/schoolimages/Lawrence_School.svg",
       location: "(Solan)",
-      routes: "/school/laurence-school"
+      routes: "/school/laurence-school",
     },
     {
       school: "Welham Boys",
@@ -39,19 +38,19 @@ export default function TopSchools() {
       school: "Mayo Boys College",
       imageSrc: "/images/schoolimages/Mayo_Boys_College.svg",
       location: "(Ajmer)",
-      routes: "/school/mayo-boys-school"
+      routes: "/school/mayo-boys-school",
     },
     {
       school: "Bishop Cotton School",
       imageSrc: "/images/schoolimages/Bishop_Cotton_School(Bangaluru).svg",
       location: "(Bangaluru)",
-      routes: "/school/bishop-cotton-school-bangalore"
+      routes: "/school/bishop-cotton-school-bangalore",
     },
     {
       school: "Bishop Cotton School",
       imageSrc: "/images/schoolimages/Bishop_Cotton_School(shimla).png",
       location: "(Shimla)",
-      routes: "/school/bishop-cotton-school-shimla"
+      routes: "/school/bishop-cotton-school-shimla",
     },
     {
       school: "Vidya Devi Jindal School",
@@ -63,19 +62,19 @@ export default function TopSchools() {
       school: "CJM Waverly",
       imageSrc: "/images/schoolimages/CJM_Waverly.svg",
       location: "(Mussoorie)",
-      routes: "/school/cjm-waverly"
+      routes: "/school/cjm-waverly",
     },
     {
       school: "Sherwood College",
       imageSrc: "/images/schoolimages/Sherwood_College.svg",
       location: "(Nainital)",
-      routes: "/school/sherwood-college"
+      routes: "/school/sherwood-college",
     },
     {
       school: "St.George College",
       imageSrc: "/images/schoolimages/St.George_College.svg",
       location: "(Mussoorie)",
-      routes: "/school/george-college"
+      routes: "/school/george-college",
     },
     {
       school: "Wood Stock School",
@@ -94,12 +93,14 @@ export default function TopSchools() {
         </div>
         <div className="flex justify-center mx-auto lg:gap-8 gap-4 flex-wrap ">
           {school.map((member, index) => (
-            <div
-              key={index}
-              className="flex-shrink-0 lg:w-[330px] lg:h-[350px] w-[45%] h-[160px] rounded-md lg:border-2 border-4 border-[#075D70]"
-            >
-              <Link href={member.routes}>
-              
+              <div 
+                key={index}
+                >
+            <Link href={member.routes}>
+
+              <div
+                className="flex-shrink-0 lg:w-[330px] lg:h-[350px] w-[45%] h-[160px] rounded-md lg:border-2 border-4 border-[#075D70]"
+              >
                 <div className="flex justify-center lg:mt-[8%] mt-[6%] lg:mb-[5%] mb-[3%]">
                   <Image
                     src={member.imageSrc}
@@ -109,12 +110,14 @@ export default function TopSchools() {
                     className="lg:w-[200px] lg:h-[200px] w-[80px] h-[80px]"
                   />
                 </div>
-              </Link>
-              <div className="text-center text-primary02 lg:text-24px text-[14px] font-medium">
-                <p>{member.school}</p>
-                <p>{member.location}</p>
+                <div className="text-center text-primary02 lg:text-24px text-[14px] font-medium">
+                  <p>{member.school}</p>
+                  <p>{member.location}</p>
+                </div>
               </div>
-            </div>
+            </Link>
+
+              </div>
           ))}
         </div>
       </div>
