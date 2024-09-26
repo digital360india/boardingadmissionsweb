@@ -198,7 +198,7 @@ function CJMwaverlyPage() {
           <div className="lg:overflow-auto overflow-x-scroll">
             <table className="w-full border-collapse border border-gray-300">
               <thead>
-                <tr className="bg-gray-100">
+                <tr className="bg-gray-100 text-[14px] md:text-[1.1rem]">
                   <th className="border border-gray-300 p-2">Class</th>
                   <th className="border border-gray-300 p-2">Old Student</th>
                   <th className="border border-gray-300 p-2">Day School</th>
@@ -208,7 +208,7 @@ function CJMwaverlyPage() {
               </thead>
               <tbody>
                 {feeData.map((row, index) => (
-                  <tr key={index}>
+                  <tr key={index} className="text-[14px]">
                     <td className="border border-gray-300 p-2 text-center">
                       {row.class}
                     </td>
