@@ -68,7 +68,6 @@ export default function RootLayout({ children }) {
 
 
 </body>
-
       </UserProvider>
     </html>
   );

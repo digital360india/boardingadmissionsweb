@@ -38,7 +38,7 @@ const cardData = [
   },
   {
     id: 2,
-    imageSrc: "/icons/card2.svg",
+    imageSrc: "https://firebasestorage.googleapis.com/v0/b/boardingadmissions-f3ba3.appspot.com/o/images%2Ffoundationcourses.png?alt=media&token=b969ff1f-9f0b-4ca5-8798-2a594e6fc828",
     title: "FOUNDATION COURSES",
     route: "/coursepackages/Foundationcourses",
     description: "Build a Strong Academic Base to thrive in every subject",
@@ -51,7 +51,7 @@ const cardData = [
   },
   {
     id: 3,
-    imageSrc: "/icons/card3.svg",
+    imageSrc: "https://firebasestorage.googleapis.com/v0/b/boardingadmissions-f3ba3.appspot.com/o/images%2Fsoftskills.png?alt=media&token=49a18a46-f850-422c-b1ce-d7b0dfeddc7a",
     title: "SOFT SKILL MASTERY",
     route: "/coursepackages/Softskillmastery",
     description: "Pathway to Personal Excellence or Skills Mastery",
@@ -80,7 +80,7 @@ const cardData = [
   },
   {
     id: 4,
-    imageSrc: "/icons/card4.svg",
+    imageSrc: "https://firebasestorage.googleapis.com/v0/b/boardingadmissions-f3ba3.appspot.com/o/images%2Fboardingcompatibilitytest.png?alt=media&token=b3f71995-989c-4edd-89c8-886b5167dd18",
     title: "BOARDING COMPATIBILITY TEST",
     route: "/coursepackages/Boardingcompatibilitytest",
 
@@ -191,7 +191,7 @@ export default function CourseCarousel() {
             style={{ boxShadow: "0px 0px 8px 0px #FFFFFF4D" }}
             className="w-full h-full bg-[#FFFFFF] rounded-[9px] relative flex flex-col items-center"
           >
-            <Image src={card.imageSrc} width={600} height={250} alt="card" />
+            <Image src={card.imageSrc} width={1000} height={1000} alt="card"  className="w-full object-cover rounded-t-lg h-[220px]"/>
             <h1 className="text-primary02 text-24px font-semibold text-center lg:pt-8 pt-3">
               {card.title}
             </h1>
