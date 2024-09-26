@@ -4,8 +4,8 @@ import Desktop from "@/public/images/Desktop-2.svg";
 export default function HeroImage() {
   return (
     <div
-      className="w-full h-[480px] bg-no-repeat bg-cover bg-center relative"
-      style={{ backgroundImage: `url(/images/Desktop-2.svg)` }}
+      className="w-full h-[480px] bg-no-repeat bg-cover bg-center relative object-fill"
+      style={{ backgroundImage: `url(https://firebasestorage.googleapis.com/v0/b/boardingadmissions-f3ba3.appspot.com/o/images%2Fschoolbanner.png?alt=media&token=9b037df0-43d9-43cb-b3e5-e00a5ea708bd)` }}
     >
       <div className="lg:w-[31.25rem]  lg:px-16 pl-[24px]   absolute  bottom-20 text-white  ">
         <h1 className="lg:text-56px text-[32px]  font-semibold lg:w-[31.25rem]  leading-tight">
