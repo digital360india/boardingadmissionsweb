@@ -15,7 +15,7 @@ const CustomizedCoursesHero = () => {
           style={{ backgroundImage: `url(${Customizedcourse.src})` }}
         >
           <div className="w-full   md:w-[22.563rem] h-[17.5rem] px-10 md:px-0 md:mx-12 mt-10 space-y-7   absolute    text-white  ">
-            <p className="md:mt-2 text-[14px]  md:text-[1rem] ">
+            <p className="md:mt-2 text-justify text-[14px]  md:text-[1rem] ">
               At Boarding Admissions, our Customized Courses offer personalized,
               targeted preparation for entrance exams to one or multiple
               schools. We create unique study plans based on individual student
