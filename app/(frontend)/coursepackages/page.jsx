@@ -1,11 +1,11 @@
 
-import OurCoursesServices from '@/pages/frontend/OurCoursesServices'
+import SoftSkillMastery from '@/pages/frontend/SoftSkillMastery'
 import React from 'react'
 
 const page = () => {
   return (
     <>
-    <OurCoursesServices />
+    <SoftSkillMastery />
         
     </>
   )

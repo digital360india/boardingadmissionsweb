@@ -5,10 +5,12 @@ export default function WhoWeAre() {
   return (
     <div className="lg:flex w-full xl:px-[100px] lg:p-[40px] px-[24px] xl:h-[600px] lg:h-[480px] lg:py-0 py-10 bg-[#F4FCFC]">
       <div className=" w-1/2 lg:flex hidden items-center">
-        <img
-          src="/images/reactangle.svg"
+        <Image
+          src="https://firebasestorage.googleapis.com/v0/b/boardingadmissions-f3ba3.appspot.com/o/images%2Fwhoweare.png?alt=media&token=3dd85215-ecb5-407c-b1dd-bb93d5b201ed"
           alt="Calendar"
-          className="xl:w-[503px] xl:h-[480px] lg:w-[420px] lg:h-[400px]"
+          className="xl:w-[470px] xl:h-[430px] lg:w-[420px] lg:h-[400px]"
+          width={1000}
+          height={1000}
 
         />
       </div>

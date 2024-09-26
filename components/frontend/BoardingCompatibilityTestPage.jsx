@@ -1,7 +1,18 @@
+"use client"
 import Image from "next/image";
-import React from "react";
+import React, { useState } from "react";
+import BookaDemoPopUp from "./BookaDemoPopUp";
 
 const BoardingCompatibilityTestPage = () => {
+  const [isPopupVisible, setPopupVisible] = useState(false);
+
+  const handleClick = () => {
+    setPopupVisible(true);
+  };
+
+  const handleClosePopup = () => {
+    setPopupVisible(false);
+  };
   return (
     <>
       <div>
@@ -21,13 +32,14 @@ const BoardingCompatibilityTestPage = () => {
                 success with this essential readiness evaluation.
               </p>
             </div>
-            <div className=" hidden md:flex md:space-x-12 md:mt-4">
+            <div className=" hidden md:flex md:space-x-12  md:mt-4">
               <div>
                 <Image
                   src="/icons/online1.svg"
                   width={1000}
                   height={1000}
                   alt="course1"
+                  className="w-[638px] h-[280px]"
                 />
               </div>
               <div>
@@ -36,15 +48,17 @@ const BoardingCompatibilityTestPage = () => {
                   width={1000}
                   height={1000}
                   alt="course1"
+                  className="w-[368px] h-[280px]"
                 />
               </div>
-              <div className="space-y-5">
+              <div className=" space-y-3 md:hidden xl:block">
                 <div>
                   <Image
                     src="/icons/online3.svg"
                     width={1000}
                     height={1000}
                     alt="course1"
+                    className="w-[187px] h-[131px]"
                   />
                 </div>
                 <div>
@@ -53,6 +67,8 @@ const BoardingCompatibilityTestPage = () => {
                     width={1000}
                     height={1000}
                     alt="course1"
+                    className="w-[187px] h-[131px]"
+
                   />
                 </div>
               </div>
@@ -92,6 +108,7 @@ const BoardingCompatibilityTestPage = () => {
                   width={1000}
                   height={1000}
                   alt="course1"
+                  className="w-[632px] h-[280px]"
                 />
               </div>
               <div>
@@ -100,6 +117,7 @@ const BoardingCompatibilityTestPage = () => {
                   width={1000}
                   height={1000}
                   alt="course1"
+                  className="w-[579px] h-[280px]"
                 />
               </div>
             </div>
@@ -116,6 +134,13 @@ const BoardingCompatibilityTestPage = () => {
 
          
 
+
+
+          {isPopupVisible && (
+                  <BookaDemoPopUp onClose={handleClosePopup} />
+                )}
+
+
           {/* laptop */}
           <div className="hidden lg:block border border-primary02 rounded-3xl mt-[1.25rem] mx-[2rem] mb-14">
             <div className="w-full h-[13.125rem] gap-[2rem] flex justify-center items-center ">
@@ -124,7 +149,7 @@ const BoardingCompatibilityTestPage = () => {
               </div>
 
               <div>
-                <div className=" w-[18.75rem] h-[3.5rem] bg-gradient01  border-custom rounded-md flex items-center justify-center">
+                <div className="cursor-pointer w-[18.75rem] h-[3.5rem] bg-gradient01  border-custom rounded-md flex items-center justify-center">
                   <button className="text-white">Enroll Now</button>
                 </div>
 
@@ -135,8 +160,8 @@ const BoardingCompatibilityTestPage = () => {
                   </div>
                   <div className="bg-[#00000015] w-[120px] h-[1px]"></div>
                 </div>
-                <u className="text-primary02 text-center">
-                  <h1 className="">Contact Us</h1>
+                <u className="text-primary02 text-center cursor-pointer">
+                  <h1 className="" onClick={handleClick}>Contact Us</h1>
                 </u>
               </div>
             </div>
@@ -149,13 +174,13 @@ const BoardingCompatibilityTestPage = () => {
                 Want to prepare for top Boarding School ?
               </h1>
               <div className="flex justify-between px-2 pt-4">
-                <div className="w-[7.5rem] h-[1.9rem]  bg-gradient01  border-custom rounded-md flex items-center justify-center text-[0.875rem] text-white ">
+                <div className="cursor-pointer w-[7.5rem] h-[1.9rem]  bg-gradient01  border-custom rounded-md flex items-center justify-center text-[0.875rem] text-white ">
                   Enroll Now
                 </div>
                 <div className="text-[#00000080]  text-[0.875rem] pt-[5px]">
                   OR
                 </div>
-                <u className="text-primary02  text-[0.875rem] pt-[5px]">
+                <u className="text-primary02  text-[0.875rem] pt-[5px] cursor-pointer" onClick={handleClick}>
                   Contact Us
                 </u>
               </div>

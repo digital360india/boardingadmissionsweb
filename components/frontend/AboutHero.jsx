@@ -8,7 +8,7 @@ export default function AboutHero() {
         <div className='flex justify-between lg:gap-0  w-full '>
       <div className='order-2 lg:order-1'>
       <Image
-                src="/images/aboutimg.svg"
+                src="https://firebasestorage.googleapis.com/v0/b/boardingadmissions-f3ba3.appspot.com/o/images%2Fabout.png?alt=media&token=e051284f-f425-4d72-9a09-7a1d87a7072f"
                 width={1000}
                 height={1000}
                 alt="Image"
