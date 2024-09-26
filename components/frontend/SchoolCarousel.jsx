@@ -19,7 +19,7 @@ const SchoolCarousel = () => {
   }, []);
 
   const images = isMobile
-    ? ["/images/mobilebanner1.jpg", "/images/mobilebanner2.png"] // Mobile images
+    ? ["https://firebasestorage.googleapis.com/v0/b/boardingadmissions-f3ba3.appspot.com/o/images%2Fboardingbanner.jpeg?alt=media&token=0b86327a-e783-457d-8446-0ac5e82f5781", "https://firebasestorage.googleapis.com/v0/b/boardingadmissions-f3ba3.appspot.com/o/images%2Fboardingcup.jpeg?alt=media&token=aa190a65-0e1b-4aa1-8545-5cf3d8733aa5"] // Mobile images
     : [
         "https://firebasestorage.googleapis.com/v0/b/bookify-faedc.appspot.com/o/banner1.png?alt=media&token=25e52b21-cad7-4e3f-adaa-521f15a6f7a9",
         "/images/banner3.jpg",
@@ -68,7 +68,7 @@ const SchoolCarousel = () => {
             <img
               src={image}
               alt={`Slide ${index + 1}`}
-              className="w-full h-[80vh] object-cover transition duration-300" // Ensure image height is responsive
+              className="w-full h-[620px] object-cover transition duration-300" // Ensure image height is responsive
             />
           </div>
         ))}
