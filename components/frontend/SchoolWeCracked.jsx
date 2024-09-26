@@ -1,6 +1,6 @@
 import Image from "next/image";
 import React from "react";
-import "./ScrollbarHide.css"; // Import the custom scrollbar CSS
+import "./ScrollbarHide.css"; 
 import Link from "next/link";
 
 export default function SchoolWeCracked() {
@@ -69,7 +69,7 @@ export default function SchoolWeCracked() {
             className="flex-shrink-0  w-[220px] rounded-md lg:h-[360px] h-[220px] "
           >
             <Link href={member.routes}>
-              {" "}
+        
               <div className="flex justify-center lg:mt-[8%] mt-[6%] lg:mb-[5%] mb-[3%]">
                 <Image
                   src={member.imageSrc}
