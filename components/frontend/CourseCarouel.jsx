@@ -38,7 +38,7 @@ const cardData = [
   },
   {
     id: 2,
-    imageSrc: "https://firebasestorage.googleapis.com/v0/b/boardingadmissions-f3ba3.appspot.com/o/images%2Ffoundationcourses.png?alt=media&token=b969ff1f-9f0b-4ca5-8798-2a594e6fc828",
+    imageSrc: "https://firebasestorage.googleapis.com/v0/b/boardingadmissions-f3ba3.appspot.com/o/images%2Ffoundation.jpeg?alt=media&token=e5a844b7-e07b-494f-ba42-a4c7f8f1ffcf",
     title: "FOUNDATION COURSES",
     route: "/coursepackages/Foundationcourses",
     description: "Build a Strong Academic Base to thrive in every subject",
