@@ -50,18 +50,21 @@ export default function RootLayout({ children }) {
   {children}
   <Footer />
  {/* Phone call button */}
-<span className="fixed z-[9999] hover:scale-125 duration-300 bottom-4 md:right-6 right-2 bg-[#025498] rounded-full p-4 text-white">
-  <Link href={"tel:+919760548360"}>
-<img src="/phone.svg" />
-  </Link>
-</span>
+ <div className="fixed z-[9999] bottom-4 md:right-6 right-2 flex flex-col gap-4">
+  <span className="hover:scale-125 duration-300 bg-primary02 rounded-full p-4 text-white">
+    <Link href={"tel:+919760548360"}>
+      <img src="/phone.svg" alt="Phone Icon" />
+    </Link>
+  </span>
 
-{/* WhatsApp button */}
-<span className="fixed z-[9999] hover:scale-125 duration-300 bottom-4 md:right-28 right-20 bg-[#25D366] rounded-full p-4 text-white">
-  <Link href={"https://wa.me/919760548360"}>
-  <img src="/Whatsapp.svg" />
-  </Link>
-</span>
+  {/* WhatsApp button */}
+  <span className="hover:scale-125 duration-300 bg-[#25D366] rounded-full p-4 text-white">
+    <Link href={"https://wa.me/919760548360"}>
+      <img src="/Whatsapp.svg" alt="WhatsApp Icon" />
+    </Link>
+  </span>
+</div>
+
 
 </body>
 
