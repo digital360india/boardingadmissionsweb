@@ -79,11 +79,13 @@ export default function SchoolWeCracked() {
                   alt={member.school}
                 />
               </div>
-            </Link>
+            
             <div className="text-center text-primary02 lg:text-24px text-18px font-medium">
               <p>{member.school}</p>
               <p>{member.location}</p>
             </div>
+            </Link>
+
           </div>
         ))}
       </div>
