@@ -1,8 +1,8 @@
 "use client";
 import React, { useState, useEffect, useContext } from "react";
-import { useRouter } from "next/navigation";
+import { useRouter, useSearchParams } from "next/navigation";
 import { db } from "@/firebase/firebase";
-import { doc, setDoc } from "firebase/firestore";
+import { doc, getDoc, setDoc } from "firebase/firestore";
 import { UserContext } from "@/userProvider";
 
 const TestPage = () => {
@@ -10,54 +10,54 @@ const TestPage = () => {
   const [responses, setResponses] = useState({});
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [userDetails, setUserDetails] = useState({ email: "", phone: "", name: "" });
+  const [userDetails, setUserDetails] = useState({
+    email: "",
+    phone: "",
+    name: "",
+  });
   const [finalScore, setFinalScore] = useState(null);
   const [showResultForm, setShowResultForm] = useState(false);
   const router = useRouter();
   const { user } = useContext(UserContext);
 
-  const testQuestions = [
-    {
-      questionID: 1,
-      question: "What is the capital of France?",
-      answer: "Paris",
-      options: ["Paris", "London", "Berlin", "Madrid"],
-    },
-    {
-      questionID: 2,
-      question: "What is 2 + 2?",
-      answer: "4",
-      options: ["3", "4", "5", "6"],
-    },
-    {
-      questionID: 3,
-      question: "Which planet is known as the Red Planet?",
-      answer: "Mars",
-      options: ["Earth", "Mars", "Jupiter", "Saturn"],
-    },
-    {
-      questionID: 4,
-      question: "What is the largest ocean on Earth?",
-      answer: "Pacific Ocean",
-      options: [
-        "Atlantic Ocean",
-        "Indian Ocean",
-        "Arctic Ocean",
-        "Pacific Ocean",
-      ],
-    },
-    {
-      questionID: 5,
-      question: 'Who wrote "To Kill a Mockingbird"?',
-      answer: "Harper Lee",
-      options: [
-        "Harper Lee",
-        "Mark Twain",
-        "Ernest Hemingway",
-        "F. Scott Fitzgerald",
-      ],
-    },
-  ];
+  const [testQuestions, setTestQuestions] = useState([]);
+  const [testDetails, setTestDetails] = useState([]);
+  const searchParams = useSearchParams();
+  const category = searchParams.get("category");
+
+  const categoryToDocId = {
+    primary: "AWuwMWkFlshETmPD2qga",
+    secondary: "6gNGLbJtpX1TMwnqXNgF",
+    senior: "6gNGLbJtpX1TMwnqXNgF",
+  };
+
+  useEffect(() => {
+    const fetchTestQuestions = async () => {
+      const docId = categoryToDocId[category];
+      const testDocRef = doc(db, "tests", docId);
+      const testDoc = await getDoc(testDocRef);
+
+      if (testDoc.exists()) {
+        const testData = testDoc.data();
+        setTestDetails(testData);
+        setTime(testData.duration ? testData.duration * 60 : 0); // Set time based on duration
+        const questionIds = testData.test;
+
+        const questionsPromises = questionIds.map(async (questionId) => {
+          const questionDocRef = doc(db, "questions", questionId);
+          const questionDoc = await getDoc(questionDocRef);
+          return questionDoc.exists() ? questionDoc.data() : null;
+        });
+
+        const questions = await Promise.all(questionsPromises);
+        setTestQuestions(questions.filter(Boolean));
+      } else {
+        console.error("No such document!");
+      }
+    };
+
+    fetchTestQuestions();
+  }, [category]);
 
   const calculateScore = () => {
     return testQuestions.reduce((score, question) => {
@@ -90,7 +90,6 @@ const TestPage = () => {
     setShowResultForm(true);
 
     if (user) {
-      // Save user responses and score to Firestore
       await setDoc(doc(db, "users", user.uid), {
         responses,
         score,
@@ -102,7 +101,7 @@ const TestPage = () => {
 
   const handleFormSubmit = async (e) => {
     e.preventDefault();
-    
+    router.push("/testcompletion");
     if (userDetails.email && userDetails.phone && userDetails.name) {
       // Save the user details and redirect or show full result
       await setDoc(doc(db, "userDetails", user.uid), {
@@ -113,7 +112,7 @@ const TestPage = () => {
 
       router.push("/testcompletion");
     } else {
-      alert("Please fill out all fields.");
+      alert("Please fill out all fields.");  
     }
   };
 
@@ -132,7 +131,10 @@ const TestPage = () => {
   const formatTime = (seconds) => {
     const minutes = Math.floor(seconds / 60);
     const secs = seconds % 60;
-    return `${String(minutes).padStart(2, "0")}:${String(secs).padStart(2, "0")}`;
+    return `${String(minutes).padStart(2, "0")}:${String(secs).padStart(
+      2,
+      "0"
+    )}`;
   };
 
   const handleOptionChange = (questionID, selectedOption) => {
@@ -143,7 +145,9 @@ const TestPage = () => {
   };
 
   const nextQuestion = () => {
-    setCurrentQuestionIndex((prevIndex) => Math.min(prevIndex + 1, testQuestions.length - 1));
+    setCurrentQuestionIndex((prevIndex) =>
+      Math.min(prevIndex + 1, testQuestions.length - 1)
+    );
   };
 
   const prevQuestion = () => {
@@ -155,27 +159,33 @@ const TestPage = () => {
       <div className="bg-white shadow-lg rounded-lg p-8 max-w-2xl w-full border border-gray-200">
         {!showResultForm ? (
           <>
-            <h1 className="text-3xl font-extrabold mb-6 text-center text-gray-800">Test</h1>
-            
+            <h1 className="text-3xl font-extrabold mb-6 text-center text-gray-800">
+              Test
+            </h1>
+
             {/* Timer */}
             <div className="bg-gray-200 p-4 rounded-lg mb-8 text-center">
-              <h2 className="text-2xl font-semibold text-gray-700">Time Remaining</h2>
-              <p className="text-xl font-bold text-blue-600">{formatTime(time)}</p>
+              <h2 className="text-2xl font-semibold text-gray-700">
+                Time Remaining
+              </h2>
+              <p className="text-xl font-bold text-blue-600">
+                {formatTime(time)}
+              </p>
             </div>
 
             {/* Question Navigation */}
             <div className="flex justify-between mb-8">
               {currentQuestionIndex > 0 && (
-                <button 
-                  onClick={prevQuestion} 
+                <button
+                  onClick={prevQuestion}
                   className="bg-blue-500 text-white py-2 px-4 rounded-lg shadow-md hover:bg-blue-600 transition-colors"
                 >
                   Previous
                 </button>
               )}
               {currentQuestionIndex < testQuestions.length - 1 && (
-                <button 
-                  onClick={nextQuestion} 
+                <button
+                  onClick={nextQuestion}
                   className="bg-blue-500 text-white py-2 px-4 rounded-lg shadow-md hover:bg-blue-600 transition-colors"
                 >
                   Next
@@ -187,16 +197,29 @@ const TestPage = () => {
             <div className="mb-8">
               {testQuestions.length > 0 && (
                 <>
-                  <h3 className="text-xl font-semibold mb-4">{testQuestions[currentQuestionIndex].question}</h3>
+                  <h3 className="text-xl font-semibold mb-4">
+                    {testQuestions[currentQuestionIndex].question}
+                  </h3>
                   <ul className="space-y-2">
-                    {testQuestions[currentQuestionIndex].options.map((option, i) => (
-                      <li key={i} className="flex items-center space-x-3">
+                    {Object.entries(
+                      testQuestions[currentQuestionIndex].answers
+                    ).map(([key, option], i) => (
+                      <li key={key} className="flex items-center space-x-3">
                         <input
                           type="radio"
-                          name={`question${testQuestions[currentQuestionIndex].questionID}`}
+                          name={`question${testQuestions[currentQuestionIndex].id}`}
                           value={option}
-                          checked={responses[testQuestions[currentQuestionIndex].questionID] === option}
-                          onChange={() => handleOptionChange(testQuestions[currentQuestionIndex].questionID, option)}
+                          checked={
+                            responses[
+                              testQuestions[currentQuestionIndex].id
+                            ] === option
+                          }
+                          onChange={() =>
+                            handleOptionChange(
+                              testQuestions[currentQuestionIndex].id,
+                              option
+                            )
+                          }
                           className="form-radio h-5 w-5 text-blue-500"
                         />
                         <label className="text-gray-700">{option}</label>
@@ -209,8 +232,8 @@ const TestPage = () => {
 
             {/* Submit Button */}
             {currentQuestionIndex === testQuestions.length - 1 && (
-              <button 
-                onClick={handleSubmit} 
+              <button
+                onClick={handleSubmit}
                 className="bg-gradient-to-r from-blue-500 to-teal-500 text-white py-3 px-8 rounded-lg shadow-lg hover:from-blue-600 hover:to-teal-600 transition-colors"
               >
                 Submit
@@ -219,38 +242,51 @@ const TestPage = () => {
           </>
         ) : (
           <div className="bg-white shadow-lg rounded-lg p-8 max-w-2xl w-full border border-gray-200">
-
-            <p className="text-xl font-semibold text-center mb-4">Get your Result</p>
+            <p className="text-xl font-semibold text-center mb-4">
+              Get your Result
+            </p>
             <form onSubmit={handleFormSubmit} className="space-y-4">
               <div>
-                <label htmlFor="name" className="block text-gray-700">Name</label>
+                <label htmlFor="name" className="block text-gray-700">
+                  Name
+                </label>
                 <input
                   id="name"
                   type="text"
                   value={userDetails.name}
-                  onChange={(e) => setUserDetails({ ...userDetails, name: e.target.value })}
+                  onChange={(e) =>
+                    setUserDetails({ ...userDetails, name: e.target.value })
+                  }
                   className="mt-1 block w-full p-2 border border-gray-300 rounded-lg"
                   required
                 />
               </div>
               <div>
-                <label htmlFor="email" className="block text-gray-700">Email</label>
+                <label htmlFor="email" className="block text-gray-700">
+                  Email
+                </label>
                 <input
                   id="email"
                   type="email"
                   value={userDetails.email}
-                  onChange={(e) => setUserDetails({ ...userDetails, email: e.target.value })}
+                  onChange={(e) =>
+                    setUserDetails({ ...userDetails, email: e.target.value })
+                  }
                   className="mt-1 block w-full p-2 border border-gray-300 rounded-lg"
                   required
                 />
               </div>
               <div>
-                <label htmlFor="phone" className="block text-gray-700">Phone Number</label>
+                <label htmlFor="phone" className="block text-gray-700">
+                  Phone Number
+                </label>
                 <input
                   id="phone"
                   type="tel"
                   value={userDetails.phone}
-                  onChange={(e) => setUserDetails({ ...userDetails, phone: e.target.value })}
+                  onChange={(e) =>
+                    setUserDetails({ ...userDetails, phone: e.target.value })
+                  }
                   className="mt-1 block w-full p-2 border border-gray-300 rounded-lg"
                   required
                 />
