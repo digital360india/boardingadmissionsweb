@@ -25,6 +25,7 @@ export const UserProvider = ({ children }) => {
             mycoursepackages: userDoc.data().mycoursepackages || [],  
             mytestpackages: userDoc.data().mytestpackages || [],  
           });
+          console.log(user)
         } else {
           console.error("No such document!");
         }

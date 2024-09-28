@@ -104,7 +104,6 @@ const TestPage = () => {
     e.preventDefault();
     
     if (userDetails.email && userDetails.phone && userDetails.name) {
-      // Save the user details and redirect or show full result
       await setDoc(doc(db, "userDetails", user.uid), {
         ...userDetails,
         finalScore,

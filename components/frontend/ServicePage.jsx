@@ -25,7 +25,7 @@ const ServicePage = () => {
               <div>
                 <Image
                   src="/icons/online1.svg"
-                  width={1000}
+                  width={638}
                   height={280}
                   alt="course1"
                 />

@@ -450,6 +450,7 @@ const CoursePage = () => {
     return <div className="text-center py-6 text-red-600">{error}</div>;
   return (
     <div className="container mx-auto p-8 bg-gray-50 rounded-lg shadow-lg">
+      
       <div className="flex justify-between items-center">
         {" "}
         <h1 className="text-2xl font-extrabold mb-6 text-gray-900">

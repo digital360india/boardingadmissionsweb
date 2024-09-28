@@ -6,7 +6,7 @@ import Link from "next/link";
 const ServicesHero = () => {
   return (
     <>
-      <div className="md:mx-20">
+      <div className="md:mx-10">
         <h1 className="text-[2rem] md:text-[3.5rem] text-[#075D70] text-center pb-8 font-bold">
           ACE ENTRANCE EXAM
         </h1>
@@ -17,10 +17,7 @@ const ServicesHero = () => {
           <div className="w-full   md:w-[22.563rem] h-[17.5rem] px-10 md:px-0 md:mx-12 mt-10 space-y-7   absolute    text-white  ">
             <p className="md:mt-2 text-[14px]  md:text-[1rem] ">
               Unlock your boarding school dreams with Boarding Admissions Ace
-              Entrance Exam module. We provide comprehensive preparation,
-              focusing on key areas like grammar and calculations. Our
-              expert-crafted courses meet elite boarding school standards,
-              ensuring students are well-prepared. Interactive learning and
+              Entrance Exam module. Interactive learning and
               personalized attention keep students engaged and motivated. With
               our experienced mentors, students receive the highest quality
               education and support. Join us today to start your journey towards
