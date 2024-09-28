@@ -6,8 +6,8 @@ import Link from "next/link";
 const SoftSkillMasteryHero = () => {
   return (
     <>
-      <div className="md:mx-20 mt-[25%] md:mt-[10%]">
-        <h1 className="text-[2rem] md:text-[3.5rem] text-[#075D70] text-center pb-8 font-bold">
+      <div className="md:mx-20">
+        <h1 className="text-[2rem] md:text-[3.5rem] text-[#075D70] text-center pb-5 md:pb-8 font-bold">
           SOFT SKILL MASTERY
         </h1>
         <div
@@ -15,10 +15,10 @@ const SoftSkillMasteryHero = () => {
           style={{ backgroundImage: `url(${SoftSkillMastery.src})` }}
         >
           <div className="w-full   md:w-[22.563rem] h-[17.5rem] px-10 md:px-0 md:mx-12 mt-10 space-y-7   absolute    text-white  ">
-            <p className="md:mt-2 text-[14px]  md:text-[1rem] ">
-              In today’s world, academic excellence is just one part of success.
-              At Boarding Admissions, our Soft Skill Mastery module equips
-              students with vital skills like communication, emotional
+            <p className="md:mt-2 text-justify text-[14px]  md:text-[1rem] ">
+              In today&apos;s world, academic excellence is just one part of
+              success. At Boarding Admissions, our Soft Skill Mastery module
+              equips students with vital skills like communication, emotional
               intelligence, problem-solving, and leadership. This comprehensive
               program helps students build strong relationships, manage stress,
               and approach challenges with confidence. By developing these
@@ -26,11 +26,12 @@ const SoftSkillMasteryHero = () => {
               successful future. Help your child thrive enroll in our Soft Skill
               Mastery module today!
             </p>
-            <div className="w-[7.5rem] h-[2.0rem] md:w-[18.75rem] md:h-[3.5rem] bg-gradient01  border-custom rounded-md flex items-center justify-center text-[1rem] ">
+            <div className="w-[7.5rem] md:w-[18.75rem]">
               <Link href="/enrollnow/softskillmastery">
-                {" "}
-                <button className="text-white">Enroll Now</button>
-              </Link>{" "}
+                <div className="w-[7.5rem] h-[2.0rem] md:w-[18.75rem] md:h-[3.5rem] bg-gradient01  border-custom rounded-md flex items-center justify-center text-[1rem] ">
+                  <button className="text-white">Enroll Now</button>
+                </div>
+              </Link>
             </div>
           </div>
         </div>

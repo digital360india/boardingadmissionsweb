@@ -5,7 +5,9 @@ import Footer from "@/components/frontend/Footer";
 import Navbar from "@/components/frontend/Navbar";
 import { UserProvider } from "@/userProvider";
 import Popup from "@/components/frontend/Popup";
+import { FaWhatsapp } from "react-icons/fa";
 import Link from "next/link";
+import Flyer from "@/components/frontend/Flyer";
 const inter = Inter({ subsets: ["latin"] });
 const poppins = Poppins({
   subsets: ["latin"],
@@ -45,64 +47,24 @@ export default function RootLayout({ children }) {
       <UserProvider>
         <body>
           <Navbar />
+          <Flyer />
           {children}
           <Footer />
           {/* Phone call button */}
-          {/* <span className="fixed z-[9999] hover:scale-125 duration-300 bottom-4 right-8 bg-[#025498] rounded-full p-4 text-white">
-            <Link href={"tel:+919760548360"}>
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="24"
-                height="24"
-                viewBox="0 0 24 24"
-              >
-                <g
-                  fill="none"
-                  stroke="currentColor"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth="2"
-                >
-                  <path
-                    strokeDasharray="64"
-                    strokeDashoffset="64"
-                    d="M8 3C8.5 3 10.5 7.5 10.5 8C10.5 9 9 10 8.5 11C8 12 9 13 10 14C10.3943 14.3943 12 16 13 15.5C14 15 15 13.5 16 13.5C16.5 13.5 21 15.5 21 16C21 18 19.5 19.5 18 20C16.5 20.5 15.5 20.5 13.5 20C11.5 19.5 10 19 7.5 16.5C5 14 4.5 12.5 4 10.5C3.5 8.5 3.5 7.5 4 6C4.5 4.5 6 3 8 3Z"
-                  >
-                    <animate
-                      fill="freeze"
-                      attributeName="stroke-dashoffset"
-                      dur="0.6s"
-                      values="64;0"
-                    />
-                    <animateTransform
-                      attributeName="transform"
-                      begin="0.6s;lineMdPhoneCallLoop0.begin+2.6s"
-                      dur="0.5s"
-                      type="rotate"
-                      values="0 12 12;15 12 12;0 12 12;-12 12 12;0 12 12;12 12 12;0 12 12;-15 12 12;0 12 12"
-                    />
-                  </path>
-                </g>
-              </svg>
-            </Link>
-          </span> */}
+          <div className="fixed z-40 bottom-4 md:right-6 right-2 flex flex-col gap-4">
+            <span className="hover:scale-125 duration-300 bg-primary02 rounded-full p-4 text-white">
+              <Link href={"tel:+919760548360"}>
+                <img src="/phone.svg" />
+              </Link>
+            </span>
 
-          {/* Talk to AI button */}
-          {/* <span className="fixed z-[9999] hover:scale-125 duration-300 bottom-24 right-8 bg-[#FF8C00] rounded-full p-4 text-white">
-            <Link href="/talk-to-ai">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="24"
-                height="24"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  fill="currentColor"
-                  d="M12 2C6.48 2 2 6.48 2 12c0 4.29 2.75 7.9 6.58 9.21c.48.09.65-.21.65-.46c0-.23-.01-.84-.01-1.64c-2.67.57-3.23-1.29-3.23-1.29c-.44-1.12-1.08-1.42-1.08-1.42c-.89-.61.07-.6.07-.6c.98.07 1.5 1.01 1.5 1.01c.88 1.51 2.31 1.07 2.88.82c.09-.64.35-1.07.64-1.31c-2.13-.24-4.37-1.07-4.37-4.78c0-1.06.38-1.93 1.02-2.61c-.1-.25-.44-1.23.1-2.57c0 0 .82-.26 2.68 1.01A9.24 9.24 0 0 1 12 7.07c.84 0 1.68.11 2.46.31c1.86-1.27 2.68-1.01 2.68-1.01c.54 1.34.2 2.32.1 2.57c.63.68 1.02 1.55 1.02 2.61c0 3.72-2.25 4.53-4.38 4.77c.36.31.68.92.68 1.85c0 1.33-.01 2.4-.01 2.72c0 .26.16.56.66.46C19.25 19.9 22 16.29 22 12c0-5.52-4.48-10-10-10Z"
-                />
-              </svg>
-            </Link>
-          </span> */}
+            {/* WhatsApp button */}
+            <span className="hover:scale-125 duration-300 bg-[#25D366] rounded-full p-4 text-white">
+              <Link href={"https://wa.me/919760548360"}>
+                <FaWhatsapp className="text-2xl" />
+              </Link>
+            </span>
+          </div>
         </body>
       </UserProvider>
     </html>

@@ -51,6 +51,7 @@ const Page = () => {
         videoUrl: chapter.lectures[index].videoUrl,
         index: index.toString(),
         totalLectures: chapter.lectures.length.toString(),
+        commentsID:chapter.lectures[index].commentsID,
       });
 
       chapter.lectures.forEach((lecture, idx) => {

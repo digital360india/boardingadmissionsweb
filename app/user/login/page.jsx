@@ -60,7 +60,7 @@ const AuthPage = () => {
     <>
       {" "}
       <Navbar />
-      <div className="h-screen max-w-screen mt-20 overflow-x-hidden ">
+      <div className="h-screen max-w-screen overflow-x-hidden ">
         <div
           className="relative h-full w-screen bg-background05 "
           style={{

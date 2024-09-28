@@ -194,7 +194,7 @@ function TheDoonPage() {
                   Registration Fee Structure
                 </h3>
 
-                <table className="min-w-full bg-white border border-gray-300">
+                <table className="min-w-full text-[14px] md:text-[1.1rem] bg-white border border-gray-300">
                   <thead>
                     <tr>
                       <th className="px-4 py-2 border-b border-gray-300 bg-gray-100 text-left">
@@ -399,7 +399,7 @@ function TheDoonPage() {
                 including tuition and boarding.
               </li>
               <div className="">
-                <table className="min-w-full bg-white border border-gray-300">
+                <table className="min-w-full text-[14px] md:text-[1.1rem] bg-white border border-gray-300">
                   <thead>
                     <tr>
                       <th className="px-4 py-2 border-b border-gray-300 bg-gray-100 text-left">
