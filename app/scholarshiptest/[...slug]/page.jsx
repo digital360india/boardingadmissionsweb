@@ -4,11 +4,12 @@ import { useRouter, useSearchParams } from "next/navigation";
 import { db } from "@/firebase/firebase";
 import { doc, getDoc, setDoc } from "firebase/firestore";
 import { UserContext } from "@/userProvider";
-import { AiFillCaretLeft, AiFillCaretRight } from "react-icons/ai";
-import TestScreen from "@/components/frontend/TestScreen";
+import QuestionNavigation from "@/components/frontend/scholarshiptest/QuestionNavigation";
+import Question from "@/components/frontend/scholarshiptest/Question";
+import Statusbar from "@/components/frontend/scholarshiptest/Statusbar";
+import QuestionPalatte from "@/components/frontend/scholarshiptest/QuestionPalatte";
 
 const TestPage = () => {
-  // Initial states
   const [time, setTime] = useState(20 * 60);
   const [responses, setResponses] = useState({});
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
@@ -34,10 +35,10 @@ const TestPage = () => {
   };
 
   const [statusCounts, setStatusCounts] = useState({
-    answered: 0,
-    notAnswered: testQuestions.length,
-    notVisited: testQuestions.length,
-    markedForReview: [], // Change from number to array
+    answered: [],
+    notAnswered: [],
+    notVisited: [],
+    markedForReview: [],
     answeredAndMarkedForReview: [],
   });
 
@@ -60,14 +61,17 @@ const TestPage = () => {
         });
 
         const questions = await Promise.all(questionsPromises);
-        setTestQuestions(questions.filter(Boolean));
+        const validQuestions = questions.filter(Boolean);
 
-        // Update status counts when questions are fetched
-        setStatusCounts({
-          ...statusCounts,
-          notAnswered: questions.length,
-          notVisited: questions.length,
-        });
+        setTestQuestions(validQuestions);
+
+        const questionIdsArray = validQuestions.map((question) => question.id);
+
+        setStatusCounts((prevCounts) => ({
+          ...prevCounts,
+          notVisited: questionIdsArray,
+          notAnswered: questionIdsArray,
+        }));
       } else {
         console.error("No such document!");
       }
@@ -93,29 +97,6 @@ const TestPage = () => {
     return code;
   };
 
-  const handleSubmit = async () => {
-    if (Object.keys(responses).length < testQuestions.length) {
-      alert("Please answer all questions before submitting.");
-      return;
-    }
-
-    const score = calculateScore();
-    const redemptionCode = await generateRedemptionCode();
-
-    setFinalScore(score);
-    setIsSubmitting(true);
-    setShowResultForm(true);
-
-    if (user) {
-      await setDoc(doc(db, "users", user.uid), {
-        responses,
-        score,
-        redemptionCode,
-        timestamp: new Date(),
-      });
-    }
-  };
-
   const handleFormSubmit = async (e) => {
     e.preventDefault();
     router.push("/testcompletion");
@@ -132,7 +113,6 @@ const TestPage = () => {
     }
   };
 
-  // Timer logic
   useEffect(() => {
     if (time === 0 && !isSubmitting) {
       handleSubmit();
@@ -167,26 +147,6 @@ const TestPage = () => {
     );
   };
 
-  const handleOptionChange = (questionID, selectedOption) => {
-    setResponses((prevResponses) => ({
-      ...prevResponses,
-      [questionID]: selectedOption,
-    }));
-
-    const answeredCount = Object.keys(responses).length + 1;
-
-    const isMarkedForReview = statusCounts.markedForReview.includes(questionID);
-
-    setStatusCounts((prevCounts) => ({
-      ...prevCounts,
-      answered: answeredCount,
-      notAnswered: testQuestions.length - answeredCount,
-      answeredAndMarkedForReview: isMarkedForReview
-        ? prevCounts.answeredAndMarkedForReview + 1
-        : prevCounts.answeredAndMarkedForReview,
-    }));
-  };
-
   const nextQuestion = () => {
     setCurrentQuestionIndex((prevIndex) =>
       Math.min(prevIndex + 1, testQuestions.length - 1)
@@ -198,15 +158,40 @@ const TestPage = () => {
   };
 
   const handleQuestionNavigation = (index) => {
+    const currentQuestionID = testQuestions[index].id;
     setCurrentQuestionIndex(index);
 
-    // If the question is being visited for the first time
-    if (statusCounts.notVisited > 0 && !responses[testQuestions[index].id]) {
+    if (statusCounts.notVisited.includes(currentQuestionID)) {
       setStatusCounts((prevCounts) => ({
         ...prevCounts,
-        notVisited: prevCounts.notVisited - 1,
+        notVisited: prevCounts.notVisited.filter((id) => id !== currentQuestionID),
       }));
     }
+  };
+
+  const handleOptionChange = (questionID, selectedOption) => {
+    setResponses((prevResponses) => ({
+      ...prevResponses,
+      [questionID]: selectedOption,
+    }));
+
+    setStatusCounts((prevCounts) => {
+      const isAlreadyAnswered = prevCounts.answered.includes(questionID);
+      const isMarkedForReview = prevCounts.markedForReview.includes(questionID);
+
+      if (!isAlreadyAnswered) {
+        return {
+          ...prevCounts,
+          answered: [...prevCounts.answered, questionID],
+          notAnswered: prevCounts.notAnswered.filter((id) => id !== questionID),
+          answeredAndMarkedForReview: isMarkedForReview
+            ? [...prevCounts.answeredAndMarkedForReview, questionID]
+            : prevCounts.answeredAndMarkedForReview,
+        };
+      }
+
+      return prevCounts;
+    });
   };
 
   const markForReview = () => {
@@ -219,23 +204,57 @@ const TestPage = () => {
         : [...prevCounts.markedForReview, currentQuestionID],
     }));
 
-    nextQuestion(); // Move to the next question after marking
+    nextQuestion();
   };
 
   const clearResponse = () => {
     const currentQuestionID = testQuestions[currentQuestionIndex].id;
+
     setResponses((prevResponses) => {
       const updatedResponses = { ...prevResponses };
       delete updatedResponses[currentQuestionID];
       return updatedResponses;
     });
 
-    setStatusCounts((prevCounts) => ({
-      ...prevCounts,
-      answered: prevCounts.answered - 1,
-      notAnswered: prevCounts.notAnswered + 1,
-    }));
+    setStatusCounts((prevCounts) => {
+      const isMarkedForReview = prevCounts.markedForReview.includes(currentQuestionID);
+
+      return {
+        ...prevCounts,
+        answered: prevCounts.answered.filter((id) => id !== currentQuestionID),
+        notAnswered: [...prevCounts.notAnswered, currentQuestionID],
+        markedForReview: isMarkedForReview
+          ? prevCounts.markedForReview.filter((id) => id !== currentQuestionID)
+          : prevCounts.markedForReview,
+        answeredAndMarkedForReview: isMarkedForReview
+          ? prevCounts.answeredAndMarkedForReview.filter(
+              (id) => id !== currentQuestionID
+            )
+          : prevCounts.answeredAndMarkedForReview,
+      };
+    });
   };
+
+  const handleSubmit = async () => {
+    if (Object.keys(responses).length < testQuestions.length) {
+      alert("Please answer all questions before submitting.");
+      return;
+    }
+
+    const score = calculateScore();
+    const redemptionCode = await generateRedemptionCode();
+
+    setFinalScore(score);
+    setIsSubmitting(true);
+    setShowResultForm(true);
+
+    console.log("Your final score:", score);
+    console.log("Your redemption code:", redemptionCode);
+  };
+
+  const currentQuestionID = testQuestions[currentQuestionIndex]?.id;
+  const isOptionSelected = responses[currentQuestionID] !== undefined;
+
 
   return (
     <div className="">
@@ -259,63 +278,14 @@ const TestPage = () => {
                 <div>
                   {testQuestions.length > 0 && (
                     <>
-                      <div className="space-y-6">
-                        <div className="flex justify-between">
-                          <p className="text-[20px] text-background05 font-semibold">
-                            Question {testQuestions[currentQuestionIndex].sno}
-                          </p>
-                          <div>
-                            <p></p>
-                            <p className="text-[#4BB53A] font-semibold space-x-2">
-                              <span>Marks:</span>
-                              <span className="text-background05">
-                                {testQuestions[currentQuestionIndex].totalmarks}
-                              </span>
-                            </p>
-                          </div>
-                        </div>
-                        <div className="space-y-8 h-[60vh]">
-                          <p className="text-[18px]  max-h-[184px] overflow-y-scroll scrollbar-hide">
-                            {testQuestions[currentQuestionIndex].question}
-                          </p>
-                          <ul className="space-y-4">
-                            {Object.entries(
-                              testQuestions[currentQuestionIndex].answers
-                            ).map(([key, option], i) => (
-                              <li
-                                key={key}
-                                className="flex items-center space-x-3"
-                              >
-                                <input
-                                  type="radio"
-                                  name={`question${testQuestions[currentQuestionIndex].id}`}
-                                  value={option}
-                                  checked={
-                                    responses[
-                                      testQuestions[currentQuestionIndex].id
-                                    ] === option
-                                  }
-                                  onChange={() =>
-                                    handleOptionChange(
-                                      testQuestions[currentQuestionIndex].id,
-                                      option
-                                    )
-                                  }
-                                  className="form-radio h-5 w-5 text-blue-500"
-                                />
-                                <label className="text-gray-700">
-                                  {option}
-                                </label>
-                              </li>
-                            ))}
-                          </ul>
-                        </div>
-                      </div>
+                      <Question
+                        currentQuestion={testQuestions[currentQuestionIndex]}
+                        responses={responses}
+                        handleOptionChange={handleOptionChange}
+                      />
                     </>
                   )}
                 </div>
-
-                {/* Question Navigation */}
 
                 <div className="flex justify-between">
                   <div className="w-[30vw] flex justify-between">
@@ -327,113 +297,32 @@ const TestPage = () => {
                     </button>
                     <button
                       onClick={clearResponse}
-                      className="bg-background05 text-white py-2 px-4 rounded-lg shadow-md"
+                      disabled={!isOptionSelected} // Disable button if no option is selected
+                      className={`bg-background05 text-white py-2 px-4 rounded-lg shadow-md ${
+                        !isOptionSelected ? "opacity-50 cursor-not-allowed" : ""
+                      }`}
                     >
                       Clear Response
                     </button>
                   </div>
-                  <div className="flex w-[15vw] text-[18px] font-medium justify-between">
-                    {currentQuestionIndex > 0 && (
-                      <button
-                        onClick={prevQuestion}
-                        className="text-background05 flex items-center"
-                      >
-                        <AiFillCaretLeft />
-                        <span>Previous</span>
-                      </button>
-                    )}
-                    {currentQuestionIndex < testQuestions.length - 1 && (
-                      <button
-                        onClick={nextQuestion}
-                        className="text-background05 flex items-center"
-                      >
-                        <span>Next</span>
-                        <AiFillCaretRight />
-                      </button>
-                    )}
-                  </div>
+                  <QuestionNavigation
+                    currentQuestionIndex={currentQuestionIndex}
+                    totalQuestions={testQuestions.length}
+                    prevQuestion={prevQuestion}
+                    nextQuestion={nextQuestion}
+                  />
                 </div>
               </div>
               <div className="bg-[#F8F8F8] w-[25vw] rounded-md border-2 border-background05 px-2 py-3 flex flex-col justify-between">
-                <div className="space-y-4">
-                  <div className="flex gap-16">
-                    <div className="flex gap-4 items-center">
-                      <p className="bg-[#4BB53A] w-8 h-8 flex justify-center text-white items-center rounded-full">
-                        {statusCounts.answered}
-                      </p>
-                      <p>Answered</p>
-                    </div>
-                    <div className="flex gap-4 items-center">
-                      <p className="bg-[#CB0000] w-8 h-8 flex justify-center text-white items-center rounded-full">
-                        {statusCounts.notAnswered}
-                      </p>
-                      <p>Not Answered</p>
-                    </div>
-                  </div>
-                  <div className="flex justify-between">
-                    <div className="flex gap-4 items-center">
-                      <p className="border border-background05 text-background05 w-8 h-8 flex justify-center  items-center rounded-full">
-                        {statusCounts.notVisited}
-                      </p>
-                      <p>Not Visited</p>
-                    </div>
-                    <div className="flex gap-4 items-center">
-                      <p className="bg-[#E99202] w-8 h-8 flex justify-center text-white items-center rounded-full">
-                        {statusCounts.markedForReview}
-                      </p>
-                      <p>Mark for Review</p>
-                    </div>
-                  </div>
-                  <div className="flex justify-between">
-                    <div className="flex gap-4 items-center">
-                      <p className="bg-[#FCA311] w-8 h-8 flex justify-center text-white items-center rounded-full">
-                        {statusCounts.answeredAndMarkedForReview}
-                      </p>
-                      <p>Answered and mark for review</p>
-                    </div>
-                  </div>
-                </div>
+                <Statusbar statusCounts={statusCounts} />
 
-                <div>
-                  <p>Questions Palette</p>
-                  <div className="grid grid-cols-5 gap-2">
-                    {testQuestions.map((question, index) => {
-                      let statusClass = "";
-
-                      const currentQuestionID = question.id;
-
-                      if (responses[currentQuestionID]) {
-                        if (
-                          statusCounts.markedForReview.includes(
-                            currentQuestionID
-                          )
-                        ) {
-                          statusClass = "bg-[#FCA311] text-white"; // Answered and marked for review
-                        } else {
-                          statusClass = "bg-[#4BB53A] text-white"; // Answered
-                        }
-                      } else if (
-                        statusCounts.markedForReview.includes(currentQuestionID)
-                      ) {
-                        statusClass = "bg-[#E99202] text-white"; // Marked for review
-                      } else {
-                        statusClass =
-                          "border border-background05 text-background05"; // Not Visited
-                      }
-
-                      return (
-                        <button
-                          key={index}
-                          className={`w-10 h-10 flex justify-center items-center rounded-full ${statusClass}`}
-                          onClick={() => setCurrentQuestionIndex(index)}
-                        >
-                          {index + 1}
-                        </button>
-                      );
-                    })}
-                  </div>
-                </div>
-                {/* <TestScreen totalQuestions={testQuestions} /> */}
+                <QuestionPalatte
+                  handleQuestionNavigation={handleQuestionNavigation}
+                  testQuestions={testQuestions}
+                  responses={responses}
+                  statusCounts={statusCounts}
+                  setCurrentQuestionIndex={setCurrentQuestionIndex}
+                />
 
                 <button
                   onClick={handleSubmit}
