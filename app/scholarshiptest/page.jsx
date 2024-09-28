@@ -15,7 +15,7 @@ const Page = () => {
   const categoryToDocId = {
     primary: "AWuwMWkFlshETmPD2qga",
     secondary: "6gNGLbJtpX1TMwnqXNgF",
-    senior: "6gNGLbJtpX1TMwnqXNgF",
+    senior: "JAfTNak4ylz7QoptNkKa",
   };
 
   const handleTakeTest = () => {

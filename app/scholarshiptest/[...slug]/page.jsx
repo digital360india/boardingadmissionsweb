@@ -8,6 +8,7 @@ import QuestionNavigation from "@/components/frontend/scholarshiptest/QuestionNa
 import Question from "@/components/frontend/scholarshiptest/Question";
 import Statusbar from "@/components/frontend/scholarshiptest/Statusbar";
 import QuestionPalatte from "@/components/frontend/scholarshiptest/QuestionPalatte";
+import ResultForm from "@/components/frontend/scholarshiptest/ResultForm";
 
 const TestPage = () => {
   const [time, setTime] = useState(20 * 60);
@@ -31,7 +32,7 @@ const TestPage = () => {
   const categoryToDocId = {
     primary: "AWuwMWkFlshETmPD2qga",
     secondary: "6gNGLbJtpX1TMwnqXNgF",
-    senior: "6gNGLbJtpX1TMwnqXNgF",
+    senior: "JAfTNak4ylz7QoptNkKa",
   };
 
   const [statusCounts, setStatusCounts] = useState({
@@ -80,33 +81,10 @@ const TestPage = () => {
     fetchTestQuestions();
   }, [category]);
 
-  const calculateScore = () => {
-    return testQuestions.reduce((score, question) => {
-      if (responses[question.questionID] === question.answer) {
-        return score + 1;
-      }
-      return score;
-    }, 0);
-  };
-
-  const generateRedemptionCode = async () => {
-    const code = `REDEEM-${Math.random().toString(36).substr(2, 9)}`;
-    await setDoc(doc(db, "redemptionCodes", code), {
-      redeemed: false,
-    });
-    return code;
-  };
-
   const handleFormSubmit = async (e) => {
     e.preventDefault();
-    router.push("/testcompletion");
     if (userDetails.email && userDetails.phone && userDetails.name) {
-      await setDoc(doc(db, "userDetails", user.uid), {
-        ...userDetails,
-        finalScore,
-        timestamp: new Date(),
-      });
-
+      console.log(userDetails);
       router.push("/testcompletion");
     } else {
       alert("Please fill out all fields.");
@@ -164,7 +142,9 @@ const TestPage = () => {
     if (statusCounts.notVisited.includes(currentQuestionID)) {
       setStatusCounts((prevCounts) => ({
         ...prevCounts,
-        notVisited: prevCounts.notVisited.filter((id) => id !== currentQuestionID),
+        notVisited: prevCounts.notVisited.filter(
+          (id) => id !== currentQuestionID
+        ),
       }));
     }
   };
@@ -217,7 +197,8 @@ const TestPage = () => {
     });
 
     setStatusCounts((prevCounts) => {
-      const isMarkedForReview = prevCounts.markedForReview.includes(currentQuestionID);
+      const isMarkedForReview =
+        prevCounts.markedForReview.includes(currentQuestionID);
 
       return {
         ...prevCounts,
@@ -236,25 +217,41 @@ const TestPage = () => {
   };
 
   const handleSubmit = async () => {
-    if (Object.keys(responses).length < testQuestions.length) {
-      alert("Please answer all questions before submitting.");
-      return;
-    }
+    const result = testQuestions.map((question) => ({
+      questionID: question.id,
+      questionText: question.question,
+      selectedAnswer: responses[question.id] || "", // User's selected answer
+      correctAnswer: question.correctAnswer, // The correct answer from the testQuestions
+      marks: Number(question.totalmarks), // Ensure marks are numbers
+    }));
 
-    const score = calculateScore();
-    const redemptionCode = await generateRedemptionCode();
+    // Calculate total score
+    const totalScore = result.reduce((score, question) => {
+      console.log(`Checking question ID: ${question.questionID}`);
+      console.log(
+        `Selected Answer: ${question.selectedAnswer}, Correct Answer: ${question.correctAnswer}`
+      );
 
-    setFinalScore(score);
+      // Compare selected answer with the correct answer
+      if (question.selectedAnswer === question.correctAnswer) {
+        console.log(`Correct! Adding ${question.marks} marks.`);
+        return score + question.marks; // Add the question marks if the answer is correct
+      } else {
+        console.log(`Incorrect! No marks added.`);
+      }
+
+      return score; // No change in score if the answer is incorrect
+    }, 0);
+
+    console.log("Test submission details:", result);
+    console.log("Total Score:", totalScore);
+
     setIsSubmitting(true);
     setShowResultForm(true);
-
-    console.log("Your final score:", score);
-    console.log("Your redemption code:", redemptionCode);
   };
 
   const currentQuestionID = testQuestions[currentQuestionIndex]?.id;
   const isOptionSelected = responses[currentQuestionID] !== undefined;
-
 
   return (
     <div className="">
@@ -297,7 +294,7 @@ const TestPage = () => {
                     </button>
                     <button
                       onClick={clearResponse}
-                      disabled={!isOptionSelected} // Disable button if no option is selected
+                      disabled={!isOptionSelected} 
                       className={`bg-background05 text-white py-2 px-4 rounded-lg shadow-md ${
                         !isOptionSelected ? "opacity-50 cursor-not-allowed" : ""
                       }`}
@@ -313,7 +310,7 @@ const TestPage = () => {
                   />
                 </div>
               </div>
-              <div className="bg-[#F8F8F8] w-[25vw] rounded-md border-2 border-background05 px-2 py-3 flex flex-col justify-between">
+              <div className="bg-[#F8F8F8] w-[25vw] rounded-md border-2 border-background05 p-4 flex flex-col justify-between">
                 <Statusbar statusCounts={statusCounts} />
 
                 <QuestionPalatte
@@ -323,79 +320,24 @@ const TestPage = () => {
                   statusCounts={statusCounts}
                   setCurrentQuestionIndex={setCurrentQuestionIndex}
                 />
-
-                <button
-                  onClick={handleSubmit}
-                  className={`bg-gradient-to-r from-blue-500 to-teal-500 text-white py-3 px-8 rounded-lg shadow-lg transition-colors ${
-                    currentQuestionIndex === testQuestions.length - 1
-                      ? "hover:from-blue-600 hover:to-teal-600"
-                      : "opacity-50 cursor-not-allowed"
-                  }`}
-                  disabled={currentQuestionIndex !== testQuestions.length - 1}
-                >
-                  Submit Test
-                </button>
+                <div className="w-full text-center">
+                  <button
+                    onClick={handleSubmit}
+                    className="bg-background05 text-white py-3 px-8 rounded-lg shadow-lg w-[160px] h-[47px]"
+                  >
+                    Submit Test
+                  </button>
+                </div>
               </div>
             </div>
           </>
         ) : (
-          <div className="bg-white shadow-lg rounded-lg p-8 max-w-2xl w-full border border-gray-200">
-            <p className="text-xl font-semibold text-center mb-4">
-              Get your Result
-            </p>
-            <form onSubmit={handleFormSubmit} className="space-y-4">
-              <div>
-                <label htmlFor="name" className="block text-gray-700">
-                  Name
-                </label>
-                <input
-                  id="name"
-                  type="text"
-                  value={userDetails.name}
-                  onChange={(e) =>
-                    setUserDetails({ ...userDetails, name: e.target.value })
-                  }
-                  className="mt-1 block w-full p-2 border border-gray-300 rounded-lg"
-                  required
-                />
-              </div>
-              <div>
-                <label htmlFor="email" className="block text-gray-700">
-                  Email
-                </label>
-                <input
-                  id="email"
-                  type="email"
-                  value={userDetails.email}
-                  onChange={(e) =>
-                    setUserDetails({ ...userDetails, email: e.target.value })
-                  }
-                  className="mt-1 block w-full p-2 border border-gray-300 rounded-lg"
-                  required
-                />
-              </div>
-              <div>
-                <label htmlFor="phone" className="block text-gray-700">
-                  Phone Number
-                </label>
-                <input
-                  id="phone"
-                  type="tel"
-                  value={userDetails.phone}
-                  onChange={(e) =>
-                    setUserDetails({ ...userDetails, phone: e.target.value })
-                  }
-                  className="mt-1 block w-full p-2 border border-gray-300 rounded-lg"
-                  required
-                />
-              </div>
-              <button
-                type="submit"
-                className="bg-gradient-to-r from-blue-500 to-teal-500 text-white py-3 px-8 rounded-lg shadow-lg hover:from-blue-600 hover:to-teal-600 transition-colors"
-              >
-                View Full Result
-              </button>
-            </form>
+          <div className="w-[100%] h-[100vh] flex items-center justify-center">
+            <ResultForm
+              userDetails={userDetails}
+              setUserDetails={setUserDetails}
+              handleFormSubmit={handleFormSubmit}
+            />
           </div>
         )}
       </div>

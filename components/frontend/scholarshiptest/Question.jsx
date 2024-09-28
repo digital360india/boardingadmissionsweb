@@ -31,9 +31,9 @@ export default function Question({
               <input
                 type="radio"
                 name={`question${currentQuestion.id}`}
-                value={option}
-                checked={responses[currentQuestion.id] === option}
-                onChange={() => handleOptionChange(currentQuestion.id, option)}
+                value={key} // Now storing key instead of value
+                checked={responses[currentQuestion.id] === key}
+                onChange={() => handleOptionChange(currentQuestion.id, key)} // Pass key to parent
                 className="form-radio h-5 w-5 text-blue-500"
               />
               <label className="text-gray-700">{option}</label>
