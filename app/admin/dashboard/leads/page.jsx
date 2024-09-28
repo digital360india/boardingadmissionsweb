@@ -383,34 +383,34 @@ const [coldCount, setColdCount] = useState(0);
           className="block w-full text-left px-4 py-2 text-blue-500 hover:bg-gray-100"
           onClick={() => handleEditLead(lead)}
         >
-          <p className="flex gap-6">
+          <div className="flex gap-6">
             <p>Edit</p>
             <p className="flex justify-center items-center">
               <FaEdit />
             </p>
-          </p>
+          </div>
         </button>
         <button
           className="block w-full text-left px-4 py-2 text-green-500 hover:bg-gray-100"
           onClick={() => handleReplyLead(lead)}
         >
-          <p className="flex gap-4">
+          <div className="flex gap-4">
             Reply
             <p className="flex justify-center items-center">
               <FaReply />
             </p>
-          </p>
+          </div>
         </button>
         <button
           className="block w-full text-left px-4 py-2 text-red-500 hover:bg-gray-100"
           onClick={() => handleDeleteConfirm(lead.id)}
         >
-          <p className="flex gap-4">
+          <div className="flex gap-4">
             Delete
             <p className="flex justify-center items-center">
               <MdDeleteSweep />
             </p>
-          </p>
+          </div>
         </button>
       </div>
     )}
@@ -541,12 +541,12 @@ const [coldCount, setColdCount] = useState(0);
                 className="bg-green-500 text-white px-4 py-2 rounded"
                 onClick={sendWhatsApp}
               >
-                <p className="flex gap-4">
+                <div className="flex gap-4">
                   Send via WhatsApp
                   <p className="flex justify-center items-center">
                     <PiWhatsappLogo className="text-[20px]" />
                   </p>
-                </p>
+                </div>
               </button>
               {/* <button
                 type="button"
