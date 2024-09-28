@@ -222,13 +222,18 @@ export default function EntranceMain() {
                     Courses Package Detials
                   </h2>
                   <div className="poppins text-xl">
-                    {"Course Starts on : "}
+                    
                     {packageData
                       ? new Date(packageData.startingDate).toLocaleDateString(
                           "en-US",
                           { year: "numeric", month: "long", day: "numeric" }
                         )
                       : "Loading..."}{" "}
+                  </div>
+                  <div className="poppins text-xl">
+                    
+                  <div>{packageData?.description}</div>
+                    
                   </div>
                 </div>
               ) : activeTab === "Courses" ? (

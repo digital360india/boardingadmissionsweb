@@ -94,7 +94,7 @@ const Page = () => {
 
       <div className="border border-[#075D70] px-[25px] rounded-[10px]">
         <div className="text-[15px] font-semibold text-[#075D70] relative -top-[14px] bg-white w-fit px-1 ">Course Description</div>
-      <p className="text-gray-700 mt-2 bg-gray-20 rounded-md shadow-lg">
+      <div className="text-gray-700 mt-2 bg-gray-20 rounded-md shadow-lg">
         <div>
           {showFullText
             ? courseData.description
@@ -103,7 +103,7 @@ const Page = () => {
         <button className="text-[#075D70] my-3 text-[15px] font-medium" onClick={toggleTextDisplay}>
           {showFullText ? "See Less" : "See More"}
         </button>
-      </p>
+      </div>
       </div>
 
       <div className="mt-6">

@@ -1,13 +1,36 @@
 "use client"
 import React, { useState, useEffect } from 'react';
 import { db } from '@/firebase/firebase'; // Adjust the import according to your setup
-import { collection, getDocs, where } from 'firebase/firestore';
+import { collection, getDocs } from 'firebase/firestore';
 
 const UserDetailDialog = ({ user, onClose }) => {
   if (!user) return null;
+  console.log(user);
+
+  const renderCoursePackages = (packages) => {
+    return packages.map((pkg, index) => (
+      <div key={index} className="border p-2 my-2">
+        <p><strong>Package ID:</strong> {pkg.packageId}</p>
+        <p><strong>Price:</strong> {pkg.price}</p>
+        <p><strong>Date of Purchase:</strong> {new Date(pkg.dateOfPurchase?.seconds * 1000).toLocaleDateString()}</p>
+        <p><strong>Date of Expiration:</strong> {new Date(pkg.dateOfExpiration?.seconds * 1000).toLocaleDateString()}</p>
+      </div>
+    ));
+  };
+
+  const renderTestPackages = (packages) => {
+    return packages.map((pkg, index) => (
+      <div key={index} className="border p-2 my-2">
+        <p><strong>Package ID:</strong> {pkg.packageId}</p>
+        <p><strong>Price:</strong> {pkg.price}</p>
+        <p><strong>Date of Purchase:</strong> {new Date(pkg.dateOfPurchase?.seconds * 1000).toLocaleDateString()}</p>
+        <p><strong>Date of Expiration:</strong> {new Date(pkg.dateOfExpiration?.seconds * 1000).toLocaleDateString()}</p>
+      </div>
+    ));
+  };
 
   return (
-    <div className="fixed inset-0 flex items-center justify-center z-auto">
+    <div className="fixed inset-0 flex items-center justify-center z-auto overflow-auto">
       <div className="bg-white p-6 rounded-lg shadow-lg w-full max-w-md">
         <h2 className="text-xl font-bold mb-4">User Details</h2>
         <div className="mb-4">
@@ -15,11 +38,20 @@ const UserDetailDialog = ({ user, onClose }) => {
           <p><strong>Name:</strong> {user.displayName}</p>
           <p><strong>Email:</strong> {user.email}</p>
           <p><strong>Phone:</strong> {user.phone}</p>
-          <p><strong>Subscription Start Date:</strong> {new Date(user.subscriptionStartDate?.toDate()).toLocaleDateString()}</p>
-          <p><strong>Subscription End Date:</strong> {new Date(user.subscriptionEndDate?.toDate()).toLocaleDateString()}</p>
-          <p><strong>My Courses:</strong> {user.myCourses.join(', ') || 'None'}</p>
-          <p><strong>My Results:</strong> {user.myResults.join(', ') || 'None'}</p>
-          <p><strong>Payment Details:</strong> {user.paymentDetails.join(', ') || 'None'}</p>
+
+          <h3 className="font-semibold mt-4">Course Packages</h3>
+          {user.mycoursepackages && user.mycoursepackages.length > 0 ? (
+            renderCoursePackages(user.mycoursepackages)
+          ) : (
+            <p>No Course Packages</p>
+          )}
+
+          <h3 className="font-semibold mt-4">Test Packages</h3>
+          {user.mytestpackages && user.mytestpackages.length > 0 ? (
+            renderTestPackages(user.mytestpackages)
+          ) : (
+            <p>No Test Packages</p>
+          )}
         </div>
         <button
           type="button"
@@ -42,7 +74,7 @@ const UsersPage = () => {
   useEffect(() => {
     const fetchUsers = async () => {
       try {
-        const querySnapshot = await getDocs(collection(db, 'users' ));
+        const querySnapshot = await getDocs(collection(db, 'users'));
         const userList = querySnapshot.docs.map(doc => ({
           id: doc.id,
           ...doc.data(),

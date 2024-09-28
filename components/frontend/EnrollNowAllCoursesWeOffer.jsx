@@ -11,6 +11,7 @@ import {
 } from "firebase/firestore";
 import { db } from "@/firebase/firebase";
 import Link from "next/link";
+import { FaRupeeSign } from "react-icons/fa";
 
 const EnrollNowAllCoursesWeOffer = () => {
   const currentPage = usePathname();
@@ -110,14 +111,14 @@ const EnrollNowAllCoursesWeOffer = () => {
         );
         const matchPackageName = pkg.packageName
           .toLowerCase()
-          .includes(filters.packageName.toLowerCase()); 
+          .includes(filters.packageName.toLowerCase());
 
         return (
           (filters.courseName === "" || matchCourse) &&
           (filters.boardName === "" || matchBoard) &&
           (filters.schoolName === "" || matchSchool) &&
           (filters.packageName === "" || matchPackageName)
-        ); 
+        );
       });
       setFilteredPackages(filtered);
     };
@@ -139,7 +140,7 @@ const EnrollNowAllCoursesWeOffer = () => {
 
   return (
     <>
-      <div className="w-full mt-[7rem]">
+      <div className="w-full mt-[1rem]">
         <div className="px-6 md:px-12 xl:pt-8">
           <h1 className="text-[1.5rem] md:text-[3rem] text-primary02 font-bold">
             Courses we Offer
@@ -213,9 +214,12 @@ const EnrollNowAllCoursesWeOffer = () => {
                   <h2 className="text-primary02 text-[1rem] md:text-[1.5rem] font-semibold text-center mt-2 md:mt-3">
                     {packageData.packageName}
                   </h2>
-                  <p className="text-[0.5rem] md:text-[0.8rem] text-[#212224] pt-2 md:pt-3 text-center px-8">
-                    Price: {packageData.price} - Discounted Price:{" "}
-                    {packageData.discountedPrice}
+                  <p className="text-[0.5rem] md:text-[2rem] font-bold text-background05  pt-2 md:pt-3 text-center px-8 flex gap-1 justify-center items-center">
+                    <div>
+                      {" "}
+                      <FaRupeeSign />
+                    </div>
+                    <div> Price: {packageData.price} </div>
                   </p>
 
                   <hr className="mx-2 md:mx-10 mt-3" />
@@ -235,13 +239,13 @@ const EnrollNowAllCoursesWeOffer = () => {
                     <h3 className="text-[1rem] md:text-[1.2rem] text-primary02 font-semibold mt-4">
                       Targeted Boards:
                     </h3>
-                    <ul className="text-[0.8rem] md:text-[1rem] text-[#666666]">
+                    <div className="text-[0.8rem] md:text-[1rem] text-[#666666] flex ">
                       {packageData.targetedBoards.map((board, idx) => (
-                        <li key={idx} className="mt-2">
+                        <div key={idx} className="mt-2 mr-2">
                           {board}
-                        </li>
+                        </div>
                       ))}
-                    </ul>
+                    </div>
 
                     <h3 className="text-[1rem] md:text-[1.2rem] text-primary02 font-semibold mt-4">
                       Targeted Schools:

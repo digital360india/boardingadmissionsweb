@@ -68,7 +68,7 @@ const CourseList = () => {
                 className="w-full h-40 object-cover rounded"
               />
               <h3 className="text-lg font-semibold mt-2">{course.courseName}</h3>
-              <p className="text-gray-700 mt-2">{limitText(course.description)}</p>
+              <p className="text-gray-700 mt-2">{limitText(course.description,80)}</p>
             </Link>
             <button 
               onClick={() => handleDelete(course.id)}
