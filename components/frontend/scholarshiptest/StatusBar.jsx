@@ -1,27 +1,26 @@
 import React from "react";
 
-const StatusItem = ({ label, count, color, border }) => (
-  <div className="flex gap-4 items-center">
+const StatusItem = ({ label, count, color, border, width }) => (
+  <div className={`${width ? "" : "w-[50%]"} flex gap-4 items-center `}>
     <p
       className={`${
-        border
-          ? "border border-background05 text-background05"
-          : `bg-[${color}] text-white`
-      } w-8 h-8 flex justify-center items-center rounded-full`}
+        border ? "border border-background05 text-background05" : "text-white"
+      } w-8 h-8 flex justify-center items-center rounded-full font-semibold`}
+      style={{ backgroundColor: border ? undefined : color }}
     >
       {count}
     </p>
-    <p>{label}</p>
+    <p className="text-background05 font-semibold">{label}</p>
   </div>
 );
 
 export default function Statusbar({ statusCounts }) {
   return (
     <div className="space-y-4">
-      <div className="flex gap-16">
+      <div className="flex justify-between">
         <StatusItem
           label="Answered"
-          count={statusCounts.answered}
+          count={statusCounts.answered.length}
           color="#4BB53A"
         />
         <StatusItem
@@ -47,6 +46,7 @@ export default function Statusbar({ statusCounts }) {
           label="Answered and mark for review"
           count={statusCounts.answeredAndMarkedForReview.length}
           color="#FCA311"
+          width
         />
       </div>
     </div>
