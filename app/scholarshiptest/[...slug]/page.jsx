@@ -6,8 +6,8 @@ import { doc, getDoc, setDoc } from "firebase/firestore";
 import { UserContext } from "@/userProvider";
 import QuestionNavigation from "@/components/frontend/scholarshiptest/QuestionNavigation";
 import Question from "@/components/frontend/scholarshiptest/Question";
-import Statusbar from "@/components/frontend/scholarshiptest/Statusbar";
 import QuestionPalatte from "@/components/frontend/scholarshiptest/QuestionPalatte";
+import Statusbar from "@/components/frontend/scholarshiptest/StatusBar";
 
 const TestPage = () => {
   const [time, setTime] = useState(20 * 60);
