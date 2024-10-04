@@ -2,12 +2,20 @@
 import React, { useState, useEffect, useContext } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 import { db } from "@/firebase/firebase";
-import { doc, getDoc, setDoc } from "firebase/firestore";
+import {
+  addDoc,
+  collection,
+  doc,
+  getDoc,
+  setDoc,
+  updateDoc,
+} from "firebase/firestore";
 import { UserContext } from "@/userProvider";
 import QuestionNavigation from "@/components/frontend/scholarshiptest/QuestionNavigation";
 import Question from "@/components/frontend/scholarshiptest/Question";
 import QuestionPalatte from "@/components/frontend/scholarshiptest/QuestionPalatte";
 import ResultForm from "@/components/frontend/scholarshiptest/ResultForm";
+import Statusbar from "@/components/frontend/scholarshiptest/StatusBar";
 
 const TestPage = () => {
   const [time, setTime] = useState(20 * 60);
@@ -79,16 +87,6 @@ const TestPage = () => {
 
     fetchTestQuestions();
   }, [category]);
-
-  const handleFormSubmit = async (e) => {
-    e.preventDefault();
-    if (userDetails.email && userDetails.phone && userDetails.name) {
-      console.log(userDetails);
-      router.push("/testcompletion");
-    } else {
-      alert("Please fill out all fields.");
-    }
-  };
 
   useEffect(() => {
     if (time === 0 && !isSubmitting) {
@@ -214,39 +212,71 @@ const TestPage = () => {
       };
     });
   };
-
+  const [resultData, setResultData] = useState([]);
+  const [testScore, setTestScore] = useState(0);
   const handleSubmit = async () => {
     const result = testQuestions.map((question) => ({
       questionID: question.id,
       questionText: question.question,
-      selectedAnswer: responses[question.id] || "", // User's selected answer
-      correctAnswer: question.correctAnswer, // The correct answer from the testQuestions
-      marks: Number(question.totalmarks), // Ensure marks are numbers
+      selectedAnswer: responses[question.id] || "",
+      correctAnswer: question.correctAnswer,
+      marks: Number(question.totalmarks),
     }));
 
-    // Calculate total score
     const totalScore = result.reduce((score, question) => {
       console.log(`Checking question ID: ${question.questionID}`);
       console.log(
         `Selected Answer: ${question.selectedAnswer}, Correct Answer: ${question.correctAnswer}`
       );
 
-      // Compare selected answer with the correct answer
       if (question.selectedAnswer === question.correctAnswer) {
         console.log(`Correct! Adding ${question.marks} marks.`);
-        return score + question.marks; // Add the question marks if the answer is correct
+        return score + question.marks;
       } else {
         console.log(`Incorrect! No marks added.`);
       }
 
-      return score; // No change in score if the answer is incorrect
+      return score;
     }, 0);
 
     console.log("Test submission details:", result);
     console.log("Total Score:", totalScore);
-
+    setResultData(result);
+    setTestScore(totalScore);
     setIsSubmitting(true);
     setShowResultForm(true);
+  };
+
+  const handleFormSubmit = async (e) => {
+    e.preventDefault();
+
+    if (userDetails.email && userDetails.phone && userDetails.name) {
+      console.log(userDetails);
+      console.log(resultData);
+
+      try {
+        const docRef = await addDoc(collection(db, "leads"), {
+          name: userDetails.name,
+          email: userDetails.email,
+          phonenumber: userDetails.phone,
+          resultData: resultData,
+          score: testScore,
+          category: categoryToDocId[category],
+          timestamp: new Date(),
+        });
+
+        await updateDoc(docRef, {
+          id: docRef.id,
+        });
+
+        router.push(`/testcompletion/${docRef.id}`);
+      } catch (error) {
+        console.error("Error saving lead data: ", error);
+        alert("An error occurred while saving your data.");
+      }
+    } else {
+      alert("Please fill out all fields.");
+    }
   };
 
   const currentQuestionID = testQuestions[currentQuestionIndex]?.id;
@@ -293,7 +323,7 @@ const TestPage = () => {
                     </button>
                     <button
                       onClick={clearResponse}
-                      disabled={!isOptionSelected} 
+                      disabled={!isOptionSelected}
                       className={`bg-background05 text-white py-2 px-4 rounded-lg shadow-md ${
                         !isOptionSelected ? "opacity-50 cursor-not-allowed" : ""
                       }`}

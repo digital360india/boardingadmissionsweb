@@ -7,11 +7,16 @@ import { UserContext } from '@/userProvider';
 
 const TestComplete = () => {
   const router = useRouter();
+
   const [testData, setTestData] = useState(null);
   const [loading, setLoading] = useState(true);
   const { user } = useContext(UserContext);
 
+
   useEffect(() => {
+    const { id } = router.query;
+    
+  console.log(id);
     const fetchData = async () => {
       if (user) {
         try {
