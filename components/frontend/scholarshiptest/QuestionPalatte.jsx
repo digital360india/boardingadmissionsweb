@@ -10,7 +10,7 @@ export default function QuestionPalatte({
   return (
     <div className="space-y-2 ">
       <p className="font-semibold text-background05">Question Palate</p>
-      <div className="grid grid-cols-7 gap-2 ">
+      <div className="grid grid-cols-6 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-7 gap-2 ">
         {testQuestions.map((question, index) => {
           const currentQuestionID = question.id;
           let statusClass = "";

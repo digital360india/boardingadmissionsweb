@@ -8,7 +8,7 @@ export default function QuestionNavigation({
   nextQuestion,
 }) {
   return (
-    <div className="flex w-[15vw] text-[18px] font-medium justify-between">
+    <div className="flex md:w-[30vw] lg:w-[20vw] xl:w-[15vw] text-[18px] font-medium justify-between">
       {currentQuestionIndex > 0 && (
         <button
           onClick={prevQuestion}

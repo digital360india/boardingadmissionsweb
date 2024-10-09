@@ -16,6 +16,7 @@ import Question from "@/components/frontend/scholarshiptest/Question";
 import QuestionPalatte from "@/components/frontend/scholarshiptest/QuestionPalatte";
 import ResultForm from "@/components/frontend/scholarshiptest/ResultForm";
 import Statusbar from "@/components/frontend/scholarshiptest/StatusBar";
+import { FaChevronRight } from "react-icons/fa";
 
 const TestPage = () => {
   const [time, setTime] = useState(20 * 60);
@@ -103,18 +104,33 @@ const TestPage = () => {
     const minutes = Math.floor((seconds % 3600) / 60);
     const secs = seconds % 60;
     return (
-      <div className="flex w-full justify-between px-[25px] py-4">
+      <div className="flex w-full justify-between px-1 lg:px-[25px] py-4">
         <div>
           <p>{String(hours).padStart(2, "0")}</p>
-          <p className="text-[16px] text-[#075D70]">Hours</p>
+          <p className="hidden md:block text-[14px] lg:text-[16px] text-[#075D70]">
+            Hours
+          </p>
+          <p className="md:hidden text-[14px] lg:text-[16px] text-[#075D70]">
+            HH
+          </p>
         </div>
         <div>
           <p>{String(minutes).padStart(2, "0")}</p>
-          <p className="text-[16px] text-[#075D70]">Minutes</p>
+          <p className="hidden md:block text-[14px] lg:text-[16px] text-[#075D70]">
+            Minutes
+          </p>
+          <p className="md:hidden text-[14px] lg:text-[16px] text-[#075D70]">
+            MM
+          </p>
         </div>
         <div>
           <p>{String(secs).padStart(2, "0")}</p>
-          <p className="text-[16px] text-[#075D70]">Seconds</p>
+          <p className=" hidden md:block text-[14px] lg:text-[16px] text-[#075D70]">
+            Seconds
+          </p>
+          <p className="md:hidden text-[14px] lg:text-[16px] text-[#075D70]">
+            SS
+          </p>
         </div>
       </div>
     );
@@ -230,12 +246,12 @@ const TestPage = () => {
       return score;
     }, 0);
 
-    const totalTime = testDetails.duration * 60; 
+    const totalTime = testDetails.duration * 60;
     const timeTake = totalTime - time;
 
     console.log("Total Score:", totalScore);
-    console.log("Time Taken:", timeTake); 
-    setTimeTaken(timeTake)
+    console.log("Time Taken:", timeTake);
+    setTimeTaken(timeTake);
     setResultData(result);
     setTestScore(totalScore);
     setIsSubmitting(true);
@@ -274,26 +290,30 @@ const TestPage = () => {
 
   const currentQuestionID = testQuestions[currentQuestionIndex]?.id;
   const isOptionSelected = responses[currentQuestionID] !== undefined;
+  const [isPopupOpen, setIsPopupOpen] = useState(false);
 
+  const togglePopup = () => {
+    setIsPopupOpen((prev) => !prev);
+  };
   return (
     <div className="">
       <div className="">
         {!showResultForm ? (
           <>
-            <div className="flex h-[100px]">
-              <p className="text-[24px] bg-[#075D70] w-[70vw]  font-extrabold px-9 text-white pt-12 ">
+            <div className="flex md:h-[100px]">
+              <p className="text-[20px] md:text-[24px] bg-[#075D70] w-[70vw]  font-extrabold px-9 text-white py-2 md:pt-12 ">
                 {testDetails.testTitle}
               </p>
 
               <div className="text-center bg-[#F8F8F8] w-[25vw] rounded-br-md border-2 border-background05">
-                <p className="text-[30px] font-semibold text-[#075D7080]">
+                <p className="text-[14px] md:text-[22px] lg:text-[30px] font-semibold text-[#075D7080]">
                   {formatTime(time)}
                 </p>
               </div>
             </div>
 
-            <div className="flex my-8">
-              <div className="w-[70vw] px-9 h-[77vh] flex flex-col justify-between">
+            <div className="flex my-8 relative">
+              <div className="w-[90vw] md:w-[70vw] px-9 min-h-[70vh] max-h-[100vh] md:min-h-[77vh] md:max-h-[80vh] flex flex-col justify-between">
                 <div>
                   {testQuestions.length > 0 && (
                     <>
@@ -306,8 +326,8 @@ const TestPage = () => {
                   )}
                 </div>
 
-                <div className="flex justify-between">
-                  <div className="w-[30vw] flex justify-between">
+                <div className="flex flex-col-reverse md:flex-row gap-3 md:gap-0 md:justify-between">
+                  <div className="xl:w-[30vw] flex flex-col md:flex-row justify-between gap-2">
                     <button
                       onClick={markForReview}
                       className="bg-background05 text-white py-2 px-4 rounded-lg shadow-md "
@@ -323,6 +343,12 @@ const TestPage = () => {
                     >
                       Clear Response
                     </button>
+                    <button
+                      onClick={handleSubmit}
+                      className="md:hidden bg-background05 text-white py-2 px-4 rounded-lg shadow-md"
+                    >
+                      Submit Test
+                    </button>
                   </div>
                   <QuestionNavigation
                     currentQuestionIndex={currentQuestionIndex}
@@ -332,7 +358,46 @@ const TestPage = () => {
                   />
                 </div>
               </div>
-              <div className="bg-[#F8F8F8] w-[25vw] rounded-md border-2 border-background05 p-4 flex flex-col justify-between">
+
+              <button
+                onClick={togglePopup}
+                className="md:hidden bg-background05 text-white p-3 rounded-lg absolute top-[50%] right-0"
+              >
+                <FaChevronRight />
+              </button>
+
+              {isPopupOpen && (
+                <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50">
+                  <div className="bg-[#F8F8F8] w-[90vw] md:w-[25vw] rounded-md border-2 border-background05 p-4 flex flex-col h-full justify-between relative">
+                    <button
+                      onClick={togglePopup}
+                      className="absolute top-2 right-2 text-xl text-black"
+                    >
+                      &times;
+                    </button>
+
+                    <Statusbar statusCounts={statusCounts} />
+
+                    <QuestionPalatte
+                      handleQuestionNavigation={handleQuestionNavigation}
+                      testQuestions={testQuestions}
+                      responses={responses}
+                      statusCounts={statusCounts}
+                      setCurrentQuestionIndex={setCurrentQuestionIndex}
+                    />
+                    <div className="w-full text-center">
+                      <button
+                        onClick={handleSubmit}
+                        className="bg-background05 text-white xl:py-3 py-1 px-2 xl:px-8 rounded-lg shadow-lg md:w-[160px] md:h-[30px] xl:h-[47px]"
+                      >
+                        Submit Test
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              )}
+
+              <div className="hidden md:flex bg-[#F8F8F8] w-[25vw] rounded-md border-2 border-background05 p-4 flex flex-col justify-between">
                 <Statusbar statusCounts={statusCounts} />
 
                 <QuestionPalatte
@@ -345,9 +410,9 @@ const TestPage = () => {
                 <div className="w-full text-center">
                   <button
                     onClick={handleSubmit}
-                    className="bg-background05 text-white py-3 px-8 rounded-lg shadow-lg w-[160px] h-[47px]"
+                    className="bg-background05  text-white xl:py-3 py-1 px-2 xl:px-8 rounded-lg shadow-lg md:w-[160px] md:h-[30px] xl:h-[47px]"
                   >
-                    Submit Test
+                    Submit
                   </button>
                 </div>
               </div>
@@ -360,7 +425,6 @@ const TestPage = () => {
               setUserDetails={setUserDetails}
               handleFormSubmit={handleFormSubmit}
             />
-          
           </div>
         )}
       </div>
