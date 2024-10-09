@@ -181,27 +181,6 @@ const AddQuestionsPage = () => {
           />
         </label>
 
-        <label className="block mb-4">
-          <span className="text-gray-700">Question Type</span>
-          <select
-            name="questionType"
-            value={newQuestion.questionType}
-            onChange={(e) => {
-              setNewQuestion({
-                questionType: e.target.value,
-                ...getQuestionModel(e.target.value),
-              });
-              setQuestionModel(getQuestionModel(e.target.value));
-            }}
-            className="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:border-indigo-500 focus:ring-indigo-500"
-          >
-            <option value="essay">Essay</option>
-            <option value="passage">Passage</option>
-            <option value="mcq">MCQ</option>
-            <option value="fillInTheBlank">Fill in the Blank</option>
-            <option value="imageGuess">Image Guess</option>
-          </select>
-        </label>
 
         {/* Add Previously Defined Question */}
         <label className="block mb-4">
