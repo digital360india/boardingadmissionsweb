@@ -5,6 +5,7 @@ import { db } from "@/firebase/firebase";
 import { doc, getDoc } from "firebase/firestore";
 import { UserContext } from "@/userProvider";
 import { IoHomeOutline } from "react-icons/io5";
+import Leaderboard from "@/components/frontend/scholarshiptest/Leaderboard";
 
 const TestComplete = () => {
   const router = useRouter();
@@ -22,8 +23,9 @@ const TestComplete = () => {
 
   useEffect(() => {
     const id = extractIdFromPath(path);
+    console.log(id);
 
-    if (!user || !id) {
+    if (!id) {
       console.error("User not authenticated or ID not found");
       setLoading(false);
       return;
@@ -31,6 +33,7 @@ const TestComplete = () => {
 
     const fetchData = async () => {
       try {
+        console.log(id);
         const userDoc = doc(db, "leads", id);
         const docSnap = await getDoc(userDoc);
 
@@ -83,8 +86,13 @@ const TestComplete = () => {
     return <div>Loading...</div>;
   }
 
+  console.log(testCategory);
+
   return (
     <div className="w-[80vw] mx-auto my-4">
+      <p className="text-[24px] font-semibold text-green-600 flex-grow py-4">
+        Thank You {testData.name || "N/A"} !!
+      </p>
       <div className="flex justify-between items-center">
         <p className="text-center text-[22px]  text-green-600 font-semibold flex-grow">
           Test Completed
@@ -102,7 +110,9 @@ const TestComplete = () => {
         {testCategory && testData && (
           <div className="space-y-3">
             <div className="flex justify-between">
-              <div className="font-semibold">{testCategory.testTitle || "N/A"}</div>
+              <div className="font-semibold">
+                {testCategory.testTitle || "N/A"}
+              </div>
               <div>{testData.category || "N/A"}</div>
               <div>Test Duration : {testCategory.duration || "N/A"}</div>
             </div>
@@ -116,65 +126,77 @@ const TestComplete = () => {
       </div>
 
       <div>
-        <p className="text-green-600 my-2">Thank you for completing the test. Here are your results:</p>
-        {questions?.length > 0 && (
+        <p className="text-green-600 my-2">
+          Thank you for completing the test. Here are your results:
+        </p>
+        <div className="flex justify-between">
           <div>
-            {questions.map((question, index) => {
-              const userResponse = testData.resultData.find(
-                (res) => res.questionID === question.id
-              );
-              const isCorrect =
-                userResponse?.selectedAnswer === question.correctAnswer;
+            {questions?.length > 0 && (
+              <div>
+                {questions.map((question, index) => {
+                  const userResponse = testData.resultData.find(
+                    (res) => res.questionID === question.id
+                  );
+                  const isCorrect =
+                    userResponse?.selectedAnswer === question.correctAnswer;
 
-              return (
-                <div
-                  key={question.id}
-                  className="mb-4 w-[50vw] border-2 border-gray-200 p-4 rounded-md space-y-2"
-                >
-                  <h3>{`${index + 1}. ${question.question}`}</h3>
-                  <ul>
-                    {Object.entries(question.answers)
-                      .sort(([key1], [key2]) => key1.localeCompare(key2)) // Sort keys alphabetically
-                      .map(([key, option]) => {
-                        const isSelected = userResponse?.selectedAnswer === key;
-                        const isCorrectOption = key === question.correctAnswer;
+                  return (
+                    <div
+                      key={question.id}
+                      className="mb-4 w-[45vw] border-2 border-gray-200 p-4 rounded-md space-y-2"
+                    >
+                      <h3>{`${index + 1}. ${question.question}`}</h3>
+                      <ul>
+                        {Object.entries(question.answers)
+                          .sort(([key1], [key2]) => key1.localeCompare(key2)) // Sort keys alphabetically
+                          .map(([key, option]) => {
+                            const isSelected =
+                              userResponse?.selectedAnswer === key;
+                            const isCorrectOption =
+                              key === question.correctAnswer;
 
-                        return (
-                          <li
-                            key={key}
-                            className={`rounded-md px-2 py-1 ${
-                              isCorrectOption
-                                ? "bg-green-100 text-green-700"
-                                : isSelected && !isCorrectOption
-                                ? "bg-red-100 text-red-700"
-                                : ""
-                            } flex items-center`}
-                          >
-                            <span className="mr-2">{`${key}. ${option}`}</span>
-                            {isSelected && (
-                              <span className="ml-2">
-                                {isCorrectOption ? "✓" : "✗"}
-                              </span>
-                            )}
-                          </li>
-                        );
-                      })}
-                  </ul>
+                            return (
+                              <li
+                                key={key}
+                                className={`rounded-md px-2 py-1 ${
+                                  isCorrectOption
+                                    ? "bg-green-100 text-green-700"
+                                    : isSelected && !isCorrectOption
+                                    ? "bg-red-100 text-red-700"
+                                    : ""
+                                } flex items-center`}
+                              >
+                                <span className="mr-2">{`${key}. ${option}`}</span>
+                                {isSelected && (
+                                  <span className="ml-2">
+                                    {isCorrectOption ? "✓" : "✗"}
+                                  </span>
+                                )}
+                              </li>
+                            );
+                          })}
+                      </ul>
 
-                  <div className="space-y-2 mt-4">
-                    <p>
-                      <strong>Correct Answer:</strong> {question.correctAnswer}
-                    </p>
-                    <p>
-                      <strong>Your Answer:</strong>{" "}
-                      {userResponse ? userResponse.selectedAnswer : "N/A"}
-                    </p>
-                  </div>
-                </div>
-              );
-            })}
+                      <div className="space-y-2 mt-4">
+                        <p>
+                          <strong>Correct Answer:</strong>{" "}
+                          {question.correctAnswer}
+                        </p>
+                        <p>
+                          <strong>Your Answer:</strong>{" "}
+                          {userResponse ? userResponse.selectedAnswer : "N/A"}
+                        </p>
+                      </div>
+                    </div>
+                  );
+                })}
+              </div>
+            )}
           </div>
-        )}
+          <div >
+            <Leaderboard category={testData.category}/>
+          </div>
+        </div>
       </div>
     </div>
   );

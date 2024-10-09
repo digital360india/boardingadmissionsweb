@@ -27,12 +27,8 @@ const TestPage = () => {
     phone: "",
     name: "",
   });
-    const [resultData, setResultData] = useState([]); // To store result data
-
-  const [finalScore, setFinalScore] = useState(null);
   const [showResultForm, setShowResultForm] = useState(false);
   const router = useRouter();
-  const { user } = useContext(UserContext);
   const [testQuestions, setTestQuestions] = useState([]);
   const [testDetails, setTestDetails] = useState([]);
   const searchParams = useSearchParams();
@@ -216,6 +212,8 @@ const TestPage = () => {
   };
   const [resultData, setResultData] = useState([]);
   const [testScore, setTestScore] = useState(0);
+  const [timeTaken, setTimeTaken] = useState(0);
+
   const handleSubmit = async () => {
     const result = testQuestions.map((question) => ({
       questionID: question.id,
@@ -226,23 +224,18 @@ const TestPage = () => {
     }));
 
     const totalScore = result.reduce((score, question) => {
-      console.log(`Checking question ID: ${question.questionID}`);
-      console.log(
-        `Selected Answer: ${question.selectedAnswer}, Correct Answer: ${question.correctAnswer}`
-      );
-
       if (question.selectedAnswer === question.correctAnswer) {
-        console.log(`Correct! Adding ${question.marks} marks.`);
         return score + question.marks;
-      } else {
-        console.log(`Incorrect! No marks added.`);
       }
-
       return score;
     }, 0);
 
-    console.log("Test submission details:", result);
+    const totalTime = testDetails.duration * 60; 
+    const timeTake = totalTime - time;
+
     console.log("Total Score:", totalScore);
+    console.log("Time Taken:", timeTake); 
+    setTimeTaken(timeTake)
     setResultData(result);
     setTestScore(totalScore);
     setIsSubmitting(true);
@@ -253,9 +246,6 @@ const TestPage = () => {
     e.preventDefault();
 
     if (userDetails.email && userDetails.phone && userDetails.name) {
-      console.log(userDetails);
-      console.log(resultData);
-
       try {
         const docRef = await addDoc(collection(db, "leads"), {
           name: userDetails.name,
@@ -263,6 +253,7 @@ const TestPage = () => {
           phonenumber: userDetails.phone,
           resultData: resultData,
           score: testScore,
+          timeTaken: timeTaken,
           category: categoryToDocId[category],
           timestamp: new Date(),
         });
