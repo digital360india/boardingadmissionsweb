@@ -1,5 +1,5 @@
 "use client";
-import React, { useState, useEffect, useContext } from "react";
+import React, { useState, useEffect } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 import { db } from "@/firebase/firebase";
 import {
@@ -10,13 +10,13 @@ import {
   setDoc,
   updateDoc,
 } from "firebase/firestore";
-import { UserContext } from "@/userProvider";
 import QuestionNavigation from "@/components/frontend/scholarshiptest/QuestionNavigation";
 import Question from "@/components/frontend/scholarshiptest/Question";
 import QuestionPalatte from "@/components/frontend/scholarshiptest/QuestionPalatte";
 import ResultForm from "@/components/frontend/scholarshiptest/ResultForm";
 import Statusbar from "@/components/frontend/scholarshiptest/StatusBar";
 import { FaChevronRight } from "react-icons/fa";
+import { Router } from "next/router";
 
 const TestPage = () => {
   const [time, setTime] = useState(20 * 60);
@@ -295,6 +295,47 @@ const TestPage = () => {
   const togglePopup = () => {
     setIsPopupOpen((prev) => !prev);
   };
+
+  const [examSubmitted, setExamSubmitted] = useState(false);
+
+  useEffect(() => {
+    const handleBeforeUnload = (event) => {
+      if (!examSubmitted) {
+        event.preventDefault();
+        event.returnValue = "";
+      }
+    };
+
+    window.addEventListener("beforeunload", handleBeforeUnload);
+
+    return () => {
+      window.removeEventListener("beforeunload", handleBeforeUnload);
+    };
+  }, [examSubmitted]);
+
+  useEffect(() => {
+    const handleRouteChange = (url) => {
+      if (!examSubmitted) {
+        if (
+          !confirm("You have unsaved changes. Are you sure you want to leave?")
+        ) {
+          throw "Route change aborted.";
+        }
+      }
+    };
+
+    Router.events.on("routeChangeStart", handleRouteChange);
+
+    return () => {
+      Router.events.off("routeChangeStart", handleRouteChange);
+    };
+  }, []);
+
+  const submitExam = () => {
+    handleSubmit();
+    setExamSubmitted(true);
+  };
+
   return (
     <div className="">
       <div className="">
@@ -344,7 +385,7 @@ const TestPage = () => {
                       Clear Response
                     </button>
                     <button
-                      onClick={handleSubmit}
+                      onClick={submitExam}
                       className="md:hidden bg-background05 text-white py-2 px-4 rounded-lg shadow-md"
                     >
                       Submit Test
@@ -387,7 +428,7 @@ const TestPage = () => {
                     />
                     <div className="w-full text-center">
                       <button
-                        onClick={handleSubmit}
+                        onClick={submitExam}
                         className="bg-background05 text-white xl:py-3 py-1 px-2 xl:px-8 rounded-lg shadow-lg md:w-[160px] md:h-[30px] xl:h-[47px]"
                       >
                         Submit Test
@@ -409,7 +450,7 @@ const TestPage = () => {
                 />
                 <div className="w-full text-center">
                   <button
-                    onClick={handleSubmit}
+                    onClick={submitExam}
                     className="bg-background05  text-white xl:py-3 py-1 px-2 xl:px-8 rounded-lg shadow-lg md:w-[160px] md:h-[30px] xl:h-[47px]"
                   >
                     Submit
