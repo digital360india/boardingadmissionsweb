@@ -25,10 +25,10 @@ const AddQuestionsPage = () => {
   const pathArray = currentPage.split("/");
   const testId = pathArray[pathArray.length - 1];
   const [questions, setQuestions] = useState([]);
-  const [loading, setLoading] = useState(false); // Loading state
+  const [loading, setLoading] = useState(false); 
   const [editingQuestionId, setEditingQuestionId] = useState(null);
   const [editMode, setEditMode] = useState(false);
-  const [allQuestions, setAllQuestions] = useState([]); // State to store all questions
+  const [allQuestions, setAllQuestions] = useState([]); 
 
   const fetchTest = async () => {
     try {
