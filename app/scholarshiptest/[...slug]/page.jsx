@@ -229,38 +229,45 @@ const TestPage = () => {
   const [resultData, setResultData] = useState([]);
   const [testScore, setTestScore] = useState(0);
   const [timeTaken, setTimeTaken] = useState(0);
+  const [loading, setLoading] = useState(false);
 
   const handleSubmit = async () => {
-    const result = testQuestions.map((question) => ({
-      questionID: question.id,
-      questionText: question.question,
-      selectedAnswer: responses[question.id] || "",
-      correctAnswer: question.correctAnswer,
-      marks: Number(question.totalmarks),
-    }));
+    const isConfirmed = window.confirm(
+      "Are you sure you want to submit the test?"
+    );
 
-    const totalScore = result.reduce((score, question) => {
-      if (question.selectedAnswer === question.correctAnswer) {
-        return score + question.marks;
-      }
-      return score;
-    }, 0);
+    if (isConfirmed) {
+      const result = testQuestions.map((question) => ({
+        questionID: question.id,
+        questionText: question.question,
+        selectedAnswer: responses[question.id] || "",
+        correctAnswer: question.correctAnswer,
+        marks: Number(question.totalmarks),
+      }));
 
-    const totalTime = testDetails.duration * 60;
-    const timeTake = totalTime - time;
+      const totalScore = result.reduce((score, question) => {
+        if (question.selectedAnswer === question.correctAnswer) {
+          return score + question.marks;
+        }
+        return score;
+      }, 0);
 
-    console.log("Total Score:", totalScore);
-    console.log("Time Taken:", timeTake);
-    setTimeTaken(timeTake);
-    setResultData(result);
-    setTestScore(totalScore);
-    setIsSubmitting(true);
-    setShowResultForm(true);
+      const totalTime = testDetails.duration * 60;
+      const timeTaken = totalTime - time;
+
+      setTimeTaken(timeTaken);
+      setResultData(result);
+      setTestScore(totalScore);
+      setIsSubmitting(true);
+      setShowResultForm(true);
+    } else {
+      console.log("Submission cancelled by user.");
+    }
   };
 
   const handleFormSubmit = async (e) => {
     e.preventDefault();
-
+    setLoading(true);
     if (userDetails.email && userDetails.phone && userDetails.name) {
       try {
         const docRef = await addDoc(collection(db, "leads"), {
@@ -286,6 +293,9 @@ const TestPage = () => {
     } else {
       alert("Please fill out all fields.");
     }
+    setTimeout(() => {
+      setLoading(false);
+    }, 2000);
   };
 
   const currentQuestionID = testQuestions[currentQuestionIndex]?.id;
@@ -342,12 +352,12 @@ const TestPage = () => {
         {!showResultForm ? (
           <>
             <div className="flex md:h-[100px]">
-              <p className="text-[20px] md:text-[24px] bg-[#075D70] w-[70vw]  font-extrabold px-9 text-white py-2 md:pt-12 ">
+              <p className="text-[20px] md:text-[24px] bg-[#075D70] w-[70vw] font-bold px-9 text-white py-2 md:pt-12 ">
                 {testDetails.testTitle}
               </p>
 
               <div className="text-center bg-[#F8F8F8] w-[25vw] rounded-br-md border-2 border-background05">
-                <p className="text-[14px] md:text-[22px] lg:text-[30px] font-semibold text-[#075D7080]">
+                <p className="text-[14px] md:text-[22px] lg:text-[30px] font-semibold text-[#075D70]">
                   {formatTime(time)}
                 </p>
               </div>
@@ -371,15 +381,15 @@ const TestPage = () => {
                   <div className="xl:w-[30vw] flex flex-col md:flex-row justify-between gap-2">
                     <button
                       onClick={markForReview}
-                      className="bg-background05 text-white py-2 px-4 rounded-lg shadow-md "
+                      className="border border-background05 text-background05 py-2 px-4 rounded-lg shadow-md "
                     >
                       Mark for review and Next
                     </button>
                     <button
                       onClick={clearResponse}
                       disabled={!isOptionSelected}
-                      className={`bg-background05 text-white py-2 px-4 rounded-lg shadow-md ${
-                        !isOptionSelected ? "opacity-50 cursor-not-allowed" : ""
+                      className={`  py-2 px-4 rounded-lg shadow-md ${
+                        !isOptionSelected ? "opacity-50 cursor-not-allowed bg-gray-300 text-gray-1000 border border-gray-900" : "border border-background05 text-background05"
                       }`}
                     >
                       Clear Response
@@ -465,6 +475,7 @@ const TestPage = () => {
               userDetails={userDetails}
               setUserDetails={setUserDetails}
               handleFormSubmit={handleFormSubmit}
+              loading={loading}
             />
           </div>
         )}

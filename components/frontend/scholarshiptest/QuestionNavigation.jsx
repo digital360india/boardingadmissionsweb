@@ -8,11 +8,11 @@ export default function QuestionNavigation({
   nextQuestion,
 }) {
   return (
-    <div className="flex md:w-[30vw] lg:w-[20vw] xl:w-[15vw] text-[18px] font-medium justify-between">
+    <div className="flex md:w-[30vw] lg:w-[20vw] xl:w-[15vw] text-[16px] justify-between">
       {currentQuestionIndex > 0 && (
         <button
           onClick={prevQuestion}
-          className="text-background05 flex items-center"
+          className="bg-background05 text-white px-4 rounded-lg shadow-md flex items-center"
         >
           <AiFillCaretLeft />
           <span>Previous</span>
@@ -21,7 +21,7 @@ export default function QuestionNavigation({
       {currentQuestionIndex < totalQuestions - 1 && (
         <button
           onClick={nextQuestion}
-          className="text-background05 flex items-center"
+          className="bg-background05 text-white px-4 rounded-lg shadow-md flex items-center"
         >
           <span>Next</span>
           <AiFillCaretRight />
