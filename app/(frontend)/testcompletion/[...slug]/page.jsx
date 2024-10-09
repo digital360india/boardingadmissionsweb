@@ -119,7 +119,7 @@ const TestComplete = () => {
 
             <div className="flex justify-between w-[80vw]">
               <div>Total Marks : {testCategory.Totalmarks || "N/A"}</div>
-              <div>Marks Obtained : {testData.score || "N/A"}</div>
+              <div>Marks Obtained : {testData.score || 0 }</div>
             </div>
           </div>
         )}
