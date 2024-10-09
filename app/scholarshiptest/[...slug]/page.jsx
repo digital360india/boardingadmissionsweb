@@ -275,7 +275,7 @@ const TestPage = () => {
           email: userDetails.email,
           phonenumber: userDetails.phone,
           resultData: resultData,
-          score: testScore,
+          score: testScore || 0,
           timeTaken: timeTaken,
           category: categoryToDocId[category],
           timestamp: new Date(),
