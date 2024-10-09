@@ -8,6 +8,9 @@ import QuestionNavigation from "@/components/frontend/scholarshiptest/QuestionNa
 import Question from "@/components/frontend/scholarshiptest/Question";
 import QuestionPalatte from "@/components/frontend/scholarshiptest/QuestionPalatte";
 import ResultForm from "@/components/frontend/scholarshiptest/ResultForm";
+import Statusbar from "@/components/frontend/scholarshiptest/StatusBar";
+import { PDFDownloadLink } from "@react-pdf/renderer";
+import TestPDF from "@/components/frontend/TestPDF";
 
 const TestPage = () => {
   const [time, setTime] = useState(20 * 60);
@@ -19,6 +22,8 @@ const TestPage = () => {
     phone: "",
     name: "",
   });
+    const [resultData, setResultData] = useState([]); // To store result data
+
   const [finalScore, setFinalScore] = useState(null);
   const [showResultForm, setShowResultForm] = useState(false);
   const router = useRouter();
@@ -83,12 +88,39 @@ const TestPage = () => {
   const handleFormSubmit = async (e) => {
     e.preventDefault();
     if (userDetails.email && userDetails.phone && userDetails.name) {
-      console.log(userDetails);
-      router.push("/testcompletion");
+        console.log(userDetails);
+        
+        // Create the PDF document
+        const pdfBlob = await new Promise((resolve) => {
+            const blob = new Blob(
+                [<TestPDF result={resultData} totalScore={finalScore} />],
+                { type: 'application/pdf' }
+            );
+            resolve(blob);
+        });
+
+        // Create a download link
+        const url = URL.createObjectURL(pdfBlob);
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = 'test_results.pdf';
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+
+        // Send a greeting message via WhatsApp
+        const message = `Hello ${userDetails.name}, your test results are ready!`;
+        const encodedMessage = encodeURIComponent(message);
+        const phoneNumber = userDetails.phone; // Make sure the phone number is in the right format
+        window.open(`https://wa.me/${phoneNumber}?text=${encodedMessage}`, '_blank');
+
+        // Redirect to test completion page
+        router.push("/testcompletion");
     } else {
-      alert("Please fill out all fields.");
+        alert("Please fill out all fields.");
     }
-  };
+};
+
 
   useEffect(() => {
     if (time === 0 && !isSubmitting) {
@@ -245,7 +277,10 @@ const TestPage = () => {
     console.log("Test submission details:", result);
     console.log("Total Score:", totalScore);
 
-    setIsSubmitting(true);
+    setResultData(result);
+    setFinalScore(totalScore);
+
+    // Show the form to capture user details
     setShowResultForm(true);
   };
 
@@ -337,6 +372,7 @@ const TestPage = () => {
               setUserDetails={setUserDetails}
               handleFormSubmit={handleFormSubmit}
             />
+          
           </div>
         )}
       </div>
