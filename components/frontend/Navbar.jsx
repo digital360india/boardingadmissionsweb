@@ -66,7 +66,10 @@ const Navbar = () => {
             </li>
           </Link>
         </ul>
-        <div className="w-10"></div>
+        <div className=" pr-4 ">
+          {" "}
+          <Link href="/scholarshiptest"><div className="bg-background04 py-2 px-4 rounded-xl text-white hover:text-gray-100 hover:bg-background05">Boarding Aptitude Test</div></Link>
+        </div>
       </nav>
 
       {/* Mobile Navbar */}
@@ -74,9 +77,15 @@ const Navbar = () => {
         <button onClick={toggleMenu} className="text-2xl">
           ☰
         </button>
-     <Link href="/">
-     <Image src="/images/navbar.svg" alt="Logo" className="w-[130px]" width={1000} height={1000} />
-     </Link>  
+        <Link href="/">
+          <Image
+            src="/images/navbar.svg"
+            alt="Logo"
+            className="w-[130px]"
+            width={1000}
+            height={1000}
+          />
+        </Link>
       </div>
 
       {/* Backdrop with transition */}
@@ -96,7 +105,13 @@ const Navbar = () => {
         }`}
       >
         <div className="flex justify-between items-center mb-4">
-          <Image src="/images/navbar.svg" alt="Logo" className="w-[100px]" width={1000} height={1000} />
+          <Image
+            src="/images/navbar.svg"
+            alt="Logo"
+            className="w-[100px]"
+            width={1000}
+            height={1000}
+          />
           {/* Close icon (cross) */}
           <button onClick={closeMenu} className="text-2xl">
             ✕
