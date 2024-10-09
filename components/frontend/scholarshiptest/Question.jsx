@@ -21,7 +21,7 @@ export default function Question({
           </p>
         </div>
       </div>
-      <div className="space-y-8 h-[60vh]">
+      <div className="space-y-8 md:h-[60vh]">
         <p className="text-[18px]  max-h-[184px] overflow-y-scroll scrollbar-hide">
           {currentQuestion.question}
         </p>
