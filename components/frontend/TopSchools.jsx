@@ -41,6 +41,12 @@ export default function TopSchools() {
       routes: "/school/mayo-boys-school",
     },
     {
+      school: "Mayo Girls College",
+      imageSrc: "/images/schoolimages/Mayo_Boys_College.svg",
+      location: "(Ajmer)",
+      routes: "/school/mayo-girls-school",
+    },
+    {
       school: "Bishop Cotton School",
       imageSrc: "/images/schoolimages/Bishop_Cotton_School(Bangaluru).svg",
       location: "(Bangaluru)",
