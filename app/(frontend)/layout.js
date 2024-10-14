@@ -42,10 +42,10 @@ export const metadata = {
 };
 export default function RootLayout({ children }) {
   return (
-    <html lang="en">
+    <div lang="en">
       {/* <Popup /> */}
       <UserProvider>
-        <body>
+        <div>
           <Navbar />
           <Flyer />
           {children}
@@ -65,8 +65,8 @@ export default function RootLayout({ children }) {
               </Link>
             </span>
           </div>
-        </body>
+        </div>
       </UserProvider>
-    </html>
+    </div>
   );
 }

@@ -553,12 +553,12 @@ const [coldCount, setColdCount] = useState(0);
                 className="bg-blue-500 text-white px-4 py-2 rounded"
                 onClick={sendEmail}
               >
-                <p className="flex gap-4">
+                <div className="flex gap-4">
                   Send via Email
                   <p className="flex justify-center items-center">
                     <MdOutgoingMail className="text-[20px]" />
                   </p>
-                </p>
+                </div>
               </button> */}
               <button
                 type="button"
