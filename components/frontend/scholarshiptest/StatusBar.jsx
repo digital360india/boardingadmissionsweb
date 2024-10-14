@@ -1,7 +1,7 @@
 import React from "react";
 
 const StatusItem = ({ label, count, color, border, width }) => (
-  <div className={`${width ? "" : "w-[100%]"} flex gap-4 items-center `}>
+  <div className={`${width ? "" : "w-[100%]"} flex gap-4 items-center`}>
     <p
       className={`${
         border ? "border border-background05 text-background05" : "text-white"
@@ -43,9 +43,9 @@ export default function Statusbar({ statusCounts }) {
       </div>
       <div className="flex flex-col md:hidden lg:block xl:flex-row justify-between space-y-4 xl:space-y-0 ">
         <StatusItem
-          label="Answered and mark for review"
+          label="Answered and Marked for Review"
           count={statusCounts.answeredAndMarkedForReview.length}
-          color="#FCA311"
+          color="#000080"
           width
         />
       </div>

@@ -136,29 +136,45 @@ const TestPage = () => {
     );
   };
 
-  const nextQuestion = () => {
-    setCurrentQuestionIndex((prevIndex) =>
-      Math.min(prevIndex + 1, testQuestions.length - 1)
-    );
-  };
+const nextQuestion = () => {
+  const currentQuestionID = testQuestions[currentQuestionIndex].id;
 
-  const prevQuestion = () => {
-    setCurrentQuestionIndex((prevIndex) => Math.max(prevIndex - 1, 0));
-  };
+  if (statusCounts.notVisited.includes(currentQuestionID)) {
+    setStatusCounts((prevCounts) => ({
+      ...prevCounts,
+      notVisited: prevCounts.notVisited.filter((id) => id !== currentQuestionID),
+    }));
+  }
 
-  const handleQuestionNavigation = (index) => {
-    const currentQuestionID = testQuestions[index].id;
-    setCurrentQuestionIndex(index);
+  setCurrentQuestionIndex((prevIndex) =>
+    Math.min(prevIndex + 1, testQuestions.length - 1)
+  );
+};
 
-    if (statusCounts.notVisited.includes(currentQuestionID)) {
-      setStatusCounts((prevCounts) => ({
-        ...prevCounts,
-        notVisited: prevCounts.notVisited.filter(
-          (id) => id !== currentQuestionID
-        ),
-      }));
-    }
-  };
+const prevQuestion = () => {
+  const currentQuestionID = testQuestions[currentQuestionIndex].id;
+
+  if (statusCounts.notVisited.includes(currentQuestionID)) {
+    setStatusCounts((prevCounts) => ({
+      ...prevCounts,
+      notVisited: prevCounts.notVisited.filter((id) => id !== currentQuestionID),
+    }));
+  }
+
+  setCurrentQuestionIndex((prevIndex) => Math.max(prevIndex - 1, 0));
+};
+
+const handleQuestionNavigation = (index) => {
+  const currentQuestionID = testQuestions[index].id;
+  setCurrentQuestionIndex(index);
+
+  if (statusCounts.notVisited.includes(currentQuestionID)) {
+    setStatusCounts((prevCounts) => ({
+      ...prevCounts,
+      notVisited: prevCounts.notVisited.filter((id) => id !== currentQuestionID),
+    }));
+  }
+};
 
   const handleOptionChange = (questionID, selectedOption) => {
     setResponses((prevResponses) => ({
@@ -274,7 +290,7 @@ const TestPage = () => {
           name: userDetails.name,
           email: userDetails.email,
           phonenumber: userDetails.phone,
-          resultData: resultData, 
+          resultData: resultData,
           score: testScore,
           timeTaken: timeTaken,
           category: categoryToDocId[category],
@@ -389,7 +405,9 @@ const TestPage = () => {
                       onClick={clearResponse}
                       disabled={!isOptionSelected}
                       className={`  py-2 px-4 rounded-lg shadow-md ${
-                        !isOptionSelected ? "opacity-50 cursor-not-allowed bg-gray-300 text-gray-1000 border border-gray-900" : "border border-background05 text-background05"
+                        !isOptionSelected
+                          ? "opacity-50 cursor-not-allowed bg-gray-300 text-gray-1000 border border-gray-900"
+                          : "border border-background05 text-background05"
                       }`}
                     >
                       Clear Response
