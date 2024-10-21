@@ -12,6 +12,8 @@ import {
 } from "@/models/QuestionModel";
 import { RxCrossCircled } from "react-icons/rx";
 import { deleteDoc } from "firebase/firestore";
+import QuillEditor from "@/components/admin/QuillEditor";
+import "./global.css";
 
 const AddQuestionsPage = () => {
   const [test, setTest] = useState(null);
@@ -25,10 +27,12 @@ const AddQuestionsPage = () => {
   const pathArray = currentPage.split("/");
   const testId = pathArray[pathArray.length - 1];
   const [questions, setQuestions] = useState([]);
-  const [loading, setLoading] = useState(false); 
+  const [loading, setLoading] = useState(false);
   const [editingQuestionId, setEditingQuestionId] = useState(null);
   const [editMode, setEditMode] = useState(false);
-  const [allQuestions, setAllQuestions] = useState([]); 
+  const [allQuestions, setAllQuestions] = useState([]);
+  const [questionContent, setQuestionContent] = useState("");
+  const [submittedQuestion, setSubmittedQuestion] = useState("");
 
   const fetchTest = async () => {
     try {
@@ -86,6 +90,7 @@ const AddQuestionsPage = () => {
   };
 
   const handleSubmit = async (e) => {
+    setSubmittedQuestion(questionContent);
     e.preventDefault();
     if (!test) {
       console.error("Test data is not loaded.");
@@ -165,25 +170,19 @@ const AddQuestionsPage = () => {
 
   const renderQuestionForm = () => {
     return (
-      <div className="">
-        <h2 className="text-xl font-semibold mb-4 text-gray-800">
-          {editMode ? "Edit Question" : "Add New Question"}
-        </h2>
-
-        <label className="block mb-4">
-          <span className="text-gray-700">Serial Number</span>
+      <div className="space-y-3">
+        <label className="flex items-center gap-4 w-fit  ">
+          <span className="text-gray-700 w-fit">Serial Number</span>
           <input
             type="text"
             name="sno"
             value={newQuestion.sno}
             onChange={handleInputChange}
-            className="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:border-indigo-500 focus:ring-indigo-500"
+            className=" block w-fit border-gray-300 rounded-md shadow-sm focus:border-indigo-500 focus:ring-indigo-500"
           />
         </label>
 
-
-        {/* Add Previously Defined Question */}
-        <label className="block mb-4">
+        <label className="flex items-center gap-4 w-fit">
           <span className="text-gray-700">Use Existing Question</span>
           <select
             name="existingQuestion"
@@ -193,10 +192,10 @@ const AddQuestionsPage = () => {
               );
               if (selectedQuestion) {
                 setNewQuestion({ ...selectedQuestion });
-                setEditMode(true); // Enter edit mode for the selected question
+                setEditMode(true);
               }
             }}
-            className="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:border-indigo-500 focus:ring-indigo-500"
+            className="w-[350px] border-gray-300 rounded-md shadow-sm focus:border-indigo-500 focus:ring-indigo-500"
           >
             <option value="">Select Existing Question</option>
             {questions.map((question) => (
@@ -222,6 +221,7 @@ const AddQuestionsPage = () => {
                       className="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:border-indigo-500 focus:ring-indigo-500"
                     />
                   </label>
+
                   <label className="block mb-4">
                     <span className="text-gray-700">Question</span>
                     <textarea
@@ -262,6 +262,22 @@ const AddQuestionsPage = () => {
             case "mcq":
               return (
                 <div className="space-y-4">
+                  <div className="w-[50vw]">
+                    <QuillEditor
+                      onContentChange={(content) => {
+                        setQuestionContent(content);
+                      }}
+                    />
+
+                    <div className="mt-4">
+                      <h3 className="text-gray-700">
+                        Stored Question Preview:
+                      </h3>
+                      <div className="border border-gray-300 rounded-md p-2">
+                        {questionContent}
+                      </div>
+                    </div>
+                  </div>
                   <label className="block mb-4">
                     <span className="text-gray-700">Question</span>
                     <input
@@ -272,22 +288,25 @@ const AddQuestionsPage = () => {
                       className="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:border-indigo-500 focus:ring-indigo-500"
                     />
                   </label>
-                  <div className="space-y-2">
-                    {["a", "b", "c", "d"].map((option) => (
-                      <label key={option} className="block mb-2">
-                        <span className="text-gray-700">
-                          Answer {option.toUpperCase()}
-                        </span>
-                        <input
-                          type="text"
-                          name={option}
-                          value={newQuestion.answers?.[option] || ""}
-                          onChange={handleOptionChange}
-                          className="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:border-indigo-500 focus:ring-indigo-500"
-                        />
-                      </label>
-                    ))}
-                  </div>
+                  <label className="block mb-4">
+                    <span className="text-gray-700">Answers</span>
+                    <div className="space-y-2">
+                      {["a", "b", "c", "d"].map((option) => (
+                        <label key={option} className="block mb-2">
+                          <span className="text-gray-700">
+                            Answer {option.toUpperCase()}
+                          </span>
+                          <input
+                            type="text"
+                            name={option}
+                            value={newQuestion.answers?.[option] || ""}
+                            onChange={handleOptionChange}
+                            className="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:border-indigo-500 focus:ring-indigo-500"
+                          />
+                        </label>
+                      ))}
+                    </div>
+                  </label>
                   <label className="block mb-4">
                     <span className="text-gray-700">Correct Answer</span>
                     <input
@@ -310,6 +329,7 @@ const AddQuestionsPage = () => {
                   </label>
                 </div>
               );
+
             case "fill-in-the-blank":
               return (
                 <div className="space-y-4">
@@ -402,6 +422,10 @@ const AddQuestionsPage = () => {
     );
   };
 
+  const EquationDisplay = ({ question }) => {
+    return <div dangerouslySetInnerHTML={{ __html: question }} />;
+  };
+
   const renderQuestionContent = (question) => {
     return (
       <div className="p-4 my-4 bg-white shadow-lg rounded-lg border border-gray-200">
@@ -415,8 +439,11 @@ const AddQuestionsPage = () => {
         </div>
         <div className="flex justify-between items-center mb-4">
           <div className="text-lg flex justify-between w-full font-semibold text-indigo-600">
-          <p> {question.sno}. {question.question}</p> 
-          <p>Marks Assigned: {question.totalmarks}</p>
+            <div className="flex gap-2">
+              {" "}
+              {question.sno}. <EquationDisplay question={question.question} />
+            </div>
+            <p>Marks Assigned: {question.totalmarks}</p>
           </div>
         </div>
 
@@ -427,7 +454,8 @@ const AddQuestionsPage = () => {
                 return (
                   <>
                     <p>
-                      <strong>Question:</strong> {question.question}
+                      <strong>Question:</strong>
+                      {question.question}
                     </p>
                   </>
                 );
@@ -443,8 +471,10 @@ const AddQuestionsPage = () => {
                 return (
                   <>
                     <p>
-                      <strong>Question:</strong> {question.question}
+                      <strong>Questions</strong>
+                      <EquationDisplay question={question.question} />
                     </p>
+
                     <ul className="list-disc pl-5">
                       {/* {Object.entries(question.answers || {}).map(
                         ([key, value]) => (
@@ -453,14 +483,19 @@ const AddQuestionsPage = () => {
                           </li>
                         )
                       )} */}
-<li><strong>A:</strong> {question.answers.a}</li>
-<li><strong>B:</strong> {question.answers.b}</li>
-<li><strong>C:</strong> {question.answers.c}</li>
-<li><strong>D:</strong> {question.answers.d}</li>
 
-
-
-
+                      <li>
+                        <strong>A:</strong> {question.answers.a}
+                      </li>
+                      <li>
+                        <strong>B:</strong> {question.answers.b}
+                      </li>
+                      <li>
+                        <strong>C:</strong> {question.answers.c}
+                      </li>
+                      <li>
+                        <strong>D:</strong> {question.answers.d}
+                      </li>
                     </ul>
                     <p>
                       <strong>Correct Answer:</strong> {question.correctAnswer}
@@ -503,6 +538,18 @@ const AddQuestionsPage = () => {
     );
   };
 
+  useEffect(() => {
+    if (showForm) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "auto";
+    }
+    return () => {
+      document.body.style.overflow = "auto";
+      setQuestionContent("");
+    };
+  }, [showForm]);
+
   return (
     <div className=" p-10">
       <button
@@ -514,23 +561,27 @@ const AddQuestionsPage = () => {
 
       {showForm && (
         <>
-          {" "}
+          <div className="fixed inset-0 bg-black bg-opacity-50 backdrop-blur-sm z-40" />
+
           <form
             onSubmit={handleSubmit}
-            className="space-y-4 fixed overflow-y-auto h-[600px] top-[10vh] right-2 bg-white border border-gray-300 rounded-xl shadow-lg p-8 w-full max-w-3xl z-50"
+            className="space-y-4 fixed overflow-y-auto h-[90vh] top-[5vh] right-2 bg-white border border-gray-300 rounded-xl shadow-lg p-4 w-[80vw] z-50"
           >
-            {" "}
-            <div className="flex justify-end items-end">
-              {" "}
+            <div>
               <button
                 onClick={() => setShowForm(!showForm)}
-                className="mb-4 px-4 py-2 bg-red-500 text-white rounded-md hover:bg-red-800"
+                className="rounded-full hover:bg-red-800 float-right"
               >
-                <RxCrossCircled />
+                <RxCrossCircled size={32} />
               </button>
             </div>
-            <label className="block">
-              <span className="text-gray-700">Question Type</span>
+
+            <h2 className="text-xl font-semibold mb-4 text-gray-800">
+              {editMode ? "Edit Question" : "Add New Question"}
+            </h2>
+
+            <label className="flex items-center gap-4 w-fit">
+              <span className="text-gray-700 w-fit">Question Type</span>
               <select
                 name="questionType"
                 value={newQuestion.questionType}
@@ -541,7 +592,7 @@ const AddQuestionsPage = () => {
                   });
                   setQuestionModel(getQuestionModel(e.target.value));
                 }}
-                className="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:border-indigo-500 focus:ring-indigo-500"
+                className="block w-fit border-gray-300 rounded-md shadow-sm focus:border-indigo-500 focus:ring-indigo-500"
               >
                 <option value="essay">Essay</option>
                 <option value="passage">Passage</option>
@@ -550,21 +601,26 @@ const AddQuestionsPage = () => {
                 <option value="imageGuess">Image Guess</option>
               </select>
             </label>
+
             {renderQuestionForm()}
           </form>
         </>
       )}
 
       <div className="mt-8">
-        <div className="text-lg flex w-full justify-between font-semibold mb-4"><p>Existing questions</p>
-        <p>Total Number of Questions: {questions.length}</p> 
+        <div className="text-lg flex w-full justify-between font-semibold mb-4">
+          <p>Existing questions</p>
+          <p>Total Number of Questions: {questions.length}</p>
         </div>
         <div className="space-y-4">
           {questions.map((question) => (
             <div key={question.id} className="border p-4 rounded-md">
               <h3 className="text-xl font-bold">
-                {question.heading || question.question}
+                {question.heading || (
+                  <EquationDisplay question={question.question} />
+                )}
               </h3>
+
               {renderQuestionContent(question)}
               <div className="mt-2">
                 <button

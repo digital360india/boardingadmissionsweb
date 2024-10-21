@@ -29,6 +29,7 @@ const TestPage = () => {
     name: "",
   });
   const [showResultForm, setShowResultForm] = useState(false);
+  const [examSubmitted, setExamSubmitted] = useState(false);
   const router = useRouter();
   const [testQuestions, setTestQuestions] = useState([]);
   const [testDetails, setTestDetails] = useState([]);
@@ -39,6 +40,7 @@ const TestPage = () => {
     primary: "AWuwMWkFlshETmPD2qga",
     secondary: "6gNGLbJtpX1TMwnqXNgF",
     senior: "JAfTNak4ylz7QoptNkKa",
+    iq: "FaN1Lqj7T4nSqpH4RG0D",
   };
 
   const [statusCounts, setStatusCounts] = useState({
@@ -86,6 +88,66 @@ const TestPage = () => {
 
     fetchTestQuestions();
   }, [category]);
+
+  useEffect(() => {
+    const enterFullscreen = async () => {
+      if (!document.fullscreenElement) {
+        try {
+          await document.documentElement.requestFullscreen();
+        } catch (err) {
+          console.error(`Error attempting to enable full-screen mode: ${err.message}`);
+        }
+      }
+    };
+
+    const handleKeyDown = (event) => {
+      if (event.key === 'Escape' && document.fullscreenElement) {
+        event.preventDefault();
+      }
+    };
+
+    const handleVisibilityChange = () => {
+      if (document.visibilityState === 'visible' && !document.fullscreenElement) {
+        enterFullscreen();
+      }
+    };
+
+    enterFullscreen();
+    window.addEventListener('keydown', handleKeyDown);
+    document.addEventListener('visibilitychange', handleVisibilityChange);
+
+    return () => {
+      window.removeEventListener('keydown', handleKeyDown);
+      document.removeEventListener('visibilitychange', handleVisibilityChange);
+    };
+  }, []);
+
+  const [tabChange, setTabChange] = useState(false);
+
+  useEffect(() => {
+    const handleVisibilityChange = () => {
+      if (document.hidden) {
+        alert(
+          "You have navigated away from the exam! The test will now be terminated."
+        );
+        setTabChange(true);  // Only set the state here
+      }
+    };
+  
+    document.addEventListener("visibilitychange", handleVisibilityChange);
+  
+    return () => {
+      document.removeEventListener("visibilitychange", handleVisibilityChange);
+    };
+  }, []);
+  
+  useEffect(() => {
+    if (tabChange) {
+      handleSubmit();
+    }
+  }, [tabChange]);
+  
+  
 
   useEffect(() => {
     if (time === 0 && !isSubmitting) {
@@ -136,45 +198,59 @@ const TestPage = () => {
     );
   };
 
-const nextQuestion = () => {
-  const currentQuestionID = testQuestions[currentQuestionIndex].id;
+  useEffect(() => {
+    const storedSubmissionState = localStorage.getItem("examSubmitted");
+    if (storedSubmissionState) {
+      setExamSubmitted(true);
+      setShowResultForm(true);
+    }
+  }, []);
 
-  if (statusCounts.notVisited.includes(currentQuestionID)) {
-    setStatusCounts((prevCounts) => ({
-      ...prevCounts,
-      notVisited: prevCounts.notVisited.filter((id) => id !== currentQuestionID),
-    }));
-  }
+  const nextQuestion = () => {
+    const currentQuestionID = testQuestions[currentQuestionIndex].id;
 
-  setCurrentQuestionIndex((prevIndex) =>
-    Math.min(prevIndex + 1, testQuestions.length - 1)
-  );
-};
+    if (statusCounts.notVisited.includes(currentQuestionID)) {
+      setStatusCounts((prevCounts) => ({
+        ...prevCounts,
+        notVisited: prevCounts.notVisited.filter(
+          (id) => id !== currentQuestionID
+        ),
+      }));
+    }
 
-const prevQuestion = () => {
-  const currentQuestionID = testQuestions[currentQuestionIndex].id;
+    setCurrentQuestionIndex((prevIndex) =>
+      Math.min(prevIndex + 1, testQuestions.length - 1)
+    );
+  };
 
-  if (statusCounts.notVisited.includes(currentQuestionID)) {
-    setStatusCounts((prevCounts) => ({
-      ...prevCounts,
-      notVisited: prevCounts.notVisited.filter((id) => id !== currentQuestionID),
-    }));
-  }
+  const prevQuestion = () => {
+    const currentQuestionID = testQuestions[currentQuestionIndex].id;
 
-  setCurrentQuestionIndex((prevIndex) => Math.max(prevIndex - 1, 0));
-};
+    if (statusCounts.notVisited.includes(currentQuestionID)) {
+      setStatusCounts((prevCounts) => ({
+        ...prevCounts,
+        notVisited: prevCounts.notVisited.filter(
+          (id) => id !== currentQuestionID
+        ),
+      }));
+    }
 
-const handleQuestionNavigation = (index) => {
-  const currentQuestionID = testQuestions[index].id;
-  setCurrentQuestionIndex(index);
+    setCurrentQuestionIndex((prevIndex) => Math.max(prevIndex - 1, 0));
+  };
 
-  if (statusCounts.notVisited.includes(currentQuestionID)) {
-    setStatusCounts((prevCounts) => ({
-      ...prevCounts,
-      notVisited: prevCounts.notVisited.filter((id) => id !== currentQuestionID),
-    }));
-  }
-};
+  const handleQuestionNavigation = (index) => {
+    const currentQuestionID = testQuestions[index].id;
+    setCurrentQuestionIndex(index);
+
+    if (statusCounts.notVisited.includes(currentQuestionID)) {
+      setStatusCounts((prevCounts) => ({
+        ...prevCounts,
+        notVisited: prevCounts.notVisited.filter(
+          (id) => id !== currentQuestionID
+        ),
+      }));
+    }
+  };
 
   const handleOptionChange = (questionID, selectedOption) => {
     setResponses((prevResponses) => ({
@@ -247,72 +323,98 @@ const handleQuestionNavigation = (index) => {
   const [timeTaken, setTimeTaken] = useState(0);
   const [loading, setLoading] = useState(false);
 
-  const handleSubmit = async () => {
-    const isConfirmed = window.confirm(
-      "Are you sure you want to submit the test?"
-    );
+const handleSubmit = async () => {
 
-    if (isConfirmed) {
-      const result = testQuestions.map((question) => ({
-        questionID: question.id,
-        questionText: question.question,
-        selectedAnswer: responses[question.id] || "",
-        correctAnswer: question.correctAnswer,
-        marks: Number(question.totalmarks),
-      }));
+  const isConfirmed = tabChange || window.confirm(
+    "Are you sure you want to submit the test?"
+  );
 
-      const totalScore = result.reduce((score, question) => {
-        if (question.selectedAnswer === question.correctAnswer) {
-          return score + question.marks;
-        }
-        return score;
-      }, 0);
+  if (isConfirmed || time === 0) {
+    const result = testQuestions.map((question) => ({
+      questionID: question.id,
+      questionText: question.question,
+      selectedAnswer: responses[question.id] || "",
+      correctAnswer: question.correctAnswer,
+      marks: Number(question.totalmarks),
+    }));
+    console.log(result);
 
-      const totalTime = testDetails.duration * 60;
-      const timeTaken = totalTime - time;
-
-      setTimeTaken(timeTaken);
-      setResultData(result);
-      setTestScore(totalScore);
-      setIsSubmitting(true);
-      setShowResultForm(true);
-    } else {
-      console.log("Submission cancelled by user.");
-    }
-  };
-
-  const handleFormSubmit = async (e) => {
-    e.preventDefault();
-    setLoading(true);
-    if (userDetails.email && userDetails.phone && userDetails.name) {
-      try {
-        const docRef = await addDoc(collection(db, "leads"), {
-          name: userDetails.name,
-          email: userDetails.email,
-          phonenumber: userDetails.phone,
-          resultData: resultData,
-          score: testScore,
-          timeTaken: timeTaken,
-          category: categoryToDocId[category],
-          timestamp: new Date(),
-        });
-
-        await updateDoc(docRef, {
-          id: docRef.id,
-        });
-
-        router.push(`/testcompletion/${docRef.id}`);
-      } catch (error) {
-        console.error("Error saving lead data: ", error);
-        alert("An error occurred while saving your data.");
+    const totalScore = result.reduce((score, question) => {
+      if (question.selectedAnswer === question.correctAnswer) {
+        return score + question.marks;
       }
-    } else {
-      alert("Please fill out all fields.");
+      return score;
+    }, 0);
+
+    console.log(totalScore);
+
+    const totalTime = testDetails.duration * 60;
+    const timeTaken = totalTime - time;
+
+    setTimeTaken(timeTaken);
+    setResultData(result);
+    setTestScore(totalScore);
+    setIsSubmitting(true);
+    setShowResultForm(true);
+    setExamSubmitted(true);
+    setTabChange(false);
+    localStorage.setItem("examSubmitted", true);
+    if (document.fullscreenElement) {
+      document.exitFullscreen().catch((err) => console.error(err));
     }
-    setTimeout(() => {
-      setLoading(false);
-    }, 2000);
-  };
+  } else {
+    console.log("Submission cancelled by user.");
+  }
+};
+
+
+const handleFormSubmit = async (e) => {
+  e.preventDefault();
+  console.log(testScore);
+  setLoading(true);
+  if (userDetails.email && userDetails.phone && userDetails.name) {
+    try {
+      const docData = {
+        name: userDetails.name || '',          
+        email: userDetails.email || '',        
+        phonenumber: userDetails.phone || '',  
+        resultData: resultData || {},          
+        score: testScore ?? 0,                 
+        timeTaken: timeTaken ?? 0,             
+        category: categoryToDocId[category] || '',
+        timestamp: new Date(),
+      };
+
+      // Log the final docData to ensure nothing is undefined
+      console.log("Document Data to be added:", docData);
+
+      const docRef = await addDoc(collection(db, "leads"), docData);
+
+      // Update document with the document ID
+      await updateDoc(docRef, {
+        id: docRef.id,
+      });
+
+      // Reset exam submission state
+      setExamSubmitted(false);
+      localStorage.removeItem("examSubmitted");
+
+      // Redirect to test completion page
+      router.replace(`/testcompletion/${docRef.id}`);
+    } catch (error) {
+      console.error("Error saving lead data: ", error);
+      alert("An error occurred while saving your data.");
+    }
+  } else {
+    alert("Please fill out all fields.");
+  }
+
+  // Stop loading after 2 seconds (or earlier if the operation completes)
+  setTimeout(() => {
+    setLoading(false);
+  }, 2000);
+};
+
 
   const currentQuestionID = testQuestions[currentQuestionIndex]?.id;
   const isOptionSelected = responses[currentQuestionID] !== undefined;
@@ -321,8 +423,6 @@ const handleQuestionNavigation = (index) => {
   const togglePopup = () => {
     setIsPopupOpen((prev) => !prev);
   };
-
-  const [examSubmitted, setExamSubmitted] = useState(false);
 
   useEffect(() => {
     const handleBeforeUnload = (event) => {

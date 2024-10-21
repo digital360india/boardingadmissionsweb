@@ -16,6 +16,7 @@ const Page = () => {
     primary: "AWuwMWkFlshETmPD2qga",
     secondary: "6gNGLbJtpX1TMwnqXNgF",
     senior: "JAfTNak4ylz7QoptNkKa",
+    iq: "FaN1Lqj7T4nSqpH4RG0D",
   };
 
   const handleTakeTest = () => {
@@ -77,6 +78,7 @@ const Page = () => {
           <option value="primary">Primary (Class 1- Class 5)</option>
           <option value="secondary">Secondary (Class 6- Class 8)</option>
           <option value="senior">Senior (Class 9- Class 12)</option>
+          <option value="iq">IQ Test</option>
         </select>
 
         <h2 className="text-xl font-bold mb-4 text-center text-gray-700">
