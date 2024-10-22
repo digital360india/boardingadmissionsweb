@@ -208,7 +208,7 @@ function ScindiaSchoolPage() {
             </p>
             <p className="mb-6 ml-4 leading-6 w-[88vw] text-[14px] md:text-[1.15rem]">
               Grasping the Scindia School Fees is essential for budgeting your
-              child's education. The fee structure is crafted to provide
+              child&apos;s education. The fee structure is crafted to provide
               transparency for parents.
             </p>
 
@@ -379,7 +379,7 @@ function ScindiaSchoolPage() {
         </div>
         <div>
           <p className="leading-6 md:my-4 w-[88vw] text-[14px] md:text-[1.15rem] text-justify">
-          Join us today at Boarding Admissions to excel in entrance exams for top boarding schools across India. Empower your child's future with the right preparation and support!
+          Join us today at Boarding Admissions to excel in entrance exams for top boarding schools across India. Empower your child&apos;s future with the right preparation and support!
           </p>
         </div>
 
