@@ -82,16 +82,26 @@ function ScindiaSchoolPage() {
         <div className="space-y-4 w-[90vw]  mt-10 ">
           <div className="">
             <h1 className="text-[#075D70] font-semibold  text-[1.5rem] md:text-[2rem] ">
-              About Scindia School
+              About Scindia Kanya Vidyalaya
             </h1>
           </div>
           <div>
             <p className="leading-6 w-[88vw] text-[14px] md:text-[1.15rem] text-justify">
-              Scindia School, founded in 1897, is one of India&apos;s leading
-              boys residential schools. Nestled on Gwalior Fort, the school is
-              renowned for its integration of modern education with Indian
-              traditions, fostering an environment where students excel in
-              academics, sports, and arts.
+              Scindia Kanya Vidyalaya (SKV), situated in the historic city of
+              Gwalior, is not just another educational institution; it&apos;s a
+              nurturing environment that empowers girls through quality
+              education. Established in 1956 by the Late Rajmata of Gwalior,
+              Shrimant Vijaya Raje Scindia, SKV is celebrated as one of
+              India&apos;s leading residential schools. The school was
+              inaugurated by z. Rajendra Prasad, the then President of India,
+              marking its significant place in the educational landscape. At
+              SKV, the aim is not merely to educate but to cultivate confident,
+              capable young women ready to face the challenges of the modern
+              world. The curriculum is thoughtfully designed to offer
+              experiential learning, equipping students with essential life
+              skills, leadership qualities, and moral values. These aspects set
+              Scindia Kanya Vidyalaya apart from conventional institutions,
+              making it a cherished choice for many families.
             </p>
           </div>
         </div>
@@ -104,53 +114,273 @@ function ScindiaSchoolPage() {
           </div>
           <div>
             <p className="leading-6 w-[88vw] text-[14px] md:text-[1.15rem] text-justify">
-              Scindia Admissions is designed to select students who are
-              well-suited to thrive in the school&apos;s dynamic and challenging
-              environment.
+              Scindia School Admissions are open for girls in classes VI to IX
+              and XI. The admission process is designed to identify potential
+              and provide growth opportunities. Each year, the school conducts
+              an Aptitude Assessment followed by an Interaction to evaluate
+              applicants.
             </p>
           </div>
           <div>
-            <ul className="list-disc pl-4 space-y-4 text-[14px] md:text-[1.15rem]">
+            <ol className="list-decimal pl-4 space-y-4 text-[1.15rem]">
               <li>
-                <span className="font-medium"> Choose the Exam:</span> Decide
-                between the Common Aptitude Analysis (CAA) and Scindia School
-                Aptitude Analysis (SAA), both covering Mathematics, English, and
-                Hindi.
+                <span className="font-semibold">Eligibility Criteria:</span>
+                <div className="mt-2">
+                  <ul className="list-disc pl-4 space-y-4 text-[14px] md:text-[1.15rem]">
+                    <li>
+                      For Class VI, students must be at least 10½ years old by
+                      the first week of April in the admission year.
+                    </li>
+                    <li>
+                      The Aptitude Assessment focuses on English and Mathematics
+                      for classes VI to IX, while Class XI candidates are
+                      assessed based on the Class X syllabus.
+                    </li>
+                  </ul>
+                </div>
+              </li>
+            </ol>
+            <div>
+              <p className="text-[#075D70] font-semibold text-[1.5rem] md:text-[2rem] my-4">
+                Steps to Admission
+              </p>
+            </div>
+            <ol className="list-decimal pl-4 space-y-4 text-[1.15rem]">
+              <li>
+                <span className="font-semibold">Application Form</span>
+                <div className="mt-2">
+                  <ul className="list-disc pl-4 space-y-4 text-[14px] md:text-[1.15rem]">
+                    <li>
+                      Begin the process by accessing the online application form
+                      available on the SKV website.
+                    </li>
+                  </ul>
+                </div>
               </li>
               <li>
-                {" "}
-                <span className="font-medium">Exam Centers: </span>Exams are
-                conducted in Kolkata, Mumbai, New Delhi, Lucknow, and Gwalior.
+                <span className="font-semibold">Required Documents</span>
+                <div className="mt-2">
+                  <ul className="list-disc pl-4 space-y-4 text-[14px] md:text-[1.15rem]">
+                    <li>
+                      Prepare the following documents for registration:
+                      <ul className="list-disc pl-6 mt-2 space-y-2">
+                        <li>Birth certificate</li>
+                        <li>Aadhar Card</li>
+                        <li>Latest mark sheet</li>
+                        <li>Samagra ID (for Madhya Pradesh students)</li>
+                        <li>Passport-size photograph</li>
+                      </ul>
+                    </li>
+                  </ul>
+                </div>
               </li>
               <li>
-                <span className="font-medium">Exam Schedules:</span> CAA is held
-                every third Saturday of November. SAA is in January/February,
-                with Gwalior center registrations open until January 27.
-                On-the-spot SAA registrations are available.
+                <span className="font-semibold">Entrance Examination</span>
+                <div className="mt-2">
+                  <ul className="list-disc pl-4 space-y-4 text-[14px] md:text-[1.15rem]">
+                    <li>
+                      Applicants will undergo an Aptitude Assessment, an
+                      essential component of the selection process.
+                    </li>
+                  </ul>
+                </div>
               </li>
               <li>
-                <span className="font-medium"> Aadhar Card Submission:</span>{" "}
-                Mandatory for all Indian states except J & K, Assam, Meghalaya.
+                <span className="font-semibold">
+                  Interview and Final Selection
+                </span>
+                <div className="mt-2">
+                  <ul className="list-disc pl-4 space-y-4 text-[14px] md:text-[1.15rem]">
+                    <li>
+                      Successful candidates will then participate in an
+                      Interaction session, after which the final selection is
+                      based on their performance and seat availability.
+                    </li>
+                  </ul>
+                </div>
               </li>
-              <li>
-                <span className="font-medium">Eligibility for Admission:</span>{" "}
-                Candidates for classes VI, VII, and VIII should be under the
-                age-appropriate maximum age as of January 1 of the admission
-                year. Classes IX and XI may admit exceptionally meritorious
-                students if vacancies are available.
-              </li>
-              <li>
-                <span className="font-medium">Interactive Session: </span>
-                Shortlisted students will be invited to the school for an
-                interactive session including games, sports, and faculty
-                interaction.
-              </li>
-              <li>
-                <span className="font-medium">Download Syllabus: </span>
-                Available on the school&apos;s website after registration.
-              </li>
-            </ul>
+            </ol>
           </div>
+
+          <div>
+            <p className="text-primary02 text-[1.5rem] md:text-[2rem] font-semibold mb-4">
+              Fee Structure
+            </p>
+            <p className="mb-6 ml-4 leading-6 w-[88vw] text-[14px] md:text-[1.15rem]">
+              Grasping the Scindia School Fees is essential for budgeting your
+              child's education. The fee structure is crafted to provide
+              transparency for parents.
+            </p>
+
+            <table className="w-full border-collapse border border-gray-300 ml-2 text-[14px] md:text-[1.1rem]">
+              <thead>
+                <tr>
+                  <th className="border border-gray-300 px-4 py-2 bg-gray-100 text-left font-semibold">
+                    Category
+                  </th>
+                  <th className="border border-gray-300 px-4 py-2 bg-gray-100 text-left font-semibold">
+                    Amount (INR)
+                  </th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td className="border border-gray-300 px-4 py-2 font-semibold">
+                    Annual School Fee (Non-Refundable)
+                  </td>
+                  <td className="border border-gray-300 px-4 py-2">
+                    Rs.6,84,000
+                  </td>
+                </tr>
+                <tr>
+                  <td className="border border-gray-300 px-4 py-2 font-semibold">
+                    Imprest Deposit
+                  </td>
+                  <td className="border border-gray-300 px-4 py-2">
+                    Rs. 80,000
+                  </td>
+                </tr>
+                <tr>
+                  <td className="border border-gray-300 px-4 py-2 font-semibold">
+                    Total Annual Fees
+                  </td>
+                  <td className="border border-gray-300 px-4 py-2">
+                    Rs. 7,64,000
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+            <div className="mt-2">
+              <ul className="list-disc pl-4 space-y-4 text-[14px] md:text-[1.15rem]">
+                <li>
+                  Installments Breakdown
+                  <ul className="list-disc pl-6 mt-2 space-y-2">
+                    <li>
+                      <span className="font-semibold">1st Instalment:</span>1st
+                      Term Fees + Imprest Deposit = 4,54,000
+                    </li>
+                    <li>
+                      <span className="font-semibold">2nd Instalment:</span>2nd
+                      Term Fees + Replenished Imprest Deposit = 3,10,000
+                    </li>
+                  </ul>
+                </li>
+              </ul>
+            </div>
+            <p className="leading-6 w-[88vw] text-[14px] md:text-[1.15rem] my-6">
+              {/* <span className=" text-[1rem] font-semibold ">Note: </span> */}
+              For detailed information on the fee structure, including specifics
+              for new admissions and existing students, please check the
+              official SKV website or reach out to the admissions office.
+            </p>
+          </div>
+          <div className="">
+            <p className="text-[#075D70] font-semibold  text-[1.5rem] md:text-[2rem] ">
+              Important Dates
+            </p>
+          </div>
+          <div>
+            <p className="leading-6 w-[88vw] text-[14px] md:text-[1.15rem] text-justify">
+              Keeping track of important dates is crucial for prospective
+              students and their families:
+            </p>
+          </div>
+          <ul className="list-disc pl-6 mt-2 space-y-2">
+            <li>
+              <span className="font-semibold">Registration Begins:</span>July
+            </li>
+            <li>
+              <span className="font-semibold">Entrance Assessments:</span>{" "}
+              November (for classes VI-IX) and December (for Class XI)
+            </li>
+            <li>
+              <span className="font-semibold">Final Admission Offers:</span>
+              January
+            </li>
+            <li>
+              <span className="font-semibold">
+                Commencement of the Academic Year:{" "}
+              </span>
+              April
+            </li>
+          </ul>
+          <p className="leading-6 w-[88vw] text-[14px] md:text-[1.15rem] my-6">
+            {/* <span className=" text-[1rem] font-semibold ">Note: </span> */}
+            These dates ensure a smooth application process and timely
+            preparations.
+          </p>
+
+          <div className="">
+            <p className="text-[#075D70] font-semibold  text-[1.5rem] md:text-[2rem] ">
+              Syllabus Pattern
+            </p>
+          </div>
+          <div>
+            <p className="leading-6 w-[88vw] text-[14px] md:text-[1.15rem] text-justify">
+              Scindia Kanya Vidyalaya offers a balanced curriculum that
+              encompasses core subjects vital for academic success and personal
+              growth. The syllabus is crafted to cater to various grade levels
+              and includes:
+            </p>
+          </div>
+          <ul className="list-disc pl-6 mt-2 space-y-2">
+            <li>
+              <span className="font-semibold">Languages:</span> English, Hindi
+            </li>
+            <li>
+              <span className="font-semibold">Mathematics:</span>Emphasizing
+              analytical skills and problem-solving
+            </li>
+            <li>
+              <span className="font-semibold">General Knowledge (GK):</span>
+              Fostering awareness of current affairs
+            </li>
+            <li>
+              <span className="font-semibold">Science: </span>Encouraging
+              inquiry and hands-on experimentation
+            </li>
+          </ul>
+          <p className="leading-6 w-[88vw] text-[14px] md:text-[1.15rem] my-6">
+            {/* <span className=" text-[1rem] font-semibold ">Note: </span> */}
+            This comprehensive syllabus prepares students not just for exams but
+            also instills a lifelong love for learning and discovery.
+          </p>
+        </div>
+        <div className="">
+          <p className="text-[#075D70] font-semibold  text-[1.5rem] md:text-[2rem] ">
+          Why Choose Scindia Kanya Vidyalaya?
+          </p>
+        </div>
+        <div>
+          <p className="leading-6 w-[88vw] md:my-4 text-[14px] md:text-[1.15rem] text-justify">
+          Choosing the right school for your daughter is a significant decision, and Scindia Kanya Vidyalaya shines for its commitment to excellence and holistic development. Here’s why parents should consider SKV:
+          </p>
+        </div>
+        <ul className="list-disc pl-6 mt-2 space-y-2">
+            <li>
+              <span className="font-semibold">Experienced Faculty:</span>A team of passionate educators dedicated to fostering a nurturing learning environment.
+            </li>
+            <li>
+              <span className="font-semibold">Holistic Development:</span> Focus on extracurricular activities, leadership, and life skills.
+            </li>
+            <li>
+              <span className="font-semibold">Strong Alumni Network:</span>
+              Successful graduates who serve as role models for current students.
+            </li>
+            <li>
+              <span className="font-semibold">Science: </span>Encouraging
+              inquiry and hands-on experimentation
+            </li>
+          </ul>
+          <div className="">
+            <p className="text-[#075D70] font-semibold  text-[1.5rem] md:text-[2rem] ">
+          Ready to Enroll?
+          </p>
+        </div>
+        <div>
+          <p className="leading-6 md:my-4 w-[88vw] text-[14px] md:text-[1.15rem] text-justify">
+          Join us today at Boarding Admissions to excel in entrance exams for top boarding schools across India. Empower your child's future with the right preparation and support!
+          </p>
         </div>
 
         <Broucher
