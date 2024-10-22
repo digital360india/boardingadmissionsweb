@@ -244,28 +244,28 @@ const schoolFAQs = [
     faqs: [
       {
         id: 1,
-        question: "What are the admission criteria for Scindia School?",
-        answer: "The admission criteria for Scindia School typically include a combination of academic performance, entrance exam results, and personal interviews. For detailed information on Scindia Admissions, it's best to visit the official website or contact the admissions office directly.",
+        question: "What are the eligibility criteria for Scindia School Admissions?",
+        answer: "Students must be at least 10½ years old for Class VI admissions, and Class XI candidates are assessed based on the Class X syllabus.",
       },
       {
         id: 2,
-        question: "When does the admission process for Scindia School usually begin?",
-        answer: "The Scindia Admissions process generally starts in the early part of the year, with announcements and application forms becoming available around January. It's advisable to check the official website for specific dates and deadlines.",
+        question: "How are the Scindia School Fees structured?",
+        answer: "The annual fees amount to ₹7,64,000, including an annual school fee of ₹6,84,000 and an imprest deposit of ₹80,000.",
       },
       {
         id: 3,
-        question: "What is the Scindia Entrance exam like?",
-        answer: "The Scindia Entrance exam assesses candidates in subjects such as Mathematics, English, and General Knowledge. The test aims to evaluate a student's academic proficiency and problem-solving skills. Preparation for this exam should focus on these core areas.",
+        question: "What documents are needed for the admission application?",
+        answer: "Required documents include a birth certificate, Aadhar Card, latest mark sheet, Samagra ID (for Madhya Pradesh students), and a passport-size photograph.",
       },
       {
         id: 4,
-        question: "How can I apply for admission to Scindia School?",
-        answer: "To apply for Scindia School, candidates must fill out an application form available on the official website. The application process typically includes submitting academic records, passing the Scindia Entrance exam, and attending a personal interview.",
+        question: "When do the entrance assessments take place?",
+        answer: "Entrance assessments are conducted in November for classes VI-IX and in December for Class XI.",
       },
       {
         id: 5,
-        question: "Are there any special provisions for international students in the Scindia Admissions process?",
-        answer: "Yes, Scindia School welcomes international students and provides specific guidelines for their admission. These include requirements for academic records, proficiency in English, and possibly a different set of entrance procedures.",
+        question: "How can I contact the admissions office?",
+        answer: "For inquiries, you can call +91-7828102626 or email admissions@skvgwalior.org for more information regarding Scindia School Admissions.",
       },
     ],
   },

@@ -1,10 +1,12 @@
 "use client";
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import { db } from "@/firebase/firebase";
 import { collection, getDocs, addDoc } from "firebase/firestore";
 import TestPackagesList from "@/components/admin/AllTestPackages";
+import { AdminContext } from "@/adminProvider";
 
 const Page = () => {
+  const {admin}=useContext(AdminContext);
   const [tests, settests] = useState([]);
   const [testPackages, settestPackages] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -113,7 +115,7 @@ const Page = () => {
       console.error("Error updating Test packages:", err);
     }
   };
-
+console.log(admin?.uid);
   return (
     <div className="p-4">
       <button

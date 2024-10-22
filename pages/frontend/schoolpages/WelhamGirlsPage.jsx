@@ -484,7 +484,7 @@ function WelhamGirlsPage() {
               </tr>
             </tbody>
           </table>
-
+ 
           <p className="leading-6 w-[88vw] text-[14px] md:text-[1.15rem] my-6">
             In addition to age requirements, students are expected to have
             strong academic records and demonstrate good character and conduct.
