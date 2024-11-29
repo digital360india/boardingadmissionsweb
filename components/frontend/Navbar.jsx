@@ -66,9 +66,21 @@ const Navbar = () => {
             </li>
           </Link>
         </ul>
-        <div className=" pr-4 ">
+        <div className=" flex gap-4 pr-4">
           {" "}
-          <Link href="/scholarshiptest"><div className="bg-background04 py-2 px-4 rounded-xl text-white hover:text-gray-100 hover:bg-background05">Boarding Aptitude Test</div></Link>
+          <Link href="/scholarshiptest">
+            <div className="bg-background04 py-2 px-4 rounded-xl text-white hover:text-gray-100 hover:bg-background05">
+              Boarding Aptitude Test
+            </div>
+          </Link>
+          <div className="">
+            {" "}
+            <Link href="https://accounts.boardingadmissions.com/">
+              <div className="bg-background04 py-2 px-4 rounded-xl text-white hover:text-gray-100 hover:bg-background05">
+                Login
+              </div>
+            </Link>
+          </div>
         </div>
       </nav>
 
