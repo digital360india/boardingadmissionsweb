@@ -4,6 +4,7 @@ import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 import Image from "next/image";
 import BookaDemoPopUp from "./BookaDemoPopUp"; // Ensure this component is modal-ready
+import { useRouter } from "next/navigation";
 
 const cardData = [
   {
@@ -135,11 +136,7 @@ export default function CourseCarousel() {
   const [isPopupVisible, setPopupVisible] = useState(false); // Popup visibility state
   const [selectedCard, setSelectedCard] = useState(null); // To keep track of selected card
   const carouselRef = useRef(null); // Reference for carousel to control it
-
-  const handleClick = (cardId) => {
-    setSelectedCard(cardId); // Set the selected card (if needed)
-    setPopupVisible(true); // Show the popup
-  };
+  const router = useRouter();
 
   const handleClosePopup = () => {
     setPopupVisible(false); // Hide the popup
@@ -211,8 +208,8 @@ export default function CourseCarousel() {
               <div
                 className="w-[138px] h-[40px] bg-gradient01 rounded-md border-custom flex justify-center items-center"
               >
-                <button onClick={() => handleClick(card.id)} className="text-white">
-                  Enroll Now
+                <button onClick={() => router.push(card.route)} className="text-white">
+                  View Course
                 </button>
               </div>
             </div>
