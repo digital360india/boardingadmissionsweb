@@ -2,6 +2,7 @@
 import dynamic from "next/dynamic";
 import React, { useEffect, useState } from "react";
 import axios from "axios";
+import Loading from "@/app/loading";
 const kwesforms = dynamic(() => import('kwesforms'));
 export default function EnquiryForm({title}) {
   useEffect(() => {
@@ -12,6 +13,7 @@ export default function EnquiryForm({title}) {
     email: "",
     phoneNumber: "",
   };
+  const [loading , setLoading]=useState(false);
   const [formData, setFormData] = useState(initial);
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -19,6 +21,7 @@ export default function EnquiryForm({title}) {
   };
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setLoading(true);
     try {
       const response = await axios.post(
         "https://kwesforms.com/api/foreign/forms/IdHYEC9XdhQY0WpAiXbm",
@@ -34,6 +37,7 @@ export default function EnquiryForm({title}) {
     }
     // console.log(formData);
     alert("Form Submitted Successfully !!");
+    setLoading(false);
     setFormData(initial);
     setTimeout(() => {
       setOpen(false);
@@ -65,11 +69,11 @@ export default function EnquiryForm({title}) {
           <div>
             <label for="phoneNumber" className="hidden"></label>
             <input
-              type="tel"
+              type="number"
               id="phoneNumber"
               name="phoneNumber"
               placeholder="Contact number"
-              value={formData.phoneNumber}
+              value={formData.phoneNumber.toString()}
               className="w-full md:w-[400px] h-[40px] bg-[#F6F6F6] rounded-md px-4 py-2 outline-none"
               onChange={handleChange}
               required
@@ -91,10 +95,11 @@ export default function EnquiryForm({title}) {
         </div>
         <button
           type="submit"
+          disabled={loading}
           name="submit"
           className=" mt-[4vh] w-[180px] h-[40px] px-2 font-semibold text-white rounded-xl bg-primary02 grid place-content-center"
         >
-          Submit
+         {loading?"Loading...": "Submit"}
         </button>
       </form>
     </div>
