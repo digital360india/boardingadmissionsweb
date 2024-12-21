@@ -153,8 +153,13 @@ const Footer = () => {
                 <h1 className="text-[16px] text-[#FFFFFF] cursor-pointer">
                   Copyright © 2024
                 </h1>
-                <h1>Terms & Conditions</h1>
-                <h1>Privacy Policy</h1>
+                <p>Terms & Conditions</p>
+                <p>Privacy Policy</p>
+                <div>
+                  <Link href="/refundPolicy">
+                    <p>Refund Policy</p>
+                  </Link>
+                </div>
               </div>
             </div>
           </div>
@@ -164,7 +169,7 @@ const Footer = () => {
                 Copyright © 2024
               </h1>
             </div>
-            <div className="flex justify-between w-[300px]">
+            <div className="flex justify-between w-[450px]">
               <div>
                 <Link href="/termsandconditions">
                   <h1 className="cursor-pointer">Terms & Conditions</h1>
@@ -175,6 +180,11 @@ const Footer = () => {
                   <h1 className="cursor-pointer">Privacy Policy</h1>
                 </Link>
               </div>
+              <div>
+                <Link href="/refundPolicy">
+  <p>Refund Policy</p>
+</Link>
+                </div>
             </div>
           </div>
         </div>
@@ -298,6 +308,10 @@ const Footer = () => {
 
           <Link href="/privacypolicy">
             <h1 className="cursor-pointer">Privacy Policy</h1>
+          </Link>
+
+          <Link href="/refundPolicy">
+            <p>Refund Policy</p>
           </Link>
         </div>
 
