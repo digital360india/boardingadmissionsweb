@@ -1,4 +1,4 @@
-import { Barlow, Inter, Jost, Space_Grotesk } from "next/font/google";
+// import { Barlow, Inter, Jost, Space_Grotesk } from "next/font/google";
 import "./globals.css";
 import { Poppins } from "next/font/google";
 import Footer from "@/components/frontend/Footer";
@@ -8,7 +8,6 @@ import Popup from "@/components/frontend/Popup";
 import { FaWhatsapp } from "react-icons/fa";
 import Link from "next/link";
 import Flyer from "@/components/frontend/Flyer";
-const inter = Inter({ subsets: ["latin"] });
 const poppins = Poppins({
   subsets: ["latin"],
   weight: ["400", "100", "200", "300", "500", "600", "700", "800", "900"],
