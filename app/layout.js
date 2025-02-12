@@ -1,10 +1,9 @@
-import { Barlow, Inter, Jost, Space_Grotesk } from "next/font/google";
+// import { Barlow, Inter, Jost, Space_Grotesk } from "next/font/google";
 import "./globals.css";
 import { Poppins } from "next/font/google";
 import { UserProvider } from "@/userProvider";
 import Head from "next/head"; // Import Head for adding elements to the head section
 
-const inter = Inter({ subsets: ["latin"] });
 const poppins = Poppins({
   subsets: ["latin"],
   weight: ["400", "100", "200", "300", "500", "600", "700", "800", "900"],

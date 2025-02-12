@@ -1,11 +1,9 @@
-import { Inter } from "next/font/google";
 import "./globals.css";
 import { ToastContainer } from "react-toastify";
 import { UserProvider } from "@/userProvider";
 import Navbar from "@/components/frontend/Navbar";
 import Footer from "@/components/frontend/Footer";
 
-const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
   icons: [{ rel: "icon", url: "./icons/Boardinglogo.svg" }],
