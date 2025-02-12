@@ -54,7 +54,8 @@ const Footer = () => {
                     height={24}
                     alt="course1"
                   />
-                  <h1>+91 9760548360</h1>
+                  <h1>+91 9760548360 </h1>
+                  
                 </div>
               </div>
             </div>
