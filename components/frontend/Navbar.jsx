@@ -49,14 +49,14 @@ const Navbar = () => {
             height={1000}
           />
         </Link>
-        <ul className="flex space-x-12">
+        <ul className="flex lg:space-x-12 space-x-4">
           <Link href="/courses">
-            <li className="transition-all duration-300 font-semibold hover:text-primary02 text-[18px] hover:tracking-widest cursor-pointer">
+            <li className="transition-all duration-300 font-semibold hover:text-primary02 lg:text-[18px] text-[16px] hover:tracking-widest cursor-pointer">
               Course
             </li>
           </Link>
           <Link href="/schools">
-            <li className="transition-all duration-300 font-semibold hover:text-primary02 text-[18px] hover:tracking-widest cursor-pointer">
+            <li className="transition-all duration-300 font-semibold hover:text-primary02 lg:text-[18px] text-[16px] hover:tracking-widest cursor-pointer">
               Schools
             </li>
           </Link>

@@ -140,12 +140,12 @@ export default function EntranceMain() {
             </div>
 
             {/* Tabs for Description, Courses, Tests */}
-            <div className="flex justify-between md:px-8 px-3 bg-[#FFFFFF01] shadow-2xl w-full h-[40px] mt-2">
-              <div className="flex md:space-x-6 space-x-2">
+            <div className="flex justify-between md:px-8 px-3 bg-[#FFFFFF01] shadow-2xl w-full h-[40px] mt-2 gap-4">
+              <div className="flex md:space-x-6 space-x-2 ">
                 {["Description", "Courses", "Tests"].map((tab) => (
                   <div
                     key={tab}
-                    className={`md:text-13px text-11px cursor-pointer ${
+                    className={`md:text-13px text-[12px] cursor-pointer ${
                       activeTab === tab ? "border-b-4 border-primary02" : ""
                     }`}
                     onClick={() => handleTabClick(tab)}
@@ -154,18 +154,20 @@ export default function EntranceMain() {
                   </div>
                 ))}
               </div>
-              <div className="md:w-[140px] w-[95px] md:h-[32px] h-[20px] border border-[#B4B9C0] px-2 flex justify-between items-center rounded-2xl mt-1">
-                <Image
-                  src="/vectors/whatsapp.svg"
-                  width={1000}
-                  height={1000}
-                  alt="share"
-                  className="md:w-[24px] md:h-[24px] w-[13px] h-[13px]"
-                />
-                <p className="md:text-14px text-[9px] font-semibold text-[#5E6166]">
-                  Share batch
-                </p>
-              </div>
+              <Link href="https://wa.me/919760548360" passHref>
+                <div className="md:w-[140px] w-[95px] md:h-[32px] h-[20px] border border-[#B4B9C0] px-2 flex justify-between items-center rounded-2xl mt-1 cursor-pointer">
+                  <Image
+                    src="/vectors/whatsapp.svg"
+                    width={1000}
+                    height={1000}
+                    alt="share"
+                    className="md:w-[24px] md:h-[24px] w-[13px] h-[13px]"
+                  />
+                  <p className="md:text-14px text-[8px] font-semibold text-[#5E6166]">
+                    Share batch
+                  </p>
+                </div>
+              </Link>
             </div>
 
             <div>
@@ -194,10 +196,10 @@ export default function EntranceMain() {
                   Special Offer!
                 </div>
               </div>
-              <p className="mb-2">
+              {/* <p className="mb-2">
                 <strong>Targeted Boards:</strong>{" "}
                 {boards.length > 0 ? boards.join(", ") : "Loading..."}
-              </p>
+              </p> */}
               <p>
                 <strong>Targeted Schools:</strong>{" "}
                 {schools.length > 0 ? schools.join(", ") : "Loading..."}
@@ -218,11 +220,10 @@ export default function EntranceMain() {
             <div className="my-10 p-6 rounded-lg">
               {activeTab === "Description" ? (
                 <div>
-                  <h2 className="text-2xl font-bold mb-4 text-black">
+                  <h2 className="md:text-2xl text-[24px] font-bold mb-4 text-black">
                     Courses Package Detials
                   </h2>
                   <div className="poppins text-xl">
-                    
                     {packageData
                       ? new Date(packageData.startingDate).toLocaleDateString(
                           "en-US",
@@ -231,9 +232,7 @@ export default function EntranceMain() {
                       : "Loading..."}{" "}
                   </div>
                   <div className="poppins text-xl">
-                    
-                  <div>{packageData?.description}</div>
-                    
+                    <div>{packageData?.description}</div>
                   </div>
                 </div>
               ) : activeTab === "Courses" ? (
