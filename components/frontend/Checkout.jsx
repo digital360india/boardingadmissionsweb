@@ -276,6 +276,7 @@ export default function Checkout() {
       {/* Order Summary and Other Components */}
       <div className="md:w-[560px] h-fit py-[32px] px-[32px] border rounded-lg">
         <p className="font-semibold text-[24px] mb-8">Order Summary</p>
+        <p className="font-semibold text-[12px]">All the payments are in the name of Robin Singh founder of Boarding Admission. Hence the payment will be processed under the name Robin Singh.  </p>
         <div className="flex flex-col space-y-4 py-4">
           <div className="flex justify-between">
             <p className="font-semibold lg:text-[24px] text-[18px]">Subtotal</p>
