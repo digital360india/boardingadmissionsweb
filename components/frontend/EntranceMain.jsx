@@ -171,7 +171,7 @@ export default function EntranceMain() {
             </div>
 
             <div>
-              <h2 className="text-2xl font-bold text-primary02 mb-2">
+              <h2 className="text-2xl font-bold text-primary02 mb-2 mt-6">
                 {packageData ? packageData.packageName : "Loading..."}
               </h2>
               <p className="text-gray-700 mb-4">
@@ -220,7 +220,7 @@ export default function EntranceMain() {
             <div className="my-10 p-6 rounded-lg">
               {activeTab === "Description" ? (
                 <div>
-                  <h2 className="md:text-2xl text-[24px] font-bold mb-4 text-black">
+                  <h2 className="md:text-2xl text-[20px] font-bold mb-4 text-black">
                     Courses Package Detials
                   </h2>
                   <div className="poppins text-xl">
@@ -270,9 +270,9 @@ export default function EntranceMain() {
             <div>
               <EntranceSlaybus />
             </div>
-            <div>
+            {/* <div>
               <EntranceOtherDetail />
-            </div>
+            </div> */}
           </div>
         </div>
       </div>

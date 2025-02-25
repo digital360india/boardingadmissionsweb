@@ -62,7 +62,7 @@ export default function EntranceOtherDetail() {
       {list.map((item, index) => (
         <div key={index} className="flex md:py-4 py-2 space-x-6 border-b">
           <div className="">{item.id}</div>
-          <div className="lg:w-[38vw] w-full">{item.data}</div>
+          <div className="lg:w-[38vw] w-full text-[14px] md:text-[16px]">{item.data}</div>
         </div>
           ))}
       </div>
