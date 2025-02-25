@@ -19,7 +19,7 @@ export default function FixedPopupButton() {
             Book a Demo
           </div>
 
-          <div className="absolute inset-0 rounded-full bg-primary02 animate-ripple"></div>
+          <div className="absolute inset-0 rounded-full bg-primary02 overflow-hidden animate-ripple"></div>
 
           <RiRobot3Line className="text-white text-2xl" />
         </div>
