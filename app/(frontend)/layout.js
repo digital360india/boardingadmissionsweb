@@ -4,10 +4,10 @@ import { Poppins } from "next/font/google";
 import Footer from "@/components/frontend/Footer";
 import Navbar from "@/components/frontend/Navbar";
 import { UserProvider } from "@/userProvider";
-import Popup from "@/components/frontend/Popup";
 import { FaWhatsapp } from "react-icons/fa";
 import Link from "next/link";
 import Flyer from "@/components/frontend/Flyer";
+import FixedPopupButton from "@/pages/frontend/FixedPopupButton";
 const poppins = Poppins({
   subsets: ["latin"],
   weight: ["400", "100", "200", "300", "500", "600", "700", "800", "900"],
@@ -49,20 +49,21 @@ export default function RootLayout({ children }) {
           <Flyer />
           {children}
           <Footer />
-          {/* Phone call button */}
-          <div className="fixed z-40 bottom-4 md:right-6 right-2 flex flex-col gap-4">
-            <span className="hover:scale-125 duration-300 bg-primary02 rounded-full p-4 text-white">
-              <Link href={"tel:+919760548360"}>
-                <img src="/phone.svg" />
-              </Link>
-            </span>
+          <div>
+            <div className="fixed z-40 bottom-4 md:right-6 right-2 flex flex-col gap-4">
+              <span className="hover:scale-125 duration-300 bg-[#25D366] rounded-full p-4 text-white">
+                <Link href="https://wa.me/919760548360">
+                  <FaWhatsapp className="text-2xl" />
+                </Link>
+              </span>
+              <span className="hover:scale-125 duration-300 bg-primary02 rounded-full p-4 text-white">
+                <Link href="tel:+919760548360">
+                  <img src="/phone.svg" alt="Phone" />
+                </Link>
+              </span>
+            </div>
 
-            {/* WhatsApp button */}
-            <span className="hover:scale-125 duration-300 bg-[#25D366] rounded-full p-4 text-white">
-              <Link href={"https://wa.me/919760548360"}>
-                <FaWhatsapp className="text-2xl" />
-              </Link>
-            </span>
+<FixedPopupButton />
           </div>
         </div>
       </UserProvider>
