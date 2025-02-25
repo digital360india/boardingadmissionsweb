@@ -116,8 +116,8 @@ export default function EntranceMain() {
 
   return (
     <div>
-      <div className="xl:px-[100px] md:px-[40px] px-[24px]">
-        <div className="md:flex space-x-4 justify-between">
+      <div className="xl:px-[100px] md:px-[40px] px-[24px] w-[100vw]">
+        <div className="md:flex space-x-4 ">
           <div>
             {/* Package Image and Title */}
             <div className="relative rounded-t-lg">
