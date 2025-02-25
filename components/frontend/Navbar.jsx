@@ -68,11 +68,11 @@ const Navbar = () => {
         </ul>
         <div className=" flex gap-4 pr-4">
           {" "}
-          <Link href="/scholarshiptest">
+          {/* <Link href="/scholarshiptest">
             <div className="hover:bg-primary02 py-2 px-4 rounded-xl hover:text-white  border bg-white text-primary02 border-background05">
               Boarding Aptitude Test
             </div>
-          </Link>
+          </Link> */}
           <div className="">
             {" "}
             <Link href="https://accounts.boardingadmissions.com/">
