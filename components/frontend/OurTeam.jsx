@@ -1,6 +1,6 @@
 import React from "react";
-import "./ScrollbarHide.css"; // Import the custom scrollbar CSS
-import Link from "next/link";
+import { FaGlobe } from "react-icons/fa";
+import "./ScrollbarHide.css";
 
 export default function OurTeam() {
   const team = [
@@ -8,19 +8,19 @@ export default function OurTeam() {
       name: "Ms. Neema Negi",
       imageSrc: "/images/neema.png",
       designation: "Hindi Expert",
-      domainLink:"https://www.neemanegi.com",
+      domainLink: "https://www.neemanegi.com",
     },
     {
       name: "Dr. Noshin Aslam",
       imageSrc: "/images/Noshin.png",
       designation: "English & GA Expert",
-      domainLink:"https://www.noshinaslam.com",
+      domainLink: "https://www.noshinaslam.com",
     },
     {
       name: "Mr. Mayank Gaur",
       imageSrc: "/images/mayank.png",
       designation: "Mathematics Expert",
-      domainLink:"https://mayank-portfolio-jet.vercel.app/",
+      domainLink: "https://mayank-portfolio-jet.vercel.app/",
     },
   ];
 
@@ -31,29 +31,36 @@ export default function OurTeam() {
           OUR TEAM
         </div>
         <div className="lg:text-[48px] text-[26px] font-semibold lg:text-center text-left pb-12">
-        Experts guiding your success.
+          Experts guiding your success.
         </div>
 
-        <div className="flex w-full gap-5 overflow-x-auto hide-scrollbar   md:justify-center md:items-center md:pl-0">
+        <div className="flex w-full gap-5 overflow-x-auto hide-scrollbar md:justify-center md:items-center md:pl-0">
           {team.map((member, index) => (
             <div
               key={index}
-              className="bg-[#075D70] rounded-lg flex-shrink-0 lg:w-[295px] w-[240px] lg:h-[460px] h-[350px] flex flex-col items-center"
+              className="bg-[#075D70] rounded-lg flex-shrink-0 lg:w-[300px] w-[240px] lg:h-[460px] h-[350px] flex flex-col items-center relative transition-all duration-300 ease-in-out transform hover:-translate-y-2 group"
             >
-               <div className="">
-                {/* <Image src={member.imageSrc} width={1000} height={1000} className="lg:object-none object-cover lg:w-[295px] w-[270px] lg:h-[350px] h-[260px]" alt={member.name} /> */}
-                <img src={member.imageSrc} width={1000} height={1000} className="w-[300px] h-[270px] md:h-[350px]  object-cover rounded-md" alt={member.name} />
+              <div className="relative w-[300px] h-[270px] md:h-[350px]">
+                <img
+                  src={member.imageSrc}
+                  className="w-full h-full object-cover rounded-t-md"
+                  alt={member.name}
+                />
+                <a
+                  href={member.domainLink}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="absolute top-4 right-4 bg-white p-2 rounded-full shadow-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                >
+                  <FaGlobe className="text-[#075D70] text-xl" />
+                </a>
               </div>
-              <a href={member.domainLink} target="_blank">
+
+              {/* Team Member Info */}
               <div className="md:py-6 text-white text-center">
-                <div>
-                  <p className="text-[24px] font-medium">{member.name}</p>
-                </div>
-                <div>
-                  <p className="text-[18px]">{member.designation}</p>
-                </div>
+                <p className="text-[24px] font-medium">{member.name}</p>
+                <p className="text-[18px]">{member.designation}</p>
               </div>
-              </a>
             </div>
           ))}
         </div>
