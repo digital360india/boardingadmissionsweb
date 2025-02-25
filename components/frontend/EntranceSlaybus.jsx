@@ -1,9 +1,7 @@
 import Image from "next/image";
-import React, { useState } from "react";
+import React from "react";
 
 export default function EntranceSlaybus() {
-  const [expandedIndex, setExpandedIndex] = useState(null);
-
   const list = [
     {
       name: "Online Classes",
@@ -153,26 +151,16 @@ export default function EntranceSlaybus() {
     },
   ];
 
-  const toggleDropdown = (index) => {
-    setExpandedIndex(expandedIndex === index ? null : index);
-  };
-
   return (
-    <div className="p-4 md:p-6 rounded-lg bg-white my-10 shadow-md">
+    <div className="p-4 md:p-6 rounded-lg bg-white my-10 shadow-md w-[80vw]" >
       <div className="font-semibold text-lg md:text-2xl pb-4 md:pb-6">
         Syllabus We Will Cover
       </div>
 
-      <div className="grid grid-cols-1  gap-4">
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 w-full">
         {list.map((item, index) => (
-          <div
-            key={index}
-            className="border border-gray-200 p-4 md:p-6 rounded-md flex flex-col"
-          >
-            <div
-              className="flex justify-between items-center cursor-pointer"
-              onClick={() => toggleDropdown(index)}
-            >
+          <details key={index} className="border border-gray-200 p-4 md:p-6 rounded-md">
+            <summary className="flex justify-between items-center cursor-pointer">
               <div className="flex items-center space-x-3 md:space-x-4">
                 <Image
                   src="/images/apti.svg"
@@ -181,21 +169,19 @@ export default function EntranceSlaybus() {
                   height={64}
                   alt="image"
                 />
-                <div className="font-semibold text-sm md:text-lg">
+                <div className="font-semibold text-sm md:text-lg ">
                   {item.name}
                 </div>
               </div>
-              <div className="text-xl">
-                {expandedIndex === index ? "▲" : "▼"}
-              </div>
-            </div>
+              <span className="text-xl">
+                ▼
+              </span>
+            </summary>
 
-            {expandedIndex === index && (
-              <div className="mt-4 text-sm md:text-base text-gray-700">
-                {item.content}
-              </div>
-            )}
-          </div>
+            <div className="mt-4 text-sm md:text-base text-gray-700">
+              {item.content}
+            </div>
+          </details>
         ))}
       </div>
     </div>
