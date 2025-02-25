@@ -56,31 +56,59 @@ export default function Checkout() {
   }, [packageId]);
 
   const handleCheckout = async () => {
-    const amount = packageDetails?.price;
-    const mobile = "your_mobile_number"; 
+    const amount = packageDetails?.price * 100; // Amount in paise (1 INR = 100 paise)
+    const mobile = "your_mobile_number";
     const muid = "your_user_id";
-
+  
     try {
-      const response = await fetch('/api/payment', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({ amount, mobile, muid }),
-      });
-
-      const data = await response.json();
-      if (response.ok) {
-        window.location.href = data.redirectUrl;
-      } else {
-        console.error("Payment initiation failed:", data);
-        alert("Failed to initiate payment: " + data.error);
-      }
+      // Define the required parameters for PhonePe
+      const phonePeParams = {
+        amount: amount.toString(), // Amount in paise
+        merchantId: "M22INGHLZU5RV", // Replace with your PhonePe Merchant ID
+        transactionId: `TID${Date.now()}`, // Unique transaction ID
+        merchantUserId: muid, // Merchant user ID
+        mobileNumber: mobile, // Customer's mobile number
+        message: "Payment for services",
+        redirectUrl: "http://localhost:3001/payment-success", // URL to redirect on success
+        failureRedirectUrl: "http://localhost:3001/payment-failure", // URL to redirect on failure
+      };
+  
+      // Generate checksum or signature (if needed by PhonePe)
+      const checksum = generateChecksum(phonePeParams, "your_merchant_key"); // Replace with your merchant key logic
+      phonePeParams.signature = checksum; // Add the signature to the parameters
+  
+      // Build the URL for PhonePe Payment Gateway
+      const phonePeURL = new URL("https://www.phonepe.com/pay-now");
+      Object.keys(phonePeParams).forEach((key) =>
+        phonePeURL.searchParams.append(key, phonePeParams[key])
+      );
+  
+      // Redirect the user to the PhonePe payment page
+      window.location.href = phonePeURL.toString();
     } catch (error) {
       console.error("Error during checkout:", error);
       alert("An error occurred. Please try again.");
     }
   };
+  
+  // Helper function to generate checksum or digital signature
+  const generateChecksum = (params, merchantKey) => {
+    // Concatenate params in sorted order and hash them with the key
+    const sortedKeys = Object.keys(params).sort();
+    const concatenatedString = sortedKeys
+      .map((key) => `${key}=${params[key]}`)
+      .join("&");
+  
+    // Use your preferred hashing algorithm (e.g., SHA256)
+    const crypto = require("crypto");
+    const hash = crypto
+      .createHmac("sha256", merchantKey)
+      .update(concatenatedString)
+      .digest("hex");
+  
+    return hash;
+  };
+  
 
   if (loading) return <p>Loading...</p>;
   if (error) return <p>{error}</p>;
@@ -100,7 +128,7 @@ export default function Checkout() {
               alt={packageDetails.packageName || "Package Image"}
             />
             <p className="font-medium lg:text-[24px] text-background05 text-[18px]">
-            {"Package Price : "}  ${packageDetails.price || "0"}
+            {"Package Price : "}  ₹{packageDetails.price || "0"}
             </p>
           
             <p className="font-medium lg:text-[18px] text-[14px] text-[#808080]">
@@ -141,24 +169,25 @@ export default function Checkout() {
       {/* Order Summary and Other Components */}
       <div className="md:w-[560px] h-fit py-[32px] px-[32px] border rounded-lg">
         <p className="font-semibold text-[24px] mb-8">Order Summary</p>
+        <p className="font-semibold text-[12px]">All the payments are in the name of Robin Singh founder of Boarding Admission. Hence the payment will be processed under the name Robin Singh.  </p>
         <div className="flex flex-col space-y-4 py-4">
           <div className="flex justify-between">
             <p className="font-semibold lg:text-[24px] text-[18px]">Subtotal</p>
             <p className="font-medium lg:text-[24px] text-[18px]">
-              ${packageDetails?.discountedPrice || "0"}
+              ₹{packageDetails?.discountedPrice || "0"}
             </p>
           </div>
           <div className="space-y-2 text-[16px]">
             <div className="justify-between flex">
               <p className="text-[#545454] text-[14px] lg:text-[16px]">Discount</p>
-              <p className="text-[#95D18B] font-medium">$0</p>
+              <p className="text-[#95D18B] font-medium">₹0</p>
             </div>
             {/* Add more discount or additional charges here if needed */}
           </div>
           <div className="flex justify-between">
             <p className="font-semibold lg:text-[24px] text-[18px]">Total</p>
             <p className="font-medium lg:text-[24px] text-[18px]">
-              ${packageDetails?.discountedPrice || "0"}
+              ₹{packageDetails?.discountedPrice || "0"}
             </p>
           </div>
         </div>
