@@ -1,5 +1,6 @@
 import React from "react";
 import "./ScrollbarHide.css"; // Import the custom scrollbar CSS
+import Link from "next/link";
 
 export default function OurTeam() {
   const team = [
@@ -7,22 +8,20 @@ export default function OurTeam() {
       name: "Ms. Neema Negi",
       imageSrc: "/images/neema.png",
       designation: "Hindi Expert",
+      domainLink:"https://www.neemanegi.com",
     },
     {
       name: "Dr. Noshin Aslam",
       imageSrc: "/images/Noshin.png",
       designation: "English & GA Expert",
+      domainLink:"https://www.noshinaslam.com",
     },
     {
       name: "Mr. Mayank Gaur",
       imageSrc: "/images/mayank.png",
       designation: "Mathematics Expert",
+      domainLink:"https://mayank-portfolio-jet.vercel.app/",
     },
-    // {
-    //   name: "Dr. Anna Richard",
-    //   imageSrc: "/images/teacher.svg",
-    //   designation: "English Expert",
-    // },
   ];
 
   return (
@@ -45,6 +44,7 @@ export default function OurTeam() {
                 {/* <Image src={member.imageSrc} width={1000} height={1000} className="lg:object-none object-cover lg:w-[295px] w-[270px] lg:h-[350px] h-[260px]" alt={member.name} /> */}
                 <img src={member.imageSrc} width={1000} height={1000} className="w-[300px] h-[270px] md:h-[350px]  object-cover rounded-md" alt={member.name} />
               </div>
+              <a href={member.domainLink} target="_blank">
               <div className="md:py-6 text-white text-center">
                 <div>
                   <p className="text-[24px] font-medium">{member.name}</p>
@@ -53,6 +53,7 @@ export default function OurTeam() {
                   <p className="text-[18px]">{member.designation}</p>
                 </div>
               </div>
+              </a>
             </div>
           ))}
         </div>

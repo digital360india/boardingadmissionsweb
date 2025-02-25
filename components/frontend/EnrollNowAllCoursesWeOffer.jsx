@@ -257,6 +257,11 @@ const EnrollNowAllCoursesWeOffer = () => {
                         </li>
                       ))}
                     </ul>
+                    <div className="">
+                      <button className="w-[200px] mt-5 text-xl text-white h-[45px] rounded-lg bg-[#075D70]">
+                        Proceed Now
+                      </button>
+                    </div>
                   </div>
                 </div>
               </Link>

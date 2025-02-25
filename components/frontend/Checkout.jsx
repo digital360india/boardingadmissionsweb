@@ -1,9 +1,22 @@
 "use client";
-
+import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { usePathname } from "next/navigation";
-import { doc, getDoc, collection, getDocs, query, where } from "firebase/firestore";
+import {
+  doc,
+  getDoc,
+  collection,
+  getDocs,
+  query,
+  where,
+  Timestamp,
+} from "firebase/firestore";
 import { db } from "@/firebase/firebase";
+import { useTransition } from "react";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import { useRouter } from "next/navigation";
+import CheckoutDetailsForm from "./CheckoutDetailsForm";
 
 export default function Checkout() {
   const currentPage = usePathname();
@@ -11,114 +24,209 @@ export default function Checkout() {
   const packageId = pathArray[pathArray.length - 1];
   const [courses, setCourses] = useState([]);
   const [packageDetails, setPackageDetails] = useState(null);
-  const [loading, setLoading] = useState(true);
+  const [loading1, setLoading] = useState(true);
   const [error, setError] = useState("");
+  const [showForm, setShowForm] = useState(false);
+  const [loading, startTransition] = useTransition();
 
-  useEffect(() => {
-    const fetchPackageAndCourses = async () => {
-      if (!packageId) {
-        setError("Invalid package ID.");
+  const router = useRouter();
+
+  const fetchPackageAndCourses = async () => {
+    if (!packageId) {
+      setError("Invalid package ID.");
+      setLoading(false);
+      return;
+    }
+
+    try {
+      const packageQuery = query(
+        collection(db, "coursePackages"),
+        where("id", "==", packageId)
+      );
+      const packageDocs = await getDocs(packageQuery);
+
+      if (packageDocs.empty) {
+        setError("Package not found.");
         setLoading(false);
         return;
       }
 
-      try {
-        const packageQuery = query(
-          collection(db, "coursePackages"),
-          where("id", "==", packageId)
-        );
-        const packageDocs = await getDocs(packageQuery);
+      const packageData = packageDocs.docs[0].data();
+      setPackageDetails(packageData);
 
-        if (packageDocs.empty) {
-          setError("Package not found.");
-          setLoading(false);
-          return;
-        }
-
-        const packageData = packageDocs.docs[0].data();
-        setPackageDetails(packageData);
-
-        const coursePromises = packageData.courses.map((courseId) =>
-          getDoc(doc(db, "courses", courseId))
-        );
-        const courseSnapshots = await Promise.all(coursePromises);
-        const fetchedCourses = courseSnapshots.map((snapshot) => snapshot.data());
-        setCourses(fetchedCourses);
-      } catch (err) {
-        setError("Failed to fetch package or courses. Please try again.");
-        console.error("Error fetching package or courses:", err);
-      } finally {
-        setLoading(false);
-      }
-    };
-
+      const coursePromises = packageData.courses.map((courseId) =>
+        getDoc(doc(db, "courses", courseId))
+      );
+      const courseSnapshots = await Promise.all(coursePromises);
+      const fetchedCourses = courseSnapshots.map((snapshot) => snapshot.data());
+      setCourses(fetchedCourses);
+      const finalPrice = (packageData?.discountedPrice || 0) * 1.18;
+    } catch (err) {
+      setError("Failed to fetch package or courses. Please try again.");
+      console.error("Error fetching package or courses:", err);
+    } finally {
+      setLoading(false);
+    }
+  };
+  useEffect(() => {
     fetchPackageAndCourses();
   }, [packageId]);
 
-  const handleCheckout = async () => {
-    const amount = packageDetails?.price * 100; // Amount in paise (1 INR = 100 paise)
-    const mobile = "your_mobile_number";
-    const muid = "your_user_id";
-  
+  const createOrders = async ({
+    productId,
+    packageName,
+    totalAmount,
+    currency,
+  }) => {
     try {
-      // Define the required parameters for PhonePe
-      const phonePeParams = {
-        amount: amount.toString(), // Amount in paise
-        merchantId: "M22INGHLZU5RV", // Replace with your PhonePe Merchant ID
-        transactionId: `TID${Date.now()}`, // Unique transaction ID
-        merchantUserId: muid, // Merchant user ID
-        mobileNumber: mobile, // Customer's mobile number
-        message: "Payment for services",
-        redirectUrl: "http://localhost:3001/payment-success", // URL to redirect on success
-        failureRedirectUrl: "http://localhost:3001/payment-failure", // URL to redirect on failure
-      };
-  
-      // Generate checksum or signature (if needed by PhonePe)
-      const checksum = generateChecksum(phonePeParams, "your_merchant_key"); // Replace with your merchant key logic
-      phonePeParams.signature = checksum; // Add the signature to the parameters
-  
-      // Build the URL for PhonePe Payment Gateway
-      const phonePeURL = new URL("https://www.phonepe.com/pay-now");
-      Object.keys(phonePeParams).forEach((key) =>
-        phonePeURL.searchParams.append(key, phonePeParams[key])
-      );
-  
-      // Redirect the user to the PhonePe payment page
-      window.location.href = phonePeURL.toString();
+      const response = await axios.post("/api/create-order", {
+        productId,
+        packageName,
+        totalAmount,
+        currency,
+      });
+      return response.data;
     } catch (error) {
-      console.error("Error during checkout:", error);
-      alert("An error occurred. Please try again.");
+      console.error("Error creating orders", error);
+      return { error: "Error creating orders" };
     }
   };
-  
-  // Helper function to generate checksum or digital signature
-  const generateChecksum = (params, merchantKey) => {
-    // Concatenate params in sorted order and hash them with the key
-    const sortedKeys = Object.keys(params).sort();
-    const concatenatedString = sortedKeys
-      .map((key) => `${key}=${params[key]}`)
-      .join("&");
-  
-    // Use your preferred hashing algorithm (e.g., SHA256)
-    const crypto = require("crypto");
-    const hash = crypto
-      .createHmac("sha256", merchantKey)
-      .update(concatenatedString)
-      .digest("hex");
-  
-    return hash;
-  };
-  
 
-  if (loading) return <p>Loading...</p>;
+  const verifyPayment = async (data) => {
+    try {
+      const response = await axios.post("/api/verify-payment", data);
+
+      return response.data;
+    } catch (error) {
+      console.error("Error verifying payment", error);
+      return { error: "Error verifying payment" };
+    }
+  };
+
+  function handleBuy(formData) {
+    startTransition(async () => {
+      const script = document.createElement("script");
+      script.src = "https://checkout.razorpay.com/v1/checkout.js";
+      script.async = true;
+
+      script.onload = async () => {
+        const result = await createOrders({
+          productId: packageDetails.id,
+          packageName: packageDetails.packageName,
+          totalAmount: (packageDetails.discountedPrice || 0) * 1.18,
+          currency: "INR",
+        });
+
+        if (result.error) {
+          alert("Error creating orders");
+          return;
+        }
+
+        const options = {
+          key: process.env.NEXT_PUBLIC_RAZORPAY_KEY_ID,
+          amount: result.amount,
+          currency: "INR",
+          name: "Payment Gateway",
+          image: `${process.env.NEXT_PUBLIC_BASE_URL}${packageDetails.image}`,
+          order_id: result.orderId,
+          handler: async function (response) {
+
+            const dateOfPurchase = new Date().toLocaleString("en-US", {
+              timeZone: "Asia/Kolkata",
+              year: "numeric",
+              month: "long",
+              day: "numeric",
+              hour: "numeric",
+              minute: "numeric",
+              second: "numeric",
+              hour12: true,
+              timeZoneName: "short",
+            });
+            const dateOfExpiry = new Date(
+              new Date().getTime() + 180 * 24 * 60 * 60 * 1000
+            ).toLocaleString("en-US", {
+              timeZone: "Asia/Kolkata",
+              year: "numeric",
+              month: "long",
+              day: "numeric",
+              hour: "numeric",
+              minute: "numeric",
+              second: "numeric",
+              hour12: true,
+              timeZoneName: "short",
+            });
+            const userObject = {
+              email: formData.email,
+              name: formData.name,
+              phoneNumber: formData.phoneNumber,
+              mycoursepackages: [
+                {
+                  packageId: packageDetails.id,
+                  packageName: packageDetails.packageName,
+                  price: packageDetails.price,
+                  dateOfPurchase: dateOfPurchase,
+                  dateOfExpiry: dateOfExpiry,
+                },
+              ],
+              mytestpacakages: [],
+              myscores: [],
+              myresults: [],
+              role: "user",
+            };
+            const userCreationResponse = axios.post("/api/create-user", {
+              email: formData.email,
+              password: formData.password,
+              userObject: userObject,
+            });
+
+            console.log(userCreationResponse.data);
+
+            const result = await verifyPayment(response);
+            if (result.error) {
+              toast.error("Payment Failed");
+              router.push("/payment?status=failed");
+              return;
+            }
+            toast.success("Payment Successful");
+            router.push("/payment?status=success");
+          },
+      
+        };
+
+        const rzp = new window.Razorpay(options);
+        rzp.open();
+      };
+
+      document.body.appendChild(script);
+    });
+  }
+
+  function handleOpenForm() {
+    setShowForm(true);
+  }
+
+  function handleCloseForm() {
+    setShowForm(false);
+  }
+
+  if (loading1) return <p>Loading...</p>;
   if (error) return <p>{error}</p>;
 
   return (
     <div className="xl:px-[100px]  py-[40px] flex flex-col lg:flex-row px-6 gap-10 justify-between">
+      {showForm && (
+        <CheckoutDetailsForm
+          onClose={handleCloseForm}
+          onOtpVerified={handleBuy}
+        />
+      )}
+
       <div className="space-y-8">
         {packageDetails && (
           <div className="lg:py-[32px] lg:px-[32px] p-4 border rounded-lg flex flex-col gap-2">
-            <h1 className="text-3xl font-semibold text-background05">Package</h1>
+            <h1 className="text-3xl font-semibold text-background05">
+              Package
+            </h1>
             <p className="font-semibold lg:text-[24px] text-[18px] lg:mb-4 ">
               {packageDetails.packageName || "Package Name"}
             </p>
@@ -128,11 +236,12 @@ export default function Checkout() {
               alt={packageDetails.packageName || "Package Image"}
             />
             <p className="font-medium lg:text-[24px] text-background05 text-[18px]">
-            {"Package Price : "}  ₹{packageDetails.price || "0"}
+              {"Package Price : "} ₹{packageDetails.price || "0"}
             </p>
-          
+
             <p className="font-medium lg:text-[18px] text-[14px] text-[#808080]">
-              Starting Date: {new Date(packageDetails.startingDate).toLocaleDateString()}
+              Starting Date:{" "}
+              {new Date(packageDetails.startingDate).toLocaleDateString()}
             </p>
             <p className="font-medium lg:text-[18px] text-[14px] text-[#808080]">
               Students Enrolled: {packageDetails.studentsEnrolled || "0"}
@@ -158,14 +267,12 @@ export default function Checkout() {
                 <p className="font-medium lg:text-[24px] text-[16px]">
                   {course.courseName || "Course Name"}
                 </p>
-            
               </div>
             </div>
           ))}
         </div>
       </div>
- 
- 
+
       {/* Order Summary and Other Components */}
       <div className="md:w-[560px] h-fit py-[32px] px-[32px] border rounded-lg">
         <p className="font-semibold text-[24px] mb-8">Order Summary</p>
@@ -179,20 +286,31 @@ export default function Checkout() {
           </div>
           <div className="space-y-2 text-[16px]">
             <div className="justify-between flex">
-              <p className="text-[#545454] text-[14px] lg:text-[16px]">Discount</p>
+              <p className="text-[#545454] text-[14px] lg:text-[16px]">
+                Discount
+              </p>
               <p className="text-[#95D18B] font-medium">₹0</p>
             </div>
-            {/* Add more discount or additional charges here if needed */}
+          </div>
+          <div className="flex justify-between">
+            <p className="font-semibold lg:text-[24px] text-[18px]">GST 18%</p>
+            <p className="font-medium lg:text-[24px] text-[18px]">
+              ₹{(packageDetails?.discountedPrice || 0) * 0.18}
+            </p>
           </div>
           <div className="flex justify-between">
             <p className="font-semibold lg:text-[24px] text-[18px]">Total</p>
             <p className="font-medium lg:text-[24px] text-[18px]">
-              ₹{packageDetails?.discountedPrice || "0"}
+              ₹{(packageDetails?.discountedPrice || 0) * 1.18}
             </p>
           </div>
         </div>
-        <button onClick={handleCheckout} className="py-4 mt-10 w-full bg-gradient01 rounded-md text-[18px] font-medium text-white">
-          Proceed to Buy
+        <button
+          disabled={loading}
+          onClick={handleOpenForm}
+          className="py-4 mt-10 w-full bg-gradient01 rounded-md text-[18px] font-medium text-white"
+        >
+          {loading ? "Loading..." : "Proceed to Buy"}
         </button>
       </div>
     </div>
