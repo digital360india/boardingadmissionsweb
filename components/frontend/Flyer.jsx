@@ -9,7 +9,7 @@ export default function Flyer() {
   useEffect(() => {
     const interval = setInterval(() => {
       setShowFlyer(true);
-    }, 60000);
+    }, 6000);
 
     return () => clearInterval(interval);
   }, []);
@@ -71,7 +71,7 @@ export default function Flyer() {
           <div className="hidden fixed inset-0 md:flex items-center justify-center bg-black bg-opacity-75  backdrop-blur-sm z-50">
             <div className=" rounded-xl shadow-lg relative  w-[55%] h-auto ">
               <img
-                src="/images/dekstopflyer.jpg"
+                src="/flyer2.jpg"
                 alt="dekstop Flyer"
                 className="w-full h-full"
               />
