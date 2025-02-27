@@ -30,7 +30,7 @@ export default function OurTeam() {
         <div className="lg:text-24px text-16px text-primary03 lg:text-center text-left">
           OUR TEAM
         </div>
-        <div className="lg:text-[48px] text-[26px] font-semibold lg:text-center text-left pb-12">
+        <div className="lg:text-[48px] text-[26px] font-medium text-neutral01 lg:text-center text-left pb-12">
           Experts guiding your success.
         </div>
 
@@ -38,9 +38,9 @@ export default function OurTeam() {
           {team.map((member, index) => (
             <div
               key={index}
-              className="bg-[#075D70] rounded-lg flex-shrink-0 lg:w-[300px] w-[240px] lg:h-[460px] h-[350px] flex flex-col items-center relative transition-all duration-300 ease-in-out transform hover:-translate-y-2 group"
+              className="bg-[#075D70] rounded-lg flex-shrink-0 lg:w-[300px] w-[240px] lg:h-[460px] h-[350px] flex flex-col items-center relative "
             >
-              <div className="relative w-[300px] h-[270px] md:h-[350px]">
+              <div className="relative w-[300px] h-[270px] md:h-[350px] transition-all duration-300 ease-in-out transform hover:-translate-y-2 group">
                 <img
                   src={member.imageSrc}
                   className="w-full h-full object-cover rounded-t-md"

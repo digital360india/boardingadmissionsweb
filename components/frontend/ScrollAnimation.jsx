@@ -50,8 +50,8 @@ export default function ScrollAnimation() {
         className="some h-[85vh] flex justify-center w-full bg-gradient-to-br from-[#075D70] to-[#0DB2D6] relative overflow-hidden"
       >
         <div className="h-[100px]  flex justify-center items-center pt-10 md:pt-0  text-center md:text-start  md:pl-24 w-full">
-          <p className="text-[26px] text-center  md:text-[40px]  poppins font-semibold pt-8 md:pt-4 text-white">
-            Schools we have Cracked
+          <p className="lg:text-[48px] text-[32px] text-white font-medium lg:leading-normal leading-tight text-center w-full">
+            Schools We have Cracked
           </p>
         </div>
         <div
@@ -80,7 +80,7 @@ export default function ScrollAnimation() {
             />{" "}
             <Link href="/school/the-doon-school">
               <button className="w-[220px] mt-5 text-xl text-white h-[50px] rounded-lg bg-[#075D70]">
-              THE DOON SCHOOL
+                THE DOON SCHOOL
               </button>
             </Link>
           </div>

@@ -20,25 +20,23 @@ export default function TrustedByStudent() {
       <div className=" lg:block hidden xl:px-[100px] lg:px-[40px] bg-background01 xl:pt-16 lg:pt-8">
         <div className="">
           <div className="flex items-center">
-            <div>
-              <p className="xl:text-[60px] lg:text-[48px] text-24px  font-semibold text-primary02 pb-4">
+            <div className="space-y-4">
+              <p className="lg:text-[48px] text-[32px] text-primary02 font-medium lg:leading-normal leading-tight lg:w-[848px] w-full">
                 Trusted By Students
               </p>
-              <p className="text-18px w-1/2">
+              <p className="xl:text-18px lg:text-16px text-[14px] text-neutral02 leading-relaxed w-1/2">
                 Join our live demo class to have all your questions answered by
                 our expert.
               </p>
             </div>
           </div>
           <div className=" relative xl:-mt-0 -mt-4">
-            {/* Main content container */}
             <div className="flex justify-between relative z-10">
-              {/* Left side: Button */}
               <div>
                 <div className="py-10">
                   <button
                     onClick={handleClick}
-                    className="cursor-pointer border rounded-md w-[260px] py-2 bg-gradient-to-r text-white from-[#075D70] via-[#A1C5CD] to-[#dfdfdf] hover:bg-background05 transition duration-300"
+                    className="cursor-pointer border rounded-md w-[260px] py-2 text-white bg-gradient-to-br from-[#075D70] to-[#0DB2D6] hover:scale-110 transition duration-300"
                   >
                     Book a Demo Class
                   </button>
@@ -49,7 +47,6 @@ export default function TrustedByStudent() {
                 )}
               </div>
 
-              {/* Middle: Image */}
               <div className="z-10">
                 <Image
                   src="/images/student.svg"
@@ -60,27 +57,19 @@ export default function TrustedByStudent() {
                 />
               </div>
 
-              {/* Right side: Testimonial */}
               <div className="z-10 -mt-12">
                 <div>
-                  <p className="w-[397px] h-[135px] font-normal">
+                  <p className="w-[397px] h-[135px] xl:text-18px lg:text-16px text-[14px] text-neutral02 leading-relaxed">
                     &quot;At Boarding Admission, our students consistently
                     express their gratitude for the seamless and supportive
                     admission process. Their feedback highlights how our
                     guidance helped them confidently secure their spot in top
                     boarding schools.&quot;
                   </p>
-                  {/* <p className="font-semibold text-18px xl:mt-6 mt-4">
-                    Sakshi Pandey
-                  </p>
-                  <p className="text-primary03 text-14px">
-                    Bishop Cotton School
-                  </p> */}
                 </div>
               </div>
             </div>
 
-            {/* Background image positioned below the first div */}
             <div className="absolute inset-0 xl:top-[60%] top-[57%] z-0">
               <div className="flex justify-center">
                 <Image
