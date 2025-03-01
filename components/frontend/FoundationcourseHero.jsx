@@ -15,7 +15,7 @@ const FoundationcourseHero = () => {
           style={{ backgroundImage: `url(${Foundationcourse.src})` }}
         >
           <div className="w-full   md:w-[22.563rem] h-[17.5rem] px-10 md:px-0 md:mx-12 mt-10 space-y-7   absolute    text-white  ">
-            <p className="md:mt-2 text-justify text-[14px]  md:text-[1rem] ">
+            <p className="md:mt-2 text-justify text-[14px]  md:text-[1rem] leading-relaxed ">
               At Boarding Admissions, our Foundation Courses provide essential
               English, mathematics, and science skills, focusing on grammar and
               calculations. These courses ensure a strong academic base for
@@ -27,7 +27,7 @@ const FoundationcourseHero = () => {
             </p>
             <div className="md:w-[18.75rem] w-[7.5rem]">
               <Link href="/enrollnow/foundationcourses">
-              <div className="cursor-pointer w-[7.5rem] h-[2.0rem] md:w-[18.75rem] md:h-[3.5rem] bg-gradient01  border-custom rounded-md flex items-center justify-center text-[1rem] ">
+              <div className="cursor-pointer w-[7.5rem] h-[2.0rem] md:w-[18.75rem] md:h-[3.5rem] bg-gradient-to-br from-[#075D70] to-[#0DB2D6] hover:scale-110 transition duration-300  border-custom rounded-md flex items-center justify-center text-[1rem] ">
 
                
                 <button className="text-white">Enroll Now</button>
