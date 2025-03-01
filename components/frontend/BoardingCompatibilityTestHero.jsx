@@ -8,23 +8,23 @@ const BoardingCompatibilityTestHero = () => {
     <>
       <div className="md:mx-20">
         <h1 className="text-[2rem] md:text-[3.5rem] text-[#075D70] text-center pb-5 md:pb-8 font-bold">
-          BOARDING COMPATIBILITY TEST
+          Boarding Compatibility Test
         </h1>
         <div
           className="w-full h-[30.375rem] bg-no-repeat bg-cover bg-center relative"
           style={{ backgroundImage: `url(${Boardingtest.src})` }}
         >
           <div className="w-full   md:w-[22.563rem] h-[17.5rem] px-10 md:px-0 md:mx-12 mt-10 space-y-7   absolute    text-white  ">
-            <p className="md:mt-2 text-justify text-[14px]  md:text-[1rem] ">
+            <p className="md:mt-2  text-[14px]  md:text-[1rem] leading-relaxed ">
               Our Boarding Compatibility Test evaluates if your child is
               mentally and emotionally prepared for the boarding school
               experience. This comprehensive tool includes 25 insightful
               questions created by psychologists, followed by expert psychiatric
-              counseling. Gain valuable insights into your child&apos;s readiness for
-              this transformative journey and ensure they are fully prepared for
-              success in a boarding school environment.
+              counseling. Gain valuable insights into your child&apos;s
+              readiness for this transformative journey and ensure they are
+              fully prepared for success in a boarding school environment.
             </p>
-            <div className="cursor-pointer w-[7.5rem] h-[2.0rem] md:w-[18.75rem] md:h-[3.5rem] bg-gradient01  border-custom rounded-md flex items-center justify-center text-[1rem] ">
+            <div className="cursor-pointer w-[7.5rem] h-[2.0rem] md:w-[18rem] md:h-[3rem] bg-gradient-to-br from-[#075D70] to-[#0DB2D6] hover:scale-110 transition duration-300  border-custom rounded-md flex items-center justify-center text-[1rem] ">
               <button className="text-white">Enroll Now</button>
             </div>
           </div>
@@ -42,8 +42,6 @@ const BoardingCompatibilityTestHero = () => {
               <button>Psychiatric Evaluation</button>
             </div>
           </Link>
-          
-        
         </div>
 
         {/* mobile */}
@@ -52,16 +50,14 @@ const BoardingCompatibilityTestHero = () => {
             <Link href="#Compatibility Test">
               {" "}
               <h1 className="border border-white rounded-md p-2">
-              Compatibility Test
+                Compatibility Test
               </h1>
             </Link>
             <Link href="#Psychiatric Evaluation">
               <h1 className="border border-white rounded-md p-2">
-              Psychiatric Evaluation
+                Psychiatric Evaluation
               </h1>
             </Link>
-
-            
           </div>
         </div>
       </div>

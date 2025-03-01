@@ -1,4 +1,4 @@
-"use client"
+"use client";
 import Image from "next/image";
 import React, { useState } from "react";
 import BookaDemoPopUp from "./BookaDemoPopUp";
@@ -17,22 +17,22 @@ const BoardingCompatibilityTestPage = () => {
     <>
       <div>
         <div className="">
-          <div className="mx-4 mt-2 md:mx-20 md:mt-14">
-            <div id="Compatibility Test">
-              <h1 className="text-[1.5rem] font-bold md:text-[3.5rem] text-primary02">
-                COMPATIBILITY TEST
+          <div className="mx-4 mt-2 lg:mx-20 lg:mt-14 lg:flex lg:justify-between lg:items-center">
+            <div id="Compatibility Test" className="lg:w-1/2">
+              <h1 className="lg:text-[48px] text-[32px] text-primary02">
+                Compatibility Test
               </h1>
-              <p className="text-[0.875rem] md:text-[18px] text-[#010101] mt-4">
+              <p className="text-[0.875rem] md:text-[20px] text-[#010101] mt-4">
                 Our Compatibility Test is a thoughtfully designed 25-question
                 assessment that evaluates emotional resilience, adaptability,
                 social skills, and academic preparedness. Interactive and
                 engaging, the test offers deep insights into your child&apos;s
                 readiness for boarding school, helping to identify areas needing
                 support for a smooth transition. Ensure your child is set for
-                success with this essential readiness evaluation.
+                success with this essential readinesmd:hidden s evaluation.
               </p>
             </div>
-            <div className=" hidden md:flex md:space-x-12  md:mt-4">
+            <div className=" hidden lg:flex md:space-x-12  md:mt-4">
               <div>
                 <Image
                   src="/icons/online1.svg"
@@ -42,7 +42,7 @@ const BoardingCompatibilityTestPage = () => {
                   className="w-[638px] h-[280px]"
                 />
               </div>
-              <div>
+              {/* <div>
                 <Image
                   src="/icons/online2.svg"
                   width={1000}
@@ -50,8 +50,8 @@ const BoardingCompatibilityTestPage = () => {
                   alt="course1"
                   className="w-[368px] h-[280px]"
                 />
-              </div>
-              <div className=" space-y-3 md:hidden xl:block">
+              </div> */}
+              {/* <div className=" space-y-3 md:hidden xl:block">
                 <div>
                   <Image
                     src="/icons/online3.svg"
@@ -71,10 +71,10 @@ const BoardingCompatibilityTestPage = () => {
 
                   />
                 </div>
-              </div>
+              </div> */}
             </div>
 
-            <div className="md:hidden lg:hidden mt-4">
+            <div className="lg:hidden mt-4">
               <Image
                 src="/icons/online1.svg"
                 width={1000}
@@ -85,33 +85,19 @@ const BoardingCompatibilityTestPage = () => {
           </div>
 
           <hr className="mt-5 md:mt-12" />
-          <div className="mx-4 mt-4 md:mt-8 md:mx-20">
-            <div id="Psychiatric Evaluation">
-              <h1 className="text-[1.5rem] font-bold md:text-[3.5rem] text-primary02">
-                PSYCHIATRIC EVALUATION
-              </h1>
-              <p className="text-[0.875rem] md:text-[18px] text-[#010101] mt-4">
-                At Boarding Admissions, our psychiatric evaluation provides a
-                thorough assessment of your child&apos;s mental and emotional
-                well-being. Experienced professionals offer supportive
-                counseling sessions to explore thoughts and feelings, identify
-                any issues, and provide strategies for growth. This evaluation
-                ensures your child is emotionally resilient and mentally
-                prepared for the challenges of boarding school, complementing
-                their academic readiness.
-              </p>
-            </div>
-            <div className="hidden   md:flex md:space-x-12 md:mt-4">
-              <div>
-                <Image
-                  src="/icons/PI1.svg"
-                  width={1000}
-                  height={1000}
-                  alt="course1"
-                  className="w-[632px] h-[280px]"
-                />
-              </div>
-              <div>
+          <div className="bg-gradient-to-br from-[#075D70] to-[#0DB2D6]">
+            <div className="px-4 mt-4 lg:mt-8 lg:px-20 lg:flex lg:justify-between lg:space-x-14  lg:pt-12 lg:pb-12 w-[100%] pb-10">
+              <div className="hidden   lg:flex lg:justify-between  lg:space-x-6 w-[50%]">
+                <div>
+                  <Image
+                    src="/icons/PI1.svg"
+                    width={1000}
+                    height={1000}
+                    alt="course1"
+                    className="w-[632px] h-[280px]"
+                  />
+                </div>
+                {/* <div>
                 <Image
                   src="/icons/PI2.svg"
                   width={1000}
@@ -119,27 +105,36 @@ const BoardingCompatibilityTestPage = () => {
                   alt="course1"
                   className="w-[579px] h-[280px]"
                 />
+              </div> */}
               </div>
-            </div>
-            <div className="md:hidden lg:hidden mt-4">
-              <Image
-                src="/icons/PI1.svg"
-                width={1000}
-                height={1000}
-                alt="course1"
-              />
+              <div id="Psychiatric Evaluation" className="lg:w-[50%]">
+                <h1 className="lg:text-[44px] text-[28px] text-white">
+                  Psychiatric Evaluation
+                </h1>
+                <p className="text-[0.875rem] md:text-[20px] text-white mt-4">
+                  At Boarding Admissions, our psychiatric evaluation provides a
+                  thorough assessment of your child&apos;s mental and emotional
+                  well-being. Experienced professionals offer supportive
+                  counseling sessions to explore thoughts and feelings, identify
+                  any issues, and provide strategies for growth. This evaluation
+                  ensures your child is emotionally resilient and mentally
+                  prepared for the challenges of boarding school, complementing
+                  their academic readiness.
+                </p>
+              </div>
+              <div className="lg:hidden mt-4">
+                <Image
+                  src="/icons/PI1.svg"
+                  width={1000}
+                  height={1000}
+                  alt="course1"
+                />
+              </div>
             </div>
           </div>
           <hr className="mt-5 md:mt-12" />
 
-         
-
-
-
-          {isPopupVisible && (
-                  <BookaDemoPopUp onClose={handleClosePopup} />
-                )}
-
+          {isPopupVisible && <BookaDemoPopUp onClose={handleClosePopup} />}
 
           {/* laptop */}
           <div className="hidden lg:block border border-primary02 rounded-3xl mt-[1.25rem] mx-[2rem] mb-14">
@@ -161,7 +156,9 @@ const BoardingCompatibilityTestPage = () => {
                   <div className="bg-[#00000015] w-[120px] h-[1px]"></div>
                 </div>
                 <u className="text-primary02 text-center cursor-pointer">
-                  <h1 className="" onClick={handleClick}>Contact Us</h1>
+                  <h1 className="" onClick={handleClick}>
+                    Contact Us
+                  </h1>
                 </u>
               </div>
             </div>
@@ -180,7 +177,10 @@ const BoardingCompatibilityTestPage = () => {
                 <div className="text-[#00000080]  text-[0.875rem] pt-[5px]">
                   OR
                 </div>
-                <u className="text-primary02  text-[0.875rem] pt-[5px] cursor-pointer" onClick={handleClick}>
+                <u
+                  className="text-primary02  text-[0.875rem] pt-[5px] cursor-pointer"
+                  onClick={handleClick}
+                >
                   Contact Us
                 </u>
               </div>
