@@ -29,7 +29,7 @@ const BoardingCompatibilityTestPage = () => {
                 engaging, the test offers deep insights into your child&apos;s
                 readiness for boarding school, helping to identify areas needing
                 support for a smooth transition. Ensure your child is set for
-                success with this essential readinesmd:hidden s evaluation.
+                success with this essential readiness evaluation.
               </p>
             </div>
             <div className=" hidden lg:flex md:space-x-12  md:mt-4">
@@ -90,7 +90,7 @@ const BoardingCompatibilityTestPage = () => {
               <div className="hidden   lg:flex lg:justify-between  lg:space-x-6 w-[50%]">
                 <div>
                   <Image
-                    src="/icons/PI1.svg"
+                    src="https://firebasestorage.googleapis.com/v0/b/boardingadmissions-f3ba3.appspot.com/o/boardingadmission%2Fpsychiatric-evaluation.jpg?alt=media&token=ab89f5b0-4393-4e9e-9665-97e2d0d45d39"
                     width={1000}
                     height={1000}
                     alt="course1"

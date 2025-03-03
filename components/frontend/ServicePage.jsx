@@ -36,72 +36,39 @@ const ServicePage = () => {
             <div className=" hidden lg:flex lg:space-x-12  lg:mt-4">
               <div>
                 <Image
-                  src="/icons/online1.svg"
+                  src="https://firebasestorage.googleapis.com/v0/b/boardingadmissions-f3ba3.appspot.com/o/boardingadmission%2Fhome-based-expert-young-indian-woman-facilitating-2023-11-27-05-27-27-utc.jpg?alt=media&token=e0a752c9-794c-4390-b4f9-dd6c8a6d72a9"
                   width={1000}
                   height={1000}
                   alt="course1"
-                  className="w-[638px] h-[280px]"
+                  className="w-full rounded shadow-lg h-[380px]"
                 />
               </div>
-              {/* <div>
-                <Image
-                  src="/icons/online2.svg"
-                  width={1000}
-                  height={1000}
-                  alt="course1"
-                  className="w-[368px] h-[280px]"
-                />
-              </div> */}
-              {/* <div className=" space-y-3 lg:hidden xl:block">
-                <div>
-                  <Image
-                    src="/icons/online3.svg"
-                    width={1000}
-                    height={1000}
-                    alt="course1"
-                    className="w-[187px] h-[131px]"
-                  />
-                </div>
-                <div>
-                  <Image
-                    src="/icons/online4.svg"
-                    width={1000}
-                    height={1000}
-                    alt="course1"
-                    className="w-[187px] h-[131px]"
-                  />
-                </div>
-              </div> */}
             </div>
 
-            <div className="lg:hidden mt-4">
+            <div className="lg:hidden  mt-4">
               <Image
-                src="/icons/online1.svg"
+                src="https://firebasestorage.googleapis.com/v0/b/boardingadmissions-f3ba3.appspot.com/o/boardingadmission%2Fhome-based-expert-young-indian-woman-facilitating-2023-11-27-05-27-27-utc.jpg?alt=media&token=e0a752c9-794c-4390-b4f9-dd6c8a6d72a9"
                 width={1000}
-                height={280}
+                height={1000}
                 alt="course1"
+                className="w-full rounded shadow-lg md:w-[740px] h-full"
               />
             </div>
           </div>
 
           <hr className="mt-5 lg:mt-12" />
           <div className="bg-gradient-to-br from-[#075D70] to-[#0DB2D6]">
-            <div className=" mt-4 lg:mt-8 lg:px-20 lg:flex lg:justify-between lg:space-x-14  lg:pt-12 lg:pb-12 w-[100%]">
-              <div className="hidden lg:flex lg:justify-between  lg:space-x-6 w-[50%]">
-                <Image
-                  src="/icons/PI1.svg"
-                  width={1000}
-                  height={1000}
-                  alt="course1"
-                  className="w-full h-full"
-                />
-                {/* <Image
-                    src="/icons/PI2.svg"
+            <div className=" mt-4 lg:mt-8 lg:px-20 lg:flex lg:justify-between lg:items-center lg:space-x-14  lg:pt-12 lg:pb-12 w-[100%] p-4">
+              <div className="hidden lg:flex  w-[40%]">
+                <div>
+                  <Image
+                    src="https://firebasestorage.googleapis.com/v0/b/boardingadmissions-f3ba3.appspot.com/o/boardingadmission%2Fpersonal-interview-preparation%20.jpg?alt=media&token=e43c899c-783b-4e8e-b2e2-09b51edddd3d"
                     width={1000}
                     height={1000}
-                    alt="course2"
-                    className="w-[300px] h-[200px]"
-                  /> */}
+                    alt="course1"
+                    className="w-full rounded shadow-lg h-[380px]"
+                  />
+                </div>
               </div>
 
               <div id="personalinterview" className="lg:w-[50%]">
@@ -121,11 +88,11 @@ const ServicePage = () => {
 
               <div className="lg:hidden  mt-4">
                 <Image
-                  src="/icons/PI1.svg"
+                  src="https://firebasestorage.googleapis.com/v0/b/boardingadmissions-f3ba3.appspot.com/o/boardingadmission%2Fpersonal-interview-preparation%20.jpg?alt=media&token=e43c899c-783b-4e8e-b2e2-09b51edddd3d"
                   width={1000}
                   height={1000}
                   alt="course1"
-                  className="w-[280px] md:w-[740px] h-full"
+                  className="w-full rounded shadow-lg md:w-[740px] h-full"
                 />
               </div>
             </div>
@@ -150,104 +117,65 @@ const ServicePage = () => {
               </p>
             </div>
             <div className="hidden    lg:flex space-x-12 mt-4">
-              <div>
+              <div className=" ">
                 <Image
-                  src="/icons/MT1.svg"
+                  src="https://firebasestorage.googleapis.com/v0/b/boardingadmissions-f3ba3.appspot.com/o/boardingadmission%2FMock-Test.jpg?alt=media&token=0e62ad84-5c08-420b-809e-6cb78dcc9f1e"
                   width={1000}
                   height={1000}
                   alt="Mock Test"
-                  className="w-[632px] h-[280px]"
+                  className="w-full rounded shadow-lg h-[380px]"
                 />
               </div>
-              {/* <div>
-                <Image
-                  src="/icons/MT2.svg"
-                  width={1000}
-                  height={1000}
-                  alt="Mock Test"
-                  className="w-[262px] h-[280px]"
-                />
-              </div>
-              <div>
-                <Image
-                  src="/icons/MT3.svg"
-                  width={1000}
-                  height={1000}
-                  alt="Mock Test"
-                  className="w-[280px] h-[280px]"
-                />
-              </div> */}
             </div>
+
             <div className="lg:hidden  mt-4">
               <Image
                 src="/icons/MT1.svg"
                 width={1000}
-                height={280}
-                alt="Mock Test"
+                height={1000}
+                alt="course1"
+                className="w-full rounded shadow-lg md:w-[740px] h-full"
               />
             </div>
           </div>
           <hr className="mt-5 lg:mt-12" />
           <div className="bg-gradient-to-br from-[#075D70] to-[#0DB2D6] mt-8">
-            <div className="bg-gradient-to-br from-[#075D70] to-[#0DB2D6] overflow-hidden">
-              <div className="mx-4 mt-4 lg:mt-8 lg:mx-20 lg:flex lg:justify-between lg:items-center lg:space-x-12 lg:pt-12 lg:pb-12">
-                <div className="hidden lg:flex lg:w-1/2 lg:justify-start">
-                  <Image
-                    src="/icons/Doubt1.svg"
-                    width={1000}
-                    height={1000}
-                    alt="Doubt1"
-                    className="max-w-full h-auto object-contain"
-                  />
+            <div className="mx-4 mt-4 lg:mt-8 lg:mx-20 lg:flex lg:justify-between lg:items-center lg:space-x-12 lg:pt-12 lg:pb-12 py-4">
+              <div className="hidden lg:flex l w-[40%] lg:justify-start">
+                <Image
+                  src="https://firebasestorage.googleapis.com/v0/b/boardingadmissions-f3ba3.appspot.com/o/boardingadmission%2Fdoubt-clearing-session.jpg?alt=media&token=6d6bd85e-bcf7-412b-ace4-bd9c97f12dde"
+                  width={1000}
+                  height={1000}
+                  alt="Doubt1"
+                  className="w-full rounded shadow-lg h-[380px]"
+                />
+              </div>
 
-                  {/* <div>
-                    <Image
-                      src="/icons/Doubt2.svg"
-                      width={1000}
-                      height={1000}
-                      alt="Doubt2"
-                      className="w-[368px] h-[280px]"
-                    />
-                  </div>
+              <div className="lg:w-1/2">
+                <h1 className="lg:text-[44px] text-[28px] text-white">
+                  Doubt Clearing Session
+                </h1>
+                <p className="text-[0.875rem] lg:text-[20px] leading-relaxed text-white mt-4">
+                  Our doubt-clearing sessions are designed to address students
+                  specific challenges in preparation for boarding school
+                  entrance exams. These interactive sessions offer personalized
+                  guidance, helping students overcome difficulties and solidify
+                  their understanding. With expert instructors available to
+                  answer questions and provide clear explanations, students can
+                  resolve their doubts efficiently. Regular doubt-clearing
+                  sessions ensure that no question goes unanswered, boosting
+                  students confidence and readiness for the exams.
+                </p>
+              </div>
 
-                  <div>
-                    <Image
-                      src="/icons/Doubt3.svg"
-                      width={1000}
-                      height={1000}
-                      alt="Doubt3"
-                      className="w-[187px] h-[280px]"
-                    />
-                  </div> */}
-                </div>
-
-                <div className="lg:w-1/2">
-                  <h1 className="lg:text-[44px] text-[28px] text-white">
-                    Doubt Clearing Session
-                  </h1>
-                  <p className="text-[0.875rem] lg:text-[20px] leading-relaxed text-white mt-4">
-                    Our doubt-clearing sessions are designed to address
-                    students specific challenges in preparation for boarding
-                    school entrance exams. These interactive sessions offer
-                    personalized guidance, helping students overcome
-                    difficulties and solidify their understanding. With expert
-                    instructors available to answer questions and provide clear
-                    explanations, students can resolve their doubts efficiently.
-                    Regular doubt-clearing sessions ensure that no question goes
-                    unanswered, boosting students confidence and readiness for
-                    the exams.
-                  </p>
-                </div>
-
-                <div className="lg:hidden  mt-4">
-                  <Image
-                    src="/icons/Doubt1.svg"
-                    width={1000}
-                    height={280}
-                    alt="Doubt1"
-                    className="max-w-full h-auto object-contain"
-                  />
-                </div>
+              <div className="lg:hidden  mt-4">
+                <Image
+                  src="/icons/Doubt1.svg"
+                  width={1000}
+                  height={1000}
+                  alt="course1"
+                  className="w-full rounded shadow-lg md:w-[740px] h-full"
+                />
               </div>
             </div>
           </div>

@@ -37,7 +37,7 @@ const FoundationcoursePage = () => {
             <div className=" hidden md:flex md:space-x-12  md:mt-4">
               <div>
                 <Image
-                  src="/icons/online1.svg"
+                  src="https://firebasestorage.googleapis.com/v0/b/boardingadmissions-f3ba3.appspot.com/o/boardingadmission%2F4th%20-%206th%20grade%20.JPG?alt=media&token=21b28117-c3ad-41dc-aa48-deba8c2b5f2e"
                   width={1000}
                   height={1000}
                   alt="course1"
@@ -200,7 +200,7 @@ const FoundationcoursePage = () => {
             <div className="hidden  lg:flex lg:w-1/2 lg:justify-start">
               <div>
                 <Image
-                  src="/icons/Doubt1.svg"
+                  src="https://firebasestorage.googleapis.com/v0/b/boardingadmissions-f3ba3.appspot.com/o/boardingadmission%2F9th%20grade.jpg?alt=media&token=63400cdf-f581-431b-a9cb-8088fe68bc4d"
                   width={1000}
                   height={1000}
                   alt="Doubt1"

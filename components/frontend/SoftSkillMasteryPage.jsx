@@ -37,7 +37,7 @@ const SoftSkillMasteryPage = () => {
             <div className=" hidden lg:flex md:space-x-12  md:mt-4">
               <div>
                 <Image
-                  src="/icons/online1.svg"
+                  src="https://firebasestorage.googleapis.com/v0/b/boardingadmissions-f3ba3.appspot.com/o/boardingadmission%2Fcommunicatio-skills.jpg?alt=media&token=c9426023-ee40-4788-8fa5-0d8c3ec4ec12"
                   width={1000}
                   height={1000}
                   alt="course1"
@@ -100,11 +100,11 @@ const SoftSkillMasteryPage = () => {
               </div> */}
                 <div>
                   <Image
-                    src="/icons/PI2.svg"
+                    src="https://firebasestorage.googleapis.com/v0/b/boardingadmissions-f3ba3.appspot.com/o/boardingadmission%2FEmotional-Intelligence.jpg?alt=media&token=a371e4de-6245-491b-bee0-144620b9e9b9"
                     width={1000}
                     height={1000}
                     alt="course1"
-                    className="w-full h-full"
+                    className="w-[632px] h-[300px]"
                   />
                 </div>
               </div>
@@ -165,7 +165,7 @@ const SoftSkillMasteryPage = () => {
               </div> */}
               <div>
                 <Image
-                  src="/icons/MT2.svg"
+                  src="https://firebasestorage.googleapis.com/v0/b/boardingadmissions-f3ba3.appspot.com/o/boardingadmission%2FProblem-Solving.jpg?alt=media&token=31ba7f73-02d8-4814-b197-de9161688007"
                   width={1000}
                   height={1000}
                   alt="Mock Test"
@@ -206,11 +206,11 @@ const SoftSkillMasteryPage = () => {
               </div> */}
                 <div>
                   <Image
-                    src="/icons/Doubt2.svg"
+                    src="https://firebasestorage.googleapis.com/v0/b/boardingadmissions-f3ba3.appspot.com/o/boardingadmission%2FLeadership.jpg?alt=media&token=9ff1e39a-cdfb-48fe-aa45-202d94bfdc93"
                     width={1000}
                     height={1000}
                     alt="Doubt2"
-                    className="w-[368px] h-[280px]"
+                    className="w-[632px] h-[300px]"
                   />
                 </div>
 

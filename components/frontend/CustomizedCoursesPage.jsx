@@ -1,4 +1,4 @@
-"use client"
+"use client";
 import Image from "next/image";
 import React, { useState } from "react";
 import BookaDemoPopUp from "./BookaDemoPopUp";
@@ -17,12 +17,12 @@ const CustomizedCoursesPage = () => {
     <>
       <div>
         <div className="">
-          <div className="mx-4 mt-2 md:mx-20 md:mt-14">
-            <div id="One-on-one classes">
-              <h1 className="text-[1.5rem] font-bold md:text-[3.5rem] text-primary02">
-                ONE-ON-ONE CLASSES
+          <div className="mx-4 mt-2 lg:mx-20 lg:mt-14 lg:flex lg:justify-between lg:items-center">
+            <div id="One-on-one classes" className="lg:w-1/2">
+              <h1 className="lg:text-[48px] text-[32px]  text-primary02">
+                One-On-One Classes
               </h1>
-              <p className="text-[0.875rem] md:text-[18px] text-[#010101] mt-4">
+              <p className="text-[0.875rem] md:text-[20px] text-[#010101] mt-4">
                 Our one-on-one classes offer tailored instruction to meet each
                 student&apos;s unique needs. With individual attention from
                 experienced teachers, students receive customized learning plans
@@ -32,17 +32,17 @@ const CustomizedCoursesPage = () => {
                 suits each student&apos;s needs.
               </p>
             </div>
-            <div className=" hidden md:flex md:space-x-12  md:mt-4">
+            <div className=" hidden lg:flex md:space-x-12  md:mt-4">
               <div>
                 <Image
-                  src="/icons/online1.svg"
+                  src="https://firebasestorage.googleapis.com/v0/b/boardingadmissions-f3ba3.appspot.com/o/boardingadmission%2Fasian-women-are-doing-job-interviews-2025-01-08-23-32-21-utc.jpg?alt=media&token=61464198-6dfc-443e-a5c9-75ae3988e164"
                   width={1000}
                   height={1000}
                   alt="course1"
-                  className="w-[638px] h-[280px]"
+                  className="w-[638px] h-[320px]"
                 />
               </div>
-              <div>
+              {/* <div>
                 <Image
                   src="/icons/online2.svg"
                   width={1000}
@@ -50,8 +50,8 @@ const CustomizedCoursesPage = () => {
                   alt="course1"
                   className="w-[368px] h-[280px]"
                 />
-              </div>
-              <div className=" space-y-3 md:hidden xl:block">
+              </div> */}
+              {/* <div className=" space-y-3 md:hidden xl:block">
                 <div>
                   <Image
                     src="/icons/online3.svg"
@@ -71,10 +71,10 @@ const CustomizedCoursesPage = () => {
 
                   />
                 </div>
-              </div>
+              </div> */}
             </div>
 
-            <div className="md:hidden lg:hidden mt-4">
+            <div className="lg:hidden mt-4">
               <Image
                 src="/icons/online1.svg"
                 width={1000}
@@ -85,32 +85,19 @@ const CustomizedCoursesPage = () => {
           </div>
 
           <hr className="mt-5 md:mt-12" />
-          <div className="mx-4 mt-4 md:mt-8 md:mx-20">
-            <div id="Learning material">
-              <h1 className="text-[1.5rem] font-bold md:text-[3.5rem] text-primary02">
-                LEARNING MATERIAL
-              </h1>
-              <p className="text-[0.875rem] md:text-[18px] text-[#010101] mt-4">
-                At Boarding Admissions, we offer comprehensive learning
-                resources, including PDFs, PPTs, and practice tests tailored to
-                your chosen schools. Our interactive materials cover essential
-                topics and reflect the latest exam patterns, ensuring effective
-                and efficient study. With detailed explanations and ample
-                practice opportunities, students build a strong foundation for
-                their exams and achieve their best results.
-              </p>
-            </div>
-            <div className="hidden   md:flex md:space-x-12 md:mt-4">
-              <div>
-                <Image
-                  src="/icons/PI1.svg"
-                  width={1000}
-                  height={1000}
-                  alt="course1"
-                  className="w-[632px] h-[280px]"
-                />
-              </div>
-              <div>
+          <div className="bg-gradient-to-br from-[#075D70] to-[#0DB2D6]">
+            <div className="px-4 mt-4 lg:mt-8 lg:px-20 lg:flex lg:justify-between lg:space-x-14  lg:pt-12 lg:pb-12 w-[100%] pb-10">
+              <div className="hidden   lg:flex lg:justify-between  lg:space-x-6 w-[50%]">
+                <div>
+                  <Image
+                    src="https://firebasestorage.googleapis.com/v0/b/boardingadmissions-f3ba3.appspot.com/o/boardingadmission%2Flearning-material.jpg?alt=media&token=4b232463-8352-4ba1-a095-94369fe81c7b"
+                    width={1000}
+                    height={1000}
+                    alt="course1"
+                    className="w-[632px] h-[300px]"
+                  />
+                </div>
+                {/* <div>
                 <Image
                   src="/icons/PI2.svg"
                   width={1000}
@@ -118,25 +105,41 @@ const CustomizedCoursesPage = () => {
                   alt="course1"
                   className="w-[579px] h-[280px]"
                 />
+              </div> */}
               </div>
-            </div>
-            <div className="md:hidden lg:hidden mt-4">
-              <Image
-                src="/icons/PI1.svg"
-                width={1000}
-                height={280}
-                alt="course1"
-              />
+              <div id="Learning material" className="lg:w-[50%]">
+                <h1 className="lg:text-[44px] text-[28px] text-white">
+                  Learning Material
+                </h1>
+                <p className="text-[0.875rem] md:text-[20px] text-white mt-4">
+                  At Boarding Admissions, we offer comprehensive learning
+                  resources, including PDFs, PPTs, and practice tests tailored
+                  to your chosen schools. Our interactive materials cover
+                  essential topics and reflect the latest exam patterns,
+                  ensuring effective and efficient study. With detailed
+                  explanations and ample practice opportunities, students build
+                  a strong foundation for their exams and achieve their best
+                  results.
+                </p>
+              </div>
+              <div className="lg:hidden mt-4">
+                <Image
+                  src="/icons/PI1.svg"
+                  width={1000}
+                  height={280}
+                  alt="course1"
+                />
+              </div>
             </div>
           </div>
           <hr className="mt-5 md:mt-12" />
 
-          <div className="mx-4 mt-4 md:mt-8 md:mx-20">
-            <div className="" id="Flexible schedule">
-              <h1 className="text-[1.5rem] font-bold md:text-[3.5rem] text-primary02">
-                FLEXIBLE SCHEDULE
+          <div className="mx-4 mt-4 lg:mt-8 lg:mx-20 lg:flex lg:justify-between lg:items-center">
+            <div className="lg:w-1/2" id="Flexible schedule">
+              <h1 className="lg:text-[48px] text-[32px] text-primary02">
+                Flexible Schedule
               </h1>
-              <p className="text-[0.875rem] md:text-[18px] text-[#010101] mt-4">
+              <p className="text-[0.875rem] md:text-[20px] text-[#010101] mt-4">
                 At Boarding Admissions, our customized courses offer flexible
                 scheduling options to fit your busy lifestyle. Whether it&apos;s
                 early mornings, late evenings, or weekends, we adjust to your
@@ -145,17 +148,17 @@ const CustomizedCoursesPage = () => {
                 a productive and stress-free preparation for entrance exams.
               </p>
             </div>
-            <div className="hidden    md:flex space-x-12 mt-4">
+            <div className="hidden    lg:flex space-x-12 mt-4">
               <div>
                 <Image
-                  src="/icons/MT1.svg"
+                  src="https://firebasestorage.googleapis.com/v0/b/boardingadmissions-f3ba3.appspot.com/o/boardingadmission%2Fflexible%20schedulejpg.jpeg?alt=media&token=9f71b653-00d6-4467-8456-c0645d741533"
                   width={1000}
                   height={1000}
                   alt="Mock Test"
-                  className="w-[632px] h-[280px]"
+                  className="w-[632px] h-[320px]"
                 />
               </div>
-              <div>
+              {/* <div>
                 <Image
                   src="/icons/MT2.svg"
                   width={1000}
@@ -163,8 +166,8 @@ const CustomizedCoursesPage = () => {
                   alt="Mock Test"
                   className="w-[262px] h-[280px]"
                 />
-              </div>
-              <div>
+              </div> */}
+              {/* <div>
                 <Image
                   src="/icons/MT3.svg"
                   width={1000}
@@ -172,9 +175,9 @@ const CustomizedCoursesPage = () => {
                   alt="Mock Test"
                   className="w-[280px] h-[280px]"
                 />
-              </div>
+              </div> */}
             </div>
-            <div className="md:hidden lg:hidden mt-4">
+            <div className="lg:hidden mt-4">
               <Image
                 src="/icons/MT1.svg"
                 width={1000}
@@ -184,32 +187,19 @@ const CustomizedCoursesPage = () => {
             </div>
           </div>
           <hr className="mt-5 md:mt-12" />
-          <div className="mx-4 mt-4 md:mt-8 md:mx-20">
-            <div className="" id="Regular Feedback">
-              <h1 className="text-[1.5rem] font-bold md:text-[3.5rem] text-primary02">
-                REGULAR FEEDBACK
-              </h1>
-              <p className="text-[0.875rem] md:text-[18px] text-[#010101] mt-4">
-                At Boarding Admissions, we prioritize regular, constructive
-                feedback for both students and parents. Our interactive sessions
-                highlight strengths and areas for improvement, keeping students
-                motivated and on track. This continuous feedback loop helps you
-                stay informed about your child&apos;s progress and supports their
-                educational journey, ensuring they achieve their best in
-                preparation for entrance exams.
-              </p>
-            </div>
-            <div className="hidden    md:flex md:space-x-12 md:mt-4">
-              <div>
-                <Image
-                  src="/icons/Doubt1.svg"
-                  width={1000}
-                  height={1000}
-                  alt="Doubt1"
-                  className="w-[632px] h-[280px]"
-                />
-              </div>
-              <div>
+          <div className="bg-gradient-to-br from-[#075D70] to-[#0DB2D6] mt-8">
+            <div className="mx-4 mt-4 lg:mt-8 lg:mx-20 lg:flex lg:justify-between lg:items-center lg:space-x-12 lg:pt-12 pb-12">
+              <div className="hidden  lg:flex lg:w-1/2 lg:justify-start">
+                <div>
+                  <Image
+                    src="https://firebasestorage.googleapis.com/v0/b/boardingadmissions-f3ba3.appspot.com/o/boardingadmission%2Ffeedback.jpg?alt=media&token=6f5f24d6-2b34-4480-8b0a-3a96d9153da1"
+                    width={1000}
+                    height={1000}
+                    alt="Doubt1"
+                    className="w-[632px] h-[320px]"
+                  />
+                </div>
+                {/* <div>
                 <Image
                   src="/icons/Doubt2.svg"
                   width={1000}
@@ -227,26 +217,36 @@ const CustomizedCoursesPage = () => {
                   alt="Doubt3"
                   className="w-[187px] h-[280px]"
                 />
+              </div> */}
               </div>
-            </div>
-            <div className="md:hidden lg:hidden mt-4">
-              <Image
-                src="/icons/Doubt1.svg"
-                width={1000}
-                height={280}
-                alt="Doubt1"
-              />
+
+              <div className="lg:w-1/2" id="Regular Feedback">
+                <h1 className="lg:text-[44px] text-[28px] text-white">
+                  Regular Feedback
+                </h1>
+                <p className="text-[0.875rem] md:text-[20px] text-white mt-4">
+                  At Boarding Admissions, we prioritize regular, constructive
+                  feedback for both students and parents. Our interactive
+                  sessions highlight strengths and areas for improvement,
+                  keeping students motivated and on track. This continuous
+                  feedback loop helps you stay informed about your child&apos;s
+                  progress and supports their educational journey, ensuring they
+                  achieve their best in preparation for entrance exams.
+                </p>
+              </div>
+              <div className="lg:hidden mt-4">
+                <Image
+                  src="/icons/Doubt1.svg"
+                  width={1000}
+                  height={280}
+                  alt="Doubt1"
+                />
+              </div>
             </div>
           </div>
           <hr className="mt-5 md:mt-12" />
 
-
-
-
-
-          {isPopupVisible && (
-                  <BookaDemoPopUp onClose={handleClosePopup} />
-                )}
+          {isPopupVisible && <BookaDemoPopUp onClose={handleClosePopup} />}
 
           {/* laptop */}
           <div className="hidden lg:block border border-primary02 rounded-3xl mt-[1.25rem] mx-[2rem] mb-14">
@@ -268,7 +268,9 @@ const CustomizedCoursesPage = () => {
                   <div className="bg-[#00000015] w-[120px] h-[1px]"></div>
                 </div>
                 <u className="text-primary02 text-center cursor-pointer">
-                  <h1 className="" onClick={handleClick}>Contact Us</h1>
+                  <h1 className="" onClick={handleClick}>
+                    Contact Us
+                  </h1>
                 </u>
               </div>
             </div>
@@ -287,7 +289,10 @@ const CustomizedCoursesPage = () => {
                 <div className="text-[#00000080]  text-[0.875rem] pt-[5px]">
                   OR
                 </div>
-                <u className="text-primary02  text-[0.875rem] pt-[5px] cursor-pointer" onClick={handleClick}>
+                <u
+                  className="text-primary02  text-[0.875rem] pt-[5px] cursor-pointer"
+                  onClick={handleClick}
+                >
                   Contact Us
                 </u>
               </div>

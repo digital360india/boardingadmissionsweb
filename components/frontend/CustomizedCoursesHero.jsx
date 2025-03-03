@@ -8,14 +8,14 @@ const CustomizedCoursesHero = () => {
     <>
       <div className="md:mx-20">
         <h1 className="text-[2rem] md:text-[3.5rem] text-[#075D70] text-center pb-8 font-bold">
-          CUSTOMIZED COURSES
+          Customized Cources
         </h1>
         <div
           className="w-full h-[30.375rem] bg-no-repeat bg-cover bg-center relative"
           style={{ backgroundImage: `url(${Customizedcourse.src})` }}
         >
-          <div className="w-full   md:w-[22.563rem] h-[17.5rem] px-10 md:px-0 md:mx-12 mt-10 space-y-7   absolute    text-white  ">
-            <p className="md:mt-2 text-justify text-[14px]  md:text-[1rem] ">
+          <div className="w-full   md:w-[23.563rem] h-[17.5rem] px-10 md:px-0 md:mx-12 mt-10 space-y-7   absolute    text-white  ">
+            <p className="md:mt-2  text-[13px]  md:text-[1rem] leading-relaxed">
               At Boarding Admissions, our Customized Courses offer personalized,
               targeted preparation for entrance exams to one or multiple
               schools. We create unique study plans based on individual student
@@ -26,7 +26,7 @@ const CustomizedCoursesHero = () => {
               ambitions. Get a personalized prep plan for your child&apos;s boarding
               school success!
             </p>
-            <div className="w-[7.5rem] h-[2.0rem] md:w-[18.75rem] md:h-[3.5rem] bg-gradient01  border-custom rounded-md flex items-center justify-center text-[1rem] ">
+            <div className="w-[7.5rem] h-[2.0rem] md:w-[18rem] md:h-[3rem] bg-gradient-to-br from-[#075D70] to-[#0DB2D6] hover:scale-110 transition duration-300  border-custom rounded-md flex items-center justify-center text-[1rem] ">
               <button className="text-white">Enroll Now</button>
             </div>
           </div>
