@@ -3,11 +3,11 @@ import { useState } from "react";
 import { useRouter } from "next/navigation";
 
 const schoolsData = [
-  { name: "Welhem Boys School", path: "/school/welham-boys-school" },
-  { name: "Welhem Girls School", path: "/school/welham-Girls-school" },
+  { name: "Welham Boys School", path: "/school/welham-boys-school" },
+  { name: "Welham Girls School", path: "/school/wellham-girls-school" },
   { name: "Mayo Girls School", path: "/school/mayo-girls-school" },
-  { name: "Mayo Boys School", path: "/school/mayo-Boys-school" },
-  { name: "The Doon School", path: "/school/mayo-girls-schoolthe-doon-school" },
+  { name: "Mayo Boys School", path: "/school/mayo-boys-school" },
+  { name: "The Doon School", path: "/school/the-doon-school" },
   { name: "Scindia Girls School", path: "/school/scindia-girls-school" },
 ];
 
