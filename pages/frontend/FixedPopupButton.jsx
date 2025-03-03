@@ -8,6 +8,9 @@ export default function FixedPopupButton() {
     const handleClick = () => {
         setPopupVisible(true);
       };
+      const handleClosePopup = () => {
+        setPopupVisible(false);
+      };
   return (
     <>
       <div className="fixed cursor-pointer bottom-44 right-6 w-16 h-16 rounded-full bg-primary02 flex justify-center items-center">
