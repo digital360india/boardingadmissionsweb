@@ -18,12 +18,12 @@ const SoftSkillMasteryPage = () => {
     <>
       <div>
         <div className="">
-          <div className="mx-4 mt-2 md:mx-20 md:mt-14">
-            <div id="Communication skills">
-              <h1 className="text-[1.5rem] font-bold md:text-[3.5rem] text-primary02">
-                COMMUNICATION SKILLS
+          <div className="mx-4 mt-2 lg:mx-20 lg:mt-14 lg:flex lg:justify-between lg:items-center">
+            <div id="Communication skills" className="lg:w-1/2">
+              <h1 className="lg:text-[48px] text-[32px]  text-primary02">
+                Communication Skills
               </h1>
-              <p className="text-[0.875rem] md:text-[18px] text-[#010101] mt-4">
+              <p className="text-[0.875rem] md:text-[20px] text-[#010101] mt-4">
                 Communication is key to success. Our Communication Skills
                 program at Boarding Admissions helps students articulate their
                 thoughts clearly through interactive role-plays, group
@@ -34,7 +34,7 @@ const SoftSkillMasteryPage = () => {
                 future leadership roles.
               </p>
             </div>
-            <div className=" hidden md:flex md:space-x-12  md:mt-4">
+            <div className=" hidden lg:flex md:space-x-12  md:mt-4">
               <div>
                 <Image
                   src="/icons/online1.svg"
@@ -44,7 +44,7 @@ const SoftSkillMasteryPage = () => {
                   className="w-[638px] h-[280px]"
                 />
               </div>
-              <div>
+              {/* <div>
                 <Image
                   src="/icons/online2.svg"
                   width={1000}
@@ -52,8 +52,8 @@ const SoftSkillMasteryPage = () => {
                   alt="course1"
                   className="w-[368px] h-[280px]"
                 />
-              </div>
-              <div className=" space-y-3 md:hidden xl:block">
+              </div> */}
+              {/* <div className=" space-y-3 md:hidden xl:block">
                 <div>
                   <Image
                     src="/icons/online3.svg"
@@ -72,10 +72,10 @@ const SoftSkillMasteryPage = () => {
                     className="w-[187px] h-[131px]"
                   />
                 </div>
-              </div>
+              </div> */}
             </div>
 
-            <div className="md:hidden lg:hidden mt-4">
+            <div className="lg:hidden mt-4">
               <Image
                 src="/icons/online1.svg"
                 width={1000}
@@ -86,24 +86,10 @@ const SoftSkillMasteryPage = () => {
           </div>
 
           <hr className="mt-5 md:mt-12" />
-          <div className="mx-4 mt-4 md:mt-8 md:mx-20">
-            <div id="Emotional intelligence">
-              <h1 className="text-[1.5rem] font-bold md:text-[3.5rem] text-primary02">
-                EMOTIONAL INTELLIGENCE
-              </h1>
-              <p className="text-[0.875rem] md:text-[18px] text-[#010101] mt-4">
-                Emotional Intelligence (EI) is crucial for academic and personal
-                growth. Our Emotional Intelligence program at Boarding
-                Admissions helps students build skills in self-awareness,
-                self-regulation, empathy, and social interactions through
-                mindfulness exercises, reflective journaling, and group
-                discussions. Strong EI enhances academic performance, mental
-                well-being, and social relationships, preparing students to
-                manage stress and thrive in all areas of life.
-              </p>
-            </div>
-            <div className="hidden   md:flex md:space-x-12 md:mt-4">
-              <div>
+          <div className="bg-gradient-to-br from-[#075D70] to-[#0DB2D6]">
+            <div className="px-4 mt-4 lg:mt-8 lg:px-20 lg:flex lg:justify-between lg:space-x-14  lg:pt-12 lg:pb-12 w-[100%] pb-10">
+              <div className="hidden   lg:flex lg:justify-between  lg:space-x-6 w-[50%]">
+                {/* <div>
                 <Image
                   src="/icons/PI1.svg"
                   width={1000}
@@ -111,34 +97,52 @@ const SoftSkillMasteryPage = () => {
                   alt="course1"
                   className="w-[632px] h-[280px]"
                 />
+              </div> */}
+                <div>
+                  <Image
+                    src="/icons/PI2.svg"
+                    width={1000}
+                    height={1000}
+                    alt="course1"
+                    className="w-full h-full"
+                  />
+                </div>
               </div>
-              <div>
+              <div id="Emotional intelligence" className="lg:w-[50%]">
+                <h1 className="lg:text-[44px] text-[28px] text-white">
+                  Emotional Intelligence
+                </h1>
+                <p className="text-[0.875rem] md:text-[20px] text-white mt-4">
+                  Emotional Intelligence (EI) is crucial for academic and
+                  personal growth. Our Emotional Intelligence program at
+                  Boarding Admissions helps students build skills in
+                  self-awareness, self-regulation, empathy, and social
+                  interactions through mindfulness exercises, reflective
+                  journaling, and group discussions. Strong EI enhances academic
+                  performance, mental well-being, and social relationships,
+                  preparing students to manage stress and thrive in all areas of
+                  life.
+                </p>
+              </div>
+              <div className="lg:hidden mt-4">
                 <Image
-                  src="/icons/PI2.svg"
+                  src="/icons/PI1.svg"
                   width={1000}
-                  height={1000}
+                  height={280}
                   alt="course1"
-                  className="w-[579px] h-[280px]"
+                  className="w-[280px] md:w-full"
                 />
               </div>
-            </div>
-            <div className="md:hidden lg:hidden mt-4">
-              <Image
-                src="/icons/PI1.svg"
-                width={1000}
-                height={280}
-                alt="course1"
-              />
             </div>
           </div>
           <hr className="mt-5 md:mt-12" />
 
-          <div className="mx-4 mt-4 md:mt-8 md:mx-20">
-            <div className="" id="Problem-solving">
-              <h1 className="text-[1.5rem] font-bold md:text-[3.5rem] text-primary02">
-                PROBLEM SOLVING
+          <div className="mx-4 mt-4 lg:mt-8 lg:mx-20 lg:flex lg:justify-between lg:items-center">
+            <div className="lg:w-1/2" id="Problem-solving">
+              <h1 className="lg:text-[48px] text-[32px] text-primary02">
+                Problem Solving
               </h1>
-              <p className="text-[0.875rem] md:text-[18px] text-[#010101] mt-4">
+              <p className="text-[0.875rem] md:text-[20px] text-[#010101] mt-4">
                 Problem-solving is essential for academic and future success.
                 Our Problem-Solving program at Boarding Admissions teaches
                 students critical thinking and analytical skills through
@@ -149,8 +153,8 @@ const SoftSkillMasteryPage = () => {
                 projects, and future careers.
               </p>
             </div>
-            <div className="hidden    md:flex space-x-12 mt-4">
-              <div>
+            <div className="hidden    lg:flex space-x-12 mt-4">
+              {/* <div>
                 <Image
                   src="/icons/MT1.svg"
                   width={1000}
@@ -158,17 +162,17 @@ const SoftSkillMasteryPage = () => {
                   alt="Mock Test"
                   className="w-[632px] h-[280px]"
                 />
-              </div>
+              </div> */}
               <div>
                 <Image
                   src="/icons/MT2.svg"
                   width={1000}
                   height={1000}
                   alt="Mock Test"
-                  className="w-[262px] h-[280px]"
+                  className="w-[632px] h-[280px]"
                 />
               </div>
-              <div>
+              {/* <div>
                 <Image
                   src="/icons/MT3.svg"
                   width={1000}
@@ -176,9 +180,9 @@ const SoftSkillMasteryPage = () => {
                   alt="Mock Test"
                   className="w-[280px] h-[280px]"
                 />
-              </div>
+              </div> */}
             </div>
-            <div className="md:hidden lg:hidden mt-4">
+            <div className="lg:hidden mt-4">
               <Image
                 src="/icons/MT1.svg"
                 width={1000}
@@ -188,23 +192,10 @@ const SoftSkillMasteryPage = () => {
             </div>
           </div>
           <hr className="mt-5 md:mt-12" />
-          <div className="mx-4 mt-4 md:mt-8 md:mx-20">
-            <div className="" id="Leadership">
-              <h1 className="text-[1.5rem] font-bold md:text-[3.5rem] text-primary02">
-                LEADERSHIP
-              </h1>
-              <p className="text-[0.875rem] md:text-[18px] text-[#010101] mt-4">
-                Leadership skills are vital for personal and professional
-                success. Our Leadership program at Boarding Admissions guides
-                students in decision-making, team management, and inspiring
-                others through expert-led workshops, group projects, and
-                individual coaching. Students develop the confidence and
-                integrity needed to lead effectively in school, extracurricular
-                activities, and future careers.
-              </p>
-            </div>
-            <div className="hidden    md:flex md:space-x-12 md:mt-4">
-              <div>
+          <div className="bg-gradient-to-br from-[#075D70] to-[#0DB2D6] mt-8">
+            <div className="mx-4 mt-4 lg:mt-8 lg:mx-20 lg:flex lg:justify-between lg:items-center lg:space-x-12 lg:pt-12 pb-12">
+              <div className="hidden  lg:flex lg:w-1/2 lg:justify-start">
+                {/* <div>
                 <Image
                   src="/icons/Doubt1.svg"
                   width={1000}
@@ -212,18 +203,18 @@ const SoftSkillMasteryPage = () => {
                   alt="Doubt1"
                   className="w-[632px] h-[280px]"
                 />
-              </div>
-              <div>
-                <Image
-                  src="/icons/Doubt2.svg"
-                  width={1000}
-                  height={1000}
-                  alt="Doubt2"
-                  className="w-[368px] h-[280px]"
-                />
-              </div>
+              </div> */}
+                <div>
+                  <Image
+                    src="/icons/Doubt2.svg"
+                    width={1000}
+                    height={1000}
+                    alt="Doubt2"
+                    className="w-[368px] h-[280px]"
+                  />
+                </div>
 
-              <div>
+                {/* <div>
                 <Image
                   src="/icons/Doubt3.svg"
                   width={1000}
@@ -231,15 +222,31 @@ const SoftSkillMasteryPage = () => {
                   alt="Doubt3"
                   className="w-[187px] h-[280px]"
                 />
+              </div> */}
               </div>
-            </div>
-            <div className="md:hidden lg:hidden mt-4">
-              <Image
-                src="/icons/Doubt1.svg"
-                width={1000}
-                height={280}
-                alt="Doubt1"
-              />
+
+              <div className="lg:w-1/2" id="Leadership">
+                <h1 className="lg:text-[44px] text-[28px] text-white">
+                  Leadership
+                </h1>
+                <p className="text-[0.875rem] md:text-[20px] text-white mt-4">
+                  Leadership skills are vital for personal and professional
+                  success. Our Leadership program at Boarding Admissions guides
+                  students in decision-making, team management, and inspiring
+                  others through expert-led workshops, group projects, and
+                  individual coaching. Students develop the confidence and
+                  integrity needed to lead effectively in school,
+                  extracurricular activities, and future careers.
+                </p>
+              </div>
+              <div className=" lg:hidden mt-4">
+                <Image
+                  src="/icons/Doubt1.svg"
+                  width={1000}
+                  height={280}
+                  alt="Doubt1"
+                />
+              </div>
             </div>
           </div>
           <hr className="mt-5 md:mt-12" />
@@ -253,12 +260,11 @@ const SoftSkillMasteryPage = () => {
               </div>
 
               <div>
-              <Link href="/enrollnow/softskillmastery">
-
-                <div className="cursor-pointer w-[18.75rem] h-[3.5rem] bg-gradient01  border-custom rounded-md flex items-center justify-center">
-                  <button className="text-white">Enroll Now</button>
-                </div>
-</Link>
+                <Link href="/enrollnow/softskillmastery">
+                  <div className="cursor-pointer w-[18.75rem] h-[3.5rem] bg-gradient01  border-custom rounded-md flex items-center justify-center">
+                    <button className="text-white">Enroll Now</button>
+                  </div>
+                </Link>
                 <div className="flex justify-center items-center py-2">
                   <div className="bg-[#00000015] w-[120px] h-[1px]"></div>
                   <div className="text-[#00000015]">

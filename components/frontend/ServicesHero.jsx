@@ -1,32 +1,35 @@
 "use client";
 import React from "react";
-import Ace from "@/public/icons/Ace.svg";
+import Ace1 from "@/public/icons/Ace1.jpg";
 import Link from "next/link";
 
 const ServicesHero = () => {
   return (
     <>
-      <div className="md:mx-10">
+      <div className="">
         <h1 className="text-[2rem] md:text-[3.5rem] text-[#075D70] text-center pb-8 font-bold">
-          ACE ENTRANCE EXAM
+          Ace Entrance Exams
         </h1>
-        <div
-          className="w-full h-[30.375rem] bg-no-repeat bg-cover bg-center relative"
-          style={{ backgroundImage: `url(${Ace.src})` }}
-        >
-          <div className="w-full   md:w-[24rem] h-[17.5rem] px-8 md:px-0 md:mx-12 mt-10 space-y-7 inset-0  absolute    text-white  ">
-            <p className="md:mt-2 text-justify  text-[14px]  md:text-[1rem] ">
+        <div className="w-full h-[30rem] relative">
+          <div className="absolute inset-0 bg-gradient-to-r from-black to-transparent opacity-70"></div>
+
+          <div
+            className="w-full h-full bg-no-repeat bg-cover bg-center object-top"
+            style={{ backgroundImage: `url(${Ace1.src})` }}
+          ></div>
+
+          <div className="absolute inset-0 flex flex-col justify-center md:w-[24rem] px-8 md:px-0 md:mx-12 mt-10 space-y-7 text-white">
+            <p className="md:mt-2 text-[14px] md:text-[1rem] leading-relaxed">
               Unlock your boarding school dreams with Boarding Admissions Ace
-              Entrance Exam module. Interactive learning and
-              personalized attention keep students engaged and motivated. With
-              our experienced mentors, students receive the highest quality
+              Entrance Exam module. Interactive learning and personalized
+              attention keep students engaged and motivated. With our
+              experienced mentors, students receive the highest quality
               education and support. Join us today to start your journey towards
               securing a spot in India&apos;s top boarding schools.
             </p>
-
-            <div className=" w-[7.5rem] md:w-[18.75rem]">
+            <div className="w-[7.5rem] md:w-[18.75rem]">
               <Link href="/enrollnow/aceentranceexams">
-                <div className="cursor-pointer w-[7.5rem] h-[2.0rem] md:w-[18.75rem] md:h-[3.5rem] bg-gradient01  border-custom rounded-md flex items-center justify-center text-[1rem] ">
+                <div className="cursor-pointer w-[7.5rem] h-[2.0rem] md:w-[18rem] md:h-[3rem] bg-gradient-to-br from-[#075D70] to-[#0DB2D6] hover:scale-110 transition duration-300 border-custom rounded-md flex items-center justify-center text-[1rem]">
                   <button className="text-white">Enroll Now</button>
                 </div>
               </Link>
@@ -37,7 +40,7 @@ const ServicesHero = () => {
         {/* laptop */}
         <div className="hidden  md:hidden  w-full h-[82px] bg-primary02 mt-8 lg:flex lg:items-center px-12 text-white gap-10 rounded-lg">
           <Link href="#onlineclass">
-            <div className="border w-[9.438rem] h-[45px] rounded-md flex justify-center items-center">
+            <div className="border w-[9.438rem] h-[45px] rounded-md flex justify-center items-center ">
               <button>Online Classes</button>
             </div>
           </Link>
