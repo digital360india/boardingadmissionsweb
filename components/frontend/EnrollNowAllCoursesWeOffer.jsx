@@ -43,8 +43,8 @@ const EnrollNowAllCoursesWeOffer = () => {
         for (const docSnap of packageSnapshot.docs) {
           const packageData = docSnap.data();
           const courseIds = packageData.courses || [];
-          const boardIds = packageData.targetedBoards || [];
-          const schoolIds = packageData.targetedSchools || [];
+          const boardIds = packageData.boards || [];
+          const schoolIds = packageData.schools || [];
 
           const fetchedCourses = [];
           for (const courseId of courseIds) {
@@ -78,8 +78,8 @@ const EnrollNowAllCoursesWeOffer = () => {
           packagesData.push({
             ...packageData,
             courses: fetchedCourses,
-            targetedBoards: boardNames,
-            targetedSchools: schoolNames,
+            boards: boardNames,
+            schools: schoolNames,
           });
         }
 
@@ -103,10 +103,10 @@ const EnrollNowAllCoursesWeOffer = () => {
             .toLowerCase()
             .includes(filters.courseName.toLowerCase())
         );
-        const matchBoard = pkg.targetedBoards.some((board) =>
+        const matchBoard = pkg.boards.some((board) =>
           board.toLowerCase().includes(filters.boardName.toLowerCase())
         );
-        const matchSchool = pkg.targetedSchools.some((school) =>
+        const matchSchool = pkg.schools.some((school) =>
           school.toLowerCase().includes(filters.schoolName.toLowerCase())
         );
         const matchPackageName = pkg.packageName
@@ -196,7 +196,7 @@ const EnrollNowAllCoursesWeOffer = () => {
             </select>
           </div>
 
-          <div className="flex flex-wrap gap-8 p-3 md:p-12">
+          <div className="flex flex-wrap gap-6 p-3 md:pt-12">
             {filteredPackages.map((packageData, index) => (
               <Link href={`/packagedetails/${packageData.id}`} key={index}>
                 {" "}
@@ -240,7 +240,7 @@ const EnrollNowAllCoursesWeOffer = () => {
                       Targeted Boards:
                     </h3>
                     <div className="text-[0.8rem] md:text-[1rem] text-[#666666] flex ">
-                      {packageData.targetedBoards.map((board, idx) => (
+                      {packageData.boards.map((board, idx) => (
                         <div key={idx} className="mt-2 mr-2">
                           {board}
                         </div>
@@ -251,7 +251,7 @@ const EnrollNowAllCoursesWeOffer = () => {
                       Targeted Schools:
                     </h3>
                     <ul className="text-[0.8rem] md:text-[1rem] text-[#666666]">
-                      {packageData.targetedSchools.map((school, idx) => (
+                      {packageData.schools.map((school, idx) => (
                         <li key={idx} className="mt-2">
                           {school}
                         </li>
