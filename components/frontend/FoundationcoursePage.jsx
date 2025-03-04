@@ -1,11 +1,50 @@
 "use client";
 import Image from "next/image";
+import Link from "next/link";
 import React, { useState } from "react";
 import BookaDemoPopUp from "./BookaDemoPopUp";
-import Link from "next/link";
+
+const courseData = [
+  {
+    id: "4th-6thGrade",
+    title: "4TH - 6TH GRADE",
+    description:
+      "Our Foundation Course at Boarding Admissions covers essential skills in grammar, math, and science for grades 4 through 6. Through interactive lessons, hands-on activities, and personalized support, our expert teachers help students develop confidence and a solid academic base. Prepare your child for future academic success with engaging, tailored instruction. Build a strong foundation for top school admissions and long-term achievement!",
+    image:
+      "https://firebasestorage.googleapis.com/v0/b/boardingadmissions-f3ba3.appspot.com/o/boardingadmission%2F4th%20-%206th%20grade%20.JPG?alt=media&token=21b28117-c3ad-41dc-aa48-deba8c2b5f2e",
+
+    bgColor: "",
+  },
+  {
+    id: "6th-8thGrade",
+    title: "6TH - 8TH GRADE",
+    description:
+      "At Boarding Admissions, our Foundation Course for grades 6 through 8 prepares students for future academic success with a strong focus on English, math, and science. We emphasize grammar and calculations through interactive lessons, hands-on activities, and engaging quizzes. Expert teachers offer personalized support to build confidence and mastery of fundamental skills. Ensure your child is ready for advanced learning and smooth transitions to high school with our tailored program.",
+    image: "/icons/PI1.svg",
+    bgColor: "bg-gradient-to-br from-[#075D70] to-[#0DB2D6]",
+  },
+  {
+    id: "8thGrade",
+    title: "8TH GRADE",
+    description:
+      "8th grade is pivotal for high school preparation. At Boarding Admissions, we ensure students are ready for advanced topics with a focus on English, math, and science, emphasizing grammar and calculations. Our interactive curriculum, featuring hands-on activities and quizzes, keeps learning enjoyable. Expert teachers provide personalized support to meet individual needs, boosting confidence and academic skills, and ensuring students transition smoothly to high school.",
+    image: "/icons/MT1.svg",
+    bgColor: "",
+  },
+  {
+    id: "9thGrade",
+    title: "9TH GRADE",
+    description:
+      "Starting high school is a major milestone. At Boarding Admissions, our 9th Grade Foundation Course ensures students are ready for higher education challenges with a solid base in English, math, and science. Emphasizing grammar and calculations, our engaging curriculum includes hands-on activities and quizzes. Expert teachers provide personalized support, boosting confidence and academic skills, and preparing students for advanced topics in high school and beyond.",
+    image:
+      "https://firebasestorage.googleapis.com/v0/b/boardingadmissions-f3ba3.appspot.com/o/boardingadmission%2F9th%20grade.jpg?alt=media&token=63400cdf-f581-431b-a9cb-8088fe68bc4d",
+    bgColor: "bg-gradient-to-br from-[#075D70] to-[#0DB2D6]",
+  },
+];
 
 const FoundationcoursePage = () => {
   const [isPopupVisible, setPopupVisible] = useState(false);
+  const [expandedIds, setExpandedIds] = useState({});
 
   const handleClick = () => {
     setPopupVisible(true);
@@ -14,301 +53,127 @@ const FoundationcoursePage = () => {
   const handleClosePopup = () => {
     setPopupVisible(false);
   };
+
+  const toggleReadMore = (id) => {
+    setExpandedIds((prev) => ({ ...prev, [id]: !prev[id] }));
+  };
+
   return (
     <>
-      <div>
-        <div className="">
-          <div className="mx-4 mt-2 lg:mx-20 lg:mt-14 lg:flex lg:justify-between lg:items-center">
-            <div id="4th-6thGrade" className="lg:w-1/2">
-              <h1 className="lg:text-[48px] text-[32px]  text-primary02">
-                4TH - 6TH GRADE
-              </h1>
-              <p className="text-[0.875rem] md:text-[20px] text-[#010101] mt-4">
-                Our Foundation Course at Boarding Admissions covers essential
-                skills in grammar, math, and science for grades 4 through 6.
-                Through interactive lessons, hands-on activities, and
-                personalized support, our expert teachers help students develop
-                confidence and a solid academic base. Prepare your child for
-                future academic success with engaging, tailored instruction.
-                Build a strong foundation for top school admissions and
-                long-term achievement!
-              </p>
-            </div>
-            <div className=" hidden md:flex md:space-x-12  md:mt-4">
-              <div>
-                <Image
-                  src="https://firebasestorage.googleapis.com/v0/b/boardingadmissions-f3ba3.appspot.com/o/boardingadmission%2F4th%20-%206th%20grade%20.JPG?alt=media&token=21b28117-c3ad-41dc-aa48-deba8c2b5f2e"
-                  width={1000}
-                  height={1000}
-                  alt="course1"
-                  className="w-[638px] h-[280px]"
-                />
-              </div>
-              {/* <div>
-                <Image
-                  src="/icons/online2.svg"
-                  width={1000}
-                  height={1000}
-                  alt="course1"
-                  className="w-[368px] h-[280px]"
-                />
-              </div> */}
-              {/* <div className=" space-y-3 md:hidden xl:block">
-                <div>
-                  <Image
-                    src="/icons/online3.svg"
-                    width={1000}
-                    height={1000}
-                    alt="course1"
-                    className="w-[187px] h-[131px]"
-                  />
-                </div>
-                <div>
-                  <Image
-                    src="/icons/online4.svg"
-                    width={1000}
-                    height={1000}
-                    alt="course1"
-                    className="w-[187px] h-[131px]"
-                  />
-                </div>
-              </div> */}
-            </div>
-
-            <div className="md:hidden lg:hidden mt-4">
-              <Image
-                src="/icons/online1.svg"
-                width={1000}
-                height={280}
-                alt="course1"
-              />
-            </div>
-          </div>
-
-          <hr className="mt-5 md:mt-12" />
-          <div className="bg-gradient-to-br from-[#075D70] to-[#0DB2D6]">
-            <div className="px-4 mt-4 lg:mt-8 lg:px-20 lg:flex lg:justify-between lg:space-x-14  lg:pt-12 lg:pb-12 w-[100%]">
-              <div className="hidden   lg:flex lg:justify-between  lg:space-x-6 w-[50%]">
-                <div>
-                  <Image
-                    src="/icons/PI1.svg"
-                    width={1000}
-                    height={1000}
-                    alt="course1"
-                    className="w-full h-full"
-                  />
-                </div>
-                {/* <div>
-                <Image
-                  src="/icons/PI2.svg"
-                  width={1000}
-                  height={1000}
-                  alt="course1"
-                  className="w-[579px] h-[280px]"
-                />
-              </div> */}
-              </div>
-
-              <div id="6th-8thGrade" className="lg:w-[50%]">
-                <h1 className="lg:text-[44px] text-[28px] text-white">
-                  6TH - 8TH GRADE
-                </h1>
-                <p className="text-[0.875rem] md:text-[20px] text-white mt-4">
-                  At Boarding Admissions, our Foundation Course for grades 6
-                  through 8 prepares students for future academic success with a
-                  strong focus on English, math, and science. We emphasize
-                  grammar and calculations through interactive lessons, hands-on
-                  activities, and engaging quizzes. Expert teachers offer
-                  personalized support to build confidence and mastery of
-                  fundamental skills. Ensure your child is ready for advanced
-                  learning and smooth transitions to high school with our
-                  tailored program.
-                </p>
-              </div>
-              <div className=" lg:hidden mt-4">
-                <Image
-                  src="/icons/PI1.svg"
-                  width={1000}
-                  height={280}
-                  alt="course1"
-                  className="w-[280px] md:w-full"
-                />
-              </div>
-            </div>
-          </div>
-          <hr className="mt-5 md:mt-12" />
-
-          <div className="mx-4 mt-4 lg:mt-8 lg:mx-20 lg:flex lg:justify-between lg:items-center">
-            <div className="lg:w-1/2" id="8thGrade">
-              <h1 className="lg:text-[48px] text-[32px] text-primary02">
-                8TH GRADE
-              </h1>
-              <p className="text-[0.875rem] md:text-[20px] text-[#010101] mt-4">
-                8th grade is pivotal for high school preparation. At Boarding
-                Admissions, we ensure students are ready for advanced topics
-                with a focus on English, math, and science, emphasizing grammar
-                and calculations. Our interactive curriculum, featuring hands-on
-                activities and quizzes, keeps learning enjoyable. Expert
-                teachers provide personalized support to meet individual needs,
-                boosting confidence and academic skills, and ensuring students
-                transition smoothly to high school.
-              </p>
-            </div>
-            <div className="hidden    lg:flex space-x-12 mt-4">
-              <div>
-                <Image
-                  src="/icons/MT1.svg"
-                  width={1000}
-                  height={1000}
-                  alt="Mock Test"
-                  className="w-[632px] h-[280px]"
-                />
-              </div>
-              {/* <div>
-                <Image
-                  src="/icons/MT2.svg"
-                  width={1000}
-                  height={1000}
-                  alt="Mock Test"
-                  className="w-[262px] h-[280px]"
-                />
-              </div>
-              <div>
-                <Image
-                  src="/icons/MT3.svg"
-                  width={1000}
-                  height={1000}
-                  alt="Mock Test"
-                  className="w-[280px] h-[280px]"
-                />
-              </div> */}
-            </div>
-            <div className=" lg:hidden mt-4">
-              <Image
-                src="/icons/MT1.svg"
-                width={1000}
-                height={280}
-                alt="Mock Test"
-              />
-            </div>
-          </div>
-          <hr className="mt-5 md:mt-12" />
-          <div className="bg-gradient-to-br from-[#075D70] to-[#0DB2D6] mt-8">
-
-          <div className="mx-4 mt-4 lg:mt-8 lg:mx-20 lg:flex lg:justify-between lg:items-center lg:space-x-12 lg:pt-12 lg:pb-12">
-          
-            <div className="hidden  lg:flex lg:w-1/2 lg:justify-start">
-              <div>
-                <Image
-                  src="https://firebasestorage.googleapis.com/v0/b/boardingadmissions-f3ba3.appspot.com/o/boardingadmission%2F9th%20grade.jpg?alt=media&token=63400cdf-f581-431b-a9cb-8088fe68bc4d"
-                  width={1000}
-                  height={1000}
-                  alt="Doubt1"
-                  className="w-[632px] h-[280px]"
-                />
-              </div>
-              {/* <div>
-                <Image
-                  src="/icons/Doubt2.svg"
-                  width={1000}
-                  height={1000}
-                  alt="Doubt2"
-                  className="w-[368px] h-[280px]"
-                />
-              </div>
-
-              <div>
-                <Image
-                  src="/icons/Doubt3.svg"
-                  width={1000}
-                  height={1000}
-                  alt="Doubt3"
-                  className="w-[187px] h-[280px]"
-                />
-              </div> */}
-            </div>
-            <div className="lg:w-1/2" id="9thGrade">
-              <h1 className="lg:text-[44px] text-[28px] text-white">
-                9TH GRADE
-              </h1>
-              <p className="text-[0.875rem] md:text-[18px] text-white mt-4">
-                Starting high school is a major milestone. At Boarding
-                Admissions, our 9th Grade Foundation Course ensures students are
-                ready for higher education challenges with a solid base in
-                English, math, and science. Emphasizing grammar and
-                calculations, our engaging curriculum includes hands-on
-                activities and quizzes. Expert teachers provide personalized
-                support, boosting confidence and academic skills, and preparing
-                students for advanced topics in high school and beyond.
-              </p>
-            </div>
-            <div className="lg:hidden mt-4">
-              <Image
-                src="/icons/Doubt1.svg"
-                width={1000}
-                height={280}
-                alt="Doubt1"
-              />
-            </div>
-          </div>
-          </div>
-          <hr className="mt-5 md:mt-12" />
-
-          {isPopupVisible && <BookaDemoPopUp onClose={handleClosePopup} />}
-
-          {/* laptop */}
-          <div className="hidden lg:block border border-primary02 rounded-3xl mt-[1.25rem] mx-[2rem] mb-14">
-            <div className="w-full h-[13.125rem] gap-[2rem] flex justify-center items-center ">
-              <div className="text-[2.5rem] text-primary02">
-                Ready for top boarding schools? <br /> Start your journey now!
-              </div>
-
-              <div>
-                <Link href="/enrollnow/foundationcourses">
-                  <div className="cursor-pointer w-[18.75rem] h-[3.5rem] bg-gradient01  border-custom rounded-md flex items-center justify-center">
-                    <button className="text-white">Enroll Now</button>
-                  </div>
-                </Link>
-
-                <div className="flex justify-center items-center py-2">
-                  <div className="bg-[#00000015] w-[120px] h-[1px]"></div>
-                  <div className="text-[#00000015]">
-                    &nbsp;&nbsp;&nbsp;OR&nbsp;&nbsp;&nbsp;
-                  </div>
-                  <div className="bg-[#00000015] w-[120px] h-[1px]"></div>
-                </div>
-                <u className="text-primary02 text-center cursor-pointer">
-                  <h1 className="" onClick={handleClick}>
-                    Contact Us
-                  </h1>
-                </u>
-              </div>
-            </div>
-          </div>
-
-          {/* mobile */}
-          <div className="lg:hidden border rounded-md px-4 py-6">
-            <div className="w-full h-auto border border-primary02 rounded-md py-[1rem] px-[0.5rem]">
-              <h1 className="text-primary02 text-[1.5rem]">
-                Want to prepare for top Boarding School ?
-              </h1>
-              <div className="flex justify-between px-2 pt-4">
-                <Link href="/enrollnow/foundationcourses">
-                  <div className="cursor-pointer w-[7.5rem] h-[1.9rem]  bg-gradient01  border-custom rounded-md flex items-center justify-center text-[0.875rem] text-white ">
-                    Enroll Now
-                  </div>
-                </Link>
-                <div className="text-[#00000080]  text-[0.875rem] pt-[5px]">
-                  OR
-                </div>
-                <u
-                  className="text-primary02  text-[0.875rem] pt-[5px] cursor-pointer"
-                  onClick={handleClick}
+      {courseData.map((course, index) => (
+        <div key={course.id} className="index">
+          <div className={`py-8 ${course.bgColor}`} id={course.id}>
+            <div
+              className={`mx-4 lg:mx-20 lg:flex lg:justify-between lg:items-center ${
+                index % 2 !== 0 ? "lg:flex-row-reverse" : ""
+              }${index % 2 === 0 ? "text-primary02" : "text-white"}`}
+            >
+              <div className="lg:w-1/2">
+                <h1
+                  className={`lg:text-[48px] text-[32px]  ${
+                    index % 2 == 0 ? "text-primary02" : "text-white"
+                  }`}
                 >
-                  Contact Us
-                </u>
+                  {course.title}
+                </h1>
+                <p
+                  className={`text-[0.875rem] lg:text-[20px]  mt-4 hidden lg:block ${
+                    index % 2 == 0 ? "text-black" : "text-white"
+                  }`}
+                >
+                  {" "}
+                  {course.description}
+                </p>
+                <div className="lg:hidden">
+                  <p
+                    className={`text-[0.875rem] lg:text-[20px] mt-4 ${
+                      index % 2 == 0 ? "text-black" : "text-white"
+                    }`}
+                  >
+                    {" "}
+                    {expandedIds[course.id]
+                      ? course.description
+                      : `${course.description.substring(0, 100)}...`}
+                  </p>
+                  <button
+                    className="text-blue-400 hover:underline mt-2"
+                    onClick={() => toggleReadMore(course.id)}
+                  >
+                    {expandedIds[course.id] ? "Read Less" : "Read More"}
+                  </button>
+                </div>
+              </div>
+              <div className="hidden lg:flex lg:space-x-12 lg:mt-4">
+                <Image
+                  src={course.image}
+                  width={1000}
+                  height={1000}
+                  alt={course.title}
+                  className="w-full rounded shadow-lg h-[380px]"
+                />
+              </div>
+              <div className="lg:hidden mt-4">
+                <Image
+                  src={course.image}
+                  width={1000}
+                  height={1000}
+                  alt={course.title}
+                  className="w-full rounded shadow-lg md:w-[740px] h-full"
+                />
               </div>
             </div>
+          </div>
+          <hr className="mt-5 lg:mt-12" />
+        </div>
+      ))}
+      {isPopupVisible && <BookaDemoPopUp onClose={handleClosePopup} />}
+      <div className="hidden lg:block border border-primary02 rounded-3xl mt-[1.25rem] mx-[2rem] mb-14">
+        <div className="w-full h-[13.125rem] gap-[2rem] flex justify-center items-center ">
+          <div className="text-[2.5rem] text-primary02">
+            Ready for top boarding schools? <br /> Start your journey now!
+          </div>
+
+          <div>
+            <Link href="/enrollnow/foundationcourses">
+              <div className="cursor-pointer w-[18.75rem] h-[3.5rem] bg-gradient01  border-custom rounded-md flex items-center justify-center">
+                <button className="text-white">Enroll Now</button>
+              </div>
+            </Link>
+
+            <div className="flex justify-center items-center py-2">
+              <div className="bg-[#00000015] w-[120px] h-[1px]"></div>
+              <div className="text-[#00000015]">
+                &nbsp;&nbsp;&nbsp;OR&nbsp;&nbsp;&nbsp;
+              </div>
+              <div className="bg-[#00000015] w-[120px] h-[1px]"></div>
+            </div>
+            <u className="text-primary02 text-center cursor-pointer">
+              <h1 className="" onClick={handleClick}>
+                Contact Us
+              </h1>
+            </u>
+          </div>
+        </div>
+      </div>
+
+      <div className="lg:hidden border rounded-md px-4 py-6">
+        <div className="w-full h-auto border border-primary02 rounded-md py-[1rem] px-[0.5rem]">
+          <h1 className="text-primary02 text-[1.5rem]">
+            Want to prepare for top Boarding School ?
+          </h1>
+          <div className="flex justify-between px-2 pt-4">
+            <Link href="/enrollnow/foundationcourses">
+              <div className="cursor-pointer w-[7.5rem] h-[1.9rem]  bg-gradient01  border-custom rounded-md flex items-center justify-center text-[0.875rem] text-white ">
+                Enroll Now
+              </div>
+            </Link>
+            <div className="text-[#00000080]  text-[0.875rem] pt-[5px]">OR</div>
+            <u
+              className="text-primary02  text-[0.875rem] pt-[5px] cursor-pointer"
+              onClick={handleClick}
+            >
+              Contact Us
+            </u>
           </div>
         </div>
       </div>
