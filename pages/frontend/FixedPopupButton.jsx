@@ -13,7 +13,7 @@ export default function FixedPopupButton() {
       };
   return (
     <>
-      <div className="fixed cursor-pointer bottom-44 right-6 w-16 h-16 rounded-full bg-primary02 flex justify-center items-center">
+      <div className="fixed cursor-pointer md:bottom-44 md:left-6 bottom-40 left-2 w-16 h-16 rounded-full bg-primary02 flex justify-center items-center">
         <div onClick={handleClick} className="relative flex items-center justify-center w-[60px] h-[60px] group">
           <div
             className="absolute -top-9 -left-24 border-primary02 border text-center bg-white text-primary02 text-xs font-semibold w-28 p-2 rounded-lg shadow-md 
