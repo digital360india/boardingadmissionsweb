@@ -40,10 +40,10 @@ const Footer = () => {
 
                   <div>
                     <a
-                      href="mailto:info@boardingadmission"
+                      href="mailto:info@boardingadmission.com"
                       className="cursor-pointer"
                     >
-                      <h1>info@boardingadmission</h1>
+                      <h1>info@boardingadmission.com</h1>
                     </a>
                   </div>
                 </div>
@@ -222,10 +222,10 @@ const Footer = () => {
 
               <div>
                 <a
-                  href="mailto:info@boardingadmission"
+                  href="mailto:info@boardingadmission.com"
                   className="text-white text-[0.75rem] cursor-pointer"
                 >
-                  <h1>info@boardingadmission</h1>
+                  <h1>info@boardingadmission.com</h1>
                 </a>
               </div>
             </div>

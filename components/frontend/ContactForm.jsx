@@ -121,10 +121,10 @@ export default function ContactForm() {
                
                 <div>
                     <a
-                      href="mailto:info@boardingadmission"
+                      href="mailto:info@boardingadmission.com"
                       className="cursor-pointer font-medium text-[#075D70]"
                     >
-                      <h1>info@boardingadmission</h1>
+                      <h1>info@boardingadmission.com</h1>
                     </a>
                   </div>
               </div>
