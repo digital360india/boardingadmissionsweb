@@ -9,7 +9,7 @@ export default function Flyer() {
   useEffect(() => {
     const interval = setInterval(() => {
       setShowFlyer(true);
-    }, 60000);
+    }, 2000);
 
     return () => clearInterval(interval);
   }, []);
@@ -48,7 +48,7 @@ export default function Flyer() {
               />
 
               <button
-                className="absolute top-1 right-1 bg-primary02 rounded-full text-white hover:text-gray-800 flex items-center justify-center lg:w-10 lg:h-10 w-8 h-8"
+                className="absolute -top-9 -right-0 bg-primary02 text-white hover:text-gray-800 flex items-center justify-center lg:w-10 lg:h-10 w-8 h-8"
                 onClick={() => setShowFlyer(false)}
               >
                 <img src="/Crossbutton.svg" className="text-6xl" alt="Close" />
@@ -77,7 +77,7 @@ export default function Flyer() {
               />
 
               <button
-                className="absolute top-1 right-1 bg-primary02 rounded-full text-white hover:text-gray-800 flex items-center justify-center lg:w-10 lg:h-10 w-8 h-8"
+                className="absolute -top-11 -right-0 bg-primary02 text-white hover:text-gray-800 flex items-center justify-center lg:w-10 lg:h-10 w-8 h-8"
                 onClick={() => setShowFlyer(false)}
               >
                 <img src="/Crossbutton.svg" className="text-6xl" alt="Close" />

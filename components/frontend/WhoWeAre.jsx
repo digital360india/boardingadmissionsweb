@@ -8,7 +8,7 @@ export default function WhoWeAre() {
         <Image
           src="https://firebasestorage.googleapis.com/v0/b/boardingadmissions-f3ba3.appspot.com/o/images%2Fwhoweare.png?alt=media&token=3dd85215-ecb5-407c-b1dd-bb93d5b201ed"
           alt="Calendar"
-          className="xl:w-[470px] xl:h-[430px] lg:w-[420px] lg:h-[400px]"
+          className="xl:w-[530px] xl:h-[430px] object-cover lg:w-[420px] lg:h-[400px]"
           width={1000}
           height={1000}
         />

@@ -9,7 +9,7 @@ import { useRouter } from "next/navigation";
 const cardData = [
   {
     id: 1,
-    imageSrc: "/icons/card1.svg",
+    imageSrc: "https://firebasestorage.googleapis.com/v0/b/boardingadmissions-f3ba3.appspot.com/o/boardingadmission%2FaceEntrence.jpg?alt=media&token=36422149-e55f-4ccc-bb9e-673b8a984449",
     title: "ACE ENTRANCE EXAM",
     route: "/coursepackages/Aceentranceexam",
     description:

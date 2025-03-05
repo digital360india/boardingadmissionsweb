@@ -6,15 +6,22 @@ import Link from "next/link";
 const FoundationcourseHero = () => {
   return (
     <>
-      <div className="md:mx-20">
+      <div className="">
         <h1 className="text-[2rem] md:text-[3.5rem] text-[#075D70] text-center pb-5 md:pb-8 font-bold">
           Foundation Courses
         </h1>
         <div
-          className="w-full h-[30.375rem] bg-no-repeat bg-cover bg-center relative"
-          style={{ backgroundImage: `url(${Foundationcourse.src})` }}
+          className="w-full h-[35.375rem] -px-20 bg-no-repeat bg-cover bg-center relative"
+          style={{
+            backgroundImage: `url("https://firebasestorage.googleapis.com/v0/b/boardingadmissions-f3ba3.appspot.com/o/boardingadmission%2FfaundationCourse.jpg?alt=media&token=3052abe5-55f5-4dc4-a358-28e65559fda1")`,
+            backgroundSize: "cover",
+            backgroundPosition: "top",
+            backgroundRepeat: "no-repeat",
+    
+          }}
         >
-          <div className="w-full   md:w-[22.563rem] h-[17.5rem] px-10 md:px-0 md:mx-12 mt-10 space-y-7  absolute  text-white  ">
+          <div className="absolute inset-0 bg-[#00000065]"></div>
+          <div className="w-full md:w-[28.563rem] h-[17.5rem]  space-y-7  absolute  text-white right-28 top-16">
             <p className="md:mt-2  text-[14px]  md:text-[1rem] leading-relaxed ">
               At Boarding Admissions, our Foundation Courses provide essential
               English, mathematics, and science skills, focusing on grammar and
@@ -37,7 +44,6 @@ const FoundationcourseHero = () => {
           </div>
         </div>
 
-        {/* laptop */}
         <div className="hidden  md:hidden  w-full h-[82px] bg-primary02 mt-8 lg:flex lg:items-center px-12 text-white gap-10 rounded-lg">
           <Link href="#4th-6thGrade">
             <div className="border w-[9.438rem] h-[45px] rounded-md flex justify-center items-center">
@@ -61,7 +67,6 @@ const FoundationcourseHero = () => {
           </Link>
         </div>
 
-        {/* mobile */}
         <div className="sm:block md:block lg:hidden px-4 py-6">
           <div className="w-full h-auto bg-primary02 rounded-md text-white text-[0.75rem] flex flex-wrap gap-2 p-4">
             <Link href="#4th-6th Grade">
