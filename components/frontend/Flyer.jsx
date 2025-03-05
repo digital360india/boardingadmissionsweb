@@ -9,7 +9,7 @@ export default function Flyer() {
   useEffect(() => {
     const interval = setInterval(() => {
       setShowFlyer(true);
-    }, 2000);
+    }, 20000);
 
     return () => clearInterval(interval);
   }, []);
