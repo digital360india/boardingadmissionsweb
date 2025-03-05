@@ -61,7 +61,7 @@ const SoftSkillMasteryPage = () => {
   return (
     <>
       {contentData.map((section, index) => (
-        <div key={section.id} className="index">
+        <div key={index} className="index">
           <div className={`py-8 ${section.bgColor}`} id={section.id}>
             <div
               className={`mx-4 lg:mx-20 lg:flex lg:justify-between lg:items-center ${

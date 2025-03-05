@@ -62,9 +62,9 @@ const FoundationcoursePage = () => {
   return (
     <>
       {courseData.map((course, index) => (
-        <div className="index">
+        <div className="index" key={course.id}>
           <div
-            key={course.id}
+            
             className={`py-8 ${course.bgColor}`}
             id={course.id}
           >

@@ -63,9 +63,8 @@ const ServicePage = () => {
   return (
     <>
       {services.map((service, index) => (
-        <div className="index">
+        <div className="index" key={service.id}>
           <div
-            key={service.id}
             className={`py-8 ${service.bgColor}`}
             id={service.id}
           >

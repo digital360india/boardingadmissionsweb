@@ -62,7 +62,7 @@ const CustomizedCoursesPage = () => {
   return (
     <>
       {coursesData.map((course, index) => (
-        <div className="index">
+        <div className="index" key={index}>
           <div
             key={course.id}
             className={`py-8 ${course.bgColor}`}

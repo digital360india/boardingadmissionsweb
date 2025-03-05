@@ -45,48 +45,46 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <div lang="en">
-      {/* <Popup /> */}
-      <UserProvider>
+    {/* <Popup /> */}
+    <UserProvider>
+      <div>
+        <Navbar />
+        <Flyer />
+        {children}
+        <Footer />
         <div>
-          <Navbar />
-          <Flyer />
-          {children}
-          <Footer />
-          <div>
-            <div className="fixed z-40 bottom-4 md:left-6 left-2 flex flex-col gap-4">
-              <span className="hover:scale-125 duration-300 bg-[#25D366] rounded-full p-4 text-white">
-                <Link href="https://wa.me/919760548360">
-                  <FaWhatsapp className="text-2xl" />
-                </Link>
-              </span>
-              <span className="hover:scale-125 duration-300 bg-primary02 rounded-full p-4 text-white">
-                <Link href="tel:+919760548360">
-                  <img src="/phone.svg" alt="Phone" />
-                </Link>
-              </span>
-            </div>
-
-            <FixedPopupButton />
+          <div className="fixed z-40 bottom-4 md:left-6 left-2 flex flex-col gap-4">
+            <span className="hover:scale-125 duration-300 bg-[#25D366] rounded-full p-4 text-white">
+              <Link href="https://wa.me/919760548360">
+                <FaWhatsapp className="text-2xl" />
+              </Link>
+            </span>
+            <span className="hover:scale-125 duration-300 bg-primary02 rounded-full p-4 text-white">
+              <Link href="tel:+919760548360">
+                <img src="/phone.svg" alt="Phone" />
+              </Link>
+            </span>
           </div>
+  
+          <FixedPopupButton />
         </div>
-      </UserProvider>
-
-      <Script
-        strategy="afterInteractive"
-        dangerouslySetInnerHTML={{
-          __html: `
-            var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
-            (function(){
-              var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
-              s1.async=true;
-              s1.src='https://embed.tawk.to/67c6db8770efd41916940706/1ilgcj2u3';
-              s1.charset='UTF-8';
-              s1.setAttribute('crossorigin','*');
-              s0.parentNode.insertBefore(s1,s0);
-            })();
-          `,
-        }}
-      />
-    </div>
+      </div>
+    </UserProvider>
+  
+    <div dangerouslySetInnerHTML={{ __html: `
+      <script>
+        var Tawk_API = Tawk_API || {}, Tawk_LoadStart = new Date();
+        (function() {
+          var s1 = document.createElement("script"), s0 = document.getElementsByTagName("script")[0];
+          s1.async = true;
+          s1.src = 'https://embed.tawk.to/67c6db8770efd41916940706/1ilgcj2u3';
+          s1.charset = 'UTF-8';
+          s1.setAttribute('crossorigin', '*');
+          s0.parentNode.insertBefore(s1, s0);
+        })();
+      </script>
+    `}} />
+  </div>
+  
   );
 }
