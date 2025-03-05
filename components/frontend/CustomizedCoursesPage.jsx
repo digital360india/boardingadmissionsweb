@@ -11,7 +11,7 @@ const coursesData = [
     description:
       "Our one-on-one classes offer tailored instruction to meet each student's unique needs. With individual attention from experienced teachers, students receive customized learning plans and interactive lessons designed to build confidence and address specific challenges. This approach ensures effective preparation for entrance exams and supports optimal learning at a pace that suits each student's needs.",
     image:
-      "https://firebasestorage.googleapis.com/v0/b/boardingadmissions-f3ba3.appspot.com/o/boardingadmission%2Fasian-women-are-doing-job-interviews-2025-01-08-23-32-21-utc.jpg?alt=media&token=61464198-6dfc-443e-a5c9-75ae3988e164",
+      "https://firebasestorage.googleapis.com/v0/b/boardingadmissions-f3ba3.appspot.com/o/boardingadmission%2Fone-on-one.jpg?alt=media&token=d6089f2d-3e23-437a-a915-0679c16247d7",
   },
   {
     id: "learning-material",
@@ -19,7 +19,7 @@ const coursesData = [
     description:
       "At Boarding Admissions, we offer comprehensive learning resources, including PDFs, PPTs, and practice tests tailored to your chosen schools. Our interactive materials cover essential topics and reflect the latest exam patterns, ensuring effective and efficient study. With detailed explanations and ample practice opportunities, students build a strong foundation for their exams and achieve their best results.",
     image:
-      "https://firebasestorage.googleapis.com/v0/b/boardingadmissions-f3ba3.appspot.com/o/boardingadmission%2Flearning-material.jpg?alt=media&token=4b232463-8352-4ba1-a095-94369fe81c7b",
+      "https://firebasestorage.googleapis.com/v0/b/boardingadmissions-f3ba3.appspot.com/o/boardingadmission%2Flearning%20materials.jpg?alt=media&token=63be7151-1ca0-4419-8cbd-f900aea8b5dc",
     bgColor: "bg-gradient-to-br from-[#075D70] to-[#0DB2D6]",
   },
   {
@@ -36,7 +36,7 @@ const coursesData = [
     description:
       "At Boarding Admissions, we prioritize regular, constructive feedback for both students and parents. Our interactive sessions highlight strengths and areas for improvement, keeping students motivated and on track. This continuous feedback loop helps you stay informed about your child's progress and supports their educational journey, ensuring they achieve their best in preparation for entrance exams.",
     image:
-      "https://firebasestorage.googleapis.com/v0/b/boardingadmissions-f3ba3.appspot.com/o/boardingadmission%2Ffeedback.jpg?alt=media&token=6f5f24d6-2b34-4480-8b0a-3a96d9153da1",
+      "https://firebasestorage.googleapis.com/v0/b/boardingadmissions-f3ba3.appspot.com/o/boardingadmission%2Fregular%20feedback%20.jpg?alt=media&token=294bec42-bb7b-47fd-89c9-3187477664b3",
     bgColor: "bg-gradient-to-br from-[#075D70] to-[#0DB2D6]",
   },
 ];

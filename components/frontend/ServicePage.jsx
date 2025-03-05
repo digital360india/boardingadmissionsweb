@@ -21,7 +21,7 @@ const services = [
     description:
       "Master the personal interview for boarding school admissions with Boarding Admissions. Our program helps students showcase their personality, interests, and potential confidently. We offer expert guidance on interview techniques, interactive mock interviews, and personalized feedback to improve performance. Our goal is to build students' confidence and prepare them thoroughly for their interviews.",
     image:
-      "https://firebasestorage.googleapis.com/v0/b/boardingadmissions-f3ba3.appspot.com/o/boardingadmission%2Fpersonal-interview-preparation%20.jpg?alt=media&token=e43c899c-783b-4e8e-b2e2-09b51edddd3d",
+      "https://firebasestorage.googleapis.com/v0/b/boardingadmissions-f3ba3.appspot.com/o/boardingadmission%2Fpersonal%20interview.jpg?alt=media&token=6da5f281-9967-4bdb-876d-596a1c7dc98c",
     bgColor: "bg-gradient-to-br from-[#075D70] to-[#0DB2D6]",
   },
   {
@@ -30,7 +30,7 @@ const services = [
     description:
       "Mock tests are vital for boarding school entrance exam prep. At Boarding Admissions, our comprehensive tests simulate the actual exam environment, helping students reduce anxiety and build comfort. Detailed feedback highlights strengths and weaknesses, guiding targeted study efforts. Regular practice sessions develop effective exam strategies and reinforce learning. Our mock tests cover all subjects, ensuring thorough preparation and confidence for every aspect of the exam.",
     image:
-      "https://firebasestorage.googleapis.com/v0/b/boardingadmissions-f3ba3.appspot.com/o/boardingadmission%2FMock-Test.jpg?alt=media&token=0e62ad84-5c08-420b-809e-6cb78dcc9f1e",
+      "https://firebasestorage.googleapis.com/v0/b/boardingadmissions-f3ba3.appspot.com/o/boardingadmission%2FMock%20Test.jpg?alt=media&token=988ca7eb-3fd6-4cdd-a725-927f251bae0b",
     bgColor: "",
   },
   {

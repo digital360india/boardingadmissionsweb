@@ -10,7 +10,7 @@ const contentData = [
     title: "Communication Skills",
     text: "Communication is key to success. Our Communication Skills program at Boarding Admissions helps students articulate their thoughts clearly through interactive role-plays, group discussions, and one-on-one coaching. We focus on both verbal and non-verbal skills, teaching active listening and clear expression. Mastering these skills boosts academic performance, enhances personal relationships, and prepares students for future leadership roles.",
     image:
-      "https://firebasestorage.googleapis.com/v0/b/boardingadmissions-f3ba3.appspot.com/o/boardingadmission%2Fcommunicatio-skills.jpg?alt=media&token=c9426023-ee40-4788-8fa5-0d8c3ec4ec12",
+      "https://firebasestorage.googleapis.com/v0/b/boardingadmissions-f3ba3.appspot.com/o/boardingadmission%2FCommunication%20Skills_.jpg?alt=media&token=c696f153-05ae-47c4-b2e0-be027282b9fa",
     bgColor: "",
   },
   {
@@ -34,7 +34,7 @@ const contentData = [
     title: "Leadership",
     text: "Leadership skills are vital for personal and professional success. Our Leadership program at Boarding Admissions guides students in decision-making, team management, and inspiring others through expert-led workshops, group projects, and individual coaching. Students develop the confidence and integrity needed to lead effectively in school, extracurricular activities, and future careers.",
     image:
-      "https://firebasestorage.googleapis.com/v0/b/boardingadmissions-f3ba3.appspot.com/o/boardingadmission%2FLeadership.jpg?alt=media&token=9ff1e39a-cdfb-48fe-aa45-202d94bfdc93",
+      "https://firebasestorage.googleapis.com/v0/b/boardingadmissions-f3ba3.appspot.com/o/boardingadmission%2Fleadership.jpg?alt=media&token=d8806e67-6edf-4e97-8d7d-d6b3bb51e566",
     bgColor: "bg-gradient-to-br from-[#075D70] to-[#0DB2D6]",
   },
 ];

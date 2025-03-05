@@ -11,8 +11,7 @@ const courseData = [
     description:
       "Our Foundation Course at Boarding Admissions covers essential skills in grammar, math, and science for grades 4 through 6. Through interactive lessons, hands-on activities, and personalized support, our expert teachers help students develop confidence and a solid academic base. Prepare your child for future academic success with engaging, tailored instruction. Build a strong foundation for top school admissions and long-term achievement!",
     image:
-      "https://firebasestorage.googleapis.com/v0/b/boardingadmissions-f3ba3.appspot.com/o/boardingadmission%2F4th%20-%206th%20grade%20.JPG?alt=media&token=21b28117-c3ad-41dc-aa48-deba8c2b5f2e",
-
+      "https://firebasestorage.googleapis.com/v0/b/boardingadmissions-f3ba3.appspot.com/o/boardingadmission%2F4TH%20-%206TH%20GRADE.jpg?alt=media&token=90ef92a1-49f7-498f-82a7-4666194edb4d",
     bgColor: "",
   },
   {
@@ -20,7 +19,8 @@ const courseData = [
     title: "6TH - 8TH GRADE",
     description:
       "At Boarding Admissions, our Foundation Course for grades 6 through 8 prepares students for future academic success with a strong focus on English, math, and science. We emphasize grammar and calculations through interactive lessons, hands-on activities, and engaging quizzes. Expert teachers offer personalized support to build confidence and mastery of fundamental skills. Ensure your child is ready for advanced learning and smooth transitions to high school with our tailored program.",
-    image: "/icons/PI1.svg",
+    image:
+      "https://firebasestorage.googleapis.com/v0/b/boardingadmissions-f3ba3.appspot.com/o/boardingadmission%2F6TH%20-%208TH%20GRADE.jpg?alt=media&token=d550f799-1fca-4f7c-8574-d848fc97baec",
     bgColor: "bg-gradient-to-br from-[#075D70] to-[#0DB2D6]",
   },
   {
@@ -28,7 +28,8 @@ const courseData = [
     title: "8TH GRADE",
     description:
       "8th grade is pivotal for high school preparation. At Boarding Admissions, we ensure students are ready for advanced topics with a focus on English, math, and science, emphasizing grammar and calculations. Our interactive curriculum, featuring hands-on activities and quizzes, keeps learning enjoyable. Expert teachers provide personalized support to meet individual needs, boosting confidence and academic skills, and ensuring students transition smoothly to high school.",
-    image: "/icons/MT1.svg",
+    image:
+      "https://firebasestorage.googleapis.com/v0/b/boardingadmissions-f3ba3.appspot.com/o/boardingadmission%2F8TH%20GRADE.jpeg?alt=media&token=daea6f36-1e0f-4dcc-91b5-ec5bdfed945f",
     bgColor: "",
   },
   {
@@ -61,15 +62,19 @@ const FoundationcoursePage = () => {
   return (
     <>
       {courseData.map((course, index) => (
-        <div key={course.id} className="index">
-          <div className={`py-8 ${course.bgColor}`} id={course.id}>
+        <div className="index">
+          <div
+            key={course.id}
+            className={`py-8 ${course.bgColor}`}
+            id={course.id}
+          >
             <div
               className={`mx-4 lg:mx-20 lg:flex lg:justify-between lg:items-center ${
                 index % 2 !== 0 ? "lg:flex-row-reverse" : ""
-              }${index % 2 === 0 ? "text-primary02" : "text-white"}`}
+              } ${index % 2 === 0 ? "text-primary02" : "text-white"}`}
             >
               <div className="lg:w-1/2">
-                <h1
+              <h1
                   className={`lg:text-[48px] text-[32px]  ${
                     index % 2 == 0 ? "text-primary02" : "text-white"
                   }`}
@@ -81,7 +86,6 @@ const FoundationcoursePage = () => {
                     index % 2 == 0 ? "text-black" : "text-white"
                   }`}
                 >
-                  {" "}
                   {course.description}
                 </p>
                 <div className="lg:hidden">
