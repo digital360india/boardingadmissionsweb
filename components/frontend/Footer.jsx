@@ -55,7 +55,6 @@ const Footer = () => {
                     alt="course1"
                   />
                   <h1>+91 9760548360 </h1>
-                  
                 </div>
               </div>
             </div>
@@ -183,9 +182,9 @@ const Footer = () => {
               </div>
               <div>
                 <Link href="/refundPolicy">
-  <p>Refund Policy</p>
-</Link>
-                </div>
+                  <p>Refund Policy</p>
+                </Link>
+              </div>
             </div>
           </div>
         </div>
@@ -238,27 +237,28 @@ const Footer = () => {
           </div>
         </div>
 
-        <div className="grid grid-cols-3 text-white text-[0.875rem] p-4 gap-3">
-          <div>
+        <div className="grid grid-cols-2 text-white text-[0.875rem] p-4 gap-3">
+          {/* <div>
             <h1 className="font-semibold pb-2">COMPANY</h1>
             <Link href="/contact">
               <h1 className="font-light cursor-pointer">Contact</h1>
             </Link>
-            {/* <h1 className="font-light">Career</h1>
-            <h1 className="font-light">Blog</h1> */}
-          </div>
+           
+          </div> */}
 
-          <div>
-            <h1 className="font-semibold pb-2">SITE MAP</h1>
-            <Link href="/">
-              {" "}
-              <h1 className="font-light">Home</h1>
-            </Link>
-            <h1 className="font-light">Shop</h1>
-            <h1 className="font-light">Consult</h1>
-            <Link href="/aboutus">
-              <h1 className="font-light">About Us</h1>
-            </Link>
+          <div className="space-y-2">
+            <p className="font-semibold pb-2">SITE MAP</p>
+            <p className="font-light">
+              <Link href="/">Home</Link>
+            </p>
+            <p className="font-light">Shop</p>
+            <p className="font-light">Consult</p>
+            <p className="font-light">
+              <Link href="/aboutus">About Us</Link>
+            </p>
+            <p className="font-light cursor-pointer">
+              <Link href="/contact">Contact</Link>
+            </p>
           </div>
 
           <div>
@@ -302,7 +302,7 @@ const Footer = () => {
           </div>
         </div>
 
-        <div className="flex text-white text-[0.75rem] p-4 gap-3  font-light">
+        <div className="flex justify-between lg:justify-start text-white text-[0.75rem] p-4 gap-3  font-light">
           <Link href="/termsandconditions">
             <h1 className="cursor-pointer">Terms & Conditions</h1>
           </Link>
