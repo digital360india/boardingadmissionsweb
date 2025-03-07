@@ -105,7 +105,7 @@ export default function TopSchools() {
             <Link href={member.routes}>
 
               <div
-                className="flex-shrink-0 lg:w-[330px] lg:h-[350px] w-[45%] h-[160px] rounded-md lg:border-2 border-4 border-[#075D70]"
+                className="flex-shrink-0 lg:w-[330px] lg:h-[350px] w-[40vw] h-[180px] rounded-md lg:border-2 border-4 border-[#075D70]"
               >
                 <div className="flex justify-center lg:mt-[8%] mt-[6%] lg:mb-[5%] mb-[3%]">
                   <Image
