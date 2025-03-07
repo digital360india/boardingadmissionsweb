@@ -82,6 +82,27 @@ export default function RootLayout({ children }) {
       `,
           }}
         />
+
+<script
+  type="text/javascript"
+  dangerouslySetInnerHTML={{
+    __html: `
+      window.smartlook||(function(d) {
+        var o = smartlook = function(){ o.api.push(arguments) },
+            h = d.getElementsByTagName('head')[0];
+        var c = d.createElement('script');
+        o.api = new Array();
+        c.async = 1;
+        c.type = 'text/javascript';
+        c.charset = 'utf-8';
+        c.src = 'https://web-sdk.smartlook.com/recorder.js';
+        h.appendChild(c);
+      })(document);
+      smartlook('init', '27d0790b98d4a90284e810130cb00bc23e87bf00', { region: 'eu' });
+    `,
+  }}
+/>
+
         <noscript>
           <img
             height="1"
