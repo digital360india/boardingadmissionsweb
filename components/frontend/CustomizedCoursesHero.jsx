@@ -6,7 +6,7 @@ import Link from "next/link";
 const CustomizedCoursesHero = () => {
   return (
     <>
-      <div className="md:mx-20">
+      <div className="">
         <h1 className="text-[2rem] md:text-[3.5rem] text-[#075D70] text-center pb-8 font-bold">
           Customized Cources
         </h1>
