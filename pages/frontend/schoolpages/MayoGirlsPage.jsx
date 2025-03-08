@@ -1,7 +1,7 @@
 "use client";
 import React from "react";
 import Faq from "@/components/frontend/Faqdata";
-import Image from "next/image";
+import { FaFilePdf } from "react-icons/fa";
 import StarRatings from "@/components/frontend/StarRatings";
 import schoolFAQs from "@/utils/frontend/FaqData";
 import GetPrepared from "@/components/frontend/GetPrepared";
@@ -64,6 +64,17 @@ const tableData = [
   },
 ];
 
+const syllabusData = [
+  {
+    name: "Online CAA Syllabus MCGS",
+    url: "https://firebasestorage.googleapis.com/v0/b/boardingadmissions-f3ba3.appspot.com/o/boardingadmission%2FOnline%20CAA%20Syllabus%20MCGS.pdf?alt=media&token=ffd3eb85-d368-4b5e-802a-7748ecb9933c",
+  },
+  {
+    name: "Offline Syllabus MCGS",
+    url: "https://firebasestorage.googleapis.com/v0/b/boardingadmissions-f3ba3.appspot.com/o/boardingadmission%2FSyllabusOffline%20MCGS.pdf?alt=media&token=e4068ac4-875f-4ac0-9308-82a000284914",
+  },
+];
+
 function MayoGirlsPage() {
   const MayoGirls =
     schoolFAQs.find((school) => school.school === "MayoGirls")?.faqs || [];
@@ -89,8 +100,8 @@ function MayoGirlsPage() {
           />
         </div>
       </div> */}
-<SchoolCarousel/>
-<div className="w-[90%] ml-[5%] mt-6">
+      <SchoolCarousel />
+      <div className="w-[90%] ml-[5%] mt-6">
         <div className="relative h-[150px]   xl:h-[150px] md:h-[120px] lg:h-[170px]    w-full  border-b-2  sm:flex sm:justify-between">
           <div className="w-full flex flex-col  lg:gap-5 gap-2">
             <div className="">
@@ -446,7 +457,7 @@ function MayoGirlsPage() {
           </div>
 
           <div className="bg-white text-gray-800 ">
-            <div className="max-w-6xl mx-auto space-y-10">
+            <div className="space-y-10">
               {/* Syllabus and Academics Section */}
               <div className="space-y-6">
                 <h1 className="text-[#075D70] font-semibold text-[1.75rem] sm:text-[2rem]">
@@ -509,12 +520,39 @@ function MayoGirlsPage() {
               </div>
             </div>
           </div>
+
+          <div className="bg-white ">
+            <h1 className="text-[#075D70] font-semibold text-[1.75rem] sm:text-[2rem] mb-4">
+             Download Syllabus
+            </h1>
+            <div className="grid sm:grid-cols-2 gap-4">
+              {syllabusData.map((syllabus, index) => (
+                <>
+                  <a
+                    href={syllabus.url}
+                    download
+                    className="text-[#075D70] font-medium text-lg hover:underline"
+                    target="_blank"
+                  >
+                    <div
+                      key={index}
+                      className="flex items-center p-4 bg-gray-100 rounded-lg shadow-md cursor-pointer transition-all duration-300 hover:shadow-xl hover:bg-gray-200"
+                    >
+                      <FaFilePdf className="text-red-600 text-4xl mr-3" />
+                      {syllabus.name}
+                    </div>
+                  </a>
+                </>
+              ))}
+            </div>
+
+          </div>
         </div>
 
         <Broucher />
       </div>
 
-      <div>
+      <div className="mt-10">
         <Faq data={MayoGirls} />
       </div>
     </div>

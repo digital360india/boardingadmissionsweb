@@ -8,16 +8,20 @@ import GetPrepared from "@/components/frontend/GetPrepared";
 import EnquiryForm from "@/components/frontend/EnquiryForm";
 import Broucher from "@/components/frontend/Broucher";
 import SchoolCarousel from "../../../components/frontend/SchoolCarousel";
+import { FaFilePdf } from "react-icons/fa";
 
-
-
- 
+const syllabusData = [
+  {
+    name: "Doon School Aptitude Test Overview",
+    url: "https://firebasestorage.googleapis.com/v0/b/boardingadmissions-f3ba3.appspot.com/o/boardingadmission%2FDoon-School-Aptitude%20Test%20overview.pdf?alt=media&token=a6b9570f-2738-40fb-9761-bfeb9307c6ee",
+  },
+];
 
 function TheDoonPage() {
-  const TheDoon = schoolFAQs.find(school => school.school === 'TheDoon')?.faqs || [];
+  const TheDoon =
+    schoolFAQs.find((school) => school.school === "TheDoon")?.faqs || [];
   return (
     <div className="h-auto w-[100%] poppins ">
-
       {/* <div className="relative lg:px-[30px] xl:px-[50px]">
 
         <div className=" h-[250px] xl:h-[300px] lg:h-[350px] w-[100%] ">   
@@ -38,8 +42,8 @@ function TheDoonPage() {
           />
         </div>
       </div> */}
-<SchoolCarousel />
-     <div className="w-[90%] ml-[5%]  mt-[10%] ">
+      <SchoolCarousel />
+      <div className="w-[90%] ml-[5%]  mt-[10%] ">
         <div className="relative h-[150px]   xl:h-[150px] md:h-[120px] lg:h-[170px]    w-full  border-b-2  sm:flex sm:justify-between">
           <div className="w-full flex flex-col  lg:gap-5 gap-2">
             <div className="">
@@ -48,13 +52,11 @@ function TheDoonPage() {
               </h1>
             </div>
             <div className="flex text-center gap-3">
-            
-
               <StarRatings
-              lat={30.3350442}
-              lng={78.0294387}
-              schoolName={"The Doon School"}
-            />
+                lat={30.3350442}
+                lng={78.0294387}
+                schoolName={"The Doon School"}
+              />
 
               {/* <div>
                 {
@@ -67,10 +69,9 @@ function TheDoonPage() {
                   ))
                 }
               </div> */}
-       
             </div>
 
-               {/* <div className=" flex sm:w-[50%] gap-3 mb-2 sm:mb-0">
+            {/* <div className=" flex sm:w-[50%] gap-3 mb-2 sm:mb-0">
               <h3 className="px-1 py-1 rounded-md bg-[#6198A3] bg-opacity-[12%] text-black ">
                 Private School
               </h3>
@@ -81,7 +82,7 @@ function TheDoonPage() {
           </div>
 
           <div className=" sm:absolute pt-2  gap-3 flex  sm:right-0 sm:self-center">
-             {/* <button className="py-1 px-2 sm:py-1.5 sm:px-2.5 border border-[#075D70] rounded-[5px] flex gap-2">
+            {/* <button className="py-1 px-2 sm:py-1.5 sm:px-2.5 border border-[#075D70] rounded-[5px] flex gap-2">
               <div>
                 <Image
                   src="/icons/download.svg"
@@ -94,14 +95,12 @@ function TheDoonPage() {
 
               <p className="text-[#075D70]">Broucher</p>
             </button> */}
-                       <GetPrepared/>
-
+            <GetPrepared />
           </div>
         </div>
         <div className="md:hidden mt-6">
-<EnquiryForm/>
-
-</div>
+          <EnquiryForm />
+        </div>
         <div className="space-y-4 w-[90vw]  mt-10 ">
           <div className="">
             <h1 className="text-[#075D70] font-semibold  text-[1.5rem] md:text-[2rem] ">
@@ -111,9 +110,9 @@ function TheDoonPage() {
           <div>
             <p className="leading-6 w-[88vw] text-[14px] md:text-[1.15rem] text-justify">
               Founded in 1935, The Doon School is known for its academic
-              excellence and focus on holistic education. The school&apos;s mission
-              is to groom boys who excel in academics, sports, music, and
-              cultural activities, while also demonstrating leadership,
+              excellence and focus on holistic education. The school&apos;s
+              mission is to groom boys who excel in academics, sports, music,
+              and cultural activities, while also demonstrating leadership,
               teamwork, and social responsibility.
             </p>
           </div>
@@ -167,22 +166,23 @@ function TheDoonPage() {
           <div>
             <ul className="list-disc pl-4 space-y-4 text-[14px] md:text-[1.15rem]">
               <li>
-                <span className="font-semibold">How to Register:</span>Parents can
-                register their sons for Doon School Admissions at any time after
-                birth, though early registration is advised for lower fees.
+                <span className="font-semibold">How to Register:</span>Parents
+                can register their sons for Doon School Admissions at any time
+                after birth, though early registration is advised for lower
+                fees.
               </li>
               <div className="">
                 <ol className="list-decimal list-inside  mb-6 ">
                   <li>
                     <span className="text-[14px] md:text-[1.15rem] font-semibold">
-                      Submission of Birth Certificate: 
+                      Submission of Birth Certificate:
                     </span>
                     A certified copy of the boy&apos;s birth certificate must be
                     submitted.
                   </li>
                   <li>
                     <span className="text-[14px] md:text-[1.15rem] font-semibold">
-                      Payment of Registration Fee: 
+                      Payment of Registration Fee:
                     </span>
                     The registration fee varies depending on the age of the boy
                     at the time of registration. The fee structure is detailed
@@ -323,15 +323,21 @@ function TheDoonPage() {
                 At eligible age.
               </li>
               <li>
-                <span className="font-semibold">Entrance Examination Date: </span>{" "}
+                <span className="font-semibold">
+                  Entrance Examination Date:{" "}
+                </span>{" "}
                 October.
               </li>
               <li>
-                <span className="font-semibold">Interview and Assessment: </span>{" "}
+                <span className="font-semibold">
+                  Interview and Assessment:{" "}
+                </span>{" "}
                 November-December.
               </li>
               <li>
-                <span className="font-semibold">Final Admission Decision: </span>{" "}
+                <span className="font-semibold">
+                  Final Admission Decision:{" "}
+                </span>{" "}
                 January.
               </li>
             </ul>
@@ -357,7 +363,7 @@ function TheDoonPage() {
               </li>
               <li>
                 <span className="font-medium">
-                  Extracurricular and Personal Qualities: 
+                  Extracurricular and Personal Qualities:
                 </span>{" "}
                 The school looks for well-rounded individuals with interests in
                 extracurricular activities like sports, music, and community
@@ -474,7 +480,9 @@ function TheDoonPage() {
                 not included in the annual fees.
               </li>
               <li>
-                <span className="font-semibold">Extracurricular Activities:</span>{" "}
+                <span className="font-semibold">
+                  Extracurricular Activities:
+                </span>{" "}
                 Fees for certain extracurricular activities, such as sports
                 coaching or music lessons, may be charged separately.
               </li>
@@ -499,12 +507,36 @@ function TheDoonPage() {
           </p>
         </div>
 
-               <Broucher/>
+        <div className="bg-white ">
+          <h1 className="text-[#075D70] font-semibold text-[1.75rem] sm:text-[2rem] mb-4">
+            Download Syllabus
+          </h1>
+          <div className="grid sm:grid-cols-2 gap-4">
+            {syllabusData.map((syllabus, index) => (
+              <>
+                <a
+                  href={syllabus.url}
+                  download
+                  className="text-[#075D70] font-medium text-lg hover:underline"
+                  target="_blank"
+                >
+                  <div
+                    key={index}
+                    className="flex items-center p-4 bg-gray-100 rounded-lg shadow-md cursor-pointer transition-all duration-300 hover:shadow-xl hover:bg-gray-200"
+                  >
+                    <FaFilePdf className="text-red-600 text-4xl mr-3" />
+                    {syllabus.name}
+                  </div>
+                </a>
+              </>
+            ))}
+          </div>
+        </div>
 
-
+        <Broucher />
       </div>
-      <div>
-        <Faq data={TheDoon}/>
+      <div className="mt-10">
+        <Faq data={TheDoon} />
       </div>
     </div>
   );

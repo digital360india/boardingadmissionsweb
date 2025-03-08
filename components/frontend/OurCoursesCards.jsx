@@ -2,14 +2,14 @@
 import Image from "next/image";
 import Link from "next/link";
 import React, { useState } from "react";
-import BookaDemoPopUp from "./BookaDemoPopUp";
+// import BookaDemoPopUp from "./BookaDemoPopUp";
 
 const cardData = [
   {
     id: 1,
     imageSrc: "/icons/card1.svg",
     title: "ACE ENTRATION EXAM",
-    route: "/coursepackages/Aceinterviewexam",
+    route: "/coursepackages/Aceentranceexam",
     description:
       "Unlock Your Boarding School Dream and Ace the Entrance Exam with Confidence",
     features: [
@@ -37,11 +37,13 @@ const cardData = [
   },
   {
     id: 2,
-    imageSrc: "https://firebasestorage.googleapis.com/v0/b/boardingadmissions-f3ba3.appspot.com/o/images%2Ffoundation.jpeg?alt=media&token=e5a844b7-e07b-494f-ba42-a4c7f8f1ffcf",
+    imageSrc:
+      "https://firebasestorage.googleapis.com/v0/b/boardingadmissions-f3ba3.appspot.com/o/images%2Ffoundation.jpeg?alt=media&token=e5a844b7-e07b-494f-ba42-a4c7f8f1ffcf",
     title: "FOUNDATION COURSES",
     route: "/coursepackages/Foundationcourses",
 
-    description: "Build a Strong Academic Base to thrive in every subject for the courses.",
+    description:
+      "Build a Strong Academic Base to thrive in every subject for the courses.",
     features: [
       "4th Grade - 6th Grade",
       "6th Grade - 8th Grade",
@@ -51,10 +53,12 @@ const cardData = [
   },
   {
     id: 3,
-    imageSrc: "https://firebasestorage.googleapis.com/v0/b/boardingadmissions-f3ba3.appspot.com/o/images%2Fsoftskills.png?alt=media&token=49a18a46-f850-422c-b1ce-d7b0dfeddc7a",
+    imageSrc:
+      "https://firebasestorage.googleapis.com/v0/b/boardingadmissions-f3ba3.appspot.com/o/boardingadmission%2FSoft%20Skills.jpg?alt=media&token=6ee4b211-951b-4fbe-8471-73894560236a",
     title: "SOFT SKILL MASTERY",
     route: "/coursepackages/Softskillmastery",
-    description: "Pathway to Personal Excellence or Skills Mastery for your knowledge.",
+    description:
+      "Pathway to Personal Excellence or Skills Mastery for your knowledge.",
     features: [
       {
         title: "Communication Skills",
@@ -80,7 +84,8 @@ const cardData = [
   },
   {
     id: 4,
-    imageSrc: "https://firebasestorage.googleapis.com/v0/b/boardingadmissions-f3ba3.appspot.com/o/images%2Fboardingcompatibilitytest.png?alt=media&token=b3f71995-989c-4edd-89c8-886b5167dd18",
+    imageSrc:
+      "https://firebasestorage.googleapis.com/v0/b/boardingadmissions-f3ba3.appspot.com/o/images%2Fboardingcompatibilitytest.png?alt=media&token=b3f71995-989c-4edd-89c8-886b5167dd18",
     title: "BOARDING COMPATIBILITY TEST",
     route: "/coursepackages/Boardingcompatibilitytest",
 
@@ -133,8 +138,6 @@ const cardData = [
 ];
 
 const HoverContent = ({ content, style }) => {
-  
-
   return (
     <div className="px-10">
       <div
@@ -166,17 +169,16 @@ const OurCoursesCards = () => {
   const handleFeatureLeave = () => {
     setHoveredContent({});
   };
-  const [popupCardId, setPopupCardId] = useState(null);
 
-  const [isPopupVisible, setPopupVisible] = useState(false);
+  // const [isPopupVisible, setPopupVisible] = useState(false);
 
-  const handleClick = () => {
-    setPopupVisible(true);
-  };
+  // const handleClick = () => {
+  //   setPopupVisible(true);
+  // };
 
-  const handleClosePopup = () => {
-    setPopupVisible(false);
-  };
+  // const handleClosePopup = () => {
+  //   setPopupVisible(false);
+  // };
 
   return (
     <div className="w-full bg-primary02 pt-14 pb-20">
@@ -245,20 +247,23 @@ const OurCoursesCards = () => {
             ))}
 
             <div className="flex justify-center items-center pt-4 pb-8">
-              {/* <Link href={card.route}> */}
-              <div
-                className={`${
-                  index === 3 ? "mt-[9.3rem]" : ""
-                } w-[138px] h-[40px] bg-gradient01 border-custom flex justify-center items-center`}
-              >
-                <button onClick={handleClick} className="text-white">
-                  Enroll Now
-                </button>
-                {isPopupVisible && (
+              <Link href={card.route}>
+                <div
+                  className={`${
+                    index === 3 ? "mt-[9.3rem]" : ""
+                  } w-[138px] h-[40px] bg-gradient01 border-custom flex justify-center items-center`}
+                >
+                  <button
+                    // onClick={handleClick}
+                    className="text-white"
+                  >
+                    Explore Now
+                  </button>
+                  {/* {isPopupVisible && (
                   <BookaDemoPopUp onClose={handleClosePopup} />
-                )}
-              </div>
-              {/* </Link> */}
+                )} */}
+                </div>
+              </Link>
             </div>
           </div>
         ))}
@@ -268,6 +273,3 @@ const OurCoursesCards = () => {
 };
 
 export default OurCoursesCards;
-
-
-
