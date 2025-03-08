@@ -52,7 +52,7 @@ const cardData = [
   },
   {
     id: 3,
-    imageSrc: "https://firebasestorage.googleapis.com/v0/b/boardingadmissions-f3ba3.appspot.com/o/images%2Fsoftskills.png?alt=media&token=49a18a46-f850-422c-b1ce-d7b0dfeddc7a",
+    imageSrc: "https://firebasestorage.googleapis.com/v0/b/boardingadmissions-f3ba3.appspot.com/o/boardingadmission%2FSoft%20Skills.jpg?alt=media&token=6ee4b211-951b-4fbe-8471-73894560236a",
     title: "SOFT SKILL MASTERY",
     route: "/coursepackages/Softskillmastery",
     description: "Pathway to Personal Excellence or Skills Mastery",

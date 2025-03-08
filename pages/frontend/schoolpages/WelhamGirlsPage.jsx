@@ -8,8 +8,19 @@ import GetPrepared from "@/components/frontend/GetPrepared";
 import Broucher from "@/components/frontend/Broucher";
 import EnquiryForm from "@/components/frontend/EnquiryForm";
 import SchoolCarousel from "../../../components/frontend/SchoolCarousel";
+import { FaFilePdf } from "react-icons/fa";
 
 
+const syllabusData = [
+  {
+    name: "Syllabus for Class VI Aptitude Assessment",
+    url: "https://firebasestorage.googleapis.com/v0/b/boardingadmissions-f3ba3.appspot.com/o/boardingadmission%2FSyllabusforClassVI_AptitudeAssessment.pdf?alt=media&token=476e3a3c-4512-4863-b8f4-67fa17640828",
+  },
+  {
+    name: "Syllabus for Class VII Aptitude Assessment",
+    url: "https://firebasestorage.googleapis.com/v0/b/boardingadmissions-f3ba3.appspot.com/o/boardingadmission%2FSyllabusforClassVII_AptitudeAssessment%20(1).pdf?alt=media&token=d22a8b8e-2a7f-4ffe-b1ed-fc49210c347a",
+  },
+];
 
 function WelhamGirlsPage() {
   const WelhamGirls =
@@ -600,6 +611,33 @@ function WelhamGirlsPage() {
           </div>
         </div>
 
+ <div className="bg-white ">
+            <h1 className="text-[#075D70] font-semibold text-[1.75rem] sm:text-[2rem] mb-4">
+             Download Syllabus
+            </h1>
+            <div className="grid sm:grid-cols-2 gap-4">
+              {syllabusData.map((syllabus, index) => (
+                <>
+                  <a
+                    href={syllabus.url}
+                    download
+                    className="text-[#075D70] font-medium text-lg hover:underline"
+                    target="_blank"
+                  >
+                    <div
+                      key={index}
+                      className="flex items-center p-4 bg-gray-100 rounded-lg shadow-md cursor-pointer transition-all duration-300 hover:shadow-xl hover:bg-gray-200"
+                    >
+                      <FaFilePdf className="text-red-600 text-4xl mr-3" />
+                      {syllabus.name}
+                    </div>
+                  </a>
+                </>
+              ))}
+            </div>
+
+          </div>
+
         <Broucher
           pdfLink={
             "https://firebasestorage.googleapis.com/v0/b/boardingadmissions-f3ba3.appspot.com/o/brochure%2FWELHAM%20ENTRANCEExamBrochure.pdf?alt=media&token=83196ac2-120d-47a1-afb0-037bf25848d1"
@@ -607,7 +645,7 @@ function WelhamGirlsPage() {
         />
       </div>
 
-      <div>
+      <div className="mt-10">
         <Faq data={WelhamGirls} />
       </div>
     </div>

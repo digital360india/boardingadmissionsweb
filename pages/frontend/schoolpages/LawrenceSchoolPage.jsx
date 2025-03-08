@@ -8,6 +8,30 @@ import GetPrepared from "@/components/frontend/GetPrepared";
 import EnquiryForm from "@/components/frontend/EnquiryForm";
 import Broucher from "@/components/frontend/Broucher";
 import SchoolCarousel from "../../../components/frontend/SchoolCarousel";
+import { FaFilePdf } from "react-icons/fa";
+
+const syllabusData = [
+  {
+    name: "Class 5th CET",
+    url: "https://firebasestorage.googleapis.com/v0/b/boardingadmissions-f3ba3.appspot.com/o/boardingadmission%2FClass-V-CET.pdf?alt=media&token=3e625f07-3b1a-414a-988e-e28703d054ef",
+  },
+  {
+    name: "Class 6th CET",
+    url: "https://firebasestorage.googleapis.com/v0/b/boardingadmissions-f3ba3.appspot.com/o/boardingadmission%2FClass-VI-CET.pdf?alt=media&token=9bc57ad6-6b7c-4a0e-866b-6a47c4be7c4f",
+  },
+  {
+    name: "Class 7th CET",
+    url: "https://firebasestorage.googleapis.com/v0/b/boardingadmissions-f3ba3.appspot.com/o/boardingadmission%2FClass-VII-CET.pdf?alt=media&token=e987c1b6-928a-46bc-aeea-438faab74cdf",
+  },
+  {
+    name: "Class 8th CET",
+    url: "https://firebasestorage.googleapis.com/v0/b/boardingadmissions-f3ba3.appspot.com/o/boardingadmission%2FClass-VIII-CET.pdf?alt=media&token=1c9a80c1-fc2e-4f0e-a54f-52a2e9ec45cd",
+  },
+  {
+    name: "Class 9th CET",
+    url: "https://firebasestorage.googleapis.com/v0/b/boardingadmissions-f3ba3.appspot.com/o/boardingadmission%2FClass-IX-CET.pdf?alt=media&token=e0682e3d-9bfc-4205-8d42-550b0994743d",
+  },
+];
 
 const data = [
   {
@@ -93,8 +117,8 @@ function LawrenceSchoolPage() {
           />
         </div>
       </div> */}
-<SchoolCarousel />
-<div className="w-[90%] ml-[5%] mt-6">
+      <SchoolCarousel />
+      <div className="w-[90%] ml-[5%] mt-6">
         <div className="relative h-[150px]   xl:h-[150px] md:h-[120px] lg:h-[160px]     w-full  border-b-2  sm:flex sm:justify-between">
           <div className="w-full flex flex-col  lg:gap-5 gap-2">
             <div className="">
@@ -227,10 +251,36 @@ function LawrenceSchoolPage() {
           </h1>
         </div>
 
+        <div className="bg-white ">
+          <h1 className="text-[#075D70] font-semibold text-[1.75rem] sm:text-[2rem] mb-4">
+            Download Syllabus
+          </h1>
+          <div className="grid sm:grid-cols-2 gap-4">
+            {syllabusData.map((syllabus, index) => (
+              <>
+                <a
+                  href={syllabus.url}
+                  download
+                  className="text-[#075D70] font-medium text-lg hover:underline"
+                  target="_blank"
+                >
+                  <div
+                    key={index}
+                    className="flex items-center p-4 bg-gray-100 rounded-lg shadow-md cursor-pointer transition-all duration-300 hover:shadow-xl hover:bg-gray-200"
+                  >
+                    <FaFilePdf className="text-red-600 text-4xl mr-3" />
+                    {syllabus.name}
+                  </div>
+                </a>
+              </>
+            ))}
+          </div>
+        </div>
+
         <Broucher />
       </div>
 
-      <div>
+      <div className="mt-10">
         <Faq data={LawrenceSchool} />
       </div>
     </div>

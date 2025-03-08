@@ -16,16 +16,16 @@ export default function Broucher({ pdfLink }) {
   if (!pdfLink) return null;
 
   return (
-    <div className="mb-10">
-      <h1 className="text-[#075D70] font-semibold text-[1.5rem]">
+    <div className="my-10">
+      {/* <h1 className="text-[#075D70] font-semibold text-[1.5rem]">
         Downloads
-      </h1>
+      </h1> */}
       <h3 className="text-[#D77A61] text-[1.13rem]">
         <span
           onClick={handleDownload}
-          className="text-[#D77A61] cursor-pointer"
+          className="text-[#D77A61] cursor-pointer hover:underline"
         >
-          Broucher
+          Download Broucher
         </span>
       </h3>
     </div>

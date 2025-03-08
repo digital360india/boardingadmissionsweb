@@ -86,9 +86,6 @@ const Navbar = () => {
 
       {/* Mobile Navbar */}
       <div className="md:hidden flex justify-between items-center px-4 bg-white shadow">
-        <button onClick={toggleMenu} className="text-2xl">
-          ☰
-        </button>
         <Link href="/">
           <Image
             src="/images/navbar.svg"
@@ -98,6 +95,9 @@ const Navbar = () => {
             height={1000}
           />
         </Link>
+        <button onClick={toggleMenu} className="text-2xl">
+          ☰
+        </button>
       </div>
 
       {/* Backdrop with transition */}
@@ -112,8 +112,8 @@ const Navbar = () => {
 
       {/* Side Navbar with transition */}
       <div
-        className={`fixed top-0 left-0 z-50 h-full w-2/4 max-w-[200px] p-4 bg-white shadow-lg transition-transform duration-500 transform ${
-          isOpen ? "translate-x-0" : "-translate-x-full"
+        className={`fixed top-0 right-0 z-50 h-full w-2/4 max-w-[200px] p-4 bg-white shadow-lg transition-transform duration-500 transform ${
+          isOpen ? "translate-x-0" : "translate-x-full"
         }`}
       >
         <div className="flex justify-between items-center mb-4">
@@ -148,6 +148,11 @@ const Navbar = () => {
           <li>
             <Link href="/aboutus" onClick={closeMenu}>
               About
+            </Link>
+          </li>
+          <li>
+            <Link href="https://blog.boardingadmissions.com/" onClick={closeMenu}>
+              Blog
             </Link>
           </li>
         </ul>
