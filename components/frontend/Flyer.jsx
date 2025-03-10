@@ -9,7 +9,7 @@ export default function Flyer() {
   useEffect(() => {
     const interval = setInterval(() => {
       setShowFlyer(true);
-    }, 30000);
+    }, 3000);
 
     return () => clearInterval(interval);
   }, []);
@@ -42,7 +42,7 @@ export default function Flyer() {
           <div className="md:hidden fixed inset-0 flex items-center justify-center bg-black bg-opacity-75 backdrop-blur-sm z-50">
             <div className=" rounded-lg shadow-lg relative lg:w-[40%] lg:h-[80%] w-[85%] md:h-[80%]">
               <img
-                src="/images/mobileflyer.jpg"
+                src="/images/mobileflyer.png"
                 alt="Mobile Flyer"
                 className="w-full h-full rounded-lg"
               />
