@@ -48,7 +48,7 @@ export default function RootLayout({ children }) {
     <UserProvider>
       <div>
         <Navbar />
-        <Flyer />
+        {/* <Flyer /> */}
         {children}
         <Footer />
         <div>

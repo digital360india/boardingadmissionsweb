@@ -39,8 +39,8 @@ export default function EntranceMain() {
         if (!packageSnapshot.empty) {
           const packageInfo = packageSnapshot.docs[0].data();
           const courseIds = packageInfo.courses || [];
-          const boardIds = packageInfo.targetedBoards || [];
-          const schoolIds = packageInfo.targetedSchools || [];
+          const boardIds = packageInfo.boards || [];
+          const schoolIds = packageInfo.schools || [];
 
           // Fetch courses, boards, and schools
           const [coursesSnap, boardsSnap, schoolsSnap] = await Promise.all([
@@ -196,10 +196,10 @@ export default function EntranceMain() {
                   Special Offer!
                 </div>
               </div>
-              {/* <p className="mb-2">
+              <p className="mb-2">
                 <strong>Targeted Boards:</strong>{" "}
                 {boards.length > 0 ? boards.join(", ") : "Loading..."}
-              </p> */}
+              </p>
               <p>
                 <strong>Targeted Schools:</strong>{" "}
                 {schools.length > 0 ? schools.join(", ") : "Loading..."}
@@ -221,7 +221,7 @@ export default function EntranceMain() {
               {activeTab === "Description" ? (
                 <div>
                   <h2 className="md:text-2xl text-[20px] font-bold mb-4 text-black">
-                    Courses Package Detials
+                    Courses Package Details
                   </h2>
                   <div className="poppins text-xl">
                     {packageData
