@@ -214,10 +214,10 @@ const EnrollNowAllCoursesWeOffer = () => {
                   <h2 className="text-primary02 text-[16px] md:text-[22px] font-semibold text-center mt-2 md:mt-3">
                     {packageData.packageName}
                   </h2>
-                  <div className="text-[16px] md:text-[24px] font-bold text-background05  pt-2 md:pt-3 text-center  ">
-                    <div className="flex justify-center items-center">
+                  <div className="text-[16px] md:text-[21px] font-bold text-background05  pt-2 md:pt-3 text-center  ">
+                    <div className="flex justify-center items-center text-[18px]">
                       Price: <FaRupeeSign />
-                      <span className="line-through">
+                      <span className="line-through ">
                         {packageData.price.toLocaleString("en-IN")}
                       </span>
                     </div>
