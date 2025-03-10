@@ -18,7 +18,7 @@ const contentData = [
     title: "Emotional Intelligence",
     text: "Emotional Intelligence (EI) is crucial for academic and personal growth. Our Emotional Intelligence program at Boarding Admissions helps students build skills in self-awareness, self-regulation, empathy, and social interactions through mindfulness exercises, reflective journaling, and group discussions. Strong EI enhances academic performance, mental well-being, and social relationships, preparing students to manage stress and thrive in all areas of life.",
     image:
-      "https://firebasestorage.googleapis.com/v0/b/boardingadmissions-f3ba3.appspot.com/o/boardingadmission%2FEmotional-Intelligence.jpg?alt=media&token=a371e4de-6245-491b-bee0-144620b9e9b9",
+      "https://firebasestorage.googleapis.com/v0/b/boardingadmissions-f3ba3.appspot.com/o/boardingadmission%2Femotional%20intelligence%20.jpg?alt=media&token=7ba77dc3-b11c-4090-a26f-5f75f1a4d80c",
     bgColor: "bg-gradient-to-br from-[#075D70] to-[#0DB2D6]",
   },
   {

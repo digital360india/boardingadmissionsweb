@@ -1,5 +1,5 @@
 "use client";
-import React from "react";
+import React, { useState } from "react";
 import Faq from "@/components/frontend/Faqdata";
 import Image from "next/image";
 import StarRatings from "@/components/frontend/StarRatings";
@@ -9,6 +9,8 @@ import EnquiryForm from "@/components/frontend/EnquiryForm";
 import Broucher from "@/components/frontend/Broucher";
 import SchoolCarousel from "../../../components/frontend/SchoolCarousel";
 import { FaFilePdf } from "react-icons/fa";
+import SyllabusPopup from "../SyllabusPopup";
+
 
 const syllabusData = [
   {
@@ -18,6 +20,24 @@ const syllabusData = [
 ];
 
 function TheDoonPage() {
+
+  const [PopupVisible, setPopupVisible] = useState(false);
+    const [selectedSyllabus, setSelectedSyllabus] = useState(null);
+  
+    const handleSyllabusClick = (syllabus) => {
+      const savedData = localStorage.getItem("userData");
+  
+      if (savedData) {
+        window.open(syllabus.url, "_blank");
+      } else {
+       
+        setSelectedSyllabus(syllabus);
+        setPopupVisible(true);
+      }
+    };
+    const handleClosePopup = () => {
+      setPopupVisible(false);
+    };
   const TheDoon =
     schoolFAQs.find((school) => school.school === "TheDoon")?.faqs || [];
   return (
@@ -507,30 +527,28 @@ function TheDoonPage() {
           </p>
         </div>
 
-        <div className="bg-white ">
+        <div className="bg-white">
           <h1 className="text-[#075D70] font-semibold text-[1.75rem] sm:text-[2rem] mb-4">
             Download Syllabus
           </h1>
           <div className="grid sm:grid-cols-2 gap-4">
             {syllabusData.map((syllabus, index) => (
-              <>
-                <a
-                  href={syllabus.url}
-                  download
-                  className="text-[#075D70] font-medium text-lg hover:underline"
-                  target="_blank"
-                >
-                  <div
-                    key={index}
-                    className="flex items-center p-4 bg-gray-100 rounded-lg shadow-md cursor-pointer transition-all duration-300 hover:shadow-xl hover:bg-gray-200"
-                  >
-                    <FaFilePdf className="text-red-600 text-4xl mr-3" />
-                    {syllabus.name}
-                  </div>
-                </a>
-              </>
+              <div
+                key={index}
+                onClick={() => handleSyllabusClick(syllabus)}
+                className="cursor-pointer flex items-center p-4 bg-gray-100 rounded-lg shadow-md transition-all duration-300 hover:shadow-xl hover:bg-gray-200"
+              >
+                <FaFilePdf className="text-red-600 text-4xl mr-3" />
+                {syllabus.name}
+              </div>
             ))}
           </div>
+          {PopupVisible && (
+            <SyllabusPopup
+              onClose={handleClosePopup}
+              selectedSyllabus={selectedSyllabus}
+            />
+          )}
         </div>
 
         <Broucher />
