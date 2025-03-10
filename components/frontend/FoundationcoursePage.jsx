@@ -11,7 +11,7 @@ const courseData = [
     description:
       "Our Foundation Course at Boarding Admissions covers essential skills in grammar, math, and science for grades 4 through 6. Through interactive lessons, hands-on activities, and personalized support, our expert teachers help students develop confidence and a solid academic base. Prepare your child for future academic success with engaging, tailored instruction. Build a strong foundation for top school admissions and long-term achievement!",
     image:
-      "https://firebasestorage.googleapis.com/v0/b/boardingadmissions-f3ba3.appspot.com/o/boardingadmission%2F4TH%20-%206TH%20GRADE.jpg?alt=media&token=90ef92a1-49f7-498f-82a7-4666194edb4d",
+      "https://firebasestorage.googleapis.com/v0/b/boardingadmissions-f3ba3.appspot.com/o/boardingadmission%2F4th%20-%206th%20grade.jpg?alt=media&token=957282c8-ebcd-4b46-8d08-70424df6a7c0",
     bgColor: "",
   },
   {
