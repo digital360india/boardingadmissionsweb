@@ -281,7 +281,7 @@ export default function Checkout() {
           <div className="flex justify-between">
             <p className="font-semibold lg:text-[24px] text-[18px]">Subtotal</p>
             <p className="font-medium lg:text-[24px] text-[18px]">
-              ₹{packageDetails?.discountedPrice || "0"}
+              ₹{(packageDetails?.discountedPrice || "0").toFixed(2)}
             </p>
           </div>
           <div className="space-y-2 text-[16px]">
@@ -295,13 +295,13 @@ export default function Checkout() {
           <div className="flex justify-between">
             <p className="font-semibold lg:text-[24px] text-[18px]">GST 18%</p>
             <p className="font-medium lg:text-[24px] text-[18px]">
-              ₹{(packageDetails?.discountedPrice || 0) * 0.18}
+              ₹{((packageDetails?.discountedPrice || 0) * 0.18).toFixed(2)}
             </p>
           </div>
           <div className="flex justify-between">
             <p className="font-semibold lg:text-[24px] text-[18px]">Total</p>
             <p className="font-medium lg:text-[24px] text-[18px]">
-              ₹{(packageDetails?.discountedPrice || 0) * 1.18}
+              ₹{((packageDetails?.discountedPrice || 0) * 1.18).toFixed(2)}
             </p>
           </div>
         </div>
