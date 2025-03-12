@@ -8,6 +8,14 @@ import GetPrepared from "@/components/frontend/GetPrepared";
 import Broucher from "@/components/frontend/Broucher";
 import EnquiryForm from "@/components/frontend/EnquiryForm";
 import SchoolCarousel from "../../../components/frontend/SchoolCarousel";
+import { FaFilePdf } from "react-icons/fa";
+
+const syllabusData = [
+  {
+    name: "scindia-girls-school",
+    url: "https://firebasestorage.googleapis.com/v0/b/boardingadmissions-f3ba3.appspot.com/o/boardingadmission%2FScindia%20CLASS%20VIII%20Syllabus.docx?alt=media&token=04e3495b-64ad-46e1-9158-961eb91f038c",
+  },
+];
 
 function ScindiaSchoolPage() {
   const Scindia =
@@ -348,39 +356,73 @@ function ScindiaSchoolPage() {
         </div>
         <div className="">
           <p className="text-[#075D70] font-semibold  text-[1.5rem] md:text-[2rem] ">
-          Why Choose Scindia Kanya Vidyalaya?
+            Why Choose Scindia Kanya Vidyalaya?
           </p>
         </div>
         <div>
           <p className="leading-6 w-[88vw] md:my-4 text-[14px] md:text-[1.15rem] text-justify">
-          Choosing the right school for your daughter is a significant decision, and Scindia Kanya Vidyalaya shines for its commitment to excellence and holistic development. Here’s why parents should consider SKV:
+            Choosing the right school for your daughter is a significant
+            decision, and Scindia Kanya Vidyalaya shines for its commitment to
+            excellence and holistic development. Here’s why parents should
+            consider SKV:
           </p>
         </div>
         <ul className="list-disc pl-6 mt-2 space-y-2">
-            <li>
-              <span className="font-semibold">Experienced Faculty:</span>A team of passionate educators dedicated to fostering a nurturing learning environment.
-            </li>
-            <li>
-              <span className="font-semibold">Holistic Development:</span> Focus on extracurricular activities, leadership, and life skills.
-            </li>
-            <li>
-              <span className="font-semibold">Strong Alumni Network:</span>
-              Successful graduates who serve as role models for current students.
-            </li>
-            <li>
-              <span className="font-semibold">Science: </span>Encouraging
-              inquiry and hands-on experimentation
-            </li>
-          </ul>
-          <div className="">
-            <p className="text-[#075D70] font-semibold  text-[1.5rem] md:text-[2rem] ">
-          Ready to Enroll?
+          <li>
+            <span className="font-semibold">Experienced Faculty:</span>A team of
+            passionate educators dedicated to fostering a nurturing learning
+            environment.
+          </li>
+          <li>
+            <span className="font-semibold">Holistic Development:</span> Focus
+            on extracurricular activities, leadership, and life skills.
+          </li>
+          <li>
+            <span className="font-semibold">Strong Alumni Network:</span>
+            Successful graduates who serve as role models for current students.
+          </li>
+          <li>
+            <span className="font-semibold">Science: </span>Encouraging inquiry
+            and hands-on experimentation
+          </li>
+        </ul>
+        <div className="">
+          <p className="text-[#075D70] font-semibold  text-[1.5rem] md:text-[2rem] ">
+            Ready to Enroll?
           </p>
         </div>
         <div>
           <p className="leading-6 md:my-4 w-[88vw] text-[14px] md:text-[1.15rem] text-justify">
-          Join us today at Boarding Admissions to excel in entrance exams for top boarding schools across India. Empower your child&apos;s future with the right preparation and support!
+            Join us today at Boarding Admissions to excel in entrance exams for
+            top boarding schools across India. Empower your child&apos;s future
+            with the right preparation and support!
           </p>
+        </div>
+
+        <div className="bg-white ">
+          <h1 className="text-[#075D70] font-semibold text-[1.75rem] sm:text-[2rem] mb-4">
+            Download Syllabus
+          </h1>
+          <div className="grid sm:grid-cols-2 gap-4">
+            {syllabusData.map((syllabus, index) => (
+              <>
+                <a
+                  href={syllabus.url}
+                  download
+                  className="text-[#075D70] font-medium text-lg hover:underline"
+                  target="_blank"
+                >
+                  <div
+                    key={index}
+                    className="flex items-center p-4 bg-gray-100 rounded-lg shadow-md cursor-pointer transition-all duration-300 hover:shadow-xl hover:bg-gray-200"
+                  >
+                    <FaFilePdf className="text-red-600 text-4xl mr-3" />
+                    {syllabus.name}
+                  </div>
+                </a>
+              </>
+            ))}
+          </div>
         </div>
 
         <Broucher

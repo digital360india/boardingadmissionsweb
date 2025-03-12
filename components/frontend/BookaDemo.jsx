@@ -107,6 +107,7 @@ const BookaDemo = () => {
           class: "",
           textmessage: "",
         });
+        router.push('/thankyou');
       } catch (e) {
         console.error("Error adding or updating document: ", e);
       }

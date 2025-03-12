@@ -43,31 +43,69 @@ const SyllabusPopup = ({ onClose, selectedSyllabus }) => {
       setFormData({ ...formData, phonenumber: value });
     }
   };
-  const handleSubmit = (e) => {
+ 
+ 
+  const handleSubmit =async (e) => {
     e.preventDefault();
     setButtonClick(true);
-    setSubmitting(true);
-    const timestamp = new Date().getTime();
 
-    const userDataWithExpiry = {
-      ...formData,
-      timestamp,
-    };
+    emailjs
 
-    localStorage.setItem("userData", JSON.stringify(userDataWithExpiry));
+      .sendForm("service_zzpjmnf", "template_72aafby", form.current, {
+        publicKey: "zA2422Fl3c6n_YSjA",
+      })
+      .then(
+        () => {
+          console.log("SUCCESS!");
+          setIsSubmitted(true);
+          setButtonClick(false);
 
-    setTimeout(() => {
-      setIsSubmitted(true);
-      setButtonClick(false);
-      setSubmitting(false);
-      if (selectedSyllabus) {
-        window.open(selectedSyllabus.url, "_blank");
+
+          // Reset form data after successful submission
+          setFormData({
+            name: "",
+            phonenumber: "",
+            school: "",
+            class: "",
+            textmessage: "",
+          });
+        },
+        (error) => {
+          console.log("FAILED...", error.text);
+          alert("Failed");
+        }
+      );
+
+      try {
+        const docRef = await addDoc(collection(db, "leads"), {
+          name: formData.name,
+          phonenumber: formData.phonenumber,
+          school:formData.school,
+          class:formData.class,
+          message: formData.textmessage,
+          timestamp: new Date(),
+        });
+  
+        // Get the document ID
+        const docId = docRef.id;
+  
+        await updateDoc(docRef, {
+          id: docId,
+        });
+  
+        console.log("Form submitted successfully! Document ID stored:", docId);
+  
+        setFormData({
+          name: "",
+          phonenumber: "",
+          school: "",
+          class: "",
+          textmessage: "",
+        });
+        // router.push('/thankyou');
+      } catch (e) {
+        console.error("Error adding or updating document: ", e);
       }
-
-      setTimeout(() => {
-        onClose();
-      }, 1500);
-    }, 2000);
   };
 
   useEffect(() => {
