@@ -18,7 +18,23 @@ const team = [
     imageSrc: "/icons/logo.enc",
     name: "Sanchit Sharma",
     school: "Welham Boys School",
-    videoSrc: "https://firebasestorage.googleapis.com/v0/b/boardingadmissions-f3ba3.appspot.com/o/testimonials%2Ftestimonials_compressed.mp4?alt=media&token=cc7e5678-6027-4664-8c77-4ee926a873ce", // No video for this entry
+    videoSrc: "https://firebasestorage.googleapis.com/v0/b/boardingadmissions-f3ba3.appspot.com/o/testimonials%2Ftestimonials_compressed.mp4?alt=media&token=cc7e5678-6027-4664-8c77-4ee926a873ce", 
+  },
+  {
+    story:
+      "The complete learning resources and flexible scheduling at Boarding Admissions made my entire preparation journey so seamless and stress-free. The constant support and detailed feedback from the teachers truly boosted my confidence and helped me stay on track.",
+    imageSrc: "/icons/logo.enc",
+    name: "Khyati Yadav",
+    school: "Scindia Kanya Vidyalaya",
+    videoSrc: "https://firebasestorage.googleapis.com/v0/b/boardingadmissions-f3ba3.appspot.com/o/boardingadmission%2Fkhyati.mp4?alt=media&token=22578130-5489-4d1a-b21f-4ec7699555f9", 
+  },
+  {
+    story:
+      "The complete learning resources and flexible scheduling at Boarding Admissions made my entire preparation journey so seamless and stress-free. The constant support and detailed feedback from the teachers truly boosted my confidence and helped me stay on track.",
+    imageSrc: "/icons/logo.enc",
+    name: "Jiya Kumar",
+    school: "Welham Girls' School",
+    videoSrc: "https://firebasestorage.googleapis.com/v0/b/boardingadmissions-f3ba3.appspot.com/o/boardingadmission%2Fjiyawelham.mp4?alt=media&token=53e78a82-dbfb-45fa-a148-9446c85cb1dd", 
   },
   {
     story:
@@ -26,7 +42,7 @@ const team = [
     imageSrc: "/icons/logo.enc",
     name: "Madhavani",
     school: "Mayo Girls' College",
-    videoSrc: "", // No video for this entry
+    videoSrc: "", 
   },
   {
     story:
@@ -34,7 +50,7 @@ const team = [
     imageSrc: "/icons/logo.enc",
     name: "Amishi",
     school: "Welham Girls' School",
-    videoSrc: "", // No video for this entry
+    videoSrc: "", 
   },
   {
     story:
@@ -42,7 +58,7 @@ const team = [
     imageSrc: "/icons/logo.enc",
     name: "Aratrika",
     school: "Scindia Kanya Vidyalaya",
-    videoSrc: "", // No video for this entry
+    videoSrc: "", 
   },
   {
     story:
@@ -50,7 +66,7 @@ const team = [
     imageSrc: "/icons/logo.enc",
     name: "Nishka",
     school: "Ecole Globale",
-    videoSrc: "", // No video for this entry
+    videoSrc: "", 
   },
 ];
 
