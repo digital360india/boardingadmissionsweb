@@ -64,11 +64,11 @@ export default function RootLayout({ children }) {
         />
         {/* End Google Tag Manager */}
 
+        {/* Google Analytics */}
         <script
           async
           src="https://www.googletagmanager.com/gtag/js?id=G-XHSL8SZLKJ"
         ></script>
-
         <script
           dangerouslySetInnerHTML={{
             __html: `
@@ -80,6 +80,7 @@ export default function RootLayout({ children }) {
           }}
         />
 
+        {/* Facebook Pixel */}
         <script
           dangerouslySetInnerHTML={{
             __html: `
@@ -97,6 +98,7 @@ export default function RootLayout({ children }) {
           }}
         />
 
+        {/* Smartlook */}
         <script
           type="text/javascript"
           dangerouslySetInnerHTML={{
@@ -116,6 +118,24 @@ export default function RootLayout({ children }) {
             `,
           }}
         />
+
+        {/* Google Ads Conversion Tracking */}
+        <script
+          async
+          src="https://www.googletagmanager.com/gtag/js?id=AW-10787874522"
+        ></script>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+
+            gtag('config', 'AW-10787874522');
+            `,
+          }}
+        />
+        {/* End Google Ads Conversion Tracking */}
       </head>
 
       <body className={`${poppins.variable}`}>
@@ -130,6 +150,7 @@ export default function RootLayout({ children }) {
         </noscript>
         {/* End Google Tag Manager (noscript) */}
 
+        {/* Facebook Pixel (noscript) */}
         <noscript>
           <img
             height="1"
