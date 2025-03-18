@@ -32,7 +32,6 @@ export default function EnquiryForm({ title }) {
       );
 
       if (response.status === 200) {
-        alert("Form Submitted Successfully ", response);
         setLoading(false);
         setFormData(initial);
         router.push("/thankyou");
