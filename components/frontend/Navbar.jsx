@@ -136,7 +136,7 @@ const Navbar = () => {
             </Link>
           </li>
           <li>
-            <Link href="courses" onClick={closeMenu}>
+            <Link href="/courses" onClick={closeMenu}>
               Course
             </Link>
           </li>
