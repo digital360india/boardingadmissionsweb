@@ -23,6 +23,12 @@ const team = [
     teamimage: "/images/testimonial3.jpg",
   },
   {
+    imageSrc: "/icons/logo.enc",
+    name: "Ardhya Aggarwal",
+    school: "Mayo Girls College, Ajmer",
+    teamimage: "/images/testimonial.jpg",
+  },
+  {
     story:
       "Boarding Admissions transformed my preparation journey. The personalized courses and expert guidance were invaluable. I couldn't have achieved my results without them!",
     imageSrc: "/icons/logo.enc",
