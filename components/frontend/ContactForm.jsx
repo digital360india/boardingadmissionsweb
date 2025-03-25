@@ -97,7 +97,9 @@ export default function ContactForm() {
                   </svg>
                 </p>
                 <p className="font-medium text-[#075D70]">
-                  Nehru Colony, Dehradun
+                  B 36, Nehru colony,
+                  Near Sanatan Dharm Mandir,
+                  Dehradun
                 </p>
               </div>
               <div className="flex gap-[10px] items-center ">

@@ -27,7 +27,10 @@ const Footer = () => {
                     alt="course1"
                   />
                   <div>
-                    <h1>Nehru Colony, Dehradun </h1>
+                    <p>
+                      {" "}
+                      B 36, Nehru colony, Near Sanatan Dharm Mandir, Dehradun{" "}
+                    </p>
                   </div>
                 </div>
                 <div className="flex  gap-3">
@@ -212,9 +215,9 @@ const Footer = () => {
                 height={14}
                 alt="location"
               />
-              <h1 className="text-white text-[0.75rem]">
-                Nehru Colony, Dehradun
-              </h1>
+              <p className="text-white text-[0.75rem]">
+                B 36, Nehru colony, Near Sanatan Dharm Mandir, Dehradun
+              </p>
             </div>
 
             <div className="flex gap-2 mt-2">
