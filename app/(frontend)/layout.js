@@ -7,7 +7,6 @@ import { UserProvider } from "@/userProvider";
 import { FaWhatsapp } from "react-icons/fa";
 import Link from "next/link";
 import Flyer from "@/components/frontend/Flyer";
-import FixedPopupButton from "@/pages/frontend/FixedPopupButton";
 import Script from "next/script";
 
 const poppins = Poppins({
@@ -49,7 +48,7 @@ export default function RootLayout({ children }) {
     <UserProvider>
       <div>
         <Navbar />
-        <Flyer />
+        {/* <Flyer /> */}
         {children}
         <Footer />
         <div>
@@ -66,7 +65,7 @@ export default function RootLayout({ children }) {
             </span>
           </div>
   
-          <FixedPopupButton />
+          {/* <FixedPopupButton /> */}
         </div>
       </div>
     </UserProvider>

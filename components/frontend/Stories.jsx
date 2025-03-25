@@ -5,12 +5,37 @@ import { ChevronLeft, ChevronRight } from "lucide-react";
 
 const team = [
   {
+    imageSrc: "/icons/logo.enc",
+    name: "Amishi",
+    school: "Welham Girls School",
+    teamimage: "/images/testimonial1.jpg",
+  },
+  {
+    imageSrc: "/icons/logo.enc",
+    name: "Advita Jain",
+    school: "Welham Girls School",
+    teamimage: "/images/testimonial2.jpg",
+  },
+  {
+    imageSrc: "/icons/logo.enc",
+    name: "Navnoor Jattana",
+    school: "Welham Girls School",
+    teamimage: "/images/testimonial3.jpg",
+  },
+  {
+    imageSrc: "/icons/logo.enc",
+    name: "Ardhya Aggarwal",
+    school: "Mayo Girls College, Ajmer",
+    teamimage: "/images/testimonial.jpg",
+  },
+  {
     story:
       "Boarding Admissions transformed my preparation journey. The personalized courses and expert guidance were invaluable. I couldn't have achieved my results without them!",
     imageSrc: "/icons/logo.enc",
     name: "Vasundhra",
     school: "Welham Girls School",
-    videoSrc: "https://firebasestorage.googleapis.com/v0/b/boardingadmissions-f3ba3.appspot.com/o/testimonials%2Ftestimonials1.mp4?alt=media&token=5b27c087-ce83-40e6-a409-3a1677d3b3a7",
+    videoSrc:
+      "https://firebasestorage.googleapis.com/v0/b/boardingadmissions-f3ba3.appspot.com/o/testimonials%2Ftestimonials1.mp4?alt=media&token=5b27c087-ce83-40e6-a409-3a1677d3b3a7",
   },
   {
     story:
@@ -18,7 +43,26 @@ const team = [
     imageSrc: "/icons/logo.enc",
     name: "Sanchit Sharma",
     school: "Welham Boys School",
-    videoSrc: "https://firebasestorage.googleapis.com/v0/b/boardingadmissions-f3ba3.appspot.com/o/testimonials%2Ftestimonials_compressed.mp4?alt=media&token=cc7e5678-6027-4664-8c77-4ee926a873ce", // No video for this entry
+    videoSrc:
+      "https://firebasestorage.googleapis.com/v0/b/boardingadmissions-f3ba3.appspot.com/o/testimonials%2Ftestimonials_compressed.mp4?alt=media&token=cc7e5678-6027-4664-8c77-4ee926a873ce",
+  },
+  {
+    story:
+      "The complete learning resources and flexible scheduling at Boarding Admissions made my entire preparation journey so seamless and stress-free. The constant support and detailed feedback from the teachers truly boosted my confidence and helped me stay on track.",
+    imageSrc: "/icons/logo.enc",
+    name: "Khyati Yadav",
+    school: "Scindia Kanya Vidyalaya",
+    videoSrc:
+      "https://firebasestorage.googleapis.com/v0/b/boardingadmissions-f3ba3.appspot.com/o/boardingadmission%2Fkhyati.mp4?alt=media&token=22578130-5489-4d1a-b21f-4ec7699555f9",
+  },
+  {
+    story:
+      "The complete learning resources and flexible scheduling at Boarding Admissions made my entire preparation journey so seamless and stress-free. The constant support and detailed feedback from the teachers truly boosted my confidence and helped me stay on track.",
+    imageSrc: "/icons/logo.enc",
+    name: "Jiya Kumar",
+    school: "Welham Girls' School",
+    videoSrc:
+      "https://firebasestorage.googleapis.com/v0/b/boardingadmissions-f3ba3.appspot.com/o/boardingadmission%2Fjiyawelham.mp4?alt=media&token=53e78a82-dbfb-45fa-a148-9446c85cb1dd",
   },
   {
     story:
@@ -26,7 +70,7 @@ const team = [
     imageSrc: "/icons/logo.enc",
     name: "Madhavani",
     school: "Mayo Girls' College",
-    videoSrc: "", // No video for this entry
+    videoSrc: "",
   },
   {
     story:
@@ -34,7 +78,7 @@ const team = [
     imageSrc: "/icons/logo.enc",
     name: "Amishi",
     school: "Welham Girls' School",
-    videoSrc: "", // No video for this entry
+    videoSrc: "",
   },
   {
     story:
@@ -42,7 +86,7 @@ const team = [
     imageSrc: "/icons/logo.enc",
     name: "Aratrika",
     school: "Scindia Kanya Vidyalaya",
-    videoSrc: "", // No video for this entry
+    videoSrc: "",
   },
   {
     story:
@@ -50,7 +94,7 @@ const team = [
     imageSrc: "/icons/logo.enc",
     name: "Nishka",
     school: "Ecole Globale",
-    videoSrc: "", // No video for this entry
+    videoSrc: "",
   },
 ];
 
@@ -88,7 +132,9 @@ export default function Stories() {
   return (
     <div>
       <div className=" xl:px-[100px] md::px-[40px] px-[28px] pt-[3%] bg-[#FAF9FF]">
-        <p className="lg:text-[48px] text-[32px] text-primary02 font-medium lg:leading-normal leading-tight lg:w-[848px] w-full">Stories that inspire</p>
+        <p className="lg:text-[48px] text-[32px] text-primary02 font-medium lg:leading-normal leading-tight lg:w-[848px] w-full">
+          Stories that inspire
+        </p>
       </div>
       <div className=" mx-auto px-4 sm:px-6 lg:px-[100px] py-12 relative overflow-hidden bg-[#FAF9FF]">
         <div className="overflow-hidden">
@@ -118,7 +164,18 @@ export default function Stories() {
                       </video>
                     </div>
                   ) : (
-                    <p className="text-gray-700 my-4">{member.story}</p>
+                    <>
+                      {member.story && (
+                        <p className="text-gray-700 my-4">{member.story}</p>
+                      )}
+                      {member.teamimage && (
+                        <img
+                          src={member.teamimage}
+                          alt={member.name}
+                          className="w-full h-full max-h-48 object-cover rounded-lg"
+                        />
+                      )}
+                    </>
                   )}
                   <div className="flex items-center">
                     <img

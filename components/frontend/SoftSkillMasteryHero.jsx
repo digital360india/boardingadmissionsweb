@@ -1,19 +1,16 @@
 "use client";
 import React from "react";
-import SoftSkillMastery from "@/public/icons/SoftSkillMastery.svg";
+// import SoftSkillMastery from "@/public/icons/SoftSkillMastery.svg";
 import Link from "next/link";
 
 const SoftSkillMasteryHero = () => {
   return (
     <>
-      <div className="md:mx-20">
+      <div className="">
         <h1 className="text-[2rem] md:text-[3.5rem] text-[#075D70] text-center pb-5 md:pb-8 font-bold">
           Soft Skill Mastery
         </h1>
-        <div
-          className="w-full h-[30.375rem] bg-no-repeat bg-cover bg-center relative"
-          style={{ backgroundImage: `url(${SoftSkillMastery.src})` }}
-        >
+        <div className="w-full h-[30.375rem] bg-no-repeat bg-cover  bg-top bg-[url('/icons/SoftSkillMastery.svg')] ">
           <div className="w-full   md:w-[22.563rem] h-[17.5rem] px-10 md:px-0 md:mx-12 mt-10 space-y-7   absolute    text-white  ">
             <p className="md:mt-2  text-[14px]  md:text-[1rem] leading-relaxed">
               In today&apos;s world, academic excellence is just one part of

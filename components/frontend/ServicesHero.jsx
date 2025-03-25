@@ -23,7 +23,7 @@ const ServicesHero = () => {
               education and support. Join us today to start your journey towards
               securing a spot in India&apos;s top boarding schools.
             </p>
-            <div className="w-[7.5rem] md:w-[18.75rem]">
+            <div className="w-[7.5rem] md:w-[18.75rem] mt-6">
               <Link href="/enrollnow/aceentranceexams">
                 <div className="cursor-pointer w-[7.5rem] h-[2.0rem] md:w-[18rem] md:h-[3rem] bg-gradient-to-br from-[#075D70] to-[#0DB2D6] hover:scale-110 transition duration-300 border-custom rounded-md flex items-center justify-center text-[1rem]">
                   <button className="text-white">Enroll Now</button>

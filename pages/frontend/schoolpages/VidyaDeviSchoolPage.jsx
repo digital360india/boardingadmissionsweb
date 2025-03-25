@@ -8,9 +8,14 @@ import GetPrepared from "@/components/frontend/GetPrepared";
 import EnquiryForm from "@/components/frontend/EnquiryForm";
 import Broucher from "@/components/frontend/Broucher";
 import SchoolCarousel from "../../../components/frontend/SchoolCarousel";
+import { FaFilePdf } from "react-icons/fa";
 
-
-
+const syllabusData = [
+  {
+    name: "Doon School Aptitude Test Overview",
+    url: "https://firebasestorage.googleapis.com/v0/b/boardingadmissions-f3ba3.appspot.com/o/boardingadmission%2FDoon-School-Aptitude%20Test%20overview.pdf?alt=media&token=a6b9570f-2738-40fb-9761-bfeb9307c6ee",
+  },
+];
 const admissionSteps = [
   {
     title: "Start the Process:",
@@ -59,7 +64,6 @@ function VidyaDeviSchoolPage() {
       ?.faqs || [];
   return (
     <div className="h-auto w-[100%] poppins ">
-
       {/* <div className="relative lg:px-[30px] xl:px-[50px]  ">
         <div className=" h-[250px] xl:h-[300px] lg:h-[350px] w-[100%] ">
           <Image
@@ -80,9 +84,9 @@ function VidyaDeviSchoolPage() {
           />
         </div>
       </div> */}
-<SchoolCarousel />
+      <SchoolCarousel />
 
-       <div className="w-[90%] ml-[5%] mt-6">
+      <div className="w-[90%] ml-[5%] mt-6">
         <div className="relative h-[150px]   xl:h-[150px] md:h-[120px] lg:h-[170px]    w-full  border-b-2  sm:flex sm:justify-between">
           <div className="w-full flex flex-col  lg:gap-5 gap-2">
             <div className="">
@@ -96,7 +100,7 @@ function VidyaDeviSchoolPage() {
               schoolName={"Vidya Devi Jindal School"}
             />
 
-               {/* <div className=" flex sm:w-[50%] gap-3 mb-2 sm:mb-0">
+            {/* <div className=" flex sm:w-[50%] gap-3 mb-2 sm:mb-0">
               <h3 className="px-1 py-1 rounded-md bg-[#6198A3] bg-opacity-[12%] text-black ">
                 Private School
               </h3>
@@ -124,9 +128,8 @@ function VidyaDeviSchoolPage() {
           </div>
         </div>
         <div className="md:hidden mt-6">
-<EnquiryForm/>
-
-</div>
+          <EnquiryForm />
+        </div>
         <div className="space-y-4 w-[90vw]  mt-10 ">
           <div className="">
             <h1 className="text-[#075D70] font-semibold  text-[1.5rem] md:text-[2rem] ">
@@ -284,12 +287,36 @@ function VidyaDeviSchoolPage() {
           </div>
         </div>
 
-               <Broucher/>
+        <div className="bg-white ">
+          <h1 className="text-[#075D70] font-semibold text-[1.75rem] sm:text-[2rem] mb-4">
+            Download Syllabus
+          </h1>
+          <div className="grid sm:grid-cols-2 gap-4">
+            {syllabusData.map((syllabus, index) => (
+              <>
+                <a
+                  href={syllabus.url}
+                  download
+                  className="text-[#075D70] font-medium text-lg hover:underline"
+                  target="_blank"
+                >
+                  <div
+                    key={index}
+                    className="flex items-center p-4 bg-gray-100 rounded-lg shadow-md cursor-pointer transition-all duration-300 hover:shadow-xl hover:bg-gray-200"
+                  >
+                    <FaFilePdf className="text-red-600 text-4xl mr-3" />
+                    {syllabus.name}
+                  </div>
+                </a>
+              </>
+            ))}
+          </div>
+        </div>
 
-
+        <Broucher />
       </div>
 
-      <div>
+      <div className="mt-10">
         <Faq data={VidyaDeviJindalSchool} />
       </div>
     </div>

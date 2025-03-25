@@ -196,13 +196,13 @@ const EnrollNowAllCoursesWeOffer = () => {
             </select>
           </div>
 
-          <div className="flex flex-wrap gap-6 p-3 md:pt-12">
+          <div className="flex flex-wrap gap-6 p-3 md:pt-10">
             {filteredPackages.map((packageData, index) => (
               <Link href={`/packagedetails/${packageData.id}`} key={index}>
                 {" "}
                 <div
                   key={index}
-                  className="md:w-[38vw] lg:w-[29vw] bg-[#FFFFFF] border border-[#01010120] rounded-[9px] pb-4 drop-shadow-lg"
+                  className="md:w-[38vw] lg:w-[29vw] h-[100%] bg-[#FFFFFF] border border-[#01010120] rounded-[9px] pb-4 drop-shadow-lg"
                 >
                   <div className="w-full h-72">
                     <img
@@ -211,15 +211,20 @@ const EnrollNowAllCoursesWeOffer = () => {
                       className="w-full h-full object-cover rounded-t-[9px]"
                     />
                   </div>
-                  <h2 className="text-primary02 text-[1rem] md:text-[1.5rem] font-semibold text-center mt-2 md:mt-3">
+                  <h2 className="text-primary02 text-[16px] md:text-[22px] font-semibold text-center mt-2 md:mt-3">
                     {packageData.packageName}
                   </h2>
-                  <div className="text-[0.5rem] md:text-[2rem] font-bold text-background05  pt-2 md:pt-3 text-center px-8 flex gap-1 justify-center items-center">
-                    <div>
-                      {" "}
-                      <FaRupeeSign />
+                  <div className="text-[16px] md:text-[21px] font-bold text-background05  pt-2 md:pt-3 text-center  ">
+                    <div className="flex justify-center items-center text-[18px]">
+                      Price: <FaRupeeSign />
+                      <span className="line-through ">
+                        {packageData.price.toLocaleString("en-IN")}
+                      </span>
                     </div>
-                    <div> Price: {packageData.price} </div>
+                    <div className="flex justify-center items-center">
+                      Discounted Price: <FaRupeeSign />
+                      {packageData.discountedPrice.toLocaleString("en-IN")}
+                    </div>
                   </div>
 
                   <hr className="mx-2 md:mx-10 mt-3" />
@@ -257,8 +262,8 @@ const EnrollNowAllCoursesWeOffer = () => {
                         </li>
                       ))}
                     </ul>
-                    <div className="">
-                      <button className="w-[200px] mt-5 text-xl text-white h-[45px] rounded-lg bg-[#075D70]">
+                    <div className="md:mt-10">
+                      <button className="md:absolute md:bottom-3 w-[200px] mt-5 text-xl text-white h-[45px] rounded-lg bg-[#075D70]">
                         Proceed Now
                       </button>
                     </div>

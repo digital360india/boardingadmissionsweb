@@ -1,19 +1,14 @@
 "use client";
-import { useRef, useState } from "react";
-import emailjs from "@emailjs/browser";
-import { useRouter } from "next/navigation";
-import PopupSuccess from "./PopupSuccess";
-import { db } from "@/firebase/firebase";
-import { addDoc, collection, updateDoc } from "firebase/firestore";
+import PopupSuccess from "@/components/frontend/PopupSuccess";
+import React, { useEffect, useRef, useState } from "react";
 
-
-const BookaDemo = () => {
+const SyllabusPopup = ({ onClose, selectedSyllabus }) => {
   const form = useRef();
-  const router = useRouter();
-  const [isFormVisible, setIsFormVisible] = useState(false);
-
   const [isSubmitted, setIsSubmitted] = useState(false);
-  const [buttonclick, setButtonClick] = useState(false);
+  const [submitting, setSubmitting] = useState(false);
+
+  const [isFormVisible, setIsFormVisible] = useState(false);
+  const [buttonClick, setButtonClick] = useState(false);
 
   const [formData, setFormData] = useState({
     name: "",
@@ -22,6 +17,13 @@ const BookaDemo = () => {
     class: "",
     textmessage: "",
   });
+
+  useEffect(() => {
+    const savedData = localStorage.getItem("userData");
+    if (savedData) {
+      setIsSubmitted(true);
+    }
+  }, []);
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -35,22 +37,15 @@ const BookaDemo = () => {
     }
   };
 
-  const handleClose = () => {
-    setIsFormVisible(false);
-    setIsSubmitted(false);
-
-  };
-
   const handlePhoneChange = (e) => {
     const value = e.target.value;
     if (/^\d*$/.test(value) && value.length <= 10) {
       setFormData({ ...formData, phonenumber: value });
     }
   };
-
-  const handleSubmit = async(e) => {
-    console.log(formData);
-    
+ 
+ 
+  const handleSubmit =async (e) => {
     e.preventDefault();
     setButtonClick(true);
 
@@ -63,9 +58,10 @@ const BookaDemo = () => {
         () => {
           console.log("SUCCESS!");
           setIsSubmitted(true);
-          // router.push("/");
           setButtonClick(false);
-         
+
+
+          // Reset form data after successful submission
           setFormData({
             name: "",
             phonenumber: "",
@@ -78,7 +74,6 @@ const BookaDemo = () => {
           console.log("FAILED...", error.text);
           alert("Failed");
         }
-
       );
 
       try {
@@ -107,20 +102,45 @@ const BookaDemo = () => {
           class: "",
           textmessage: "",
         });
-        router.push('/thankyou');
+        // router.push('/thankyou');
       } catch (e) {
         console.error("Error adding or updating document: ", e);
       }
   };
 
-  return (
-    <div className=" flex items-center justify-center p-10    font-poppins">
-      <div className="bg-[#FFFFFF] w-[351px] h-[650px] md:w-[710px] md:h-[460px] lg:w-[950px] lg:h-[520px] rounded  border-8 border-[#CDC6DB30] ">
-        
+  useEffect(() => {
+    const userData = localStorage.getItem("userData");
 
-        {/* If form is submitted, show PopupSuccess component */}
+    if (userData) {
+      const parsedData = JSON.parse(userData);
+      const currentTime = new Date().getTime();
+      const expirationTime = 1 * 60 * 1000;
+
+      if (currentTime - parsedData.timestamp > expirationTime) {
+        localStorage.removeItem("userData");
+      } else {
+        setIsSubmitted(true);
+      }
+    }
+  }, []);
+
+  return (
+    <div className="z-20  fixed inset-0 flex items-center justify-center   bg-black bg-opacity-30 font-poppins">
+      <div className="bg-[#FFFFFF] w-[351px] h-[650px] md:w-[710px] md:h-[460px] lg:w-[950px] lg:h-[520px] rounded  border-8 border-[#CDC6DB30] ">
+        <div
+          className="md:hidden  cursor-pointer flex justify-end "
+          onClick={onClose}
+        >
+          <div className="bg-[#006269] text-white font-bold w-10 h-10 rounded-full text-center text-2xl pt-1">
+            &times;
+          </div>
+        </div>
+
         {isSubmitted ? (
-          <PopupSuccess  setIsFormVisible={setIsFormVisible} setIsSubmitted={setIsSubmitted} />
+          <PopupSuccess
+            setIsFormVisible={setIsFormVisible}
+            setIsSubmitted={setIsSubmitted}
+          />
         ) : (
           <>
             <div className="  text-[#006269] ">
@@ -195,38 +215,45 @@ const BookaDemo = () => {
                 </div>
 
                 <div className="flex justify-end items-end mr-4">
-                  <button
-                    type="submit"
-                    className={`${
-                      buttonclick ? `hidden` : `block`
-                    } w-[302px] h-[50px] md:w-[250px] md:h-[50px] bg-[#006269] text-white py-2 px-4 rounded hover:bg-[#029FAA] transition duration-300 `}
-                  >
-                    Get Consultation
-                  </button>
-                  <svg
-                    className={`animate-spin ${
-                      buttonclick && isSubmitted === false ? `block` : `hidden`
-                    }`}
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="2em"
-                    height="2em"
-                    viewBox="0 0 15 15"
-                  >
-                    <path
-                      fill="black"
-                      d="M7.56 13.88c-.28 0-.5-.22-.5-.5s.22-.5.5-.5c2.96 0 5.38-2.41 5.38-5.38s-2.41-5.38-5.38-5.38c-.28 0-.5-.22-.5-.5s.22-.5.5-.5c3.52 0 6.38 2.86 6.38 6.38s-2.86 6.38-6.38 6.38"
-                    />
-                  </svg>
+                  {!submitting ? (
+                    <button
+                      type="submit"
+                      className="w-[302px] h-[50px] md:w-[250px] md:h-[50px] bg-[#006269] text-white py-2 px-4 rounded hover:bg-[#029FAA] transition duration-300"
+                    >
+                      Get Consultation
+                    </button>
+                  ) : (
+                    <svg
+                      className="animate-spin"
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="2em"
+                      height="2em"
+                      viewBox="0 0 15 15"
+                    >
+                      <path
+                        fill="black"
+                        d="M7.56 13.88c-.28 0-.5-.22-.5-.5s.22-.5.5-.5c2.96 0 5.38-2.41 5.38-5.38s-2.41-5.38-5.38-5.38c-.28 0-.5-.22-.5-.5s.22-.5.5-.5c3.52 0 6.38 2.86 6.38 6.38s-2.86 6.38-6.38 6.38"
+                      />
+                    </svg>
+                  )}
                 </div>
               </div>
             </form>
           </>
         )}
 
-        
+        <div
+          className="hidden md:flex md:justify-center md:items-center md:pt-[2px] cursor-pointer"
+          //   onClick={handleClose}
+          onClick={onClose}
+        >
+          <div className="bg-[#006269] text-white font-bold w-10 h-10 rounded-full text-center text-2xl pt-1">
+            &times;
+          </div>
+        </div>
       </div>
     </div>
   );
 };
 
-export default BookaDemo;
+export default SyllabusPopup;

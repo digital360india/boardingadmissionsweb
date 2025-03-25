@@ -3,8 +3,10 @@ import dynamic from "next/dynamic";
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import Loading from "@/app/loading";
-const kwesforms = dynamic(() => import('kwesforms'));
-export default function EnquiryForm({title}) {
+import { useRouter } from "next/navigation";
+const kwesforms = dynamic(() => import("kwesforms"));
+export default function EnquiryForm({ title }) {
+  const router = useRouter();
   useEffect(() => {
     kwesforms;
   }, []);
@@ -13,7 +15,7 @@ export default function EnquiryForm({title}) {
     email: "",
     phoneNumber: "",
   };
-  const [loading , setLoading]=useState(false);
+  const [loading, setLoading] = useState(false);
   const [formData, setFormData] = useState(initial);
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -22,30 +24,34 @@ export default function EnquiryForm({title}) {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setLoading(true);
+
     try {
       const response = await axios.post(
         "https://kwesforms.com/api/foreign/forms/IdHYEC9XdhQY0WpAiXbm",
         formData
       );
+
       if (response.status === 200) {
-        console.log("Form Submitted Successfully ", response);
+        setLoading(false);
+        setFormData(initial);
+        router.push("/thankyou");
       } else {
         console.log("Form not Submitted", response);
+        alert("There was an error submitting the form.");
+        setLoading(false);
       }
     } catch (error) {
-      console.log(error);
+      console.log("Error submitting form", error);
+      alert("Error while submitting the form. Please try again.");
+      setLoading(false);
     }
-    // console.log(formData);
-    alert("Form Submitted Successfully !!");
-    setLoading(false);
-    setFormData(initial);
-    setTimeout(() => {
-      setOpen(false);
-    }, 1000);
   };
+
   return (
     <div>
-       <p className="text-[20px] md:text-[36px] text-primary02 mb-5 font-semibold">Enquiry Form</p>
+      <p className="text-[20px] md:text-[36px] text-primary02 mb-5 font-semibold">
+        Enquiry Form
+      </p>
       <form
         onSubmit={handleSubmit}
         className="kwes-form"
@@ -65,7 +71,7 @@ export default function EnquiryForm({title}) {
               required
             />
           </div>
-         
+
           <div>
             <label for="phoneNumber" className="hidden"></label>
             <input
@@ -99,7 +105,7 @@ export default function EnquiryForm({title}) {
           name="submit"
           className=" mt-[4vh] w-[180px] h-[40px] px-2 font-semibold text-white rounded-xl bg-primary02 grid place-content-center"
         >
-         {loading?"Loading...": "Submit"}
+          {loading ? "Loading..." : "Submit"}
         </button>
       </form>
     </div>

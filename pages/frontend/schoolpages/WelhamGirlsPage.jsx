@@ -1,22 +1,49 @@
 "use client";
-import React from "react";
+import React, { useState } from "react";
 import Faq from "@/components/frontend/Faqdata";
-import Image from "next/image";
+
 import StarRatings from "@/components/frontend/StarRatings";
 import schoolFAQs from "@/utils/frontend/FaqData";
 import GetPrepared from "@/components/frontend/GetPrepared";
 import Broucher from "@/components/frontend/Broucher";
 import EnquiryForm from "@/components/frontend/EnquiryForm";
 import SchoolCarousel from "../../../components/frontend/SchoolCarousel";
+import { FaFilePdf } from "react-icons/fa";
+import SyllabusPopup from "../SyllabusPopup";
 
-
+const syllabusData = [
+  {
+    name: "Syllabus for Class VI Aptitude Assessment",
+    url: "https://firebasestorage.googleapis.com/v0/b/boardingadmissions-f3ba3.appspot.com/o/boardingadmission%2FSyllabusforClassVI_AptitudeAssessment.pdf?alt=media&token=476e3a3c-4512-4863-b8f4-67fa17640828",
+  },
+  {
+    name: "Syllabus for Class VII Aptitude Assessment",
+    url: "https://firebasestorage.googleapis.com/v0/b/boardingadmissions-f3ba3.appspot.com/o/boardingadmission%2FSyllabusforClassVII_AptitudeAssessment%20(1).pdf?alt=media&token=d22a8b8e-2a7f-4ffe-b1ed-fc49210c347a",
+  },
+];
 
 function WelhamGirlsPage() {
+  const [PopupVisible, setPopupVisible] = useState(false);
+  const [selectedSyllabus, setSelectedSyllabus] = useState(null);
+
+  const handleSyllabusClick = (syllabus) => {
+    const savedData = localStorage.getItem("userData");
+
+    if (savedData) {
+      window.open(syllabus.url, "_blank");
+    } else {
+     
+      setSelectedSyllabus(syllabus);
+      setPopupVisible(true);
+    }
+  };
+  const handleClosePopup = () => {
+    setPopupVisible(false);
+  };
   const WelhamGirls =
     schoolFAQs.find((school) => school.school === "WelhamGirls")?.faqs || [];
   return (
     <div className="h-auto w-[100%] poppins ">
-
       {/* <div className="relative ">
         <div className=" h-[250px] w-[100%]  xl:px-[50px] lg:px-[30px]">
           <Image
@@ -36,9 +63,9 @@ function WelhamGirlsPage() {
           />
         </div>
       </div> */}
-      <SchoolCarousel />    
+      <SchoolCarousel />
 
-<div className="w-[90%] ml-[5%] mt-6">
+      <div className="w-[90%] ml-[5%] mt-6">
         <div className="relative h-[150px]   xl:h-[150px] md:h-[120px] lg:h-[160px]     w-full  border-b-2  sm:flex sm:justify-between">
           <div className="w-full flex flex-col  lg:gap-5 gap-2">
             <div className="">
@@ -52,7 +79,7 @@ function WelhamGirlsPage() {
               schoolName={"Welham Girls' School"}
             />
 
-               {/* <div className=" flex sm:w-[50%] gap-3 mb-2 sm:mb-0">
+            {/* <div className=" flex sm:w-[50%] gap-3 mb-2 sm:mb-0">
               <h3 className="px-1 py-1 rounded-md bg-[#6198A3] bg-opacity-[12%] text-black ">
                 Private School
               </h3>
@@ -85,7 +112,7 @@ function WelhamGirlsPage() {
         <div className="space-y-4 w-[90vw]  mt-10 ">
           <div className="">
             <p className="text-[#075D70] font-semibold  text-[1.5rem] md:text-[2rem]">
-              About  Welham Girls School
+              About Welham Girls School
             </p>
           </div>
           <div>
@@ -311,7 +338,7 @@ function WelhamGirlsPage() {
                       <li>
                         {" "}
                         <span className="font-semibold">
-                          Aptitude/Proficiency Test:  
+                          Aptitude/Proficiency Test:
                         </span>
                         In addition to the entrance exam, an
                         Aptitude/Proficiency Test is conducted to evaluate the
@@ -484,7 +511,7 @@ function WelhamGirlsPage() {
               </tr>
             </tbody>
           </table>
- 
+
           <p className="leading-6 w-[88vw] text-[14px] md:text-[1.15rem] my-6">
             In addition to age requirements, students are expected to have
             strong academic records and demonstrate good character and conduct.
@@ -600,6 +627,30 @@ function WelhamGirlsPage() {
           </div>
         </div>
 
+        <div className="bg-white">
+          <h1 className="text-[#075D70] font-semibold text-[1.75rem] sm:text-[2rem] mb-4">
+            Download Syllabus
+          </h1>
+          <div className="grid sm:grid-cols-2 gap-4">
+            {syllabusData.map((syllabus, index) => (
+              <div
+                key={index}
+                onClick={() => handleSyllabusClick(syllabus)}
+                className="cursor-pointer flex items-center p-4 bg-gray-100 rounded-lg shadow-md transition-all duration-300 hover:shadow-xl hover:bg-gray-200"
+              >
+                <FaFilePdf className="text-red-600 text-4xl mr-3" />
+                {syllabus.name}
+              </div>
+            ))}
+          </div>
+          {PopupVisible && (
+            <SyllabusPopup
+              onClose={handleClosePopup}
+              selectedSyllabus={selectedSyllabus}
+            />
+          )}
+        </div>
+
         <Broucher
           pdfLink={
             "https://firebasestorage.googleapis.com/v0/b/boardingadmissions-f3ba3.appspot.com/o/brochure%2FWELHAM%20ENTRANCEExamBrochure.pdf?alt=media&token=83196ac2-120d-47a1-afb0-037bf25848d1"
@@ -607,7 +658,7 @@ function WelhamGirlsPage() {
         />
       </div>
 
-      <div>
+      <div className="mt-10">
         <Faq data={WelhamGirls} />
       </div>
     </div>

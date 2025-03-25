@@ -152,7 +152,7 @@ export default function EntranceSlaybus() {
   ];
 
   return (
-    <div className="p-4 md:p-6 rounded-lg bg-white my-10 shadow-md w-[80vw]" >
+    <div className="p-4 md:p-6 rounded-lg bg-white my-10 shadow-md" >
       <div className="font-semibold text-lg md:text-2xl pb-4 md:pb-6">
         Syllabus We Will Cover
       </div>

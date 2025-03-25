@@ -6,12 +6,12 @@ import Link from "next/link";
 const BoardingCompatibilityTestHero = () => {
   return (
     <>
-      <div className="md:mx-20">
+      <div className="">
         <h1 className="text-[2rem] md:text-[3.5rem] text-[#075D70] text-center pb-5 md:pb-8 font-bold">
           Boarding Compatibility Test
         </h1>
         <div
-          className="w-full h-[30.375rem] bg-no-repeat bg-cover bg-center relative"
+          className="w-full h-[30.375rem] -px-20 bg-no-repeat bg-cover bg-center relative"
           style={{ backgroundImage: `url(${Boardingtest.src})` }}
         >
           <div className="w-full   md:w-[22.563rem] h-[17.5rem] px-10 md:px-0 md:mx-12 mt-10 space-y-7   absolute    text-white  ">

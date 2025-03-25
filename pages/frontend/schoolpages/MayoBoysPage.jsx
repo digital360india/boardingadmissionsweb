@@ -8,6 +8,15 @@ import GetPrepared from "@/components/frontend/GetPrepared";
 import Broucher from "@/components/frontend/Broucher";
 import EnquiryForm from "@/components/frontend/EnquiryForm";
 import SchoolCarousel from "../../../components/frontend/SchoolCarousel";
+import { FaFilePdf } from "react-icons/fa";
+
+
+const syllabusData = [
+  {
+    name: "Online CAA Syllabus MCGS",
+    url: "https://firebasestorage.googleapis.com/v0/b/boardingadmissions-f3ba3.appspot.com/o/boardingadmission%2FOnline%20CAA%20Syllabus%20MCGS.pdf?alt=media&token=ffd3eb85-d368-4b5e-802a-7748ecb9933c",
+  },
+];
 
 function MayoBoysPage() {
   const MayoBoys =
@@ -283,6 +292,33 @@ function MayoBoysPage() {
           </div>
         </div>
 
+         <div className="bg-white ">
+                    <h1 className="text-[#075D70] font-semibold text-[1.75rem] sm:text-[2rem] mb-4">
+                     Download Syllabus
+                    </h1>
+                    <div className="grid sm:grid-cols-2 gap-4">
+                      {syllabusData.map((syllabus, index) => (
+                        <>
+                          <a
+                            href={syllabus.url}
+                            download
+                            className="text-[#075D70] font-medium text-lg hover:underline"
+                            target="_blank"
+                          >
+                            <div
+                              key={index}
+                              className="flex items-center p-4 bg-gray-100 rounded-lg shadow-md cursor-pointer transition-all duration-300 hover:shadow-xl hover:bg-gray-200"
+                            >
+                              <FaFilePdf className="text-red-600 text-4xl mr-3" />
+                              {syllabus.name}
+                            </div>
+                          </a>
+                        </>
+                      ))}
+                    </div>
+        
+                  </div>
+
         <Broucher
           pdfLink={
             "https://firebasestorage.googleapis.com/v0/b/boardingadmissions-f3ba3.appspot.com/o/brochure%2FEntranceExamBrochure.pdf?alt=media&token=a62ae681-e33f-4129-801c-1087c4530214"
@@ -290,7 +326,7 @@ function MayoBoysPage() {
         />
       </div>
 
-      <div>
+      <div className="mt-10">
         <Faq data={MayoBoys} />
       </div>
     </div>
