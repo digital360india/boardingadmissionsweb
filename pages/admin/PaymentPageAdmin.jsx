@@ -69,7 +69,7 @@ const PaymentDetail = () => {
 
       script.onload = async () => {
         const paymentPrice = Number(paymentData.paymentPrice) || 0;
-        const totalAmount = paymentPrice * 1.18; // including 18% GST
+        const totalAmount = paymentPrice 
 
         const result = await createOrders({
           productId: id,
