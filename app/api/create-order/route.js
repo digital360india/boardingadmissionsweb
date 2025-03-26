@@ -1,4 +1,4 @@
-import { NextRequest, NextResponse } from 'next/server';
+import {NextResponse } from 'next/server';
 import RazorpayInstance from "../razorpay.js";
 
 export async function POST(req) {
@@ -8,7 +8,7 @@ export async function POST(req) {
     return NextResponse.json({ error: 'Amount is required' }, { status: 400 });
   }
 
-  try {
+  try {    
     const orders = await RazorpayInstance.orders.create({
       amount: totalAmount * 100, // amount in the smallest currency unit
       currency: currency || "INR",

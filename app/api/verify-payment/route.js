@@ -1,4 +1,4 @@
-import { NextRequest, NextResponse } from 'next/server';
+import { NextResponse } from 'next/server';
 import { createHmac } from "crypto";
 
 export async function POST(req) {
@@ -8,13 +8,9 @@ export async function POST(req) {
     const shasum = createHmac("sha256", process.env.RAZORPAY_KEY_SECRET);
     shasum.update(`${data.razorpay_order_id}|${data.razorpay_payment_id}`);
     const digest = shasum.digest("hex");
-
     if (digest !== data.razorpay_signature) {
       return NextResponse.json({ error: "Transaction not legit!" }, { status: 400 });
     }
-
-    // Save the payment details in the database
-
     return NextResponse.json({ success: true }, { status: 200 });
   } catch (error) {
     console.log("Error verifying payment", error);
