@@ -119,10 +119,8 @@ const PaymentDetail = () => {
                 invoiceNumber: id,
               };
               // Send the invoice email via your API endpoint
-              await fetch("/api/send-confirmation", {
-                method: "POST",
-                headers: { "Content-Type": "application/json" },
-                body: JSON.stringify(emailData),
+              await axios.post("/api/send-invoice", {
+          emailData,
               });
             } catch (emailError) {
               console.error("Error sending confirmation email:", emailError);
