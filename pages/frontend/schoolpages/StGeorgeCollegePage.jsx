@@ -9,10 +9,6 @@ import EnquiryForm from "@/components/frontend/EnquiryForm";
 import Broucher from "@/components/frontend/Broucher";
 import SchoolCarousel from "../../../components/frontend/SchoolCarousel";
 
-
-
-
-
 const steps = [
   {
     title: "Registration",
@@ -83,13 +79,13 @@ function StGeorgeCollegePage() {
           />
         </div>
       </div> */}
-<SchoolCarousel />
-<div className="w-[90%] ml-[5%] mt-6">
+      <SchoolCarousel />
+      <div className="w-[90%] ml-[5%] mt-6">
         <div className="relative h-[150px]   xl:h-[150px] md:h-[120px] lg:h-[160px]     w-full  border-b-2  sm:flex sm:justify-between">
           <div className="w-full flex flex-col  lg:gap-5 gap-2">
             <div className="">
-            <h1 className="text-[#075D70]  lg:text-[2rem] text-[18px] font-semibold lg:font-bold ">
-            St. George College, Mussoorie, Uttarakhand
+              <h1 className="text-[#075D70]  lg:text-[2rem] text-[18px] font-semibold lg:font-bold ">
+                St. George College, Mussoorie, Uttarakhand
               </h1>
             </div>
             <StarRatings
@@ -98,7 +94,7 @@ function StGeorgeCollegePage() {
               schoolName={"St. George's College"}
             />
 
-               {/* <div className=" flex sm:w-[50%] gap-3 mb-2 sm:mb-0">
+            {/* <div className=" flex sm:w-[50%] gap-3 mb-2 sm:mb-0">
               <h3 className="px-1 py-1 rounded-md bg-[#6198A3] bg-opacity-[12%] text-black ">
                 Private School
               </h3>
@@ -122,37 +118,42 @@ function StGeorgeCollegePage() {
 
               <p className="text-[#075D70]">Broucher</p>
             </button> */}
-                       <GetPrepared/>
-
+            <GetPrepared />
           </div>
         </div>
         <div className="md:hidden mt-6">
-<EnquiryForm/>
+          <EnquiryForm />
+        </div>
 
-</div>
-        <div className="space-y-4 w-[90vw]  mt-10 ">
-          <div className="">
-            <h1 className="text-[#075D70] font-semibold  text-[1.5rem] md:text-[2rem] ">
-              About St. George College
-            </h1>
+        <div className="md:flex md:justify-between">
+          <div className="space-y-4 w-[90vw]  mt-10 ">
+            <div className="">
+              <h1 className="text-[#075D70] font-semibold  text-[1.5rem] md:text-[2rem] ">
+                About St. George College
+              </h1>
+            </div>
+            <div>
+              <p className="leading-6 w-[88vw] md:w-[45vw] text-[14px] md:text-[1.15rem] text-justify">
+                St. George College, set in the picturesque hill station of
+                Mussoorie, is a prestigious educational institution celebrated
+                for its academic excellence and vibrant co-curricular
+                activities. Nestled in the serene Himalayan foothills, the
+                college offers a unique learning environment that balances
+                academic rigor with personal growth and character development.
+                St. George College stands out for its holistic education
+                approach, providing a diverse curriculum that blends modern
+                teaching practices with traditional values. The
+                institution&apos;s commitment to nurturing well-rounded
+                individuals is evident through its comprehensive programs,
+                dedicated faculty, and state-of-the-art facilities. With a focus
+                on developing leadership skills and fostering global
+                citizenship, St. George College prepares students to confidently
+                navigate the complexities of an ever-changing world.
+              </p>
+            </div>
           </div>
-          <div>
-            <p className="leading-6 w-[88vw] text-[14px] md:text-[1.15rem] text-justify">
-              St. George College, set in the picturesque hill station of
-              Mussoorie, is a prestigious educational institution celebrated for
-              its academic excellence and vibrant co-curricular activities.
-              Nestled in the serene Himalayan foothills, the college offers a
-              unique learning environment that balances academic rigor with
-              personal growth and character development. St. George College
-              stands out for its holistic education approach, providing a
-              diverse curriculum that blends modern teaching practices with
-              traditional values. The institution&apos;s commitment to nurturing
-              well-rounded individuals is evident through its comprehensive
-              programs, dedicated faculty, and state-of-the-art facilities. With
-              a focus on developing leadership skills and fostering global
-              citizenship, St. George College prepares students to confidently
-              navigate the complexities of an ever-changing world.
-            </p>
+          <div className=" hidden md:block mt-10">
+            <EnquiryForm />
           </div>
         </div>
 
@@ -302,7 +303,6 @@ function StGeorgeCollegePage() {
               Admission Procedure
             </h1>
           </div>
-          
 
           <div>
             <ul className="list-disc pl-4 space-y-4 text-[14px] md:text-[1.15rem]">
@@ -329,9 +329,7 @@ function StGeorgeCollegePage() {
           </ul>
         </div>
 
-               <Broucher/>
-
-
+        <Broucher />
       </div>
 
       <div>

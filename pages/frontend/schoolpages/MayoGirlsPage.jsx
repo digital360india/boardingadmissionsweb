@@ -146,41 +146,51 @@ function MayoGirlsPage() {
           <EnquiryForm />
         </div>
         <div className="space-y-4 w-[90vw]  mt-10 ">
-          <div className="">
-            <h1 className="text-[#075D70] font-semibold  text-[2rem] ">
-              About Mayo Girls College
-            </h1>
-          </div>
-          <div>
-            <p className="leading-6 w-[88vw] text-[1.15rem] text-justify">
-              Mayo College Girls School, established in 1987 in Ajmer,
-              Rajasthan, is renowned for providing a balanced education rooted
-              in Indian values and modern practices. As the sister school of
-              Mayo College, it emphasizes the holistic development of girls in
-              academics, sports, arts, and extracurricular activities.
-            </p>
+          <div className="md:flex md:justify-between">
+            <div className="space-y-4">
+              <div className="">
+                <h1 className="text-[#075D70] font-semibold  text-[2rem] ">
+                  About Mayo Girls College
+                </h1>
+              </div>
+              <div>
+                <p className="leading-6 w-[88vw] md:w-[45vw] text-[1.15rem] text-justify">
+                  Mayo College Girls School, established in 1987 in Ajmer,
+                  Rajasthan, is renowned for providing a balanced education
+                  rooted in Indian values and modern practices. As the sister
+                  school of Mayo College, it emphasizes the holistic development
+                  of girls in academics, sports, arts, and extracurricular
+                  activities.
+                </p>
+              </div>
+            </div>
+            <div className=" hidden md:block ">
+              <EnquiryForm />
+            </div>
           </div>
 
-          <div>
-            <p className="text-[#075D70] font-semibold text-[1.4rem] my-4">
-              Key Steps:
-            </p>
-          </div>
-          <div>
-            <ul className="list-disc pl-4 space-y-4 text-[1.15rem]">
-              <li>
-                <span className="font-medium">Residential Campus:</span>A safe,
-                supportive environment for students to live and learn.
-              </li>
-              <li>
-                <span className="font-medium">Cultural Integration:</span>
-                Blending traditional values with future-ready education
-              </li>
-              <li>
-                <span className="font-medium">Holistic Development:</span>
-                Focus on all-around growth through academics and activities.
-              </li>
-            </ul>
+          <div className="md:w-[45vw] ">
+            <div>
+              <p className="text-[#075D70] font-semibold text-[1.4rem] my-4">
+                Key Steps:
+              </p>
+            </div>
+            <div>
+              <ul className="list-disc pl-4 space-y-4 text-[1.15rem]">
+                <li>
+                  <span className="font-medium">Residential Campus:</span>A
+                  safe, supportive environment for students to live and learn.
+                </li>
+                <li>
+                  <span className="font-medium">Cultural Integration:</span>
+                  Blending traditional values with future-ready education
+                </li>
+                <li>
+                  <span className="font-medium">Holistic Development:</span>
+                  Focus on all-around growth through academics and activities.
+                </li>
+              </ul>
+            </div>
           </div>
         </div>
 
@@ -523,7 +533,7 @@ function MayoGirlsPage() {
 
           <div className="bg-white ">
             <h1 className="text-[#075D70] font-semibold text-[1.75rem] sm:text-[2rem] mb-4">
-             Download Syllabus
+              Download Syllabus
             </h1>
             <div className="grid sm:grid-cols-2 gap-4">
               {syllabusData.map((syllabus, index) => (
@@ -545,7 +555,6 @@ function MayoGirlsPage() {
                 </>
               ))}
             </div>
-
           </div>
         </div>
 

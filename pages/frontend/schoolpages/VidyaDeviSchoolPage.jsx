@@ -130,27 +130,33 @@ function VidyaDeviSchoolPage() {
         <div className="md:hidden mt-6">
           <EnquiryForm />
         </div>
-        <div className="space-y-4 w-[90vw]  mt-10 ">
-          <div className="">
-            <h1 className="text-[#075D70] font-semibold  text-[1.5rem] md:text-[2rem] ">
-              About Vidya Devi Jindal School
-            </h1>
+
+        <div className="md:flex md:justify-between">
+          <div className="space-y-4 w-[90vw]  mt-10 ">
+            <div className="">
+              <h1 className="text-[#075D70] font-semibold  text-[1.5rem] md:text-[2rem] ">
+                About Vidya Devi Jindal School
+              </h1>
+            </div>
+            <div>
+              <p className="leading-6 w-[88vw] md:w-[45vw] text-[14px] md:text-[1.15rem] text-justify">
+                Vidya Devi Jindal School in Hisar is a prestigious institution
+                dedicated to empowering young women through a comprehensive and
+                modern education. The school harmonizes traditional values with
+                contemporary teaching methods, creating a nurturing environment
+                that fosters academic excellence and personal growth. With a
+                curriculum designed to spark intellectual curiosity and critical
+                thinking, Vidya Devi Jindal School also emphasizes cultural
+                awareness, social responsibility, and global citizenship.
+                Supported by state-of-the-art facilities, a broad range of
+                extracurricular activities, and a team of dedicated educators,
+                the school prepares its students to become confident,
+                compassionate leaders ready to excel in a dynamic world.
+              </p>
+            </div>
           </div>
-          <div>
-            <p className="leading-6 w-[88vw] text-[14px] md:text-[1.15rem] text-justify">
-              Vidya Devi Jindal School in Hisar is a prestigious institution
-              dedicated to empowering young women through a comprehensive and
-              modern education. The school harmonizes traditional values with
-              contemporary teaching methods, creating a nurturing environment
-              that fosters academic excellence and personal growth. With a
-              curriculum designed to spark intellectual curiosity and critical
-              thinking, Vidya Devi Jindal School also emphasizes cultural
-              awareness, social responsibility, and global citizenship.
-              Supported by state-of-the-art facilities, a broad range of
-              extracurricular activities, and a team of dedicated educators, the
-              school prepares its students to become confident, compassionate
-              leaders ready to excel in a dynamic world.
-            </p>
+          <div className=" hidden md:block mt-10">
+            <EnquiryForm />
           </div>
         </div>
 

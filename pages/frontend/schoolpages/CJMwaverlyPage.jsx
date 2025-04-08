@@ -121,8 +121,8 @@ function CJMwaverlyPage() {
           />
         </div>
       </div> */}
-<SchoolCarousel/>
-<div className="w-[90%] ml-[5%] mt-6">
+      <SchoolCarousel />
+      <div className="w-[90%] ml-[5%] mt-6">
         <div className="relative h-[150px]   xl:h-[150px] md:h-[120px] lg:h-[170px]    w-full  border-b-2  sm:flex sm:justify-between">
           <div className="w-full flex flex-col  lg:gap-5 gap-2">
             <div className="">
@@ -166,28 +166,35 @@ function CJMwaverlyPage() {
         <div className="md:hidden mt-6">
           <EnquiryForm />
         </div>
-        <div className="space-y-4 w-[90vw]  mt-10 ">
-          <div className="">
-            <h1 className="text-[#075D70] font-semibold  text-[1.5rem] md:text-[2rem] ">
-              About CJM Waverly
-            </h1>
+
+        <div className="md:flex md:justify-between">
+          <div className="space-y-4 w-[90vw]  mt-10 ">
+            <div className="">
+              <h1 className="text-[#075D70] font-semibold  text-[1.5rem] md:text-[2rem] ">
+                About CJM Waverly
+              </h1>
+            </div>
+            <div>
+              <p className="leading-6 w-[88vw] md:w-[45vw] text-[14px] md:text-[1.15rem] text-justify">
+                CJM Waverly, located in the picturesque hills of Mussoorie, is a
+                distinguished institution known for its commitment to academic
+                excellence and moral development. As one of India&apos;s oldest
+                and most esteemed boarding schools, CJM Waverly offers a
+                nurturing environment where students are encouraged to grow
+                intellectually, culturally, and physically. The school&apos;s
+                rigorous academic programs are complemented by a strong emphasis
+                on holistic development, ensuring that students are well-rounded
+                and prepared for the challenges ahead. Guided by a dedicated
+                faculty, CJM Waverly students thrive in a vibrant and inclusive
+                community. The serene setting of the school provides an ideal
+                atmosphere for learning and personal growth, making CJM Waverly
+                a sought-after destination for a comprehensive and enriching
+                education
+              </p>
+            </div>
           </div>
-          <div>
-            <p className="leading-6 w-[88vw] text-[14px] md:text-[1.15rem] text-justify">
-              CJM Waverly, located in the picturesque hills of Mussoorie, is a
-              distinguished institution known for its commitment to academic
-              excellence and moral development. As one of India&apos;s oldest
-              and most esteemed boarding schools, CJM Waverly offers a nurturing
-              environment where students are encouraged to grow intellectually,
-              culturally, and physically. The school&apos;s rigorous academic
-              programs are complemented by a strong emphasis on holistic
-              development, ensuring that students are well-rounded and prepared
-              for the challenges ahead. Guided by a dedicated faculty, CJM
-              Waverly students thrive in a vibrant and inclusive community. The
-              serene setting of the school provides an ideal atmosphere for
-              learning and personal growth, making CJM Waverly a sought-after
-              destination for a comprehensive and enriching education
-            </p>
+          <div className=" hidden md:block mt-10">
+            <EnquiryForm />
           </div>
         </div>
 
@@ -243,7 +250,10 @@ function CJMwaverlyPage() {
               {admissionSteps.map((step, index) => (
                 <li key={index}>
                   <span className="font-medium text-[1rem]">{step.title}:</span>{" "}
-                 <span className="text-[14px] md:text-[1.15rem]"> {step.description}</span>
+                  <span className="text-[14px] md:text-[1.15rem]">
+                    {" "}
+                    {step.description}
+                  </span>
                 </li>
               ))}
             </ul>

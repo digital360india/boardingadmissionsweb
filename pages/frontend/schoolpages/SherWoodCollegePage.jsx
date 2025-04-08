@@ -115,29 +115,35 @@ function SherWoodCollegePage() {
         <div className="md:hidden mt-6">
           <EnquiryForm />
         </div>
-        <div className="space-y-4 w-[90vw]  mt-10 ">
-          <div className="">
-            <h1 className="text-[#075D70] font-semibold  text-[1.5rem] md:text-[2rem] ">
-              About Sherwood College
-            </h1>
+
+        <div className="md:flex md:justify-between">
+          <div className="space-y-4 w-[90vw]  mt-10 ">
+            <div className="">
+              <h1 className="text-[#075D70] font-semibold  text-[1.5rem] md:text-[2rem] ">
+                About Sherwood College
+              </h1>
+            </div>
+            <div>
+              <p className="leading-6 w-[88vw] md:w-[45vw] text-[14px] md:text-[1.15rem] text-justify">
+                Sherwood College, nestled in the scenic town of Nainital, is a
+                prestigious institution celebrated for its legacy of academic
+                excellence and comprehensive development. Surrounded by the
+                tranquil beauty of the Kumaon hills, Sherwood College offers an
+                enriching environment that stimulates both learning and personal
+                growth. The college is recognized for its robust curriculum,
+                which balances academic rigor with an extensive array of
+                extracurricular activities, ensuring that students receive a
+                well-rounded education. Sherwood College&apos;s dedication to
+                fostering intellectual, cultural, and physical growth is
+                reflected in its diverse programs and state-of-the-art
+                facilities. The school&apos;s emphasis on values such as
+                integrity, discipline, and respect prepares students to become
+                responsible global citizens and future leaders.
+              </p>
+            </div>
           </div>
-          <div>
-            <p className="leading-6 w-[88vw] text-[14px] md:text-[1.15rem] text-justify">
-              Sherwood College, nestled in the scenic town of Nainital, is a
-              prestigious institution celebrated for its legacy of academic
-              excellence and comprehensive development. Surrounded by the
-              tranquil beauty of the Kumaon hills, Sherwood College offers an
-              enriching environment that stimulates both learning and personal
-              growth. The college is recognized for its robust curriculum, which
-              balances academic rigor with an extensive array of extracurricular
-              activities, ensuring that students receive a well-rounded
-              education. Sherwood College&apos;s dedication to fostering
-              intellectual, cultural, and physical growth is reflected in its
-              diverse programs and state-of-the-art facilities. The
-              school&apos;s emphasis on values such as integrity, discipline,
-              and respect prepares students to become responsible global
-              citizens and future leaders.
-            </p>
+          <div className=" hidden md:block mt-10">
+            <EnquiryForm />
           </div>
         </div>
 
@@ -148,11 +154,14 @@ function SherWoodCollegePage() {
 
           <ul className="list-disc pl-3 md:pl-10 text-[14px] md:text-[1.15rem] ">
             <li>
-              <span className="font-semibold">Application Registration Fees:</span>{" "}
+              <span className="font-semibold">
+                Application Registration Fees:
+              </span>{" "}
               Rs. 7,000/-
             </li>
             <li>
-              <span className="font-semibold">Security Deposit:</span> Rs. 10,000/-
+              <span className="font-semibold">Security Deposit:</span> Rs.
+              10,000/-
             </li>
             <li>
               <span className="font-semibold">Annual Fees:</span> Rs. 6,20,000/-

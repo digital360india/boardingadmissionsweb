@@ -1,4 +1,4 @@
-"use client"
+"use client";
 import React from "react";
 import Faq from "@/components/frontend/Faqdata";
 import Image from "next/image";
@@ -8,9 +8,6 @@ import GetPrepared from "@/components/frontend/GetPrepared";
 import Broucher from "@/components/frontend/Broucher";
 import EnquiryForm from "@/components/frontend/EnquiryForm";
 import SchoolCarousel from "../../../components/frontend/SchoolCarousel";
-
-
-
 
 const examDetails = [
   {
@@ -49,12 +46,13 @@ const examDetails = [
       "Be ready for an interview, as it may be part of the Woodstock School Entrance process to evaluate applicants comprehensively.",
   },
 ];
-  
+
 function WoodStockPage() {
-  const WoodstockSchool = schoolFAQs.find(school => school.school === 'WoodstockSchool')?.faqs || [];
+  const WoodstockSchool =
+    schoolFAQs.find((school) => school.school === "WoodstockSchool")?.faqs ||
+    [];
   return (
     <div className="h-auto w-[100%] poppins ">
-
       {/* <div className="relative lg:px-[30px] xl:px-[50px]  ">
         <div className=" h-[250px] xl:h-[300px] lg:h-[350px] w-[100%] ">
           <Image
@@ -82,7 +80,7 @@ function WoodStockPage() {
           <div className="w-full flex flex-col  lg:gap-5 gap-2">
             <div className="">
               <h1 className="text-[#075D70]  lg:text-[2rem] text-[18px] font-semibold lg:font-bold ">
-              Wood Stock School, (Mussoorie)
+                Wood Stock School, (Mussoorie)
               </h1>
             </div>
             <StarRatings
@@ -91,7 +89,7 @@ function WoodStockPage() {
               schoolName={"woodstock school"}
             />
 
-               {/* <div className=" flex sm:w-[50%] gap-3 mb-2 sm:mb-0">
+            {/* <div className=" flex sm:w-[50%] gap-3 mb-2 sm:mb-0">
               <h3 className="px-1 py-1 rounded-md bg-[#6198A3] bg-opacity-[12%] text-black ">
                 Private School
               </h3>
@@ -99,7 +97,6 @@ function WoodStockPage() {
                 Estd.- 1995
               </h3>
             </div> */}
-        
           </div>
 
           <div className=" sm:absolute  gap-3 flex  sm:right-0 sm:self-center py-2">
@@ -116,51 +113,73 @@ function WoodStockPage() {
 
               <p className="text-[#075D70]">Broucher</p>
             </button> */}
-            
-            <GetPrepared/>
+
+            <GetPrepared />
           </div>
         </div>
         <div className="md:hidden mt-6">
-<EnquiryForm/>
+          <EnquiryForm />
+        </div>
 
-</div>
-        <div className="space-y-4 w-[90vw]   mt-6 ">
-          <div className="">
-            <h1 className="text-[#075D70] font-semibold text-[1.5rem] md:text-[2rem] ">
-              About WoodStock School
-            </h1>
+        <div className="md:flex md:justify-between">
+          <div className="space-y-4 w-[90vw]   mt-6 ">
+            <div className="">
+              <h1 className="text-[#075D70] font-semibold text-[1.5rem] md:text-[2rem] ">
+                About WoodStock School
+              </h1>
+            </div>
+            <div>
+              <p className="leading-6 w-[88vw] md:w-[45vw] text-[14px] md:text-[1.15rem] text-justify">
+                Woodstock School, nestled in the scenic hills of Mussoorie,
+                Uttarakhand, is one of Asia&apos;s oldest and most prestigious
+                residential schools. Established in 1854, it is an independent,
+                coeducational institution with a rich legacy of academic
+                excellence. Woodstock School is accredited by the Middle States
+                Association and recognized as an International Baccalaureate
+                (IB) World School, offering a globally recognized education from
+                kindergarten through Grade 12. The school&apos;s curriculum
+                blends American educational standards with Indian cultural
+                values, providing a well-rounded educational experience that
+                prepares students for global citizenship.
+              </p>
+            </div>
           </div>
-          <div>
-            <p className="leading-6 w-[88vw] text-[14px] md:text-[1.15rem] text-justify">
-              Woodstock School, nestled in the scenic hills of Mussoorie,
-              Uttarakhand, is one of Asia&apos;s oldest and most prestigious
-              residential schools. Established in 1854, it is an independent,
-              coeducational institution with a rich legacy of academic
-              excellence. Woodstock School is accredited by the Middle States
-              Association and recognized as an International Baccalaureate (IB)
-              World School, offering a globally recognized education from
-              kindergarten through Grade 12. The school&apos;s curriculum blends
-              American educational standards with Indian cultural values,
-              providing a well-rounded educational experience that prepares
-              students for global citizenship.
-            </p>
+          <div className=" hidden md:block mt-6">
+            <EnquiryForm />
           </div>
         </div>
 
-
         <div className="mt-5">
-  <h1 className="text-[#075D70] font-semibold text-[1.5rem] md:text-[2rem]">Fee Structure</h1>
-  <ul className="text-[1rem] md:text-[1.15rem] mt-3">
-    <li><span className="font-semibold mr-1">Grade 6:</span> Rs. 1,986,000</li>
-    <li><span className="font-semibold mr-1">Grade 7:</span> Rs. 1,986,000</li>
-    <li><span className="font-semibold mr-1">Grade 8:</span> Rs. 1,986,000</li>
-    <li><span className="font-semibold mr-1">Grade 9:</span> Rs. 2,052,000</li>
-    <li><span className="font-semibold mr-1">Grade 10:</span> Rs. 2,052,000</li>
-    <li><span className="font-semibold mr-1">Grade 11:</span> Rs. 2,206,000</li>
-    <li><span className="font-semibold mr-1">Grade 12:</span> Rs. 2,206,000</li>
-  </ul>
-</div>
-
+          <h1 className="text-[#075D70] font-semibold text-[1.5rem] md:text-[2rem]">
+            Fee Structure
+          </h1>
+          <ul className="text-[1rem] md:text-[1.15rem] mt-3">
+            <li>
+              <span className="font-semibold mr-1">Grade 6:</span> Rs. 1,986,000
+            </li>
+            <li>
+              <span className="font-semibold mr-1">Grade 7:</span> Rs. 1,986,000
+            </li>
+            <li>
+              <span className="font-semibold mr-1">Grade 8:</span> Rs. 1,986,000
+            </li>
+            <li>
+              <span className="font-semibold mr-1">Grade 9:</span> Rs. 2,052,000
+            </li>
+            <li>
+              <span className="font-semibold mr-1">Grade 10:</span> Rs.
+              2,052,000
+            </li>
+            <li>
+              <span className="font-semibold mr-1">Grade 11:</span> Rs.
+              2,206,000
+            </li>
+            <li>
+              <span className="font-semibold mr-1">Grade 12:</span> Rs.
+              2,206,000
+            </li>
+          </ul>
+        </div>
 
         <div className="space-y-4 w-[90vw] mb-10 mt-5">
           <div>
@@ -181,11 +200,11 @@ function WoodStockPage() {
           </div>
         </div>
 
-<Broucher/>
+        <Broucher />
       </div>
 
       <div>
-        <Faq data={WoodstockSchool}/>
+        <Faq data={WoodstockSchool} />
       </div>
     </div>
   );

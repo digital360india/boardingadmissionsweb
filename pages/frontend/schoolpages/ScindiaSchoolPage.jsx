@@ -87,30 +87,36 @@ function ScindiaSchoolPage() {
         <div className="md:hidden mt-6">
           <EnquiryForm />
         </div>
-        <div className="space-y-4 w-[90vw]  mt-10 ">
-          <div className="">
-            <h1 className="text-[#075D70] font-semibold  text-[1.5rem] md:text-[2rem] ">
-              About Scindia Kanya Vidyalaya
-            </h1>
+
+        <div className="md:flex md:justify-between">
+          <div className="space-y-4 w-[90vw]  mt-10 ">
+            <div className="">
+              <h1 className="text-[#075D70] font-semibold  text-[1.5rem] md:text-[2rem] ">
+                About Scindia Kanya Vidyalaya
+              </h1>
+            </div>
+            <div>
+              <p className="leading-6 w-[88vw]  md:w-[45vw] text-[14px] md:text-[1.15rem] text-justify">
+                Scindia Kanya Vidyalaya (SKV), situated in the historic city of
+                Gwalior, is not just another educational institution; it&apos;s
+                a nurturing environment that empowers girls through quality
+                education. Established in 1956 by the Late Rajmata of Gwalior,
+                Shrimant Vijaya Raje Scindia, SKV is celebrated as one of
+                India&apos;s leading residential schools. The school was
+                inaugurated by z. Rajendra Prasad, the then President of India,
+                marking its significant place in the educational landscape. At
+                SKV, the aim is not merely to educate but to cultivate
+                confident, capable young women ready to face the challenges of
+                the modern world. The curriculum is thoughtfully designed to
+                offer experiential learning, equipping students with essential
+                life skills, leadership qualities, and moral values. These
+                aspects set Scindia Kanya Vidyalaya apart from conventional
+                institutions, making it a cherished choice for many families.
+              </p>
+            </div>
           </div>
-          <div>
-            <p className="leading-6 w-[88vw] text-[14px] md:text-[1.15rem] text-justify">
-              Scindia Kanya Vidyalaya (SKV), situated in the historic city of
-              Gwalior, is not just another educational institution; it&apos;s a
-              nurturing environment that empowers girls through quality
-              education. Established in 1956 by the Late Rajmata of Gwalior,
-              Shrimant Vijaya Raje Scindia, SKV is celebrated as one of
-              India&apos;s leading residential schools. The school was
-              inaugurated by z. Rajendra Prasad, the then President of India,
-              marking its significant place in the educational landscape. At
-              SKV, the aim is not merely to educate but to cultivate confident,
-              capable young women ready to face the challenges of the modern
-              world. The curriculum is thoughtfully designed to offer
-              experiential learning, equipping students with essential life
-              skills, leadership qualities, and moral values. These aspects set
-              Scindia Kanya Vidyalaya apart from conventional institutions,
-              making it a cherished choice for many families.
-            </p>
+          <div className=" hidden md:block mt-10">
+            <EnquiryForm />
           </div>
         </div>
 

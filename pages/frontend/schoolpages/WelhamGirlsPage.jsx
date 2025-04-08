@@ -32,7 +32,6 @@ function WelhamGirlsPage() {
     if (savedData) {
       window.open(syllabus.url, "_blank");
     } else {
-     
       setSelectedSyllabus(syllabus);
       setPopupVisible(true);
     }
@@ -109,20 +108,27 @@ function WelhamGirlsPage() {
         <div className="md:hidden mt-6">
           <EnquiryForm />
         </div>
-        <div className="space-y-4 w-[90vw]  mt-10 ">
-          <div className="">
-            <p className="text-[#075D70] font-semibold  text-[1.5rem] md:text-[2rem]">
-              About Welham Girls School
-            </p>
+
+        <div className="md:flex md:justify-between">
+          <div className="space-y-4 w-[90vw]  mt-10  ">
+            <div className="">
+              <p className="text-[#075D70] font-semibold  text-[1.5rem] md:text-[2rem]">
+                About Welham Girls School
+              </p>
+            </div>
+            <div>
+              <p className="leading-6 w-[88vw] md:w-[45vw] text-[14px] md:text-[1.15rem] text-justify">
+                Established to empower young women, Welham Girls School has
+                become synonymous with holistic education. The school offers
+                classes from VI to XII, consistently producing students who
+                excel in academics and beyond. Located in the tranquil foothills
+                of the Himalayas, it provides an ideal environment for learning.
+                
+              </p>
+            </div>
           </div>
-          <div>
-            <p className="leading-6 w-[88vw] text-[14px] md:text-[1.15rem] text-justify">
-              Established to empower young women, Welham Girls School has become
-              synonymous with holistic education. The school offers classes from
-              VI to XII, consistently producing students who excel in academics
-              and beyond. Located in the tranquil foothills of the Himalayas, it
-              provides an ideal environment for learning. .
-            </p>
+          <div className=" hidden md:block mt-6">
+            <EnquiryForm />
           </div>
         </div>
 

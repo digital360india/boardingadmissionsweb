@@ -119,26 +119,32 @@ function BishopHimachalPage() {
         <div className="md:hidden mt-6">
           <EnquiryForm />
         </div>
-        <div className="space-y-4 w-[90vw]  mt-10 ">
-          <div className="">
-            <h1 className="text-[#075D70] font-semibold  text-[2rem] ">
-              About Bishop Cotton School
-            </h1>
+
+        <div className="md:flex md:justify-between">
+          <div className="space-y-4 w-[90vw]  mt-10 ">
+            <div className="">
+              <h1 className="text-[#075D70] font-semibold  text-[2rem] ">
+                About Bishop Cotton School
+              </h1>
+            </div>
+            <div>
+              <p className="leading-6 w-[88vw] md:w-[45vw] text-[1.15rem] text-justify">
+                Bishop Cotton School in Shimla is one of India&apos;s top
+                schools, known for combining its long-standing traditions with
+                modern teaching methods. Located in the beautiful hills of
+                Shimla, the school is dedicated to providing a well-rounded
+                education that balances academics with a variety of
+                extracurricular activities. The school focuses on developing
+                leadership, strong moral values, and social responsibility among
+                its students, helping them grow into confident and responsible
+                individuals. With excellent facilities, experienced teachers,
+                and a lively student community, Bishop Cotton School aims to
+                help every student reach their full potential.
+              </p>
+            </div>
           </div>
-          <div>
-            <p className="leading-6 w-[88vw] text-[1.15rem] text-justify">
-              Bishop Cotton School in Shimla is one of India&apos;s top schools,
-              known for combining its long-standing traditions with modern
-              teaching methods. Located in the beautiful hills of Shimla, the
-              school is dedicated to providing a well-rounded education that
-              balances academics with a variety of extracurricular activities.
-              The school focuses on developing leadership, strong moral values,
-              and social responsibility among its students, helping them grow
-              into confident and responsible individuals. With excellent
-              facilities, experienced teachers, and a lively student community,
-              Bishop Cotton School aims to help every student reach their full
-              potential.
-            </p>
+          <div className=" hidden md:block mt-10">
+            <EnquiryForm />
           </div>
         </div>
 

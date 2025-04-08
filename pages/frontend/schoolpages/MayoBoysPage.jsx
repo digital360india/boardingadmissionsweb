@@ -10,7 +10,6 @@ import EnquiryForm from "@/components/frontend/EnquiryForm";
 import SchoolCarousel from "../../../components/frontend/SchoolCarousel";
 import { FaFilePdf } from "react-icons/fa";
 
-
 const syllabusData = [
   {
     name: "Online CAA Syllabus MCGS",
@@ -69,7 +68,6 @@ function MayoBoysPage() {
                   ))
                 }
               </div> */}
-           
             </div>
 
             {/* <div className=" flex sm:w-[50%] gap-3 mb-2 sm:mb-0">
@@ -102,24 +100,31 @@ function MayoBoysPage() {
         <div className="md:hidden mt-6">
           <EnquiryForm />
         </div>
-        <div className="space-y-4 w-[90vw]  mt-10 ">
-          <div className="">
-            <h1 className="text-[#075D70] font-semibold  text-[1.5rem] md:text-[2rem] ">
-              About Mayo Boys School
-            </h1>
+
+        <div className="md:flex md:justify-between">
+          <div className="space-y-4 w-[90vw]  mt-10 ">
+            <div className="">
+              <h1 className="text-[#075D70] font-semibold  text-[1.5rem] md:text-[2rem] ">
+                About Mayo Boys School
+              </h1>
+            </div>
+            <div>
+              <p className="leading-6 w-[88vw] md:w-[45vw] text-[14px] md:text-[1.15rem] text-justify">
+                Mayo College Boys School in Ajmer, Rajasthan, is a prestigious
+                boys&apos; residential school known for its rich heritage and
+                top-notch education. Established in 1875 by Richard Bourke, the
+                school was initially founded to educate the sons of Indian
+                nobility. Today, Mayo Boys Admissions are highly competitive,
+                with students aiming to join an institution that fosters
+                academic excellence and holistic development. The schools
+                sprawling green campus, modern facilities, and a strong emphasis
+                on character building make it a sought-after choice for parents.
+              </p>
+            </div>
           </div>
-          <div>
-            <p className="leading-6 w-[88vw] text-[14px] md:text-[1.15rem] text-justify">
-              Mayo College Boys School in Ajmer, Rajasthan, is a prestigious
-              boys&apos; residential school known for its rich heritage and
-              top-notch education. Established in 1875 by Richard Bourke, the
-              school was initially founded to educate the sons of Indian
-              nobility. Today, Mayo Boys Admissions are highly competitive, with
-              students aiming to join an institution that fosters academic
-              excellence and holistic development. The schools sprawling green
-              campus, modern facilities, and a strong emphasis on character
-              building make it a sought-after choice for parents.
-            </p>
+
+          <div className=" hidden md:block mt-10">
+            <EnquiryForm />
           </div>
         </div>
 
@@ -181,7 +186,7 @@ function MayoBoysPage() {
                 </li>
               </ul>
             </li>
-            <li >
+            <li>
               <span className="font-medium">Interview and Final Selection</span>
               <ul className="list-disc pl-4 mt-2 space-y-4">
                 <li className="text-[14px] md:text-[1.15rem]">
@@ -292,32 +297,31 @@ function MayoBoysPage() {
           </div>
         </div>
 
-         <div className="bg-white ">
-                    <h1 className="text-[#075D70] font-semibold text-[1.75rem] sm:text-[2rem] mb-4">
-                     Download Syllabus
-                    </h1>
-                    <div className="grid sm:grid-cols-2 gap-4">
-                      {syllabusData.map((syllabus, index) => (
-                        <>
-                          <a
-                            href={syllabus.url}
-                            download
-                            className="text-[#075D70] font-medium text-lg hover:underline"
-                            target="_blank"
-                          >
-                            <div
-                              key={index}
-                              className="flex items-center p-4 bg-gray-100 rounded-lg shadow-md cursor-pointer transition-all duration-300 hover:shadow-xl hover:bg-gray-200"
-                            >
-                              <FaFilePdf className="text-red-600 text-4xl mr-3" />
-                              {syllabus.name}
-                            </div>
-                          </a>
-                        </>
-                      ))}
-                    </div>
-        
+        <div className="bg-white ">
+          <h1 className="text-[#075D70] font-semibold text-[1.75rem] sm:text-[2rem] mb-4">
+            Download Syllabus
+          </h1>
+          <div className="grid sm:grid-cols-2 gap-4">
+            {syllabusData.map((syllabus, index) => (
+              <>
+                <a
+                  href={syllabus.url}
+                  download
+                  className="text-[#075D70] font-medium text-lg hover:underline"
+                  target="_blank"
+                >
+                  <div
+                    key={index}
+                    className="flex items-center p-4 bg-gray-100 rounded-lg shadow-md cursor-pointer transition-all duration-300 hover:shadow-xl hover:bg-gray-200"
+                  >
+                    <FaFilePdf className="text-red-600 text-4xl mr-3" />
+                    {syllabus.name}
                   </div>
+                </a>
+              </>
+            ))}
+          </div>
+        </div>
 
         <Broucher
           pdfLink={

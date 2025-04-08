@@ -60,23 +60,29 @@ function WelhamBoysPage() {
         <div className="md:hidden mt-6">
           <EnquiryForm />
         </div>
-        <div className="space-y-4 w-[90vw]  mt-10 ">
-          <div className="">
-            <h1 className="text-[#075D70] font-semibold  text-[1.5rem] md:text-[2rem] ">
-              About Welham Boys School
-            </h1>
+
+        <div className="md:flex md:justify-between">
+          <div className="space-y-4 w-[90vw]  mt-10 ">
+            <div className="">
+              <h1 className="text-[#075D70] font-semibold  text-[1.5rem] md:text-[2rem] ">
+                About Welham Boys School
+              </h1>
+            </div>
+            <div>
+              <p className="leading-6 w-[88vw] md:w-[45vw] text-[14px] md:text-[1.15rem] text-justify">
+                Welham Boys School, a prestigious institution in Dehradun, is
+                dedicated to nurturing boys into well-rounded individuals.
+                Affiliated with the CBSE, it offers a curriculum aligned with
+                national standards. The school embraces a diverse community,
+                welcoming students from various backgrounds, both from India and
+                abroad. It focuses on instilling values such as respect,
+                integrity, and responsibility, essential for personal growth and
+                global perspective.
+              </p>
+            </div>
           </div>
-          <div>
-            <p className="leading-6 w-[88vw] text-[14px] md:text-[1.15rem] text-justify">
-              Welham Boys School, a prestigious institution in Dehradun, is
-              dedicated to nurturing boys into well-rounded individuals.
-              Affiliated with the CBSE, it offers a curriculum aligned with
-              national standards. The school embraces a diverse community,
-              welcoming students from various backgrounds, both from India and
-              abroad. It focuses on instilling values such as respect,
-              integrity, and responsibility, essential for personal growth and
-              global perspective.
-            </p>
+          <div className=" hidden md:block mt-6">
+            <EnquiryForm />
           </div>
         </div>
 
@@ -184,8 +190,8 @@ function WelhamBoysPage() {
                     English, Hindi, Mathematics, Life Skills.
                   </li>
                   <li>
-                    <span className="font-semibold">Class XI:</span> Subjects vary
-                    by stream (Science, Commerce, Humanities).
+                    <span className="font-semibold">Class XI:</span> Subjects
+                    vary by stream (Science, Commerce, Humanities).
                   </li>
                 </ul>
 
@@ -425,14 +431,14 @@ function WelhamBoysPage() {
             </table>
             <p className="leading-6 w-[88vw] text-[14px] md:text-[1.15rem] my-6">
               <span className=" text-[14px] md:text-[1.15rem] font-semibold ">
-                Payment Terms:  
+                Payment Terms:
               </span>
               Fees are payable in two installments, with specific deadlines.
               Late payments may incur additional charges.
             </p>
             <p className="leading-6 w-[88vw] text-[14px] md:text-[1.15rem] my-6">
               <span className=" text-[14px] md:text-[1.15rem] font-semibold ">
-                Refund Policy: 
+                Refund Policy:
               </span>
               The registration and admission fees are non-refundable. Partial
               refunds of tuition and boarding fees may be considered under

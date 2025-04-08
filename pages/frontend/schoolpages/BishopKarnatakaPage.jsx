@@ -1,4 +1,4 @@
-"use client"
+"use client";
 import React from "react";
 import Faq from "@/components/frontend/Faqdata";
 import Image from "next/image";
@@ -66,7 +66,7 @@ function BishopKarnatakaPage() {
           />
         </div>
       </div> */}
-      <SchoolCarousel/>
+      <SchoolCarousel />
 
       <div className="w-[90%] ml-[5%] mt-6">
         <div className="relative h-[150px]   xl:h-[150px] md:h-[120px] lg:h-[160px]     w-full  border-b-2  sm:flex sm:justify-between">
@@ -112,25 +112,32 @@ function BishopKarnatakaPage() {
         <div className="md:hidden mt-6">
           <EnquiryForm />
         </div>
-        <div className="space-y-4 w-[90vw]  mt-10 ">
-          <div className="">
-            <h1 className="text-[#075D70] font-semibold  text-[1.5rem] md:text-[2rem] ">
-              About Bishop Cotton School
-            </h1>
+
+        <div className="md:flex md:justify-between">
+          <div className="space-y-4 w-[90vw]  mt-10 ">
+            <div className="">
+              <h1 className="text-[#075D70] font-semibold  text-[1.5rem] md:text-[2rem] ">
+                About Bishop Cotton School
+              </h1>
+            </div>
+            <div>
+              <p className="leading-6 w-[88vw] md:w-[45vw] text-[14px] md:text-[1.15rem] text-justify">
+                Bishop Cotton School in Bangalore is one of India&apos;s oldest
+                and most respected schools, combining its long-standing
+                traditions with modern teaching methods. The school is known for
+                offering a balanced education, where students are encouraged to
+                excel academically while also exploring their creative, social,
+                and physical potential. Located on a vibrant campus in
+                Bangalore, the school provides a supportive environment that
+                helps students grow into thoughtful and responsible individuals.
+                With a strong community of alumni who have gone on to succeed in
+                various fields, Bishop Cotton School remains a leader in quality
+                education.
+              </p>
+            </div>
           </div>
-          <div>
-            <p className="leading-6 w-[88vw] text-[14px] md:text-[1.15rem] text-justify">
-              Bishop Cotton School in Bangalore is one of India&apos;s oldest
-              and most respected schools, combining its long-standing traditions
-              with modern teaching methods. The school is known for offering a
-              balanced education, where students are encouraged to excel
-              academically while also exploring their creative, social, and
-              physical potential. Located on a vibrant campus in Bangalore, the
-              school provides a supportive environment that helps students grow
-              into thoughtful and responsible individuals. With a strong
-              community of alumni who have gone on to succeed in various fields,
-              Bishop Cotton School remains a leader in quality education.
-            </p>
+          <div className=" hidden md:block mt-10">
+            <EnquiryForm />
           </div>
         </div>
 
@@ -154,8 +161,12 @@ function BishopKarnatakaPage() {
             <ul className="list-disc pl-4 space-y-3 text-[1.15rem]">
               {registrationSteps.map((step, index) => (
                 <li key={index}>
-                  <span className="font-semibold text-[14px] md:text-[1.15rem]">{step.title}: </span>
-                  <span className="text-[14px] md:text-[1.15rem]">{step.description}</span>
+                  <span className="font-semibold text-[14px] md:text-[1.15rem]">
+                    {step.title}:{" "}
+                  </span>
+                  <span className="text-[14px] md:text-[1.15rem]">
+                    {step.description}
+                  </span>
                 </li>
               ))}
             </ul>

@@ -11,7 +11,6 @@ import SchoolCarousel from "../../../components/frontend/SchoolCarousel";
 import { FaFilePdf } from "react-icons/fa";
 import SyllabusPopup from "../SyllabusPopup";
 
-
 const syllabusData = [
   {
     name: "Doon School Aptitude Test Overview",
@@ -20,24 +19,22 @@ const syllabusData = [
 ];
 
 function TheDoonPage() {
-
   const [PopupVisible, setPopupVisible] = useState(false);
-    const [selectedSyllabus, setSelectedSyllabus] = useState(null);
-  
-    const handleSyllabusClick = (syllabus) => {
-      const savedData = localStorage.getItem("userData");
-  
-      if (savedData) {
-        window.open(syllabus.url, "_blank");
-      } else {
-       
-        setSelectedSyllabus(syllabus);
-        setPopupVisible(true);
-      }
-    };
-    const handleClosePopup = () => {
-      setPopupVisible(false);
-    };
+  const [selectedSyllabus, setSelectedSyllabus] = useState(null);
+
+  const handleSyllabusClick = (syllabus) => {
+    const savedData = localStorage.getItem("userData");
+
+    if (savedData) {
+      window.open(syllabus.url, "_blank");
+    } else {
+      setSelectedSyllabus(syllabus);
+      setPopupVisible(true);
+    }
+  };
+  const handleClosePopup = () => {
+    setPopupVisible(false);
+  };
   const TheDoon =
     schoolFAQs.find((school) => school.school === "TheDoon")?.faqs || [];
   return (
@@ -121,20 +118,26 @@ function TheDoonPage() {
         <div className="md:hidden mt-6">
           <EnquiryForm />
         </div>
-        <div className="space-y-4 w-[90vw]  mt-10 ">
-          <div className="">
-            <h1 className="text-[#075D70] font-semibold  text-[1.5rem] md:text-[2rem] ">
-              About The Doon School
-            </h1>
+
+        <div className="md:flex md:justify-between">
+          <div className="space-y-4 w-[90vw]  mt-10 ">
+            <div className="">
+              <h1 className="text-[#075D70] font-semibold  text-[1.5rem] md:text-[2rem] ">
+                About The Doon School
+              </h1>
+            </div>
+            <div>
+              <p className="leading-6 w-[88vw] md:w-[45vw] text-[14px] md:text-[1.15rem] text-justify">
+                Founded in 1935, The Doon School is known for its academic
+                excellence and focus on holistic education. The school&apos;s
+                mission is to groom boys who excel in academics, sports, music,
+                and cultural activities, while also demonstrating leadership,
+                teamwork, and social responsibility.
+              </p>
+            </div>
           </div>
-          <div>
-            <p className="leading-6 w-[88vw] text-[14px] md:text-[1.15rem] text-justify">
-              Founded in 1935, The Doon School is known for its academic
-              excellence and focus on holistic education. The school&apos;s
-              mission is to groom boys who excel in academics, sports, music,
-              and cultural activities, while also demonstrating leadership,
-              teamwork, and social responsibility.
-            </p>
+          <div className=" hidden md:block mt-6">
+            <EnquiryForm />
           </div>
         </div>
 

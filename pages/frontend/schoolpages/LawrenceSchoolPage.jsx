@@ -11,7 +11,6 @@ import SchoolCarousel from "../../../components/frontend/SchoolCarousel";
 import { FaFilePdf } from "react-icons/fa";
 import SyllabusPopup from "../SyllabusPopup";
 
-
 const syllabusData = [
   {
     name: "Class 5th CET",
@@ -94,7 +93,7 @@ const data = [
   },
 ];
 function LawrenceSchoolPage() {
- const [PopupVisible, setPopupVisible] = useState(false);
+  const [PopupVisible, setPopupVisible] = useState(false);
   const [selectedSyllabus, setSelectedSyllabus] = useState(null);
 
   const handleSyllabusClick = (syllabus) => {
@@ -103,7 +102,6 @@ function LawrenceSchoolPage() {
     if (savedData) {
       window.open(syllabus.url, "_blank");
     } else {
-     
       setSelectedSyllabus(syllabus);
       setPopupVisible(true);
     }
@@ -182,26 +180,32 @@ function LawrenceSchoolPage() {
         <div className="md:hidden mt-6">
           <EnquiryForm />
         </div>
-        <div className="space-y-4 w-[90vw]  mt-10 ">
-          <div className="">
-            <h1 className="text-[#075D70] font-semibold  text-[1.5rem] md:text-[2rem] ">
-              About Lawrence School
-            </h1>
+
+        <div className="md:flex md:justify-between">
+          <div className="space-y-4 w-[90vw]  mt-10 ">
+            <div className="">
+              <h1 className="text-[#075D70] font-semibold  text-[1.5rem] md:text-[2rem] ">
+                About Lawrence School
+              </h1>
+            </div>
+            <div>
+              <p className="leading-6 w-[88vw] md:w-[45vw] text-[14px] md:text-[1.15rem] text-justify">
+                Lawrence School, Sanawar, is a distinguished educational
+                institution nestled in the serene hills of Sanawar. Known for
+                its rich history and commitment to excellence, the school offers
+                a well-rounded education that blends strong academics with a
+                broad array of extracurricular activities. The school&apos;s
+                peaceful surroundings provide an ideal learning and personal
+                development environment. Lawrence School is dedicated to
+                nurturing students into well-rounded, responsible, and globally
+                conscious individuals. The faculty consists of experienced
+                professionals passionate about guiding young minds and preparing
+                them for future challenges.
+              </p>
+            </div>
           </div>
-          <div>
-            <p className="leading-6 w-[88vw] text-[14px] md:text-[1.15rem] text-justify">
-              Lawrence School, Sanawar, is a distinguished educational
-              institution nestled in the serene hills of Sanawar. Known for its
-              rich history and commitment to excellence, the school offers a
-              well-rounded education that blends strong academics with a broad
-              array of extracurricular activities. The school&apos;s peaceful
-              surroundings provide an ideal learning and personal development
-              environment. Lawrence School is dedicated to nurturing students
-              into well-rounded, responsible, and globally conscious
-              individuals. The faculty consists of experienced professionals
-              passionate about guiding young minds and preparing them for future
-              challenges.
-            </p>
+          <div className=" hidden md:block mt-8">
+            <EnquiryForm />
           </div>
         </div>
 
@@ -271,7 +275,7 @@ function LawrenceSchoolPage() {
           </h1>
         </div>
 
-       <div className="bg-white">
+        <div className="bg-white">
           <h1 className="text-[#075D70] font-semibold text-[1.75rem] sm:text-[2rem] mb-4">
             Download Syllabus
           </h1>
