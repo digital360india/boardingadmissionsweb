@@ -31,7 +31,7 @@
     "lottie-react": "^2.4.0",
     "lucide-react": "^0.441.0",
     "mathjax3-react": "^1.2.0",
-    "next": "14.2.4",
+    "next": "^14.2.26",
     "nodemailer": "^6.9.16",
     "quill": "^2.0.2",
     "razorpay": "^2.9.5",
