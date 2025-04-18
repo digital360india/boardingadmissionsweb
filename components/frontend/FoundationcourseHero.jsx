@@ -17,7 +17,6 @@ const FoundationcourseHero = () => {
             backgroundSize: "cover",
             backgroundPosition: "top",
             backgroundRepeat: "no-repeat",
-    
           }}
         >
           <div className="absolute inset-0 bg-[#00000065]"></div>
@@ -34,17 +33,14 @@ const FoundationcourseHero = () => {
             </p>
             <div className="md:w-[18.75rem] w-[7.5rem] p-4">
               <Link href="/enrollnow/foundationcourses">
-              <div className="cursor-pointer w-[7.5rem] h-[2.0rem] md:w-[18rem] md:h-[3rem] bg-gradient-to-br from-[#075D70] to-[#0DB2D6] hover:scale-110 transition duration-300  border-custom rounded-md flex items-center justify-center text-[1rem] ">
-
-               
-                <button className="text-white">Enroll Now</button>
-              </div>
+                <div className="cursor-pointer w-[7.5rem] h-[2.0rem] md:w-[18rem] md:h-[3rem] bg-gradient-to-br from-[#075D70] to-[#0DB2D6] hover:scale-110 transition duration-300  border-custom rounded-md flex items-center justify-center text-[1rem] ">
+                  <button className="text-white">Enroll Now</button>
+                </div>
               </Link>
             </div>
           </div>
         </div>
-
-        <div className="hidden  md:hidden  w-full h-[82px] bg-primary02 mt-8 lg:flex lg:items-center px-12 text-white gap-10 rounded-lg">
+        <div className="hidden md:hidden w-full h-[82px] bg-primary02 mt-8 lg:flex lg:items-center px-12 text-white gap-10 rounded-lg">
           <Link href="#4th-6thGrade">
             <div className="border w-[9.438rem] h-[45px] rounded-md flex justify-center items-center">
               <button>4th - 6th Grade</button>
@@ -65,6 +61,17 @@ const FoundationcourseHero = () => {
               <button>9th Grade</button>
             </div>
           </Link>
+
+          <div className="ml-auto">
+            <Link
+              href="/Foundation-Course.pdf"
+              download
+              target="_blank"
+              className="border border-white rounded-md p-2 px-4 h-[45px] flex items-center text-white hover:bg-white hover:text-primary02 transition"
+            >
+              Download Brochure
+            </Link>
+          </div>
         </div>
 
         <div className="sm:block md:block lg:hidden px-4 py-6">
@@ -89,6 +96,16 @@ const FoundationcourseHero = () => {
               {" "}
               <h1 className="border border-white rounded-md p-2">9th Grade</h1>
             </Link>
+            <button className="px-3">
+              <Link
+                href="/Foundation-Course.pdf"
+                download
+                target="_blank"
+                className="mt-2 border border-white rounded-md p-2 text-white hover:bg-white hover:text-primary02 transition"
+              >
+                Download Brochure
+              </Link>
+            </button>
           </div>
         </div>
       </div>
