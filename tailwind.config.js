@@ -71,6 +71,16 @@ module.exports = {
       letterSpacing: {
         '4%': '0.04em',
       },
+
+      animation: {
+        'scale-pulse': 'scalePulse 1.5s ease-out infinite',
+      },
+      keyframes: {
+        scalePulse: {
+          '0%': { transform: 'scale(1)', opacity: '0.8' },
+          '100%': { transform: 'scale(1.4)', opacity: '0' },
+        },
+      },
     },
   },
   plugins: [],

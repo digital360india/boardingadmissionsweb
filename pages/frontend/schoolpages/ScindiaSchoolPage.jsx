@@ -17,6 +17,9 @@ const syllabusData = [
   },
 ];
 
+const pdfLink =
+  "https://firebasestorage.googleapis.com/v0/b/boardingadmissions-f3ba3.appspot.com/o/brochure%2FSKVENTRANCE%20ExamBrochure.pdf?alt=media&token=49068628-3c47-46a6-bce6-f7e12568d268";
+
 function ScindiaSchoolPage() {
   const Scindia =
     schoolFAQs.find((school) => school.school === "Scindia")?.faqs || [];
@@ -431,11 +434,47 @@ function ScindiaSchoolPage() {
           </div>
         </div>
 
-        <Broucher
+        {/* <Broucher
           pdfLink={
             "https://firebasestorage.googleapis.com/v0/b/boardingadmissions-f3ba3.appspot.com/o/brochure%2FSKVENTRANCE%20ExamBrochure.pdf?alt=media&token=49068628-3c47-46a6-bce6-f7e12568d268"
           }
-        />
+        /> */}
+
+        <div className="w-full flex justify-start mt-10">
+          <div className="rounded-xl shadow-md p-4 w-[400px]  relative ">
+            <div className="bg-white rounded-md overflow-hidden mb-3 h-[450px]">
+              <iframe
+                src={`https://docs.google.com/gview?url=${encodeURIComponent(
+                  pdfLink
+                )}&embedded=true`}
+                className="w-full h-[350px] pointer-events-none"
+                style={{ border: "none" }}
+                title="PDF Preview"
+                scrolling="no"
+              />
+              <div className="px-2 mt-2">
+                <p className="font-semibold text-md">
+                  Scindia-Girls-School_Brochure
+                </p>
+              </div>
+            </div>
+
+            <div className="relative flex justify-center w-[250px] ml-14 ">
+              <div className="absolute inset-0 rounded-md bg-[#075D70] opacity-10 animate-scale-pulse"></div>
+              <a
+                href={pdfLink}
+                download="WELHAM_ENTRANCE_Exam_Brochure.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="relative"
+              >
+                <button className="bg-[#075D70]  text-white py-2 px-5 sm:py-3 sm:px-6 rounded-md text-base sm:text-lg font-semibold transition">
+                  Download Brochure
+                </button>
+              </a>
+            </div>
+          </div>
+        </div>
       </div>
 
       <div>

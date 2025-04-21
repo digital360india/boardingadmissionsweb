@@ -16,6 +16,7 @@ const syllabusData = [
     url: "https://firebasestorage.googleapis.com/v0/b/boardingadmissions-f3ba3.appspot.com/o/boardingadmission%2FOnline%20CAA%20Syllabus%20MCGS.pdf?alt=media&token=ffd3eb85-d368-4b5e-802a-7748ecb9933c",
   },
 ];
+const schoolName = "Mayo Boys School_Brochure";
 
 function MayoBoysPage() {
   const MayoBoys =
@@ -323,13 +324,19 @@ function MayoBoysPage() {
           </div>
         </div>
 
+        {/* <Broucher
+          pdfLink={
+            "https://firebasestorage.googleapis.com/v0/b/boardingadmissions-f3ba3.appspot.com/o/brochure%2FEntranceExamBrochure.pdf?alt=media&token=a62ae681-e33f-4129-801c-1087c4530214"
+          }
+        /> */}
         <Broucher
           pdfLink={
             "https://firebasestorage.googleapis.com/v0/b/boardingadmissions-f3ba3.appspot.com/o/brochure%2FEntranceExamBrochure.pdf?alt=media&token=a62ae681-e33f-4129-801c-1087c4530214"
           }
+          schoolName={schoolName}
         />
       </div>
-
+      
       <div className="mt-10">
         <Faq data={MayoBoys} />
       </div>

@@ -21,6 +21,9 @@ const syllabusData = [
     url: "https://firebasestorage.googleapis.com/v0/b/boardingadmissions-f3ba3.appspot.com/o/boardingadmission%2FSyllabusforClassVII_AptitudeAssessment%20(1).pdf?alt=media&token=d22a8b8e-2a7f-4ffe-b1ed-fc49210c347a",
   },
 ];
+const schoolName = "Welham Girls School";
+const pdfLink =
+  "https://firebasestorage.googleapis.com/v0/b/boardingadmissions-f3ba3.appspot.com/o/brochure%2FWELHAM%20ENTRANCEExamBrochure.pdf?alt=media&token=83196ac2-120d-47a1-afb0-037bf25848d1";
 
 function WelhamGirlsPage() {
   const [PopupVisible, setPopupVisible] = useState(false);
@@ -123,7 +126,6 @@ function WelhamGirlsPage() {
                 classes from VI to XII, consistently producing students who
                 excel in academics and beyond. Located in the tranquil foothills
                 of the Himalayas, it provides an ideal environment for learning.
-                
               </p>
             </div>
           </div>
@@ -657,11 +659,47 @@ function WelhamGirlsPage() {
           )}
         </div>
 
-        <Broucher
+        {/* <Broucher
           pdfLink={
             "https://firebasestorage.googleapis.com/v0/b/boardingadmissions-f3ba3.appspot.com/o/brochure%2FWELHAM%20ENTRANCEExamBrochure.pdf?alt=media&token=83196ac2-120d-47a1-afb0-037bf25848d1"
           }
-        />
+        /> */}
+
+        <div className="w-full flex justify-start mt-10">
+          <div className="rounded-xl shadow-md p-4 w-[400px]  relative ">
+            <div className="bg-white rounded-md overflow-hidden mb-3 h-[450px]">
+              <iframe
+                src={`https://docs.google.com/gview?url=${encodeURIComponent(
+                  pdfLink
+                )}&embedded=true`}
+                className="w-full h-[350px] pointer-events-none "
+                style={{ border: "none" }}
+                title="PDF Preview"
+                scrolling="no"
+              />
+              <div className="px-2 mt-2">
+                <p className="font-semibold text-md">
+                  WELHAM ENTRANCE Exam Brochure
+                </p>
+              </div>
+            </div>
+
+            <div className="relative flex justify-center w-[250px] ml-14 ">
+              <div className="absolute inset-0 rounded-md bg-[#075D70] opacity-10 animate-scale-pulse"></div>
+              <a
+                href={pdfLink}
+                download="WELHAM_ENTRANCE_Exam_Brochure.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="relative"
+              >
+                <button className="bg-[#075D70]  text-white py-2 px-5 sm:py-3 sm:px-6 rounded-md text-base sm:text-lg font-semibold transition">
+                  Download Brochure
+                </button>
+              </a>
+            </div>
+          </div>
+        </div>
       </div>
 
       <div className="mt-10">
