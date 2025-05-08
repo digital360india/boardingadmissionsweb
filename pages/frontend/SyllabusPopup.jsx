@@ -1,6 +1,10 @@
 "use client";
 import PopupSuccess from "@/components/frontend/PopupSuccess";
 import React, { useEffect, useRef, useState } from "react";
+import emailjs from "@emailjs/browser";
+import axios from "axios";
+import { db } from "@/firebase/firebase";
+import { addDoc, collection, updateDoc } from "firebase/firestore";
 
 const SyllabusPopup = ({ onClose, selectedSyllabus }) => {
   const form = useRef();
@@ -18,10 +22,24 @@ const SyllabusPopup = ({ onClose, selectedSyllabus }) => {
     textmessage: "",
   });
 
+  // useEffect(() => {
+  //   const savedData = localStorage.getItem("userData");
+  //   if (savedData) {
+  //     setIsSubmitted(true);
+  //   }
+  // }, []);
   useEffect(() => {
     const savedData = localStorage.getItem("userData");
     if (savedData) {
-      setIsSubmitted(true);
+      const parsedData = JSON.parse(savedData);
+      const currentTime = new Date().getTime();
+      const expirationTime = 1 * 60 * 1000;
+
+      if (currentTime - parsedData.timestamp > expirationTime) {
+        localStorage.removeItem("userData");
+      } else {
+        setIsSubmitted(true);
+      }
     }
   }, []);
 
@@ -43,86 +61,155 @@ const SyllabusPopup = ({ onClose, selectedSyllabus }) => {
       setFormData({ ...formData, phonenumber: value });
     }
   };
- 
- 
-  const handleSubmit =async (e) => {
+
+  // const handleSubmit =async (e) => {
+  //   e.preventDefault();
+  //   setButtonClick(true);
+
+  //   emailjs
+
+  //     .sendForm("service_zzpjmnf", "template_72aafby", form.current, {
+  //       publicKey: "zA2422Fl3c6n_YSjA",
+  //     })
+  //     .then(
+  //       () => {
+  //         console.log("SUCCESS!");
+  //         setIsSubmitted(true);
+  //         setButtonClick(false);
+
+  //         // Reset form data after successful submission
+  //         setFormData({
+  //           name: "",
+  //           phonenumber: "",
+  //           school: "",
+  //           class: "",
+  //           textmessage: "",
+  //         });
+  //       },
+  //       (error) => {
+  //         console.log("FAILED...", error.text);
+  //         alert("Failed");
+  //       }
+  //     );
+
+  //     try {
+  //       const docRef = await addDoc(collection(db, "leads"), {
+  //         name: formData.name,
+  //         phonenumber: formData.phonenumber,
+  //         school:formData.school,
+  //         class:formData.class,
+  //         message: formData.textmessage,
+  //         timestamp: new Date(),
+  //       });
+
+  //       // Get the document ID
+  //       const docId = docRef.id;
+
+  //       await updateDoc(docRef, {
+  //         id: docId,
+  //       });
+
+  //       console.log("Form submitted successfully! Document ID stored:", docId);
+
+  //       setFormData({
+  //         name: "",
+  //         phonenumber: "",
+  //         school: "",
+  //         class: "",
+  //         textmessage: "",
+  //       });
+  //       // router.push('/thankyou');
+  //     } catch (e) {
+  //       console.error("Error adding or updating document: ", e);
+  //     }
+  // };
+  const handleSubmit = async (e) => {
     e.preventDefault();
     setButtonClick(true);
 
-    emailjs
-
-      .sendForm("service_zzpjmnf", "template_72aafby", form.current, {
-        publicKey: "zA2422Fl3c6n_YSjA",
-      })
-      .then(
-        () => {
-          console.log("SUCCESS!");
-          setIsSubmitted(true);
-          setButtonClick(false);
-
-
-          // Reset form data after successful submission
-          setFormData({
-            name: "",
-            phonenumber: "",
-            school: "",
-            class: "",
-            textmessage: "",
-          });
-        },
-        (error) => {
-          console.log("FAILED...", error.text);
-          alert("Failed");
+    try {
+      // 1. Send email with EmailJS
+      await emailjs.sendForm(
+        "service_zzpjmnf",
+        "template_72aafby",
+        form.current,
+        {
+          publicKey: "zA2422Fl3c6n_YSjA",
         }
       );
+      // console.log("EmailJS: SUCCESS!");
+      setIsSubmitted(true);
 
-      try {
-        const docRef = await addDoc(collection(db, "leads"), {
+      // 2. Add lead to Firestore
+      const docRef = await addDoc(collection(db, "leads"), {
+        name: formData.name,
+        phonenumber: formData.phonenumber,
+        school: formData.school,
+        class: formData.class,
+        message: formData.textmessage,
+        timestamp: new Date(),
+      });
+
+      const docId = docRef.id;
+
+      // 3. Submit to LMS API
+      await axios.post(
+        "https://digitalleadmanagement.vercel.app/api/add-lead",
+        {
           name: formData.name,
-          phonenumber: formData.phonenumber,
-          school:formData.school,
-          class:formData.class,
-          message: formData.textmessage,
-          timestamp: new Date(),
-        });
-  
-        // Get the document ID
-        const docId = docRef.id;
-  
-        await updateDoc(docRef, {
-          id: docId,
-        });
-  
-        console.log("Form submitted successfully! Document ID stored:", docId);
-  
-        setFormData({
-          name: "",
-          phonenumber: "",
-          school: "",
-          class: "",
-          textmessage: "",
-        });
-        // router.push('/thankyou');
-      } catch (e) {
-        console.error("Error adding or updating document: ", e);
-      }
+          phoneNumber: formData.phonenumber,
+          school: formData.school,
+          url: window.location.href,
+          remark: formData.textmessage,
+          currentClass: formData.class,
+          date: new Date().toISOString(),
+          source: "Boarding Admissions - Syllabus Popup",
+        }
+      );
+      console.log("LMS API: SUCCESS!");
+
+      // 4. Update Firestore document with its own ID
+      await updateDoc(docRef, {
+        id: docId,
+      });
+      localStorage.setItem(
+        "userData",
+        JSON.stringify({ timestamp: new Date().getTime() })
+      );
+
+      // console.log("Firestore + LMS: SUCCESS! Document ID stored:", docId);
+      alert("Form Submitted Successfully!");
+      // 5. Reset form data
+      setFormData({
+        name: "",
+        phonenumber: "",
+        school: "",
+        class: "",
+        textmessage: "",
+      });
+    } catch (error) {
+      console.error("Error during form submission:", error);
+      alert("Failed to submit form. Please try again.");
+    } finally {
+      setButtonClick(false);
+    }
   };
 
-  useEffect(() => {
-    const userData = localStorage.getItem("userData");
+  // useEffect(() => {
+  //   const userData = localStorage.getItem("userData");
 
-    if (userData) {
-      const parsedData = JSON.parse(userData);
-      const currentTime = new Date().getTime();
-      const expirationTime = 1 * 60 * 1000;
+  //   if (userData) {
+  //     const parsedData = JSON.parse(userData);
+  //     const currentTime = new Date().getTime();
+  //     const expirationTime = 1 * 60 * 1000;
 
-      if (currentTime - parsedData.timestamp > expirationTime) {
-        localStorage.removeItem("userData");
-      } else {
-        setIsSubmitted(true);
-      }
-    }
-  }, []);
+  //     if (currentTime - parsedData.timestamp > expirationTime) {
+  //       localStorage.removeItem("userData");
+  //     } else {
+  //       setIsSubmitted(true);
+  //     }
+  //   }
+  // }, []);
 
   return (
     <div className="z-20  fixed inset-0 flex items-center justify-center   bg-black bg-opacity-30 font-poppins">
