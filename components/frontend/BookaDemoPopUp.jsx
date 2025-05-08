@@ -6,6 +6,7 @@ import { useRouter } from "next/navigation";
 import PopupSuccess from "./PopupSuccess";
 import { db } from "@/firebase/firebase";
 import { addDoc, collection, updateDoc } from "firebase/firestore";
+import axios from "axios";
 
 
 
@@ -57,69 +58,131 @@ const BookaDemoPopUp = ({ onClose }) => {
   };
 
  
-  const handleSubmit =async (e) => {
+  // const handleSubmit =async (e) => {
+  //   e.preventDefault();
+  //   setButtonClick(true);
+
+  //   emailjs
+
+  //     .sendForm("service_zzpjmnf", "template_72aafby", form.current, {
+  //       publicKey: "zA2422Fl3c6n_YSjA",
+  //     })
+  //     .then(
+  //       () => {
+  //         console.log("SUCCESS!");
+  //         setIsSubmitted(true);
+  //         setButtonClick(false);
+
+
+  //         // Reset form data after successful submission
+  //         setFormData({
+  //           name: "",
+  //           phonenumber: "",
+  //           school: "",
+  //           class: "",
+  //           textmessage: "",
+  //         });
+  //       },
+  //       (error) => {
+  //         console.log("FAILED...", error.text);
+  //         alert("Failed");
+  //       }
+  //     );
+
+  //     try {
+  //       const docRef = await addDoc(collection(db, "leads"), {
+  //         name: formData.name,
+  //         phonenumber: formData.phonenumber,
+  //         school:formData.school,
+  //         class:formData.class,
+  //         message: formData.textmessage,
+  //         timestamp: new Date(),
+  //       });
+  
+  //       // Get the document ID
+  //       const docId = docRef.id;
+  
+  //       await updateDoc(docRef, {
+  //         id: docId,
+  //       });
+  
+  //       console.log("Form submitted successfully! Document ID stored:", docId);
+  
+  //       setFormData({
+  //         name: "",
+  //         phonenumber: "",
+  //         school: "",
+  //         class: "",
+  //         textmessage: "",
+  //       });
+  //       router.push('/thankyou');
+  //     } catch (e) {
+  //       console.error("Error adding or updating document: ", e);
+  //     }
+  // };
+  const handleSubmit = async (e) => {
     e.preventDefault();
     setButtonClick(true);
-
-    emailjs
-
-      .sendForm("service_zzpjmnf", "template_72aafby", form.current, {
+  
+    try {
+      // 1. Send email with EmailJS
+      await emailjs.sendForm("service_zzpjmnf", "template_72aafby", form.current, {
         publicKey: "zA2422Fl3c6n_YSjA",
-      })
-      .then(
-        () => {
-          console.log("SUCCESS!");
-          setIsSubmitted(true);
-          setButtonClick(false);
-
-
-          // Reset form data after successful submission
-          setFormData({
-            name: "",
-            phonenumber: "",
-            school: "",
-            class: "",
-            textmessage: "",
-          });
-        },
-        (error) => {
-          console.log("FAILED...", error.text);
-          alert("Failed");
-        }
-      );
-
-      try {
-        const docRef = await addDoc(collection(db, "leads"), {
-          name: formData.name,
-          phonenumber: formData.phonenumber,
-          school:formData.school,
-          class:formData.class,
-          message: formData.textmessage,
-          timestamp: new Date(),
-        });
+      });
+      console.log("EmailJS: SUCCESS!");
+      setIsSubmitted(true);
   
-        // Get the document ID
-        const docId = docRef.id;
+      // 2. Add lead to Firestore
+      const docRef = await addDoc(collection(db, "leads"), {
+        name: formData.name,
+        phonenumber: formData.phonenumber,
+        school: formData.school,
+        class: formData.class,
+        message: formData.textmessage,
+        timestamp: new Date(),
+      });
   
-        await updateDoc(docRef, {
-          id: docId,
-        });
+      const docId = docRef.id;
   
-        console.log("Form submitted successfully! Document ID stored:", docId);
+      // 3. Submit lead to LMS API
+      await axios.post("https://digitalleadmanagement.vercel.app/api/add-lead", {
+        name: formData.name,
+        phoneNumber: formData.phonenumber,
+        school: formData.school,
+        url: window.location.href,
+        remark: formData.textmessage,
+        currentClass: formData.class,
+        date: new Date().toISOString(),
+        source: "Boarding Admissions - Book a Demo Class Popup",
+      });
+      console.log("LMS API: SUCCESS!");
   
-        setFormData({
-          name: "",
-          phonenumber: "",
-          school: "",
-          class: "",
-          textmessage: "",
-        });
-        router.push('/thankyou');
-      } catch (e) {
-        console.error("Error adding or updating document: ", e);
-      }
+      // 4. Update Firestore document with its own ID
+      await updateDoc(docRef, {
+        id: docId,
+      });
+  
+      console.log("Firestore + LMS: SUCCESS! Document ID stored:", docId);
+  
+      // 5. Reset form
+      setFormData({
+        name: "",
+        phonenumber: "",
+        school: "",
+        class: "",
+        textmessage: "",
+      });
+  
+      // 6. Navigate to thank you page
+      router.push("/thankyou");
+    } catch (error) {
+      console.error("Error during form submission:", error);
+      alert("Failed to submit form. Please try again.");
+    } finally {
+      setButtonClick(false);
+    }
   };
-
+  
   return (
     <div className="z-20  fixed inset-0 flex items-center justify-center   bg-black bg-opacity-30 font-poppins">
       <div className="bg-[#FFFFFF] w-[351px] h-[650px] md:w-[710px] md:h-[460px] lg:w-[950px] lg:h-[520px] rounded  border-8 border-[#CDC6DB30] ">
