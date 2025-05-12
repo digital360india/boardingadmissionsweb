@@ -38,7 +38,7 @@ export default function EnquiryForm({ title }) {
           name: formData.name,
           phoneNumber: formData.phoneNumber,
           url: window.location.href,
-          source: "Goedu - Get Consultation Popup",
+          source: "Boarding Admissions - Schools Enquiry Form",
           email: formData.email,
 
           date: new Date().toISOString(),
