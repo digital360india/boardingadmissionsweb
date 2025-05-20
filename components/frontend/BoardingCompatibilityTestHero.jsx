@@ -11,11 +11,15 @@ const BoardingCompatibilityTestHero = () => {
           Boarding Compatibility Test
         </h1>
         <div
-          className="w-full h-[30.375rem] -px-20 bg-no-repeat bg-cover bg-center relative"
-          style={{ backgroundImage: `url(${Boardingtest.src})` }}
+          className="w-full h-[31.375rem] -px-20 bg-no-repeat bg-cover bg-center relative"
+          style={{
+            backgroundImage: `url(${"/vectors/Boarding-Compatibility-Test.png"})`,
+          }}
         >
-          <div className="w-full   md:w-[22.563rem] h-[17.5rem] px-10 md:px-0 md:mx-12 mt-10 space-y-7   absolute    text-white  ">
-            <p className="md:mt-2  text-[14px]  md:text-[1rem] leading-relaxed ">
+          <div className="absolute inset-0 bg-black opacity-40 z-0"></div>
+
+          <div className="w-full md:w-[22.563rem] h-[17.5rem] px-10 md:px-0 md:mx-12 mt-10 space-y-7 absolute text-white z-10">
+            <p className="md:mt-2 text-[14px] md:text-[1rem] leading-relaxed">
               Our Boarding Compatibility Test evaluates if your child is
               mentally and emotionally prepared for the boarding school
               experience. This comprehensive tool includes 25 insightful
@@ -24,7 +28,7 @@ const BoardingCompatibilityTestHero = () => {
               readiness for this transformative journey and ensure they are
               fully prepared for success in a boarding school environment.
             </p>
-            <div className="cursor-pointer w-[7.5rem] h-[2.0rem] md:w-[18rem] md:h-[3rem] bg-gradient-to-br from-[#075D70] to-[#0DB2D6] hover:scale-110 transition duration-300  border-custom rounded-md flex items-center justify-center text-[1rem] ">
+            <div className="cursor-pointer w-[7.5rem] h-[2.0rem] md:w-[18rem] md:h-[3rem] bg-gradient-to-br from-[#075D70] to-[#0DB2D6] hover:scale-110 transition duration-300 border-custom rounded-md flex items-center justify-center text-[1rem]">
               <button className="text-white">Enroll Now</button>
             </div>
           </div>
