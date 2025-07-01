@@ -46,8 +46,8 @@ export default function page() {
             Cancellation Process{" "}
           </p>
           All refund requests must be submitted via email to
-          boardingadmissioninfo@gmail.com with the subject line: "Refund Request
-          - [Student Name]".
+          boardingadmissioninfo@gmail.com with the subject line: &quots;Refund Request
+          - [Student Name]&quots;.
         </div>
       </div>
       <p className="mt-6">
