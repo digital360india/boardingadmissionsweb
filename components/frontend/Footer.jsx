@@ -18,7 +18,7 @@ const Footer = () => {
               <h1 className="text-[14px] md:mr-6 md:w-[28vw] lg:mr-8  font-light lg:w-[30vw] md:text-[18px] md:text-[#FFFFFF]">
                 No Secrets, Just Boarding Admissions
               </h1>
-              <div className="flex flex-col space-y-4  font-bold justify-between md:w-[250px] md:[10px] lg:w-[415px] text-[8px] lg:text-[16px]">
+              <div className="flex flex-col space-y-4  font-bold justify-between md:w-[250px] md:[10px] lg:w-[350px] text-[8px] lg:text-[16px]">
                 <div className="flex gap-3">
                   <Image
                     src="/icons/location.svg"
@@ -61,8 +61,8 @@ const Footer = () => {
                 </div>
               </div>
             </div>
-            <div className="flex justify-center pt-20        text-[14px]  md:w-[340px] md:text-[16px] md:text-[#FFFFFF] lg:w-[380px]  ">
-              <div className="space-y-3 lg:pr-44 xl:pr-28">
+            <div className="flex justify-center pt-20 text-[14px]  md:w-[340px] md:text-[16px] md:text-[#FFFFFF] lg:w-[380px]  ">
+              <div className="space-y-3 lg:pr-14 xl:pr-28">
                 <h1>SITE MAP</h1>
                 <Link href="/">
                   {" "}
@@ -228,15 +228,24 @@ const Footer = () => {
                   href="mailto:info@boardingadmission.com"
                   className="text-white text-[0.75rem] cursor-pointer"
                 >
-                  <h1>info@boardingadmission.com</h1>
+                  <p>info@boardingadmission.com</p>
                 </a>
               </div>
             </div>
+              <div className="flex gap-2 py-2 lg:hidden">
+                <Image
+                  src="/icons/call.svg"
+                  width={14}
+                  height={14}
+                  alt="call"
+                />
+                <p className="text-white text-[0.75rem]">+91 9149057322</p>
+              </div>
           </div>
 
-          <div className="flex gap-2 pb-5">
+          <div className="hidden lg:flex gap-2 pb-5">
             <Image src="/icons/call.svg" width={14} height={14} alt="call" />
-            <h1 className="text-white text-[0.75rem]">+91 9149057322</h1>
+            <p className="text-white text-[0.75rem]">+91 9149057322</p>
           </div>
         </div>
 

@@ -37,7 +37,7 @@ export default function WhoWeAre() {
             </div>
           </div>
 
-          <div className="xl:text-18px lg:text-16px text-[14px] text-neutral02 leading-relaxed ">
+          <div className="xl:text-18px lg:text-16px text-[14px] text-neutral02 text-justify leading-relaxed ">
             <p>
               At Boarding Admissions, we excel in preparing students for
               entrance exams to top boarding schools across India. With over 8

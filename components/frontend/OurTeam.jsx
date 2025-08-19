@@ -40,7 +40,7 @@ export default function OurTeam() {
               key={index}
               className="bg-[#075D70] rounded-lg flex-shrink-0 lg:w-[300px] w-[240px] lg:h-[460px] h-[350px] flex flex-col items-center relative "
             >
-              <div className="relative w-[300px] h-[270px] md:h-[350px] transition-all duration-300 ease-in-out transform hover:-translate-y-2 group">
+              <div className="relative w-full h-[270px]  md:h-[350px] transition-all duration-300 ease-in-out transform hover:-translate-y-2 group">
                 <img
                   src={member.imageSrc}
                   className="w-full h-full object-cover rounded-t-md"
@@ -56,7 +56,6 @@ export default function OurTeam() {
                 </a>
               </div>
 
-              {/* Team Member Info */}
               <div className="md:py-6 text-white text-center">
                 <p className="text-[24px] font-medium">{member.name}</p>
                 <p className="text-[18px]">{member.designation}</p>
