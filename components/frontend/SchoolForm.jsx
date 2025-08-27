@@ -63,7 +63,7 @@ export default function SchoolForm() {
   return (
     <div className=" p-6">
       <p className="text-[26px] md:text-[36px] text-black mb-5 font-semibold">
-        Get into India's Top Boarding Schools with <span className="text-primary02">Boarding Admissions</span>
+        Get into India&apos;s Top Boarding Schools with <span className="text-primary02">Boarding Admissions</span>
       </p>
       <p className="text-[20px] md:text-[36px] text-primary02  mb-3 font-semibold">
         Get in Touch Now
