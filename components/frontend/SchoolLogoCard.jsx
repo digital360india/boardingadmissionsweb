@@ -1,6 +1,8 @@
 "use client";
 import React from "react";
 import Link from "next/link";
+import { Swiper, SwiperSlide } from "swiper/react";
+import "swiper/css";
 
 export default function SchoolLogoCard() {
   const schools = [
@@ -32,36 +34,42 @@ export default function SchoolLogoCard() {
   ];
 
   return (
-    <div className="min-h-[85vh] flex flex-col items-center justify-start w-full bg-gradient-to-br from-[#075D70] to-[#0DB2D6] py-16 lg:px-6">
+    <div className="min-h-[35vh] flex flex-col items-center justify-start w-full bg-gradient-to-br from-[#075D70] to-[#0DB2D6] py-10 lg:px-6">
       <h2 className="text-white text-3xl md:text-5xl font-semibold mb-10 text-center">
         Schools We Have Cracked
       </h2>
 
-      <div className="flex flex-wrap justify-center gap-4 ">
+      <Swiper
+        spaceBetween={10}
+        slidesPerView={1.5}
+        centeredSlides={true}
+        loop={true}
+        breakpoints={{
+          640: { slidesPerView: 2.5 },
+          1024: { slidesPerView: 3.5 },
+        }}
+        className="w-full px-6"
+      >
         {schools.map((school, idx) => (
-          <div
-            key={idx}
-            className="bg-white rounded-xl shadow-lg p-2 flex flex-col items-center hover:scale-105 hover:shadow-xl transition-transform 
-                       w-[40%] md:w-1/4 "
-          >
-            <img
-              src={school.logo}
-              alt={school.name}
-              className="w-[100px] h-[90px] object-contain mb-3"
-            />
-            <p className="text-sm md:text-base font-semibold text-gray-800 text-center">
-              {school.name}
-            </p>
-            <div className="w-full mt-auto">
-              <Link href={school.route}>
-                <button className="w-full py-1.5 text-xs md:text-sm font-medium text-white rounded-lg bg-[#075D70] hover:bg-[#0DB2D6] transition">
-                  Visit
-                </button>
-              </Link>
-            </div>
-          </div>
+          <SwiperSlide key={idx} className="flex justify-center">
+            <Link
+              href={school.route}
+              className="bg-white rounded-xl shadow-xl shadow-black/30 p-4 mx-8 flex flex-col items-center justify-between 
+                         transition-all duration-300 ease-in-out w-[50vw] md:w-[250px] h-[200px]
+                         swiper-slide-active:scale-110 swiper-slide-active:shadow-2xl"
+            >
+              <img
+                src={school.logo}
+                alt={school.name}
+                className="w-[130px] h-[130px] object-contain mt-4"
+              />
+              <p className="text-sm md:text-base font-semibold text-gray-800 text-center mt-2 mb-2 ">
+                {school.name}
+              </p>
+            </Link>
+          </SwiperSlide>
         ))}
-      </div>
+      </Swiper>
     </div>
   );
 }
