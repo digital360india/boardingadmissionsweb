@@ -1,9 +1,19 @@
 "use client";
-import React from "react";
+import React, { useState } from "react";
 // import SoftSkillMastery from "@/public/icons/SoftSkillMastery.svg";
 import Link from "next/link";
+import BookaDemoPopUp from "./BookaDemoPopUp";
 
 const SoftSkillMasteryHero = () => {
+  
+    const [isPopupVisible, setPopupVisible] = useState(false);
+          const handleClick = () => {
+        setPopupVisible(true);
+      };
+    
+      const handleClosePopup = () => {
+        setPopupVisible(false);
+      };
   return (
     <>
       <div className="">
@@ -24,11 +34,10 @@ const SoftSkillMasteryHero = () => {
               Mastery module today!
             </p>
             <div className="w-[7.5rem] md:w-[18.75rem]">
-              <Link href="/enrollnow/softskillmastery">
                 <div className="w-[7.5rem] h-[2.0rem] md:w-[18rem] md:h-[3rem] bg-gradient-to-br from-[#075D70] to-[#0DB2D6] hover:scale-110 transition duration-300 border-custom rounded-md flex items-center justify-center text-[1rem] ">
-                  <button className="text-white">Enroll Now</button>
+                  <button  onClick={handleClick} 
+                   className="text-white">Enroll Now</button>
                 </div>
-              </Link>
             </div>
           </div>
         </div>
@@ -56,6 +65,7 @@ const SoftSkillMasteryHero = () => {
             </div>
           </Link>
         </div>
+                {isPopupVisible && <BookaDemoPopUp onClose={handleClosePopup} />}
 
         {/* mobile */}
         <div className="sm:block md:block lg:hidden px-4 py-6">

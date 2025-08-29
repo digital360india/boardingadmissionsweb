@@ -114,11 +114,9 @@ const BoardingCompatibilityTestPage = () => {
             Ready for top boarding schools? <br /> Start your journey now!
           </div>
           <div>
-            <Link href="/enrollnow/foundationcourses">
               <div className="cursor-pointer w-[18.75rem] h-[3.5rem] bg-gradient01 border-custom rounded-md flex items-center justify-center">
-                <button className="text-white">Enroll Now</button>
+                <button onClick={handleClick} className="text-white">Enroll Now</button>
               </div>
-            </Link>
             <div className="flex justify-center items-center py-2">
               <div className="bg-[#00000015] w-[120px] h-[1px]"></div>
               <div className="text-[#00000015]">
@@ -138,7 +136,7 @@ const BoardingCompatibilityTestPage = () => {
             Want to prepare for top Boarding School?
           </h1>
           <div className="flex justify-between px-2 pt-4">
-            <div className="cursor-pointer w-[7.5rem] h-[1.9rem] bg-gradient01 border-custom rounded-md flex items-center justify-center text-[0.875rem] text-white">
+            <div onClick={handleClick} className="cursor-pointer w-[7.5rem] h-[1.9rem] bg-gradient01 border-custom rounded-md flex items-center justify-center text-[0.875rem] text-white">
               Enroll Now
             </div>
             <div className="text-[#00000080] text-[0.875rem] pt-[5px]">OR</div>

@@ -1,9 +1,18 @@
 "use client";
-import React from "react";
+import React, { useState } from "react";
 import Foundationcourse from "@/public/icons/Foundationcourse.svg";
 import Link from "next/link";
+import BookaDemoPopUp from "./BookaDemoPopUp";
 
 const FoundationcourseHero = () => {
+      const [isPopupVisible, setPopupVisible] = useState(false);
+      const handleClick = () => {
+    setPopupVisible(true);
+  };
+
+  const handleClosePopup = () => {
+    setPopupVisible(false);
+  };
   return (
     <>
       <div className="">
@@ -32,14 +41,14 @@ const FoundationcourseHero = () => {
               for your child&apos;s academic journey.
             </p>
             <div className="md:w-[18.75rem] w-[7.5rem] p-4">
-              <Link href="/enrollnow/foundationcourses">
                 <div className="cursor-pointer w-[7.5rem] h-[2.0rem] md:w-[18rem] md:h-[3rem] bg-gradient-to-br from-[#075D70] to-[#0DB2D6] hover:scale-110 transition duration-300  border-custom rounded-md flex items-center justify-center text-[1rem] ">
-                  <button className="text-white">Enroll Now</button>
+                  <button  onClick={handleClick} 
+                  className="text-white">Enroll Now</button>
                 </div>
-              </Link>
             </div>
           </div>
         </div>
+
         <div className="hidden md:hidden w-full h-[82px] bg-primary02 mt-8 lg:flex lg:items-center px-12 text-white gap-10 rounded-lg">
           <Link href="#4th-6thGrade">
             <div className="border w-[9.438rem] h-[45px] rounded-md flex justify-center items-center">
@@ -108,6 +117,8 @@ const FoundationcourseHero = () => {
             </button>
           </div>
         </div>
+        {isPopupVisible && <BookaDemoPopUp onClose={handleClosePopup} />}
+
       </div>
     </>
   );
