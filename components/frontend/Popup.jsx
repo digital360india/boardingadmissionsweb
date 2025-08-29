@@ -61,65 +61,69 @@ const Popup = () => {
     }
   };
 
-  const handleSubmit =async (e) => {
+    const handleSubmit = async (e) => {
     e.preventDefault();
-    emailjs
-      .sendForm("service_zzpjmnf", "template_72aafby", form.current, {
-        publicKey: "zA2422Fl3c6n_YSjA",
-      })
-      .then(
-        () => {
-          console.log("SUCCESS!");
-          setIsSubmitted(true);
-          setButtonClick(false);
-
-          
-          setFormData({
-            name: "",
-            phonenumber: "",
-            school: "",
-            class: "",
-            textmessage: "",
-          });
-        },
-        (error) => {
-          console.log("FAILED...", error.text);
-          alert("Failed");
-        }
-      );
-
-      try {
-        const docRef = await addDoc(collection(db, "leads"), {
-          name: formData.name,
-          phonenumber: formData.phonenumber,
-          school:formData.school,
-          class:formData.class,
-          message: formData.textmessage,
-          timestamp: new Date(),
-        });
+    setButtonClick(true);
   
-        // Get the document ID
-        const docId = docRef.id;
+    try {
+            // Send email via Nodemailer API
+      const res = await fetch("/api/send-emails", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData),
+      });
   
-        await updateDoc(docRef, {
-          id: docId,
-        });
+      // 2. Add lead to Firestore
+      const docRef = await addDoc(collection(db, "leads"), {
+        name: formData.name,
+        phonenumber: formData.phonenumber,
+        school: formData.school,
+        class: formData.class,
+        message: formData.textmessage,
+        timestamp: new Date(),
+      });
   
-        console.log("Form submitted successfully! Document ID stored:", docId);
+      const docId = docRef.id;
   
-        setFormData({
-          name: "",
-          phonenumber: "",
-          school: "",
-          class: "",
-          textmessage: "",
-        });
-        router.push('/thankyou');
-      } catch (e) {
-        console.error("Error adding or updating document: ", e);
-      }
-      
+      // 3. Submit lead to LMS API
+      await axios.post("https://digitalleadmanagement.vercel.app/api/add-lead", {
+        name: formData.name,
+        phoneNumber: formData.phonenumber,
+        school: formData.school,
+        url: window.location.href,
+        remark: formData.textmessage,
+        currentClass: formData.class,
+        date: new Date().toISOString(),
+        source: "Boarding Admissions - Book a Demo Class Popup",
+      });
+      console.log("LMS API: SUCCESS!");
+  
+      // 4. Update Firestore document with its own ID
+      await updateDoc(docRef, {
+        id: docId,
+      });
+  
+      console.log("Firestore + LMS: SUCCESS! Document ID stored:", docId);
+  
+      // 5. Reset form
+      setFormData({
+        name: "",
+        phonenumber: "",
+        school: "",
+        class: "",
+        textmessage: "",
+      });
+  
+      // 6. Navigate to thank you page
+      router.push("/thankyou");
+    } catch (error) {
+      console.error("Error during form submission:", error);
+      alert("Failed to submit form. Please try again.");
+    } finally {
+      setButtonClick(false);
+    }
   };
+  
   
 
   return (
@@ -144,7 +148,6 @@ const Popup = () => {
           </svg>
         </div>
 
-        {/* If form is submitted, show PopupSuccess component */}
         {isSubmitted ? (
           <PopupSuccess  setIsFormVisible={setIsFormVisible} setIsSubmitted={setIsSubmitted} />
         ) : (

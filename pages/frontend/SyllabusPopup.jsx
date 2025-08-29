@@ -129,14 +129,12 @@ const SyllabusPopup = ({ onClose, selectedSyllabus }) => {
 
     try {
       // 1. Send email with EmailJS
-      await emailjs.sendForm(
-        "service_zzpjmnf",
-        "template_72aafby",
-        form.current,
-        {
-          publicKey: "zA2422Fl3c6n_YSjA",
-        }
-      );
+      const res = await fetch("/api/send-emails", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData),
+      });
+  
       // console.log("EmailJS: SUCCESS!");
       setIsSubmitted(true);
 
