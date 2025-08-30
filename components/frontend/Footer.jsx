@@ -73,6 +73,13 @@ const Footer = () => {
                 </Link>
                 <h1>Package</h1>
                 <h1>Boarding Compatibility Test</h1>
+                <Link
+                  href="https://blog.boardingadmissions.com/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <p className=" cursor-pointer">Blogs</p>
+                </Link>
               </div>
 
               <div className="space-y-3 pr-20 md:text-[16px] md:text-[#FFFFFF]  ">
@@ -232,15 +239,10 @@ const Footer = () => {
                 </a>
               </div>
             </div>
-              <div className="flex gap-2 py-2 lg:hidden">
-                <Image
-                  src="/icons/call.svg"
-                  width={14}
-                  height={14}
-                  alt="call"
-                />
-                <p className="text-white text-[0.75rem]">+91 9149057322</p>
-              </div>
+            <div className="flex gap-2 py-2 lg:hidden">
+              <Image src="/icons/call.svg" width={14} height={14} alt="call" />
+              <p className="text-white text-[0.75rem]">+91 9149057322</p>
+            </div>
           </div>
 
           <div className="hidden lg:flex gap-2 pb-5">

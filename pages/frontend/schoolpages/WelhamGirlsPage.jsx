@@ -10,6 +10,7 @@ import EnquiryForm from "@/components/frontend/EnquiryForm";
 import SchoolCarousel from "../../../components/frontend/SchoolCarousel";
 import { FaFilePdf } from "react-icons/fa";
 import SyllabusPopup from "../SyllabusPopup";
+import Image from "next/image";
 
 const syllabusData = [
   {
@@ -293,9 +294,19 @@ function WelhamGirlsPage() {
 
               <li>
                 <div>
+                
                   <h2 className="text-lg font-semibold mb-2">
                     Entrance Examination
                   </h2>
+                    <div className="md:hidden block">
+                    <Image
+                      src="/schoolimg.jpeg"
+                      className="w-full h-full pt-1"
+                      width={1000}
+                      height={1000}
+                      alt="svg"
+                    />
+                  </div>
                   <p className="mb-4 text-[14px] md:text-[1.15rem] ">
                     The Welham Girls Entrance exam covers English, Mathematics,
                     and General Knowledge designed to assess the academic

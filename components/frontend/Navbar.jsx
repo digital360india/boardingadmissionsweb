@@ -65,6 +65,15 @@ const Navbar = () => {
               About Us
             </li>
           </Link>
+          <Link
+            href="https://blog.boardingadmissions.com/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <li className="transition-all duration-300 font-semibold hover:text-primary02 hover:tracking-widest cursor-pointer">
+              Blogs
+            </li>
+          </Link>
         </ul>
         <div className=" flex gap-4 pr-4">
           {" "}
@@ -151,7 +160,10 @@ const Navbar = () => {
             </Link>
           </li>
           <li>
-            <Link href="https://blog.boardingadmissions.com/" onClick={closeMenu}>
+            <Link
+              href="https://blog.boardingadmissions.com/"
+              onClick={closeMenu}
+            >
               Blog
             </Link>
           </li>

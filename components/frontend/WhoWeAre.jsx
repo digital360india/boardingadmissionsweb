@@ -1,5 +1,8 @@
+"use client";
+
 import Image from "next/image";
 import React from "react";
+import SchoolCarousel from "./SchoolCarousel";
 
 export default function WhoWeAre() {
   return (
@@ -12,6 +15,8 @@ export default function WhoWeAre() {
           width={1000}
           height={1000}
         />
+              {/* <SchoolCarousel /> */}
+        
       </div>
       <div className="lg:w-1/2 w-full flex justify-center items-center">
         <div className="space-y-4">
@@ -27,13 +32,20 @@ export default function WhoWeAre() {
 
           <div className="lg:hidden block">
             <div className="flex items-center justify-center  py-4">
-              <Image
-                src="/images/Rectangle2.svg"
-                alt="Calendar"
-                className="w-[100%]"
-                width={1000}
-                height={1000}
-              />
+              <video
+          className="w-full h-[100%] object-cover"
+          autoPlay
+          loop
+          muted
+          playsInline
+          controls={false}
+        >
+          <source
+            src="https://firebasestorage.googleapis.com/v0/b/boardingadmissions-f3ba3.appspot.com/o/carousel%2Fmobileviewvideo%20(1)%20(1).mp4?alt=media&token=0273a9fc-6edc-4c15-b642-1da56f906bc7"
+            type="video/mp4"
+          />
+          Your browser does not support the video tag.
+        </video>
             </div>
           </div>
 

@@ -5,14 +5,19 @@ import emailjs from "@emailjs/browser";
 import axios from "axios";
 import { db } from "@/firebase/firebase";
 import { addDoc, collection, updateDoc } from "firebase/firestore";
+import { Router } from "next/router";
+import { useRouter } from "next/navigation";
 
 const SyllabusPopup = ({ onClose, selectedSyllabus }) => {
+    const router = useRouter();
+
   const form = useRef();
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [submitting, setSubmitting] = useState(false);
 
   const [isFormVisible, setIsFormVisible] = useState(false);
   const [buttonClick, setButtonClick] = useState(false);
+  
 
   const [formData, setFormData] = useState({
     name: "",
@@ -185,6 +190,7 @@ const SyllabusPopup = ({ onClose, selectedSyllabus }) => {
         class: "",
         textmessage: "",
       });
+       Router.push("/thankyou");
     } catch (error) {
       console.error("Error during form submission:", error);
       alert("Failed to submit form. Please try again.");
@@ -192,7 +198,7 @@ const SyllabusPopup = ({ onClose, selectedSyllabus }) => {
       setButtonClick(false);
     }
   };
-
+   
   // useEffect(() => {
   //   const userData = localStorage.getItem("userData");
 

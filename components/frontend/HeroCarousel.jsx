@@ -1,6 +1,6 @@
 "use client";
 import React, { useState } from "react";
-import '@/components/frontend/HeroCarousel.css';
+import "@/components/frontend/HeroCarousel.css";
 export default function AutoPlayVideo() {
   const [isLoading, setIsLoading] = useState(true);
   const handleVideoLoaded = () => {
@@ -39,7 +39,7 @@ export default function AutoPlayVideo() {
         </video>
       </div>
       <div className="w-[100%] h-[60vh] md:hidden relative">
-        <video
+        {/* <video
           className="w-full h-[100%] object-cover"
           autoPlay
           loop
@@ -52,7 +52,12 @@ export default function AutoPlayVideo() {
             type="video/mp4"
           />
           Your browser does not support the video tag.
-        </video>
+        </video> */}
+        <img
+          className="w-full h-[75%] object-cover"
+          src="/Boarding (1).png"
+          alt="Carousel"
+        />
       </div>
     </div>
   );

@@ -18,7 +18,9 @@ const HomePage = () => {
         <SchoolFilter />
       </div>
       <div className="lg:hidden block">
-        <SchoolForm />
+        <SchoolForm /> 
+         <CoursesWeOffer />
+           <Stories />
       </div>
       <WhoWeAre />
       <div className="hidden lg:block">
@@ -27,8 +29,12 @@ const HomePage = () => {
       <div className="lg:hidden block">
         <SchoolLogoCard />
       </div>
-      <Stories />
-      <CoursesWeOffer />
+    <div className="md:block hidden" >
+        <Stories />
+    </div>
+     <div className="md:block hidden">
+       <CoursesWeOffer />
+     </div>
       <TrustedByStudent />
       <OurTeam />
     </div>

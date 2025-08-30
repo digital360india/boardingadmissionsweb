@@ -63,10 +63,10 @@ export default function SchoolForm() {
   return (
     <div className=" p-6">
       <p className="text-[26px] md:text-[36px] text-black mb-5 font-semibold">
-        Get into India&apos;s Top Boarding Schools with <span className="text-primary02">Boarding Admissions</span>
+        Want your child in india&apos;s top boarding schools?
       </p>
       <p className="text-[20px] md:text-[36px] text-primary02  mb-3 font-semibold">
-        Get in Touch Now
+       Fill the form and take the first step today
       </p>
       <form
         onSubmit={handleSubmit}
