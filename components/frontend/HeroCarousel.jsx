@@ -8,7 +8,7 @@ export default function AutoPlayVideo() {
   };
   return (
     <div className="w-full flex justify-center ">
-      {isLoading && (
+      {/* {isLoading && (
         <div className="absolute inset-0 flex items-center justify-center bg-white z-50">
           <div className="h-screen w-full flex justify-center items-center relative bg-[#e9fdfa] ">
             <div className="ball h-[80px] w-[80px] md:h-[160px] md:w-[160px] shadow-md  rounded-[50%]"></div>
@@ -19,7 +19,7 @@ export default function AutoPlayVideo() {
             <div className="ball h-[80px] w-[80px] md:h-[160px] md:w-[160px] shadow-lg rounded-[50%]"></div>
           </div>
         </div>
-      )}
+      )} */}
       {/* Container for the video */}
       <div className="w-[100%] h-[85%] md:block relative hidden">
         <video
@@ -38,7 +38,7 @@ export default function AutoPlayVideo() {
           Your browser does not support the video tag.
         </video>
       </div>
-      <div className="w-[100%] h-[60vh] md:hidden relative">
+      <div className="w-[100%] h-[50vh] md:hidden relative">
         {/* <video
           className="w-full h-[100%] object-cover"
           autoPlay
@@ -54,7 +54,7 @@ export default function AutoPlayVideo() {
           Your browser does not support the video tag.
         </video> */}
         <img
-          className="w-full h-[75%] object-cover"
+          className="w-full h-[450px] object-cover"
           src="/Boarding (1).png"
           alt="Carousel"
         />
