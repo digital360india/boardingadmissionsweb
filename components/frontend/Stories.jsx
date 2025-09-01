@@ -136,7 +136,7 @@ export default function Stories() {
     <div>
       <div className=" xl:px-[100px] md::px-[40px] px-[28px] pt-10 bg-[#FAF9FF]">
         <p className="lg:text-[48px] text-[32px] text-primary02 font-medium lg:leading-normal leading-tight lg:w-[848px] w-full">
-          Stories that inspire
+          Testimonials
         </p>
       </div>
       <div className=" mx-auto px-4 sm:px-6 lg:px-[100px] md:py-12 py-6 relative overflow-hidden bg-[#FAF9FF]">

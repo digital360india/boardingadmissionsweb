@@ -7,7 +7,7 @@ export default function AutoPlayVideo() {
     setIsLoading(false);
   };
   return (
-    <div className="w-full flex justify-center ">
+    <div className="w-full flex justify-center  ">
       {/* {isLoading && (
         <div className="absolute inset-0 flex items-center justify-center bg-white z-50">
           <div className="h-screen w-full flex justify-center items-center relative bg-[#e9fdfa] ">
@@ -38,23 +38,9 @@ export default function AutoPlayVideo() {
           Your browser does not support the video tag.
         </video>
       </div>
-      <div className="w-[100%] h-[50vh] md:hidden relative">
-        {/* <video
-          className="w-full h-[100%] object-cover"
-          autoPlay
-          loop
-          muted
-          playsInline
-          controls={false}
-        >
-          <source
-            src="https://firebasestorage.googleapis.com/v0/b/boardingadmissions-f3ba3.appspot.com/o/carousel%2Fmobileviewvideo%20(1)%20(1).mp4?alt=media&token=0273a9fc-6edc-4c15-b642-1da56f906bc7"
-            type="video/mp4"
-          />
-          Your browser does not support the video tag.
-        </video> */}
+      <div className="w-full h-full md:hidden flex justify-center items-center">
         <img
-          className="w-full h-[450px] object-cover"
+          className="w-[500px] h-[450px]"
           src="/Boarding (1).png"
           alt="Carousel"
         />
@@ -62,3 +48,4 @@ export default function AutoPlayVideo() {
     </div>
   );
 }
+ 

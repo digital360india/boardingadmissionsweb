@@ -10,6 +10,9 @@ import ScrollAnimation from "@/components/frontend/ScrollAnimation";
 import SchoolLogoCard from "@/components/frontend/SchoolLogoCard";
 import SchoolFilter from "./SchoolFilter";
 import SchoolForm from "@/components/frontend/SchoolForm";
+import { Experience } from "@/components/frontend/Experience";
+import ContactForm from "@/components/frontend/FormContact";
+import Formontact from "@/components/frontend/FormContacts";
 const HomePage = () => {
   return (
     <div>
@@ -18,9 +21,11 @@ const HomePage = () => {
         <SchoolFilter />
       </div>
       <div className="lg:hidden block">
-        <SchoolForm /> 
-         <CoursesWeOffer />
-           <Stories />
+        <SchoolForm />
+        <Experience />
+        <CoursesWeOffer />
+        <Stories />
+        <ContactForm />
       </div>
       <WhoWeAre />
       <div className="hidden lg:block">
@@ -29,14 +34,18 @@ const HomePage = () => {
       <div className="lg:hidden block">
         <SchoolLogoCard />
       </div>
-    <div className="md:block hidden" >
+      <div className="lg:block hidden">
         <Stories />
-    </div>
-     <div className="md:block hidden">
-       <CoursesWeOffer />
-     </div>
+      </div>
+      <div className="lg:block hidden">
+        <CoursesWeOffer />
+      </div>
       <TrustedByStudent />
       <OurTeam />
+
+      <div className="lg:hidden block">
+        <Formontact />
+      </div>
     </div>
   );
 };
