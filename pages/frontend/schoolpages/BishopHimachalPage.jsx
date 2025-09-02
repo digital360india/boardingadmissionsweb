@@ -142,6 +142,16 @@ function BishopHimachalPage() {
                 help every student reach their full potential.
               </p>
             </div>
+
+            <div className="md:hidden block">
+              <Image
+                src="/schoolimage2.png"
+                className="w-full h-full pt-8"
+                width={1000}
+                height={1000}
+                alt="svg"
+              />
+            </div>
           </div>
           <div className=" hidden md:block mt-10">
             <EnquiryForm />

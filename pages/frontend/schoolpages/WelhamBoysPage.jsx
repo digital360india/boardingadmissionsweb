@@ -80,6 +80,15 @@ function WelhamBoysPage() {
                 global perspective.
               </p>
             </div>
+            <div className="md:hidden block">
+              <Image
+                src="/schoolimage2.png"
+                className="w-full h-full pt-8"
+                width={1000}
+                height={1000}
+                alt="svg"
+              />
+            </div>
           </div>
           <div className=" hidden md:block mt-6">
             <EnquiryForm />
@@ -162,6 +171,16 @@ function WelhamBoysPage() {
                   </tr>
                 </tbody>
               </table>
+            </div>
+
+            <div className="md:hidden block">
+              <Image
+                src="/schoolimg3.png"
+                className="w-full h-full pt-8"
+                width={1000}
+                height={1000}
+                alt="svg"
+              />
             </div>
 
             <div className="space-y-4 my-10">
@@ -327,6 +346,15 @@ function WelhamBoysPage() {
             </div>
 
             <div>
+              <div className="md:hidden block">
+                <Image
+                  src="/schoolimg.jpeg"
+                  className="w-full h-full pt-1"
+                  width={1000}
+                  height={1000}
+                  alt="svg"
+                />
+              </div>
               <div>
                 <p className="text-[#075D70] font-semibold text-[1.5rem] md:text-[2rem]">
                   Eligibility Criteria

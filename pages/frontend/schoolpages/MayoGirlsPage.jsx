@@ -8,6 +8,7 @@ import GetPrepared from "@/components/frontend/GetPrepared";
 import EnquiryForm from "@/components/frontend/EnquiryForm";
 import Broucher from "@/components/frontend/Broucher";
 import SchoolCarousel from "../../../components/frontend/SchoolCarousel";
+import Image from "next/image";
 
 const tableData = [
   {
@@ -163,6 +164,16 @@ function MayoGirlsPage() {
                   activities.
                 </p>
               </div>
+
+              <div className="md:hidden block">
+                <Image
+                  src="/schoolimage2.png"
+                  className="w-full h-full pt-8"
+                  width={1000}
+                  height={1000}
+                  alt="svg"
+                />
+              </div>
             </div>
             <div className=" hidden md:block ">
               <EnquiryForm />
@@ -303,6 +314,15 @@ function MayoGirlsPage() {
               <span className=" text-[1.25rem] font-medium ">Payment:</span>
               Through a Demand Draft payable at Ajmer.
             </p>
+          </div>
+          <div className="md:hidden block">
+            <Image
+              src="/schoolimg3.png"
+              className="w-full h-full pt-8"
+              width={1000}
+              height={1000}
+              alt="svg"
+            />
           </div>
 
           <div>
@@ -464,6 +484,15 @@ function MayoGirlsPage() {
                 actual usage.
               </p>
             </div>
+          </div>
+          <div className="md:hidden block">
+            <Image
+              src="/schoolimg.jpeg"
+              className="w-full h-full pt-1"
+              width={1000}
+              height={1000}
+              alt="svg"
+            />
           </div>
 
           <div className="bg-white text-gray-800 ">

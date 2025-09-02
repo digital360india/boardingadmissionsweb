@@ -124,6 +124,16 @@ function MayoBoysPage() {
             </div>
           </div>
 
+          <div className="md:hidden block">
+            <Image
+              src="/schoolimage2.png"
+              className="w-full h-full pt-8"
+              width={1000}
+              height={1000}
+              alt="svg"
+            />
+          </div>
+
           <div className=" hidden md:block mt-10">
             <EnquiryForm />
           </div>
@@ -202,6 +212,16 @@ function MayoBoysPage() {
               </ul>
             </li>
           </ol>
+        </div>
+
+        <div className="md:hidden block">
+          <Image
+            src="/schoolimg.jpeg"
+            className="w-full h-full pt-1"
+            width={1000}
+            height={1000}
+            alt="svg"
+          />
         </div>
 
         <div className="space-y-4 w-[90vw] my-10">
@@ -297,6 +317,15 @@ function MayoBoysPage() {
             </ul>
           </div>
         </div>
+        <div className="md:hidden block">
+          <Image
+            src="/schoolimg3.png"
+            className="w-full h-full pt-8"
+            width={1000}
+            height={1000}
+            alt="svg"
+          />
+        </div>
 
         <div className="bg-white ">
           <h1 className="text-[#075D70] font-semibold text-[1.75rem] sm:text-[2rem] mb-4">
@@ -336,7 +365,7 @@ function MayoBoysPage() {
           schoolName={schoolName}
         />
       </div>
-      
+
       <div className="mt-10">
         <Faq data={MayoBoys} />
       </div>

@@ -122,6 +122,15 @@ function ScindiaSchoolPage() {
             <EnquiryForm />
           </div>
         </div>
+        <div className="md:hidden block">
+          <Image
+            src="/schoolimage2.png"
+            className="w-full h-full pt-8"
+            width={1000}
+            height={1000}
+            alt="svg"
+          />
+        </div>
 
         <div className="space-y-4 w-[90vw] mb-10 mt-10">
           <div>
@@ -217,6 +226,16 @@ function ScindiaSchoolPage() {
                 </div>
               </li>
             </ol>
+          </div>
+
+          <div className="md:hidden block">
+            <Image
+              src="/schoolimg3.png"
+              className="w-full h-full pt-8"
+              width={1000}
+              height={1000}
+              alt="svg"
+            />
           </div>
 
           <div>
@@ -363,6 +382,16 @@ function ScindiaSchoolPage() {
             also instills a lifelong love for learning and discovery.
           </p>
         </div>
+
+        <div className="md:hidden block">
+          <Image
+            src="/schoolimg.jpeg"
+            className="w-full h-full pt-1"
+            width={1000}
+            height={1000}
+            alt="svg"
+          />
+        </div>
         <div className="">
           <p className="text-[#075D70] font-semibold  text-[1.5rem] md:text-[2rem] ">
             Why Choose Scindia Kanya Vidyalaya?
@@ -372,7 +401,7 @@ function ScindiaSchoolPage() {
           <p className="leading-6 w-[88vw] md:my-4 text-[14px] md:text-[1.15rem] text-justify">
             Choosing the right school for your daughter is a significant
             decision, and Scindia Kanya Vidyalaya shines for its commitment to
-            excellence and holistic development. Here’s why parents should
+            excellence and holistic development. Here&apos;s why parents should
             consider SKV:
           </p>
         </div>

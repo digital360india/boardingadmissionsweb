@@ -8,7 +8,7 @@ export const Experience = () => {
           <p className="text-[24px] font-bold text-gray-800">90% Success</p>
           <p className="text-base sm:text-lg text-primary02 font-medium mt-2 ">
             {" "}
-            In tTop Boarding Schools
+            In Top Boarding Schools
           </p>
         </div>
 

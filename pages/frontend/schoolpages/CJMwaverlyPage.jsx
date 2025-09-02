@@ -192,6 +192,15 @@ function CJMwaverlyPage() {
                 education
               </p>
             </div>
+            <div className="md:hidden block">
+              <Image
+                src="/schoolimage2.png"
+                className="w-full h-full pt-8"
+                width={1000}
+                height={1000}
+                alt="svg"
+              />
+            </div>
           </div>
           <div className=" hidden md:block mt-10">
             <EnquiryForm />
@@ -236,6 +245,15 @@ function CJMwaverlyPage() {
               </tbody>
             </table>
           </div>
+        </div>
+        <div className="md:hidden block">
+          <Image
+            src="/schoolimg3.png"
+            className="w-full h-full pt-8"
+            width={1000}
+            height={1000}
+            alt="svg"
+          />
         </div>
 
         <div className="space-y-4 w-[90vw] mb-10 mt-10">

@@ -134,13 +134,22 @@ function WelhamGirlsPage() {
             <EnquiryForm />
           </div>
         </div>
-
+        <div className="md:hidden block">
+          <Image
+            src="/schoolimage2.png"
+            className="w-full h-full pt-8"
+            width={1000}
+            height={1000}
+            alt="svg"
+          />
+        </div>
         <div className="space-y-4 w-[90vw] my-10 ">
           <div>
             <p className="text-[#075D70] font-semibold text-[1.5rem] md:text-[2rem]">
               Admission Procedure
             </p>
           </div>
+
           <div>
             <div>
               <p className="leading-6 w-[88vw] text-[14px] md:text-[1.15rem] text-justify">
@@ -150,6 +159,7 @@ function WelhamGirlsPage() {
                 .
               </p>
             </div>
+
             <div>
               <p className="text-[#075D70] font-semibold text-[1.5rem] md:text-[2rem] my-4">
                 Steps to Admission
@@ -294,11 +304,7 @@ function WelhamGirlsPage() {
 
               <li>
                 <div>
-                
-                  <h2 className="text-lg font-semibold mb-2">
-                    Entrance Examination
-                  </h2>
-                    <div className="md:hidden block">
+                  <div className="md:hidden block">
                     <Image
                       src="/schoolimg.jpeg"
                       className="w-full h-full pt-1"
@@ -307,6 +313,10 @@ function WelhamGirlsPage() {
                       alt="svg"
                     />
                   </div>
+                  <h2 className="text-lg font-semibold mb-2">
+                    Entrance Examination
+                  </h2>
+
                   <p className="mb-4 text-[14px] md:text-[1.15rem] ">
                     The Welham Girls Entrance exam covers English, Mathematics,
                     and General Knowledge designed to assess the academic
@@ -393,6 +403,15 @@ function WelhamGirlsPage() {
         </div>
 
         <div className="space-y-4 w-[90vw] my-10">
+          <div className="md:hidden block">
+            <Image
+              src="/schoolimg3.png"
+              className="w-full h-full pt-8"
+              width={1000}
+              height={1000}
+              alt="svg"
+            />
+          </div>
           <div>
             <p className="text-[#075D70] font-semibold text-[1.5rem] md:text-[2rem]">
               Preference for Admission
