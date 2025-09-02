@@ -40,7 +40,7 @@ export default function AutoPlayVideo() {
       </div>
       <div className="w-full h-full md:hidden flex justify-center items-center">
         <img
-          className="w-[500px] h-[450px]"
+          className="w-[500px] h-[400px]"
           src="/Boarding (1).png"
           alt="Carousel"
         />

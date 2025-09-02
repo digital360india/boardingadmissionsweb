@@ -66,7 +66,7 @@ export default function SchoolForm() {
         Want your child in india&apos;s top boarding schools?
       </p>
       <p className="text-[20px] md:text-[36px] text-primary02  mb-3 font-semibold">
-       Fill the form and take the first step today
+      Book a Demo Session
       </p>
       <form
         onSubmit={handleSubmit}
