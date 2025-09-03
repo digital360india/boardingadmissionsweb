@@ -12,7 +12,7 @@ const poppins = Poppins({
 
 export const metadata = {
   viewport: "width=device-width, initial-scale=1, shrink-to-fit=no",
-  icons: [{ rel: "icon", url: "./images/navbar.svg" }],
+  icons: [{ rel: "icon", url: "./images/navbar1.svg" }],
   title: "Get Admissions in Top Boarding Schools  | Admission 2025-26",
   description:
     "Enroll in the best boarding schools for 2025-26. Give your child a top-quality education today!",
