@@ -168,6 +168,11 @@ const Navbar = () => {
             </Link>
           </li>
         </ul>
+             <Link href="https://accounts.boardingadmissions.com/">
+              <div className="hover:bg-primary02 py-2 px-4 rounded-xl mt-20 hover:text-white  border bg-white text-primary02 border-background05">
+                Login
+              </div>
+            </Link>
       </div>
     </div>
   );

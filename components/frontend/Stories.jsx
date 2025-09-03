@@ -2,6 +2,10 @@
 
 import { useState, useEffect } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
+import { Swiper, SwiperSlide } from "swiper/react";
+import "swiper/css";
+import "swiper/css/navigation";
+import { Navigation } from "swiper/modules"; // ✅ FIXED import
 
 const team = [
   {
@@ -101,18 +105,20 @@ const team = [
   },
 ];
 
+
 export default function Stories() {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [cardsToShow, setCardsToShow] = useState(1);
+  const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
     const handleResize = () => {
       if (window.innerWidth >= 1024) {
-        // lg and above
         setCardsToShow(3);
+        setIsMobile(false);
       } else {
-        // below lg
         setCardsToShow(1);
+        setIsMobile(true);
       }
     };
 
@@ -132,35 +138,27 @@ export default function Stories() {
       prevIndex === team.length - cardsToShow ? 0 : prevIndex + 1
     );
   };
+
   return (
     <div>
-      <div className=" xl:px-[100px] md::px-[40px] px-[28px] pt-10 bg-[#FAF9FF]">
+      <div className="xl:px-[100px] md:px-[40px] px-[28px] pt-10 bg-[#FAF9FF]">
         <p className="lg:text-[48px] text-[32px] text-primary02 font-medium lg:leading-normal leading-tight lg:w-[848px] w-full">
           Testimonials
         </p>
       </div>
-      <div className=" mx-auto px-4 sm:px-6 lg:px-[100px] md:py-12 py-6 relative overflow-hidden bg-[#FAF9FF]">
-        <div className="overflow-hidden">
-          <div
-            className="flex transition-transform duration-500 ease-in-out"
-            style={{
-              transform: `translateX(-${currentIndex * (100 / cardsToShow)}%)`,
-            }}
-          >
+
+      <div className="mx-auto px-4 sm:px-6 lg:px-[100px] md:py-12 py-6 relative overflow-hidden bg-[#FAF9FF]">
+        {isMobile ? (
+          // ✅ Mobile Swiper
+          <Swiper modules={[Navigation]} spaceBetween={16} slidesPerView={1} >
             {team.map((member, index) => (
-              <div
-                key={index}
-                className={`flex-shrink-0 w-full ${
-                  cardsToShow === 1 ? "sm:w-full" : "lg:w-1/3"
-                } px-4`}
-              >
-                <div className="bg-[#FFFF] rounded-lg  shadow-lg p-4 h-full flex flex-col justify-between">
-                  {/* Conditionally render video if videoSrc is present */}
+              <SwiperSlide key={index}>
+                <div className="bg-[#FFFF] rounded-lg shadow-lg p-4 flex flex-col justify-between">
                   {member.videoSrc ? (
                     <div className="my-4">
                       <video
                         controls
-                        className="w-full max-h-48  object-cover rounded-lg"
+                        className="w-full max-h-48 object-cover rounded-lg"
                       >
                         <source src={member.videoSrc} type="video/mp4" />
                         Your browser does not support the video tag.
@@ -180,7 +178,7 @@ export default function Stories() {
                       )}
                     </>
                   )}
-                  <div className="flex items-center">
+                  <div className="flex items-center mt-4">
                     <img
                       src={member.imageSrc}
                       alt={member.name}
@@ -192,41 +190,77 @@ export default function Stories() {
                     </div>
                   </div>
                 </div>
-              </div>
+              </SwiperSlide>
             ))}
-          </div>
-        </div>
-        <div className="flex justify-center mt-8">
-          {[...Array(team.length - (cardsToShow - 1))].map((_, index) => (
-            <button
-              key={index}
-              onClick={() => setCurrentIndex(index)}
-              className={`mx-1 w-8 h-2 rounded-full transition-all duration-300 ${
-                index === currentIndex
-                  ? "bg-black w-12"
-                  : "bg-gray-300 hover:bg-gray-400"
-              }`}
-              aria-label={`Go to slide ${index + 1}`}
-            />
-          ))}
-          <div className="lg:block hidden">
-            {/* Buttons positioned at the sides */}
-            <button
-              onClick={prevSlide}
-              className="absolute top-1/2 left-16 transform -translate-y-1/2 bg-white rounded-full p-2 shadow-md"
-              style={{ marginLeft: "-16px" }} // Make sure buttons stay within the viewport
+          </Swiper>
+        ) : (
+          // ✅ Desktop stays the same
+          <div className="overflow-hidden">
+            <div
+              className="flex transition-transform duration-500 ease-in-out"
+              style={{
+                transform: `translateX(-${currentIndex * (100 / cardsToShow)}%)`,
+              }}
             >
-              <ChevronLeft className="w-6 h-6 text-gray-600" />
-            </button>
-            <button
-              onClick={nextSlide}
-              className="absolute top-1/2 right-16 transform -translate-y-1/2 bg-white rounded-full p-2 shadow-md"
-              style={{ marginRight: "-16px" }} // Make sure buttons stay within the viewport
-            >
-              <ChevronRight className="w-6 h-6 text-gray-600" />
-            </button>
+              {team.map((member, index) => (
+                <div key={index} className="flex-shrink-0 w-full lg:w-1/3 px-4">
+                  <div className="bg-[#FFFF] rounded-lg shadow-lg p-4 h-full flex flex-col justify-between">
+                    {member.videoSrc ? (
+                      <div className="my-4">
+                        <video
+                          controls
+                          className="w-full max-h-48 object-cover rounded-lg"
+                        >
+                          <source src={member.videoSrc} type="video/mp4" />
+                          Your browser does not support the video tag.
+                        </video>
+                      </div>
+                    ) : (
+                      <>
+                        {member.story && (
+                          <p className="text-gray-700 my-4">{member.story}</p>
+                        )}
+                        {member.teamimage && (
+                          <img
+                            src={member.teamimage}
+                            alt={member.name}
+                            className="w-full h-full max-h-48 object-cover rounded-lg"
+                          />
+                        )}
+                      </>
+                    )}
+                    <div className="flex items-center mt-4">
+                      <img
+                        src={member.imageSrc}
+                        alt={member.name}
+                        className="w-12 h-12 rounded-full mr-4"
+                      />
+                      <div>
+                        <p className="font-semibold">{member.name}</p>
+                        <p className="text-sm text-gray-600">{member.school}</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+
+            <div className="lg:block hidden">
+              <button
+                onClick={prevSlide}
+                className="absolute top-1/2 left-16 transform -translate-y-1/2 bg-white rounded-full p-2 shadow-md"
+              >
+                <ChevronLeft className="w-6 h-6 text-gray-600" />
+              </button>
+              <button
+                onClick={nextSlide}
+                className="absolute top-1/2 right-16 transform -translate-y-1/2 bg-white rounded-full p-2 shadow-md"
+              >
+                <ChevronRight className="w-6 h-6 text-gray-600" />
+              </button>
+            </div>
           </div>
-        </div>
+        )}
       </div>
     </div>
   );

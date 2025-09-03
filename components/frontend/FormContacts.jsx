@@ -68,10 +68,10 @@ export default function Formontact() {
       <div className="w-full max-w-lg bg-white shadow-lg rounded-2xl p-8">
         {/* Heading */}
         <div className="mb-6 text-center">
-          <p className="text-lg md:text-xl text-gray-700 font-medium">
+          <p className="text-[24px] md:text-xl text-gray-700 font-medium">
             Still have question?
           </p>
-          <p className="text-xl md:text-2xl text-primary02 font-semibold mt-2">
+          <p className="text-[16px] md:text-2xl text-primary02 font-semibold mt-2">
             Fill the form & we&apos;ll guide you step by step
           </p>
         </div>

@@ -70,7 +70,7 @@ export default function SchoolForm() {
         <p className="text-[24px]  font-semibold text-gray-800 mb-2 text-center">
           Get in touch with us to
         </p>
-        <p className="text-base md:text-lg text-primary02 font-medium text-center mb-6">
+        <p className="text-[14px] md:text-lg text-primary02 font-medium text-center mb-6">
           Give your child the best chance of securing admission at India&apos;s
           Top Boarding School
         </p>

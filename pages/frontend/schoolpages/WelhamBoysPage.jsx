@@ -346,15 +346,7 @@ function WelhamBoysPage() {
             </div>
 
             <div>
-              <div className="md:hidden block">
-                <Image
-                  src="/schoolimg.jpeg"
-                  className="w-full h-full pt-1"
-                  width={1000}
-                  height={1000}
-                  alt="svg"
-                />
-              </div>
+         
               <div>
                 <p className="text-[#075D70] font-semibold text-[1.5rem] md:text-[2rem]">
                   Eligibility Criteria

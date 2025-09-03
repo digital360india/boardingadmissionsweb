@@ -134,9 +134,10 @@ function WelhamGirlsPage() {
             <EnquiryForm />
           </div>
         </div>
+
         <div className="md:hidden block">
           <Image
-            src="/schoolimage2.png"
+            src="/schoolimg3.png"
             className="w-full h-full pt-8"
             width={1000}
             height={1000}
@@ -304,15 +305,6 @@ function WelhamGirlsPage() {
 
               <li>
                 <div>
-                  <div className="md:hidden block">
-                    <Image
-                      src="/schoolimg.jpeg"
-                      className="w-full h-full pt-1"
-                      width={1000}
-                      height={1000}
-                      alt="svg"
-                    />
-                  </div>
                   <h2 className="text-lg font-semibold mb-2">
                     Entrance Examination
                   </h2>
@@ -405,7 +397,7 @@ function WelhamGirlsPage() {
         <div className="space-y-4 w-[90vw] my-10">
           <div className="md:hidden block">
             <Image
-              src="/schoolimg3.png"
+              src="/schoolimage2.png"
               className="w-full h-full pt-8"
               width={1000}
               height={1000}
