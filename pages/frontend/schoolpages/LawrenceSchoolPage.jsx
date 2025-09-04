@@ -10,6 +10,7 @@ import Broucher from "@/components/frontend/Broucher";
 import SchoolCarousel from "../../../components/frontend/SchoolCarousel";
 import { FaFilePdf } from "react-icons/fa";
 import SyllabusPopup from "../SyllabusPopup";
+import Formontact from "@/components/frontend/FormContacts";
 
 const syllabusData = [
   {
@@ -325,6 +326,10 @@ function LawrenceSchoolPage() {
       <div className="mt-10">
         <Faq data={LawrenceSchool} />
       </div>
+
+       <div className="lg:hidden block mt-10">
+              <Formontact />
+            </div>
     </div>
   );
 }

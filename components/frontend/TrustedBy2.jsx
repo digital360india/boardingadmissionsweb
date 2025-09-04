@@ -19,7 +19,9 @@ export default function TrustedBy2() {
   return (
     <div className="px-[24px] py-10 flex-col space-y-6 bg-[#F4FCFC]">
       <div className="text-center flex-col space-y-4">
-        <p className="font-semibold md:text-32px text-[24px]">Trusted by Students</p>
+        <p className="font-semibold md:text-32px text-[24px]">
+          Trusted by Students
+        </p>
         <p className="text-18px ">
           Join our live demo class to have all your questions answered by our
           expert.
@@ -37,10 +39,10 @@ export default function TrustedBy2() {
       <div className="flex-col space-y-4">
         <div>
           <p className="text-14px text-justify">
-          &quot;At Boarding Admission, our students consistently express their
-                  gratitude for the seamless and supportive admission process.
-                  Their feedback highlights how our guidance helped them
-                  confidently secure their spot in top boarding schools.&quot;
+            &quot;At Boarding Admission, our students consistently express their
+            gratitude for the seamless and supportive admission process. Their
+            feedback highlights how our guidance helped them confidently secure
+            their spot in top boarding schools.&quot;
           </p>
         </div>
         {/* <div>
@@ -48,10 +50,13 @@ export default function TrustedBy2() {
           <p className="text-[10px] text-[#656675]">Bishop Cotton School</p>
         </div> */}
       </div>
-      <div>
+      <div className="relative flex justify-center w-[80%] items-center mx-auto">
+        <div    onClick={handleClick}
+        className="absolute inset-0 rounded-md bg-[#075D70] opacity-10 animate-scale-pulse"></div>
+
         <button
-          onClick={handleClick}
-          className="bg-gradient01 w-[100%] text-white rounded-md py-2  hover:bg-[#075D70] transition duration-300"
+        
+          className="bg-gradient01 w-[80%] text-white rounded-md py-2  hover:bg-[#075D70] transition duration-300"
         >
           Book a Demo Class
         </button>

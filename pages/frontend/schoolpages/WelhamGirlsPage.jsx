@@ -11,6 +11,7 @@ import SchoolCarousel from "../../../components/frontend/SchoolCarousel";
 import { FaFilePdf } from "react-icons/fa";
 import SyllabusPopup from "../SyllabusPopup";
 import Image from "next/image";
+import Formontact from "@/components/frontend/FormContacts";
 
 const syllabusData = [
   {
@@ -726,6 +727,9 @@ function WelhamGirlsPage() {
 
       <div className="mt-10">
         <Faq data={WelhamGirls} />
+      </div>
+      <div className="lg:hidden block mt-10">
+        <Formontact />
       </div>
     </div>
   );

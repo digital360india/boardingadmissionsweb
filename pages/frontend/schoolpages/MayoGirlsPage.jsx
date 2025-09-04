@@ -9,6 +9,7 @@ import EnquiryForm from "@/components/frontend/EnquiryForm";
 import Broucher from "@/components/frontend/Broucher";
 import SchoolCarousel from "../../../components/frontend/SchoolCarousel";
 import Image from "next/image";
+import Formontact from "@/components/frontend/FormContacts";
 
 const tableData = [
   {
@@ -593,6 +594,10 @@ function MayoGirlsPage() {
       <div className="mt-10">
         <Faq data={MayoGirls} />
       </div>
+
+       <div className="lg:hidden block mt-10">
+              <Formontact />
+            </div>
     </div>
   );
 }

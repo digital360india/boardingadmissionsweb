@@ -8,6 +8,7 @@ import GetPrepared from "@/components/frontend/GetPrepared";
 import EnquiryForm from "@/components/frontend/EnquiryForm";
 import Broucher from "@/components/frontend/Broucher";
 import SchoolCarousel from "../../../components/frontend/SchoolCarousel";
+import Formontact from "@/components/frontend/FormContacts";
 
 const steps = [
   {
@@ -354,6 +355,10 @@ function StGeorgeCollegePage() {
       <div>
         <Faq data={StGeorgeCollege} />
       </div>
+
+       <div className="lg:hidden block mt-10">
+              <Formontact />
+            </div>
     </div>
   );
 }

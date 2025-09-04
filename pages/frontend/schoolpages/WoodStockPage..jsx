@@ -8,6 +8,7 @@ import GetPrepared from "@/components/frontend/GetPrepared";
 import Broucher from "@/components/frontend/Broucher";
 import EnquiryForm from "@/components/frontend/EnquiryForm";
 import SchoolCarousel from "../../../components/frontend/SchoolCarousel";
+import Formontact from "@/components/frontend/FormContacts";
 
 const examDetails = [
   {
@@ -224,6 +225,9 @@ function WoodStockPage() {
 
       <div>
         <Faq data={WoodstockSchool} />
+      </div>
+      <div className="lg:hidden block mt-10">
+        <Formontact />
       </div>
     </div>
   );

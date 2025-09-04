@@ -8,6 +8,7 @@ import GetPrepared from "@/components/frontend/GetPrepared";
 import EnquiryForm from "@/components/frontend/EnquiryForm";
 import Broucher from "@/components/frontend/Broucher";
 import SchoolCarousel from "../../../components/frontend/SchoolCarousel";
+import Formontact from "@/components/frontend/FormContacts";
 
 const admissionDetails = [
   {
@@ -211,6 +212,10 @@ function SherWoodCollegePage() {
       <div>
         <Faq data={SherwoodCollege} />
       </div>
+
+       <div className="lg:hidden block mt-10">
+              <Formontact />
+            </div>
     </div>
   );
 }

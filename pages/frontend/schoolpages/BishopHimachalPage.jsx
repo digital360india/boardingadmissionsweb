@@ -8,6 +8,7 @@ import EnquiryForm from "@/components/frontend/EnquiryForm";
 import Broucher from "@/components/frontend/Broucher";
 import StarRatings from "@/components/frontend/StarRatings";
 import SchoolCarousel from "../../../components/frontend/SchoolCarousel";
+import Formontact from "@/components/frontend/FormContacts";
 
 const admissionsSteps = [
   {
@@ -196,6 +197,10 @@ function BishopHimachalPage() {
 
       <div>
         <Faq data={BishopShimlaFAQ} />
+      </div>
+
+      <div className="lg:hidden block mt-10">
+        <Formontact />
       </div>
     </div>
   );

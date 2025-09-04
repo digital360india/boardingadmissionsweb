@@ -9,6 +9,7 @@ import Broucher from "@/components/frontend/Broucher";
 
 import StarRatings from "@/components/frontend/StarRatings";
 import SchoolCarousel from "../../../components/frontend/SchoolCarousel";
+import Formontact from "@/components/frontend/FormContacts";
 
 const registrationSteps = [
   {
@@ -215,6 +216,10 @@ function BishopKarnatakaPage() {
       <div>
         <Faq data={BishopKarnatakFAQ} />
       </div>
+
+       <div className="lg:hidden block mt-10">
+              <Formontact />
+            </div>
     </div>
   );
 }

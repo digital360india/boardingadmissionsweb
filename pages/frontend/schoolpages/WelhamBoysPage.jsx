@@ -8,6 +8,7 @@ import GetPrepared from "@/components/frontend/GetPrepared";
 import EnquiryForm from "@/components/frontend/EnquiryForm";
 import Broucher from "@/components/frontend/Broucher";
 import SchoolCarousel from "../../../components/frontend/SchoolCarousel";
+import Formontact from "@/components/frontend/FormContacts";
 
 function WelhamBoysPage() {
   const WelhamBoys =
@@ -472,6 +473,10 @@ function WelhamBoysPage() {
       <div>
         <Faq data={WelhamBoys} />
       </div>
+
+       <div className="lg:hidden block mt-10">
+              <Formontact />
+            </div>
     </div>
   );
 }

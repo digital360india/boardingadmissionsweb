@@ -9,6 +9,7 @@ import Broucher from "@/components/frontend/Broucher";
 import EnquiryForm from "@/components/frontend/EnquiryForm";
 import SchoolCarousel from "../../../components/frontend/SchoolCarousel";
 import { FaFilePdf } from "react-icons/fa";
+import Formontact from "@/components/frontend/FormContacts";
 
 const syllabusData = [
   {
@@ -509,6 +510,10 @@ function ScindiaSchoolPage() {
       <div>
         <Faq data={Scindia} />
       </div>
+
+       <div className="lg:hidden block mt-10">
+              <Formontact />
+            </div>
     </div>
   );
 }
