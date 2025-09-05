@@ -33,7 +33,7 @@ export default function RootLayout({ children }) {
         />
         <title>{metadata.title}</title>
 
-        {/* ✅ Google Tag Manager - GTM-MR66K9GZ (existing) */}
+        {/* Google Tag Manager - GTM-MR66K9GZ */}
         <script
           dangerouslySetInnerHTML={{
             __html: `
@@ -46,7 +46,7 @@ export default function RootLayout({ children }) {
           }}
         />
 
-        {/* ✅ Google Tag Manager - GTM-MMKTLDPV (new) */}
+        {/* Google Tag Manager - GTM-MMKTLDPV */}
         <script
           dangerouslySetInnerHTML={{
             __html: `
@@ -58,7 +58,6 @@ export default function RootLayout({ children }) {
             `,
           }}
         />
-        {/* ✅ End Google Tag Manager */}
 
         {/* Google Analytics */}
         <script
@@ -153,11 +152,10 @@ export default function RootLayout({ children }) {
             `,
           }}
         />
-        {/* End Google Ads Conversion Tracking */}
       </head>
 
       <body className={`${poppins.variable}`}>
-        {/* ✅ Google Tag Manager (noscript) - GTM-MMKTLDPV (added first inside body) */}
+        {/* Google Tag Manager (noscript) - GTM-MMKTLDPV */}
         <noscript>
           <iframe
             src="https://www.googletagmanager.com/ns.html?id=GTM-MMKTLDPV"
@@ -167,7 +165,7 @@ export default function RootLayout({ children }) {
           ></iframe>
         </noscript>
 
-        {/* ✅ Google Tag Manager (noscript) - GTM-MR66K9GZ */}
+        {/* Google Tag Manager (noscript) - GTM-MR66K9GZ */}
         <noscript>
           <iframe
             src="https://www.googletagmanager.com/ns.html?id=GTM-MR66K9GZ"
@@ -176,7 +174,6 @@ export default function RootLayout({ children }) {
             style={{ display: "none", visibility: "hidden" }}
           ></iframe>
         </noscript>
-        {/* ✅ End Google Tag Manager (noscript) */}
 
         {/* Facebook Pixel (noscript) */}
         <noscript>
