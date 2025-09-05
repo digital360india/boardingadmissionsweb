@@ -13,7 +13,7 @@ const team = [
       "The complete learning resources and flexible scheduling at Boarding Admissions made my entire preparation journey so seamless and stress-free. The constant support and detailed feedback from the teachers truly boosted my confidence and helped me stay on track.",
     imageSrc: "/icons/logo.enc",
     name: "Khyati Yadav",
-    school: "Scindia Kanya Vidyalaya",
+    school: "Scindia Kanya Vidyalaya",  
     videoSrc:
       "https://firebasestorage.googleapis.com/v0/b/boardingadmissions-f3ba3.appspot.com/o/boardingadmission%2Fkhyati.mp4?alt=media&token=22578130-5489-4d1a-b21f-4ec7699555f9",
   },

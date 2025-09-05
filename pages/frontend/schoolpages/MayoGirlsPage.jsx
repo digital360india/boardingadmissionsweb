@@ -486,15 +486,6 @@ function MayoGirlsPage() {
               </p>
             </div>
           </div>
-          <div className="md:hidden block">
-            <Image
-              src="/schoolimg.jpeg"
-              className="w-full h-full pt-1"
-              width={1000}
-              height={1000}
-              alt="svg"
-            />
-          </div>
 
           <div className="bg-white text-gray-800 ">
             <div className="space-y-10">
@@ -595,9 +586,9 @@ function MayoGirlsPage() {
         <Faq data={MayoGirls} />
       </div>
 
-       <div className="lg:hidden block mt-10">
-              <Formontact />
-            </div>
+      <div className="lg:hidden block mt-10">
+        <Formontact />
+      </div>
     </div>
   );
 }

@@ -282,15 +282,14 @@ function LawrenceSchoolPage() {
           </div>
 
           <div className="md:hidden block">
-            <Image
-              src="/schoolimg.jpeg"
-              className="w-full h-full pt-1"
-              width={1000}
-              height={1000}
-              alt="svg"
-            />
-          </div>
-
+                     <Image
+                       src="/schoolimg3.png"
+                       className="w-full h-full pt-8"
+                       width={1000}
+                       height={1000}
+                       alt="svg"
+                     />
+                   </div>
           <h1 className="text-[14px] md:text-[1.15rem] pt-4">
             For the most up-to-date information, including specific deadlines,
             it&apos;s recommended to visit the school&apos;s official website.

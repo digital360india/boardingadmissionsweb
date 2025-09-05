@@ -1,8 +1,8 @@
-// import { Barlow, Inter, Jost, Space_Grotesk } from "next/font/google";
+"use client";
+
 import "./globals.css";
 import { Poppins } from "next/font/google";
 import { UserProvider } from "@/userProvider";
-import Head from "next/head"; // Import Head for adding elements to the head section
 
 const poppins = Poppins({
   subsets: ["latin"],
@@ -18,23 +18,6 @@ export const metadata = {
     "Enroll in the best boarding schools for 2025-26. Give your child a top-quality education today!",
   keywords:
     "Boarding School Admissions,  Boarding School consultancy, School consultancy, Boarding Admissions, Boarding School Entrance Prep, Welham Girls admission, Mayo Girls Admissions, Bishop Cotton Admission, Welham Boys Admission ",
-  openGraph: {
-    locale: "en_US",
-    type: "website",
-    title: "Get Admissions in Top Boarding Schools | Admission 2025-26",
-    description:
-      "Enroll in the best boarding schools for 2025-26. Give your child a top-quality education today!",
-    url: "https://www.boardingadmissions.com/",
-    siteName: "Boarding Admissions",
-    images: [
-      {
-        url: "https://www.boardingadmissions.com/welhamstudent.png",
-        width: 800,
-        height: 600,
-        alt: "Welham Student",
-      },
-    ],
-  },
 };
 
 export default function RootLayout({ children }) {
@@ -50,19 +33,32 @@ export default function RootLayout({ children }) {
         />
         <title>{metadata.title}</title>
 
-        {/* Google Tag Manager */}
+        {/* ✅ Google Tag Manager - GTM-MR66K9GZ (existing) */}
         <script
           dangerouslySetInnerHTML={{
             __html: `
-            (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-            new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-            j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-            'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-            })(window,document,'script','dataLayer','GTM-MR66K9GZ');
+              (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+              new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+              j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+              'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+              })(window,document,'script','dataLayer','GTM-MR66K9GZ');
             `,
           }}
         />
-        {/* End Google Tag Manager */}
+
+        {/* ✅ Google Tag Manager - GTM-MMKTLDPV (new) */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+              new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+              j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+              'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+              })(window,document,'script','dataLayer','GTM-MMKTLDPV');
+            `,
+          }}
+        />
+        {/* ✅ End Google Tag Manager */}
 
         {/* Google Analytics */}
         <script
@@ -73,31 +69,31 @@ export default function RootLayout({ children }) {
         <script
           dangerouslySetInnerHTML={{
             __html: `
-      function getQueryParam(param) {
-        let urlParams = new URLSearchParams(window.location.search);
-        return urlParams.get(param);
-      }
+              function getQueryParam(param) {
+                let urlParams = new URLSearchParams(window.location.search);
+                return urlParams.get(param);
+              }
 
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
 
-      const utmAdGroup = getQueryParam('utm_adgroup');
+              const utmAdGroup = getQueryParam('utm_adgroup');
 
-      gtag('config', 'G-XHSL8SZLKJ', {
-        'utm_adgroup': utmAdGroup
-      });
-    `,
+              gtag('config', 'G-XHSL8SZLKJ', {
+                'utm_adgroup': utmAdGroup
+              });
+            `,
           }}
         />
 
         <script
           dangerouslySetInnerHTML={{
             __html: `
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
-            gtag('config', 'G-XHSL8SZLKJ');
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+              gtag('config', 'G-XHSL8SZLKJ');
             `,
           }}
         />
@@ -106,16 +102,16 @@ export default function RootLayout({ children }) {
         <script
           dangerouslySetInnerHTML={{
             __html: `
-            !function(f,b,e,v,n,t,s)
-            {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-            n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-            if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-            n.queue=[];t=b.createElement(e);t.async=!0;
-            t.src=v;s=b.getElementsByTagName(e)[0];
-            s.parentNode.insertBefore(t,s)}(window, document,'script',
-            'https://connect.facebook.net/en_US/fbevents.js');
-            fbq('init', '1033752393439199');
-            fbq('track', 'PageView');
+              !function(f,b,e,v,n,t,s)
+              {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+              n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+              if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+              n.queue=[];t=b.createElement(e);t.async=!0;
+              t.src=v;s=b.getElementsByTagName(e)[0];
+              s.parentNode.insertBefore(t,s)}(window, document,'script',
+              'https://connect.facebook.net/en_US/fbevents.js');
+              fbq('init', '1033752393439199');
+              fbq('track', 'PageView');
             `,
           }}
         />
@@ -125,18 +121,18 @@ export default function RootLayout({ children }) {
           type="text/javascript"
           dangerouslySetInnerHTML={{
             __html: `
-            window.smartlook||(function(d) {
-              var o = smartlook = function(){ o.api.push(arguments) },
-                  h = d.getElementsByTagName('head')[0];
-              var c = d.createElement('script');
-              o.api = new Array();
-              c.async = 1;
-              c.type = 'text/javascript';
-              c.charset = 'utf-8';
-              c.src = 'https://web-sdk.smartlook.com/recorder.js';
-              h.appendChild(c);
-            })(document);
-            smartlook('init', '27d0790b98d4a90284e810130cb00bc23e87bf00', { region: 'eu' });
+              window.smartlook||(function(d) {
+                var o = smartlook = function(){ o.api.push(arguments) },
+                    h = d.getElementsByTagName('head')[0];
+                var c = d.createElement('script');
+                o.api = new Array();
+                c.async = 1;
+                c.type = 'text/javascript';
+                c.charset = 'utf-8';
+                c.src = 'https://web-sdk.smartlook.com/recorder.js';
+                h.appendChild(c);
+              })(document);
+              smartlook('init', '27d0790b98d4a90284e810130cb00bc23e87bf00', { region: 'eu' });
             `,
           }}
         />
@@ -149,11 +145,11 @@ export default function RootLayout({ children }) {
         <script
           dangerouslySetInnerHTML={{
             __html: `
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
 
-            gtag('config', 'AW-10787874522');
+              gtag('config', 'AW-10787874522');
             `,
           }}
         />
@@ -161,7 +157,17 @@ export default function RootLayout({ children }) {
       </head>
 
       <body className={`${poppins.variable}`}>
-        {/* Google Tag Manager (noscript) */}
+        {/* ✅ Google Tag Manager (noscript) - GTM-MMKTLDPV (added first inside body) */}
+        <noscript>
+          <iframe
+            src="https://www.googletagmanager.com/ns.html?id=GTM-MMKTLDPV"
+            height="0"
+            width="0"
+            style={{ display: "none", visibility: "hidden" }}
+          ></iframe>
+        </noscript>
+
+        {/* ✅ Google Tag Manager (noscript) - GTM-MR66K9GZ */}
         <noscript>
           <iframe
             src="https://www.googletagmanager.com/ns.html?id=GTM-MR66K9GZ"
@@ -170,7 +176,7 @@ export default function RootLayout({ children }) {
             style={{ display: "none", visibility: "hidden" }}
           ></iframe>
         </noscript>
-        {/* End Google Tag Manager (noscript) */}
+        {/* ✅ End Google Tag Manager (noscript) */}
 
         {/* Facebook Pixel (noscript) */}
         <noscript>
