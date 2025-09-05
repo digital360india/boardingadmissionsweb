@@ -69,6 +69,28 @@ export default function RootLayout({ children }) {
           async
           src="https://www.googletagmanager.com/gtag/js?id=G-XHSL8SZLKJ"
         ></script>
+
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+      function getQueryParam(param) {
+        let urlParams = new URLSearchParams(window.location.search);
+        return urlParams.get(param);
+      }
+
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      const utmAdGroup = getQueryParam('utm_adgroup');
+
+      gtag('config', 'G-XHSL8SZLKJ', {
+        'utm_adgroup': utmAdGroup
+      });
+    `,
+          }}
+        />
+
         <script
           dangerouslySetInnerHTML={{
             __html: `
