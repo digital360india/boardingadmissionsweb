@@ -199,7 +199,7 @@ function BishopHimachalPage() {
         <Faq data={BishopShimlaFAQ} />
       </div>
 
-      <div className="lg:hidden block mt-10">
+      <div className="lg:hidden block ">
         <Formontact />
       </div>
     </div>

@@ -137,9 +137,10 @@ function TheDoonPage() {
               </p>
             </div>
           </div>
+
           <div className="md:hidden block">
             <Image
-              src="/schoolimage2.png"
+              src="/schoolimg3.png"
               className="w-full h-full pt-8"
               width={1000}
               height={1000}
@@ -424,6 +425,16 @@ function TheDoonPage() {
           </div>
         </div>
 
+        <div className="md:hidden block">
+          <Image
+            src="/schoolimage2.png"
+            className="w-full h-full pt-8"
+            width={1000}
+            height={1000}
+            alt="svg"
+          />
+        </div>
+
         <div className="space-y-4 w-[90vw] mb-10 mt-10">
           <div>
             <h1 className="text-[#075D70] font-semibold text-[1.5rem] md:text-[2rem]">
@@ -495,15 +506,6 @@ function TheDoonPage() {
           </div>
         </div>
 
-        <div className="md:hidden block">
-          <Image
-            src="/schoolimg3.png"
-            className="w-full h-full pt-8"
-            width={1000}
-            height={1000}
-            alt="svg"
-          />
-        </div>
         <div className="space-y-4 w-[90vw] mb-10 mt-10">
           <div>
             <h1 className="text-[#075D70] font-semibold text-[1.5rem] md:text-[2rem]">
@@ -535,6 +537,16 @@ function TheDoonPage() {
               </li>
             </ul>
           </div>
+        </div>
+
+        <div className="md:hidden block">
+          <Image
+            src="/Boardingimg.png"
+            className="w-full h-full pt-8"
+            width={1000}
+            height={1000}
+            alt="svg"
+          />
         </div>
 
         <div className="space-y-4 w-[90vw] mb-10 mt-10">
@@ -579,9 +591,9 @@ function TheDoonPage() {
         <Faq data={TheDoon} />
       </div>
 
-       <div className="lg:hidden block mt-10">
-              <Formontact />
-            </div>
+      <div className="lg:hidden block ">
+        <Formontact />
+      </div>
     </div>
   );
 }

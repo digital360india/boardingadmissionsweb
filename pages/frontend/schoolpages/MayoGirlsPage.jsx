@@ -168,7 +168,7 @@ function MayoGirlsPage() {
 
               <div className="md:hidden block">
                 <Image
-                  src="/schoolimage2.png"
+                  src="/schoolimg3.png"
                   className="w-full h-full pt-8"
                   width={1000}
                   height={1000}
@@ -318,7 +318,7 @@ function MayoGirlsPage() {
           </div>
           <div className="md:hidden block">
             <Image
-              src="/schoolimg3.png"
+              src="/schoolimage2.png"
               className="w-full h-full pt-8"
               width={1000}
               height={1000}
@@ -487,6 +487,16 @@ function MayoGirlsPage() {
             </div>
           </div>
 
+          <div className="md:hidden block">
+            <Image
+              src="/Boardingimg.png"
+              className="w-full h-full pt-8"
+              width={1000}
+              height={1000}
+              alt="svg"
+            />
+          </div>
+
           <div className="bg-white text-gray-800 ">
             <div className="space-y-10">
               {/* Syllabus and Academics Section */}
@@ -586,7 +596,7 @@ function MayoGirlsPage() {
         <Faq data={MayoGirls} />
       </div>
 
-      <div className="lg:hidden block mt-10">
+      <div className="lg:hidden block ">
         <Formontact />
       </div>
     </div>

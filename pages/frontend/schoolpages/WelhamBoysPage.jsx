@@ -81,9 +81,10 @@ function WelhamBoysPage() {
                 global perspective.
               </p>
             </div>
+
             <div className="md:hidden block">
               <Image
-                src="/schoolimage2.png"
+                src="/schoolimg3.png"
                 className="w-full h-full pt-8"
                 width={1000}
                 height={1000}
@@ -176,7 +177,7 @@ function WelhamBoysPage() {
 
             <div className="md:hidden block">
               <Image
-                src="/schoolimg3.png"
+                src="/schoolimage2.png"
                 className="w-full h-full pt-8"
                 width={1000}
                 height={1000}
@@ -347,7 +348,16 @@ function WelhamBoysPage() {
             </div>
 
             <div>
-         
+              <div className="md:hidden block">
+                <Image
+                  src="/Boardingimg.png"
+                  className="w-full h-full pt-8"
+                  width={1000}
+                  height={1000}
+                  alt="svg"
+                />
+              </div>
+
               <div>
                 <p className="text-[#075D70] font-semibold text-[1.5rem] md:text-[2rem]">
                   Eligibility Criteria
@@ -474,9 +484,9 @@ function WelhamBoysPage() {
         <Faq data={WelhamBoys} />
       </div>
 
-       <div className="lg:hidden block mt-10">
-              <Formontact />
-            </div>
+      <div className="lg:hidden block ">
+        <Formontact />
+      </div>
     </div>
   );
 }

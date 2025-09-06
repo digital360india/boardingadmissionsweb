@@ -147,9 +147,10 @@ function SherWoodCollegePage() {
             <EnquiryForm />
           </div>
         </div>
+
         <div className="md:hidden block">
           <Image
-            src="/schoolimage2.png"
+            src="/schoolimg3.png"
             className="w-full h-full pt-8"
             width={1000}
             height={1000}
@@ -180,13 +181,14 @@ function SherWoodCollegePage() {
         </div>
         <div className="md:hidden block">
           <Image
-            src="/schoolimg3.png"
+            src="/schoolimage2.png"
             className="w-full h-full pt-8"
             width={1000}
             height={1000}
             alt="svg"
           />
         </div>
+
         <div className="space-y-4 w-[90vw] mb-10 mt-10">
           <div>
             <h1 className="text-[#075D70] font-semibold text-[1.5rem] md:text-[2rem]">
@@ -209,13 +211,14 @@ function SherWoodCollegePage() {
         <Broucher />
       </div>
 
+     
       <div>
         <Faq data={SherwoodCollege} />
       </div>
 
-       <div className="lg:hidden block mt-10">
-              <Formontact />
-            </div>
+      <div className="lg:hidden block ">
+        <Formontact />
+      </div>
     </div>
   );
 }

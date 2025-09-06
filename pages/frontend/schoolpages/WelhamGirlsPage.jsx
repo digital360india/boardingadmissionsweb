@@ -12,6 +12,7 @@ import { FaFilePdf } from "react-icons/fa";
 import SyllabusPopup from "../SyllabusPopup";
 import Image from "next/image";
 import Formontact from "@/components/frontend/FormContacts";
+import ContactForm from "@/components/frontend/ContactForms";
 
 const syllabusData = [
   {
@@ -111,7 +112,10 @@ function WelhamGirlsPage() {
           </div>
         </div>
         <div className="md:hidden mt-6">
-          <EnquiryForm />
+          {/* <EnquiryForm /> */}
+           <div className="mt-6">
+              <ContactForm />
+            </div>
         </div>
 
         <div className="md:flex md:justify-between">
@@ -133,6 +137,8 @@ function WelhamGirlsPage() {
           </div>
           <div className=" hidden md:block mt-6">
             <EnquiryForm />
+
+           
           </div>
         </div>
 
@@ -429,7 +435,7 @@ function WelhamGirlsPage() {
 
         <div>
           <p className="text-primary02 text-[1.5rem] md:text-[2rem] font-semibold mb-4">
-            Required Documents
+            Important Dates
           </p>
           <p className="mb-6 ml-4 leading-6 w-[88vw] text-[14px] md:text-[1.15rem]">
             Keep track of these important dates for a smooth Welham Girls
@@ -614,6 +620,16 @@ function WelhamGirlsPage() {
           </p>
         </div>
 
+        <div className="md:hidden block">
+          <Image
+            src="/Boardingimg.png"
+            className="w-full h-full pt-8"
+            width={1000}
+            height={1000}
+            alt="svg"
+          />
+        </div>
+
         <div className="space-y-4 w-[90vw] my-10">
           <div>
             <p className="text-[#075D70] font-semibold text-[1.5rem] md:text-[2rem]">
@@ -728,7 +744,7 @@ function WelhamGirlsPage() {
       <div className="mt-10">
         <Faq data={WelhamGirls} />
       </div>
-      <div className="lg:hidden block mt-10">
+      <div className="lg:hidden block ">
         <Formontact />
       </div>
     </div>
