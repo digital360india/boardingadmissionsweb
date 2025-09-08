@@ -9,6 +9,7 @@ import Broucher from "@/components/frontend/Broucher";
 import StarRatings from "@/components/frontend/StarRatings";
 import SchoolCarousel from "../../../components/frontend/SchoolCarousel";
 import Formontact from "@/components/frontend/FormContacts";
+import ContactForm from "@/components/frontend/ContactForms";
 
 const admissionsSteps = [
   {
@@ -118,7 +119,10 @@ function BishopHimachalPage() {
           </div>
         </div>
         <div className="md:hidden mt-6">
-          <EnquiryForm />
+          {/* <EnquiryForm /> */}
+          <div className="mt-6">
+            <ContactForm />
+          </div>
         </div>
 
         <div className="md:flex md:justify-between">
@@ -156,6 +160,12 @@ function BishopHimachalPage() {
           </div>
           <div className=" hidden md:block mt-10">
             <EnquiryForm />
+          </div>
+          <div className="md:hidden mt-6">
+            {/* <EnquiryForm /> */}
+            <div className="mt-6">
+              <ContactForm />
+            </div>
           </div>
         </div>
 

@@ -10,6 +10,7 @@ import Broucher from "@/components/frontend/Broucher";
 import SchoolCarousel from "../../../components/frontend/SchoolCarousel";
 import Image from "next/image";
 import Formontact from "@/components/frontend/FormContacts";
+import ContactForm from "@/components/frontend/ContactForms";
 
 const tableData = [
   {
@@ -145,7 +146,10 @@ function MayoGirlsPage() {
           </div>
         </div>
         <div className="md:hidden mt-6">
-          <EnquiryForm />
+          {/* <EnquiryForm /> */}
+          <div className="mt-6">
+            <ContactForm />
+          </div>
         </div>
         <div className="space-y-4 w-[90vw]  mt-10 ">
           <div className="md:flex md:justify-between">
@@ -324,6 +328,13 @@ function MayoGirlsPage() {
               height={1000}
               alt="svg"
             />
+          </div>
+
+          <div className="md:hidden mt-6">
+            {/* <EnquiryForm /> */}
+            <div className="mt-6">
+              <ContactForm />
+            </div>
           </div>
 
           <div>

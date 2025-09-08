@@ -113,9 +113,9 @@ function WelhamGirlsPage() {
         </div>
         <div className="md:hidden mt-6">
           {/* <EnquiryForm /> */}
-           <div className="mt-6">
-              <ContactForm />
-            </div>
+          <div className="mt-6">
+            <ContactForm />
+          </div>
         </div>
 
         <div className="md:flex md:justify-between">
@@ -137,8 +137,6 @@ function WelhamGirlsPage() {
           </div>
           <div className=" hidden md:block mt-6">
             <EnquiryForm />
-
-           
           </div>
         </div>
 
@@ -411,6 +409,13 @@ function WelhamGirlsPage() {
               alt="svg"
             />
           </div>
+           <div className="md:hidden mt-6">
+          {/* <EnquiryForm /> */}
+          <div className="mt-6">
+            <ContactForm />
+          </div>
+        </div>
+
           <div>
             <p className="text-[#075D70] font-semibold text-[1.5rem] md:text-[2rem]">
               Preference for Admission

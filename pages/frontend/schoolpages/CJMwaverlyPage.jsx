@@ -9,6 +9,7 @@ import EnquiryForm from "@/components/frontend/EnquiryForm";
 import Broucher from "@/components/frontend/Broucher";
 import SchoolCarousel from "../../../components/frontend/SchoolCarousel";
 import Formontact from "@/components/frontend/FormContacts";
+import ContactForm from "@/components/frontend/ContactForms";
 
 const feeData = [
   {
@@ -165,7 +166,10 @@ function CJMwaverlyPage() {
           </div>
         </div>
         <div className="md:hidden mt-6">
-          <EnquiryForm />
+          {/* <EnquiryForm /> */}
+          <div className="mt-6">
+            <ContactForm />
+          </div>
         </div>
 
         <div className="md:flex md:justify-between">
@@ -193,9 +197,10 @@ function CJMwaverlyPage() {
                 education
               </p>
             </div>
+
             <div className="md:hidden block">
               <Image
-                src="/schoolimage2.png"
+                src="/schoolimg3.png"
                 className="w-full h-full pt-8"
                 width={1000}
                 height={1000}
@@ -249,12 +254,19 @@ function CJMwaverlyPage() {
         </div>
         <div className="md:hidden block">
           <Image
-            src="/schoolimg3.png"
+            src="/schoolimage2.png"
             className="w-full h-full pt-8"
             width={1000}
             height={1000}
             alt="svg"
           />
+        </div>
+
+        <div className="md:hidden mt-6">
+          {/* <EnquiryForm /> */}
+          <div className="mt-6">
+            <ContactForm />
+          </div>
         </div>
 
         <div className="space-y-4 w-[90vw] mb-10 mt-10">
@@ -299,9 +311,9 @@ function CJMwaverlyPage() {
         <Faq data={CJMWaverly} />
       </div>
 
-       <div className="lg:hidden block ">
-              <Formontact />
-            </div>
+      <div className="lg:hidden block ">
+        <Formontact />
+      </div>
     </div>
   );
 }

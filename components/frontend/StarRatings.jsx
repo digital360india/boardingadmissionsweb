@@ -1,4 +1,4 @@
-"use client"
+"use client";
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { FaStar } from "react-icons/fa";
@@ -41,11 +41,14 @@ export default function StarRatings({ lat, lng, schoolName }) {
           <div className="border-none">{rating}</div>
         </h2>
 
-        <div className="border-none ">
+        <div className="border-none  flex gap-2">
+          <FaStar className="text-yellow-200" />
+          <FaStar className="text-yellow-200" />
+          <FaStar className="text-yellow-200" />
           <FaStar className="text-yellow-200" />
         </div>
 
-        <p className="text-[#075D70] ">Google reviews</p>
+        <p className="text-[#075D70] "> {" "} (251 Reviews)</p>
       </div>
     </div>
   );

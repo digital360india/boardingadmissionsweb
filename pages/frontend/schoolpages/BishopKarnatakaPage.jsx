@@ -10,6 +10,7 @@ import Broucher from "@/components/frontend/Broucher";
 import StarRatings from "@/components/frontend/StarRatings";
 import SchoolCarousel from "../../../components/frontend/SchoolCarousel";
 import Formontact from "@/components/frontend/FormContacts";
+import ContactForm from "@/components/frontend/ContactForms";
 
 const registrationSteps = [
   {
@@ -111,7 +112,10 @@ function BishopKarnatakaPage() {
           </div>
         </div>
         <div className="md:hidden mt-6">
-          <EnquiryForm />
+          {/* <EnquiryForm /> */}
+          <div className="mt-6">
+            <ContactForm />
+          </div>
         </div>
 
         <div className="md:flex md:justify-between">
@@ -149,6 +153,13 @@ function BishopKarnatakaPage() {
           </div>
           <div className=" hidden md:block mt-10">
             <EnquiryForm />
+          </div>
+
+          <div className="md:hidden mt-6">
+            {/* <EnquiryForm /> */}
+            <div className="mt-6">
+              <ContactForm />
+            </div>
           </div>
         </div>
 
@@ -217,9 +228,9 @@ function BishopKarnatakaPage() {
         <Faq data={BishopKarnatakFAQ} />
       </div>
 
-       <div className="lg:hidden block ">
-              <Formontact />
-            </div>
+      <div className="lg:hidden block ">
+        <Formontact />
+      </div>
     </div>
   );
 }

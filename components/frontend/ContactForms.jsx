@@ -1,10 +1,13 @@
 "use client";
 
-import { useState } from "react";
-import { Phone } from "lucide-react";
+import { useEffect, useState } from "react";
 import axios from "axios";
+import { useRouter } from "next/navigation";
+import { FaPhone } from "react-icons/fa6";
 
 export default function ContactForm() {
+  const router = useRouter();
+
   const [formData, setFormData] = useState({
     name: "",
     contactNumber: "",
@@ -36,6 +39,7 @@ export default function ContactForm() {
 
       alert("Form submitted successfully ✅");
       setFormData({ name: "", contactNumber: "", email: "" });
+      router.push("/thankyou");
     } catch (error) {
       console.error("Error submitting form:", error);
       alert("Something went wrong ❌");
@@ -44,24 +48,48 @@ export default function ContactForm() {
     }
   };
 
+   const [colorIndex, setColorIndex] = useState(0);
+  
+  // Array of different color classes
+  const colors = [
+    'text-green-500',
+    'text-blue-500',
+    'text-red-500',
+    'text-purple-500',
+    'text-yellow-500',
+    'text-pink-500',
+    'text-indigo-500',
+    'text-orange-500',
+    'text-teal-500',
+    'text-lime-500'
+  ];
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setColorIndex((prevIndex) => (prevIndex + 1) % colors.length);
+    }, 1000); // Changes color every 1 second
+
+    return () => clearInterval(interval);
+  }, [colors.length]);
+
+
   return (
     <div className="max-w-sm p-4 bg-white rounded-lg space-y-4 shadow-sm border border-gray-200">
       <div className="flex items-center justify-between mb-1">
         <h2 className="text-[20px] font-medium text-gray-900 heading">
           Looking to Join this Top Boarding School?
         </h2>
-        <a
-          href="https://wa.me/9760548360"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Phone className="w-8 h-8 text-green-500" />
-        </a>
+       <a 
+        href="tel:+9557695360" 
+        target="_blank" 
+        rel="noopener noreferrer"
+        className="transition-all duration-500 hover:scale-110"
+      >
+        <FaPhone  className={`w-8 h-8 ${colors[colorIndex]} transition-colors duration-300`} />
+      </a>
       </div>
 
-      <p className="text-[14px] text-gray-600 mb-4 body">
-        Get In Touch Today
-      </p>
+      <p className="text-[14px] text-gray-600 mb-4 body">Get In Touch Today</p>
 
       <div className="border border-gray-300 mb-4 ">
         <div className="grid grid-cols-[40%_60%] w-full body">

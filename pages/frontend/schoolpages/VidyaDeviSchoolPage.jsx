@@ -10,6 +10,7 @@ import Broucher from "@/components/frontend/Broucher";
 import SchoolCarousel from "../../../components/frontend/SchoolCarousel";
 import { FaFilePdf } from "react-icons/fa";
 import Formontact from "@/components/frontend/FormContacts";
+import ContactForm from "@/components/frontend/ContactForms";
 
 const syllabusData = [
   {
@@ -129,7 +130,10 @@ function VidyaDeviSchoolPage() {
           </div>
         </div>
         <div className="md:hidden mt-6">
-          <EnquiryForm />
+          {/* <EnquiryForm /> */}
+          <div className="mt-6">
+            <ContactForm />
+          </div>
         </div>
 
         <div className="md:flex md:justify-between">
@@ -287,6 +291,13 @@ function VidyaDeviSchoolPage() {
               height={1000}
               alt="svg"
             />
+          </div>
+
+          <div className="md:hidden mt-6">
+            {/* <EnquiryForm /> */}
+            <div className="mt-6">
+              <ContactForm />
+            </div>
           </div>
 
           <div>

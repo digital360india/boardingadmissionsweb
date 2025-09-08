@@ -11,6 +11,7 @@ import SchoolCarousel from "../../../components/frontend/SchoolCarousel";
 import { FaFilePdf } from "react-icons/fa";
 import SyllabusPopup from "../SyllabusPopup";
 import Formontact from "@/components/frontend/FormContacts";
+import ContactForm from "@/components/frontend/ContactForms";
 
 const syllabusData = [
   {
@@ -179,7 +180,10 @@ function LawrenceSchoolPage() {
           </div>
         </div>
         <div className="md:hidden mt-6">
-          <EnquiryForm />
+          {/* <EnquiryForm /> */}
+          <div className="mt-6">
+            <ContactForm />
+          </div>
         </div>
 
         <div className="md:flex md:justify-between">
@@ -207,7 +211,7 @@ function LawrenceSchoolPage() {
 
             <div className="md:hidden block">
               <Image
-                src="/schoolimage2.png"
+                src="/schoolimg3.png"
                 className="w-full h-full pt-8"
                 width={1000}
                 height={1000}
@@ -282,14 +286,22 @@ function LawrenceSchoolPage() {
           </div>
 
           <div className="md:hidden block">
-                     <Image
-                       src="/schoolimg3.png"
-                       className="w-full h-full pt-8"
-                       width={1000}
-                       height={1000}
-                       alt="svg"
-                     />
-                   </div>
+            <Image
+              src="/schoolimage2.png"
+              className="w-full h-full pt-8"
+              width={1000}
+              height={1000}
+              alt="svg"
+            />
+          </div>
+
+          <div className="md:hidden mt-6">
+            {/* <EnquiryForm /> */}
+            <div className="mt-6">
+              <ContactForm />
+            </div>
+          </div>
+
           <h1 className="text-[14px] md:text-[1.15rem] pt-4">
             For the most up-to-date information, including specific deadlines,
             it&apos;s recommended to visit the school&apos;s official website.
@@ -326,9 +338,9 @@ function LawrenceSchoolPage() {
         <Faq data={LawrenceSchool} />
       </div>
 
-       <div className="lg:hidden block ">
-              <Formontact />
-            </div>
+      <div className="lg:hidden block ">
+        <Formontact />
+      </div>
     </div>
   );
 }

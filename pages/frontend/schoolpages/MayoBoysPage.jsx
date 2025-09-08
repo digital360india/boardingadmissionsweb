@@ -10,6 +10,7 @@ import EnquiryForm from "@/components/frontend/EnquiryForm";
 import SchoolCarousel from "../../../components/frontend/SchoolCarousel";
 import { FaFilePdf } from "react-icons/fa";
 import Formontact from "@/components/frontend/FormContacts";
+import ContactForm from "@/components/frontend/ContactForms";
 
 const syllabusData = [
   {
@@ -100,7 +101,10 @@ function MayoBoysPage() {
           </div>
         </div>
         <div className="md:hidden mt-6">
-          <EnquiryForm />
+          {/* <EnquiryForm /> */}
+          <div className="mt-6">
+            <ContactForm />
+          </div>
         </div>
 
         <div className="md:flex md:justify-between">
@@ -318,6 +322,13 @@ function MayoBoysPage() {
           />
         </div>
 
+        <div className="md:hidden mt-6">
+          {/* <EnquiryForm /> */}
+          <div className="mt-6">
+            <ContactForm />
+          </div>
+        </div>
+
         <div className="bg-white ">
           <h1 className="text-[#075D70] font-semibold text-[1.75rem] sm:text-[2rem] mb-4">
             Download Syllabus
@@ -361,9 +372,9 @@ function MayoBoysPage() {
         <Faq data={MayoBoys} />
       </div>
 
-       <div className="lg:hidden block ">
-              <Formontact />
-            </div>
+      <div className="lg:hidden block ">
+        <Formontact />
+      </div>
     </div>
   );
 }
