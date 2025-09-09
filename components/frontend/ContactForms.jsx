@@ -21,8 +21,14 @@ export default function ContactForm() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    setIsSubmitting(true);
 
+    // ✅ validation before submit
+    if (!formData.name || !formData.contactNumber || !formData.email) {
+      alert("Please fill in all fields ❌");
+      return;
+    }
+
+    setIsSubmitting(true);
     try {
       await axios.post(
         "https://digitalleadmanagement.vercel.app/api/add-lead",
@@ -32,7 +38,7 @@ export default function ContactForm() {
           email: formData.email,
           url: window.location.href,
           source:
-            "Boardingadmissions - Not Sure Which School To Choose? -Category Page",
+            "Boardingadmissions - Not Sure Which School To Choose? -Category Schools Page",
           date: new Date().toISOString(),
         }
       );
@@ -48,8 +54,6 @@ export default function ContactForm() {
   };
 
   const [colorIndex, setColorIndex] = useState(0);
-
-  // Array of different color classes
   const colors = [
     "text-green-500",
     "text-blue-500",
@@ -66,13 +70,15 @@ export default function ContactForm() {
   useEffect(() => {
     const interval = setInterval(() => {
       setColorIndex((prevIndex) => (prevIndex + 1) % colors.length);
-    }, 1000); // Changes color every 1 second
-
+    }, 1000);
     return () => clearInterval(interval);
   }, [colors.length]);
 
   return (
-    <div className="max-w-sm p-4 bg-white rounded-lg space-y-4 shadow-sm border border-gray-200">
+    <form
+      onSubmit={handleSubmit}
+      className="max-w-sm p-4 bg-white rounded-lg space-y-4 shadow-sm border border-gray-200"
+    >
       <div className="flex items-center justify-between mb-1">
         <h2 className="text-[20px] font-medium text-gray-900 heading">
           Looking to Join this Top Boarding School?
@@ -91,9 +97,10 @@ export default function ContactForm() {
 
       <p className="text-[14px] text-gray-600 mb-4 body">Get In Touch Today</p>
 
-      <div className="border border-gray-300 mb-4 ">
+      {/* Name */}
+      <div className="border border-gray-300 mb-4">
         <div className="grid grid-cols-[40%_60%] w-full body">
-          <div className="px-3 py-2 text-[14px] font-medium  text-gray-700 border-r border-gray-300">
+          <div className="px-3 py-2 text-[14px] font-medium text-gray-700 border-r border-gray-300">
             Name
           </div>
           <div>
@@ -110,13 +117,14 @@ export default function ContactForm() {
         </div>
       </div>
 
+      {/* Phone */}
       <div className="border border-gray-300 mb-4 grid grid-cols-[40%_60%] w-full">
         <div className="px-3 body py-2 text-[14px] font-medium text-gray-700 border-r border-gray-300">
           Phone Number
         </div>
         <div>
           <input
-            type="text"
+            type="tel"
             name="contactNumber"
             placeholder="Contact Number"
             value={formData.contactNumber}
@@ -127,6 +135,7 @@ export default function ContactForm() {
         </div>
       </div>
 
+      {/* Email */}
       <div className="border border-gray-300 mb-4 grid grid-cols-[40%_60%] w-full">
         <div className="px-3 py-2 text-[14px] font-medium text-gray-700 border-r border-gray-300">
           Email
@@ -145,8 +154,7 @@ export default function ContactForm() {
       </div>
 
       <button
-        type="button"
-        onClick={handleSubmit}
+        type="submit"
         disabled={isSubmitting}
         className={`w-full py-3 text-sm font-medium rounded transition duration-200 ${
           isSubmitting
@@ -156,6 +164,6 @@ export default function ContactForm() {
       >
         {isSubmitting ? "Submitting..." : "Enquire Now"}
       </button>
-    </div>
+    </form>
   );
 }
