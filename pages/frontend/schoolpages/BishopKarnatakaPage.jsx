@@ -143,7 +143,7 @@ function BishopKarnatakaPage() {
 
             <div className="md:hidden block">
               <Image
-                src="/schoolimage2.png"
+                src="/schoolimg3.png"
                 className="w-full h-full pt-8"
                 width={1000}
                 height={1000}
@@ -193,6 +193,16 @@ function BishopKarnatakaPage() {
               ))}
             </ul>
           </div>
+        </div>
+
+        <div className="md:hidden block">
+          <Image
+            src="/schoolimage2.png"
+            className="w-full h-full pt-8"
+            width={1000}
+            height={1000}
+            alt="svg"
+          />
         </div>
 
         <div className="">

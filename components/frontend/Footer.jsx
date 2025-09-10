@@ -273,6 +273,13 @@ const Footer = () => {
             <p className="font-light cursor-pointer">
               <Link href="/contact">Contact</Link>
             </p>
+            <Link
+              href="https://blog.boardingadmissions.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <p className=" cursor-pointer">Blogs</p>
+            </Link>
           </div>
 
           <div>
