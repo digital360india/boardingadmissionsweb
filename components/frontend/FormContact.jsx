@@ -1,17 +1,10 @@
 "use client";
-import dynamic from "next/dynamic";
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import axios from "axios";
 import { useRouter } from "next/navigation";
 
-const kwesforms = dynamic(() => import("kwesforms"));
-
 export default function SchoolForm() {
   const router = useRouter();
-
-  useEffect(() => {
-    kwesforms;
-  }, []);
 
   const initial = {
     name: "",
@@ -32,32 +25,30 @@ export default function SchoolForm() {
     setLoading(true);
 
     try {
-      const response = await axios.post(
-        "https://kwesforms.com/api/foreign/forms/IdHYEC9XdhQY0WpAiXbm",
-        formData
-      );
+      // Send email using Nodemailer API route
+      const response = await axios.post("/api/email", formData);
 
+      // Save to LMS (optional)
       const lmsResponse = await axios.post(
         "https://digitalleadmanagement.vercel.app/api/add-lead",
         {
-          name: formData.name,
-          phoneNumber: formData.phoneNumber,
+          ...formData,
           url: window.location.href,
           source: "Boarding Admissions - Schools Enquiry Form",
-          email: formData.email,
           date: new Date().toISOString(),
         }
       );
 
       if (response.status === 200 && lmsResponse.status === 200) {
-        setLoading(false);
         setFormData(initial);
+        setLoading(false);
         router.push("/thankyou");
       } else {
         alert("There was an error submitting the form.");
         setLoading(false);
       }
     } catch (error) {
+      console.error(error);
       alert("Error while submitting the form. Please try again.");
       setLoading(false);
     }
@@ -67,7 +58,7 @@ export default function SchoolForm() {
     <div className="w-full flex justify-center px-4 py-10 bg-gray-50">
       <div className="w-full max-w-lg bg-white shadow-lg rounded-2xl p-8">
         {/* Heading */}
-        <p className="text-[24px]  font-semibold text-gray-800 mb-2 text-center">
+        <p className="text-[24px] font-semibold text-gray-800 mb-2 text-center">
           Get in touch with us to
         </p>
         <p className="text-[14px] md:text-lg text-primary02 font-medium text-center mb-6">
@@ -76,11 +67,7 @@ export default function SchoolForm() {
         </p>
 
         {/* Form */}
-        <form
-          onSubmit={handleSubmit}
-          className="kwes-form space-y-5"
-          action="https://kwesforms.com/api/foreign/forms/IdHYEC9XdhQY0WpAiXbm"
-        >
+        <form onSubmit={handleSubmit} className="space-y-5">
           <div>
             <input
               type="text"

@@ -1,17 +1,10 @@
 "use client";
-import dynamic from "next/dynamic";
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import axios from "axios";
-import Loading from "@/app/loading";
 import { useRouter } from "next/navigation";
-
-const kwesforms = dynamic(() => import("kwesforms"));
 
 export default function Formontact() {
   const router = useRouter();
-  useEffect(() => {
-    kwesforms;
-  }, []);
 
   const initial = {
     name: "",
@@ -32,11 +25,7 @@ export default function Formontact() {
     setLoading(true);
 
     try {
-      const response = await axios.post(
-        "https://kwesforms.com/api/foreign/forms/IdHYEC9XdhQY0WpAiXbm",
-        formData
-      );
-
+      // ✅ Save to Digital Lead Management API
       const lmsResponse = await axios.post(
         "https://digitalleadmanagement.vercel.app/api/add-lead",
         {
@@ -49,7 +38,17 @@ export default function Formontact() {
         }
       );
 
-      if (response.status === 200 && lmsResponse.status === 200) {
+      // ✅ Send email via Nodemailer API
+      const emailResponse = await axios.post("/api/email", {
+        name: formData.name,
+        phoneNumber: formData.phoneNumber,
+        email: formData.email,
+        url: window.location.href,
+        source: "Boarding Admissions - Schools Enquiry Form",
+        date: new Date().toISOString(),
+      });
+
+      if (lmsResponse.status === 200 && emailResponse.status === 200) {
         setLoading(false);
         setFormData(initial);
         router.push("/thankyou");
@@ -58,6 +57,7 @@ export default function Formontact() {
         setLoading(false);
       }
     } catch (error) {
+      console.error("Form submission error:", error);
       alert("Error while submitting the form. Please try again.");
       setLoading(false);
     }
@@ -77,11 +77,7 @@ export default function Formontact() {
         </div>
 
         {/* Form */}
-        <form
-          onSubmit={handleSubmit}
-          className="kwes-form space-y-5"
-          action="https://kwesforms.com/api/foreign/forms/IdHYEC9XdhQY0WpAiXbm"
-        >
+        <form onSubmit={handleSubmit} className="space-y-5">
           <div>
             <input
               type="text"

@@ -22,7 +22,6 @@ export default function ContactForm() {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    // ✅ validation before submit
     if (!formData.name || !formData.contactNumber || !formData.email) {
       alert("Please fill in all fields ❌");
       return;
@@ -30,6 +29,7 @@ export default function ContactForm() {
 
     setIsSubmitting(true);
     try {
+      // ✅ Send to your existing backend
       await axios.post(
         "https://digitalleadmanagement.vercel.app/api/add-lead",
         {
@@ -42,6 +42,17 @@ export default function ContactForm() {
           date: new Date().toISOString(),
         }
       );
+
+      // ✅ Send email via Nodemailer API route
+      await axios.post("/api/email", {
+        name: formData.name,
+        phoneNumber: formData.contactNumber,
+        email: formData.email,
+        url: window.location.href,
+        source:
+          "Boardingadmissions - Not Sure Which School To Choose? -Category Schools Page",
+        date: new Date().toISOString(),
+      });
 
       setFormData({ name: "", contactNumber: "", email: "" });
       router.push("/thankyou");
