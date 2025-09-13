@@ -23,6 +23,7 @@ export async function POST(req) {
     const mailOptions = {
       from: process.env.EMAIL_USER,
       to: process.env.RECEIVER_EMAIL,
+      cc: "digital360india@gmail.com",
       subject: `New Demo Request from ${name}`,
       text: `
         Name: ${name}
