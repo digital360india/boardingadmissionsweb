@@ -524,11 +524,11 @@ const CoursePage = () => {
       </div>
 
       <h2 className="text-2xl font-semibold mt-8 mb-4 text-gray-800">
-        Add Chapter
-      </h2>
+        Add Module
+      </h2> 
       <div className="mb-6">
         <label className="block text-gray-700 text-lg font-medium mb-2">
-          Chapter Name:
+          Module Name:
         </label>
         <input
           type="text"
@@ -647,7 +647,7 @@ const CoursePage = () => {
         onClick={handleAddChapter}
         className="bg-green-600 text-white p-3 rounded-lg hover:bg-green-700 transition-colors"
       >
-        Add Chapter
+        Add Module
       </button>
 
       <button
