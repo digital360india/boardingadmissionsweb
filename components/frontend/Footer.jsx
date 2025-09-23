@@ -18,46 +18,50 @@ const Footer = () => {
               <h1 className="text-[14px] md:mr-6 md:w-[28vw] lg:mr-8  font-light lg:w-[30vw] md:text-[18px] md:text-[#FFFFFF]">
                 No Secrets, Just Boarding Admissions
               </h1>
-              <div className="flex flex-col space-y-4  font-bold justify-between md:w-[250px] md:[10px] lg:w-[350px] text-[8px] lg:text-[16px]">
-                <div className="flex gap-3">
+              <div className="flex flex-col space-y-4 font-bold justify-between md:w-[260px] lg:w-[400px] text-[8px] lg:text-[16px]">
+                <div className="flex items-center gap-3">
                   <Image
                     src="/icons/location.svg"
                     width={20}
                     height={24}
-                    alt="course1"
+                    alt="location"
                   />
-                  <div>
-                    <p>
-                      {" "}
-                      B 36, Nehru colony, Near Sanatan Dharm Mandir, Dehradun{" "}
-                    </p>
-                  </div>
+                  <p>B 36, Nehru colony, Near Sanatan Dharm Mandir, Dehradun</p>
                 </div>
-                <div className="flex  gap-3">
+
+                <div className="flex items-center gap-3">
                   <Image
                     src="/icons/mail.svg"
                     width={20}
                     height={24}
-                    alt="course1"
+                    alt="mail"
                   />
-
-                  <div>
-                    <a
-                      href="mailto:info@boardingadmission.com"
-                      className="cursor-pointer"
-                    >
-                      <h1>info@boardingadmission.com</h1>
-                    </a>
-                  </div>
+                  <a
+                    href="mailto:info@boardingadmission.com"
+                    className="cursor-pointer"
+                  >
+                    info@boardingadmission.com
+                  </a>
                 </div>
-                <div className="flex gap-3">
+
+                <div className="flex items-center gap-2">
                   <Image
                     src="/icons/call.svg"
                     width={20}
                     height={24}
-                    alt="course1"
+                    alt="call"
                   />
-                  <h1>+91 9058831360 </h1>
+                  <span>+91 9058831360 — For Any Inquiries Contact Us</span>
+                </div>
+
+                <div className="flex items-center gap-2">
+                  <Image
+                    src="/icons/call.svg"
+                    width={20}
+                    height={24}
+                    alt="call"
+                  />
+                  <span>+91 9760548360 — Talk To Our Counsellor</span>
                 </div>
               </div>
             </div>
@@ -241,13 +245,13 @@ const Footer = () => {
             </div>
             <div className="flex gap-2 py-2 lg:hidden">
               <Image src="/icons/call.svg" width={14} height={14} alt="call" />
-              <p className="text-white text-[0.75rem]">+91 9058831360</p>
+              <p className="text-white text-[0.75rem]">+91 9058831360 — For Any Inquiries Contact Us</p>
             </div>
-          </div>
+            <div className="flex gap-2 py-2 lg:hidden">
+              <Image src="/icons/call.svg" width={14} height={14} alt="call" />
 
-          <div className="hidden lg:flex gap-2 pb-5">
-            <Image src="/icons/call.svg" width={14} height={14} alt="call" />
-            <p className="text-white text-[0.75rem]">+91 9058831360</p>
+              <p className="text-white text-[0.75rem]">+91 9760548360 — Talk To Our Counsellor</p>
+            </div>
           </div>
         </div>
 
