@@ -2,16 +2,22 @@
 import React, { useState } from "react";
 import Link from "next/link";
 import BookaDemoPopUp from "./BookaDemoPopUp";
+import { useRouter } from "next/navigation";
 
-const ServicesHero = () => {
-      const [isPopupVisible, setPopupVisible] = useState(false);
-            const handleClick = () => {
-          setPopupVisible(true);
-        };
-      
-        const handleClosePopup = () => {
-          setPopupVisible(false);
-        };
+const ServicesHero = ({id}) => {
+   const router = useRouter();
+
+  const handleClicks = () => {
+    router.push(`/packagedetails/${id}`);
+  };
+  const [isPopupVisible, setPopupVisible] = useState(false);
+  const handleClick = () => {
+    setPopupVisible(true);
+  };
+
+  const handleClosePopup = () => {
+    setPopupVisible(false);
+  };
   return (
     <>
       <div className="">
@@ -32,14 +38,22 @@ const ServicesHero = () => {
               education and support. Join us today to start your journey towards
               securing a spot in India&apos;s top boarding schools.
             </p>
-            <div className="w-[7.5rem] md:w-[18.75rem] mt-6">
-                <div className="cursor-pointer w-[7.5rem] h-[2.0rem] md:w-[18rem] md:h-[3rem] bg-gradient-to-br from-[#075D70] to-[#0DB2D6] hover:scale-110 transition duration-300 border-custom rounded-md flex items-center justify-center text-[1rem]">
-                  <button onClick={handleClick} className="text-white">Enroll Now</button>
-                </div>
+            <div className="w-[7.5rem] md:w-[18.75rem] mt-4 space-y-4">
+              <div className="cursor-pointer w-[7.5rem] h-[2.0rem] md:w-[18rem] md:h-[3rem] bg-gradient-to-br from-[#075D70] to-[#0DB2D6] hover:scale-110 transition duration-300 border-custom rounded-md flex items-center justify-center text-[1rem]">
+                <button onClick={handleClick} className="text-white">
+                  Enquire Now
+                </button>
+              </div>
+
+               <div className="cursor-pointer w-[7.5rem] h-[2.0rem] md:w-[18rem] md:h-[3rem] bg-gradient-to-br from-[#075D70] to-[#0DB2D6] hover:scale-110 transition duration-300 border-custom rounded-md flex items-center justify-center text-[1rem]">
+                <button onClick={handleClicks} className="text-white">
+                  Enroll Now
+                </button>
+              </div>
             </div>
           </div>
         </div>
-
+ 
         {/* laptop */}
         <div className="hidden  md:hidden  w-full h-[82px] bg-primary02 mt-8 lg:flex lg:items-center px-12 text-white gap-10 rounded-lg">
           <Link href="#onlineclass">
@@ -63,7 +77,7 @@ const ServicesHero = () => {
             </div>
           </Link>
         </div>
-                {isPopupVisible && <BookaDemoPopUp onClose={handleClosePopup} />}
+        {isPopupVisible && <BookaDemoPopUp onClose={handleClosePopup} />}
 
         {/* mobile */}
         <div className="sm:block md:block lg:hidden px-4 py-6">

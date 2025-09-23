@@ -3,11 +3,17 @@ import React, { useState } from "react";
 import Boardingtest from "@/public/icons/Boardingtest.svg";
 import Link from "next/link";
 import BookaDemoPopUp from "./BookaDemoPopUp";
+import { useRouter } from "next/navigation";
 
-const BoardingCompatibilityTestHero = () => {
-    const [isPopupVisible, setPopupVisible] = useState(false);
-  
-    const handleClick = () => {
+const BoardingCompatibilityTestHero = ({ id }) => {
+  const [isPopupVisible, setPopupVisible] = useState(false);
+  const router = useRouter();
+
+  const handleClicks = () => {
+    router.push(`/packagedetails/${id}`); 
+  };
+
+  const handleClick = () => {
     setPopupVisible(true);
   };
 
@@ -40,9 +46,15 @@ const BoardingCompatibilityTestHero = () => {
               fully prepared for success in a boarding school environment.
             </p>
             <div className="cursor-pointer w-[7.5rem] h-[2.0rem] md:w-[18rem] md:h-[3rem] bg-gradient-to-br from-[#075D70] to-[#0DB2D6] hover:scale-110 transition duration-300 border-custom rounded-md flex items-center justify-center text-[1rem]">
-              <button onClick={handleClick}
-               className="text-white">Enroll Now</button>
+              <button onClick={handleClick} className="text-white">
+                Enquire Now
+              </button>
             </div>
+            {/* <div className="cursor-pointer w-[7.5rem] h-[2.0rem] md:w-[18rem] md:h-[3rem] bg-gradient-to-br from-[#075D70] to-[#0DB2D6] hover:scale-110 transition duration-300 border-custom rounded-md flex items-center justify-center text-[1rem]">
+              <button onClick={handleClicks} className="text-white">
+                Enroll Now
+              </button>
+            </div> */}
           </div>
         </div>
 
@@ -59,8 +71,7 @@ const BoardingCompatibilityTestHero = () => {
             </div>
           </Link>
         </div>
-              {isPopupVisible && <BookaDemoPopUp onClose={handleClosePopup} />}
-
+        {isPopupVisible && <BookaDemoPopUp onClose={handleClosePopup} />}
 
         {/* mobile */}
         <div className="sm:block md:block lg:hidden px-4 py-6">

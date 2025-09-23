@@ -3,10 +3,16 @@ import React, { useState } from "react";
 import Foundationcourse from "@/public/icons/Foundationcourse.svg";
 import Link from "next/link";
 import BookaDemoPopUp from "./BookaDemoPopUp";
+import { useRouter } from "next/navigation";
 
-const FoundationcourseHero = () => {
-      const [isPopupVisible, setPopupVisible] = useState(false);
-      const handleClick = () => {
+const FoundationcourseHero = ({id}) => {
+   const router = useRouter();
+
+  const handleClicks = () => {
+    router.push(`/packagedetails/${id}`);
+  };
+  const [isPopupVisible, setPopupVisible] = useState(false);
+  const handleClick = () => {
     setPopupVisible(true);
   };
 
@@ -40,11 +46,17 @@ const FoundationcourseHero = () => {
               ensuring every student excels. Join us to build a solid foundation
               for your child&apos;s academic journey.
             </p>
-            <div className="md:w-[18.75rem] w-[7.5rem] p-4">
-                <div className="cursor-pointer w-[7.5rem] h-[2.0rem] md:w-[18rem] md:h-[3rem] bg-gradient-to-br from-[#075D70] to-[#0DB2D6] hover:scale-110 transition duration-300  border-custom rounded-md flex items-center justify-center text-[1rem] ">
-                  <button  onClick={handleClick} 
-                  className="text-white">Enroll Now</button>
-                </div>
+            <div className="md:w-[18.75rem] w-[7.5rem] p-4 space-y-4">
+              <div className="cursor-pointer w-[7.5rem] h-[2.0rem] md:w-[18rem] md:h-[3rem] bg-gradient-to-br from-[#075D70] to-[#0DB2D6] hover:scale-110 transition duration-300  border-custom rounded-md flex items-center justify-center text-[1rem] ">
+                <button onClick={handleClick} className="text-white">
+                   Enquire Now
+                </button>
+              </div>
+               {/* <div className="cursor-pointer w-[7.5rem] h-[2.0rem] md:w-[18rem] md:h-[3rem] bg-gradient-to-br from-[#075D70] to-[#0DB2D6] hover:scale-110 transition duration-300  border-custom rounded-md flex items-center justify-center text-[1rem] ">
+                <button onClick={handleClicks} className="text-white">
+                  Enroll Now
+                </button>
+              </div> */}
             </div>
           </div>
         </div>
@@ -118,7 +130,6 @@ const FoundationcourseHero = () => {
           </div>
         </div>
         {isPopupVisible && <BookaDemoPopUp onClose={handleClosePopup} />}
-
       </div>
     </>
   );

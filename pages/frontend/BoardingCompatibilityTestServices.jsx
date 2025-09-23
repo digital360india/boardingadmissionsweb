@@ -3,9 +3,11 @@ import BoardingCompatibilityTestPage from "@/components/frontend/BoardingCompati
 import React from "react";
 
 const BoardingCompatibilityTestServices = () => {
+  const packageId = "0qhKkbXUptCF6xCyBRVY"; 
+
   return (
     <>
-      <BoardingCompatibilityTestHero />
+      <BoardingCompatibilityTestHero id={packageId} />
       <BoardingCompatibilityTestPage />
     </>
   );

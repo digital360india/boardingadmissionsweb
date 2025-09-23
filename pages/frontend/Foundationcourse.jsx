@@ -3,9 +3,11 @@ import FoundationcoursePage from "@/components/frontend/FoundationcoursePage";
 import FoundationcourseHero from "@/components/frontend/FoundationcourseHero";
 
 const Foundationcourse = () => {
+     const packageId = "0qhKkbXUptCF6xCyBRVY"; 
+
   return (
     <>
-      <FoundationcourseHero />
+      <FoundationcourseHero id={packageId}  />
       <FoundationcoursePage />
     </>
   );

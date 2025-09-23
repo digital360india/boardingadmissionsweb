@@ -3,9 +3,10 @@ import CustomizedCoursesPage from "@/components/frontend/CustomizedCoursesPage";
 import React from "react";
 
 const CustomizedCourses = () => {
+   const packageId = "0qhKkbXUptCF6xCyBRVY"; 
   return (
     <>
-      <CustomizedCoursesHero />
+      <CustomizedCoursesHero id={packageId}  />
       <CustomizedCoursesPage />
     </>
   );

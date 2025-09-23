@@ -114,6 +114,8 @@ export default function EntranceMain() {
     }
   };
 
+  console.log(packageData);
+
   return (
     <div className="xl:px-[100px] md:px-[40px] px-[24px]">
       <div className="flex lg:justify-between space-x-10 w-[100%] md:mt-10 mt-6">
