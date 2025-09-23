@@ -1,14 +1,19 @@
-"use client";
+"use client"; // MUST be at the very top
 
-import EntranceExam from "@/pages/frontend/EntranceExam";
-import { useParams } from "next/navigation";
 import React from "react";
+import { useParams } from "next/navigation";
+import EntranceExam from "@/pages/frontend/EntranceExam";
 
-export default function page() {
-  const { id } = useParams();
+export default function PackageDetailsPage() {
+  const { slug } = useParams(); 
+
+  if (!slug || slug.length === 0) return <p>Loading...</p>;
+
+  const packageId = slug[slug.length - 1];
+
   return (
     <div>
-      <EntranceExam packageId={id} />
+      <EntranceExam packageId={packageId} />
     </div>
   );
 }
