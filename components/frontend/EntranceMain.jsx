@@ -155,7 +155,7 @@ export default function EntranceMain() {
                   </div>
                 ))}
               </div>
-              <Link href="https://wa.me/919760548360" passHref>
+              <Link href="https://wa.me/919058831360" passHref>
                 <div className="md:w-[140px] w-[95px] md:h-[32px] h-[20px] border border-[#B4B9C0] px-2 flex justify-between items-center rounded-2xl mt-1 cursor-pointer">
                   <Image
                     src="/vectors/whatsapp.svg"
