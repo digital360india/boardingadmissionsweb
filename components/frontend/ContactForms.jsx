@@ -51,7 +51,7 @@ export default function ContactForm() {
         url: window.location.href,
         source:
           "Boardingadmissions - Not Sure Which School To Choose? -Category Schools Page",
-        date: new Date().toISOString(),
+        date: new Date().toISOString(), 
       });
 
       setFormData({ name: "", contactNumber: "", email: "" });
