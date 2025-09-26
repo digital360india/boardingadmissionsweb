@@ -57,7 +57,7 @@ export default function ContactForm() {
       setFormData({ name: "", contactNumber: "", email: "" });
       router.push("/thankyou");
     } catch (error) {
-      console.error("Error submitting form:", error);
+      console.error("Error submitting form:", error);  
       alert("Something went wrong ❌");
     } finally {
       setIsSubmitting(false);
