@@ -13,6 +13,7 @@ import SchoolForm from "@/components/frontend/SchoolForm";
 import { Experience } from "@/components/frontend/Experience";
 import ContactForm from "@/components/frontend/FormContact";
 import Formontact from "@/components/frontend/FormContacts";
+import TestimonialCarousel from "@/components/frontend/ParentsTestimonials";
 const HomePage = () => {
   return (
     <div>
@@ -25,6 +26,8 @@ const HomePage = () => {
         <Experience />
         <CoursesWeOffer />
         <Stories />
+        <TestimonialCarousel />
+
         <ContactForm />
       </div>
       <WhoWeAre />
