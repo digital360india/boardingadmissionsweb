@@ -19,7 +19,7 @@ const testimonials = [
     quote:
       "Proud moment for the family as Anahat Kaur secures admission to Welham Girls.",
     image:
-      "https://firebasestorage.googleapis.com/v0/b/boardingadmissions-f3ba3.appspot.com/o/testimonials%2F89.png?alt=media&token=1491831c-9fbe-4dbc-87c2-688176dc71e7",
+      "https://firebasestorage.googleapis.com/v0/b/boardingadmissions-f3ba3.appspot.com/o/testimonials%2FBoarding%20schools%202025%20post%20(23).png?alt=media&token=36e9913f-f219-4739-8476-f5f05decb0fe",
   },
  
 ];
