@@ -69,7 +69,7 @@ export default function TestimonialSwiper() {
                 {/* Text */}
                 <div className="p-6 md:p-8 text-left">
                   <h3 className="text-xl md:text-2xl text-black">{t.name}</h3>
-                  <p className="mt-2 mb-6 text-gray-700 text-sm">"{t.quote}"</p>
+                  <p className="mt-2 mb-6 text-gray-700 text-sm">{t.quote}</p>
                 </div>
               </div>
             </SwiperSlide>
