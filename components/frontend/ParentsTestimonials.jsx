@@ -27,7 +27,7 @@ const testimonials = [
     name: "Shrisha Nayanam",
     quote: "Proud Mother of Shrisha Nayanam who secured admission to Mayo College, Ajmer.",
     type: "video",
-    media:
+    media: 
       "https://firebasestorage.googleapis.com/v0/b/boardingadmissions-f3ba3.appspot.com/o/boardingadmission%2FBoarding%20Addmision.mp4?alt=media&token=58a8f841-629d-4c96-abc6-5587304121c3",
   },
 ];
