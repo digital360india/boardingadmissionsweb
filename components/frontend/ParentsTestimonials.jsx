@@ -23,9 +23,10 @@ const testimonials = [
     media:
       "https://firebasestorage.googleapis.com/v0/b/boardingadmissions-f3ba3.appspot.com/o/testimonials%2FBoarding%20schools%202025%20post%20(23).png?alt=media&token=36e9913f-f219-4739-8476-f5f05decb0fe",
   },
+  
   {
     name: "Shrisha Nayanam",
-    quote: "I used to think entrance exams were really hard, but my teachers showed me how to enjoy learning. They taught me to stay confident and try my best. I was so happy when I cleared my Mayo College exam! It feels like a dream come true.",
+    quote: "Proud Mother of Shrisha Nayanam who secured admission to Mayo College, Ajmer.",
     type: "video",
     media: 
       "https://firebasestorage.googleapis.com/v0/b/boardingadmissions-f3ba3.appspot.com/o/boardingadmission%2FBoarding%20Addmision.mp4?alt=media&token=58a8f841-629d-4c96-abc6-5587304121c3",

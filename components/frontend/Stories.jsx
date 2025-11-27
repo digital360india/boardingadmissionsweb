@@ -70,7 +70,7 @@ const team = [
     name: "Ardhya Aggarwal",
     school: "Mayo Girls College, Ajmer",
     teamimage: "/images/testimonial.jpg",
-  },
+  }, 
   {
     story:
       "The complete learning resources and flexible scheduling at Boarding Admissions made my entire preparation journey so seamless and stress-free. The constant support and detailed feedback from the teachers truly boosted my confidence and helped me stay on track.",
