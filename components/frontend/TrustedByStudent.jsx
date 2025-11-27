@@ -38,7 +38,7 @@ export default function TrustedByStudent() {
                     onClick={handleClick}
                     className="cursor-pointer border rounded-md w-[260px] py-2 text-white bg-gradient-to-br from-[#075D70] to-[#0DB2D6] hover:scale-110 transition duration-300"
                   >
-                    Book a Demo Class
+                    Book a Free Demo
                   </button>
                 </div>
 

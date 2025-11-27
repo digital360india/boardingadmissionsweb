@@ -58,7 +58,7 @@ export default function TrustedBy2() {
         
           className="bg-gradient01 w-[80%] text-white rounded-md py-2  hover:bg-[#075D70] transition duration-300"
         >
-          Book a Demo Class
+         Book a Free Demo
         </button>
       </div>
       {isPopupVisible && <BookaDemoPopUp onClose={handleClosePopup} />}
