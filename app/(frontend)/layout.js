@@ -8,6 +8,8 @@ import { FaWhatsapp } from "react-icons/fa";
 import Link from "next/link";
 import Flyer from "@/components/frontend/Flyer";
 import Script from "next/script";
+import FixedPopupButton from "@/pages/frontend/FixedPopupButton";
+import Popup from "@/components/frontend/Popup";
 
 const poppins = Poppins({
   subsets: ["latin"],
@@ -44,10 +46,11 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <div lang="en">
-    {/* <Popup /> */}
+    
     <UserProvider>
       <div>
         <Navbar />
+        <Popup />
         {/* <Flyer /> */}
         {children}
         <Footer />
@@ -65,7 +68,7 @@ export default function RootLayout({ children }) {
             </span>
           </div>
   
-          {/* <FixedPopupButton /> */}
+       {/* <FixedPopupButton /> */}
         </div>
       </div>
     </UserProvider>
