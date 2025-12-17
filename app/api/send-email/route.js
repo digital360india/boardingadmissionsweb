@@ -1,42 +1,47 @@
 import nodemailer from "nodemailer";
-import { NextResponse } from "next/server";
-
-const transporter = nodemailer.createTransport({
-  service: "gmail",
-  auth: {
-    user: "boardingadmissioninfo@gmail.com",
-    pass: "eifu vdan tjiu hspi",
-  },
-});
 
 export async function POST(req) {
   try {
-    const { email } = await req.json();
+    const body = await req.json();
+    console.log("EMAIL API BODY 👉", body);
 
-    const otp = Math.floor(100000 + Math.random() * 900000);
+    const { name, phonenumber, school, class: studentClass, textmessage } = body;
 
-    // console.log(`Sending OTP to: ${email}`);
+    if (!name || !phonenumber || !school || !studentClass) {
+      return new Response(JSON.stringify({ error: "Missing fields" }), {
+        status: 400,
+      });
+    }
 
-    const mailOptions = {
-      from: "boardingadmissioninfo@gmail.com",
-      to: email,
-      subject: "Your OTP Verification Code",
-      text: `✨ Your One-Time Password (OTP) is: ${otp} ✨\n\nPlease use this code to complete your verification.`, // Beautified email body
-    };
-
-    await transporter.sendMail(mailOptions);
-
-    return NextResponse.json({
-      success: true,
-      otp:otp,
-      message: "OTP sent successfully",
+    const transporter = nodemailer.createTransport({
+      host: "smtp.gmail.com",
+      port: 465,
+      secure: true,
+      auth: {
+        user: "boardingadmissioninfo@gmail.com",
+        pass: "xljbmmeldvgflizs", // no spaces
+      },
     });
-  } catch (error) {
-    console.error("Error sending OTP:", error);
-    return NextResponse.json({
-      success: false,
-      message: "Failed to send OTP",
-      error,
+
+    await transporter.sendMail({
+      from: "boardingadmissioninfo@gmail.com",
+      to: "boardingadmissioninfo@gmail.com",
+      cc: "digital360india@gmail.com",
+      subject: `New Demo Request from ${name}`,
+      text: `
+Name: ${name}
+Phone: ${phonenumber}
+School: ${school}
+Class: ${studentClass}
+Message: ${textmessage || "N/A"}
+`,
+    });
+
+    return new Response(JSON.stringify({ success: true }), { status: 200 });
+  } catch (err) {
+    console.error("NODEMAILER ERROR 👉", err);
+    return new Response(JSON.stringify({ error: err.message }), {
+      status: 500,
     });
   }
 }

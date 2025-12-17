@@ -1,10 +1,10 @@
 "use client";
 import { useEffect, useState, useRef } from "react";
-import emailjs from "@emailjs/browser";
 import { useRouter } from "next/navigation";
 import PopupSuccess from "./PopupSuccess";
 import { db } from "@/firebase/firebase";
 import { addDoc, collection, updateDoc } from "firebase/firestore";
+import axios from "axios";
 
 const Popup = () => {
   const form = useRef();
@@ -12,7 +12,6 @@ const Popup = () => {
   const [isFormVisible, setIsFormVisible] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [buttonclick, setButtonClick] = useState(false);
-  
 
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -61,18 +60,18 @@ const Popup = () => {
     }
   };
 
-    const handleSubmit = async (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     setButtonClick(true);
-  
+
     try {
-            // Send email via Nodemailer API
+      // Send email via Nodemailer API
       const res = await fetch("/api/send-emails", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(formData),
       });
-  
+
       // 2. Add lead to Firestore
       const docRef = await addDoc(collection(db, "leads"), {
         name: formData.name,
@@ -82,29 +81,32 @@ const Popup = () => {
         message: formData.textmessage,
         timestamp: new Date(),
       });
-  
+
       const docId = docRef.id;
-  
+
       // 3. Submit lead to LMS API
-      await axios.post("https://digitalleadmanagement.vercel.app/api/add-lead", {
-        name: formData.name,
-        phoneNumber: formData.phonenumber,
-        school: formData.school,
-        url: window.location.href,
-        remark: formData.textmessage,
-        currentClass: formData.class,
-        date: new Date().toISOString(),
-        source: "Boarding Admissions - Book a Demo Class Popup",
-      });
+      await axios.post(
+        "https://digitalleadmanagement.vercel.app/api/add-lead",
+        {
+          name: formData.name,
+          phoneNumber: formData.phonenumber,
+          school: formData.school,
+          url: window.location.href,
+          remark: formData.textmessage,
+          currentClass: formData.class,
+          date: new Date().toISOString(),
+          source: "Boarding Admissions - Book a Demo Class Popup",
+        }
+      );
       console.log("LMS API: SUCCESS!");
-  
+
       // 4. Update Firestore document with its own ID
       await updateDoc(docRef, {
         id: docId,
       });
-  
+
       console.log("Firestore + LMS: SUCCESS! Document ID stored:", docId);
-  
+
       // 5. Reset form
       setFormData({
         name: "",
@@ -113,7 +115,7 @@ const Popup = () => {
         class: "",
         textmessage: "",
       });
-  
+
       // 6. Navigate to thank you page
       router.push("/thankyou");
     } catch (error) {
@@ -123,8 +125,6 @@ const Popup = () => {
       setButtonClick(false);
     }
   };
-  
-  
 
   return (
     <div className="z-[9999]  fixed inset-0 flex items-center justify-center    bg-black bg-opacity-50 font-poppins">
@@ -149,7 +149,10 @@ const Popup = () => {
         </div>
 
         {isSubmitted ? (
-          <PopupSuccess  setIsFormVisible={setIsFormVisible} setIsSubmitted={setIsSubmitted} />
+          <PopupSuccess
+            setIsFormVisible={setIsFormVisible}
+            setIsSubmitted={setIsSubmitted}
+          />
         ) : (
           <>
             <div className="  text-[#006269] ">
