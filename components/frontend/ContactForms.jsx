@@ -95,7 +95,7 @@ export default function ContactForm() {
           Looking to Join this Top Boarding School?
         </h2>
         <a
-          href="tel:+9760548360" 
+          href="tel:+919760548360" 
           target="_blank"
           rel="noopener noreferrer"
           className="transition-all duration-500 hover:scale-110"
