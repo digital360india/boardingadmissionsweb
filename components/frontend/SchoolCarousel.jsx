@@ -29,7 +29,7 @@ const SchoolCarousel = () => {
 
   const images = isMobile
     ? ["/Boardingimg.png", "/schoolimage2.png", "/schoolimg3.png"]
-    : ["/schoolimage2.png", "/images/banner3.jpg", "/images/banner3.jpg"];
+    : [ "/images/banner3.jpg"];
 
   const responsive = {
     superLargeDesktop: {
