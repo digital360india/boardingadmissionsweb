@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from 'react';
-import Carousel from 'react-multi-carousel';
-import 'react-multi-carousel/lib/styles.css';
+import React, { useState, useEffect } from "react";
+import Carousel from "react-multi-carousel";
+import "react-multi-carousel/lib/styles.css";
 
 const SchoolCarousel = () => {
   const [isMobile, setIsMobile] = useState(false);
@@ -11,15 +11,15 @@ const SchoolCarousel = () => {
     };
 
     handleResize(); // Set initial state
-    window.addEventListener('resize', handleResize);
-    
+    window.addEventListener("resize", handleResize);
+
     return () => {
-      window.removeEventListener('resize', handleResize);
+      window.removeEventListener("resize", handleResize);
     };
-  }, []); 
+  }, []);
 
   // const images = isMobile
-  //   ? ["https://firebasestorage.googleapis.com/v0/b/boardingadmissions-f3ba3.appspot.com/o/images%2Fboardingbanner.jpeg?alt=media&token=0b86327a-e783-457d-8446-0ac5e82f5781", 
+  //   ? ["https://firebasestorage.googleapis.com/v0/b/boardingadmissions-f3ba3.appspot.com/o/images%2Fboardingbanner.jpeg?alt=media&token=0b86327a-e783-457d-8446-0ac5e82f5781",
   // "https://firebasestorage.googleapis.com/v0/b/boardingadmissions-f3ba3.appspot.com/o/images%2Fboardingcup.jpeg?alt=media&token=aa190a65-0e1b-4aa1-8545-5cf3d8733aa5"] // Mobile images
   //   : [
   //       "https://firebasestorage.googleapis.com/v0/b/bookify-faedc.appspot.com/o/banner1.png?alt=media&token=25e52b21-cad7-4e3f-adaa-521f15a6f7a9",
@@ -27,16 +27,9 @@ const SchoolCarousel = () => {
   //       "/images/banner3.jpg",
   //     ];
 
-        const images = isMobile
-    ? [
-        "/schoolimage2.png",
-        "/images/banner3.jpg",
-      ]
-    : [
-        "/schoolimage2.png",
-        "/images/banner3.jpg",
-        "/images/banner3.jpg",
-      ];
+  const images = isMobile
+    ? ["/Boardingimg.png", "/schoolimage2.png", "/schoolimg3.png"]
+    : ["/schoolimage2.png", "/images/banner3.jpg", "/images/banner3.jpg"];
 
   const responsive = {
     superLargeDesktop: {
