@@ -115,16 +115,40 @@ function MayoBoysPage() {
               </h1>
             </div>
             <div>
-              <p className="leading-6 w-[88vw] md:w-[45vw] text-[14px] md:text-[1.15rem] text-justify">
-                Mayo College Boys School in Ajmer, Rajasthan, is a prestigious
-                boys&apos; residential school known for its rich heritage and
-                top-notch education. Established in 1875 by Richard Bourke, the
-                school was initially founded to educate the sons of Indian
-                nobility. Today, Mayo Boys Admissions are highly competitive,
-                with students aiming to join an institution that fosters
-                academic excellence and holistic development. The schools
-                sprawling green campus, modern facilities, and a strong emphasis
-                on character building make it a sought-after choice for parents.
+              <p className="leading-6 w-[88vw] md:w-[50vw] text-[14px] md:text-[1.15rem] text-justify flex flex-col space-y-3">
+                <span>
+                  Mayo Boys School - Mayo College in Ajmer, Rajasthan, is an
+                  all-boys residential institution that has played a significant
+                  role in the history of Indian education. It is one of the
+                  country&apos;s premier schools, known for educating young
+                  Indians since its inception by the British Viceroy, the Earl
+                  of Mayo, in 1875. Referred to by many as "The Eton of the
+                  East", Mayo College was initially meant for the children of
+                  India&apos;s princely families.
+                </span>
+                <span>
+                  The Mayo College campus sprawls across a vast, historically
+                  significant plot of land at the foot of the Madar hills, on
+                  the city&apos;s fringes. Students in Classes IV to XII attend
+                  the school, with the option to study either the CBSE
+                  curriculum or the Cambridge curriculum (CAIE/IGCSE). The boys
+                  in the institution get an extremely well-rounded,
+                  multidisciplinary education, which is among the finest India
+                  has to offer - polo, horse-riding, golf, shooting, and various
+                  popular sports can be played here. The admission process for
+                  the school remains a highly sought-after event each year for
+                  the legacy, the discipline it imbues in its students, and its
+                  focus on fostering leaders among the Mayoites.
+                </span>
+                <span>
+                  The girls&apos; school, a mirror to the boys&apos;
+                  institution, is just as renowned. Combined with colonial-era
+                  structures, cutting-edge facilities and a vast network of
+                  former pupils who&apos;ve gained much success, the school
+                  still ranks as one of the very best schools for admissions
+                  among all of India&apos;s best boarding schools in the
+                  country, under the CBSE affiliation.
+                </span>
               </p>
             </div>
           </div>
@@ -139,20 +163,23 @@ function MayoBoysPage() {
             />
           </div>
 
-          <div className=" hidden md:block mt-10">
+          <div className="hidden md:flex items-center justify-center">
+            <div>
             <EnquiryForm />
+            </div>
           </div>
         </div>
 
+        {/* Admission Procedure */}
         <div className="space-y-4 w-[90vw] my-10">
           <h1 className="text-[#075D70] font-semibold text-[1.5rem] md:text-[2rem]">
             Admission Procedure
           </h1>
           <p className="leading-6 w-[88vw] text-[14px] md:text-[1.15rem]">
-            The Mayo Boys Admissions process is designed to select students who
-            show promise in academics, extracurricular activities, and
-            leadership. Here&apos;s a quick guide to help you navigate the
-            process.
+            Mayo Boys&apos; Admissions admits meritorious students in academics
+            and extracurricular activities, besides demonstrating qualities in
+            leadership. Here, you are provided with a quick guide on the Mayo
+            College, Ajmer, admission process for classes IV-XI.
           </p>
           <h2 className="text-[#075D70] font-semibold text-[1.5rem] md:text-[2rem] my-4">
             Steps to Admission
@@ -162,19 +189,36 @@ function MayoBoysPage() {
               <span className="font-medium ">Application Form</span>
               <ul className="list-disc pl-4 mt-2 space-y-4">
                 <li className="text-[14px] md:text-[1.15rem]">
-                  <span className="font-medium">Registration:</span> Start by
-                  registering on the Mayo College official website. Early
-                  registration increases your chances.
+                  <span className="font-medium">Registration:</span> All
+                  aspiring students must register on the official website of
+                  Mayo College first. The earlier they get registered, the
+                  higher the chances are to secure a seat, because seats are
+                  limited and students from PAN India apply for admission at
+                  Mayo&apos;s
                 </li>
               </ul>
             </li>
             <li>
-              <span className="font-medium">Required Documents</span>
+              <span className="font-medium">
+                Required Documents:{" "}
+                <span className="text-[14px] md:text-[1.15rem] font-normal">
+                  Be prepared with
+                </span>
+              </span>
               <ul className="list-disc pl-4 mt-2 space-y-4">
                 <li className="text-[14px] md:text-[1.15rem]">
-                  <span className="font-medium">Documents:</span> Include the
-                  student&apos;s birth certificate, previous academic records,
-                  and other essential documents.
+                  Student&apos;s birth certificate
+                </li>
+                <li className="text-[14px] md:text-[1.15rem]">
+                  A copy of the current year&apos;s progress/report cards, class
+                  tests, and the last class&apos;s result sheet;
+                </li>
+                <li className="text-[14px] md:text-[1.15rem]">
+                  Transfer certificate of the previous school (if transferred
+                  from one),
+                </li>
+                <li className="text-[14px] md:text-[1.15rem]">
+                  2-4 recent passport-size colour photos.
                 </li>
               </ul>
             </li>
@@ -182,8 +226,9 @@ function MayoBoysPage() {
               <span className="font-medium">Online Application Process</span>
               <ul className="list-disc pl-4 mt-2 space-y-4">
                 <li className="text-[14px] md:text-[1.15rem]">
-                  <span className="font-medium">Submission:</span> Complete the
-                  online form, attaching the required documents.
+                  <span className="font-medium">Submission:</span> Submit the
+                  filled form along with all the required documents and fee on
+                  the designated form submission portal.
                 </li>
               </ul>
             </li>
@@ -191,43 +236,46 @@ function MayoBoysPage() {
               <span className="font-medium">Mayo Boys Entrance Exam</span>
               <ul className="list-disc pl-4 mt-2 space-y-4">
                 <li className="text-[14px] md:text-[1.15rem]">
-                  <span className="font-medium">Focus Subjects:</span> The
-                  entrance exam tests English grammar, general knowledge (GK),
-                  and mathematics, aligning with the subjects our course
-                  specializes in.
-                </li>
-                <li className="text-[14px] md:text-[1.15rem]">
-                  <span className="font-medium">Format:</span> Typically
-                  conducted online in January or February.
+                  <span className="font-medium">Common Aptitude Analysis:</span>{" "}
+                  All the aspiring students give the common aptitude analysis on
+                  maths, Hindi and English. Details regarding the format and
+                  dates of the entrance exam are notified by the institution on
+                  an annual basis; always enquire from the admission office of
+                  Mayo College to be sure of the currently effective dates.
                 </li>
               </ul>
             </li>
             <li>
-              <span className="font-medium">Interview and Final Selection</span>
-              <ul className="list-disc pl-4 mt-2 space-y-4">
-                <li className="text-[14px] md:text-[1.15rem]">
-                  <span className="font-medium">Interview:</span> Shortlisted
-                  candidates are invited for a personal interview.
-                </li>
-                <li className="text-[14px] md:text-[1.15rem]">
-                  <span className="font-medium">Selection:</span> Final
-                  selection is based on performance in the entrance exam and
-                  interview.
-                </li>
-              </ul>
+              <span className="font-medium">
+                Interview and Final Selection :{" "}
+              </span>
+              After analysing the performance of the candidates in the common
+              aptitude analysis, shortlisting of candidates takes place, and
+              they get invited for a personal interview along with their
+              parents. Performance in the entrance exam and personal interviews
+              of both the candidate and parents are considered for final
+              selection. In class XI, it depends mainly on the result of the
+              class X board examination and, in rare cases, on the entrance exam
+              as well.
             </li>
           </ol>
         </div>
 
+        {/* Fees Structure */}
         <div className="space-y-4 w-[90vw] my-10">
           <h1 className="text-[#075D70] font-semibold text-[1.5rem] md:text-[2rem]">
             Fees Structure
           </h1>
           <p className="leading-6 w-[88vw] text-[14px] md:text-[1.15rem]">
-            The fee structure for Mayo Boys Admissions includes several
-            components essential for a student&apos;s education and well-being.
+            A detailed description of Mayo Boys&apos; admissions fees: A variety
+            of fees must be paid for your child to secure their admission and
+            board, along with meeting other incidental costs related to the
+            education and stay at Mayo College Boys School. The fee components,
+            as detailed below, may vary and will change periodically; therefore,
+            you are strongly recommended to reconfirm the current Mayo College
+            fee structure by yourself before starting the admission process.
           </p>
-          <div className="mt-10 text-[14px] md:text-[1.1rem]">
+          <div className="mt-10 text-[14px] md:text-[1.1rem] overflow-x-auto">
             <table className="w-full border-collapse border border-gray-300 ">
               <thead>
                 <tr className="f">
@@ -235,10 +283,10 @@ function MayoBoysPage() {
                     Particulars
                   </th>
                   <th className="border font-semibold border-gray-300 px-4 py-2 bg-gray-100 text-left ">
-                    Indian Residents (INR)
+                    Indian resident/NRI/OCI (AMOUNT IN Rupees)
                   </th>
                   <th className="border font-semibold border-gray-300 px-4 py-2 bg-gray-100 text-left ">
-                    Overseas Residents (INR/USD)
+                    Duration
                   </th>
                 </tr>
               </thead>
@@ -248,10 +296,10 @@ function MayoBoysPage() {
                     School Fee (Annual)
                   </td>
                   <td className="border border-gray-300 px-4 py-2">
-                    Rs. 8,01,000
+                    Rs. 11,52,000
                   </td>
                   <td className="border border-gray-300 px-4 py-2">
-                    Rs. 16,02,000 / $21,710
+                    Per Annum
                   </td>
                 </tr>
                 <tr>
@@ -259,21 +307,76 @@ function MayoBoysPage() {
                     Caution Money
                   </td>
                   <td className="border border-gray-300 px-4 py-2">
-                    Rs. 4,00,000
+                    Rs. 5,76,000
                   </td>
                   <td className="border border-gray-300 px-4 py-2">
-                    Rs. 8,00,000 / $10,830
+                    	One Time
                   </td>
                 </tr>
                 <tr>
                   <td className="border border-gray-300 px-4 py-2 font-semibold">
-                    One-Time Admission Fee
+                    Admission Fee
                   </td>
                   <td className="border border-gray-300 px-4 py-2">
-                    Rs. 5,34,000
+                    Rs. 2,50,000
                   </td>
                   <td className="border border-gray-300 px-4 py-2">
-                    Rs. 10,68,000 / $14,470
+                    One Time
+                  </td>
+                </tr>
+                <tr>
+                  <td className="border border-gray-300 px-4 py-2 font-semibold">
+                    One Time IT Fee
+                  </td>
+                  <td className="border border-gray-300 px-4 py-2">
+                    Rs. 42,000
+                  </td>
+                  <td className="border border-gray-300 px-4 py-2">
+                    One Time
+                  </td>
+                </tr>
+                <tr>
+                  <td className="border border-gray-300 px-4 py-2 font-semibold">
+                    Imprest Money
+                  </td>
+                  <td className="border border-gray-300 px-4 py-2">
+                    Rs. 80,000
+                  </td>
+                  <td className="border border-gray-300 px-4 py-2">
+                    One Time
+                  </td>
+                </tr>
+                <tr>
+                  <td className="border border-gray-300 px-4 py-2 font-semibold">
+                    Uniform Advance
+                  </td>
+                  <td className="border border-gray-300 px-4 py-2">
+                    Rs. 25,000
+                  </td>
+                  <td className="border border-gray-300 px-4 py-2">
+                    One Time
+                  </td>
+                </tr>
+                <tr>
+                  <td className="border border-gray-300 px-4 py-2 font-semibold">
+                    Prospectus and Sample papers
+                  </td>
+                  <td className="border border-gray-300 px-4 py-2">
+                    Rs. 1000
+                  </td>
+                  <td className="border border-gray-300 px-4 py-2">
+                    -
+                  </td>
+                </tr>
+                <tr>
+                  <td className="border border-gray-300 px-4 py-2 font-semibold">
+                    Registration Fee
+                  </td>
+                  <td className="border border-gray-300 px-4 py-2">
+                    Rs. 25,000
+                  </td>
+                  <td className="border border-gray-300 px-4 py-2">
+                    -
                   </td>
                 </tr>
               </tbody>
@@ -281,37 +384,201 @@ function MayoBoysPage() {
           </div>
         </div>
 
-        <div className="space-y-4 w-[90vw] my-10 ">
+        {/* Important Dates for Mayo Boys Admissions */}
+        <div className="space-y-4 w-[90vw] my-10">
           <div>
             <p className="text-[#075D70] font-semibold text-[1.5rem] md:text-[2rem]">
               Important Dates for Mayo Boys Admissions
             </p>
           </div>
           <div>
-            <div>
-              <p className="leading-6 w-[88vw] text-[14px] md:text-[1.15rem] text-justify">
-                For Mayo Boys Admissions, here are the key dates to remember:
-              </p>
-            </div>
-            <ul className="list-disc pl-4 space-y-4 text-[14px] md:text-[1.15rem]">
+            <ol className="list-decimal pl-4 space-y-6 text-[14px] md:text-[1.15rem]">
               <li>
-                <span className="font-medium">Registration: </span>
-                Open throughout the year, with early registration recommended.
+                <span className="font-medium">Registration</span>
+
+                <ul className="mt-2 space-y-3">
+                  <li>
+                    <span className="font-medium">Timeline:</span> August -
+                    September 30
+                  </li>
+
+                  <li>
+                    <span className="font-medium">Key Details:</span>
+                    <ul className="list-disc pl-5 mt-2 space-y-2">
+                      <li>Parents are notified in August.</li>
+                      <li>Last date to apply: September 30.</li>
+                      <li>
+                        Fill and submit the online registration form (confirm
+                        age eligibility).
+                      </li>
+                    </ul>
+                  </li>
+                </ul>
               </li>
+
               <li>
-                <span className="font-medium">Mayo Boys Entrance Exam: </span>
-                Typically held in January or February.
+                <span className="font-medium">Mayo Boys Entrance Exam</span>
+
+                <ul className="mt-2 space-y-3">
+                  <li>
+                    <span className="font-medium">Month:</span> October
+                    (Annually)
+                  </li>
+
+                  <li>
+                    <span className="font-medium">Key Details:</span>
+                    <ul className="list-disc pl-5 mt-2 space-y-2">
+                      <li>Exam Name: Aptitude Analysis (CAA).</li>
+                      <li>Format: Offline (Pen-Paper Test).</li>
+                      <li>
+                        Test Centres: Multiple locations arranged across India.
+                      </li>
+                      <li>Subjects: English and Mathematics.</li>
+                    </ul>
+                  </li>
+                </ul>
               </li>
+
               <li>
-                <span className="font-medium">Interviews: </span>Conducted
-                between December and February.
+                <span className="font-medium">Interviews</span>
+
+                <ul className="mt-2 space-y-3">
+                  <li>
+                    <span className="font-medium">Month:</span> November and
+                    December
+                  </li>
+
+                  <li>
+                    <span className="font-medium">Key Details:</span>
+                    <ul className="list-disc pl-5 mt-2 space-y-2">
+                      <li>
+                        Shortlisted candidates and parents appear for
+                        interaction.
+                      </li>
+                      <li>
+                        Interview Panel: Education Committee, including the
+                        Principal of Mayo College.
+                      </li>
+                      <li>
+                        Overseas candidates can attend online (subject to
+                        approval).
+                      </li>
+                    </ul>
+                  </li>
+                </ul>
               </li>
+
               <li>
-                <span className="font-medium">Session Start:</span>April.
+                <span className="font-medium">New Academic Session</span>
+
+                <ul className="mt-2 space-y-3">
+                  <li>
+                    <span className="font-medium">Start Date:</span> First Week
+                    of April
+                  </li>
+                  <li>
+                    The new academic session begins in April, with classes
+                    running until March of the following year.
+                  </li>
+
+                  <li className="overflow-x-auto">
+                    <table className="w-full border-collapse border border-gray-300 ">
+                      <thead>
+                        <tr className="f">
+                          <th className="border font-semibold border-gray-300 px-2 md:px-4 py-2 bg-gray-100 text-left">
+                            Stage
+                          </th>
+                          <th className="border font-semibold border-gray-300 px-2 md:px-4 py-2 bg-gray-100 text-left ">
+                            Month
+                          </th>
+                          <th className="border font-semibold border-gray-300 px-2 md:px-4 py-2 bg-gray-100 text-left ">
+                            Activity
+                          </th>
+                          <th className="border font-semibold border-gray-300 px-2 md:px-4 py-2 bg-gray-100 text-left ">
+                            Deadline
+                          </th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td className="border border-gray-300 px-2 md:px-4 py-2 font-semibold">
+                            Registration
+                          </td>
+                          <td className="border border-gray-300 px-2 md:px-4 py-2">
+                            Aug-Sep
+                          </td>
+                          <td className="border border-gray-300 px-2 md:px-4 py-2">
+                            Form Filling
+                          </td>
+                          <td className="border border-gray-300 px-2 md:px-4 py-2">
+                            Sep 30
+                          </td>
+                        </tr>
+                        <tr>
+                          <td className="border border-gray-300 px-2 md:px-4 py-2 font-semibold">
+                            Entrance Exam
+                          </td>
+                          <td className="border border-gray-300 px-2 md:px-4 py-2">
+                            October
+                          </td>
+                          <td className="border border-gray-300 px-2 md:px-4 py-2">
+                            CAA Test
+                          </td>
+                          <td className="border border-gray-300 px-2 md:px-4 py-2">
+                            Variable
+                          </td>
+                        </tr>
+                        <tr>
+                          <td className="border border-gray-300 px-2 md:px-4 py-2 font-semibold">
+                            Interviews
+                          </td>
+                          <td className="border border-gray-300 px-2 md:px-4 py-2">
+                            Nov-Jans
+                          </td>
+                          <td className="border border-gray-300 px-2 md:px-4 py-2">
+                            Interaction
+                          </td>
+                          <td className="border border-gray-300 px-2 md:px-4 py-2">
+                            Variable
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </li>
+                </ul>
               </li>
-            </ul>
+            </ol>
           </div>
         </div>
+
+        {/* why choose mayo boys school */}
+        <div className="space-y-4 w-[90vw] my-10">
+          <h1 className="text-[#075D70] font-semibold text-[1.5rem] md:text-[2rem]">
+            Why Choose Mayo Boys School
+          </h1>
+
+          <ol className="list-decimal pl-4 space-y-4 text-[1.15rem]">
+            <li>
+              India&apos;s most experienced and revered all-boys boarding school (almost 150 years old).
+            </li>
+            <li>
+              Robust CBSE-led education system coupled with global Cambridge streams.
+            </li>
+            <li>
+              Broad range of co-curricular activities, such as polo, horse riding, golf, shooting, swimming, athletics, etc. 
+            </li>
+            <li>
+              Twelve boarding houses, each equipped with dining facilities, a library, a museum and an on-campus doctor.
+            </li>
+            <li>
+              Opportunities for global learning via Round Square exchange programmes.
+            </li>
+            <li>
+              Prestigious network of “Mayoites” in the world of business, public service and the arts.
+            </li>
+          </ol>
+        </div>
+
         <div className="md:hidden block">
           <Image
             src="/schoolimage2.png"

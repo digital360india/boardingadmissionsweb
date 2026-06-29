@@ -31,7 +31,7 @@ export default function Broucher({ pdfLink, schoolName }) {
       </h3> */}
 
       <div className="w-full flex justify-start mt-10">
-        <div className="rounded-xl shadow-md p-4 w-[400px]  relative ">
+        <div className="rounded-xl shadow-md p-4 w-[300px] md:w-[400px] relative ">
           <div className="bg-white rounded-md overflow-hidden mb-3 h-[450px]">
             <iframe
               src={`https://docs.google.com/gview?url=${encodeURIComponent(

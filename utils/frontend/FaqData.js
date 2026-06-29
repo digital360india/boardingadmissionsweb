@@ -274,28 +274,28 @@ const schoolFAQs = [
     faqs: [
       {
         id: 1,
-        question: "What is the Mayo Boys admissions process?",
-        answer: "The Mayo Boys admissions process begins with the registration of the prospective student. After registration, the student must take an entrance exam that evaluates their aptitude in core subjects. Successful candidates are then invited for an interview, which is a key part of the final selection process.",
+        question: "What is the Mayo Boys' admissions process?",
+        answer: "Admission to Mayo Boys' School involves online registration, document submission, the Common Aptitude Analysis entrance exam (testing English, Hindi, and Mathematics), and a final interview/interaction for shortlisted candidates. Class XI admission is primarily based on Class X board results.",
       },
       {
         id: 2,
-        question: "What subjects are included in the Mayo Boys entrance exam?",
-        answer: "The Mayo Boys entrance exam typically assesses the student's abilities in English, Mathematics, and General Knowledge. This examination is designed to measure the student's readiness for the rigorous academic program offered at Mayo College Boys School.",
+        question: "What subjects are included in the Mayo Boys' entrance exam?",
+        answer: "The Mayo College entrance exam, known as the Common Aptitude Analysis, evaluates candidates in English, Hindi, and mathematics, testing age-appropriate language and numerical skills.",
       },
       {
         id: 3,
         question: "Are there specific age criteria for Mayo Boys admissions?",
-        answer: "Yes, Mayo Boys School has set age requirements for admission to different classes. Applicants must meet the age criteria as of a certain cutoff date to ensure that they are appropriately placed in the correct grade level, which aligns with their developmental stage.",
+        answer: "Yes, Mayo College has defined age criteria for each class, from Class IV through Class XII. Exact age brackets are set annually by the school — contact the admissions office or check the official prospectus for the current academic year’s criteria.",
       },
       {
         id: 4,
         question: "What facilities are offered at Mayo College Boys School?",
-        answer: "Mayo College Boys School provides extensive facilities, including modern classrooms, science laboratories, a well-equipped library, sports fields, and boarding houses. The school also offers a wide range of extracurricular activities, supporting the all-round development of its students.",
+        answer: "Mayo Boys' School offers twelve boarding houses, multiple dining halls, a resident medical officer, an extensive library and museum, science and computer labs, and outstanding sports infrastructure, including a polo ground, golf course, shooting range, swimming pools, and multiple courts and fields for cricket, tennis, basketball, football, and hockey.",
       },
       {
         id: 5,
         question: "How does Mayo College Boys School support overall student development?",
-        answer: "Mayo College Boys School emphasizes a holistic approach to education, balancing academics with extracurricular activities such as sports, arts, and leadership programs. This approach ensures that students develop not only academically but also socially, emotionally, and physically.",
+        answer: "Beyond academics, Mayo Boys' School emphasises leadership, discipline, and character building through its house system, NCC, Scouts and Guides, community service programmes, and international exchanges through Round Square — alongside one of the most comprehensive sports and equestrian programmes among Indian boarding schools.",
       },
     ],
   },
