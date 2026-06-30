@@ -122,8 +122,8 @@ function MayoBoysPage() {
                   role in the history of Indian education. It is one of the
                   country&apos;s premier schools, known for educating young
                   Indians since its inception by the British Viceroy, the Earl
-                  of Mayo, in 1875. Referred to by many as "The Eton of the
-                  East", Mayo College was initially meant for the children of
+                  of Mayo, in 1875. Referred to by many as &quot;The Eton of the
+                  East&quot;, Mayo College was initially meant for the children of
                   India&apos;s princely families.
                 </span>
                 <span>
